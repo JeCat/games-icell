@@ -1,30 +1,19 @@
 yc.outer.SceneOuter = cc.Scene.extend({
-    onEnter:function () {
+	
+	init: function() {
+		this.setIsKeypadEnabled(true);  
+        this.setIsTouchEnabled(true); 
+	}
+	
+    , onEnter:function () {
         this._super();
-        
-        // 摄像机
-        this.aCamera = new yc.outer.Camera(this) ;
-        
+                
         // 层
-        this.layerPlayer = new cc.Layer();
+        this.layerPlayer = new yc.outer.PlayerLayer();
         this.addChild(this.layerPlayer);
         this.layerPlayer.init();
-        
-        // 细胞
-        this.cell = new yc.outer.Cell() ;
-        this.layerPlayer.addChild(this.cell) ;
-        this.cell.init() ;
-        
-//         
-        // this._visit = this.visit ;
-        // this.visit = function(ctx){
-	    	// this.cell.draw(cc.renderContext) ;
-	    // }
     }
     
+    , transform: function(){}
     
-    , draw : function(ctx){
-    	
-    //	test() ;
-    }
 });

@@ -1,43 +1,40 @@
-yc.outer.Camera = function(aSenceOuter)
+yc.outer.Camera = function(canvas)
 {
-	this.aSenceOuter = aSenceOuter ;
+	this.width = canvas.width ;
+	this.height = canvas.height ;
 	
-	this.$ = $('#gameCanvas') ;
-	this.ele = this.$[0] ;
+	this.focusPosX = Math.ceil(this.width/2) ;
+	this.focusPosY = Math.ceil(this.height/2) ;
 	
+	this.x = -this.focusPosX ;
+	this.y = -this.focusPosY ;
 	
-	var aCamera = this ;
-	this.onresize = function()
+	this.move = function(x,y)
 	{
-		aCamera.$
-			.css({left:0,top:0})
-			.width($(window).width())
-			.height($(window).height())
-			.attr({
-				width: $(window).width()
-				, height: $(window).height()
-			}) ;
-			
-		$('#Cocos2dGameContainer')
-			.css({left:0,top:0})
-			.width($(window).width())
-			.height($(window).height()) ;
-			
-			
-		// log(this.aSenceOuter._scaleX) ;
-		
-		//cc.Director.getInstance().reshapeProjection( cc.size( $(window).width(),$(window).height() ) ) ;
-		var screenSize = cc.Director.getInstance().getWinSizeInPixels () ;
-		screenSize.width = $(window).width() ;
-		screenSize.height = $(window).height() ;
-		
-			cc.renderContext = $('#gameCanvas')[0].getContext('2d') ;
-		log('resize') ;
-		//log(this.aSenceOuter.getContentSize()) ;
-		
+		this.x = x ;
+		this.y = y ;
 	}
-	$(window).resize(this.onresize) ;
-	this.onresize() ;
+	
+	this.moveByFocus = function(x,y)
+	{
+		this.x = x - this.focusPosX ;
+		this.y = y - this.focusPosY ;
+	}
+	
+	this.transformSprite = function(context,sprite){
+		//context.save() ;
+		context.translate( 0|(sprite.x-this.x), -(0 |(sprite.y-this.y)) );
+		//context.restore() ;
+	}
+}
+
+yc.outer.Camera._ins = null ;
+yc.outer.Camera.ins = function(){
+	if(!yc.outer.Camera._ins)
+	{
+		yc.outer.Camera._ins = new yc.outer.Camera($('#gameCanvas')[0]) ;
+	}
+	return yc.outer.Camera._ins ;
 }
 
 

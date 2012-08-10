@@ -46,7 +46,40 @@ function log(message){
 }
 
 var $ = jquery ;
+$(function(){
+	$('#ui').width($(window).width()) ;
+}) ;
 
-var game = new YouCellGame(yc.outer.SceneOuter);
+
+function startGame(){
+	
+	$('#main-menu').hide() ;
+	
+	$('#gameCanvas')
+		.css({left:0,top:0})
+		.width($(window).width())
+		.height($(window).height())
+		.attr({
+			width: $(window).width()
+			, height: $(window).height()
+		})
+		[0].focus() ;
+	
+	
+	game = new YouCellGame(yc.outer.SceneOuter);
+	dbg = false ;
+	
+	
+	setInterval(function(){
+		
+		var cell = cc.Director.getInstance()._runningScene.layerPlayer.cell ;
+		var pos = cell.getPosition() ;
+		
+		var output = 'left:' + pos.x + ', top:' + pos.y+'<br />' ;
+		output+= 'X:'+cell.x+', Y:'+cell.y ;
+		$('#player-status').html(output) ;
+		
+	},500) ;
+}
 
 

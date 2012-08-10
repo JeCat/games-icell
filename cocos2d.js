@@ -9,17 +9,18 @@
         tag:'gameCanvas', //the dom element to run cocos2d on
         engineDir:'lib/',
         appFiles:[
-        	'bin/Declare.js'
-        	
-        	, 'bin/outer/Camera.js'
-        	, 'bin/outer/Cell.js'
-        	, 'bin/outer/SceneOuter.js'
-        	, 'bin/outer/AminoAcid.js'
-        	, 'bin/outer/AminoAcidBuilder.js'
-        	
-        	, 'bin/inner/AminoAcidPool.js'
-        	
-        	, 'src/NativeClient.js'
+            'bin/Declare.js'
+            
+            , 'bin/outer/Camera.js'
+            , 'bin/outer/Cell.js'
+            , 'bin/outer/SceneOuter.js'
+            , 'bin/outer/PlayerLayer.js'
+            , 'bin/outer/AminoAcid.js'
+            , 'bin/outer/AminoAcidBuilder.js'
+            
+            , 'bin/inner/AminoAcidPool.js'
+            
+            , 'src/NativeClient.js'
         ]
     };
     window.addEventListener('DOMContentLoaded', function () {
