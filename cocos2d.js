@@ -14,6 +14,10 @@
         	, 'bin/outer/Camera.js'
         	, 'bin/outer/Cell.js'
         	, 'bin/outer/SceneOuter.js'
+        	, 'bin/outer/AminoAcid.js'
+        	, 'bin/outer/AminoAcidBuilder.js'
+        	
+        	, 'bin/inner/AminoAcidPool.js'
         	
         	, 'src/NativeClient.js'
         ]
