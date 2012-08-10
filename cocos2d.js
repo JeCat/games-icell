@@ -14,6 +14,7 @@
         	, 'bin/outer/Camera.js'
         	, 'bin/outer/Cell.js'
         	, 'bin/outer/SceneOuter.js'
+        	, 'bin/outer/PlayerLayer.js'
         	
         	, 'src/NativeClient.js'
         ]
