@@ -14,5 +14,17 @@ yc.outer.SceneOuter = cc.Scene.extend({
         this.cell = new yc.outer.Cell() ;
         this.layerPlayer.addChild(this.cell) ;
         this.cell.init() ;
+        
+//         
+        // this._visit = this.visit ;
+        // this.visit = function(ctx){
+	    	// this.cell.draw(cc.renderContext) ;
+	    // }
+    }
+    
+    
+    , draw : function(ctx){
+    	
+    //	test() ;
     }
 });

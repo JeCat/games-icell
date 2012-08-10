@@ -12,6 +12,9 @@ yc.outer.Cell = cc.Sprite.extend({
         //this.setScale(0.5);
         //this.setRotation(180);
         
+		
+		log(size) ;
+        
     }
     
     , draw: function(ctx){
@@ -24,9 +27,42 @@ yc.outer.Cell = cc.Sprite.extend({
 		ctx.stroke();
 		
 		this.collided = false;
+		
+		
+		//log(ctx) ;
+		//log(this.getPosition()) ;
+		
+	var radius = 30 ;
+		// 
+		var ctx = $('#gameCanvas')[0].getContext('2d') ;
+		
+		ctx.strokeStyle = 'rgba(255, 255, 255, 1.0)' ;
+		ctx.fillStyle = 'rgba(115, 115, 115, 1.0)' ;
+		
+        ctx.beginPath();
+        drawEllipse( ctx, 0, 0, radius*2-2, radius*2 ) ;
+		ctx.moveTo(0+3, 0-radius+5);
+		ctx.stroke();
     }
     
 });  
+
+function test(){
+	
+	var radius = 30 ;
+		// 
+		var ctx = $('#gameCanvas')[0].getContext('2d') ;
+		//log(ctx) ;
+		
+		ctx.strokeStyle = 'rgba(255, 255, 255, 1.0)' ;
+		ctx.fillStyle = 'rgba(115, 115, 115, 1.0)' ;
+		
+        ctx.beginPath();
+        drawEllipse( ctx, 50, 50, radius*2-2, radius*2 ) ;
+		ctx.moveTo(0+3, 0-radius+5);
+		ctx.stroke();
+	
+}
 
 function drawEllipse(c,x, y, w, h) {
 	x-= w/2 ;
