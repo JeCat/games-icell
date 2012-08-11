@@ -3,11 +3,11 @@ yc.outer.Camera = function(canvas)
 	this.width = canvas.width ;
 	this.height = canvas.height ;
 	
-	this.focusPosX = Math.ceil(this.width/2) ;
-	this.focusPosY = Math.ceil(this.height/2) ;
+	this.focusOffsetX = Math.ceil(this.width/2) ;
+	this.focusOffsetY = Math.ceil(this.height/2) ;
 	
-	this.x = -this.focusPosX ;
-	this.y = -this.focusPosY ;
+	this.x = -this.focusOffsetX ;
+	this.y = -this.focusOffsetY ;
 	
 	this.move = function(x,y)
 	{
@@ -17,8 +17,14 @@ yc.outer.Camera = function(canvas)
 	
 	this.moveByFocus = function(x,y)
 	{
-		this.x = x - this.focusPosX ;
-		this.y = y - this.focusPosY ;
+		this.x = x - this.focusOffsetX ;
+		this.y = y - this.focusOffsetY ;
+	}
+	
+	this.setFocus = function(offsetX,offsetY)
+	{
+	    this.focusOffsetX = offsetX ;
+	    this.focusOffsetY = offsetY ;
 	}
 }
 
@@ -35,6 +41,8 @@ yc.outer.Camera.ins = function(){
 yc.outer.Camera.transformSprite = function(context){
     var camera = yc.outer.Camera.ins() ;
     //context.save() ;
-    context.translate( 0|(this.x-camera.x), -(0 |(this.y-camera.y)) );
+    this.transformX = 0|(this.x-camera.x) ;
+    this.transformY = -(0 |(this.y-camera.y)) ;
+    context.translate( this.transformX, this.transformY );
     //context.restore() ;
 }

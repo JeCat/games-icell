@@ -1,13 +1,19 @@
 yc.outer.PlayerLayer = cc.Layer.extend({  
       
-    init:function  () {  
+    ctor: function  () {  
+        
+        this._super() ;
+        
         this.setKeypadEnabled(true);  
         this.setTouchEnabled(true);
         
+        //var winSize = cc.Director.getInstance().getWinSize();
+        //this.initWithColor(new cc.Color4B(255,255,255,150),winSize.width,winSize.height) ;
+        this.setAnchorPoint(cc.p(0,0)) ;
+        
         // 细胞
-        this.cell = new yc.outer.Cell() ;
+        this.cell = yc.outer.Cell.ins() ;
         this.addChild(this.cell) ;
-        this.cell.init() ;
         
         // 测试坐标
         var cell2 = new yc.outer.Cell() ;
@@ -16,6 +22,10 @@ yc.outer.PlayerLayer = cc.Layer.extend({
         cell2.x = 100 ;
         cell2.y = 100 ;
         
+        var cell2 = new yc.outer.Cell() ;
+        this.addChild(cell2) ;
+        cell2.x = -100 ;
+        cell2.y = 80 ;
     }  
     
     , keyUp:function (key) {
@@ -57,5 +67,10 @@ yc.outer.PlayerLayer = cc.Layer.extend({
         		this.cell.turn('right') ;
         		break;
         }
+    }
+    
+    , _transform: yc.cocos2d.patchs.Node.transform
+    , transform: function(){
+        this._transform() ;
     }
 });

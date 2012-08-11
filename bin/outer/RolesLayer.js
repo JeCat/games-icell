@@ -4,13 +4,17 @@ yc.outer.RolesLayer = cc.Layer.extend({
 
 	nAminoAcids: 0 
 	
-	, density: 10
+	, aminoAcidDensity: 20
 	// this.dbg = $('<div id="dbg-aminoacid"></div>').appendTo('#debug-output') ;
 		
-    , init:function  () { 
-        var builder = this ;
-        //setInterval(function(){builder.update()},1000) ; 
+    , ctor:function  () { 
         
+        this._super () ;
+        
+        this.setAnchorPoint(cc.p(0,0)) ;
+        
+        var layer = this ;
+        setInterval(function(){layer.update()},5000) ; 
         this.update() ;
     }
     
@@ -47,19 +51,28 @@ yc.outer.RolesLayer = cc.Layer.extend({
 		}
 		
 		var a = yc.util.ObjectPool.ins(yc.outer.AminoAcid) ; 
-		var num = this.density-yc.util.ObjectPool.ins(yc.outer.AminoAcid).count ;
-		log('new amino acid '+num)
+		var num = this.aminoAcidDensity-yc.util.ObjectPool.ins(yc.outer.AminoAcid).count ;
+		//log('new amino acid '+num)
 		if(num)
 		{
-		    log(range) ;
+		    //log(range) ;
         	for(var i=0;i<num;i++)
         	{
+        	    var x = range.left+(0|(Math.random()*range.width)) ;
+        	    var y = range.bottom+(0|(Math.random()*range.height)) ;
+        	    
+        	    // 避免在玩家视线内产生一个氨基酸
+        	    if( x>camera.x && x<(camera.x+camera.width) && y>camera.y && y<(camera.y+camera.height) )
+        	    {
+        	        continue ;
+        	    }
+        	    
         		var aAminoAcid = yc.util.ObjectPool.ins(yc.outer.AminoAcid).ob() ;
         		this.nAminoAcids ++ ;
         		
-        		aAminoAcid.x = range.left+(0|(Math.random()*range.width)) ;
-        		aAminoAcid.y = range.bottom+(0|(Math.random()*range.height)) ;
-        		log(aAminoAcid.x+','+aAminoAcid.y) ;
+        		aAminoAcid.x = x ;
+        		aAminoAcid.y = y ;
+        		//log(aAminoAcid.x+','+aAminoAcid.y) ;
         		
         		this.addChild(aAminoAcid) ;
         		

@@ -7,15 +7,22 @@
 	<script src="jquery.json.js"></script>
 	<script src="cocos2d.js"></script>
 </head>
-<body style="text-align: center;background: #aaaaaa;margin: 0px;">
+<body style="background: #aaaaaa;margin: 0px;">
 
 	<div id="stage" style="position:absolute;">
 		<canvas id="gameCanvas" width="800" height="450"></canvas>
 	</div>
 	
-	<div id="ui" style="position:absolute;">
+	<div id="ui" style="position:absolute;top:0px;left:0px">
 		
 		
+		<div style="float:left">
+			氨基酸
+			<span style="color:red" id="amino-acid-nums-red"></span>
+			<span style="color:yellow" id="amino-acid-nums-yellow"></span>
+			<span style="color:blue" id="amino-acid-nums-blue"></span>
+		</div>
+			
 		<div id="debug-output" style="float:right">
 			<div id="player-status"></div>
 		</div>

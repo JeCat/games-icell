@@ -1,9 +1,10 @@
 yc.outer.Cell = cc.Sprite.extend({  
 
-	radius: 15
+	radius: 10
 	, x: 0
 	, y: 0
 	
+	, maxSpeed: 4
     , speed: 0
 	, accel: 0.3
 	, _running: false
@@ -12,16 +13,19 @@ yc.outer.Cell = cc.Sprite.extend({
     , angle: 0
 	, turnRate: 0.1
     
-    , init: function(){
+    , ctor: function(){
     	
-        var size = cc.Director.getInstance().getWinSize();
+    	this._super() ;
         
-        this.setPosition(cc.p(size.width / 2, size.height / 2));
         this.setVisible(true);
-        this.setAnchorPoint(cc.p(0.5, 0.5));
+        //this.setAnchorPoint(cc.p(0.5, 0.5));
     }
     
+    , _draw: cc.Sprite.prototype.draw
     , draw: function(ctx){
+        
+        this._draw(ctx) ;
+        
 		ctx.strokeStyle = 'rgba(255, 255, 255, 1.0)' ;
 		ctx.fillStyle = 'rgba(115, 115, 115, 1.0)' ;
 		
@@ -56,7 +60,7 @@ yc.outer.Cell = cc.Sprite.extend({
     	// 前进
 		if(this._running)
 		{
-			if (this.speed < 3.0)
+			if (this.speed < this.maxSpeed)
 			{
 				this.speed += this.accel;	
 			}
@@ -73,8 +77,8 @@ yc.outer.Cell = cc.Sprite.extend({
 		// update our position based on our angle and speed
 		if(this.speed)
 		{
-			this.x = 0|(this.x + this.speed * Math.sin(this.angle));
-			this.y = 0|(this.y + this.speed * Math.cos(this.angle));
+			this.x = this.x + this.speed * Math.sin(this.angle);
+			this.y = this.y + this.speed * Math.cos(this.angle);
 	    	
 	    	// 移动摄像机
 	    	yc.outer.Camera.ins().moveByFocus(this.x,this.y) ;
@@ -84,6 +88,10 @@ yc.outer.Cell = cc.Sprite.extend({
     }
     
     , transform: yc.outer.Camera.transformSprite
+    /*, _transform: yc.cocos2d.patchs.Node.transform
+    , transform: function(){
+        this._transform() ;
+    }*/
     
     , run: function(){
     	this._running = true ;
@@ -102,5 +110,11 @@ yc.outer.Cell = cc.Sprite.extend({
     }
 });  
 
-
+yc.outer.Cell.ins = function(){
+    if( typeof(yc.outer.Cell._ins)=='undefined' )
+    {
+        yc.outer.Cell._ins = new yc.outer.Cell () ;
+    }
+    return yc.outer.Cell._ins ;
+}
 

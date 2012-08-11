@@ -8,24 +8,26 @@ var $ = jquery ;
         COCOS2D_DEBUG:2, //0 to turn debug off, 1 for basic debug, and 2 for full debug
         box2d:false,
         showFPS:true,
-        frameRate:60,
+        frameRate:40,
         tag:'gameCanvas', //the dom element to run cocos2d on
         engineDir:'lib/',
         appFiles:[
             'bin/Declare.js'
+            , 'bin/Cocos2dPatchs.js'
+            , 'bin/GameScene.js'
             
             , 'bin/util/ObjectPool.js'
             
             , 'bin/outer/Camera.js'
             , 'bin/outer/Cell.js'
-            , 'bin/outer/SceneOuter.js'
             , 'bin/outer/PlayerLayer.js'
             , 'bin/outer/AminoAcid.js'
             , 'bin/outer/RolesLayer.js'
             
             , 'bin/inner/AminoAcidPool.js'
+            , 'bin/inner/InnerLayer.js'
+            , 'bin/inner/CellInner.js'
             
-            , 'src/NativeClient.js'
         ]
     };
     window.addEventListener('DOMContentLoaded', function () {

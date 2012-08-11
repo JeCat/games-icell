@@ -67,8 +67,14 @@ function startGame(){
 		[0].focus() ;
 	
 	
-	game = new YouCellGame(yc.outer.SceneOuter);
+	game = new YouCellGame(yc.GameScene);
 	dbg = false ;
+	
+	// webkitRequestAnimationFrame 似乎不太流畅
+	if( window.requestAnimFrame === window.webkitRequestAnimationFrame )
+	{
+	   window.requestAnimFrame = null 
+	}
 	
 	
 	// 在ui上输出游戏状态
@@ -80,6 +86,7 @@ function startGame(){
 		
 		var output = 'left:' + pos.x + ', top:' + pos.y+'<br />' ;
 		output+= 'player:'+cell.x+', '+cell.y + '<br />';
+		output+= 'speed:'+ cell.speed + '<br />';
 		output+= 'camera:'+camera.x+', '+camera.y + '<br />';
 		$('#player-status').html(output) ;
 		

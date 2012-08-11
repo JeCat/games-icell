@@ -2,7 +2,7 @@
 /*** 氨基酸 ***/
 yc.outer.AminoAcid = cc.Sprite.extend({  
 
-    size: 2
+    size: 6
     
     , ctor: function()
     {
@@ -28,7 +28,24 @@ yc.outer.AminoAcid = cc.Sprite.extend({
 		c.stroke();*/
 
 		c.fillStyle = this.type ;
-	    c.font="bold 6px san-serif";
+	    c.font="bold 5px san-serif";
 		c.fillText('$'+this.num,0,0);
+	}
+	
+	, _visit: cc.Sprite.prototype.visit
+	, visit: function(c){
+	    
+	    // 判断碰撞
+	    var cell = yc.outer.Cell.ins() ;
+	    var dis = Math.sqrt(Math.pow(this.x-cell.x,2) + Math.pow(this.y-cell.y,2)) ;
+	    if( dis<this.size+cell.radius )
+	    {
+	        this._parent.deleteAminoAcid(this) ;
+	        return ;
+	    }
+	    
+	    
+        this._visit(c) ;
+	    
 	}
 }) ;
