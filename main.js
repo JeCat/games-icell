@@ -45,9 +45,10 @@ function log(message){
 	console.log(message) ;
 }
 
-var $ = jquery ;
 $(function(){
 	$('#ui').width($(window).width()) ;
+	
+	startGame() ;
 }) ;
 
 
@@ -70,13 +71,16 @@ function startGame(){
 	dbg = false ;
 	
 	
+	// 在ui上输出游戏状态
 	setInterval(function(){
 		
 		var cell = cc.Director.getInstance()._runningScene.layerPlayer.cell ;
 		var pos = cell.getPosition() ;
+		var camera = yc.outer.Camera.ins() ;
 		
 		var output = 'left:' + pos.x + ', top:' + pos.y+'<br />' ;
-		output+= 'X:'+cell.x+', Y:'+cell.y ;
+		output+= 'player:'+cell.x+', '+cell.y + '<br />';
+		output+= 'camera:'+camera.x+', '+camera.y + '<br />';
 		$('#player-status').html(output) ;
 		
 	},500) ;

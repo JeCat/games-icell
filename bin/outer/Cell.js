@@ -73,8 +73,8 @@ yc.outer.Cell = cc.Sprite.extend({
 		// update our position based on our angle and speed
 		if(this.speed)
 		{
-			this.x = this.x + this.speed * Math.sin(this.angle);
-			this.y = this.y + this.speed * Math.cos(this.angle);
+			this.x = 0|(this.x + this.speed * Math.sin(this.angle));
+			this.y = 0|(this.y + this.speed * Math.cos(this.angle));
 	    	
 	    	// 移动摄像机
 	    	yc.outer.Camera.ins().moveByFocus(this.x,this.y) ;
@@ -83,10 +83,7 @@ yc.outer.Cell = cc.Sprite.extend({
     	return this._visit() ;
     }
     
-    , _transform: cc.Sprite.prototype.transform
-    , transform: function(ctx){
-    	yc.outer.Camera.ins().transformSprite(ctx,this) ;
-    }
+    , transform: yc.outer.Camera.transformSprite
     
     , run: function(){
     	this._running = true ;

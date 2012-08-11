@@ -39,7 +39,7 @@ yc.outer.PlayerLayer = cc.Layer.extend({
     }
     
     , keyDown:function (key) { 
-    	log(key) ;
+    	//log(key) ;
         switch(key)
         {
         	// left

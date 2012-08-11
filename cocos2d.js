@@ -1,3 +1,6 @@
+
+var $ = jquery ;
+
 (function () {
     var d = document;
     var c = {
@@ -11,12 +14,14 @@
         appFiles:[
             'bin/Declare.js'
             
+            , 'bin/util/ObjectPool.js'
+            
             , 'bin/outer/Camera.js'
             , 'bin/outer/Cell.js'
             , 'bin/outer/SceneOuter.js'
             , 'bin/outer/PlayerLayer.js'
             , 'bin/outer/AminoAcid.js'
-            , 'bin/outer/AminoAcidBuilder.js'
+            , 'bin/outer/RolesLayer.js'
             
             , 'bin/inner/AminoAcidPool.js'
             

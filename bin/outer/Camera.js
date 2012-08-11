@@ -20,12 +20,6 @@ yc.outer.Camera = function(canvas)
 		this.x = x - this.focusPosX ;
 		this.y = y - this.focusPosY ;
 	}
-	
-	this.transformSprite = function(context,sprite){
-		//context.save() ;
-		context.translate( 0|(sprite.x-this.x), -(0 |(sprite.y-this.y)) );
-		//context.restore() ;
-	}
 }
 
 yc.outer.Camera._ins = null ;
@@ -38,3 +32,9 @@ yc.outer.Camera.ins = function(){
 }
 
 
+yc.outer.Camera.transformSprite = function(context){
+    var camera = yc.outer.Camera.ins() ;
+    //context.save() ;
+    context.translate( 0|(this.x-camera.x), -(0 |(this.y-camera.y)) );
+    //context.restore() ;
+}
