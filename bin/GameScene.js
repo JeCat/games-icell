@@ -8,7 +8,7 @@ yc.GameScene = cc.Scene.extend({
         
         // 内部场景层
         this.layerInner = yc.inner.InnerLayer.ins() ;
-        //this.addChild(this.layerInner) ;
+        this.addChild(this.layerInner) ;
         
                 
         // 显示玩家角色层

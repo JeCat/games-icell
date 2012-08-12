@@ -1,6 +1,51 @@
 var YouCellGame = cc.Application.extend({
     config:document.querySelector('#cocos2d-html5')['c'],
+    
+    
+    // setting
+    settings: {
+        inner: {
+            
+            // 六边形边长
+            hexgonSideLength: 20
+            // 六边形格子的最大层数
+            , cellMaxLevels: 5
+            // 六边形格子层数的游戏初始值
+            , cellInitialLevels: 2
+            
+            // 六边形格子 总共层数： 1(细胞核) + 2*(细胞膜) + 实际空间
+            , totalHexgonLevels: 13
+            
+            , width: 600
+            , height: 676
+            
+            // 细胞核
+            , nucleus: {
+                x: null
+                , y: null
+            }
+            
+            , dbg: true
+        }
+        , outerStage: {}
+    } ,
+
+    
     ctor:function (scene) {
+        
+        // 六边形格子 总共层数： 1(细胞核) + 2*(细胞膜) + 实际空间
+        this.settings.inner.totalHexgonLevels = this.settings.inner.cellMaxLevels*2+1+2 ;
+        
+        // 细胞核 六边形的坐标
+        this.settings.inner.nucleus.x = this.settings.inner.nucleus.y = this.settings.inner.cellMaxLevels+1 ;
+        
+        // 内部舞台的宽
+        this.settings.inner.width = Math.ceil( 1.5 * this.settings.inner.hexgonSideLength * this.settings.inner.totalHexgonLevels + this.settings.inner.hexgonSideLength/2 ) ;
+        
+        // 内部舞台的高
+        this.settings.inner.height = Math.ceil( Math.sqrt(3) * this.settings.inner.hexgonSideLength * this.settings.inner.totalHexgonLevels ) ;
+
+        
         this._super();
         this.startScene = scene;
         cc.COCOS2D_DEBUG = this.config['COCOS2D_DEBUG'];

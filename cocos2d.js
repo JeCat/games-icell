@@ -1,4 +1,5 @@
 
+
 var $ = jquery ;
 
 (function () {
@@ -26,7 +27,12 @@ var $ = jquery ;
             
             , 'bin/inner/AminoAcidPool.js'
             , 'bin/inner/InnerLayer.js'
-            , 'bin/inner/CellInner.js'
+            , 'bin/inner/CellInnerMap.js'
+            , 'bin/inner/Hexgon.js'
+            , 'bin/inner/CellHexgon.js'
+            , 'bin/inner/HexgonAxes.js'
+            , 'bin/inner/HexgonAxesPathMap.js'
+            , 'bin/inner/Cell.js'
             
         ]
     };

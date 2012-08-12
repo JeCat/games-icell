@@ -69,8 +69,5 @@ yc.outer.PlayerLayer = cc.Layer.extend({
         }
     }
     
-    , _transform: yc.cocos2d.patchs.Node.transform
-    , transform: function(){
-        this._transform() ;
-    }
+    , transform: yc.cocos2d.patchs.Node.transform
 });

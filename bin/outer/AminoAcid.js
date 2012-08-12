@@ -28,7 +28,7 @@ yc.outer.AminoAcid = cc.Sprite.extend({
 		c.stroke();*/
 
 		c.fillStyle = this.type ;
-	    c.font="bold 5px san-serif";
+	    c.font="normal 4px san-serif";
 		c.fillText('$'+this.num,0,0);
 	}
 	

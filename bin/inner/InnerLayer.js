@@ -1,21 +1,25 @@
-yc.inner.InnerLayer = cc.Layer.extend({
+yc.inner.InnerLayer = cc.LayerColor.extend({
     
     ctor: function(){
         
         this._super() ;
         
-        //this.setAnchorPoint(cc.p(0,0)) ;
-
-        this.spriteCellInner = yc.inner.CellInner.ins() ;
-        this.addChild(this.spriteCellInner) ;
+        this.setAnchorPoint(cc.p(0,0)) ;
+        this.initWithColor(new cc.Color4B(0,0,0,0),game.settings.inner.width,game.settings.inner.height) ;
+        
+        
+        
+        // 细胞
+        this.cell = yc.inner.Cell.ins() ;
+        
+        // 层：细胞地图
+        this.map = yc.inner.CellInnerMap.ins() ;
+        this.addChild(this.map) ;
+        
+        
     }
-    
-    
-    , _transform: cc.Layer.prototype.transform
-    , transform: function(){
-        this._transform() ;
-    }
-    //, transform: function(){}
+ 
+    , transform: yc.cocos2d.patchs.Node.transform
 }) ;
 
 
