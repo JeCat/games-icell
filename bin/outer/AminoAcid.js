@@ -17,18 +17,17 @@ yc.outer.AminoAcid = cc.Sprite.extend({
 	}
 		
     , transform: yc.outer.Camera.transformSprite
-    
 	, draw: function(c)
 	{
-		c.strokeStyle = this.type ;
+        c.fillStyle = this.type ;
 		c.beginPath();
-		/*c.arc(0, 0, this.size, 0, Math.PI*2, true);
+		c.arc(0, 0, this.size, 0, Math.PI*2, true);
 		c.closePath();
-		c.stroke();*/
+		c.fill();
 
-		c.fillStyle = this.type ;
-	    c.font="normal 4px san-serif";
-		c.fillText('$'+this.num,0,0);
+		c.fillStyle = 'rgb(255,255,255)' ;
+	    c.font="6pt san-serif";
+		c.fillText('♪ '+this.num,0,0);
 	}
 	
 	, _visit: cc.Sprite.prototype.visit
@@ -39,7 +38,7 @@ yc.outer.AminoAcid = cc.Sprite.extend({
 	    var dis = Math.sqrt(Math.pow(this.x-cell.x,2) + Math.pow(this.y-cell.y,2)) ;
 	    if( dis<this.size+cell.radius )
 	    {
-	        this._parent.deleteAminoAcid(this) ;
+	        this._parent.deleteRole(this) ;
 	        return ;
 	    }
 	    

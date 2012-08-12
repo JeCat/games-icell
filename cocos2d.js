@@ -19,11 +19,13 @@ var $ = jquery ;
             , 'bin/test.js'   
             
             , 'bin/util/ObjectPool.js'
+            , 'bin/util/functions.js'
             
             , 'bin/outer/Camera.js'
             , 'bin/outer/Cell.js'
             , 'bin/outer/PlayerLayer.js'
             , 'bin/outer/AminoAcid.js'
+            , 'bin/outer/VirusCluster.js'
             , 'bin/outer/RolesLayer.js'
             
             , 'bin/inner/AminoAcidPool.js'

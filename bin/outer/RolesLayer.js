@@ -1,10 +1,12 @@
 yc.outer.RolesLayer = cc.Layer.extend({
     
-    
+    maxNums: {
+        'yc.outer.VirusCluster': 20
+        , 'yc.outer.AminoAcid': 20
+    }
 
-	nAminoAcids: 0 
-	
-	, aminoAcidDensity: 20
+	//, nAminoAcids: 0 
+	//, aminoAcidDensity: 20
 	// this.dbg = $('<div id="dbg-aminoacid"></div>').appendTo('#debug-output') ;
 		
     , ctor:function  () { 
@@ -20,38 +22,41 @@ yc.outer.RolesLayer = cc.Layer.extend({
     
 	, update: function()
 	{
-	   var camera = yc.outer.Camera.ins() ;
-	
-	    // ----------------------------
+        var camera = yc.outer.Camera.ins() ;
+        
+        var range = {
+            left: 0|(camera.x - camera.width)
+            , right: 0|(camera.x + 2*camera.width)
+            , top: 0|(camera.y + 2*camera.height)
+            , bottom: 0|(camera.y - camera.height)
+        } ;
+        range.width = range.right - range.left ;
+        range.height = range.top - range.bottom ;
+        
+        
 		// 氨基酸
-		var range = {
-			left: 0|(camera.x - camera.width)
-			, right: 0|(camera.x + 2*camera.width)
-			, top: 0|(camera.y + 2*camera.height)
-			, bottom: 0|(camera.y - camera.height)
-		} ;
-		range.width = range.right - range.left ;
-		range.height = range.top - range.bottom ;
+        this._updateRole(yc.outer.AminoAcid,range) ;
+        // 病毒群
+        this._updateRole(yc.outer.VirusCluster,range) ;
 		
-		
-		// log(range) ;
-		//var dbgOutput = '<br />' + $.toJSON(range) ;
-			
+	}
+	, _updateRole: function(roleCls,range)
+	{
+        var camera = yc.outer.Camera.ins() ;
+        
 		// 回收范围以外的对象
-		for(var id in yc.util.ObjectPool.ins(yc.outer.AminoAcid).usingObjects)
+		for(var id in yc.util.ObjectPool.ins(roleCls).usingObjects)
 		{
-				
-			var aAminoAcid = yc.util.ObjectPool.ins(yc.outer.AminoAcid).usingObjects[id] ;
+			var aRole = yc.util.ObjectPool.ins(roleCls).usingObjects[id] ;
 			// dbgOutput+= '<br />AminoAcid:'+Math.round(aAminoAcid.x)+','+Math.round(aAminoAcid.y) ;
 			
-			if( aAminoAcid.x<range.left || aAminoAcid.x>range.right || aAminoAcid.y>range.top || aAminoAcid.y<range.bottom )
+			if( aRole.x<range.left || aRole.x>range.right || aRole.y>range.top || aRole.y<range.bottom )
 			{
-				this.deleteAminoAcid(aAminoAcid) ;	
+				this.deleteRole(aRole) ;	
 			}
 		}
 		
-		var a = yc.util.ObjectPool.ins(yc.outer.AminoAcid) ; 
-		var num = this.aminoAcidDensity-yc.util.ObjectPool.ins(yc.outer.AminoAcid).count ;
+		var num = this.maxNums[roleCls.className]-yc.util.ObjectPool.ins(roleCls).count ;
 		//log('new amino acid '+num)
 		if(num)
 		{
@@ -67,29 +72,21 @@ yc.outer.RolesLayer = cc.Layer.extend({
         	        continue ;
         	    }
         	    
-        		var aAminoAcid = yc.util.ObjectPool.ins(yc.outer.AminoAcid).ob() ;
-        		this.nAminoAcids ++ ;
+        		var aRole = yc.util.ObjectPool.ins(roleCls).ob() ;
         		
-        		aAminoAcid.x = x ;
-        		aAminoAcid.y = y ;
-        		//log(aAminoAcid.x+','+aAminoAcid.y) ;
+        		aRole.x = x ;
+        		aRole.y = y ;
         		
-        		this.addChild(aAminoAcid) ;
-        		
+        		this.addChild(aRole) ;
         	}
 		}
 		
-		//this.dbg.html(dbgOutput) ;
 	}
 	
 	
-	, deleteAminoAcid: function(aAminoAcid)
+	, deleteRole: function(aRole)
 	{
-		//log(aAminoAcid) ;
-		//this.delEntity(aAminoAcid) ;
-		this.removeChild(aAminoAcid,true) ;
-		yc.util.ObjectPool.ins(yc.outer.AminoAcid).free(aAminoAcid) ;
-		
-		this.nAminoAcids -- ;
+		this.removeChild(aRole,true) ;
+		yc.util.ObjectPool.ins(aRole.constructor).free(aRole) ;
 	}
 }) ;
