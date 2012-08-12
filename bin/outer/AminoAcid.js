@@ -1,4 +1,3 @@
-
 /*** 氨基酸 ***/
 yc.outer.AminoAcid = cc.Sprite.extend({  
 
@@ -44,8 +43,9 @@ yc.outer.AminoAcid = cc.Sprite.extend({
 	        return ;
 	    }
 	    
-	    
         this._visit(c) ;
-	    
 	}
 }) ;
+
+
+yc.outer.AminoAcid.className = 'yc.outer.AminoAcid' ;

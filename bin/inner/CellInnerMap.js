@@ -1,4 +1,4 @@
-yc.inner.CellInnerMap = cc.LayerColor.extend({  
+yc.inner.CellInnerMap = cc.Layer.extend({  
 
     __w: 300
     , __h: -200
@@ -11,23 +11,19 @@ yc.inner.CellInnerMap = cc.LayerColor.extend({
     	this._super() ;
     	
         this.setAnchorPoint(cc.p(0,0)) ;
-        this.initWithColor(new cc.Color4B(255,255,255,50),game.settings.inner.width,game.settings.inner.height) ;
+        this.setContentSize(game.settings.inner.width,game.settings.inner.height) ;
+        //this.initWithColor(new cc.Color4B(255,255,255,50),game.settings.inner.width,game.settings.inner.height) ;
         
-        var wSize = cc.Director.getInstance().getWinSize() ;
-        this.setPosition(cc.p(wSize.width-game.settings.inner.width-10,wSize.height-game.settings.inner.height-10)) ;
     }
     
-    , _draw: cc.LayerColor.prototype.draw
     , draw: function(ctx){
-        
-        this._draw() ;
         
         var cell = yc.inner.Cell.ins() ;
         
         // 画细胞质
         for(var i=0;i<cell.cytoplasms.length;i++)
         {
-            this.drawHexgon(cell.cytoplasms[i],ctx,"rgb(200,200,200)") ;
+            this.drawHexgon(cell.cytoplasms[i],ctx,"rgb(200,200,200)","rgb(150,150,150)") ;
         }
         
         // 画细胞核
@@ -37,7 +33,7 @@ yc.inner.CellInnerMap = cc.LayerColor.extend({
         // 画细胞膜
         for(var i=0;i<cell.membranes.length;i++)
         {
-            this.drawHexgon(cell.membranes[i],ctx,"rgb(50,50,50)","rgb(120,120,120)") ;
+            this.drawHexgon(cell.membranes[i],ctx,"rgba(100,100,100,0.2)","rgba(120,120,120,0.2)") ;
         }
         
         // test
@@ -67,12 +63,11 @@ yc.inner.CellInnerMap = cc.LayerColor.extend({
             fillStyle = null ;
         }
         
-        ctx.moveTo(hexgon.points.F[0],hexgon.points.F[1]) ;
+        ctx.moveTo(hexgon.points.F[0],-hexgon.points.F[1]) ;
         
         for(var pName in hexgon.points)
         {
-            ctx.lineTo(hexgon.points[pName][0],hexgon.points[pName][1]) ;
-            ctx.fillText(hexgon.x+','+hexgon.y,hexgon.center[0]-8,hexgon.center[1]+4);
+            ctx.lineTo(hexgon.points[pName][0],-hexgon.points[pName][1]) ;
         }
         ctx.closePath() ;
         
@@ -85,7 +80,28 @@ yc.inner.CellInnerMap = cc.LayerColor.extend({
             ctx.stroke() ;
         }
         
-        ctx.font="normal 4px san-serif";
+        if(game.settings.dbg)
+        {
+            // 坐标
+            ctx.font="normal 4px san-serif";
+            ctx.fillStyle = "rgb(100,100,150)" ;
+            ctx.fillText(hexgon.x+','+hexgon.y,hexgon.center[0]-8,-(hexgon.center[1]-4));
+            
+            // 不可通行
+            if( hexgon.isBlocking() )
+            {
+                ctx.fillStyle = "rgb(150,150,200)" ;
+            
+                ctx.beginPath() ;
+                ctx.moveTo(hexgon.center[0]+15,-hexgon.center[1]) ;
+                ctx.arc(hexgon.center[0],-hexgon.center[1], 15, 0, Math.PI*2 , false) ;
+                ctx.closePath() ;
+                
+                ctx.fill() ;
+                ctx.stroke() ;
+                
+            }
+        }
     }
     
     , drawHexgonPoint: function(hexgon,ctx,fillStyle){

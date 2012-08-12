@@ -28,6 +28,8 @@ var YouCellGame = cc.Application.extend({
             , dbg: true
         }
         , outerStage: {}
+        
+        , dbg: true
     } ,
 
     

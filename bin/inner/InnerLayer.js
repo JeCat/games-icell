@@ -5,8 +5,10 @@ yc.inner.InnerLayer = cc.LayerColor.extend({
         this._super() ;
         
         this.setAnchorPoint(cc.p(0,0)) ;
-        this.initWithColor(new cc.Color4B(0,0,0,0),game.settings.inner.width,game.settings.inner.height) ;
+        this.initWithColor(new cc.Color4B(255,255,255,10),game.settings.inner.width,game.settings.inner.height) ;
         
+        var wSize = cc.Director.getInstance().getWinSize() ;
+        this.setPosition(cc.p(wSize.width-game.settings.inner.width-10,wSize.height-game.settings.inner.height-10)) ;
         
         
         // 细胞
@@ -16,9 +18,11 @@ yc.inner.InnerLayer = cc.LayerColor.extend({
         this.map = yc.inner.CellInnerMap.ins() ;
         this.addChild(this.map) ;
         
-        
+        // 层：病毒
+        this.layerVirus = yc.inner.VirusLayer.ins() ;
+        this.addChild(this.layerVirus) ;
     }
- 
+    
     , transform: yc.cocos2d.patchs.Node.transform
 }) ;
 

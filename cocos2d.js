@@ -9,13 +9,14 @@ var $ = jquery ;
         COCOS2D_DEBUG:2, //0 to turn debug off, 1 for basic debug, and 2 for full debug
         box2d:false,
         showFPS:true,
-        frameRate:40,
+        frameRate:60,
         tag:'gameCanvas', //the dom element to run cocos2d on
         engineDir:'lib/',
         appFiles:[
             'bin/Declare.js'
             , 'bin/Cocos2dPatchs.js'
             , 'bin/GameScene.js'
+            , 'bin/test.js'   
             
             , 'bin/util/ObjectPool.js'
             
@@ -33,7 +34,9 @@ var $ = jquery ;
             , 'bin/inner/HexgonAxes.js'
             , 'bin/inner/HexgonAxesPathMap.js'
             , 'bin/inner/Cell.js'
-            
+            , 'bin/inner/Virus.js'
+            , 'bin/inner/VirusLayer.js'
+         
         ]
     };
     window.addEventListener('DOMContentLoaded', function () {

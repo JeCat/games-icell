@@ -1,4 +1,4 @@
-yc.util.ObjectPool = function (className)
+yc.util.ObjectPool = yc.op = function ObjectPool(className)
 {
 	this.freeObjects = [] ;
 	this.usingObjects = {} ;
@@ -39,9 +39,15 @@ yc.util.ObjectPool = function (className)
 
 yc.util.ObjectPool.mapFlyweights = {} ;
 yc.util.ObjectPool.ins = function(className){
-	if( typeof(yc.util.ObjectPool.mapFlyweights[className.name])=='undefined' )
+    
+    var name = typeof(className.className)=='undefined'? className.name: className.className ;
+    if(!name)
+    {
+        return null ;
+    }
+	if( typeof(yc.util.ObjectPool.mapFlyweights[name])=='undefined' )
 	{
-		yc.util.ObjectPool.mapFlyweights[className.name] = new yc.util.ObjectPool(className) ;
+		yc.util.ObjectPool.mapFlyweights[name] = new yc.util.ObjectPool(className) ;
 	}
-	return yc.util.ObjectPool.mapFlyweights[className.name] ;
+	return yc.util.ObjectPool.mapFlyweights[name] ;
 }

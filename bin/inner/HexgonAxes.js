@@ -49,16 +49,16 @@ HexgonAxes.prototype.initHexgons = function()
 			//
 			var hexgon1 = this._createHexgon( (h*2), v, nStartX+this.sideLen, nStartY+gridH ) ;
 			
-			hexgon1.points.A = [ nStartX+this.sideLen/2, this.vDirection*nStartY ] ;
-			hexgon1.points.B = [ nStartX+(3/2)*this.sideLen, this.vDirection*nStartY ] ;
-			hexgon1.points.C = [ nStartX+2*this.sideLen, this.vDirection*(nStartY+gridH) ] ;
-			hexgon1.points.D = [ nStartX+(3/2)*this.sideLen, this.vDirection*(nStartY+2*gridH) ] ;
-			hexgon1.points.E = [ nStartX+this.sideLen/2, this.vDirection*(nStartY+2*gridH) ] ;
-			hexgon1.points.F = [ nStartX, this.vDirection*(nStartY+gridH) ] ;
+			hexgon1.points.A = [ nStartX+this.sideLen/2, nStartY ] ;
+			hexgon1.points.B = [ nStartX+(3/2)*this.sideLen, nStartY ] ;
+			hexgon1.points.C = [ nStartX+2*this.sideLen, (nStartY+gridH) ] ;
+			hexgon1.points.D = [ nStartX+(3/2)*this.sideLen, (nStartY+2*gridH) ] ;
+			hexgon1.points.E = [ nStartX+this.sideLen/2, (nStartY+2*gridH) ] ;
+			hexgon1.points.F = [ nStartX, (nStartY+gridH) ] ;
 			
 			var hexgon2 = this._createHexgon( (h*2+1), v, nStartX+(5/2)*this.sideLen, nStartY+2*gridH ) ;
 			hexgon2.points.A = hexgon1.points.C ;
-			hexgon2.points.B = [nStartX+3*this.sideLen,this.vDirection*(nStartY+gridH)] ;
+			hexgon2.points.B = [nStartX+3*this.sideLen,(nStartY+gridH)] ;
 			hexgon2.points.F = hexgon1.points.D ;
 			
 			var hexgon3 = this.vDirection==-1? hexgon1.ws(): hexgon1.wn() ;
@@ -147,7 +147,7 @@ HexgonAxes.prototype._createHexgon = function(x,y,centerX,centerY)
 	
 	aHexgon.x = x ;
 	aHexgon.y = y ;
-	aHexgon.center = [centerX, this.vDirection*centerY] ;
+	aHexgon.center = [centerX, centerY] ;
 	aHexgon.aAxes = this ;
 
 	return this.mapHexgons[x][y] = aHexgon ;

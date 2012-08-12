@@ -14,7 +14,7 @@ yc.outer.RolesLayer = cc.Layer.extend({
         this.setAnchorPoint(cc.p(0,0)) ;
         
         var layer = this ;
-        setInterval(function(){layer.update()},5000) ; 
+        setInterval(function(){layer.update()},1000) ; 
         this.update() ;
     }
     

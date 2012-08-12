@@ -6,21 +6,20 @@ yc.GameScene = cc.Scene.extend({
         
         this.setAnchorPoint(cc.p(0,0)) ;
         
-        // 内部场景层
-        this.layerInner = yc.inner.InnerLayer.ins() ;
-        this.addChild(this.layerInner) ;
         
-                
-        // 显示玩家角色层
+        // 层：显示玩家
         this.layerPlayer = new yc.outer.PlayerLayer();
         this.addChild(this.layerPlayer);
         
-       
         
-        // 显示其他角色
+        // 层：显示其他角色
         this.layerRoles = new yc.outer.RolesLayer() ;
         this.addChild(this.layerRoles) ;
         
+        
+        // 层：细胞内部场景
+        this.layerInner = yc.inner.InnerLayer.ins() ;
+        this.addChild(this.layerInner) ;
         
     }
     
