@@ -1,6 +1,8 @@
 yc.inner.Virus = cc.Sprite.extend({  
 
-    ctor: function(){
+    radius: 10
+
+    , ctor: function(){
         this._super() ;
         
         this.initWithFile('res/cocos20.png') ;

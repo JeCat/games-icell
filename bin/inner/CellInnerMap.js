@@ -90,7 +90,7 @@ yc.inner.CellInnerMap = cc.Layer.extend({
             // 不可通行
             if( hexgon.isBlocking() )
             {
-                ctx.fillStyle = "rgb(150,150,200)" ;
+                /*ctx.fillStyle = "rgb(150,150,200)" ;
             
                 ctx.beginPath() ;
                 ctx.moveTo(hexgon.center[0]+15,-hexgon.center[1]) ;
@@ -99,7 +99,7 @@ yc.inner.CellInnerMap = cc.Layer.extend({
                 
                 ctx.fill() ;
                 ctx.stroke() ;
-                
+                */
             }
         }
     }

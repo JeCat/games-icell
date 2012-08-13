@@ -7,7 +7,7 @@ var YouCellGame = cc.Application.extend({
         inner: {
             
             // 六边形边长
-            hexgonSideLength: 20
+            hexgonSideLength: 30
             // 六边形格子的最大层数
             , cellMaxLevels: 5
             // 六边形格子层数的游戏初始值

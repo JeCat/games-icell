@@ -28,3 +28,8 @@ yc.util.radianBetweenPoints = function(p1X,p1Y,p2X,p2Y)
     }
     return radian ;
 }
+
+yc.util.pointsDis = function(p1X,p1Y,p2X,p2Y)
+{
+    return Math.sqrt(Math.pow(Math.abs(p1X-p2X),2) + Math.pow(Math.abs(p1Y-p2Y),2)) ;
+}

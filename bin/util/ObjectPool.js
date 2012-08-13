@@ -35,6 +35,10 @@ yc.util.ObjectPool = yc.op = function ObjectPool(className)
 		
 		this.freeObjects.push(ob) ;
 	}
+	
+	this.total = function(){
+	    return this.freeObjects.length + this.count ;
+	}
 }
 
 yc.util.ObjectPool.mapFlyweights = {} ;

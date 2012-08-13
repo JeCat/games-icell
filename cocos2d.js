@@ -38,6 +38,9 @@ var $ = jquery ;
             , 'bin/inner/Cell.js'
             , 'bin/inner/Virus.js'
             , 'bin/inner/VirusLayer.js'
+            , 'bin/inner/Bullet.js'
+            , 'bin/inner/BuildingTower.js'
+            , 'bin/inner/BuildingLayer.js'
          
         ]
     };

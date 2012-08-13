@@ -7,7 +7,7 @@ yc.inner.InnerLayer = cc.LayerColor.extend({
         this.setAnchorPoint(cc.p(0,0)) ;
         this.initWithColor(new cc.Color4B(255,255,255,10),game.settings.inner.width,game.settings.inner.height) ;
         
-        this.locate() ;
+        this.setScale(1) ;
         
         
         // 细胞
@@ -16,6 +16,10 @@ yc.inner.InnerLayer = cc.LayerColor.extend({
         // 层：细胞地图
         this.map = yc.inner.CellInnerMap.ins() ;
         this.addChild(this.map) ;
+        
+        // 层：建筑
+        this.buildings = new yc.inner.BuildingLayer() ;
+        this.addChild(this.buildings) ;
         
         // 层：病毒
         this.layerVirus = yc.inner.VirusLayer.ins() ;
@@ -59,9 +63,19 @@ yc.inner.InnerLayer = cc.LayerColor.extend({
         var dplH = 0|(size.height * this._scaleY) ;
         
         var wSize = cc.Director.getInstance().getWinSize() ;
-        this.setPosition(cc.p(wSize.width-dplW-10,wSize.height-dplH-10)) ;
         
-        yc.outer.Camera.ins().setFocus( 0|((wSize.width-dplW-10)/2), 0|((wSize.height-dplH-10)/2) ) ;
+        this.setPosition(cc.p(wSize.width-dplW-10,wSize.height-dplH-10)) ;
+            
+        // 横向屏幕
+        if(wSize.height<wSize.width)
+        {
+            yc.outer.Camera.ins().setFocus( 0|((wSize.width-dplW-10)/2), 0|(wSize.height/2) ) ;
+        }
+        // 纵向屏幕
+        else
+        {
+            yc.outer.Camera.ins().setFocus( 0|(wSize.width/2), 0|((wSize.height-dplH-10)/2) ) ;
+        }
         
     }
     

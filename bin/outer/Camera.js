@@ -23,8 +23,14 @@ yc.outer.Camera = function(canvas)
 	
 	this.setFocus = function(offsetX,offsetY)
 	{
+	    var moveX = offsetX - this.focusOffsetX ;
+	    var moveY = offsetY - this.focusOffsetY ;
+	    
 	    this.focusOffsetX = offsetX ;
 	    this.focusOffsetY = offsetY ;
+	    
+	    this.x-= moveX ;
+	    this.y-= moveY ;
 	}
 }
 
