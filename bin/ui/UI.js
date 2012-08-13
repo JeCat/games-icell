@@ -1,10 +1,5 @@
-function UI(){
-	
-	if(!UI.ins)
-	{
-		UI.ins = this ;
-	}
-	
+yc.ui.UI = function(){
+
 	// 注册事件 ------------------------
 	
 	// 氨基酸池数量变化
@@ -12,4 +7,4 @@ function UI(){
 		$('#amino-acid-nums-'+type).text( pool[type] ) ;
 	}) ;
 }
-UI.ins = null ;
+yc.ui.UI.ins = new yc.ui.UI ;

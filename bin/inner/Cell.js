@@ -16,6 +16,10 @@ yc.inner.Cell = function()
     // 细胞质格子的厚度
     this.cytoplasmLevels = game.settings.inner.cellInitialLevels ;
     
+    // 氨基酸池
+    this.poolAminoAcids = yc.inner.AminoAcidPool.ins() ;
+    
+    
     // 新玩家初始化一个新细胞
     this.newborn() ;
     

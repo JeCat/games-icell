@@ -8,7 +8,7 @@ yc.outer.AminoAcid = cc.Sprite.extend({
         this._super() ;
         
     	// 随机类型和数量
-    	this.type = yc.inner.AminoAcidPool.types[ 0|(Math.random()*(yc.inner.AminoAcidPool.types.length-1)) ] ;
+    	this.type = yc.inner.AminoAcidPool.types[ 0|(Math.random()*(yc.inner.AminoAcidPool.types.length)) ] ;
     	this.num = 0|(Math.random()*10) ;
     }
 	
@@ -39,6 +39,9 @@ yc.outer.AminoAcid = cc.Sprite.extend({
 	    if( dis<this.size+cell.radius )
 	    {
 	        this._parent.deleteRole(this) ;
+	        
+	       yc.inner.AminoAcidPool.ins().increase(this.type,this.num) ;
+	        
 	        return ;
 	    }
 	    

@@ -15,8 +15,10 @@ var $ = jquery ;
         appFiles:[
             'bin/Declare.js'
             , 'bin/Cocos2dPatchs.js'
-            , 'bin/GameScene.js'
+            , 'bin/GameScene.js'   
             , 'bin/test.js'   
+            
+            , 'bin/ui/UI.js'
             
             , 'bin/util/ObjectPool.js'
             , 'bin/util/functions.js'

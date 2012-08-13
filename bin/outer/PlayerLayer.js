@@ -15,18 +15,27 @@ yc.outer.PlayerLayer = cc.Layer.extend({
         this.cell = yc.outer.Cell.ins() ;
         this.addChild(this.cell) ;
         
-        // 测试坐标
-        var cell2 = new yc.outer.Cell() ;
-        this.addChild(cell2) ;
-        cell2.setPosition(cc.p(100,100)) ;
-        cell2.x = 100 ;
-        cell2.y = 100 ;
         
-        var cell2 = new yc.outer.Cell() ;
-        this.addChild(cell2) ;
-        cell2.x = -100 ;
-        cell2.y = 80 ;
+        this.followPoint = false ;
     }  
+    
+    , onTouchesBegan: function(touches, event){
+        this.followPoint = true ;
+        this.onTouchesMoved(touches, event) ;
+        this.cell.run() ;
+        log('Began') ;
+    }
+    , onTouchesMoved: function(touches, event){
+        if(this.followPoint)
+        {
+            var cellPos = yc.outer.Camera.ins().focusOffset() ;
+            this.cell.angle = yc.util.radianBetweenPoints(cellPos[0],cellPos[1],touches[0]._point.x,touches[0]._point.y) ;
+        }
+    }
+    , onTouchesEnded:function (touches, event) {
+        this.followPoint = false ;
+        this.cell.stopRun() ;
+    }
     
     , keyUp:function (key) {
         switch(key)
