@@ -3,12 +3,47 @@
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
     <title>you,cell</title>
+	<link rel="stylesheet" href="jquery.ui/jquery-ui-1.8.16.full.css"></script>
 	<script src="jquery-1.7.1.js"></script>
+	<script src="jquery.ui/jquery-ui-1.8.16.full.min.js"></script>
 	<script src="jquery.json.js"></script>
 	<script src="cocos2d.js"></script>
+	<style>
+	.ui-progressbar .ui-progressbar-value { background-image: url(jquery.ui/images/pbar-ani.gif); margin: 0px; }
+	</style>
 </head>
 <body style="background: #aaaaaa;margin: 0px;">
 
+	
+	<div id="dialog-protein-composite" style="display:none">
+		<h2>蛋白质合成</h2>
+
+		<div>
+			氨基酸池
+			<span style="color:red" class="amino-acid-nums-red"></span>
+			<span style="color:yellow" class="amino-acid-nums-yellow"></span>
+			<span style="color:blue" class="amino-acid-nums-blue"></span>
+		</div>
+		
+		<div>
+			蛋白质池
+			<div>
+				
+			</div>
+		</div>
+		
+		<div id="protein-composite">
+			正在合成：
+			<div id="protein-composite-progress" style="width:200px;height:10px"></div>
+		</div>
+		
+		<div>
+			
+			<button onclick="$('#dialog-protein-composite').hide()">关闭</button>
+		</div>
+		
+	</div>
+	
 	<div id="stage" style="position:absolute;">
 		<canvas id="gameCanvas" width="800" height="450"></canvas>
 	</div>
@@ -21,6 +56,8 @@
 				<span style="color:red" class="amino-acid-nums-red"></span>
 				<span style="color:yellow" class="amino-acid-nums-yellow"></span>
 				<span style="color:blue" class="amino-acid-nums-blue"></span>
+				
+				<button onclick="yc.ui.UI.ins.showProteinComposion()">蛋白质合成</button>
 			</div>
 			
 			<div>
@@ -48,23 +85,6 @@
 	</div>
 	
 	
-	
-	<div>
-		<h2>蛋白质合成</h2>	
-
-		<div>
-			氨基酸池
-			<span style="color:red" class="amino-acid-nums-red"></span>
-			<span style="color:yellow" class="amino-acid-nums-yellow"></span>
-			<span style="color:blue" class="amino-acid-nums-blue"></span>
-		</div>
-		
-		<div>
-			蛋白质池
-			
-		</div>
-		
-	</div>
 
 </body>
 </html>
