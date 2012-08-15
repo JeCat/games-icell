@@ -23,7 +23,7 @@ yc.outer.VirusCluster = cc.Sprite.extend({
     
     
     , _visit: cc.Sprite.prototype.visit
-    , visit: function(c){
+    , visit: function(c){//return;
         
         // 判断碰撞
         var cell = yc.outer.Cell.ins() ;

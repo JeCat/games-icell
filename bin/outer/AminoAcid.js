@@ -9,7 +9,8 @@ yc.outer.AminoAcid = cc.Sprite.extend({
         
     	// 随机类型和数量
     	this.type = yc.inner.AminoAcidPool.types[ 0|(Math.random()*(yc.inner.AminoAcidPool.types.length)) ] ;
-    	this.num = 0|(Math.random()*10) ;
+    	this.num = Math.round(Math.random()*10) ;
+    	this.size = 3 + Math.round(this.num/2) ;
     }
 	
 	,get_collision_circle:  function() {
@@ -25,13 +26,14 @@ yc.outer.AminoAcid = cc.Sprite.extend({
 		c.closePath();
 		c.fill();
 
-		c.fillStyle = 'rgb(255,255,255)' ;
+		/*c.fillStyle = 'rgb(255,255,255)' ;
 	    c.font="6pt san-serif";
-		c.fillText('♪ '+this.num,0,0);
+		c.fillText(this.num,0,0);
+		*/
 	}
 	
 	, _visit: cc.Sprite.prototype.visit
-	, visit: function(c){
+	, visit: function(c){//return;
 	    
 	    // 判断碰撞
 	    var cell = yc.outer.Cell.ins() ;

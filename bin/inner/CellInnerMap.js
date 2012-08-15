@@ -16,7 +16,7 @@ yc.inner.CellInnerMap = cc.Layer.extend({
         
     }
     
-    , draw: function(ctx){
+    , draw: function(ctx){//return;
         
         var cell = yc.inner.Cell.ins() ;
         
