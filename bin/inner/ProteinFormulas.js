@@ -63,6 +63,24 @@ yc.inner.ProteinFormulas = function(){
         $(window).trigger('yc.inner.ProteinFormulas::onAfterAppend',[this,formula]) ;
     }
     
+    this.toggle = function(name)
+    {
+        if(this.mapFormulas[name].status=='compositing')
+        {
+            return ;
+        }
+        else if(this.mapFormulas[name].status=='pause')
+        {
+            this.mapFormulas[name].status = 'waiting' ;
+            this.mapFormulas[name].ui.find('.protein-formula-togglebtn').text('暂停') ;
+        }
+        else if(this.mapFormulas[name].status=='waiting')
+        {
+            this.mapFormulas[name].status = 'pause' ;
+            this.mapFormulas[name].ui.find('.protein-formula-togglebtn').text('继续') ;
+        }
+    }
+    
     this.addNewFormula({
         name: '红色'
         , materials: {red:30}

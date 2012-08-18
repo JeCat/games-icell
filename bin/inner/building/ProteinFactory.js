@@ -85,6 +85,9 @@ yc.inner.building.ProteinFactory = yc.inner.building.Building.extend({
         this.working_formula.ui.find('.protein-composite-progress').show().progressbar({value:0}) ;
         this.working_formula.status = 'compositing' ;
         
+        // 禁用暂停按钮
+        this.working_formula.ui.find('.protein-formula-togglebtn').attr('disabled',true) ;
+            
         // 消耗氨基酸
         for(var key in formula.materials)
         {
@@ -107,8 +110,12 @@ yc.inner.building.ProteinFactory = yc.inner.building.Building.extend({
                 factory.working_formula.status = 'waiting' ;
                 factory.working_formula.ui.find('.protein-composite-progress').hide() ;
                 
+                // 增加蛋白质池中的存数
                 yc.inner.ProteinPool.ins().increase(factory.working_formula.name,1) ;
                 
+                // 恢复暂停按钮
+                factory.working_formula.ui.find('.protein-formula-togglebtn').attr('disabled',false) ;
+        
                 // next
                 factory.startComposite() ;
                 /*setTimeout(function(){

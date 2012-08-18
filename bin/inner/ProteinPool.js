@@ -1,6 +1,7 @@
 yc.inner.ProteinPool = function ()
 {
     this.mapProteins = {}
+    this.total = 0 ;
 	
 	this.increase = function(name,num){
 		
@@ -12,6 +13,7 @@ yc.inner.ProteinPool = function ()
 		    this.mapProteins[name] = 0 ;
 		}
 		this.mapProteins[name]+= num ;
+		this.total+= num ;
 		
 		// 触发事件
 		$(window).trigger('yc.inner.ProteinPool::onAfterChange',[this,name,this.mapProteins[name],num]) ;
