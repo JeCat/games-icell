@@ -3,7 +3,8 @@
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
     <title>you,cell</title>
-	<link rel="stylesheet" href="jquery.ui/jquery-ui-1.8.16.full.css"></script>
+	<link rel="stylesheet" href="jquery.ui/jquery-ui-1.8.16.full.css"></link>
+	<link rel="stylesheet" href="style.css"></link>
 	<script src="jquery-1.7.1.js"></script>
 	<script src="jquery.ui/jquery-ui-1.8.16.full.min.js"></script>
 	<script src="jquery.json.js"></script>
@@ -19,22 +20,20 @@
 		<h2>蛋白质合成</h2>
 
 		<div>
-			氨基酸池
-			<span style="color:red" class="amino-acid-nums-red"></span>
-			<span style="color:yellow" class="amino-acid-nums-yellow"></span>
-			<span style="color:blue" class="amino-acid-nums-blue"></span>
+			<span style="color:red" class="aminoacid-num-red"></span>
+			<span style="color:yellow" class="aminoacid-num-yellow"></span>
+			<span style="color:blue" class="aminoacid-num-blue"></span>
 		</div>
 		
 		<div>
-			蛋白质池
-			<div>
+			<div id="protein-formulas-outer"></div>
+			<div id="protein-composition-formula-template" class="protein-formula" style="display:none;">
 				
+				<button onclick="">暂停</button>
+				<span class="formula-name" style="float:left"></span>
+				<div class="protein-composite-progress" style="width:200px;height:10px; float:left"></div>
+				<div style="clear:both"></div>
 			</div>
-		</div>
-		
-		<div id="protein-composite">
-			正在合成：
-			<div id="protein-composite-progress" style="width:200px;height:10px"></div>
 		</div>
 		
 		<div>
@@ -51,21 +50,25 @@
 	<div id="ui" style="position:absolute;top:0px;left:0px">
 		
 		<div style="float:left">
-			<div>
-				氨基酸
-				<span style="color:red" class="amino-acid-nums-red"></span>
-				<span style="color:yellow" class="amino-acid-nums-yellow"></span>
-				<span style="color:blue" class="amino-acid-nums-blue"></span>
-				
-				<button onclick="yc.ui.UI.ins.showProteinComposion()">蛋白质合成</button>
-			</div>
-			
+
 			<div>
 				Debug:
 				<button onclick="yc.inner.VirusLayer.ins().createVirusSprite().run(6,9) ;" title="创建一个进入细胞内的病毒群">病毒</button>
-				<button onclick="yc.inner.BuildingTower.c().putOn(6,7).c().putOn(7,7).c().putOn(5,7).c().putOn(4,7).c().putOn(4,6).c().putOn(4,5).c().putOn(8,7).c().putOn(8,6).c().putOn(8,5);" title="创建一个进入细胞内的病毒群">放置塔</button>
+				<button onclick="yc.inner.building.Tower.c().putOn(6,7).c().putOn(7,7).c().putOn(5,7).c().putOn(4,7).c().putOn(4,6).c().putOn(4,5).c().putOn(8,7).c().putOn(8,6).c().putOn(8,5);" title="创建一个进入细胞内的病毒群">放置塔</button>
 			</div>
+			
+			<div id="aminoacid-dashboard">
+				<div style="color:red; margin-top:10px" class="aminoacid-num aminoacid-num-red"></div>
+				<div style="color:yellow; margin-top:10px" class="aminoacid-num aminoacid-num-yellow"></div>
+				<div style="color:blue; margin-top:10px" class="aminoacid-num aminoacid-num-blue"></div>
+			</div>
+			
+			<hr style="margin-left:0px;width:20px" />
+			
+			<div id="protein-pool-dashboard"></div>
 		
+			<button onclick="yc.ui.UI.ins.showProteinComposion()">@</button>
+			
 		</div>
 		
 		<div style="float:right">

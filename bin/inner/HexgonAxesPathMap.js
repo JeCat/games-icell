@@ -18,7 +18,7 @@ function HexgonAxesPathMap(aAxes)
 		this.target = this.aAxes.hexgon(x,y) ;
 		this.pos(this.target.x,this.target.y).step = 0 ;
 		
-		log('HexgonAxesPathMap::seekAll() target: '+x+','+y) ;
+		//log('HexgonAxesPathMap::seekAll() target: '+x+','+y) ;
 			
 		this._processHexgon(this.target,0) ;
 	}
@@ -69,7 +69,7 @@ function HexgonAxesPathMap(aAxes)
 		}
 		
 		
-		log('HexgonAxesPathMap::testPath() hexgon ('+hexgon.x+','+hexgon.y+') step:'+hexgonInfo.step+', next way: '+hexgonInfo.way) ;
+		//log('HexgonAxesPathMap::testPath() hexgon ('+hexgon.x+','+hexgon.y+') step:'+hexgonInfo.step+', next way: '+hexgonInfo.way) ;
 		
 		var nextHexgon =  hexgon[hexgonInfo.way]() ;
 		this.testPath(nextHexgon.x,nextHexgon.y) ;
@@ -104,7 +104,7 @@ function HexgonAxesPathMap(aAxes)
 			neighborInfo.step = nextStep ;
 			neighborInfo.way = this.orientationMapping[way] ;
 		
-			log('HexgonAxesPathMap::_processHexgon() hexgon ('+neighbor.x+','+neighbor.y+') step:'+nextStep+' way:'+neighborInfo.way) ;
+			//log('HexgonAxesPathMap::_processHexgon() hexgon ('+neighbor.x+','+neighbor.y+') step:'+nextStep+' way:'+neighborInfo.way) ;
 		
 			nextHexgons.push(neighbor) ;
 		}

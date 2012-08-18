@@ -87,11 +87,6 @@ var YouCellGame = cc.Application.extend({
     }
 });
 
-
-function log(message){
-	console.log(message) ;
-}
-
 $(function(){
 	$('#ui').width($(window).width()) ;
 	

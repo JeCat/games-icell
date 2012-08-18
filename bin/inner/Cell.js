@@ -20,11 +20,6 @@ yc.inner.Cell = function()
     this.poolAminoAcids = yc.inner.AminoAcidPool.ins() ;
     
     
-    // 新玩家初始化一个新细胞
-    this.newborn() ;
-    
-    
-    
     
     
     if(this.aAxes._dbgCanvas)
@@ -107,6 +102,11 @@ yc.inner.Cell.prototype.newborn = function()
     {
         this.expandCytoplasm(cell.cytoplasms[i]) ;
     }
+    
+    // 初始化一个 炮塔 和 蛋白质工厂
+    yc.inner.InnerLayer.ins().buildings.createBuilding( yc.inner.building.Tower, 6, 7 ) ;
+    yc.inner.InnerLayer.ins().buildings.createBuilding( yc.inner.building.ProteinFactory, 6, 5 ) ;
+    
 }
 
 // 将个六边形格子扩张为细胞质

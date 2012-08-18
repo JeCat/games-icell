@@ -1,17 +1,24 @@
 yc.ui.UI = function(){
 
+    log('UI init') ;
+    
 	// 注册事件 ------------------------
 	
 	// 氨基酸池数量变化
-	$(window).bind('onAfterAminoAcidChange',null,function(e,pool,type,num){
-		$('.amino-acid-nums-'+type).text( '♪'+pool[type] ) ;
+	$(window).bind('yc.inner.AminoAcidPool::onAfterChange',null,function(e,pool,type,num){
+		$('.aminoacid-num-'+type).text( '♪ '+pool[type] ) ;
 	}) ;
 	
-	// 合成蛋白质
-	$( "#protein-composite-progress" ).progressbar({
-		value: 59
-	});
+	// 蛋白质池
+    $(window).bind('yc.inner.ProteinFormulas::onAfterAppend',null,function(e,o,formula){
+        $('#protein-pool-dashboard').append("<div class='protein-num protein-num-"+formula.name+"' style='color:"+formula.color+"'>♫ 0</div>") ;
+    }) ;
+    $(window).bind('yc.inner.ProteinPool::onAfterChange',null,function(e,pool,name,total,num){
+        $('.protein-num-'+name).text( '♫ '+total ) ;
+    }) ;
 	
+	
+	// 合成蛋白质
 	this.showProteinComposion = function(){
 		
 		$("#dialog-protein-composite")

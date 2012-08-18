@@ -1,4 +1,4 @@
-yc.inner.BuildingTower = cc.Sprite.extend({  
+yc.inner.building.Tower = yc.inner.building.Building.extend({  
 
     // 炮弹速度
     speed: 500
@@ -17,39 +17,29 @@ yc.inner.BuildingTower = cc.Sprite.extend({
     
     , hexgon: null
     
-    , put: function(hexgon){
-        hexgon.building = this ;
-        hexgon.block = true ;
-        this.hexgon = hexgon ;
-        this.setPosition(cc.p(hexgon.center[0],hexgon.center[1])) ;
-        this.setVisible(true) ;
-        
-        // 重新计算地图路径
-        yc.inner.InnerLayer.ins().cell.researchPath() ;
-        
-        this.shot() ;
-        
-        return yc.inner.BuildingTower ;
-    }
-    , putOn: function(x,y){
-        return this.put(yc.inner.InnerLayer.ins().cell.aAxes.hexgon(x,y)) ;
-    }
-    
+    , _draw: yc.inner.building.Building.prototype.draw
     , draw: function(ctx){
         if(!this.hexgon)
         {
             return ;
         }
 
-        ctx.fillStyle = "rgb(150,150,200)" ;
-    
-        ctx.beginPath() ;
-        ctx.moveTo(0+15,0) ;
-        ctx.arc(0,0, 15, 0, Math.PI*2 , false) ;
-        ctx.closePath() ;
+        this._draw(ctx) ;
         
-        ctx.fill() ;
-        ctx.stroke() ;
+        ctx.fillStyle = 'red' ;
+        ctx.font="normal san-serif";
+        ctx.fillText('╭☆',-12,+4) ;
+    }
+    
+    , _put: yc.inner.building.Building.prototype.put
+    , put: function(hexgon){
+        
+        this._put(hexgon)
+        
+        // 开始射击
+        this.shot() ;
+        
+        return yc.inner.building.Tower ;
     }
     
     , shot: function(){
@@ -76,11 +66,3 @@ yc.inner.BuildingTower = cc.Sprite.extend({
     }
     
 }) ;
-
-yc.inner.BuildingTower.create = yc.inner.BuildingTower.c = function(){
-    var building = new yc.inner.BuildingTower ;
-    yc.inner.InnerLayer.ins().buildings.addChild(building) ;
-    building.setVisible(false) ;
-    
-    return building ;
-}

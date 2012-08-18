@@ -1,0 +1,13 @@
+#aminoacid-dashboard {
+    margin-top: 10px;
+}
+#aminoacid-dashboard .aminoacid-num{
+    margin-bottom: 10px;
+}
+
+#protein-pool-dashboard{
+    margin-top: 10px;
+}
+#protein-pool-dashboard .protein-num {
+    margin-bottom: 10px;
+}

@@ -7,17 +7,17 @@ yc.inner.AminoAcidPool = function ()
 	this.increase = function(type,num){
 		
 		// 触发事件
-		$(window).trigger('onBeforeAminoAcidChange',[this,type,num]) ;
+		$(window).trigger('yc.inner.AminoAcidPool::onBeforeChange',[this,type,num]) ;
 		
 		this[type]+= num ;
 		
 		// 触发事件
-		$(window).trigger('onAfterAminoAcidChange',[this,type,num]) ;
+		$(window).trigger('yc.inner.AminoAcidPool::onAfterChange',[this,type,num]) ;
 	}
 	
-	this.increase('red',10) ;
-	this.increase('yellow',10) ;
-	this.increase('blue',10) ;
+	this.increase('red',100) ;
+	this.increase('yellow',100) ;
+	this.increase('blue',100) ;
 }
 yc.inner.AminoAcidPool.types = ['red','yellow','blue'] ;
 

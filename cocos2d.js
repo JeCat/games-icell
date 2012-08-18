@@ -1,4 +1,7 @@
 
+function log(message){
+    console.log(message) ;
+}
 
 var $ = jquery ;
 
@@ -31,6 +34,7 @@ var $ = jquery ;
             , 'bin/outer/RolesLayer.js'
             
             , 'bin/inner/AminoAcidPool.js'
+            , 'bin/inner/ProteinPool.js'
             , 'bin/inner/InnerLayer.js'
             , 'bin/inner/CellInnerMap.js'
             , 'bin/inner/Hexgon.js'
@@ -41,8 +45,12 @@ var $ = jquery ;
             , 'bin/inner/Virus.js'
             , 'bin/inner/VirusLayer.js'
             , 'bin/inner/Bullet.js'
-            , 'bin/inner/BuildingTower.js'
             , 'bin/inner/BuildingLayer.js'
+            , 'bin/inner/ProteinFormulas.js'
+            
+            , 'bin/inner/building/Building.js'
+            , 'bin/inner/building/Tower.js'
+            , 'bin/inner/building/ProteinFactory.js'
          
         ]
     };
@@ -56,3 +64,6 @@ var $ = jquery ;
         //else if single file specified, load singlefile
     });
 })();
+
+
+
