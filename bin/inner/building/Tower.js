@@ -17,6 +17,7 @@ yc.inner.building.Tower = yc.inner.building.Building.extend({
     
     , hexgon: null
     
+    
     , _draw: yc.inner.building.Building.prototype.draw
     , draw: function(ctx){
         if(!this.hexgon)
@@ -66,3 +67,10 @@ yc.inner.building.Tower = yc.inner.building.Building.extend({
     }
     
 }) ;
+
+
+yc.inner.building.Tower.price = {
+    red: 10 
+    , yellow: 10  
+}
+    

@@ -103,6 +103,49 @@ HexgonAxes.prototype.initHexgons = function()
 	}
 }
 
+HexgonAxes.prototype.hexgonByPoint = function(px,py){
+
+    var gridW = 3/2*this.sideLen ;
+    var gridH = Math.sqrt(3)*this.sideLen ;
+    
+    var x = Math.floor(px/gridW) ;
+    var xx = px % gridW ;
+    
+    if(x%2)
+    {
+       var y = Math.floor( (py - gridH/2) / gridH ) ;
+       var yy = (py - gridH/2) % gridH ;
+    }
+    else
+    {
+       var y = Math.floor( py/gridH ) ;
+       var yy = py % gridH ;
+    }
+    
+    var hexgon = this.hexgon(x,y) ;
+    
+    if(xx<this.sideLen/2)
+    {
+        if(yy>gridH/2)
+        {
+            var neighbor = hexgon.wn() ;
+        }
+        else
+        {
+            var neighbor = hexgon.ws() ;
+        }
+        
+        //log(['hexgon',hexgon.x,hexgon.y,':',hexgon.center[0],hexgon.center[1],'=',yc.util.pointsDis(hexgon.center[0],hexgon.center[1],px,py)]) ;
+        //log(['neighbor',neighbor.x,neighbor.y,':',neighbor.center[0],neighbor.center[1],'=',yc.util.pointsDis(neighbor.center[0],neighbor.center[1],px,py)]) ;
+        
+        if( yc.util.pointsDis(hexgon.center[0],hexgon.center[1],px,py) > yc.util.pointsDis(neighbor.center[0],neighbor.center[1],px,py) )
+        {
+            hexgon = neighbor ;
+        }
+    }
+    
+    return hexgon ;
+}
 HexgonAxes.prototype.hexgon = function(x,y)
 {
 	if( typeof(this.mapHexgons[x])=='undefined' || typeof(this.mapHexgons[x][y])=='undefined' )

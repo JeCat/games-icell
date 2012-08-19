@@ -14,6 +14,10 @@ yc.inner.CellInnerMap = cc.Layer.extend({
         this.setContentSize(game.settings.inner.width,game.settings.inner.height) ;
         //this.initWithColor(new cc.Color4B(255,255,255,50),game.settings.inner.width,game.settings.inner.height) ;
         
+
+        this.setTouchEnabled(true);
+        this.touching = false ;
+        this.selcted_hexgon = null ;
     }
     
     , draw: function(ctx){//return;
@@ -23,7 +27,7 @@ yc.inner.CellInnerMap = cc.Layer.extend({
         // 画细胞质
         for(var i=0;i<cell.cytoplasms.length;i++)
         {
-            this.drawHexgon(cell.cytoplasms[i],ctx,"rgb(200,200,200)","rgb(150,150,150)") ;
+            this.drawHexgon(cell.cytoplasms[i],ctx, "rgb(200,200,200)",cell.cytoplasms[i].selected? "rgb(180,180,180)":"rgb(150,150,150)") ;
         }
         
         // 画细胞核
@@ -120,6 +124,61 @@ yc.inner.CellInnerMap = cc.Layer.extend({
         }
         
         ctx.restore() ;
+    }
+    
+    , onTouchesBegan: function(touches, event){
+        var p = yc.inner.InnerLayer.ins().windowToClient(touches[0]._point.x,touches[0]._point.y) ;
+        if(!p){ return ; }
+        
+        if(this.selcted_hexgon)
+        {
+            this.selcted_hexgon.selected = false ;
+        }
+        this.selcted_hexgon = yc.inner.InnerLayer.ins().cell.aAxes.hexgonByPoint(p[0],p[1]) ;
+        this.selcted_hexgon.selected = true ;
+        
+        this.touching = true ;
+        
+        return false ;
+    }
+    , onTouchesMoved: function(touches, event){
+        if(!this.touching){ return ; }
+        
+        var p = yc.inner.InnerLayer.ins().windowToClient(touches[0]._point.x,touches[0]._point.y) ;
+        if(!p){ return ; }
+        
+        if(this.selcted_hexgon)
+        {
+            this.selcted_hexgon.selected = false ;
+        }
+        this.selcted_hexgon = yc.inner.InnerLayer.ins().cell.aAxes.hexgonByPoint(p[0],p[1]) ;
+        this.selcted_hexgon.selected = true ;
+        
+        return false ;
+    }
+    , onTouchesEnded:function (touches, event) {
+        var p = yc.inner.InnerLayer.ins().windowToClient(touches[0]._point.x,touches[0]._point.y) ;
+        if(!p){ return ; }
+        
+        if(this.selcted_hexgon)
+        {
+            this.selcted_hexgon.selected = false ;
+        }
+        this.selcted_hexgon = yc.inner.InnerLayer.ins().cell.aAxes.hexgonByPoint(p[0],p[1]) ;
+        this.selcted_hexgon.selected = true ;
+        
+        this.touching = false ;
+        
+        if(this.selcted_hexgon.building)
+        {
+            this.selcted_hexgon.hexgon.upgrade() ;
+        }
+        else if(this.selcted_hexgon.type=='cytoplasm')
+        {
+            yc.ui.CreateBuildingMenu.ins.show() ;
+        }
+        
+        return false ;
     }
     
     , transform: cc.Sprite.prototype.transform

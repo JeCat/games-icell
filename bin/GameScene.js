@@ -5,7 +5,6 @@ yc.GameScene = cc.Scene.extend({
         
         this.setAnchorPoint(cc.p(0,0)) ;
         
-        
         // 层：显示玩家
         this.layerPlayer = new yc.outer.PlayerLayer();
         this.addChild(this.layerPlayer);
@@ -27,6 +26,13 @@ yc.GameScene = cc.Scene.extend({
         
     }
     
+    , onTouchesBegan: function(touches, event){
+        log('onTouchesBegan') ;
+    }
+    , onTouchesMoved: function(touches, event){
+    }
+    , onTouchesEnded:function (touches, event) {
+    }
     
     , _transform: yc.cocos2d.patchs.Node.transform
     , transform: function(){

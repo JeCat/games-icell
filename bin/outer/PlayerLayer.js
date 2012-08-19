@@ -23,7 +23,6 @@ yc.outer.PlayerLayer = cc.Layer.extend({
         this.followPoint = true ;
         this.onTouchesMoved(touches, event) ;
         this.cell.run() ;
-        log('Began') ;
     }
     , onTouchesMoved: function(touches, event){
         if(this.followPoint)

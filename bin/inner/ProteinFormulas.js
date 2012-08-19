@@ -82,37 +82,20 @@ yc.inner.ProteinFormulas = function(){
     }
     
     this.addNewFormula({
-        name: '红色'
+        name: 'red'
         , materials: {red:30}
         , color: 'rgb(255,0,0)'
     }) ;
     this.addNewFormula({
-        name: '黄色'
+        name: 'yellow'
         , materials: {yellow:30}
         , color: 'rgb(255,255,0)'
     }) ;
     this.addNewFormula({
-        name: '蓝色'
+        name: 'blue'
         , materials: {blue:30}
         , color: 'rgb(0,0,255)'
     }) ;
-    
-    this.addNewFormula({
-        name: '红色'
-        , materials: {red:30}
-        , color: 'rgb(255,0,0)'
-    }) ;
-    this.addNewFormula({
-        name: '黄色'
-        , materials: {yellow:30}
-        , color: 'rgb(255,255,0)'
-    }) ;
-    this.addNewFormula({
-        name: '蓝色'
-        , materials: {blue:30}
-        , color: 'rgb(0,0,255)'
-    }) ;
-    
     
 }
 

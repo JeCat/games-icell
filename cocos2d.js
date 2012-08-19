@@ -22,6 +22,7 @@ var $ = jquery ;
             , 'bin/test.js'   
             
             , 'bin/ui/UI.js'
+            , 'bin/ui/CreateBuildingMenu.js'
             
             , 'bin/util/ObjectPool.js'
             , 'bin/util/functions.js'

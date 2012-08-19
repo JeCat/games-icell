@@ -5,6 +5,8 @@ yc.inner.CellHexgon = function CellHexgon(){
 	
 	// 建筑物
 	this.building = null ; 
+	
+	this.selected = false ;
 
 	// 取得特定类型的邻接格子（type==null）
 	this.neighborsByType = function(type)

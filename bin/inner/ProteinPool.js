@@ -18,6 +18,17 @@ yc.inner.ProteinPool = function ()
 		// 触发事件
 		$(window).trigger('yc.inner.ProteinPool::onAfterChange',[this,name,this.mapProteins[name],num]) ;
 	}
+	this.increase('red',10) ;
+	this.increase('yellow',10) ;
+	this.increase('blue',10) ;
+	
+	this.num = function(name){
+        if(typeof(this.mapProteins[name])=='undefined')
+        {
+            this.mapProteins[name] = 0 ;
+        }
+        return this.mapProteins[name] ;
+	}
 	
 }
 

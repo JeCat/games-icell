@@ -1,3 +1,17 @@
+html{
+    overflow-x: hidden; overflow-y: hidden;
+}
+
+body{
+    background: #aaaaaa;
+    margin: 0px;
+}
+
+.ui-progressbar .ui-progressbar-value { 
+    background-image: url(jquery.ui/images/pbar-ani.gif);
+    margin: 0px;
+}
+    
 #aminoacid-dashboard {
     margin-top: 10px;
 }

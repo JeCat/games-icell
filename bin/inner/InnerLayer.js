@@ -9,7 +9,6 @@ yc.inner.InnerLayer = cc.LayerColor.extend({
         
         this.setScale(1) ;
         
-        
         // 细胞
         this.cell = yc.inner.Cell.ins() ;
         
@@ -64,8 +63,9 @@ yc.inner.InnerLayer = cc.LayerColor.extend({
         
         var wSize = cc.Director.getInstance().getWinSize() ;
         
-        this.setPosition(cc.p(wSize.width-dplW-10,wSize.height-dplH-10)) ;
-            
+        this.setPosition(cc.p(wSize.width-dplW-10,wSize.height-dplH-10));
+        //this.setPosition(cc.p(0,0)) ;   
+         
         // 横向屏幕
         if(wSize.height<wSize.width)
         {
@@ -80,6 +80,25 @@ yc.inner.InnerLayer = cc.LayerColor.extend({
     }
     
     , transform: yc.cocos2d.patchs.Node.transform
+    
+    , windowToClient: function(x,y){
+        var p = this.getPosition() ;
+        x = x-p.x ;
+        y = y-p.y ;
+        
+        var s = this.getContentSize() ;
+        
+        if( x<0 || y<0 || x>s.width || y>s.height )
+        {
+            return null ;
+        }
+        
+        x = Math.round(this._scaleX * x);
+        y = Math.round(this._scaleY * y);
+        
+        return [x,y] ;
+    }
+    
 }) ;
 
 

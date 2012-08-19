@@ -9,12 +9,15 @@
 	<script src="jquery.ui/jquery-ui-1.8.16.full.min.js"></script>
 	<script src="jquery.json.js"></script>
 	<script src="cocos2d.js"></script>
-	<style>
-	.ui-progressbar .ui-progressbar-value { background-image: url(jquery.ui/images/pbar-ani.gif); margin: 0px; }
-	</style>
 </head>
-<body style="background: #aaaaaa;margin: 0px;">
+<body>
 
+	
+	
+	<div id="stage" style="position:absolute;">
+		<canvas id="gameCanvas" width="800" height="450"></canvas>
+	</div>
+	
 	
 	<div id="dialog-protein-composite" style="display:none">
 		<h2>蛋白质合成</h2>
@@ -42,49 +45,52 @@
 		</div>
 		
 	</div>
+		
+	<div style="float:left;position: absolute;">
+
+		<div>
+			Debug:
+			<button onclick="yc.inner.VirusLayer.ins().createVirusSprite().run(6,9) ;" title="创建一个进入细胞内的病毒群">病毒</button>
+			<button onclick="yc.inner.building.Tower.c().putOn(6,7).c().putOn(7,7).c().putOn(5,7).c().putOn(4,7).c().putOn(4,6).c().putOn(4,5).c().putOn(8,7).c().putOn(8,6).c().putOn(8,5);" title="创建一个进入细胞内的病毒群">放置塔</button>
+		</div>
+		
+		<div id="aminoacid-dashboard">
+			<div style="color:red; margin-top:10px" class="aminoacid-num aminoacid-num-red"></div>
+			<div style="color:yellow; margin-top:10px" class="aminoacid-num aminoacid-num-yellow"></div>
+			<div style="color:blue; margin-top:10px" class="aminoacid-num aminoacid-num-blue"></div>
+		</div>
+		
+		<hr style="margin-left:0px;width:20px" />
+		
+		<div id="protein-pool-dashboard"></div>
 	
-	<div id="stage" style="position:absolute;">
-		<canvas id="gameCanvas" width="800" height="450"></canvas>
+		<button onclick="yc.ui.UI.ins.showProteinComposion()">@</button>
+		
 	</div>
 	
-	<div id="ui" style="position:absolute;top:0px;left:0px">
+	
+	<div id="debug-output" style="float:right;position: absolute;width:400px">
+		<div id="player-status"></div>
+	</div>
+	
+	<div id='menu-inner-layer-zoom' style="float:right;position: absolute;">
+		<button onclick="cc.Director.getInstance()._runningScene.layerInner.setScale(0.1)">0.1x</button>
+		<button onclick="cc.Director.getInstance()._runningScene.layerInner.setScale(0.5)">0.5x</button>
+		<button onclick="cc.Director.getInstance()._runningScene.layerInner.setScale(1)">1x</button>
+	</div>
+	
 		
-		<div style="float:left">
-
-			<div>
-				Debug:
-				<button onclick="yc.inner.VirusLayer.ins().createVirusSprite().run(6,9) ;" title="创建一个进入细胞内的病毒群">病毒</button>
-				<button onclick="yc.inner.building.Tower.c().putOn(6,7).c().putOn(7,7).c().putOn(5,7).c().putOn(4,7).c().putOn(4,6).c().putOn(4,5).c().putOn(8,7).c().putOn(8,6).c().putOn(8,5);" title="创建一个进入细胞内的病毒群">放置塔</button>
-			</div>
-			
-			<div id="aminoacid-dashboard">
-				<div style="color:red; margin-top:10px" class="aminoacid-num aminoacid-num-red"></div>
-				<div style="color:yellow; margin-top:10px" class="aminoacid-num aminoacid-num-yellow"></div>
-				<div style="color:blue; margin-top:10px" class="aminoacid-num aminoacid-num-blue"></div>
-			</div>
-			
-			<hr style="margin-left:0px;width:20px" />
-			
-			<div id="protein-pool-dashboard"></div>
-		
-			<button onclick="yc.ui.UI.ins.showProteinComposion()">@</button>
-			
-		</div>
-		
-		<div style="float:right">
-			<button onclick="cc.Director.getInstance()._runningScene.layerInner.setScale(0.1)">0.1x</button>
-			<button onclick="cc.Director.getInstance()._runningScene.layerInner.setScale(0.5)">0.5x</button>
-			<button onclick="cc.Director.getInstance()._runningScene.layerInner.setScale(1)">1x</button>
-		</div>
-		
-		<div id="debug-output" style="float:right">
-			<div id="player-status"></div>
-		</div>
-			
-		
-		<div id="main-menu" style="width:300px;height:450px;margin:200px auto">
-			<button onclick="startGame()">开始</button>
-		</div>
+	
+	
+	
+	<div id="bulding-create-menu" style="display:none;position:absolute ;">
+		<button onclick="yc.ui.CreateBuildingMenu.ins.createBuilding(yc.inner.building.Tower)">+╭☆</button>
+		<button onclick="yc.ui.CreateBuildingMenu.ins.createBuilding(yc.inner.building.ProteinFactory)">+♫</button>
+		| <button onclick="yc.ui.CreateBuildingMenu.ins.ui.hide()">关闭</button>
+	</div>
+	
+	<div id="main-menu" style="width:300px;height:450px;margin:200px auto">
+		<button onclick="startGame()">开始</button>
 	</div>
 	
 	
