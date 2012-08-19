@@ -7,13 +7,17 @@ yc.inner.building.Tower = yc.inner.building.Building.extend({
     , freq: 500
     
     // 火力
-    , firepower: 50
-    
-    // 溅射半径
-    , sputtering: 5
+    , firepower: 10
     
     // 射程
     , range: 100
+    
+    // 溅射半径
+    , sputtering: 10
+    
+    // 溅射伤害
+    , sputtering_injure: 3
+    
     
     , hexgon: null
     
@@ -47,9 +51,10 @@ yc.inner.building.Tower = yc.inner.building.Building.extend({
         
         // 瞄准病毒
         var myPos = this.getPosition() ;
-        for(var id in yc.op.ins(yc.inner.Virus).usingObjects )
+        var arrVirus = yc.inner.InnerLayer.ins().layerVirus.arrVirus ;
+        for(var i=0;i<arrVirus.length;i++)
         {
-            var virus = yc.op.ins(yc.inner.Virus).usingObjects[id]
+            var virus = arrVirus[i]
             var virusPos = virus.getPosition() ;
             var dis = yc.util.pointsDis(myPos.x,myPos.y,virusPos.x,virusPos.y) ;
             
@@ -57,7 +62,7 @@ yc.inner.building.Tower = yc.inner.building.Building.extend({
             if( dis < this.range+virus.radius )
             {
                 // shot
-                yc.inner.Bullet.create().shot( myPos, virusPos, dis, this.speed ) ;
+                yc.inner.Bullet.create().shot( myPos, virusPos, dis, this ) ;
                 break ;
             }
         }
