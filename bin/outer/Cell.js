@@ -2,12 +2,12 @@ yc.outer.Cell = yc.outer.LifeEntity.extend({
 
 	radius: 10
 	
-	, maxSpeed: 4
-	, accel: 0.3
-	, _running: false
+    , maxSpeed: 4
+    , accel: 0.3
+    
+    , _running: false
 	
 	, _turn: null
-	, turnRate: 0.1
     
     , ctor: function(){
     	
@@ -38,10 +38,6 @@ yc.outer.Cell = yc.outer.LifeEntity.extend({
     
     , incAngle: function(sign) {
 		this.angle = (this.angle + sign * this.turnRate) % (2 * Math.PI);
-	}
-	
-	, incSpeed: function () {
-		
 	}
     
     , _visit: cc.Sprite.prototype.visit

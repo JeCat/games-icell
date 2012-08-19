@@ -83,17 +83,17 @@ yc.inner.ProteinFormulas = function(){
     
     this.addNewFormula({
         name: 'red'
-        , materials: {red:30}
+        , materials: {red:5}
         , color: 'rgb(255,0,0)'
     }) ;
     this.addNewFormula({
         name: 'yellow'
-        , materials: {yellow:30}
+        , materials: {yellow:5}
         , color: 'rgb(255,255,0)'
     }) ;
     this.addNewFormula({
         name: 'blue'
-        , materials: {blue:30}
+        , materials: {blue:5}
         , color: 'rgb(0,0,255)'
     }) ;
     

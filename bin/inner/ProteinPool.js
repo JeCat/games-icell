@@ -18,9 +18,9 @@ yc.inner.ProteinPool = function ()
 		// 触发事件
 		$(window).trigger('yc.inner.ProteinPool::onAfterChange',[this,name,this.mapProteins[name],num]) ;
 	}
-	this.increase('red',10) ;
-	this.increase('yellow',10) ;
-	this.increase('blue',10) ;
+	this.increase('red',3) ;
+	this.increase('yellow',3) ;
+	this.increase('blue',3) ;
 	
 	this.num = function(name){
         if(typeof(this.mapProteins[name])=='undefined')

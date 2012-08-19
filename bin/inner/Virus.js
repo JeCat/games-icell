@@ -2,7 +2,7 @@ yc.inner.Virus = cc.Sprite.extend({
 
     radius: 10
     
-    , hpFull: 30
+    , hpFull: 20
     , hpRate: 1
     , hp: 0
     

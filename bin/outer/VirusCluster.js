@@ -23,7 +23,7 @@ yc.outer.VirusCluster = yc.outer.LifeEntity.extend({
     }
     
     , vigilanceRange: function(){
-        return 400 ;
+        return 200 ;
     }
     
     , _visit: cc.Sprite.prototype.visit
@@ -43,10 +43,11 @@ yc.outer.VirusCluster = yc.outer.LifeEntity.extend({
             radian = radian - cell.angle ;
             if(radian<0)
             {
-                radian = 2*Math.PI - radian ;
+                radian = 2*Math.PI + radian ;
             }
 
             // 
+            log(radian) ;
             yc.inner.InnerLayer.ins().touchVirusCluster(radian) ;
             
             return ;
@@ -55,8 +56,21 @@ yc.outer.VirusCluster = yc.outer.LifeEntity.extend({
         // 警示范围
         if( this.vigilanceRange() > yc.util.pointsDis(cell.x,cell.y,this.x,this.y) )
         {
-            this.angle = yc.util.radianBetweenPoints(this.x,this.y,cell.x,cell.y) ;
-            this.speed = 3 ;
+            // 调整角度
+            var targetAngle = yc.util.radianBetweenPoints(this.x,this.y,cell.x,cell.y) ;
+            var turnAngle = this.angle - targetAngle ;
+            if(turnAngle<0)
+            {
+                this.incAngle( turnAngle>-Math.PI? 1: -1 ) ;
+            }
+            else
+            {
+                this.incAngle( turnAngle<Math.PI? -1: 1 ) ;
+            }
+            
+            // 切换到追击速度
+            this.speed = 4 ;
+            
             this.moving() ;
         }
         

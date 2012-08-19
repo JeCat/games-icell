@@ -4,7 +4,7 @@ yc.inner.building.Tower = yc.inner.building.Building.extend({
     speed: 500
     
     // 射击频率
-    , freq: 500
+    , freq: 300
     
     // 火力
     , firepower: 10
@@ -76,7 +76,8 @@ yc.inner.building.Tower = yc.inner.building.Building.extend({
 
 
 yc.inner.building.Tower.price = {
-    red: 10 
-    , yellow: 10  
+    red: 3 
+    , yellow: 3  
+    , blue: 3  
 }
     

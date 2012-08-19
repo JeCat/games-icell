@@ -22,7 +22,7 @@ yc.ui.UI = function(){
 	
 	
 	// 合成蛋白质
-	this.showProteinComposion = function(){
+	this.toggleProteinComposion = function(){
 		
 		$("#dialog-protein-composite")
 			.width(400).height(300)
@@ -32,7 +32,7 @@ yc.ui.UI = function(){
 				, position: 'absolute'
 				, 'z-index': 100
 			})
-			.show() ;
+			.toggle() ;
 	}
 }
 yc.ui.UI.ins = new yc.ui.UI ;

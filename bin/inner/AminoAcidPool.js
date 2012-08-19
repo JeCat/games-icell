@@ -15,9 +15,9 @@ yc.inner.AminoAcidPool = function ()
 		$(window).trigger('yc.inner.AminoAcidPool::onAfterChange',[this,type,num]) ;
 	}
 	
-	this.increase('red',300) ;
-	this.increase('yellow',300) ;
-	this.increase('blue',300) ;
+	this.increase('red',10) ;
+	this.increase('yellow',10) ;
+	this.increase('blue',10) ;
 }
 yc.inner.AminoAcidPool.types = ['red','yellow','blue'] ;
 

@@ -4,12 +4,26 @@ yc.outer.LifeEntity = cc.Sprite.extend({
     , y: 0
     
     , maxSpeed: 0.5
-    , speed: 0.5
+    , speed: 0.3
     , angle: 1
+    , turnRate: 0.2
     
+    
+    , incAngle: function(sign) {
+        
+        this.angle = this.angle + sign*this.turnRate ;
+        if(this.angle<0)
+        {
+            this.angle+= 2 * Math.PI ;
+        }
+        else
+        {
+            this.angle = this.angle % (2 * Math.PI);
+        }
+    }
     
     , randomTurn: function(){
-        this.angle = ( this.angle + Math.random()*(Math.PI/3) )  % (2*Math.PI) ;
+        this.incAngle( Math.random()>0.5? -1: 1 ) ;
     }
     
     , mosey: function(speed){
@@ -17,7 +31,7 @@ yc.outer.LifeEntity = cc.Sprite.extend({
         this.speed = typeof(speed)=='undefined'? 0.5: speed ;
         
         // 随机方向
-        if( Math.random()<0.01 )
+        if( Math.random()<0.1 )
         {
             this.randomTurn() ;
         }
