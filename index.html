@@ -50,8 +50,8 @@
 
 		<div>
 			Debug:
-			<button onclick="yc.inner.VirusLayer.ins().createVirusSprite().run(6,9) ;" title="创建一个进入细胞内的病毒群">病毒</button>
-			<button onclick="yc.inner.building.Tower.c().putOn(6,7).c().putOn(7,7).c().putOn(5,7).c().putOn(4,7).c().putOn(4,6).c().putOn(4,5).c().putOn(8,7).c().putOn(8,6).c().putOn(8,5);" title="创建一个进入细胞内的病毒群">放置塔</button>
+			<button onclick="yc.inner.VirusLayer.ins().createVirusSprite().run( yc.inner.Cell.ins().aAxes.hexgon(6,9) ) ;" title="创建一个进入细胞内的病毒">病毒</button>
+			<button onclick="yc.inner.VirusCluster.create( yc.inner.Cell.ins().aAxes.hexgon(6,9) ) ;" title="创建一个进入细胞内的病毒群">病毒群</button>
 		</div>
 		
 		<div id="aminoacid-dashboard">

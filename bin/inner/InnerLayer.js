@@ -42,9 +42,8 @@ yc.inner.InnerLayer = cc.LayerColor.extend({
             }
         }
         
-        // 创建并释放病毒 
-        var virus = this.layerVirus.createVirusSprite() ;
-        virus.run(touchingHexgon.x,touchingHexgon.y) ;
+        // 创建内部场景种的病毒群 
+        yc.inner.VirusCluster.create(touchingHexgon) ;
     }
     
     , _setScale: cc.Layer.prototype.setScale

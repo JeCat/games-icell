@@ -28,6 +28,7 @@ var $ = jquery ;
             , 'bin/util/functions.js'
             
             , 'bin/outer/Camera.js'
+            , 'bin/outer/LifeEntity.js'
             , 'bin/outer/Cell.js'
             , 'bin/outer/PlayerLayer.js'
             , 'bin/outer/AminoAcid.js'
@@ -44,6 +45,7 @@ var $ = jquery ;
             , 'bin/inner/HexgonAxesPathMap.js'
             , 'bin/inner/Cell.js'
             , 'bin/inner/Virus.js'
+            , 'bin/inner/VirusCluster.js'
             , 'bin/inner/VirusLayer.js'
             , 'bin/inner/Bullet.js'
             , 'bin/inner/BuildingLayer.js'

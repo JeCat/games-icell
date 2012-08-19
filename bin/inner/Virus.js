@@ -19,9 +19,8 @@ yc.inner.Virus = cc.Sprite.extend({
         this.hp = this.hpFull ;
     }
     
-    , run: function(startX,startY) {
+    , run: function(fromHexgon) {
         
-        var fromHexgon = cell.aAxes.hexgon(startX,startY) ;
         var targetHexgon = cell.pathMap().next(fromHexgon) ;
         
         // 到达
@@ -38,8 +37,8 @@ yc.inner.Virus = cc.Sprite.extend({
         this.actRunning._stop = this.actRunning.stop ;
         this.actRunning.stop = function(){
             this._stop() ;
-            log('virus run step action stop()') ;
-            virus.run(targetHexgon.x,targetHexgon.y) ;
+
+            virus.run(targetHexgon) ;
         }
         
         this.runAction(this.actRunning) ;

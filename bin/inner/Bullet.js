@@ -55,6 +55,7 @@ yc.inner.Bullet = cc.Sprite.extend({
     }
     
 }) ;
+yc.inner.Bullet.className = 'yc.inner.Bullet' ;
 
 yc.inner.Bullet.create = function(){
     

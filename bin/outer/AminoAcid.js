@@ -1,5 +1,5 @@
 /*** 氨基酸 ***/
-yc.outer.AminoAcid = cc.Sprite.extend({  
+yc.outer.AminoAcid = yc.outer.LifeEntity.extend({
 
     size: 6
     
@@ -11,6 +11,9 @@ yc.outer.AminoAcid = cc.Sprite.extend({
     	this.type = yc.inner.AminoAcidPool.types[ 0|(Math.random()*(yc.inner.AminoAcidPool.types.length)) ] ;
     	this.num = Math.round(Math.random()*10) ;
     	this.size = 3 + Math.round(this.num/2) ;
+    	
+    	// 随机方向
+        this.randomTurn() ;
     }
 	
 	,get_collision_circle:  function() {
@@ -35,6 +38,9 @@ yc.outer.AminoAcid = cc.Sprite.extend({
 	, _visit: cc.Sprite.prototype.visit
 	, visit: function(c){//return;
 	    
+        // 随机改变方向
+        this.mosey() ;
+        
 	    // 判断碰撞
 	    var cell = yc.outer.Cell.ins() ;
 	    var dis = Math.sqrt(Math.pow(this.x-cell.x,2) + Math.pow(this.y-cell.y,2)) ;

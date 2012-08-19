@@ -1,16 +1,12 @@
-yc.outer.Cell = cc.Sprite.extend({  
+yc.outer.Cell = yc.outer.LifeEntity.extend({
 
 	radius: 10
-	, x: 0
-	, y: 0
 	
 	, maxSpeed: 4
-    , speed: 0
 	, accel: 0.3
 	, _running: false
 	
 	, _turn: null
-    , angle: 0
 	, turnRate: 0.1
     
     , ctor: function(){
@@ -77,8 +73,7 @@ yc.outer.Cell = cc.Sprite.extend({
 		// update our position based on our angle and speed
 		if(this.speed)
 		{
-			this.x = this.x + this.speed * Math.sin(this.angle);
-			this.y = this.y + this.speed * Math.cos(this.angle);
+			this.moving() ;
 	    	
 	    	// 移动摄像机
 	    	yc.outer.Camera.ins().moveByFocus(this.x,this.y) ;

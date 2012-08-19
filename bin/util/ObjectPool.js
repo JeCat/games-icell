@@ -45,7 +45,7 @@ yc.util.ObjectPool.mapFlyweights = {} ;
 yc.util.ObjectPool.ins = function(className){
     
     var name = typeof(className.className)=='undefined'? className.name: className.className ;
-    if(!name)
+    if( !name || typeof(name)=='undefined' )
     {
         return null ;
     }

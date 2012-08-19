@@ -11,7 +11,7 @@ var YouCellGame = cc.Application.extend({
             // 六边形格子的最大层数
             , cellMaxLevels: 5
             // 六边形格子层数的游戏初始值
-            , cellInitialLevels: 5
+            , cellInitialLevels: 2
             
             // 六边形格子 总共层数： 1(细胞核) + 2*(细胞膜) + 实际空间
             , totalHexgonLevels: 13
