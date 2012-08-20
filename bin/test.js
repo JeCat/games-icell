@@ -20,7 +20,7 @@ function randomBlock(){
 
 function testVirusRun(startX,startY){
     
-    var layer = yc.inner.VirusLayer.ins() ;
+    var layer = yc.inner.monster.VirusLayer.ins() ;
     var virus = layer.createVirusSprite() ;
     
     virus.run(startX,startY) ;

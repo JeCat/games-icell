@@ -1,4 +1,4 @@
-yc.inner.VirusCluster = cc.Sprite.extend({
+yc.inner.monster.VirusCluster = cc.Sprite.extend({
     
     nums: 10
     
@@ -20,7 +20,7 @@ yc.inner.VirusCluster = cc.Sprite.extend({
         
         this.setPosition(cc.p(stay.center[0],stay.center[1])) ;
         
-        var layer  = yc.inner.VirusLayer.ins() ;
+        var layer  = yc.inner.monster.VirusLayer.ins() ;
         layer.addChild(this) ;
         
         var release = function(){
@@ -43,15 +43,15 @@ yc.inner.VirusCluster = cc.Sprite.extend({
     }
     
     , releaseOver: function(){
-        yc.inner.VirusLayer.ins().removeChild(this) ;
-        yc.op.ins(yc.inner.VirusCluster).free(this) ;
+        yc.inner.monster.VirusLayer.ins().removeChild(this) ;
+        yc.op.ins(yc.inner.monster.VirusCluster).free(this) ;
     }
 });
 
-yc.inner.VirusCluster.className = 'yc.inner.VirusCluster' ;
+yc.inner.monster.VirusCluster.className = 'yc.inner.monster.VirusCluster' ;
 
-yc.inner.VirusCluster.create = function(enterHexgon){
-    var cluster = yc.op.ins(yc.inner.VirusCluster).ob() ;
+yc.inner.monster.VirusCluster.create = function(enterHexgon){
+    var cluster = yc.op.ins(yc.inner.monster.VirusCluster).ob() ;
     cluster.init() ;
     cluster.enterCell(enterHexgon) ;
 }

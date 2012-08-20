@@ -1,4 +1,4 @@
-yc.inner.Virus = cc.Sprite.extend({  
+yc.inner.monster.Virus = cc.Sprite.extend({  
 
     radius: 10
     
@@ -87,8 +87,8 @@ yc.inner.Virus = cc.Sprite.extend({
         this.stopAction(this.actRunning) ;
         delete this.actRunning ;
         
-        yc.inner.VirusLayer.ins().removeVirusSprite(this) ;
+        yc.inner.monster.VirusLayer.ins().removeVirusSprite(this) ;
     }
     
 }) ;
-yc.inner.Virus.className = 'yc.inner.Virus' ;
+yc.inner.monster.Virus.className = 'yc.inner.monster.Virus' ;

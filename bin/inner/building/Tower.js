@@ -62,7 +62,7 @@ yc.inner.building.Tower = yc.inner.building.Building.extend({
             if( dis < this.range+virus.radius )
             {
                 // shot
-                var bullet = yc.inner.Bullet.create() ;
+                var bullet = yc.inner.building.Bullet.create() ;
                 bullet.shot( myPos, virusPos, dis, this ) ;
                 break ;
             }

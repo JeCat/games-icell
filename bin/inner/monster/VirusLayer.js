@@ -1,4 +1,4 @@
-yc.inner.VirusLayer = cc.Layer.extend({  
+yc.inner.monster.VirusLayer = cc.Layer.extend({  
 
     arrVirus: []
     
@@ -6,7 +6,7 @@ yc.inner.VirusLayer = cc.Layer.extend({
      * 创建一个病毒sprite
      */
     , createVirusSprite: function(){
-        var virus = yc.op.ins(yc.inner.Virus).ob() ;
+        var virus = yc.op.ins(yc.inner.monster.Virus).ob() ;
         virus.init() ;
         
         this.addChild(virus) ;
@@ -22,16 +22,16 @@ yc.inner.VirusLayer = cc.Layer.extend({
         yc.util.arr.remove(this.arrVirus,virus) ;
         
         this.removeChild(virus) ;
-        yc.op.ins(yc.inner.Virus).free(virus) ;
+        yc.op.ins(yc.inner.monster.Virus).free(virus) ;
     }
  
     
 }) ;
 
 
-yc.inner.VirusLayer.ins = function(){
-    if(typeof(yc.inner.VirusLayer._ins)=='undefined'){
-        yc.inner.VirusLayer._ins = new yc.inner.VirusLayer() ;
+yc.inner.monster.VirusLayer.ins = function(){
+    if(typeof(yc.inner.monster.VirusLayer._ins)=='undefined'){
+        yc.inner.monster.VirusLayer._ins = new yc.inner.monster.VirusLayer() ;
     }
-    return yc.inner.VirusLayer._ins ;
+    return yc.inner.monster.VirusLayer._ins ;
 }

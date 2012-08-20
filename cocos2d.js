@@ -44,16 +44,18 @@ var $ = jquery ;
             , 'bin/inner/HexgonAxes.js'
             , 'bin/inner/HexgonAxesPathMap.js'
             , 'bin/inner/Cell.js'
-            , 'bin/inner/Virus.js'
-            , 'bin/inner/VirusCluster.js'
-            , 'bin/inner/VirusLayer.js'
-            , 'bin/inner/Bullet.js'
             , 'bin/inner/BuildingLayer.js'
             , 'bin/inner/ProteinFormulas.js'
             
             , 'bin/inner/building/Building.js'
             , 'bin/inner/building/Tower.js'
+            , 'bin/inner/building/Bullet.js'
             , 'bin/inner/building/ProteinFactory.js'
+            
+            
+            , 'bin/inner/monster/Virus.js'
+            , 'bin/inner/monster/VirusCluster.js'
+            , 'bin/inner/monster/VirusLayer.js'
          
         ]
     };

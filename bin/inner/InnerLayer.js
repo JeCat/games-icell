@@ -21,7 +21,7 @@ yc.inner.InnerLayer = cc.LayerColor.extend({
         this.addChild(this.buildings) ;
         
         // 层：病毒
-        this.layerVirus = yc.inner.VirusLayer.ins() ;
+        this.layerVirus = yc.inner.monster.VirusLayer.ins() ;
         this.addChild(this.layerVirus) ;
     }
     
@@ -43,7 +43,7 @@ yc.inner.InnerLayer = cc.LayerColor.extend({
         }
         
         // 创建内部场景种的病毒群 
-        yc.inner.VirusCluster.create(touchingHexgon) ;
+        yc.inner.monster.VirusCluster.create(touchingHexgon) ;
     }
     
     , _setScale: cc.Layer.prototype.setScale
