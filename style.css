@@ -25,3 +25,11 @@ body{
 #protein-pool-dashboard .protein-num {
     margin-bottom: 10px;
 }
+
+#dialog-protein-composite{
+    background-color: #dedede ;
+    padding: 10px ;
+}
+.protein-formula{
+    margin-top: 5px ;
+}

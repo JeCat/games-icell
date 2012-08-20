@@ -63,7 +63,12 @@ yc.inner.building.ProteinFactory = yc.inner.building.Building.extend({
             // 检查氨基酸
             if(!checkingMaterials(formula))
             {
+                formula.ui.find('.formula-msg').text('原料不足').show() ;
                 continue ;
+            }
+            else
+            {
+                formula.ui.find('.formula-msg').text('').hide() ;
             }
                 
             this.working_formula = formula ;

@@ -28,20 +28,23 @@
 			<span style="color:blue" class="aminoacid-num-blue"></span>
 		</div>
 		
+		<hr />
+		
 		<div>
 			<div id="protein-formulas-outer"></div>
 			<div id="protein-composition-formula-template" class="protein-formula" style="display:none;">
 				
 				<button onclick="yc.inner.ProteinFormulas.ins.toggle( $(this).parent().data('formula').name )" class='protein-formula-togglebtn' style="float:left">暂停</button>
-				<span class="formula-name" style="float:left"></span>
-				<div class="protein-composite-progress" style="width:200px;height:10px; float:left"></div>
+				<span class='formula-display' style="float:left;width:200px"></span>
+				<span class="formula-msg" style="display:none"></span>
+				<div class="protein-composite-progress" style="width:150px;height:10px; float:left"></div>
 				<div style="clear:both"></div>
 			</div>
 		</div>
 		
 		<div>
 			
-			<button onclick="$('#dialog-protein-composite').hide()">关闭</button>
+			<button onclick="$('#dialog-protein-composite').hide()" style="float:right">关闭</button>
 		</div>
 		
 	</div>

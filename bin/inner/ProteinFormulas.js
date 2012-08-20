@@ -35,7 +35,20 @@ yc.inner.ProteinFormulas = function(){
         
         formula.ui = ui ;
         ui.data('formula',formula) ;
-        ui.find('.formula-name').text(formula.name).css({color: formula.color}) ;
+        //ui.find('.formula-name').text(formula.name).css({color: formula.color}) ;
+        
+        // 显示公式
+        formula.detail = '<span style="color:'+formula.color+'">♫</span> = ' ;
+        var i = 0 ;
+        for(var key in formula.materials)
+        {
+            if(i++)
+            {
+                formula.detail+= ' + ' ;
+            }
+            formula.detail+= '<span style="color:'+key+'">♪ '+formula.materials[key]+'</span>' ;
+        }
+        ui.find('.formula-display').html(formula.detail) ;
         
         // 维护链表
         if( !this.first )
@@ -95,6 +108,11 @@ yc.inner.ProteinFormulas = function(){
         name: 'blue'
         , materials: {blue:5}
         , color: 'rgb(0,0,255)'
+    }) ;
+    this.addNewFormula({
+        name: 'orange'
+        , materials: {red:4,yellow:4}
+        , color: 'rgb(255,165,0)'
     }) ;
     
 }
