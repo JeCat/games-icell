@@ -1,4 +1,4 @@
-yc.inner.BuildingLayer = cc.Layer.extend({  
+yc.inner.building.BuildingLayer = cc.Layer.extend({  
 
     createBuilding: function(buildingClass,x,y)
     {   

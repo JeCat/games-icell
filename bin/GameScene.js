@@ -20,10 +20,6 @@ yc.GameScene = cc.Scene.extend({
         this.addChild(this.layerInner) ;
         
         
-        
-        // 新玩家初始化一个新细胞
-        this.layerInner.cell.newborn() ;
-        
     }
     
     , onTouchesBegan: function(touches, event){

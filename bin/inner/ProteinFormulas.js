@@ -74,6 +74,8 @@ yc.inner.ProteinFormulas = function(){
         
         // 触发事件
         $(window).trigger('yc.inner.ProteinFormulas::onAfterAppend',[this,formula]) ;
+        
+        return this ;
     }
     
     this.toggle = function(name)
@@ -94,26 +96,6 @@ yc.inner.ProteinFormulas = function(){
         }
     }
     
-    this.addNewFormula({
-        name: 'red'
-        , materials: {red:5}
-        , color: 'rgb(255,0,0)'
-    }) ;
-    this.addNewFormula({
-        name: 'yellow'
-        , materials: {yellow:5}
-        , color: 'rgb(255,255,0)'
-    }) ;
-    this.addNewFormula({
-        name: 'blue'
-        , materials: {blue:5}
-        , color: 'rgb(0,0,255)'
-    }) ;
-    this.addNewFormula({
-        name: 'orange'
-        , materials: {red:4,yellow:4}
-        , color: 'rgb(255,165,0)'
-    }) ;
     
 }
 

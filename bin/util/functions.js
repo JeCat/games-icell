@@ -85,6 +85,46 @@ yc.util.drawRect = function(lftTop,rgtBtm,ctx,strokeStyle,fillStyle){
     }
 }
 
+/**
+ * 画一个多边形
+ */
+yc.util.drawPolygon = function(points,ctx,strokeStyle,fillStyle){
+    if( typeof(strokeStyle)!='undefined' && strokeStyle )
+    {
+        ctx.strokeStyle = strokeStyle ;
+    }
+    else
+    {
+        strokeStyle = null ;
+    }
+    
+    if( typeof(fillStyle)!='undefined' && fillStyle )
+    {
+        ctx.fillStyle = fillStyle ;
+    }
+    else
+    {
+        fillStyle = null ;
+    }
+    
+    ctx.beginPath() ;
+    
+    ctx.moveTo(points[points.length-1][0],points[points.length-1][1]) ;
+    for(var p=0;p<points.length;p++)
+    {
+    	ctx.lineTo(points[p][0],points[p][1]) ;
+    }
+    ctx.closePath() ;
+    
+    if(fillStyle)
+    {
+        ctx.fill() ;
+    }
+    if(strokeStyle)
+    {
+        ctx.stroke() ;
+    }
+}
 
 yc.util.arr = {} ;
 yc.util.arr.search = function(arr,ele){
@@ -106,4 +146,55 @@ yc.util.arr.remove = function(arr,ele){
         return true ;
     }
     return false ;
+}
+
+
+
+
+/**
+	Helper function which tests whether two lines intersect.
+	@param l1 is a line of the form [[x1, y1], [x2, y2]]
+	@param l2 is a line of the form [[x1, y1], [x2, y2]]	
+*/
+yc.util.lineOnLine = function(l1, l2) {
+	// Detects the intersection of two lines
+	//   http://www.kevlindev.com/gui/math/intersection/Intersection.js
+	var a1 = l1[0];
+	var a2 = l1[1];
+	var b1 = l2[0];
+	var b2 = l2[1];
+	var a1x = a1[0];
+	var a1y = a1[1];
+	var a2x = a2[0];
+	var a2y = a2[1];
+	var b1x = b1[0];
+	var b1y = b1[1];
+	var b2x = b2[0];
+	var b2y = b2[1];
+	
+	var ua_t = (b2x - b1x) * (a1y - b1y) - (b2y - b1y) * (a1x - b1x);
+	var ub_t = (a2x - a1x) * (a1y - b1y) - (a2y - a1y) * (a1x - b1x);
+	var u_b  = (b2y - b1y) * (a2x - a1x) - (b2x - b1x) * (a2y - a1y);
+	
+	if (u_b) {
+		var ua = ua_t / u_b;
+		var ub = ub_t / u_b;
+		
+		if (0 <= ua && ua <= 1 && 0 <= ub && ub <= 1) {
+			// intersection
+			return [a1x + ua * (a2x - a1x), a1y + ua * (a2y - a1y)];
+		} else {
+			return [];
+		}
+	} else {
+		if (ua_t == 0 || ub_t == 0) {
+			// coincident
+			//return [line2]
+			//this will be caught elsewhere anyway
+			return [(a2x + a1x) / 2, (a2y + a1y) / 2];
+		} else {
+			// parallel
+			return [];
+		}
+	}
 }

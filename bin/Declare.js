@@ -8,5 +8,6 @@ yc.outer = {} ;
 yc.inner = {} ;
 yc.inner.building = {} ;
 yc.inner.monster = {} ;
+yc.levels = {} ;
 
 

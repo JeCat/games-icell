@@ -17,7 +17,7 @@ yc.inner.InnerLayer = cc.LayerColor.extend({
         this.addChild(this.map) ;
         
         // 层：建筑
-        this.buildings = new yc.inner.BuildingLayer() ;
+        this.buildings = new yc.inner.building.BuildingLayer() ;
         this.addChild(this.buildings) ;
         
         // 层：病毒

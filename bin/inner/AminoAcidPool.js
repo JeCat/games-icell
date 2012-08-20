@@ -13,11 +13,10 @@ yc.inner.AminoAcidPool = function ()
 		
 		// 触发事件
 		$(window).trigger('yc.inner.AminoAcidPool::onAfterChange',[this,type,num]) ;
+		
+		return this ;
 	}
 	
-	this.increase('red',10) ;
-	this.increase('yellow',10) ;
-	this.increase('blue',10) ;
 }
 yc.inner.AminoAcidPool.types = ['red','yellow','blue'] ;
 

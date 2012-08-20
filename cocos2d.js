@@ -33,6 +33,8 @@ var $ = jquery ;
             , 'bin/outer/PlayerLayer.js'
             , 'bin/outer/AminoAcid.js'
             , 'bin/outer/VirusCluster.js'
+            , 'bin/outer/Boss.js'
+            , 'bin/outer/BossCompass.js'
             , 'bin/outer/RolesLayer.js'
             
             , 'bin/inner/AminoAcidPool.js'
@@ -44,18 +46,20 @@ var $ = jquery ;
             , 'bin/inner/HexgonAxes.js'
             , 'bin/inner/HexgonAxesPathMap.js'
             , 'bin/inner/Cell.js'
-            , 'bin/inner/BuildingLayer.js'
             , 'bin/inner/ProteinFormulas.js'
             
+            , 'bin/inner/building/BuildingLayer.js'
             , 'bin/inner/building/Building.js'
             , 'bin/inner/building/Tower.js'
             , 'bin/inner/building/Bullet.js'
             , 'bin/inner/building/ProteinFactory.js'
             
-            
             , 'bin/inner/monster/Virus.js'
             , 'bin/inner/monster/VirusCluster.js'
             , 'bin/inner/monster/VirusLayer.js'
+            
+            
+            , 'bin/levels/FreeWorld.js'
          
         ]
     };

@@ -109,7 +109,7 @@ function startGame(){
 		[0].focus() ;
 	
 	
-	game = new YouCellGame(yc.GameScene);
+	game = new YouCellGame(yc.levels.FreeWorld);
 	dbg = false ;
 	
 	// webkitRequestAnimationFrame 似乎不太流畅
