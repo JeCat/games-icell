@@ -4,14 +4,25 @@ yc.outer.VirusCluster = yc.outer.LifeEntity.extend({
     
     , speed: 0.5
     , _char: '$'
-    
-    , ctor: function(){
-        this._super() ;
+    , lv: 1
         
+    , init: function(){
+    	
         var idx = Math.round(Math.random()*(yc.outer.VirusCluster.charset.length-1)) ;
         this._char = yc.outer.VirusCluster.charset.charAt(idx) ;
         
         this.randomTurn() ;
+        
+        // 根据离Boss的距离确定病毒群的等级
+        var compass = yc.outer.BossCompass.ins() ;
+        if(compass.nearestBoss)
+        {
+        	this.lv = compass.nearestBoss.lv - Math.round(compass.nearestDis/200) - 10 ;
+        	if(this.lv<1)
+        	{
+        		this.lv = 1 ;
+        	}
+        }
     }
     
     , transform: yc.outer.Camera.transformSprite
@@ -20,6 +31,8 @@ yc.outer.VirusCluster = yc.outer.LifeEntity.extend({
         ctx.fillStyle = 'red' ;
         ctx.font="normal 4px san-serif";
         ctx.fillText(this._char,0,0);
+        
+        ctx.fillText('Lv '+this.lv,5,-8);
     }
     
     , vigilanceRange: function(){

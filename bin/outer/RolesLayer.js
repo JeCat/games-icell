@@ -73,6 +73,7 @@ yc.outer.RolesLayer = cc.Layer.extend({
         	    }
         	    
         		var aRole = yc.util.ObjectPool.ins(roleCls).ob() ;
+        		aRole.init() ;
         		
         		aRole.x = x ;
         		aRole.y = y ;
@@ -90,3 +91,4 @@ yc.outer.RolesLayer = cc.Layer.extend({
 		yc.util.ObjectPool.ins(aRole.constructor).free(aRole) ;
 	}
 }) ;
+

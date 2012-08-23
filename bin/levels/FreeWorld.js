@@ -52,7 +52,7 @@ yc.levels.FreeWorld = yc.GameScene.extend({
 	, _initBoss: function(){
 		
 		// boss 指南针
-		this.compassBoss = new yc.outer.BossCompass() ;
+		this.compassBoss = yc.outer.BossCompass.ins() ;
 		this.layerRoles.addChild(this.compassBoss) ;
 		//this.compassBoss.setPosition(cc.p(100,100)) ;
 		compass = this.compassBoss ;

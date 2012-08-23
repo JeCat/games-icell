@@ -2,6 +2,7 @@ yc.outer.BossCompass = cc.Sprite.extend({
 	
 	arrBosses: []
 	
+	, nearestBoss: null
 	, nearestDis: 0
 	, bossPoint: null
 	, bossAngle: 0
@@ -10,7 +11,7 @@ yc.outer.BossCompass = cc.Sprite.extend({
     , visit: function(ctx){
     	
     	// 计算最近的 boss
-    	var boss = this.nearestBoss() ;
+    	var boss = this.findNearestBoss() ;
     	this.bossPoint = boss? this.pointOnCameraBorder(boss): null ;
     	
     	this._visit(ctx) ;
@@ -33,11 +34,11 @@ yc.outer.BossCompass = cc.Sprite.extend({
         ctx.fillText(Math.round(this.nearestDis)+' km',-20,55) ;
     }
     
-    , nearestBoss: function(){
+    , findNearestBoss: function(){
     	
     	var cell = yc.outer.Cell.ins() ;
     	this.nearestDis = 0 ;
-    	var nearestBoss = null ;
+    	this.nearestBoss = null ;
     	
     	for(var i=0;i<this.arrBosses.length;i++)
     	{
@@ -47,11 +48,11 @@ yc.outer.BossCompass = cc.Sprite.extend({
     		if( dis<this.nearestDis || this.nearestDis<=0 )
     		{
     			this.nearestDis = dis ;
-    			nearestBoss = boss ;
+    			this.nearestBoss = boss ;
     		}
     	}
     	
-    	return nearestBoss ;
+    	return this.nearestBoss ;
     }
     
     , pointOnCameraBorder: function(boss){
@@ -85,3 +86,11 @@ yc.outer.BossCompass = cc.Sprite.extend({
     }
 	
 }) ;
+
+
+yc.outer.BossCompass.ins = function(){
+    if(typeof(yc.outer.BossCompass._ins)=='undefined'){
+        yc.outer.BossCompass._ins = new yc.outer.BossCompass() ;
+    }
+    return yc.outer.BossCompass._ins ;
+}

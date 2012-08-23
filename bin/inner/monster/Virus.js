@@ -11,7 +11,7 @@ yc.inner.monster.Virus = cc.Sprite.extend({
     , ctor: function(){
         this._super() ;
         
-        this.initWithFile('res/cocos20.png') ;
+        this.initWithFile('res/virus16.png') ;
     }
     
     , init: function(){

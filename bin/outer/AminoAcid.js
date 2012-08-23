@@ -3,10 +3,7 @@ yc.outer.AminoAcid = yc.outer.LifeEntity.extend({
 
     size: 6
     
-    , ctor: function()
-    {
-        this._super() ;
-        
+    , init: function(){
     	// 随机类型和数量
     	this.type = yc.inner.AminoAcidPool.types[ 0|(Math.random()*(yc.inner.AminoAcidPool.types.length)) ] ;
     	this.num = Math.round(Math.random()*10) ;
