@@ -1,5 +1,5 @@
 /**
- * 计算点 p1 到 p2 的射线的弧度 
+ * 计算点 p2 到 p1 的射线的弧度 
  * 使用 canvas 的旋转弧度（从上面开始，顺时针）
  */
 yc.util.radianBetweenPoints = function(p1X,p1Y,p2X,p2Y)
