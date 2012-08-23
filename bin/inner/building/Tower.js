@@ -21,6 +21,7 @@ yc.inner.building.Tower = yc.inner.building.Building.extend({
     
     , hexgon: null
     
+    , bShoting: true
     
     , _draw: yc.inner.building.Building.prototype.draw
     , draw: function(ctx){
@@ -48,6 +49,11 @@ yc.inner.building.Tower = yc.inner.building.Building.extend({
     }
     
     , shot: function(){
+    	
+    	if(!this.bShoting)
+    	{
+    		return ;
+    	}
         
         // 瞄准病毒
         var myPos = this.getPosition() ;
@@ -70,6 +76,14 @@ yc.inner.building.Tower = yc.inner.building.Building.extend({
         
         var tower = this ;
         setTimeout(function(){tower.shot()},this.freq) ;
+    }
+    
+    
+    /**
+     * 建筑停用
+     */
+    , stop: function(){
+    	this.bShoting = false ;
     }
     
 }) ;

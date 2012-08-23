@@ -17,6 +17,12 @@ yc.inner.AminoAcidPool = function ()
 		return this ;
 	}
 	
+	this.clear = function(){
+		this.increase('red',-this.red) ;
+		this.increase('yellow',-this.yellow) ;
+		this.increase('blue',-this.blue) ;
+	}
+	
 }
 yc.inner.AminoAcidPool.types = ['red','yellow','blue'] ;
 

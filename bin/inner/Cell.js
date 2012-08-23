@@ -1,5 +1,8 @@
 yc.inner.Cell = function()
 {
+	this.hpMax = 10 ;
+	this.hp = this.hpMax ;
+	
     this.aAxes = new HexgonAxes( game.settings.inner.width, game.settings.inner.height, game.settings.inner.hexgonSideLength ) ;
     this.aAxes._hexgonClass = yc.inner.CellHexgon ;
     this.aAxes.initHexgons() ;
@@ -64,9 +67,31 @@ yc.inner.Cell = function()
     }
 }
 
+yc.inner.Cell.prototype.increaseHp = function(val){
+	this.hp+= val ;
+	if(this.hp>this.hpMax)
+	{
+		this.hp = this.hpMax ;
+	}
+	else if(this.hp<0)
+	{
+		this.hp=0 ;
+	}
+	
+	// 触发事件
+	$(window).trigger('yc.inner.Cell::onAfterChange',[this,val,this.hp]) ;
+	
+	if(this.hp==0)
+	{
+		this.die() ;
+	}
+}
+
 // 新玩家 初始化一个新细胞
 yc.inner.Cell.prototype.newborn = function()
 {
+	this.increaseHp(0) ;
+	
     // 找到关键的格子
     // ------
     // 细胞核
@@ -103,10 +128,15 @@ yc.inner.Cell.prototype.newborn = function()
         this.expandCytoplasm(cell.cytoplasms[i]) ;
     }
     
+    this.newbornBuildings() ;
+}
+
+
+// 新玩家 初始化新细胞的建筑
+yc.inner.Cell.prototype.newbornBuildings = function(){
     // 初始化一个 炮塔 和 蛋白质工厂
     yc.inner.InnerLayer.ins().buildings.createBuilding( yc.inner.building.Tower, 6, 7 ) ;
     yc.inner.InnerLayer.ins().buildings.createBuilding( yc.inner.building.ProteinFactory, 6, 5 ) ;
-    
 }
 
 // 将个六边形格子扩张为细胞质
@@ -143,7 +173,72 @@ yc.inner.Cell.prototype.pathMap = function(){
     }
 }
 
+/**
+ * 病毒攻击到细胞核
+ */
+yc.inner.Cell.prototype.getHurt = function(){
+	
+	// 偷走蛋白质
+	var pool = yc.inner.ProteinPool.ins() ;
+	if(pool.total>0)
+	{
+		var proteins = [] ;
+		for(var key in pool.mapProteins)
+		{
+			if(pool.mapProteins[key]>0)
+			{
+				proteins.push(key) ;
+			}
+		}
+		
+		// 随机一种类型的蛋白质
+		var i = Math.floor(proteins.length * Math.random()) ;
+		var type = proteins[i] ;
+		
+		pool.increase(type,-1) ;
+	}
+	
+	// 攻击细胞核
+	else
+	{
+		this.increaseHp(-1) ;
+	}
+}
 
+yc.inner.Cell.prototype.die = function(){
+	alert('you are die !') ;
+	
+	// 清空资源
+	yc.inner.AminoAcidPool.ins().clear() ;
+	yc.inner.ProteinPool.ins().clear() ;
+	
+	// 回收所有建筑
+	for(var i=0;i<this.cytoplasms.length;i++)
+	{
+		if( this.cytoplasms[i].building )
+		{
+			this.cytoplasms[i].building.demolish() ;
+		}
+	}
+	
+	this.revive() ;
+}
+
+/**
+ * 重生
+ */
+yc.inner.Cell.prototype.revive = function(){
+	
+	this.increaseHp(10) ;
+	
+	// 重置基础建筑
+    this.newbornBuildings() ;
+	
+	// 清除尚未结束攻击的病毒
+	
+	// 返回原点
+	yc.outer.Cell.ins().jump(0,0) ;
+}
 
 yc.inner.Cell.ins = function(){
     if(typeof(yc.inner.Cell._ins)=='undefined'){

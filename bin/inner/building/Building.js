@@ -35,4 +35,31 @@ yc.inner.building.Building = cc.Sprite.extend({
         ctx.stroke() ;
     }
     
+    /**
+     * 拆除
+     */
+    , demolish: function(){
+    	this.hexgon.building = null ;
+    	this.hexgon.block = false ;
+    	this.hexgon = null ;
+    	this._parent.removeChild(this) ;
+    	
+    	// 停用
+    	this.stop() ;
+    }
+    
+    /**
+     * 出售
+     */
+    , sell: function(){
+    	this.demolish() ;
+    	
+    	// 回收一点蛋白质
+    }
+    
+    /**
+     * 建筑停用
+     */
+    , stop: function(){}
+    
 }) ;

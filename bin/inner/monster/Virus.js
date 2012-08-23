@@ -6,7 +6,11 @@ yc.inner.monster.Virus = cc.Sprite.extend({
     , hpRate: 1
     , hp: 0
     
+    , speed: 30
+    
     , actRunning: null
+    
+    , lv: 1
 
     , ctor: function(){
         this._super() ;
@@ -14,7 +18,13 @@ yc.inner.monster.Virus = cc.Sprite.extend({
         this.initWithFile('res/virus16.png') ;
     }
     
-    , init: function(){
+    , init: function(prototype){
+    	
+	    for(var key in prototype)
+	    {
+	    	this[key] = prototype[key] ;
+	    }
+   
         this.hpRate = 1 ;
         this.hp = this.hpFull ;
     }
@@ -26,14 +36,19 @@ yc.inner.monster.Virus = cc.Sprite.extend({
         // 到达
         if(!targetHexgon)
         {
+            this.attack() ;
+            
             this.destroy() ;
+            
             return false ;
         }
         
         this.setPosition(cc.p(fromHexgon.center[0],fromHexgon.center[1])) ;
         
+        
+        var dis = Math.sqrt(3) * game.settings.inner.hexgonSideLength ;
         var virus = this ;
-        this.actRunning = cc.MoveTo.create(2,cc.p(targetHexgon.center[0],targetHexgon.center[1])) ;
+        this.actRunning = cc.MoveTo.create(dis/this.speed,cc.p(targetHexgon.center[0],targetHexgon.center[1])) ;
         this.actRunning._stop = this.actRunning.stop ;
         this.actRunning.stop = function(){
             this._stop() ;
@@ -44,6 +59,10 @@ yc.inner.monster.Virus = cc.Sprite.extend({
         this.runAction(this.actRunning) ;
         
         return true ;
+    }
+    
+    , attack: function(){
+    	yc.inner.Cell.ins().getHurt() ;
     }
     
     , setPos: function(x,y){

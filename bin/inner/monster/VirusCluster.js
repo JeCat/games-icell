@@ -1,16 +1,20 @@
 yc.inner.monster.VirusCluster = cc.Sprite.extend({
     
-    nums: 10
+    totalNum: 10
+    , num: 10
     
     , stay: null
+    , lv: 1
     
+    , virusPrototype: {}
+        
     , ctor: function(){
         this._super() ;
         this.initWithFile('res/virus16.png') ;
     }
     
     , init: function(){
-        this.nums = 10 ;
+    	this.num = this.totalNum ;
     }
     
     , enterCell: function(stay){
@@ -26,11 +30,12 @@ yc.inner.monster.VirusCluster = cc.Sprite.extend({
         var release = function(){
             
             var virus = layer.createVirusSprite() ;
+            virus.init(cluster.virusPrototype) ;
             virus.run(stay) ;
             
-            cluster.nums -- ;
+            cluster.num -- ;
             
-            if(cluster.nums>0)
+            if(cluster.num>0)
             {
                 window.setTimeout(release,1000) ;
             }
@@ -50,8 +55,9 @@ yc.inner.monster.VirusCluster = cc.Sprite.extend({
 
 yc.inner.monster.VirusCluster.className = 'yc.inner.monster.VirusCluster' ;
 
-yc.inner.monster.VirusCluster.create = function(enterHexgon){
+yc.inner.monster.VirusCluster.create = function(enterHexgon,totalNum){
     var cluster = yc.op.ins(yc.inner.monster.VirusCluster).ob() ;
+    cluster.totalNum = typeof(totalNum)=='undefined'? 10: totalNum ;
     cluster.init() ;
-    cluster.enterCell(enterHexgon) ;
+    return cluster ;
 }

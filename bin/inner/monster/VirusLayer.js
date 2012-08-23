@@ -5,9 +5,8 @@ yc.inner.monster.VirusLayer = cc.Layer.extend({
     /**
      * 创建一个病毒sprite
      */
-    , createVirusSprite: function(){
+    , createVirusSprite: function(strength){
         var virus = yc.op.ins(yc.inner.monster.Virus).ob() ;
-        virus.init() ;
         
         this.addChild(virus) ;
         this.arrVirus.push(virus) ;

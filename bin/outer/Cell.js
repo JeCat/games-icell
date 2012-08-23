@@ -99,6 +99,19 @@ yc.outer.Cell = yc.outer.LifeEntity.extend({
     		this._turn = null ;
     	}
     }
+    
+    , jump: function(x,y){
+    	this.x = x ;
+    	this.y = y ;
+    	// 移动摄像机
+	    yc.outer.Camera.ins().moveByFocus(this.x,this.y) ;
+    	
+    	// 停止移动
+    	this.speed = 0 ;
+    	this._running = false ;
+    	this._turn = null ;
+    	
+    }
 });  
 
 yc.outer.Cell.ins = function(){

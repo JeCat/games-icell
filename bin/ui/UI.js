@@ -34,5 +34,11 @@ yc.ui.UI = function(){
 			})
 			.toggle() ;
 	}
+	
+	// HP 状态
+    $(window).bind('yc.inner.Cell::onAfterChange',null,function(e,o,val,hp){
+        $('#dashboard-hp').html('HP:'+hp+'/'+o.hpMax) ;
+    }) ;
+	
 }
 yc.ui.UI.ins = new yc.ui.UI ;

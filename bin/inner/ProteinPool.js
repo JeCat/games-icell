@@ -30,6 +30,12 @@ yc.inner.ProteinPool = function ()
         return this.mapProteins[name] ;
 	}
 	
+	this.clear = function(){
+		for(var key in this.mapProteins)
+		{
+			this.increase(key,-this.mapProteins[key]) ;
+		}
+	}
 }
 
 yc.inner.ProteinPool._ins = null ;

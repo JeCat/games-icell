@@ -17,7 +17,8 @@ yc.outer.VirusCluster = yc.outer.LifeEntity.extend({
         var compass = yc.outer.BossCompass.ins() ;
         if(compass.nearestBoss)
         {
-        	this.lv = compass.nearestBoss.lv - Math.round(compass.nearestDis/200) - 10 ;
+        	var dis = yc.util.pointsDis(this.x,this.y,compass.nearestBoss.x,compass.nearestBoss.y) ;
+        	this.lv = compass.nearestBoss.lv - Math.round(dis/200) ;
         	if(this.lv<1)
         	{
         		this.lv = 1 ;
@@ -42,28 +43,13 @@ yc.outer.VirusCluster = yc.outer.LifeEntity.extend({
     , _visit: cc.Sprite.prototype.visit
     , visit: function(c){
         
-        // 判断碰撞
         var cell = yc.outer.Cell.ins() ;
-        var dis = Math.sqrt(Math.pow(this.x-cell.x,2) + Math.pow(this.y-cell.y,2)) ;
-        if( dis<this.size+cell.radius )
+        
+        // 判断碰撞
+        if( this.testTouching(cell) )
         {
-            this._parent.deleteRole(this) ;
-            
-            // 计算病毒群到细胞圆心的绝对弧度
-            var radian = yc.util.radianBetweenPoints(cell.x,cell.y,this.x,this.y) ;
-            
-            // 计算病毒群相对细胞的弧度
-            radian = radian - cell.angle ;
-            if(radian<0)
-            {
-                radian = 2*Math.PI + radian ;
-            }
-
-            // 
-            log(radian) ;
-            yc.inner.InnerLayer.ins().touchVirusCluster(radian) ;
-            
-            return ;
+        	this.touchingCell(cell) ;
+        	return ;
         }
         
         // 警示范围
@@ -94,6 +80,50 @@ yc.outer.VirusCluster = yc.outer.LifeEntity.extend({
         }
         
         this._visit(c) ;
+    }
+    
+    , touchingHexgon: function(cell) {
+            
+        // 计算病毒群到细胞圆心的绝对弧度
+        var radian = yc.util.radianBetweenPoints(cell.x,cell.y,this.x,this.y) ;
+        
+        // 计算病毒群相对细胞的弧度
+        radian = radian - cell.angle ;
+        if(radian<0)
+        {
+            radian = 2*Math.PI + radian ;
+        }
+
+        return yc.inner.InnerLayer.ins().touchVirusCluster(radian) ;
+    }
+    
+    , createInnerSprite: function(hexgon){
+    	
+        var innerCluster = yc.inner.monster.VirusCluster.create(hexgon) ;
+        
+    	// 根据等级设置能力
+        innerCluster.virusPrototype = {
+        	lv: this.lv
+        	, speed: 30 + this.lv*0.5
+        	, hpFull: 20 + this.lv*4
+        }
+        
+		innerCluster.enterCell(hexgon) ;
+    }
+    
+    , testTouching: function(cell){
+        var dis = Math.sqrt(Math.pow(this.x-cell.x,2) + Math.pow(this.y-cell.y,2)) ;
+        return dis<this.size+cell.radius ;
+    }
+        
+    , touchingCell: function(cell){
+        this._parent.deleteRole(this) ;
+        
+        // 接触位置
+        var hexgon = this.touchingHexgon(cell) ;
+        
+        // 创建内部场景种的病毒群 
+        this.createInnerSprite(hexgon) ;
     }
       
 }) ;

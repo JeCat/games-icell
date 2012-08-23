@@ -26,7 +26,7 @@ yc.outer.BossCompass = cc.Sprite.extend({
     	
     	if(this.bossPoint)
     	{
-    		ctx.translate(this.bossPoint[0],-this.bossPoint[1]) ;
+    		//ctx.translate(this.bossPoint[0],-this.bossPoint[1]) ;
     	}
     	
 		ctx.rotate(Math.PI+this.bossAngle);

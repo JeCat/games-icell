@@ -26,7 +26,7 @@ yc.inner.InnerLayer = cc.LayerColor.extend({
     }
     
     
-    , touchVirusCluster: function(radian){
+    , touchVirusCluster: function(radian,strength){
         // 计算病毒群接触到的六边形格子
         // 比较出最接近 接触点弧度的 细胞膜
         var minRd = 10 ;
@@ -42,8 +42,7 @@ yc.inner.InnerLayer = cc.LayerColor.extend({
             }
         }
         
-        // 创建内部场景种的病毒群 
-        yc.inner.monster.VirusCluster.create(touchingHexgon) ;
+        return touchingHexgon ;
     }
     
     , _setScale: cc.Layer.prototype.setScale
