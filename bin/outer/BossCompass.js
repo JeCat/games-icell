@@ -2,6 +2,11 @@ yc.outer.BossCompass = cc.Sprite.extend({
 	
 	arrBosses: []
 	
+	, ctor: function(){
+	    this._super() ;
+	    this.setPosition(cc.p(100,100)) ;
+	}
+	
 	, nearestDis: 0
 	, bossPoint: null
 	, bossAngle: 0
@@ -20,7 +25,7 @@ yc.outer.BossCompass = cc.Sprite.extend({
     	
     	if(this.bossPoint)
     	{
-    		ctx.translate(this.bossPoint[0],-this.bossPoint[1]) ;
+    		//ctx.translate(this.bossPoint[0],-this.bossPoint[1]) ;
     	}
     	
 		ctx.rotate(Math.PI+this.bossAngle);
@@ -66,11 +71,22 @@ yc.outer.BossCompass = cc.Sprite.extend({
 		var bossPoint = [ l*Math.sin(this.bossAngle), l*Math.cos(this.bossAngle) ] ;
 		
 		// 检查射线在摄像机边界上的交点
+		var camera = yc.outer.Camera.ins() ;
+		var lft = -camera.focusOffsetX ;
+		var rgt = w-camera.focusOffsetX ;
+		var top = h-camera.focusOffsetY ;
+		var btm = camera.focusOffsetY ;
+		/*
+        var rLT = yc.util.radianBetweenPoints(0,0,lft,top) ;
+        var rLB = yc.util.radianBetweenPoints(0,0,lft,btm) ;
+        var rRT = yc.util.radianBetweenPoints(0,0,rgt,top) ;
+        var rRB = yc.util.radianBetweenPoints(0,0,rgt,btm) ;
+        */
 		var borders = [
-			[[-w/2,h/2],[w/2,h/2]] 		// 上
-			, [[-w/2,-h/2],[w/2,-h/2]] 	// 下
-			, [[-w/2,h/2],[-w/2,-h/2]] 	// 左
-			, [[w/2,h/2],[w/2,-h/2]] 	// 右
+			[[lft,top],[rgt,top]] 		// 上
+			, [[lft,btm],[rgt,btm]] 	// 下
+			, [[lft,top],[lft,btm]] 	// 左
+			, [[rgt,top],[rgt,btm]] 	// 右
 		] ;
 		for(var i=0;i<borders.length;i++)
 		{
