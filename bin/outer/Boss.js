@@ -19,7 +19,7 @@ yc.outer.Boss = yc.outer.VirusCluster.extend({
         	
         	// 直接杀死玩家
         	, attack: function(){
-        		yc.inner.Cell.ins().die() ;
+        		yc.inner.Cell.ins().increaseHp(-5) ;
         	}
         }
         

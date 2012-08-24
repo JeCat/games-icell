@@ -19,6 +19,9 @@ yc.GameScene = cc.Scene.extend({
         this.layerInner = yc.inner.InnerLayer.ins() ;
         this.addChild(this.layerInner) ;
         
+        // 层：ui
+        this.layerUi = ins(yc.ui.UILayer) ;
+        this.addChild(this.layerUi) ;
         
     }
     

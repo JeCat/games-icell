@@ -21,11 +21,14 @@ var $ = jquery ;
             , 'bin/GameScene.js'   
             , 'bin/test.js'   
             
-            , 'bin/ui/UI.js'
-            , 'bin/ui/CreateBuildingMenu.js'
-            
             , 'bin/util/ObjectPool.js'
             , 'bin/util/functions.js'
+            , 'bin/util/Instance.js'
+            
+            , 'bin/ui/UI.js'
+            , 'bin/ui/CreateBuildingMenu.js'
+            , 'bin/ui/UILayer.js'
+            , 'bin/ui/dashboard/Dashboard.js'
             
             , 'bin/outer/Camera.js'
             , 'bin/outer/LifeEntity.js'

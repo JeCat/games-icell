@@ -47,6 +47,7 @@ yc.levels.FreeWorld = yc.GameScene.extend({
 		// ---------------
 		// 初始化 Boss
 		this._initBoss() ;
+		
 	}
 	
 	, _initBoss: function(){
