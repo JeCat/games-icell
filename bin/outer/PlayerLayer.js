@@ -4,7 +4,7 @@ yc.outer.PlayerLayer = cc.Layer.extend({
         
         this._super() ;
         
-        //this.setKeypadEnabled(true);  
+        this.setKeyboardEnabled(true);  
         this.setTouchEnabled(true);
         
         //var winSize = cc.Director.getInstance().getWinSize();
@@ -36,7 +36,7 @@ yc.outer.PlayerLayer = cc.Layer.extend({
         this.cell.stopRun() ;
     }
     
-    , keyUp:function (key) {
+    , onKeyUp:function (key) {
         switch(key)
         {
         	// left
@@ -56,7 +56,7 @@ yc.outer.PlayerLayer = cc.Layer.extend({
         }
     }
     
-    , keyDown:function (key) { 
+    , onKeyDown:function (key) { 
     	//log(key) ;
         switch(key)
         {
