@@ -1,8 +1,8 @@
 yc.outer.RolesLayer = cc.Layer.extend({
     
     maxNums: {
-        'yc.outer.VirusCluster': 20
-        , 'yc.outer.AminoAcid': 20
+        'yc.outer.VirusCluster': 15
+        , 'yc.outer.AminoAcid': 30
     }
 
 	//, nAminoAcids: 0 

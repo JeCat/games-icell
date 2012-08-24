@@ -135,8 +135,8 @@ yc.inner.Cell.prototype.newborn = function()
 // 新玩家 初始化新细胞的建筑
 yc.inner.Cell.prototype.newbornBuildings = function(){
     // 初始化一个 炮塔 和 蛋白质工厂
-    yc.inner.InnerLayer.ins().buildings.createBuilding( yc.inner.building.Tower, 6, 7 ) ;
-    yc.inner.InnerLayer.ins().buildings.createBuilding( yc.inner.building.ProteinFactory, 6, 5 ) ;
+    yc.inner.InnerLayer.ins().buildings.createBuilding( yc.inner.building.Tower, 6, 5 ) ;
+    yc.inner.InnerLayer.ins().buildings.createBuilding( yc.inner.building.ProteinFactory, 7, 5 ) ;
 }
 
 // 将个六边形格子扩张为细胞质

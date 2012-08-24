@@ -18,7 +18,7 @@ yc.outer.VirusCluster = yc.outer.LifeEntity.extend({
         if(compass.nearestBoss)
         {
         	var dis = yc.util.pointsDis(this.x,this.y,compass.nearestBoss.x,compass.nearestBoss.y) ;
-        	this.lv = compass.nearestBoss.lv - Math.round(dis/200) ;
+        	this.lv = compass.nearestBoss.lv - Math.round(dis/3000) ;
         	if(this.lv<1)
         	{
         		this.lv = 1 ;
@@ -105,7 +105,7 @@ yc.outer.VirusCluster = yc.outer.LifeEntity.extend({
         innerCluster.virusPrototype = {
         	lv: this.lv
         	, speed: 30 + this.lv*0.5
-        	, hpFull: 20 + this.lv*4
+        	, hpFull: 20 + this.lv*10
         }
         
 		innerCluster.enterCell(hexgon) ;

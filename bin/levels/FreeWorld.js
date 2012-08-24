@@ -59,7 +59,7 @@ yc.levels.FreeWorld = yc.GameScene.extend({
 		
 		
 		// 一环: 半径5km, 4个boss, lv30
-		for(var i=0;i<4;i++)
+		/*for(var i=0;i<4;i++)
 		{
 			this.compassBoss.arrBosses.push( this._createRandomBoss(5000,20) ) ;
 		}
@@ -74,15 +74,18 @@ yc.levels.FreeWorld = yc.GameScene.extend({
 		for(var i=0;i<12;i++)
 		{
 			this.compassBoss.arrBosses.push( this._createRandomBoss(15000,60) ) ;
-		}
+		}*/
+		
+		
+        this.compassBoss.arrBosses.push( this._createRandomBoss(30000,10) ) ;
 		
 		// 最近的boss
-        var boss = new yc.outer.Boss() ;
+        /*var boss = new yc.outer.Boss() ;
 		boss.lv = 20 ;
         boss.x = 100 ;
         boss.y = 200 ;
         this.compassBoss.arrBosses.push(boss);
-        this.layerRoles.addChild(boss) ;
+        this.layerRoles.addChild(boss) ;*/
 	}
 	
 	, _createRandomBoss: function(radius,lv){

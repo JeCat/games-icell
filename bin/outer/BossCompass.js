@@ -36,7 +36,7 @@ yc.outer.BossCompass = cc.Sprite.extend({
     	ctx.fillStyle = 'white' ;
         ctx.fillText('ˋ﹏ˊ',-12,35) ;
     	ctx.fillStyle = 'yellow' ;
-        ctx.fillText(Math.round(this.nearestDis)+' km',-20,55) ;
+        ctx.fillText('Boss '+Math.round(this.nearestDis)+' km',-40,55) ;
     }
     
     , findNearestBoss: function(){

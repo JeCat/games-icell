@@ -15,7 +15,7 @@ yc.outer.Boss = yc.outer.VirusCluster.extend({
     		// 根据等级设置能力
         	lv: this.lv
         	, speed: 10
-        	, hpFull: this.lv*500
+        	, hpFull: this.lv*200
         	
         	// 直接杀死玩家
         	, attack: function(){
