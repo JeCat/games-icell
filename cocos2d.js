@@ -14,7 +14,7 @@ var $ = jquery ;
         showFPS:true,
         frameRate:60,
         tag:'gameCanvas', //the dom element to run cocos2d on
-        engineDir:'lib/',
+        engineDir:'cocos2d/cocos2d/',
         appFiles:[
             'bin/Declare.js'
             , 'bin/Cocos2dPatchs.js'

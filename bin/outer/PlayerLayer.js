@@ -4,7 +4,7 @@ yc.outer.PlayerLayer = cc.Layer.extend({
         
         this._super() ;
         
-        this.setKeypadEnabled(true);  
+        //this.setKeypadEnabled(true);  
         this.setTouchEnabled(true);
         
         //var winSize = cc.Director.getInstance().getWinSize();
