@@ -60,9 +60,12 @@ var YouCellGame = cc.Application.extend({
             cc.AppController.shareAppController().didFinishLaunchingWithOptions();
         };
         cc.Loader.shareLoader().preload([
-            {type:"image", src:"res/HelloWorld.png"},
-            {type:"image", src:"res/CloseNormal.png"},
-            {type:"image", src:"res/CloseSelected.png"}
+            {type:"image", src:"res/HelloWorld.png"}
+            , {type:"image", src:"res/CloseNormal.png"}
+            , {type:"image", src:"res/CloseSelected.png"}
+            
+            , {type:"image", src:"res/btn-composition.png"}
+            , {type:"image", src:"res/btn-composition-selected.png"}
         ]);
     },
     applicationDidFinishLaunching:function () {

@@ -150,7 +150,6 @@ yc.util.arr.remove = function(arr,ele){
 
 
 
-
 /**
 	Helper function which tests whether two lines intersect.
 	@param l1 is a line of the form [[x1, y1], [x2, y2]]

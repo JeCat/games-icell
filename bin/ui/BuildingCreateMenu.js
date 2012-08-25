@@ -1,4 +1,4 @@
-yc.ui.CreateBuildingMenu = function(){
+yc.ui.BuildingCreateMenu = function(){
     
     this.ui = $('#bulding-create-menu') ;
     var menu = this ;
@@ -50,4 +50,4 @@ yc.ui.CreateBuildingMenu = function(){
     }
 }
 
-yc.ui.CreateBuildingMenu.ins = new yc.ui.CreateBuildingMenu() ;
+yc.ui.BuildingCreateMenu.ins = new yc.ui.BuildingCreateMenu() ;

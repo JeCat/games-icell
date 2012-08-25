@@ -18,6 +18,8 @@ yc.inner.ProteinFormulas = function(){
         // 触发事件
         $(window).trigger('yc.inner.ProteinFormulas::onBeforeAppend',[this,formula]) ;
 
+        formula.color = 'rgb('+formula.rgb[0]+','+formula.rgb[1]+','+formula.rgb[2]+'）' ;
+
         formula.status = 'waiting' ;
         
         formula.total = 0 ;
@@ -88,11 +90,13 @@ yc.inner.ProteinFormulas = function(){
         {
             this.mapFormulas[name].status = 'waiting' ;
             this.mapFormulas[name].ui.find('.protein-formula-togglebtn').text('暂停') ;
+            this.mapFormulas[name].ui.find('.formula-msg').text('').hide() ;
         }
         else if(this.mapFormulas[name].status=='waiting')
         {
             this.mapFormulas[name].status = 'pause' ;
             this.mapFormulas[name].ui.find('.protein-formula-togglebtn').text('继续') ;
+            this.mapFormulas[name].ui.find('.formula-msg').text('暂停').show() ;
         }
     }
     

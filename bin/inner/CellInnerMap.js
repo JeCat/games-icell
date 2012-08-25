@@ -127,6 +127,8 @@ yc.inner.CellInnerMap = cc.Layer.extend({
     }
     
     , onTouchesBegan: function(touches, event){
+        if(touches.length<1){ return ; }
+        
         var p = yc.inner.InnerLayer.ins().windowToClient(touches[0]._point.x,touches[0]._point.y) ;
         if(!p){ return ; }
         
@@ -142,6 +144,7 @@ yc.inner.CellInnerMap = cc.Layer.extend({
         return false ;
     }
     , onTouchesMoved: function(touches, event){
+        if(touches.length<1){ return ; }
         if(!this.touching){ return ; }
         
         var p = yc.inner.InnerLayer.ins().windowToClient(touches[0]._point.x,touches[0]._point.y) ;
@@ -157,6 +160,8 @@ yc.inner.CellInnerMap = cc.Layer.extend({
         return false ;
     }
     , onTouchesEnded:function (touches, event) {
+        if(touches.length<1){ return ; }
+        
         var p = yc.inner.InnerLayer.ins().windowToClient(touches[0]._point.x,touches[0]._point.y) ;
         if(!p){ return ; }
         
@@ -175,7 +180,7 @@ yc.inner.CellInnerMap = cc.Layer.extend({
         }
         else if(this.selcted_hexgon.type=='cytoplasm')
         {
-            yc.ui.CreateBuildingMenu.ins.show() ;
+            yc.ui.BuildingCreateMenu.ins.show() ;
         }
         
         return false ;

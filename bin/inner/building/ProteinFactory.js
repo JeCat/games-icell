@@ -134,3 +134,6 @@ yc.inner.building.ProteinFactory = yc.inner.building.Building.extend({
         setTimeout(func,freq) ;
     }
 }) ;
+
+
+yc.inner.building.ProteinFactory.upgraders = [] ;

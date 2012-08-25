@@ -62,4 +62,5 @@ yc.inner.building.Building = cc.Sprite.extend({
      */
     , stop: function(){}
     
+    , upgraders: {}
 }) ;

@@ -6,8 +6,8 @@ yc.inner.building.Tower = yc.inner.building.Building.extend({
     // 射击频率
     , freq: 300
     
-    // 火力
-    , firepower: 10
+    // 伤害
+    , injure: 10
     
     // 射程
     , range: 100
@@ -89,6 +89,8 @@ yc.inner.building.Tower = yc.inner.building.Building.extend({
 }) ;
 
 
+yc.inner.building.Tower.upgraders = [] ;
+    
 yc.inner.building.Tower.price = {
     red: 3 
     , yellow: 3  

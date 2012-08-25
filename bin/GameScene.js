@@ -33,10 +33,6 @@ yc.GameScene = cc.Scene.extend({
     , onTouchesEnded:function (touches, event) {
     }
     
-    , _transform: yc.cocos2d.patchs.Node.transform
-    , transform: function(){
-        this._transform() ;
-    }
-    //, transform: function(){}
+    , transform: yc.cocos2d.patchs.Node.transform
     
 });

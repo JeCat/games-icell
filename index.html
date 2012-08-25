@@ -49,7 +49,7 @@
 	</div>
 	
 	<!-- 仪表盘 -->
-	<div style="float:left;position: absolute;">
+	<div style="float:left;position: absolute; display:none">
 
 		<div>
 			Debug:
@@ -57,7 +57,7 @@
 			<button onclick="yc.inner.monster.VirusCluster.create( yc.inner.Cell.ins().aAxes.hexgon(6,9) ) ;" title="创建一个进入细胞内的病毒群">病毒群</button>
 		</div>
 		
-		<div id="aminoacid-dashboard">
+		<div id="aminoacid-dashboard" style='display:none'>
 			<div style="color:red; margin-top:10px" class="aminoacid-num aminoacid-num-red"></div>
 			<div style="color:yellow; margin-top:10px" class="aminoacid-num aminoacid-num-yellow"></div>
 			<div style="color:blue; margin-top:10px" class="aminoacid-num aminoacid-num-blue"></div>
@@ -89,11 +89,26 @@
 		
 	
 	
-	
+	<!-- 建造菜单 -->
 	<div id="bulding-create-menu" style="display:none;position:absolute ;">
-		<button onclick="yc.ui.CreateBuildingMenu.ins.createBuilding(yc.inner.building.Tower)">+╭☆</button>
-		<button onclick="yc.ui.CreateBuildingMenu.ins.createBuilding(yc.inner.building.ProteinFactory)">+♫</button>
-		| <button onclick="yc.ui.CreateBuildingMenu.ins.ui.hide()">关闭</button>
+		<button onclick="yc.ui.BuildingCreateMenu.ins.createBuilding(yc.inner.building.Tower)">+╭☆</button>
+		<button onclick="yc.ui.BuildingCreateMenu.ins.createBuilding(yc.inner.building.ProteinFactory)">+♫</button>
+		| <button onclick="yc.ui.BuildingCreateMenu.ins.ui.hide()">关闭</button>
+	</div>
+	
+	<!-- 升级菜单 -->
+	<div id="bulding-upgrade-menu" style="display:none;position:absolute ;">
+	
+		<h3>升级</h3> <button onclick="$(this).parent().hide()">关闭</button>
+		<div id="bulding-upgraders-outer"></div>
+		
+		<div class="bulding-upgrader" id="bulding-upgrader-template" style='display:none'>
+			<b class='title'></b>
+			<div class='description'></div>
+			<div class='detail'></div>
+			<div class='cost'></div>
+			<button class='upgrade'>Upgrade</button>
+		</div>
 	</div>
 	
 	<div id="main-menu" style="width:300px;height:450px;margin:200px auto">

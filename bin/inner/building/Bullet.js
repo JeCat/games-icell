@@ -25,7 +25,7 @@ yc.inner.building.Bullet = cc.Sprite.extend({
                 // 命中目标
                 if( !bHited && arrVirus[i].radius > dis )
                 {
-                    arrVirus[i].hit(tower.firepower) ;
+                    arrVirus[i].hit(tower.injure) ;
                     bHited = true ; // 一颗子弹只命中一个敌人
                 }
                 // 溅射伤害（群体）

@@ -3,6 +3,21 @@ function log(message){
     console.log(message) ;
 }
 
+
+// package
+
+var yc = {} ;
+yc.util = {} ;
+yc.ui = {} ;
+yc.ui.dashboard = {} ;
+yc.outer = {} ;
+yc.inner = {} ;
+yc.inner.building = {} ;
+yc.inner.building.up = {} ;
+yc.inner.monster = {} ;
+yc.levels = {} ;
+yc.dna = {} ;
+
 var $ = jquery ;
 
 (function () {
@@ -16,17 +31,16 @@ var $ = jquery ;
         tag:'gameCanvas', //the dom element to run cocos2d on
         engineDir:'lib/cocos2d/',
         appFiles:[
-            'bin/Declare.js'
+            'bin/test.js'   
             , 'bin/Cocos2dPatchs.js'
             , 'bin/GameScene.js'   
-            , 'bin/test.js'   
             
             , 'bin/util/ObjectPool.js'
             , 'bin/util/functions.js'
             , 'bin/util/Instance.js'
             
             , 'bin/ui/UI.js'
-            , 'bin/ui/CreateBuildingMenu.js'
+            , 'bin/ui/BuildingCreateMenu.js'
             , 'bin/ui/UILayer.js'
             , 'bin/ui/dashboard/Dashboard.js'
             
@@ -57,12 +71,22 @@ var $ = jquery ;
             , 'bin/inner/building/Bullet.js'
             , 'bin/inner/building/ProteinFactory.js'
             
+            , 'bin/inner/building/up/UpgraderBase.js'
+            , 'bin/inner/building/up/TowerFirepower.js'
+            
             , 'bin/inner/monster/Virus.js'
             , 'bin/inner/monster/VirusCluster.js'
             , 'bin/inner/monster/VirusLayer.js'
             
+            , 'bin/dna/DNA.js'
+            , 'bin/dna/GeneBuildingUpgrader.js'
+            
             
             , 'bin/levels/FreeWorld.js'
+            
+            
+            
+            , 'bin/util/declareClassName.js'
          
         ]
     };

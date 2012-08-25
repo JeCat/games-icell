@@ -3,6 +3,13 @@ yc.levels.FreeWorld = yc.GameScene.extend({
 	_onEnter: yc.GameScene.prototype.onEnter
 	, onEnter: function(){
 		
+		// dna
+		ins(yc.dna.DNA).obtainGene( new yc.dna.GeneBuildingUpgrader({
+		    name: 'tower:firepower'
+		    , title: '防御塔：火力'
+		    , upgrader: yc.inner.building.up.TowerFierpower
+		}) ) ;
+		
 		// ---------------
 		// 初始化基本场景
 		this._onEnter() ;
@@ -20,22 +27,22 @@ yc.levels.FreeWorld = yc.GameScene.extend({
 		    .addNewFormula({
 		        name: 'red'
 		        , materials: {red:5}
-		        , color: 'rgb(255,0,0)'
+		        , rgb: [255,0,0]
 		    })
 		    .addNewFormula({
 		        name: 'yellow'
 		        , materials: {yellow:5}
-		        , color: 'rgb(255,255,0)'
+		        , rgb: [255,255,0]
 		    })
 		    .addNewFormula({
 		        name: 'blue'
 		        , materials: {blue:5}
-		        , color: 'rgb(0,0,255)'
+		        , rgb: [0,0,255]
 		    })
 		    .addNewFormula({
 		        name: 'orange'
 		        , materials: {red:4,yellow:4}
-		        , color: 'rgb(255,165,0)'
+		        , rgb: [255,165,0]
 		    }) ;
 		
 		
@@ -87,6 +94,7 @@ yc.levels.FreeWorld = yc.GameScene.extend({
         boss.y = 200 ;
         this.compassBoss.arrBosses.push(boss);
         this.layerRoles.addChild(boss) ;*/
+       
 	}
 	
 	, _createRandomBoss: function(radius,lv){
