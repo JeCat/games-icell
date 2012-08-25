@@ -179,7 +179,7 @@ yc.inner.Cell.prototype.pathMap = function(){
 yc.inner.Cell.prototype.getHurt = function(){
 	
 	// 偷走蛋白质
-	var pool = yc.inner.ProteinPool.ins() ;
+	var pool = ins(yc.inner.ProteinPool) ;
 	if(pool.total>0)
 	{
 		var proteins = [] ;
@@ -210,7 +210,7 @@ yc.inner.Cell.prototype.die = function(){
 	
 	// 清空资源
 	yc.inner.AminoAcidPool.ins().clear() ;
-	yc.inner.ProteinPool.ins().clear() ;
+	ins(yc.inner.ProteinPool).clear() ;
 	
 	// 回收所有建筑
 	for(var i=0;i<this.cytoplasms.length;i++)

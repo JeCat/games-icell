@@ -7,6 +7,11 @@ yc.ui.BuildingUpgradeMenu = function(){
         
         var buildingClass = building.constructor ;
         
+        // 没有可用的升级
+        if(buildingClass.upgraders.length<1)
+        {
+            return ;
+        }
         
         $('#bulding-upgraders-outer').html('') ;
         

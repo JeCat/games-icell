@@ -43,11 +43,3 @@ yc.inner.ProteinPool = function ()
 		}
 	}
 }
-
-yc.inner.ProteinPool._ins = null ;
-yc.inner.ProteinPool.ins = function(){
-    if(!yc.inner.ProteinPool._ins){
-        yc.inner.ProteinPool._ins = new yc.inner.ProteinPool() ;
-    }
-    return yc.inner.ProteinPool._ins ;
-}

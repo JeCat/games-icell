@@ -116,7 +116,7 @@ yc.inner.building.ProteinFactory = yc.inner.building.Building.extend({
                 factory.working_formula.ui.find('.protein-composite-progress').hide() ;
                 
                 // 增加蛋白质池中的存数
-                yc.inner.ProteinPool.ins().increase(factory.working_formula.name,1) ;
+                ins(yc.inner.ProteinPool).increase(factory.working_formula.name,1) ;
                 
                 // 恢复暂停按钮
                 factory.working_formula.ui.find('.protein-formula-togglebtn').attr('disabled',false) ;

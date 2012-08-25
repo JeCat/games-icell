@@ -17,7 +17,7 @@ yc.ui.BuildingCreateMenu = function(){
         var inner = yc.inner.InnerLayer.ins() ;
         
         // 检查蛋白质
-        var pool = yc.inner.ProteinPool.ins() ;
+        var pool = ins(yc.inner.ProteinPool) ;
         for(var protein in buildingClass.price)
         {
             if( pool.num(protein) < buildingClass.price[protein] )
