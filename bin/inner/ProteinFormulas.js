@@ -19,6 +19,23 @@ yc.inner.ProteinFormulas = function(){
         $(window).trigger('yc.inner.ProteinFormulas::onBeforeAppend',[this,formula]) ;
 
         formula.color = 'rgb('+formula.rgb[0]+','+formula.rgb[1]+','+formula.rgb[2]+'）' ;
+        var to16 = function(i)
+        {
+            var s = i.toString(16) ;
+            if(s.length==0)
+            {
+                return '00' ;
+            }
+            else if(s.length==1)
+            {
+                return '0'+s ;
+            }
+            else
+            {
+                return s ;
+            }
+        }
+        formula.colorHtml = '#'+to16(formula.rgb[0])+to16(formula.rgb[1])+to16(formula.rgb[2]) ;
 
         formula.status = 'waiting' ;
         
@@ -121,4 +138,3 @@ yc.inner.ProteinFormulas.proteinColor = function(materials){
         , blue: Math.round((materials.blue/max)*255)
     }
 }
-yc.inner.ProteinFormulas.ins = new yc.inner.ProteinFormulas ;

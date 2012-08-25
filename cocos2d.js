@@ -41,6 +41,7 @@ var $ = jquery ;
             
             , 'bin/ui/UI.js'
             , 'bin/ui/BuildingCreateMenu.js'
+            , 'bin/ui/BuildingUpgradeMenu.js'
             , 'bin/ui/UILayer.js'
             , 'bin/ui/dashboard/Dashboard.js'
             

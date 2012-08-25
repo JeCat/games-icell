@@ -3,40 +3,29 @@ yc.inner.building.up.TowerFierpower = function(){
     
     yc.inner.building.up.UpgraderBase.apply(this) ;
 
+    this.title = '防御塔：火力' ;
+    this.description = '增加防御塔对单一目标的攻击力' ;
+    this.icon = '' ;
     
     this.isUnlock = function(){
         return this.lv < yc.inner.building.up.TowerFierpower.maxLv ;
     }
     
-    this._upgrade = this.upgrade ;
-    this.upgrade = function(tower){
-        
-        if(!this._upgrade(tower))
-        {
-            return false ;
+    this.upgradeDetail = function(tower)
+    {
+        return {
+            injure: tower.injure
+            , range: tower.range*0.2
+            , freq: -tower.freq*0.1
+            , speed: tower.speed*0.2
         }
-        
-        // 开始升级
-        this.lv ++ ;
-        
-        // 伤害
-        tower.injure*= 2 ;
-        
-        // 范围
-        tower.range*= 1.2 ;
-        
-        // 射击频率
-        tower.freq*= 0.9 ;
-        
-        // 子弹速度
-        tower.speed*= 1.2 ; 
     }
     
     this.cost = function(){
         var lv = this.lv+1 ;
         
         return {
-            
+            orange: 1
         }
     }
 }

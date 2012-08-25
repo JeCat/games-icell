@@ -3,12 +3,18 @@ yc.levels.FreeWorld = yc.GameScene.extend({
 	_onEnter: yc.GameScene.prototype.onEnter
 	, onEnter: function(){
 		
-		// dna
-		ins(yc.dna.DNA).obtainGene( new yc.dna.GeneBuildingUpgrader({
-		    name: 'tower:firepower'
-		    , title: '防御塔：火力'
-		    , upgrader: yc.inner.building.up.TowerFierpower
-		}) ) ;
+		// dna ----------------
+		//  定义基因
+		yc.dna.genes = {
+		    'tower:firepower': new yc.dna.GeneBuildingUpgrader({
+                name: 'tower:firepower'
+                , title: '防御塔：火力'
+                , upgrader: yc.inner.building.up.TowerFierpower
+        })
+		}
+		ins(yc.dna.DNA).obtainGene( yc.dna.genes['tower:firepower'] ) ;
+		ins(yc.dna.DNA).obtainGene( yc.dna.genes['tower:firepower'] ) ;
+		ins(yc.dna.DNA).obtainGene( yc.dna.genes['tower:firepower'] ) ;
 		
 		// ---------------
 		// 初始化基本场景
@@ -23,7 +29,7 @@ yc.levels.FreeWorld = yc.GameScene.extend({
 			.increase('yellow',10)
 			.increase('blue',10) ;
 		//  合成公式
-		yc.inner.ProteinFormulas.ins
+		ins(yc.inner.ProteinFormulas)
 		    .addNewFormula({
 		        name: 'red'
 		        , materials: {red:5}

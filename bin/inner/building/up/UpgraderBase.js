@@ -6,29 +6,43 @@ yc.inner.building.up.UpgraderBase = function(){
     this.description = 'Nothing todo ...' ;
     this.icon = '' ;
     
-}
-
-yc.inner.building.up.UpgraderBase.prototype.isUnlock = function(){
-    return false ;
-}
-
-yc.inner.building.up.UpgraderBase.prototype.upgrade = function(tower){
-    
-    // 检查是否解锁
-    if(!this.isUnlock())
-    {
+    this.isUnlock = function(){
         return false ;
     }
     
-    // 检查资源
-    var cost = this.cost() ;
-    // ...
+    this.upgrade = function(building){
+        
+        // 检查是否解锁
+        if(!this.isUnlock())
+        {
+            return false ;
+        }
+        
+        // 检查资源
+        var cost = this.cost() ;
+        // ...
+        
+        
+        // 开始升级
+        var increased = this.upgradeDetail(building) ;
+        for(var property in increased)
+        {
+            building[property]+= increased[property] ;
+        }
+            
+        this.lv ++ ;
+        
+        return true ;
+    }
     
-    return true ;
-}
-
-yc.inner.building.up.UpgraderBase.prototype.cost = function()
-{
-    return {}
-}
+    this.cost = function()
+    {
+        return {}
+    }
     
+    this.upgradeDetail = function(building)
+    {
+        return {}
+    }
+        
+}

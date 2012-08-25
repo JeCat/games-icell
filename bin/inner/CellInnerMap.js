@@ -174,10 +174,12 @@ yc.inner.CellInnerMap = cc.Layer.extend({
         
         this.touching = false ;
         
+        // 升级
         if(this.selcted_hexgon.building)
         {
-            this.selcted_hexgon.hexgon.upgrade() ;
+            ins(yc.ui.BuildingUpgradeMenu).show(this.selcted_hexgon.building) ;
         }
+        // 新建
         else if(this.selcted_hexgon.type=='cytoplasm')
         {
             yc.ui.BuildingCreateMenu.ins.show() ;

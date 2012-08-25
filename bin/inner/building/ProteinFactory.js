@@ -37,7 +37,7 @@ yc.inner.building.ProteinFactory = yc.inner.building.Building.extend({
         var factory = this ;
         
         
-        var loopStart = this.working_formula? this.working_formula: yc.inner.ProteinFormulas.ins.last ;
+        var loopStart = this.working_formula? this.working_formula: ins(yc.inner.ProteinFormulas).last ;
         var formula = loopStart ;
         this.working_formula = null ;
         var checkingMaterials = function(formula){

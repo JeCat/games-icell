@@ -99,11 +99,16 @@
 	<!-- 升级菜单 -->
 	<div id="bulding-upgrade-menu" style="display:none;position:absolute ;">
 	
-		<h3>升级</h3> <button onclick="$(this).parent().hide()">关闭</button>
-		<div id="bulding-upgraders-outer"></div>
+		<div>
+			<h3>升级</h3>
+			<button class='btn-close' onclick="$('#bulding-upgrade-menu').hide()">关闭</button>
+		</div>
 		
+		<div id="bulding-upgraders-outer"></div>
+			
 		<div class="bulding-upgrader" id="bulding-upgrader-template" style='display:none'>
 			<b class='title'></b>
+			<span class='newLv'>Lv </span>
 			<div class='description'></div>
 			<div class='detail'></div>
 			<div class='cost'></div>

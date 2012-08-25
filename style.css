@@ -33,3 +33,25 @@ body{
 .protein-formula{
     margin-top: 5px ;
 }
+
+
+
+#bulding-upgrade-menu{
+    width: 300px ;
+    padding: 10px ;
+    background-color: #cdcdcd ;
+}
+
+#bulding-upgraders-outer{
+    clear: both ;
+}
+#bulding-upgrade-menu h3{
+    float: left ;
+}
+#bulding-upgrade-menu .btn-close{
+    float: right ;
+}
+
+.bulding-upgrader{
+    padding-top: 15px ;
+}
