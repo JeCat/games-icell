@@ -96,4 +96,7 @@ yc.inner.building.Tower.price = {
     , yellow: 3  
     , blue: 3  
 }
+
+yc.inner.building.Tower.block = true ;
+
     

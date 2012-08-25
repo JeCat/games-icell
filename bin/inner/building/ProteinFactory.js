@@ -137,3 +137,5 @@ yc.inner.building.ProteinFactory = yc.inner.building.Building.extend({
 
 
 yc.inner.building.ProteinFactory.upgraders = [] ;
+
+yc.inner.building.ProteinFactory.block = true ;

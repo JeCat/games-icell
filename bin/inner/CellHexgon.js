@@ -37,7 +37,11 @@ yc.inner.CellHexgon = function CellHexgon(){
 	
 	this.isBlocking = function()
 	{
-		return (this.type===null || this.block)? true: false ;
+	    return (
+           this.type===null        // 无法使用的区域
+            || this.block          // 被标记为空
+    	    || (this.building && this.building.isBlocking()) // 建造了禁止通行的建筑
+    	)? true: false ;
 	}
 }
 
