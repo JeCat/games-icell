@@ -23,14 +23,13 @@ yc.inner.building.Tower = yc.inner.building.Building.extend({
     
     , bShoting: true
     
-    , _draw: yc.inner.building.Building.prototype.draw
     , draw: function(ctx){
         if(!this.hexgon)
         {
             return ;
         }
 
-        this._draw(ctx) ;
+        this._super(ctx) ;
         
         ctx.fillStyle = 'red' ;
         ctx.font="normal san-serif";
@@ -85,7 +84,6 @@ yc.inner.building.Tower = yc.inner.building.Building.extend({
     , stop: function(){
     	this.bShoting = false ;
     }
-    
 }) ;
 
 

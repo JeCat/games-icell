@@ -5,6 +5,7 @@ yc.ui.BuildingUpgradeMenu = function(){
     
     this.show = function(building){
         
+    	log(building) ;
         var buildingClass = building.constructor ;
         
         // 没有可用的升级
@@ -18,11 +19,7 @@ yc.ui.BuildingUpgradeMenu = function(){
         for(var u=0;u<buildingClass.upgraders.length;u++)
         {
             var upgraderClass = buildingClass.upgraders[u] ;
-            if( typeof(building.upgraders[upgraderClass.className])=='undefined' )
-            {
-                building.upgraders[upgraderClass.className] = new upgraderClass ;
-            }
-            var upgrader = building.upgraders[upgraderClass.className] ;
+            var upgrader = building.upgrader(upgraderClass) ;
             
             var upgraderUi = $('#bulding-upgrader-template')
                     .clone()
@@ -41,7 +38,7 @@ yc.ui.BuildingUpgradeMenu = function(){
             var detailHtml = '效果' ;
             for(var property in detail)
             {
-                detailHtml+= '<div>' +property +':'+ building[property] + ' -> ' + (building[property]+detail[property]) + '</div>' ;
+                detailHtml+= '<div>' +property +':'+ building[property].toFixed(1) + ' -> ' + (building[property]+detail[property]).toFixed(1) + '</div>' ;
             }
             upgraderUi.find('.detail').html(detailHtml) ;
             

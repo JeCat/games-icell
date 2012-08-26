@@ -7,14 +7,13 @@ yc.inner.building.ProteinFactory = yc.inner.building.Building.extend({
     // 合成效率，每秒合成 5 个氨基酸
     , composition_efficient: 5
     
-    , _draw: yc.inner.building.Building.prototype.draw
     , draw: function(ctx){
         if(!this.hexgon)
         {
             return ;
         }
 
-        this._draw(ctx) ;
+        this._super(ctx) ;
         
         ctx.fillStyle = 'yellow' ;
         ctx.font="normal san-serif";

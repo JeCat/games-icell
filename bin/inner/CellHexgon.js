@@ -28,20 +28,20 @@ yc.inner.CellHexgon = function CellHexgon(){
 	// 到细胞核的弧度
 	this._radianToNucleus = null ;
 	this.radianToNucleus = function(){
-	    if( this._radianToNucleus===null )
-	    {
-	        this._radianToNucleus = yc.util.radianBetweenPoints( cell.nucleus.center[0], cell.nucleus.center[1], this.center[0], this.center[1] ) ;
-	    }
-	    return this._radianToNucleus ;
+		if( this._radianToNucleus===null )
+		{
+			this._radianToNucleus = yc.util.radianBetweenPoints( cell.nucleus.center[0], cell.nucleus.center[1], this.center[0], this.center[1] ) ;
+		}
+		return this._radianToNucleus ;
 	}
 	
 	this.isBlocking = function()
 	{
-	    return (
-           this.type===null        // 无法使用的区域
-            || this.block          // 被标记为空
-    	    || (this.building && this.building.isBlocking()) // 建造了禁止通行的建筑
-    	)? true: false ;
+		return (
+		   this.type===null		// 无法使用的区域
+			|| this.block		  // 被标记为空
+			|| (this.building && this.building.isBlocking()) // 建造了禁止通行的建筑
+		)? true: false ;
 	}
 }
 

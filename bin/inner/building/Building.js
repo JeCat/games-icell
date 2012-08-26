@@ -1,7 +1,11 @@
 yc.inner.building.Building = cc.Sprite.extend({  
 
     hexgon: null
-    
+
+    , ctor: function(){
+    	this._upgraders = {}
+	} 
+
     , put: function(hexgon){
         hexgon.building = this ;
         hexgon.block = true ;
@@ -62,5 +66,12 @@ yc.inner.building.Building = cc.Sprite.extend({
     , isBlocking: function(){
         return true ;
     }
-    , upgraders: {}
+    
+    , upgrader: function(upgraderClass){
+    	if( typeof(this._upgraders[upgraderClass.className])=='undefined' )
+        {
+            this._upgraders[upgraderClass.className] = new upgraderClass ;
+        }
+    	return this._upgraders[upgraderClass.className] ;
+    }
 }) ;
