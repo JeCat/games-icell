@@ -1,6 +1,6 @@
 /**
  * 计算点 p2 到 p1 的射线的弧度 
- * 使用 canvas 的旋转弧度（从上面开始，顺时针）
+ * 使用 canvas 的旋转弧度（12点方向为0度，顺时针）
  */
 yc.util.radianBetweenPoints = function(p1X,p1Y,p2X,p2Y)
 {
@@ -88,7 +88,7 @@ yc.util.drawRect = function(lftTop,rgtBtm,ctx,strokeStyle,fillStyle){
 /**
  * 画一个多边形
  */
-yc.util.drawPolygon = function(points,ctx,strokeStyle,fillStyle){
+yc.util.drawPolygon = function(points,ctx,strokeStyle,fillStyle,convert){
     if( typeof(strokeStyle)!='undefined' && strokeStyle )
     {
         ctx.strokeStyle = strokeStyle ;
@@ -107,12 +107,28 @@ yc.util.drawPolygon = function(points,ctx,strokeStyle,fillStyle){
         fillStyle = null ;
     }
     
+    if( typeof(convert)=='undefined' )
+    {
+        convert = 1 ;
+    }
+    else
+    {
+        convert = convert? -1: 1 ;
+    }
+    
     ctx.beginPath() ;
     
-    ctx.moveTo(points[points.length-1][0],points[points.length-1][1]) ;
+    var transPoint = function(p)
+    {
+        return typeof(p.x)!=='undefined'? [p.x,p.y]: p ;
+    }
+    var last = transPoint(points[points.length-1]) ;
+    
+    ctx.moveTo(last[0],last[1]*convert) ;
     for(var p=0;p<points.length;p++)
     {
-    	ctx.lineTo(points[p][0],points[p][1]) ;
+        point = transPoint(points[p]) ;
+    	ctx.lineTo(point[0],point[1]*convert) ;
     }
     ctx.closePath() ;
     
@@ -125,6 +141,40 @@ yc.util.drawPolygon = function(points,ctx,strokeStyle,fillStyle){
         ctx.stroke() ;
     }
 }
+
+
+/**
+ * 画一个多边形
+ */
+yc.util.drawLine = function(pointA,pointB,ctx,strokeStyle,convert){
+    if( typeof(strokeStyle)!='undefined' && strokeStyle )
+    {
+        ctx.strokeStyle = strokeStyle ;
+    }
+    if( typeof(convert)=='undefined' )
+    {
+        convert = 1 ;
+    }
+    else
+    {
+        convert = convert? -1: 1 ;
+    }
+    
+    var transPoint = function(p)
+    {
+        return typeof(p.x)!=='undefined'? [p.x,p.y]: p ;
+    }
+    pointA = transPoint(pointA) ;
+    pointB = transPoint(pointB) ;
+    
+    ctx.beginPath() ;
+    ctx.moveTo(pointA[0],pointA[1]*convert) ;
+    ctx.lineTo(pointB[0],pointB[1]*convert) ;
+    ctx.closePath() ;
+    
+    ctx.stroke() ;
+}
+
 
 yc.util.arr = {} ;
 yc.util.arr.search = function(arr,ele){

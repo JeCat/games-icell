@@ -63,12 +63,13 @@ yc.ui.BuildingUpgradeMenu = function(){
             // 升级按钮
             upgraderUi.find('.upgrade')
                 .attr('disabled',!upgrader.isUnlock())  // 是否解锁
+                .data('upgrader',upgrader)
                 .click(function(){
                     // 关闭菜单
                     menu.ui.hide() ;
                     
                     // 执行升级
-                    upgrader.upgrade(building) ;
+                    $(this).data('upgrader').upgrade(building) ;
                 }) ;
         }
         

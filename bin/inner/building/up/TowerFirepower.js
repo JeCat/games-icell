@@ -14,10 +14,10 @@ yc.inner.building.up.TowerFierpower = function(){
     this.upgradeDetail = function(tower)
     {
         return {
-            injure: tower.injure
-            , range: tower.range*0.2
-            , freq: -tower.freq*0.1
-            , speed: tower.speed*0.2
+            injure: tower.injure*0.5
+            , range: tower.range*0.05
+            , freq: -tower.freq*0.05
+            , speed: tower.speed*0.05
         }
     }
     

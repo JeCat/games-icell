@@ -6,15 +6,23 @@ yc.levels.FreeWorld = yc.GameScene.extend({
 		// dna ----------------
 		//  定义基因
 		yc.dna.genes = {
-		    'tower:firepower': new yc.dna.GeneBuildingUpgrader({
+            'tower:firepower': new yc.dna.GeneBuildingUpgrader({
                 name: 'tower:firepower'
                 , title: '防御塔：火力'
                 , upgrader: yc.inner.building.up.TowerFierpower
-        })
+            })
+            , 'tower:bombing': new yc.dna.GeneBuildingUpgrader({
+                name: 'tower:bombing'
+                , title: '防御塔：轰炸'
+                , upgrader: yc.inner.building.up.TowerBombing
+            })
 		}
 		ins(yc.dna.DNA).obtainGene( yc.dna.genes['tower:firepower'] ) ;
 		ins(yc.dna.DNA).obtainGene( yc.dna.genes['tower:firepower'] ) ;
 		ins(yc.dna.DNA).obtainGene( yc.dna.genes['tower:firepower'] ) ;
+		ins(yc.dna.DNA).obtainGene( yc.dna.genes['tower:bombing'] ) ;
+		ins(yc.dna.DNA).obtainGene( yc.dna.genes['tower:bombing'] ) ;
+		ins(yc.dna.DNA).obtainGene( yc.dna.genes['tower:bombing'] ) ;
 		
 		// ---------------
 		// 初始化基本场景

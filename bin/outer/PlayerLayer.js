@@ -12,7 +12,7 @@ yc.outer.PlayerLayer = cc.Layer.extend({
         this.setAnchorPoint(cc.p(0,0)) ;
         
         // 细胞
-        this.cell = yc.outer.Cell.ins() ;
+        this.cell = ins(yc.outer.Cell) ;
         this.addChild(this.cell) ;
         
         

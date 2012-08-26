@@ -50,6 +50,7 @@ var $ = jquery ;
             , 'bin/outer/Cell.js'
             , 'bin/outer/PlayerLayer.js'
             , 'bin/outer/AminoAcid.js'
+            , 'bin/outer/Stain.js'
             , 'bin/outer/VirusCluster.js'
             , 'bin/outer/Boss.js'
             , 'bin/outer/BossCompass.js'
@@ -74,6 +75,7 @@ var $ = jquery ;
             
             , 'bin/inner/building/up/UpgraderBase.js'
             , 'bin/inner/building/up/TowerFirepower.js'
+            , 'bin/inner/building/up/TowerBombing.js'
             
             , 'bin/inner/monster/Virus.js'
             , 'bin/inner/monster/VirusCluster.js'

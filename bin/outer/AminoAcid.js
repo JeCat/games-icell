@@ -39,9 +39,9 @@ yc.outer.AminoAcid = yc.outer.LifeEntity.extend({
         this.mosey() ;
         
 	    // 判断碰撞
-	    var cell = yc.outer.Cell.ins() ;
+	    var cell = ins(yc.outer.Cell) ;
 	    var dis = Math.sqrt(Math.pow(this.x-cell.x,2) + Math.pow(this.y-cell.y,2)) ;
-	    if( dis<this.size+cell.radius )
+	    if( dis<this.size+cell.size )
 	    {
 	        this._parent.deleteRole(this) ;
 	        

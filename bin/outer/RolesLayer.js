@@ -1,7 +1,8 @@
 yc.outer.RolesLayer = cc.Layer.extend({
     
     maxNums: {
-        'yc.outer.VirusCluster': 15
+        'yc.outer.Stain': 15
+        , 'yc.outer.VirusCluster': 15
         , 'yc.outer.AminoAcid': 30
     }
 
@@ -34,7 +35,9 @@ yc.outer.RolesLayer = cc.Layer.extend({
         range.height = range.top - range.bottom ;
         
         
-		// 氨基酸
+        // 污渍
+        this._updateRole(yc.outer.Stain,range) ;
+        // 氨基酸
         this._updateRole(yc.outer.AminoAcid,range) ;
         // 病毒群
         this._updateRole(yc.outer.VirusCluster,range) ;

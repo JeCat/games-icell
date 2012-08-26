@@ -43,7 +43,7 @@ yc.outer.VirusCluster = yc.outer.LifeEntity.extend({
     , _visit: cc.Sprite.prototype.visit
     , visit: function(c){
         
-        var cell = yc.outer.Cell.ins() ;
+        var cell = ins(yc.outer.Cell) ;
         
         // 判断碰撞
         if( this.testTouching(cell) )
@@ -68,7 +68,14 @@ yc.outer.VirusCluster = yc.outer.LifeEntity.extend({
             }
             
             // 切换到追击速度
-            this.speed = 4 ;
+            this.maxSpeed = 3.5 ;
+            
+            this.run(0.2) ;
+            
+            // 遇到污渍减速
+            yc.outer.Stain.downSpeed(this) ;
+        
+            this.accelerating() ;
             
             this.moving() ;
         }
@@ -113,7 +120,7 @@ yc.outer.VirusCluster = yc.outer.LifeEntity.extend({
     
     , testTouching: function(cell){
         var dis = Math.sqrt(Math.pow(this.x-cell.x,2) + Math.pow(this.y-cell.y,2)) ;
-        return dis<this.size+cell.radius ;
+        return dis<this.size+cell.size ;
     }
         
     , touchingCell: function(cell){

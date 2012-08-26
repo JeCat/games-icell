@@ -29,7 +29,7 @@ yc.outer.BossCompass = cc.Sprite.extend({
     		//ctx.translate(this.bossPoint[0],-this.bossPoint[1]) ;
     	}
     	
-		ctx.rotate(Math.PI+this.bossAngle);
+		ctx.rotate(Math.PI);
     	
     	yc.util.drawPolygon( [ [20,40], [-20,40], [0,0] ], ctx, null, 'red' ) ;
     	
@@ -41,7 +41,7 @@ yc.outer.BossCompass = cc.Sprite.extend({
     
     , findNearestBoss: function(){
     	
-    	var cell = yc.outer.Cell.ins() ;
+    	var cell = ins(yc.outer.Cell) ;
     	this.nearestDis = 0 ;
     	this.nearestBoss = null ;
     	
@@ -62,7 +62,7 @@ yc.outer.BossCompass = cc.Sprite.extend({
     
     , pointOnCameraBorder: function(boss){
     	
-		var cell = yc.outer.Cell.ins() ;
+		var cell = ins(yc.outer.Cell) ;
 		this.bossAngle = yc.util.radianBetweenPoints(boss.x,boss.y,cell.x,cell.y) ;
 		
 		// 指向 boss 方向的一根射线

@@ -3,11 +3,14 @@ yc.outer.LifeEntity = cc.Sprite.extend({
     x: 0
     , y: 0
     
+    , accel: -0.1
     , maxSpeed: 0.5
     , speed: 0.3
     , angle: 1
     , turnRate: 0.2
     
+    // 阻尼，1表示无阻挡全速状态
+    , runDamping: 1
     
     , incAngle: function(sign) {
         
@@ -38,6 +41,37 @@ yc.outer.LifeEntity = cc.Sprite.extend({
         
         // 移动
         this.moving() ;
+    }
+    
+    , accelerating: function(){
+        
+        var accel = this.accel>0?
+                this.accel*this.runDamping:
+                this.accel ;
+        
+        if(accel)
+        {
+            this.speed += accel ;
+            
+            var maxSpeed = this.maxSpeed*this.runDamping ;
+            
+            if (this.speed > maxSpeed)
+            {
+                this.speed = maxSpeed
+            }
+            else if(this.speed<0)
+            {
+                this.speed = 0;
+            }
+        }
+    }
+    
+    
+    , run: function(accel){
+        this.accel = typeof(accel)=='undefined'? 0.3: accel ;
+    }
+    , stopRun: function(){
+        this.accel = -0.1 ;
     }
     
     , moving: function(){

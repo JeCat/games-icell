@@ -177,7 +177,7 @@ yc.inner.Cell.prototype.pathMap = function(){
  * 病毒攻击到细胞核
  */
 yc.inner.Cell.prototype.getHurt = function(){
-	
+	return ;
 	// 偷走蛋白质
 	var pool = ins(yc.inner.ProteinPool) ;
 	if(pool.total>0)
@@ -237,7 +237,7 @@ yc.inner.Cell.prototype.revive = function(){
 	// 清除尚未结束攻击的病毒
 	
 	// 返回原点
-	yc.outer.Cell.ins().jump(0,0) ;
+	ins(yc.outer.Cell).jump(0,0) ;
 }
 
 yc.inner.Cell.ins = function(){

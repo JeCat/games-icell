@@ -1,9 +1,8 @@
 yc.outer.Cell = yc.outer.LifeEntity.extend({
 
-	radius: 10
+	size: 10
 	
     , maxSpeed: 4
-    , accel: 0.3
     
     , _running: false
 	
@@ -28,10 +27,10 @@ yc.outer.Cell = yc.outer.LifeEntity.extend({
 		ctx.rotate(this.angle);
 		
 		ctx.beginPath() ;
-		ctx.arc(0,0, this.radius, 0, 2*Math.PI, false);
+		ctx.arc(0,0, this.size, 0, 2*Math.PI, false);
 		
-		ctx.moveTo(0+3, 0-this.radius+5);
-		ctx.arc(0, 0-this.radius+5, 2, 0, Math.PI*2 , false) ;
+		ctx.moveTo(0+3, 0-this.size+5);
+		ctx.arc(0, 0-this.size+5, 2, 0, Math.PI*2 , false) ;
 		
 		ctx.stroke() ;
     }
@@ -49,24 +48,13 @@ yc.outer.Cell = yc.outer.LifeEntity.extend({
     		this.incAngle( this._turn=='right'? 1: -1 ) ;
     	}
     	
-    	// 前进
-		if(this._running)
-		{
-			if (this.speed < this.maxSpeed)
-			{
-				this.speed += this.accel;	
-			}
-		}
-		else
-		{
-			// friction
-			if (this.speed > 0.1)
-				this.speed -= 0.1;
-			else
-				this.speed = 0;
-		}
+    	// 遇到污渍减速
+    	yc.outer.Stain.downSpeed(this) ;
+    	
+    	// 加速
+    	this.accelerating() ;
 		
-		// update our position based on our angle and speed
+		// 移动
 		if(this.speed)
 		{
 			this.moving() ;
@@ -79,17 +67,7 @@ yc.outer.Cell = yc.outer.LifeEntity.extend({
     }
     
     , transform: yc.outer.Camera.transformSprite
-    /*, _transform: yc.cocos2d.patchs.Node.transform
-    , transform: function(){
-        this._transform() ;
-    }*/
     
-    , run: function(){
-    	this._running = true ;
-    }
-    , stopRun: function(){
-    	this._running = false ;
-    }
     , turn: function(way){
     	this._turn = way ;
     }
@@ -107,18 +85,12 @@ yc.outer.Cell = yc.outer.LifeEntity.extend({
 	    yc.outer.Camera.ins().moveByFocus(this.x,this.y) ;
     	
     	// 停止移动
-    	this.speed = 0 ;
-    	this._running = false ;
-    	this._turn = null ;
+    	this.stopRun() ;
+        this.speed = 0 ;
+        
+    	this.stopTurn() ;
     	
     }
 });  
 
-yc.outer.Cell.ins = function(){
-    if( typeof(yc.outer.Cell._ins)=='undefined' )
-    {
-        yc.outer.Cell._ins = new yc.outer.Cell () ;
-    }
-    return yc.outer.Cell._ins ;
-}
 
