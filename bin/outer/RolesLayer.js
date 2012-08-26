@@ -1,7 +1,7 @@
 yc.outer.RolesLayer = cc.Layer.extend({
     
     maxNums: {
-        'yc.outer.Stain': 15
+        'yc.outer.Stain': 40
         , 'yc.outer.VirusCluster': 15
         , 'yc.outer.AminoAcid': 30
     }

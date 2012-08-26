@@ -2,10 +2,15 @@ yc.outer.Boss = yc.outer.VirusCluster.extend({
 	
 	lv: 30
 
+	, ctor: function(){
+	    this._super() ;
+	    this.initWithFile('res/boss-a-48.png') ;
+	}
+
+	, _draw: cc.Sprite.prototype.draw
 	, draw: function(ctx){
-        ctx.fillStyle = 'red' ;
-        ctx.fillText('ˋ﹏ˊ',0,0) ;
-    }
+		this._draw(ctx) ;
+	} 
     
     , createInnerSprite: function(hexgon){
     	
@@ -16,6 +21,7 @@ yc.outer.Boss = yc.outer.VirusCluster.extend({
         	lv: this.lv
         	, speed: 10
         	, hpFull: this.lv*200
+        	, file: 'res/boss-a-24.png'
         	
         	// 直接杀死玩家
         	, attack: function(){

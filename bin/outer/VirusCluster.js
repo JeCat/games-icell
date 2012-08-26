@@ -111,6 +111,7 @@ yc.outer.VirusCluster = yc.outer.LifeEntity.extend({
     	// 根据等级设置能力
         innerCluster.virusPrototype = {
         	lv: this.lv
+        	, file: 'res/virus16.png'
         	, speed: 30 + this.lv*0.5
         	, hpFull: 20 + this.lv*10
         }

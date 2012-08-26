@@ -66,6 +66,10 @@ var YouCellGame = cc.Application.extend({
             
             , {type:"image", src:"res/btn-composition.png"}
             , {type:"image", src:"res/btn-composition-selected.png"}
+            , {type:"image", src:"res/pin_map.png"}
+            , {type:"image", src:"res/virus24.png"}
+            , {type:"image", src:"res/boss-a-48.png"}
+            , {type:"image", src:"res/boss-a-24.png"}
         ]);
     },
     applicationDidFinishLaunching:function () {

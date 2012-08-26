@@ -11,12 +11,8 @@ yc.inner.monster.Virus = cc.Sprite.extend({
     , actRunning: null
     
     , lv: 1
-
-    , ctor: function(){
-        this._super() ;
-        
-        this.initWithFile('res/virus16.png') ;
-    }
+    
+    , file: 'res/virus16.png'
     
     , init: function(prototype){
     	
@@ -24,6 +20,8 @@ yc.inner.monster.Virus = cc.Sprite.extend({
 	    {
 	    	this[key] = prototype[key] ;
 	    }
+
+        this.initWithFile(this.file) ;
    
         this.hpRate = 1 ;
         this.hp = this.hpFull ;

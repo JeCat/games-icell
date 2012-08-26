@@ -99,7 +99,7 @@ yc.levels.FreeWorld = yc.GameScene.extend({
 		}*/
 		
 		
-        this.compassBoss.arrBosses.push( this._createRandomBoss(30000,10) ) ;
+        this.compassBoss.arrBosses.push( this._createRandomBoss(500,10) ) ;
 		
 		// 最近的boss
         /*var boss = new yc.outer.Boss() ;

@@ -4,7 +4,9 @@ yc.outer.BossCompass = cc.Sprite.extend({
 	
 	, ctor: function(){
 	    this._super() ;
+        this.setAnchorPoint(cc.p(0.5,1)) ;
 	    this.setPosition(cc.p(100,100)) ;
+	    this.initWithFile('res/pin_map.png') ;
 	}
 	
 	, nearestBoss: null
@@ -17,7 +19,11 @@ yc.outer.BossCompass = cc.Sprite.extend({
     	
     	// 计算最近的 boss
     	var boss = this.findNearestBoss() ;
-    	this.bossPoint = boss? this.pointOnCameraBorder(boss): null ;
+    	if(!boss)
+    	{
+    		return ;
+    	}
+    	this.bossPoint = this.pointOnCameraBorder(boss) ;
     	
     	this._visit(ctx) ;
     }
@@ -30,13 +36,15 @@ yc.outer.BossCompass = cc.Sprite.extend({
     	}
     	
 		ctx.rotate(this.bossAngle);
+		
+		this._super(ctx) ;
     	
-    	yc.util.drawPolygon( [ [20,40], [-20,40], [0,0] ], ctx, null, 'red' ) ;
+    	//yc.util.drawPolygon( [ [20,40], [-20,40], [0,0] ], ctx, null, 'red' ) ;
     	
     	ctx.fillStyle = 'white' ;
-        ctx.fillText('ˋ﹏ˊ',-12,35) ;
+    	ctx.fillText('Lv '+this.nearestBoss.lv,-10,5) ;
     	ctx.fillStyle = 'yellow' ;
-        ctx.fillText('Boss '+Math.round(this.nearestDis)+' km',-40,55) ;
+    	ctx.fillText('Boss '+Math.round(this.nearestDis)+' km',-40,30) ;
     }
     
     , findNearestBoss: function(){
@@ -66,8 +74,9 @@ yc.outer.BossCompass = cc.Sprite.extend({
 		this.bossAngle = yc.util.radianBetweenPoints(cell.x,cell.y,boss.x,boss.y) ;
 		
 		// 指向 boss 方向的一根射线
-		var w = $(window).width() ;
-		var h = $(window).height() ;
+        var wsize = cc.Director.getInstance().getWinSize();
+		var w = wsize.width ;
+		var h = wsize.height ;
 		var l = Math.max(w,h) * 2 ;
 		var bossPoint = [ l*Math.sin(this.bossAngle), l*Math.cos(this.bossAngle) ] ;
 		

@@ -10,7 +10,7 @@ yc.inner.monster.VirusCluster = cc.Sprite.extend({
         
     , ctor: function(){
         this._super() ;
-        this.initWithFile('res/virus16.png') ;
+        this.initWithFile('res/virus24.png') ;
     }
     
     , init: function(){
