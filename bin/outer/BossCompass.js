@@ -82,10 +82,10 @@ yc.outer.BossCompass = cc.Sprite.extend({
 		
 		// 检查射线在摄像机边界上的交点
 		var camera = yc.outer.Camera.ins() ;
-		var lft = -camera.focusOffsetX ;
-		var rgt = w-camera.focusOffsetX ;
-		var top = h-camera.focusOffsetY ;
-		var btm = camera.focusOffsetY ;
+		var lft = -camera.focusX ;
+		var rgt = w-camera.focusX ;
+		var top = h-camera.focusY ;
+		var btm = camera.focusY ;
 		/*
         var rLT = yc.util.radianBetweenPoints(0,0,lft,top) ;
         var rLB = yc.util.radianBetweenPoints(0,0,lft,btm) ;

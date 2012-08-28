@@ -75,7 +75,15 @@ yc.outer.LifeEntity = cc.Sprite.extend({
     }
     
     , moving: function(){
-        this.x = this.x + this.speed * Math.sin(this.angle);
-        this.y = this.y + this.speed * Math.cos(this.angle);
+
+        var x = this.x + this.speed * Math.sin(this.angle);
+        var y = this.y + this.speed * Math.cos(this.angle);
+        
+    	// 检查世界边界
+        var pos = cc.Director.getInstance()._runningScene.testWorldBoard(x,y) ;
+    	
+        
+        this.x = pos[0] ;
+        this.y = pos[1] ;
     }
 }) ;

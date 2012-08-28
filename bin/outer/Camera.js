@@ -3,38 +3,65 @@ yc.outer.Camera = function(canvas)
 	this.width = canvas.width ;
 	this.height = canvas.height ;
 	
-	this.focusOffsetX = Math.ceil(this.width/2) ;
-	this.focusOffsetY = Math.ceil(this.height/2) ;
+	this.focusX = Math.ceil(this.width/2) ;
+	this.focusY = Math.ceil(this.height/2) ;
 	
-	this.x = -this.focusOffsetX ;
-	this.y = -this.focusOffsetY ;
+	// 偏移
+	this.offsetX = 0 ;
+	this.offsetY = 0 ;
+	
+	// 左下角对齐
+	this.x = -this.focusX ;
+	this.y = -this.focusY ;
+	
 	
 	this.move = function(x,y)
 	{
-		this.x = x ;
-		this.y = y ;
+		// 检查世界边界
+        var pos = cc.Director.getInstance()._runningScene.testWorldBoard(x,y) ;
+        this.offsetX = pos[0]-x ;
+        this.offsetY = pos[1]-y ;
+
+        var rgt = x + this.width ;
+        var top = y + this.height ;
+        pos = cc.Director.getInstance()._runningScene.testWorldBoard(rgt,top) ;
+        if(pos[0]!=rgt)
+        {
+        	 this.offsetX = pos[0]-rgt ;
+        }
+        if(pos[1]!=top)
+        {
+        	 this.offsetY = pos[1]-top ;
+        }
+		
+        // 
+		this.x = x + this.offsetX ;
+		this.y = y + this.offsetY ;
 	}
 	
 	this.moveByFocus = function(x,y)
 	{
-		this.x = x - this.focusOffsetX ;
-		this.y = y - this.focusOffsetY ;
+		this.move( x-this.focusX, y-this.focusY ) ;
 	}
 	
 	this.setFocus = function(offsetX,offsetY)
 	{
-	    var moveX = offsetX - this.focusOffsetX ;
-	    var moveY = offsetY - this.focusOffsetY ;
+	    var moveX = offsetX - this.focusX ;
+	    var moveY = offsetY - this.focusY ;
 	    
-	    this.focusOffsetX = offsetX ;
-	    this.focusOffsetY = offsetY ;
+	    this.focusX = offsetX ;
+	    this.focusY = offsetY ;
 	    
 	    this.x-= moveX ;
 	    this.y-= moveY ;
 	}
+
+	this.focus = function(){
+	    return [this.focusX,this.focusY] ;
+	}
 	
-	this.focusOffset = function(){
-	    return [this.focusOffsetX,this.focusOffsetY] ;
+	this.offsetFocus = function(){
+	    return [this.focusX-this.offsetX,this.focusY-this.offsetY] ;
 	}
 }
 

@@ -2,7 +2,12 @@ yc.levels.FreeWorld = yc.GameScene.extend({
 	
 	_onEnter: yc.GameScene.prototype.onEnter
 	, onEnter: function(){
-		
+
+		this.minX = -1000 ;
+		this.maxX = 10000 ;
+		this.minY = -800 ;
+		this.maxY = 800 ;
+	
 		// dna ----------------
 		//  定义基因
 		yc.dna.genes = {
@@ -99,15 +104,15 @@ yc.levels.FreeWorld = yc.GameScene.extend({
 		}*/
 		
 		
-        this.compassBoss.arrBosses.push( this._createRandomBoss(500,10) ) ;
+        //this.compassBoss.arrBosses.push( this._createRandomBoss(500,10) ) ;
 		
 		// 最近的boss
-        /*var boss = new yc.outer.Boss() ;
-		boss.lv = 20 ;
-        boss.x = 100 ;
+        var boss = new yc.outer.Boss() ;
+		boss.lv = 10 ;
+        boss.x = 9500 ;
         boss.y = 200 ;
         this.compassBoss.arrBosses.push(boss);
-        this.layerRoles.addChild(boss) ;*/
+        this.layerRoles.addChild(boss) ;
        
 	}
 	
