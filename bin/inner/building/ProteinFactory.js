@@ -42,7 +42,7 @@ yc.inner.building.ProteinFactory = yc.inner.building.Building.extend({
         var checkingMaterials = function(formula){
             for(var key in formula.materials)
             {
-                if(yc.inner.AminoAcidPool.ins()[key] < formula.materials[key])
+                if(ins(yc.inner.AminoAcidPool)[key] < formula.materials[key])
                 {
                     return false ;
                 }
@@ -95,7 +95,7 @@ yc.inner.building.ProteinFactory = yc.inner.building.Building.extend({
         // 消耗氨基酸
         for(var key in formula.materials)
         {
-            yc.inner.AminoAcidPool.ins().increase(key,-formula.materials[key]) ;
+            ins(yc.inner.AminoAcidPool).increase(key,-formula.materials[key]) ;
         }
             
         var func = function(){
@@ -133,6 +133,12 @@ yc.inner.building.ProteinFactory = yc.inner.building.Building.extend({
         setTimeout(func,freq) ;
     }
 }) ;
+
+yc.inner.building.ProteinFactory.price = {
+    red: 5
+    , yellow: 5  
+    , blue: 5
+}
 
 
 yc.inner.building.ProteinFactory.upgraders = [] ;

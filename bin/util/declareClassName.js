@@ -11,8 +11,9 @@
             // 遇到类
             else if( typeof(pkg[n])=='function' )
             {
+            	// 定义 className
                 pkg[n].className = prefix + n ;
-                log('declare className: '+pkg[n].className) ;
+                
             }
         }
         

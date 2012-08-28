@@ -109,7 +109,15 @@ yc.inner.monster.Virus = cc.Sprite.extend({
     }
 
     // 被击杀
-	, bekill: function(){}
+	, bekill: function(){
+		// 一定几率在细胞内掉落一个氨基酸，持续若干秒钟，等待线粒体回收
+		if(Math.random()>0.5)
+		{
+			var aminoacid = yc.inner.monster.FlopAminoAcid.ob() ;
+			aminoacid.init(this,this._parent) ;
+		}
+		
+	}
 	
     , destroy: function(){
         this.stopAction(this.actRunning) ;

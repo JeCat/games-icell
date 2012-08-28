@@ -70,6 +70,7 @@ var YouCellGame = cc.Application.extend({
             , {type:"image", src:"res/virus24.png"}
             , {type:"image", src:"res/boss-a-48.png"}
             , {type:"image", src:"res/boss-a-24.png"}
+            , {type:"image", src:"res/mitochondria.png"}
         ]);
     },
     applicationDidFinishLaunching:function () {
@@ -133,10 +134,10 @@ function startGame(){
 		var pos = cell.getPosition() ;
 		var camera = yc.outer.Camera.ins() ;
 		
-		var output = 'left:' + pos.x + ', top:' + pos.y+'<br />' ;
-		output+= 'player:'+cell.x+', '+cell.y + '<br />';
-		output+= 'speed:'+ cell.speed + '<br />';
-		output+= 'camera:'+camera.x+', '+camera.y + '<br />';
+		var output = 'left:' + pos.x.toFixed(1) + ', top:' + pos.y.toFixed(1)+'<br />' ;
+		output+= 'player:'+cell.x.toFixed(1)+', '+cell.y.toFixed(1) + '<br />';
+		output+= 'speed:'+ cell.speed.toFixed(2) + '<br />';
+		output+= 'camera:'+camera.x.toFixed(1)+', '+camera.y.toFixed(1) + '<br />';
 		$('#player-status').html(output) ;
 		
 	},500) ;

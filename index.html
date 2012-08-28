@@ -18,11 +18,12 @@
 		<canvas id="gameCanvas" width="800" height="450"></canvas>
 	</div>
 	
-	
+	<!-- 蛋白质合成工厂 -->
 	<div id="dialog-protein-composite" style="display:none">
-		<h2>蛋白质合成</h2>
+		<h2>蛋白质工厂</h2>
 
 		<div>
+			原料
 			<span style="color:red" class="aminoacid-num-red"></span>
 			<span style="color:yellow" class="aminoacid-num-yellow"></span>
 			<span style="color:blue" class="aminoacid-num-blue"></span>
@@ -93,6 +94,7 @@
 	<div id="bulding-create-menu" style="display:none;position:absolute ;">
 		<button onclick="yc.ui.BuildingCreateMenu.ins.createBuilding(yc.inner.building.Tower)">+╭☆</button>
 		<button onclick="yc.ui.BuildingCreateMenu.ins.createBuilding(yc.inner.building.ProteinFactory)">+♫</button>
+		<button onclick="yc.ui.BuildingCreateMenu.ins.createBuilding(yc.inner.building.Recycle)">+∆</button>
 		| <button onclick="yc.ui.BuildingCreateMenu.ins.ui.hide()">关闭</button>
 	</div>
 	

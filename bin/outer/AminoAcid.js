@@ -48,7 +48,7 @@ yc.outer.AminoAcid = yc.outer.LifeEntity.extend({
 	    {
 	        this._parent.deleteRole(this) ;
 	        
-	       yc.inner.AminoAcidPool.ins().increase(this.type,this.num) ;
+	       ins(yc.inner.AminoAcidPool).increase(this.type,this.num) ;
 	        
 	        return ;
 	    }

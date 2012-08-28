@@ -20,7 +20,7 @@ yc.inner.Cell = function()
     this.cytoplasmLevels = game.settings.inner.cellInitialLevels ;
     
     // 氨基酸池
-    this.poolAminoAcids = yc.inner.AminoAcidPool.ins() ;
+    this.poolAminoAcids = ins(yc.inner.AminoAcidPool) ;
     
     
     
@@ -131,6 +131,25 @@ yc.inner.Cell.prototype.newborn = function()
     this.newbornBuildings() ;
 }
 
+/**
+ * 细胞生长：将一个细胞膜格子转变成细胞质
+ */
+yc.inner.Cell.prototype.grow = function(x,y){
+	var hexgon = this.aAxes.hexgon(x,y) ;
+	if( !hexgon || hexgon.type!='membrane' )
+	{
+		return ;
+	}
+
+    yc.util.arr.remove(this.cytoplasms,hexgon) ;
+    yc.util.arr.remove(this.membranes,hexgon) ;
+
+	hexgon.type = 'cytoplasm' ;
+    this.cytoplasms.push(hexgon) ;
+    
+	this.expandCytoplasm(hexgon) ;
+}
+
 
 // 新玩家 初始化新细胞的建筑
 yc.inner.Cell.prototype.newbornBuildings = function(){
@@ -209,7 +228,7 @@ yc.inner.Cell.prototype.die = function(){
 	alert('you are die !') ;
 	
 	// 清空资源
-	yc.inner.AminoAcidPool.ins().clear() ;
+	ins(yc.inner.AminoAcidPool).clear() ;
 	ins(yc.inner.ProteinPool).clear() ;
 	
 	// 回收所有建筑

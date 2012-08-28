@@ -33,7 +33,7 @@ yc.levels.FreeWorld = yc.GameScene.extend({
 		// ---------------
 		// 初始化资源
 		//  氨基酸池
-		/*yc.inner.AminoAcidPool.ins()
+		/*ins(yc.inner.AminoAcidPool)
 			.increase('red',10)
 			.increase('yellow',10)
 			.increase('blue',10) ;*/

@@ -25,10 +25,8 @@ yc.inner.building.up.TowerFierpower = function(){
         var lv = this.lv+1 ;
         
         return {
-            return {
-                orange: 5 * lv
-                , green： 3 * lv
-            }
+            orange: 5 * lv
+            , green: 3 * lv
         }
     }
 }

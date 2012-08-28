@@ -21,6 +21,7 @@ yc.util.ObjectPool = yc.op = function ObjectPool(className)
 			var ob = this.freeObjects.pop() ;
 		}
 		
+		ob.using = true ;
 		this.usingObjects[ob.__ObjectPoolId__] = ob ;
 		this.count ++ ;
 		
@@ -32,6 +33,7 @@ yc.util.ObjectPool = yc.op = function ObjectPool(className)
 	this.free = function(ob){
 		delete this.usingObjects[ob.__ObjectPoolId__] ;
 		this.count -- ;
+		ob.using = false ;
 		
 		this.freeObjects.push(ob) ;
 	}

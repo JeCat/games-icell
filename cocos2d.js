@@ -73,11 +73,14 @@ var $ = jquery ;
             , 'bin/inner/building/Tower.js'
             , 'bin/inner/building/Bullet.js'
             , 'bin/inner/building/ProteinFactory.js'
+            , 'bin/inner/building/Recycle.js'
             
             , 'bin/inner/building/up/UpgraderBase.js'
             , 'bin/inner/building/up/TowerFirepower.js'
             , 'bin/inner/building/up/TowerBombing.js'
-            
+
+            , 'bin/inner/monster/Mitochondria.js'
+            , 'bin/inner/monster/FlopAminoAcid.js'
             , 'bin/inner/monster/Virus.js'
             , 'bin/inner/monster/VirusCluster.js'
             , 'bin/inner/monster/VirusLayer.js'
