@@ -35,7 +35,6 @@ body{
 }
 
 
-
 #bulding-upgrade-menu{
     width: 300px ;
     padding: 10px ;
@@ -54,4 +53,15 @@ body{
 
 .bulding-upgrader{
     padding-top: 15px ;
+}
+
+
+#dialog-killboss-reward{
+    width: 300px ;
+    padding: 10px ;
+    background-color: #cdcdcd ;
+}
+.reward-gene{
+	width: 150px ;
+	float:left ;
 }

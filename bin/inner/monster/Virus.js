@@ -15,7 +15,14 @@ yc.inner.monster.Virus = cc.Sprite.extend({
     , file: 'res/virus16.png'
     
     , init: function(prototype){
-    	
+	
+		this.lv = yc.inner.monster.Virus.prototype.lv ;
+		this.file = yc.inner.monster.Virus.prototype.file ;
+		this.speed = yc.inner.monster.Virus.prototype.speed ;
+		this.hpFull = yc.inner.monster.Virus.prototype.hpFull ;
+		this.attack = yc.inner.monster.Virus.prototype.attack ;
+		this.bekill = yc.inner.monster.Virus.prototype.bekill ;
+
 	    for(var key in prototype)
 	    {
 	    	this[key] = prototype[key] ;
@@ -93,13 +100,17 @@ yc.inner.monster.Virus = cc.Sprite.extend({
         
         if(this.hp<0)
         {
+        	this.bekill() ;
             this.destroy() ;
             return ;
         }
         
         this.hpRate = this.hp/this.hpFull ;
     }
-    
+
+    // 被击杀
+	, bekill: function(){}
+	
     , destroy: function(){
         this.stopAction(this.actRunning) ;
         delete this.actRunning ;

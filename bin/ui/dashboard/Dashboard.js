@@ -21,11 +21,11 @@ yc.ui.dashboard.Dashboard = cc.Layer.extend({
 		this._createSeparator(25) ;
         
 		// 氨基酸池
-		this.labelAminoAcids.red = this._createLabel("♪123456789",new cc.Color3B(255,0,0)) ;
+		this.labelAminoAcids.red = this._createLabel("♪ 0",new cc.Color3B(255,0,0)) ;
 		this._createSeparator(10) ;
-		this.labelAminoAcids.yellow = this._createLabel("♪123",new cc.Color3B(255,255,0)) ;
+		this.labelAminoAcids.yellow = this._createLabel("♪ 0",new cc.Color3B(255,255,0)) ;
 		this._createSeparator(10) ;
-		this.labelAminoAcids.blue = this._createLabel("♪",new cc.Color3B(0,0,255)) ;
+		this.labelAminoAcids.blue = this._createLabel("♪ 0",new cc.Color3B(0,0,255)) ;
 		
         this._createSeparator(20) ;
         

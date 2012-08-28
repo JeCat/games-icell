@@ -24,7 +24,8 @@ yc.inner.building.up.TowerBombing = function(){
         var lv = this.lv+1 ;
         
         return {
-            orange: 0
+        	violet: 5 * lv
+            , green： 3 * lv
         }
     }
 }

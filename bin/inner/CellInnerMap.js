@@ -40,10 +40,6 @@ yc.inner.CellInnerMap = cc.Layer.extend({
 			this.drawHexgon(cell.membranes[i],ctx,"rgb(140,140,140)","rgb(170,170,170)") ;
 		}
 		
-		// test
-		this.drawHexgon(cell.aAxes.hexgon(3,7),ctx,"rgb(255,0,0)") ;
-		this.drawHexgonPoint(cell.aAxes.hexgon(3,7),ctx,"rgb(0,180,0)") ;
-		
 	}
 	
 	, drawHexgon: function(hexgon,ctx,strokeStyle,fillStyle){

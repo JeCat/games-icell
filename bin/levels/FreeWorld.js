@@ -14,20 +14,16 @@ yc.levels.FreeWorld = yc.GameScene.extend({
             'tower:firepower': new yc.dna.GeneBuildingUpgrader({
                 name: 'tower:firepower'
                 , title: '防御塔：火力'
+                , description: '解锁：能够将“防御塔：火力”升级到更高等级'
                 , upgrader: yc.inner.building.up.TowerFierpower
             })
             , 'tower:bombing': new yc.dna.GeneBuildingUpgrader({
                 name: 'tower:bombing'
                 , title: '防御塔：轰炸'
+                , description: '解锁：能够将“防御塔：轰炸”升级到更高等级'
                 , upgrader: yc.inner.building.up.TowerBombing
             })
 		}
-		ins(yc.dna.DNA).obtainGene( yc.dna.genes['tower:firepower'] ) ;
-		ins(yc.dna.DNA).obtainGene( yc.dna.genes['tower:firepower'] ) ;
-		ins(yc.dna.DNA).obtainGene( yc.dna.genes['tower:firepower'] ) ;
-		ins(yc.dna.DNA).obtainGene( yc.dna.genes['tower:bombing'] ) ;
-		ins(yc.dna.DNA).obtainGene( yc.dna.genes['tower:bombing'] ) ;
-		ins(yc.dna.DNA).obtainGene( yc.dna.genes['tower:bombing'] ) ;
 		
 		// ---------------
 		// 初始化基本场景
@@ -37,10 +33,10 @@ yc.levels.FreeWorld = yc.GameScene.extend({
 		// ---------------
 		// 初始化资源
 		//  氨基酸池
-		yc.inner.AminoAcidPool.ins()
+		/*yc.inner.AminoAcidPool.ins()
 			.increase('red',10)
 			.increase('yellow',10)
-			.increase('blue',10) ;
+			.increase('blue',10) ;*/
 		//  合成公式
 		ins(yc.inner.ProteinFormulas)
 		    .addNewFormula({
@@ -60,8 +56,18 @@ yc.levels.FreeWorld = yc.GameScene.extend({
 		    })
 		    .addNewFormula({
 		        name: 'orange'
-		        , materials: {red:4,yellow:4}
+		        , materials: {red:3,yellow:3}
 		        , rgb: [255,165,0]
+		    }) 
+		    .addNewFormula({
+		        name: 'green'
+		        , materials: {blue:3,yellow:3}
+		        , rgb: [0,165,0]
+		    }) 
+		    .addNewFormula({
+		        name: 'violet'
+		        , materials: {red:3,blue:3}
+		        , rgb: [255,0,255]
 		    }) ;
 		
 		
@@ -84,6 +90,20 @@ yc.levels.FreeWorld = yc.GameScene.extend({
 		//this.compassBoss.setPosition(cc.p(100,100)) ;
 		compass = this.compassBoss ;
 		
+
+		// boss
+        var boss = new yc.outer.Boss() ;
+		boss.lv = 5 ;
+        boss.x = 9500 ;
+        boss.y = 200 ;
+        
+        // boss掉落的基因
+        boss.genes.push(yc.dna.genes['tower:firepower']) ;
+        boss.genes.push(yc.dna.genes['tower:bombing']) ;
+        
+        this.compassBoss.arrBosses.push(boss);
+        this.layerRoles.addChild(boss) ;
+        
 		
 		// 一环: 半径5km, 4个boss, lv30
 		/*for(var i=0;i<4;i++)
@@ -106,13 +126,6 @@ yc.levels.FreeWorld = yc.GameScene.extend({
 		
         //this.compassBoss.arrBosses.push( this._createRandomBoss(500,10) ) ;
 		
-		// 最近的boss
-        var boss = new yc.outer.Boss() ;
-		boss.lv = 10 ;
-        boss.x = 9500 ;
-        boss.y = 200 ;
-        this.compassBoss.arrBosses.push(boss);
-        this.layerRoles.addChild(boss) ;
        
 	}
 	

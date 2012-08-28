@@ -6,8 +6,11 @@ yc.outer.AminoAcid = yc.outer.LifeEntity.extend({
     , init: function(){
     	// 随机类型和数量
     	this.type = yc.inner.AminoAcidPool.types[ 0|(Math.random()*(yc.inner.AminoAcidPool.types.length)) ] ;
-    	this.num = Math.round(Math.random()*10) ;
-    	this.size = 3 + Math.round(this.num/2) ;
+    	this.num = Math.round(Math.random()*20) ;
+    	this.size = 3 + Math.round(this.num/4) ;
+    	
+    	var colors = {red:'255,0,0',blue:'0,0,255',yellow:'255,255,0'}
+    	this.color = 'rgb(' + colors[this.type] + ')' ;
     	
     	// 随机方向
         this.randomTurn() ;
@@ -20,7 +23,7 @@ yc.outer.AminoAcid = yc.outer.LifeEntity.extend({
     , transform: yc.outer.Camera.transformSprite
 	, draw: function(c)
 	{
-        c.fillStyle = this.type ;
+        c.fillStyle = this.color ;
 		c.beginPath();
 		c.arc(0, 0, this.size, 0, Math.PI*2, true);
 		c.closePath();

@@ -5,6 +5,8 @@ yc.outer.Boss = yc.outer.VirusCluster.extend({
 	, ctor: function(){
 	    this._super() ;
 	    this.initWithFile('res/boss-a-48.png') ;
+	    
+	    this.genes = [] ;
 	}
 
 	, _draw: cc.Sprite.prototype.draw
@@ -15,6 +17,7 @@ yc.outer.Boss = yc.outer.VirusCluster.extend({
     , createInnerSprite: function(hexgon){
     	
         var innerCluster = yc.inner.monster.VirusCluster.create(hexgon,1) ;
+        var boss = this ;
         
         innerCluster.virusPrototype = {
     		// 根据等级设置能力
@@ -22,10 +25,15 @@ yc.outer.Boss = yc.outer.VirusCluster.extend({
         	, speed: 10
         	, hpFull: this.lv*200
         	, file: 'res/boss-a-24.png'
-        	
+
         	// 直接杀死玩家
         	, attack: function(){
         		yc.inner.Cell.ins().increaseHp(-5) ;
+        	}
+        
+        	// 击杀boss
+        	, bekill: function(){
+        		ins(yc.ui.DlgRewardGene).show(boss);
         	}
         }
         
