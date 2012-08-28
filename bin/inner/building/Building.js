@@ -1,9 +1,9 @@
 yc.inner.building.Building = cc.Sprite.extend({  
 
-    hexgon: null
 
-    , ctor: function(){
+    ctor: function(){
     	this._upgraders = {}
+    	this.hexgon = null
 	} 
 
     , put: function(hexgon){

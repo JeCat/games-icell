@@ -1,33 +1,54 @@
 yc.inner.building.Tower = yc.inner.building.Building.extend({  
 
-    // 炮弹速度
-    speed: 500
+	ctor: function(){
+
+		this._super() ;
+		
+	    // 炮弹速度
+	    this.speed = 500
+	    
+	    // 射击频率
+	    this.freq = 300
+	    
+	    // 伤害
+	    this.injure = 10
+	    
+	    // 射程
+	    this.range = 100
+	    
+	    // 溅射半径
+	    this.sputtering = 10
+	    
+	    // 溅射伤害
+	    this.sputtering_injure = 3
+	    
+	    
+	    this.hexgon = null
+	    
+	    this.bShoting = true	
+	}
     
-    // 射击频率
-    , freq: 300
     
-    // 伤害
-    , injure: 10
-    
-    // 射程
-    , range: 100
-    
-    // 溅射半径
-    , sputtering: 10
-    
-    // 溅射伤害
-    , sputtering_injure: 3
-    
-    
-    , hexgon: null
-    
-    , bShoting: true
     
     , draw: function(ctx){
         if(!this.hexgon)
         {
             return ;
         }
+
+    	// 绘制射击范围
+    	if( this.hexgon.selected )
+    	{
+            ctx.fillStyle = "rgba(255,255,255,0.2)" ;
+            
+    		ctx.beginPath() ;
+            ctx.moveTo(this.range,0) ;
+            ctx.arc(0,0, this.range, 0, Math.PI*2 , false) ;
+            ctx.closePath()
+            
+            ctx.fill() ;
+    	}
+    	
 
         this._super(ctx) ;
         
