@@ -43,6 +43,20 @@ yc.util.ObjectPool = yc.op = function ObjectPool(className)
 	}
 }
 
+yc.util.ObjectPool.ActionFree = cc.Action.extend({
+	stop: function(){
+		yc.util.ObjectPool.ins(this._target.contructor).free(this._target) ;
+
+		if( typeof(this._target.free)=='function' )
+		{
+			this._target.free() ;
+		}
+	}
+	, isDone: function(){
+		return ! this._target.using ;
+	}
+}) ;
+
 yc.util.ObjectPool.mapFlyweights = {} ;
 yc.util.ObjectPool.ins = function(className){
     

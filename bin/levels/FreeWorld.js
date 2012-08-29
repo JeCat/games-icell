@@ -24,6 +24,10 @@ yc.levels.FreeWorld = yc.GameScene.extend({
                 , upgrader: yc.inner.building.up.TowerBombing
             })
 		}
+//		ins(yc.dna.DNA).obtainGene(yc.dna.genes['tower:bombing']) ;
+//		ins(yc.dna.DNA).obtainGene(yc.dna.genes['tower:bombing']) ;
+//		ins(yc.dna.DNA).obtainGene(yc.dna.genes['tower:bombing']) ;
+//		ins(yc.dna.DNA).obtainGene(yc.dna.genes['tower:bombing']) ;
 		
 		// ---------------
 		// 初始化基本场景

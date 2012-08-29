@@ -12,6 +12,11 @@ yc.inner.building.Bullet = cc.Sprite.extend({
         action._stop = action.stop ;
         action.stop = function(){
             this._stop() ;
+
+            // 显示火焰
+            var flame = yc.op.ins(yc.inner.building.Bullet.Flame).ob() ;
+            flame.init(tower.sputtering,bullet) ;
+            
             
             // 计算被命中的敌人
             var bHited = false ;
@@ -29,7 +34,7 @@ yc.inner.building.Bullet = cc.Sprite.extend({
                     bHited = true ; // 一颗子弹只命中一个敌人
                 }
                 // 溅射伤害（群体）
-                else if( arrVirus[i].radius+tower.sputtering > dis )
+                if( arrVirus[i].radius+tower.sputtering > dis )
                 {
                     arrVirus[i].hit(tower.sputtering_injure) ;
                 }
@@ -67,3 +72,41 @@ yc.inner.building.Bullet.create = function(){
     
     return bullet ;
 }
+
+yc.inner.building.Bullet.Flame = cc.Sprite.extend({
+	
+	init: function(range,bullet){
+		this.range = range ;
+		bullet._parent.addChild(this) ;
+		var p = bullet.getPosition() ;
+		this.setPosition(cc.p(p.x,p.y)) ;
+		
+
+		this.setScale(0.1) ;
+		
+		var seq = cc.Sequence.create([
+			cc.Spawn.create(
+					cc.ScaleTo.create(0.1, 1, 1)
+					, cc.FadeOut.create(0.3)
+			)
+			, cc.CallFunc.create(this,this.free)
+		]) ;
+		this.runAction(seq) ;
+	}
+	, draw: function(ctx){
+
+    	ctx.globalAlpha = this._opacity/255;
+        ctx.fillStyle = "rgba(255,255,255,0.5)" ;
+    
+        ctx.beginPath() ;
+        ctx.moveTo(0+this.range,0) ;
+        ctx.arc(0,0, this.range, 0, Math.PI*2 , false) ;
+        ctx.closePath() ;
+        
+        ctx.fill() ;
+	}
+	, free: function(){
+		this.removeFromParentAndCleanup() ;
+		yc.util.ObjectPool.ins(yc.inner.building.Bullet.Flame).free(this) ;
+	}
+});

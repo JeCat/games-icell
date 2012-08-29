@@ -92,7 +92,6 @@ yc.inner.monster.Mitochondria = cc.Sprite.extend({
 		    		// 向目标移动
 		    		var p = this.watched.getPosition() ;
 		            this.actWorking = this.createMovingAction(p.x,p.y,function(){
-		            	log('catch') ;
 		            	
 		            	// 抓住目标
 		            	worker.watched = null ;
@@ -153,5 +152,15 @@ yc.inner.monster.Mitochondria = cc.Sprite.extend({
         return action ;
     }
     
-    
+    , destroy: function(){
+    	// 扔掉手中的氨基酸
+    	if( this.catched )
+    	{
+    		this.catched.destroy() ;
+    	}
+    	
+    	this.removeFromParentAndCleanup() ;
+    	this.stopAction(this.actMosey);
+    	this.stopAction(this.actWorking);
+    }
 }) ;
