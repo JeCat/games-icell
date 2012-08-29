@@ -14,8 +14,8 @@ yc.inner.building.up.TowerBombing = function(){
     this.upgradeDetail = function(tower)
     {
         return {
-            sputtering_injure: tower.injure
-            , sputtering: tower.sputtering*0.1
+            sputtering_injure: tower.sputtering_injure*0.5
+            , sputtering: tower.sputtering*0.15
             , range: tower.range*0.05
         }
     }

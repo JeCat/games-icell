@@ -27,17 +27,49 @@ yc.inner.building.Bullet = cc.Sprite.extend({
                 var p = arrVirus[i].getPosition() ;
                 var dis = yc.util.pointsDis(myPos.x,myPos.y,p.x,p.y) ;
                 
+                var virus = arrVirus[i] ;
+                
                 // 命中目标
-                if( !bHited && arrVirus[i].radius > dis )
+                if( !bHited && virus.radius > dis )
                 {
-                    arrVirus[i].hit(tower.injure) ;
+                    virus.hit(tower.injure) ;
                     bHited = true ; // 一颗子弹只命中一个敌人
                 }
                 // 溅射伤害（群体）
-                if( arrVirus[i].radius+tower.sputtering > dis )
+                if( virus.radius+tower.sputtering > dis )
                 {
-                    arrVirus[i].hit(tower.sputtering_injure) ;
+                    virus.hit(tower.sputtering_injure) ;
+                    
+                    // 减速效果
+                    if( tower.retardment && tower.retardment_duration )
+                    {
+                    	// 推迟减速时间
+                    	if(virus.actRetardmentDuration)
+                    	{
+                    	}
+                    	
+                    	// 作用减速
+                    	else
+                    	{
+                    		// 改变速度
+                    		virus.speed*= (1-tower.retardment) ; 
+                    		
+                    		// 重新计算移动目标
+                    		virus.stopRun() ;
+                    		virus.run() ;
+                    		
+                    		// 恢复正常 action
+    	                	virus.actRetardmentDuration = cc.DelayTime.create(tower.retardment_duration) ;
+    	                	cc.Sequence.create([
+    	                	     actDuration
+    	                		, cc.CallFunc.create(null,function(virus){
+    	                			// 恢复正常速度
+    	                		},virus)
+    	                	]) ;
+                    	}
+                    }
                 }
+                
             }
             
             // 回收对象

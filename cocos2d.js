@@ -78,6 +78,7 @@ var $ = jquery ;
             , 'bin/inner/building/up/UpgraderBase.js'
             , 'bin/inner/building/up/TowerFirepower.js'
             , 'bin/inner/building/up/TowerBombing.js'
+            , 'bin/inner/building/up/TowerRetardment.js'
 
             , 'bin/inner/monster/Mitochondria.js'
             , 'bin/inner/monster/FlopAminoAcid.js'

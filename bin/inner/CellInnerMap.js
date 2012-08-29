@@ -83,7 +83,7 @@ yc.inner.CellInnerMap = cc.Layer.extend({
 		if(game.settings.dbg)
 		{
 			// 坐标
-			ctx.font="normal 4px san-serif";
+			ctx.font="normal 10px san-serif";
 			ctx.fillStyle = "rgb(100,100,150)" ;
 			ctx.fillText(hexgon.x+','+hexgon.y,hexgon.center[0]-8,-(hexgon.center[1]-4));
 		}

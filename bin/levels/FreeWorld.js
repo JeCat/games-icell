@@ -23,11 +23,14 @@ yc.levels.FreeWorld = yc.GameScene.extend({
                 , description: '解锁：能够将“防御塔：轰炸”升级到更高等级'
                 , upgrader: yc.inner.building.up.TowerBombing
             })
+			, 'tower:retardment': new yc.dna.GeneBuildingUpgrader({
+				name: 'tower:bombing'
+					, title: '防御塔：轰炸'
+						, description: '解锁：能够将“防御塔：轰炸”升级到更高等级'
+							, upgrader: yc.inner.building.up.TowerBombing
+			})
 		}
-//		ins(yc.dna.DNA).obtainGene(yc.dna.genes['tower:bombing']) ;
-//		ins(yc.dna.DNA).obtainGene(yc.dna.genes['tower:bombing']) ;
-//		ins(yc.dna.DNA).obtainGene(yc.dna.genes['tower:bombing']) ;
-//		ins(yc.dna.DNA).obtainGene(yc.dna.genes['tower:bombing']) ;
+		ins(yc.dna.DNA).obtainGene(yc.dna.genes['tower:retardment']) ;
 		
 		// ---------------
 		// 初始化基本场景
@@ -104,6 +107,7 @@ yc.levels.FreeWorld = yc.GameScene.extend({
         // boss掉落的基因
         boss.genes.push(yc.dna.genes['tower:firepower']) ;
         boss.genes.push(yc.dna.genes['tower:bombing']) ;
+        boss.genes.push(yc.dna.genes['tower:retardment']) ;
         
         this.compassBoss.arrBosses.push(boss);
         this.layerRoles.addChild(boss) ;

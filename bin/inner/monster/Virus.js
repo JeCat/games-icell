@@ -2,12 +2,15 @@ yc.inner.monster.Virus = cc.Sprite.extend({
 
     radius: 10
     
-    , hpFull: 20
+    , hpFull: 15
     , hpRate: 1
     , hp: 0
     
     , speed: 30
+    , normalSpeed: 30
     
+    , runningFrom: null
+    , runningTarget: null
     , actRunning: null
     
     , lv: 1
@@ -32,14 +35,20 @@ yc.inner.monster.Virus = cc.Sprite.extend({
    
         this.hpRate = 1 ;
         this.hp = this.hpFull ;
+        this.normalSpeed = this.speed ;
+        
+        this.runningFrom = null ;
+        this.runningTarget = null ;
+        this.actRunning = null ;
     }
     
     , run: function(fromHexgon) {
         
-        var targetHexgon = cell.pathMap().next(fromHexgon) ;
+    	this.runningFrom = fromHexgon ;
+        this.runningTarget = cell.pathMap().next(fromHexgon) ;
         
         // 到达
-        if(!targetHexgon)
+        if(!this.runningTarget)
         {
             this.attack() ;
             
@@ -50,20 +59,37 @@ yc.inner.monster.Virus = cc.Sprite.extend({
         
         this.setPosition(cc.p(fromHexgon.center[0],fromHexgon.center[1])) ;
         
-        
-        var dis = Math.sqrt(3) * game.settings.inner.hexgonSideLength ;
-        var virus = this ;
-        this.actRunning = cc.MoveTo.create(dis/this.speed,cc.p(targetHexgon.center[0],targetHexgon.center[1])) ;
-        this.actRunning._stop = this.actRunning.stop ;
-        this.actRunning.stop = function(){
-            this._stop() ;
-
-            virus.run(targetHexgon) ;
-        }
-        
+        this.actRunning = this.createRunAction(this.runningTarget) ;
         this.runAction(this.actRunning) ;
         
         return true ;
+    }
+    
+    , stopRun: function(){
+    	
+    	if(this.actRunning)
+    	{
+    		this.stopAction(this.actRunning) ;
+    		delete this.actRunning ;
+    		this.runningTarget = null ;
+    		this.runningFrom = null ;
+    	}
+    }
+    
+    , createRunAction: function(target){
+
+    	var p = this.getPosition() ;
+    	var dis = yc.util.pointsDis(p.x,p.y,target.center[0],target.center[1]) ;
+    	
+    	var virus = this ;
+        var actRunning = cc.MoveTo.create(dis/this.speed,cc.p(target.center[0],target.center[1])) ;
+        actRunning._stop = actRunning.stop ;
+        actRunning.stop = function(){
+            this._stop() ;
+            virus.run(target) ;
+        }
+        
+        return actRunning ;
     }
     
     , attack: function(){
@@ -120,8 +146,7 @@ yc.inner.monster.Virus = cc.Sprite.extend({
 	}
 	
     , destroy: function(){
-        this.stopAction(this.actRunning) ;
-        delete this.actRunning ;
+    	this.stopRun() ;
         
         yc.inner.monster.VirusLayer.ins().removeVirusSprite(this) ;
     }
