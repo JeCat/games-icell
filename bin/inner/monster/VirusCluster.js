@@ -31,6 +31,7 @@ yc.inner.monster.VirusCluster = cc.Sprite.extend({
             
             var virus = layer.createVirusSprite() ;
             virus.init(cluster.virusPrototype) ;
+            virus.setPosition(cc.p(stay.center[0],stay.center[1])) ;
             virus.run(stay) ;
             
             cluster.num -- ;

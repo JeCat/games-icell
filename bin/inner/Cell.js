@@ -196,7 +196,7 @@ yc.inner.Cell.prototype.pathMap = function(){
  * 病毒攻击到细胞核
  */
 yc.inner.Cell.prototype.getHurt = function(){
-
+return;
 	// 偷走蛋白质
 	var pool = ins(yc.inner.ProteinPool) ;
 	if(pool.total>0)

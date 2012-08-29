@@ -1,6 +1,6 @@
 yc.inner.monster.FlopAminoAcid = cc.Sprite.extend({  
 
-    init: function(virus,layer){
+    init: function(virus){
 		var aminoacid = this ;
 		this.beWatched = null ;
 		this.beCatched = null ;
@@ -8,7 +8,7 @@ yc.inner.monster.FlopAminoAcid = cc.Sprite.extend({
     	this.type = yc.inner.AminoAcidPool.types[ 0|(Math.random()*(yc.inner.AminoAcidPool.types.length)) ] ;
     	this.num = Math.round(Math.random()*10) ;
     	
-    	layer.addChild(this) ;
+    	virus._parent.addChild(this) ;
     	var p = virus.getPosition() ;
     	p1 = cc.p(p.x,p.y) ;
     	p2 = cc.p( p.x+(5-Math.random()*10), p.y+(5-Math.random()*10) ) ;

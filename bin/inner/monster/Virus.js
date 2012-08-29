@@ -2,7 +2,7 @@ yc.inner.monster.Virus = cc.Sprite.extend({
 
     radius: 10
     
-    , hpFull: 15
+    , hpFull: 30
     , hpRate: 1
     , hp: 0
     
@@ -42,10 +42,16 @@ yc.inner.monster.Virus = cc.Sprite.extend({
         this.actRunning = null ;
     }
     
-    , run: function(fromHexgon) {
-        
-    	this.runningFrom = fromHexgon ;
-        this.runningTarget = cell.pathMap().next(fromHexgon) ;
+    , run: function() {
+    	
+    	var p = this.getPosition() ;
+    	if( !(this.runningFrom=yc.inner.Cell.ins().aAxes.hexgonByPoint(p.x,p.y)) )
+    	{
+    		// something wrong!
+    		return ;
+    	}
+    	
+        this.runningTarget = cell.pathMap().next(this.runningFrom) ;
         
         // 到达
         if(!this.runningTarget)
@@ -56,8 +62,6 @@ yc.inner.monster.Virus = cc.Sprite.extend({
             
             return false ;
         }
-        
-        this.setPosition(cc.p(fromHexgon.center[0],fromHexgon.center[1])) ;
         
         this.actRunning = this.createRunAction(this.runningTarget) ;
         this.runAction(this.actRunning) ;
@@ -86,7 +90,7 @@ yc.inner.monster.Virus = cc.Sprite.extend({
         actRunning._stop = actRunning.stop ;
         actRunning.stop = function(){
             this._stop() ;
-            virus.run(target) ;
+            virus.run() ;
         }
         
         return actRunning ;
@@ -105,9 +109,9 @@ yc.inner.monster.Virus = cc.Sprite.extend({
     , draw: function(ctx){
         this._draw() ;
         
-        // ctx.fillStyle = 'red' ;
-        // ctx.font="normal 3px san-serif";
-        // ctx.fillText(this.hp,0,-18);
+        ctx.fillStyle = 'red' ;
+        ctx.font="normal 3px san-serif";
+        ctx.fillText(this.__ObjectPoolId__,0,-18);
         
         // 画血槽
         if(this.hpRate<1)
@@ -140,14 +144,14 @@ yc.inner.monster.Virus = cc.Sprite.extend({
 		if(Math.random()>0.5)
 		{
 			var aminoacid = yc.inner.monster.FlopAminoAcid.ob() ;
-			aminoacid.init(this,this._parent) ;
+			aminoacid.init(this) ;
 		}
 		
 	}
 	
     , destroy: function(){
     	this.stopRun() ;
-        
+        this.stopAllActions() ;
         yc.inner.monster.VirusLayer.ins().removeVirusSprite(this) ;
     }
     

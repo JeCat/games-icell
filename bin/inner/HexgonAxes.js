@@ -124,7 +124,7 @@ HexgonAxes.prototype.hexgonByPoint = function(px,py){
     
     var hexgon = this.hexgon(x,y) ;
     
-    if(xx<this.sideLen/2)
+    if( hexgon && xx<this.sideLen/2 )
     {
         if(yy>gridH/2)
         {
@@ -138,7 +138,7 @@ HexgonAxes.prototype.hexgonByPoint = function(px,py){
         //log(['hexgon',hexgon.x,hexgon.y,':',hexgon.center[0],hexgon.center[1],'=',yc.util.pointsDis(hexgon.center[0],hexgon.center[1],px,py)]) ;
         //log(['neighbor',neighbor.x,neighbor.y,':',neighbor.center[0],neighbor.center[1],'=',yc.util.pointsDis(neighbor.center[0],neighbor.center[1],px,py)]) ;
         
-        if( yc.util.pointsDis(hexgon.center[0],hexgon.center[1],px,py) > yc.util.pointsDis(neighbor.center[0],neighbor.center[1],px,py) )
+        if( neighbor && yc.util.pointsDis(hexgon.center[0],hexgon.center[1],px,py) > yc.util.pointsDis(neighbor.center[0],neighbor.center[1],px,py) )
         {
             hexgon = neighbor ;
         }

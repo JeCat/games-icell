@@ -35,6 +35,7 @@ yc.inner.building.Bullet = cc.Sprite.extend({
                     virus.hit(tower.injure) ;
                     bHited = true ; // 一颗子弹只命中一个敌人
                 }
+                
                 // 溅射伤害（群体）
                 if( virus.radius+tower.sputtering > dis )
                 {
@@ -43,14 +44,6 @@ yc.inner.building.Bullet = cc.Sprite.extend({
                     // 减速效果
                     if( tower.retardment && tower.retardment_duration )
                     {
-                    	// 推迟减速时间
-                    	if(virus.actRetardmentDuration)
-                    	{
-                    	}
-                    	
-                    	// 作用减速
-                    	else
-                    	{
                     		// 改变速度
                     		virus.speed*= (1-tower.retardment) ; 
                     		
@@ -59,14 +52,18 @@ yc.inner.building.Bullet = cc.Sprite.extend({
                     		virus.run() ;
                     		
                     		// 恢复正常 action
-    	                	virus.actRetardmentDuration = cc.DelayTime.create(tower.retardment_duration) ;
-    	                	cc.Sequence.create([
-    	                	     actDuration
+    	                	virus.runAction(cc.Sequence.create([
+    	                	    cc.DelayTime.create(tower.retardment_duration)
     	                		, cc.CallFunc.create(null,function(virus){
-    	                			// 恢复正常速度
+    	                			if(virus.using)
+    	                			{
+	    	                			// 恢复正常速度
+	    	                			virus.speed = virus.normalSpeed ;
+	    	                			virus.stopRun() ;
+	    	                			virus.run() ;
+    	                			}
     	                		},virus)
-    	                	]) ;
-                    	}
+    	                	])) ;
                     }
                 }
                 
