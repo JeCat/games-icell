@@ -1,21 +1,19 @@
 
-// 随机将一些格子堵住
-function randomBlock(){
-	
-	var cell = yc.inner.Cell.ins() ;
-			
-	for(var i=0;i<cell.cytoplasms.length;i++)
-	{
-		var hexgon = cell.cytoplasms[i] ;
 
-		if( Math.random()>0.7 )
-		{
-			hexgon.block = true ;
-		}
-	}
-	
-	// 重新计算最优路径
-	cell.researchPath() ;
+function moremoney()
+{
+	//  氨基酸池
+	ins(yc.inner.AminoAcidPool)
+		.increase('red',10)
+		.increase('yellow',10)
+		.increase('blue',10) ;
+	//  蛋白质
+	ins(yc.inner.ProteinPool).increase('red',500) ;
+	ins(yc.inner.ProteinPool).increase('yellow',500) ;
+	ins(yc.inner.ProteinPool).increase('blue',500) ;
+	ins(yc.inner.ProteinPool).increase('orange',500) ;
+	ins(yc.inner.ProteinPool).increase('green',500) ;
+	ins(yc.inner.ProteinPool).increase('violet',500) ;
 }
 
 function newVirusCluster(){

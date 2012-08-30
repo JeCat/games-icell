@@ -112,12 +112,6 @@ yc.inner.building.Tower = yc.inner.building.Building.extend({
 
 
 yc.inner.building.Tower.upgraders = [] ;
-    
-yc.inner.building.Tower.price = {
-    red: 3 
-    , yellow: 3  
-    , blue: 3  
-}
 
 yc.inner.building.Tower.block = true ;
 

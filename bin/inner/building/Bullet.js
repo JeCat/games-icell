@@ -52,7 +52,6 @@ yc.inner.building.Bullet = cc.Sprite.extend({
                     	if(virus.actRunning)
                     	{
                     		virus.actRunning.initWithSpeed(virus.speed) ;
-            				log(['down: ',virus.speed]) ;
                     	}
                     		
                 		// 恢复正常速度 action
@@ -66,7 +65,6 @@ yc.inner.building.Bullet = cc.Sprite.extend({
 		                			// 恢复正常速度
 		                			virus.speed = virus.normalSpeed ;
 		                    		virus.actRunning.initWithSpeed(virus.speed) ;
-	                				log(['resume: ',virus.speed]) ;
 	                			}
 	                    	},[virus]
 	                    ) ;

@@ -5,7 +5,6 @@ yc.ui.BuildingUpgradeMenu = function(){
     
     this.show = function(building){
         
-    	log(building) ;
         var buildingClass = building.constructor ;
         
         // 没有可用的升级
@@ -44,18 +43,7 @@ yc.ui.BuildingUpgradeMenu = function(){
             
             // 升级费用
             var cost = upgrader.cost() ;
-            var costHtml = '费用：' ;
-            var idx = 0 ;
-            for(var proteinName in cost)
-            {
-                var proteinFormula = ins(yc.inner.ProteinFormulas).mapFormulas[proteinName] ;
-                if(idx++)
-                {
-                    costHtml+= ' + ' ;
-                }
-                costHtml+= '<span style="color:'+proteinFormula.colorHtml+'">♫ ' + cost[proteinName] + '</span> ' ;
-            }
-            upgraderUi.find('.cost').html(costHtml) ;
+            upgraderUi.find('.cost').html( '费用：'+yc.ui.costHtml(cost) ) ;
             
             // 升级按钮
             upgraderUi.find('.upgrade')
@@ -79,4 +67,6 @@ yc.ui.BuildingUpgradeMenu = function(){
         [0].focus() ;
     }
 }
+
+
 yc.ui.BuildingUpgradeMenu.className = 'yc.ui.BuildingUpgradeMenu' ;

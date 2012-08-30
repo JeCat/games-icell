@@ -24,13 +24,33 @@ yc.levels.FreeWorld = yc.GameScene.extend({
                 , upgrader: yc.inner.building.up.TowerBombing
             })
 			, 'tower:retardment': new yc.dna.GeneBuildingUpgrader({
-				name: 'tower:bombing'
-					, title: '防御塔：轰炸'
-						, description: '解锁：能够将“防御塔：轰炸”升级到更高等级'
-							, upgrader: yc.inner.building.up.TowerBombing
+				name: 'tower:retardment'
+				, title: '防御塔：减速'
+				, description: '解锁：能够将“防御塔：减速”效果升级到更高等级'
+				, upgrader: yc.inner.building.up.TowerRetardment
+			})
+			, 'grow': new yc.dna.Gene({
+				name: 'grow'
+				, title: '生长'
+				, description: '解锁：允许细胞扩充新的格子'
 			})
 		}
+		ins(yc.dna.DNA).obtainGene(yc.dna.genes['tower:firepower']) ;
+		ins(yc.dna.DNA).obtainGene(yc.dna.genes['tower:firepower']) ;
+		ins(yc.dna.DNA).obtainGene(yc.dna.genes['tower:firepower']) ;
+		ins(yc.dna.DNA).obtainGene(yc.dna.genes['tower:firepower']) ;
+		ins(yc.dna.DNA).obtainGene(yc.dna.genes['tower:bombing']) ;
+		ins(yc.dna.DNA).obtainGene(yc.dna.genes['tower:bombing']) ;
+		ins(yc.dna.DNA).obtainGene(yc.dna.genes['tower:bombing']) ;
+		ins(yc.dna.DNA).obtainGene(yc.dna.genes['tower:bombing']) ;
 		ins(yc.dna.DNA).obtainGene(yc.dna.genes['tower:retardment']) ;
+		ins(yc.dna.DNA).obtainGene(yc.dna.genes['tower:retardment']) ;
+		ins(yc.dna.DNA).obtainGene(yc.dna.genes['tower:retardment']) ;
+		ins(yc.dna.DNA).obtainGene(yc.dna.genes['tower:retardment']) ;
+		ins(yc.dna.DNA).obtainGene(yc.dna.genes['grow']) ;
+		ins(yc.dna.DNA).obtainGene(yc.dna.genes['grow']) ;
+		ins(yc.dna.DNA).obtainGene(yc.dna.genes['grow']) ;
+		ins(yc.dna.DNA).obtainGene(yc.dna.genes['grow']) ;
 		
 		// ---------------
 		// 初始化基本场景
@@ -39,11 +59,6 @@ yc.levels.FreeWorld = yc.GameScene.extend({
 		
 		// ---------------
 		// 初始化资源
-		//  氨基酸池
-		/*ins(yc.inner.AminoAcidPool)
-			.increase('red',10)
-			.increase('yellow',10)
-			.increase('blue',10) ;*/
 		//  合成公式
 		ins(yc.inner.ProteinFormulas)
 		    .addNewFormula({
@@ -77,7 +92,6 @@ yc.levels.FreeWorld = yc.GameScene.extend({
 		        , rgb: [255,0,255]
 		    }) ;
 		
-		
 		// ---------------
         // 新玩家初始化一个新细胞 
         this.layerInner.cell.newborn() ;
@@ -108,6 +122,7 @@ yc.levels.FreeWorld = yc.GameScene.extend({
         boss.genes.push(yc.dna.genes['tower:firepower']) ;
         boss.genes.push(yc.dna.genes['tower:bombing']) ;
         boss.genes.push(yc.dna.genes['tower:retardment']) ;
+        boss.genes.push(yc.dna.genes['grow']) ;
         
         this.compassBoss.arrBosses.push(boss);
         this.layerRoles.addChild(boss) ;

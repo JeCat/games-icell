@@ -88,6 +88,7 @@ var $ = jquery ;
             , 'bin/inner/monster/VirusLayer.js'
             
             , 'bin/dna/DNA.js'
+            , 'bin/dna/Gene.js'
             , 'bin/dna/GeneBuildingUpgrader.js'
             
             , 'bin/actions/DynamicMove.js'

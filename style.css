@@ -35,24 +35,29 @@ body{
 }
 
 
-#bulding-upgrade-menu{
+.bulding-menu{
     width: 300px ;
     padding: 10px ;
     background-color: #cdcdcd ;
 }
 
-#bulding-upgraders-outer{
+.bulding-items{
     clear: both ;
 }
-#bulding-upgrade-menu h3{
+.bulding-menu h3{
     float: left ;
 }
-#bulding-upgrade-menu .btn-close{
+.bulding-menu .btn-close{
     float: right ;
 }
 
 .bulding-upgrader{
     padding-top: 15px ;
+    font-size: 10px ;
+}
+.bulding-create{
+    padding-top: 15px ;
+    font-size: 10px ;
 }
 
 
@@ -65,3 +70,5 @@ body{
 	width: 150px ;
 	float:left ;
 }
+
+

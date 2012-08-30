@@ -49,9 +49,6 @@ yc.outer.Stain = yc.outer.LifeEntity.extend({
             point = createPoint( point.radian + angle ) ;
         }
             
-            
-        log(this.size) ;
-            
         return ;
     }
 	
@@ -174,7 +171,6 @@ yc.outer.Stain.downSpeed = function(entity){
     {
         if( stains[id].testCollision(entity) )
         {
-            log(stains[id]) ;
             if( downSpeed < stains[id].damping )
             {
                 downSpeed = stains[id].damping ;

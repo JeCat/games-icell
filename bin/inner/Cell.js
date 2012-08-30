@@ -22,7 +22,7 @@ yc.inner.Cell = function()
     // 氨基酸池
     this.poolAminoAcids = ins(yc.inner.AminoAcidPool) ;
     
-    
+    this.grown = 0 ;
     
     
     if(this.aAxes._dbgCanvas)
@@ -148,6 +148,8 @@ yc.inner.Cell.prototype.grow = function(x,y){
     this.cytoplasms.push(hexgon) ;
     
 	this.expandCytoplasm(hexgon) ;
+	
+	this.grown ++ ;
 }
 
 

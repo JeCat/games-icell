@@ -91,31 +91,48 @@
 	
 	
 	<!-- 建造菜单 -->
-	<div id="bulding-create-menu" style="display:none;position:absolute ;">
-		<button onclick="yc.ui.BuildingCreateMenu.ins.createBuilding(yc.inner.building.Tower)">+╭☆</button>
-		<button onclick="yc.ui.BuildingCreateMenu.ins.createBuilding(yc.inner.building.ProteinFactory)">+♫</button>
-		<button onclick="yc.ui.BuildingCreateMenu.ins.createBuilding(yc.inner.building.Recycle)">+∆</button>
-		| <button onclick="yc.ui.BuildingCreateMenu.ins.ui.hide()">关闭</button>
+	<div id="bulding-create-menu" class="bulding-menu" style="display:none;position:absolute ;">
+	
+		<div>
+			<h3>建设</h3>
+			<button class='btn-close' onclick="$('#bulding-create-menu').hide()">关闭</button>
+		</div>
+		
+		<div id='bulding-create-items' class='bulding-items'></div>
+		
+	</div>
+	<div class="bulding-create" id="bulding-create-template" style='display:none'>
+		<b class='title'></b>
+		<div class='description'></div>
+		<div class='cost'></div>
+		<span class='message' style='color:red'></span>
+		<button class='create'>建造</button>
 	</div>
 	
 	<!-- 升级菜单 -->
-	<div id="bulding-upgrade-menu" style="display:none;position:absolute ;">
+	<div id="bulding-upgrade-menu" class="bulding-menu" style="display:none;position:absolute ;">
 	
 		<div>
 			<h3>升级</h3>
 			<button class='btn-close' onclick="$('#bulding-upgrade-menu').hide()">关闭</button>
 		</div>
 		
-		<div id="bulding-upgraders-outer"></div>
-			
-		<div class="bulding-upgrader" id="bulding-upgrader-template" style='display:none'>
-			<b class='title'></b>
-			<span class='newLv'>Lv </span>
-			<div class='description'></div>
-			<div class='detail'></div>
-			<div class='cost'></div>
-			<button class='upgrade'>Upgrade</button>
+		<div id="bulding-upgraders-outer" class='bulding-items'></div>
+		
+		<hr />
+		<div>
+			<button class='btn-close' onclick="$('#bulding-upgrade-menu').hide()">拆除</button>
+			可回收：
 		</div>
+	</div>
+	
+	<div class="bulding-upgrader" id="bulding-upgrader-template" style='display:none'>
+		<b class='title'></b>
+		<span class='newLv'>Lv </span>
+		<div class='description'></div>
+		<div class='detail'></div>
+		<div class='cost'></div>
+		<button class='upgrade'>Upgrade</button>
 	</div>
 	
 	<!-- 击杀boss奖励菜单 -->

@@ -134,12 +134,6 @@ yc.inner.building.ProteinFactory = yc.inner.building.Building.extend({
     }
 }) ;
 
-yc.inner.building.ProteinFactory.price = {
-    red: 5
-    , yellow: 5  
-    , blue: 5
-}
-
 
 yc.inner.building.ProteinFactory.upgraders = [] ;
 

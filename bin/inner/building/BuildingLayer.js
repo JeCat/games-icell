@@ -11,7 +11,6 @@ yc.inner.building.BuildingLayer = cc.Layer.extend({
         }
         
         var building = new buildingClass ;
-        log(building._upgraders)
         
         this.addChild(building) ;
         building.setVisible(false) ;
