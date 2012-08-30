@@ -31,14 +31,14 @@ yc.inner.monster.VirusCluster = cc.Sprite.extend({
             
             var virus = layer.createVirusSprite() ;
             virus.init(cluster.virusPrototype) ;
-            virus.setPosition(cc.p(stay.center[0],stay.center[1])) ;
+            virus.setPosition(cc.p(stay.center[0]+10-20*Math.random(),stay.center[1]+10-20*Math.random())) ;
             virus.run(stay) ;
             
             cluster.num -- ;
             
             if(cluster.num>0)
             {
-                window.setTimeout(release,1000) ;
+                window.setTimeout(release,1500) ;
             }
             else
             {

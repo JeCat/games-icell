@@ -17,6 +17,7 @@ yc.inner.building.up = {} ;
 yc.inner.monster = {} ;
 yc.levels = {} ;
 yc.dna = {} ;
+yc.actions = {} ;
 
 var $ = jquery ;
 
@@ -88,6 +89,9 @@ var $ = jquery ;
             
             , 'bin/dna/DNA.js'
             , 'bin/dna/GeneBuildingUpgrader.js'
+            
+            , 'bin/actions/DynamicMove.js'
+            , 'bin/actions/Timer.js'
             
             
             , 'bin/levels/FreeWorld.js'

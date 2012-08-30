@@ -18,6 +18,17 @@ function randomBlock(){
 	cell.researchPath() ;
 }
 
+function newVirusCluster(){
+	var cell = yc.inner.Cell.ins() ;
+	
+	var v = yc.util.ObjectPool.ins(yc.outer.VirusCluster ).ob() ;
+	v.x = cell.x + 100 ;
+	v.y = cell.y + 100 ;
+	v.init() ;
+	
+	cc.Director.getInstance()._runningScene.layerRoles.addChild(v) ;
+}
+
 function testVirusRun(startX,startY){
     
     var layer = yc.inner.monster.VirusLayer.ins() ;

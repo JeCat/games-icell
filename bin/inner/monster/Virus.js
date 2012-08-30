@@ -6,7 +6,7 @@ yc.inner.monster.Virus = cc.Sprite.extend({
     , hpRate: 1
     , hp: 0
     
-    , speed: 30
+    , speed: 15
     , normalSpeed: 30
     
     , runningFrom: null
@@ -63,7 +63,7 @@ yc.inner.monster.Virus = cc.Sprite.extend({
             return false ;
         }
         
-        this.actRunning = this.createRunAction(this.runningTarget) ;
+        this.actRunning = this.createRunAction(this.runningTarget,this.speed) ;
         this.runAction(this.actRunning) ;
         
         return true ;
@@ -75,25 +75,21 @@ yc.inner.monster.Virus = cc.Sprite.extend({
     	{
     		this.stopAction(this.actRunning) ;
     		delete this.actRunning ;
+    		this.actRunning = null ;
     		this.runningTarget = null ;
     		this.runningFrom = null ;
     	}
     }
     
-    , createRunAction: function(target){
-
-    	var p = this.getPosition() ;
-    	var dis = yc.util.pointsDis(p.x,p.y,target.center[0],target.center[1]) ;
-    	
-    	var virus = this ;
-        var actRunning = cc.MoveTo.create(dis/this.speed,cc.p(target.center[0],target.center[1])) ;
-        actRunning._stop = actRunning.stop ;
-        actRunning.stop = function(){
-            this._stop() ;
-            virus.run() ;
-        }
-        
-        return actRunning ;
+    , createRunAction: function(target,speed){
+    	var destination = [
+    		target.center[0]+10-20*Math.random()
+    		, target.center[1]+10-20*Math.random()
+    	]
+    	return yc.actions.DynamicMove.create(speed,[this.getPositionX(), this.getPositionY()],destination,{
+    		object: this
+    		, func: this.run
+    	}) ;
     }
     
     , attack: function(){
@@ -109,9 +105,9 @@ yc.inner.monster.Virus = cc.Sprite.extend({
     , draw: function(ctx){
         this._draw() ;
         
-        ctx.fillStyle = 'red' ;
-        ctx.font="normal 3px san-serif";
-        ctx.fillText(this.__ObjectPoolId__,0,-18);
+//        ctx.fillStyle = 'red' ;
+//        ctx.font="normal 3px san-serif";
+//        ctx.fillText(this.__ObjectPoolId__,0,-18);
         
         // 画血槽
         if(this.hpRate<1)
@@ -156,4 +152,5 @@ yc.inner.monster.Virus = cc.Sprite.extend({
     }
     
 }) ;
-yc.inner.monster.Virus.className = 'yc.inner.monster.Virus' ;
+
+

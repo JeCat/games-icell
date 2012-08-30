@@ -8,7 +8,7 @@ yc.inner.building.Tower = yc.inner.building.Building.extend({
 	    this.speed = 300
 	    
 	    // 射击频率
-	    this.freq = 2000
+	    this.freq = 1500
 	    
 	    // 伤害
 	    this.injure = 10
@@ -17,14 +17,14 @@ yc.inner.building.Tower = yc.inner.building.Building.extend({
 	    this.range = 100
 	    
 	    // 溅射半径
-	    this.sputtering = 10
+	    this.sputtering = 20
 	    
 	    // 溅射伤害
 	    this.sputtering_injure = 3
 	    
 	    // 减速效果
-	    this.retardment = 0.3 ;
-	    this.retardment_duration = 2 ;
+	    this.retardment = 0 ;
+	    this.retardment_duration = 0 ;
 	    
 	    this.hexgon = null
 	    

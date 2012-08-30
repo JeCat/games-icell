@@ -30,40 +30,47 @@ yc.inner.building.Bullet = cc.Sprite.extend({
                 var virus = arrVirus[i] ;
                 
                 // 命中目标
-                if( !bHited && virus.radius > dis )
+                // 使用virus.using检查是否在前面几轮循环中被击毙
+                if( virus.using && !bHited && virus.radius > dis )
                 {
                     virus.hit(tower.injure) ;
                     bHited = true ; // 一颗子弹只命中一个敌人
                 }
                 
                 // 溅射伤害（群体）
-                if( virus.radius+tower.sputtering > dis )
+                if( virus.using && virus.radius+tower.sputtering > dis )
                 {
                     virus.hit(tower.sputtering_injure) ;
                     
                     // 减速效果
-                    if( tower.retardment && tower.retardment_duration )
+                    if( virus.using && tower.retardment && tower.retardment_duration )
                     {
-                    		// 改变速度
-                    		virus.speed*= (1-tower.retardment) ; 
+                    	// 减速
+                    	virus.speed = virus.normalSpeed*(1-tower.retardment) ;
+                    	
+                    	// 改变移动中的目标的前进速度
+                    	if(virus.actRunning)
+                    	{
+                    		virus.actRunning.initWithSpeed(virus.speed) ;
+            				log(['down: ',virus.speed]) ;
+                    	}
                     		
-                    		// 重新计算移动目标
-                    		virus.stopRun() ;
-                    		virus.run() ;
-                    		
-                    		// 恢复正常 action
-    	                	virus.runAction(cc.Sequence.create([
-    	                	    cc.DelayTime.create(tower.retardment_duration)
-    	                		, cc.CallFunc.create(null,function(virus){
-    	                			if(virus.using)
-    	                			{
-	    	                			// 恢复正常速度
-	    	                			virus.speed = virus.normalSpeed ;
-	    	                			virus.stopRun() ;
-	    	                			virus.run() ;
-    	                			}
-    	                		},virus)
-    	                	])) ;
+                		// 恢复正常速度 action
+                    	if( virus.actResumeSpeed )
+                    	{
+                    		virus.stopAction(virus.actResumeSpeed) ;
+                    	}
+                    	virus.actResumeSpeed = yc.actions.Timer.create(tower.retardment_duration,1,null,function(virus){
+	                			if(virus.using)
+	                			{
+		                			// 恢复正常速度
+		                			virus.speed = virus.normalSpeed ;
+		                    		virus.actRunning.initWithSpeed(virus.speed) ;
+	                				log(['resume: ',virus.speed]) ;
+	                			}
+	                    	},[virus]
+	                    ) ;
+                    	virus.runAction(virus.actResumeSpeed) ;
                     }
                 }
                 
@@ -115,8 +122,8 @@ yc.inner.building.Bullet.Flame = cc.Sprite.extend({
 		
 		var seq = cc.Sequence.create([
 			cc.Spawn.create(
-					cc.ScaleTo.create(0.1, 1, 1)
-					, cc.FadeOut.create(0.3)
+					cc.ScaleTo.create(0.15, 1, 1)
+					, cc.FadeOut.create(0.15)
 			)
 			, cc.CallFunc.create(this,this.free)
 		]) ;

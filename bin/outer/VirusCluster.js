@@ -112,8 +112,8 @@ yc.outer.VirusCluster = yc.outer.LifeEntity.extend({
         innerCluster.virusPrototype = {
         	lv: this.lv
         	, file: 'res/virus16.png'
-        	, speed: 30 + this.lv*0.5
-        	, hpFull: 15 + this.lv*10
+        	, speed: 15 + (this.lv-1)
+        	, hpFull: 10 + (this.lv-1)*10
         }
         
 		innerCluster.enterCell(hexgon) ;
