@@ -95,7 +95,7 @@
 	
 		<div>
 			<h3>建设</h3>
-			<button class='btn-close' onclick="$('#bulding-create-menu').hide()">关闭</button>
+			<button class='btn-close'>关闭</button>
 		</div>
 		
 		<div id='bulding-create-items' class='bulding-items'></div>
@@ -106,7 +106,7 @@
 		<div class='description'></div>
 		<div class='cost'></div>
 		<span class='message' style='color:red'></span>
-		<button class='create'>建造</button>
+		<button class='create'>购买</button>
 	</div>
 	
 	<!-- 升级菜单 -->
@@ -114,15 +114,15 @@
 	
 		<div>
 			<h3>升级</h3>
-			<button class='btn-close' onclick="$('#bulding-upgrade-menu').hide()">关闭</button>
+			<button class='btn-close'>关闭</button>
 		</div>
 		
 		<div id="bulding-upgraders-outer" class='bulding-items'></div>
 		
 		<hr />
 		<div>
-			<button class='btn-close' onclick="$('#bulding-upgrade-menu').hide()">拆除</button>
-			可回收：
+			<button id='btn-demolish'>拆除</button>
+			可回收：<span id='cost-recovering'></span>
 		</div>
 	</div>
 	

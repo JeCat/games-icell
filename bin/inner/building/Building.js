@@ -4,6 +4,8 @@ yc.inner.building.Building = cc.Sprite.extend({
     ctor: function(){
     	this._upgraders = {}
     	this.hexgon = null
+    	this.cost = {} ;
+    	this.bStop = false ;
 	} 
 
     , put: function(hexgon){
@@ -61,7 +63,9 @@ yc.inner.building.Building = cc.Sprite.extend({
     /**
      * 建筑停用
      */
-    , stop: function(){}
+    , stop: function(){
+    	this.bStop = true ;
+    }
     
     , isBlocking: function(){
         return true ;

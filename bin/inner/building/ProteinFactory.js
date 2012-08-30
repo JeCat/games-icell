@@ -32,6 +32,11 @@ yc.inner.building.ProteinFactory = yc.inner.building.Building.extend({
     }
     
     , startComposite: function(){
+    	
+    	if(this.bStop)
+    	{
+    		return ;
+    	}
         
         var factory = this ;
         

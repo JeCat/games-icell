@@ -3,9 +3,6 @@ yc.ui.BuildingCreateMenu = function(){
 	this.ui = $('#bulding-create-menu') ;
 	var menu = this ;
 	
-	var constructBuilding = function(hexgon,item){
-		menu.createBuilding(hexgon,this.buildingClass)
-	}
 	this.items = {
 				 
 		tower: {
@@ -20,7 +17,6 @@ yc.ui.BuildingCreateMenu = function(){
 				}
 			}
 			, buildingClass: yc.inner.building.Tower
-			, constructFunc: constructBuilding
 			, isUnlock: function(){
 				return true ;
 			}
@@ -38,7 +34,6 @@ yc.ui.BuildingCreateMenu = function(){
 				}
 			}
 			, buildingClass: yc.inner.building.Recycle
-			, constructFunc: constructBuilding
 			, isUnlock: function(){
 				return true ;
 			}
@@ -56,7 +51,6 @@ yc.ui.BuildingCreateMenu = function(){
 				}
 			}
 			, buildingClass: yc.inner.building.ProteinFactory
-			, constructFunc: constructBuilding
 			, isUnlock: function(){
 				return true ;
 			}
@@ -88,6 +82,9 @@ yc.ui.BuildingCreateMenu = function(){
 		}
 	} ;
 
+	this.ui.find('.btn-close').click(function(){
+		menu.close() ;
+	})
 
 	this.show = function(hexgon){
 
@@ -128,7 +125,14 @@ yc.ui.BuildingCreateMenu = function(){
 					}
 					
 					// 建造
-					item.constructFunc(hexgon) ;
+					if( typeof(item.buildingClass)!='undefined' )
+					{
+						menu.createBuilding(hexgon,item) ;
+					}
+					if( typeof(item.constructFunc)!='undefined' )
+					{
+						item.constructFunc(hexgon) ;
+					}
 					
 					// 消耗蛋白质
 					var pool = ins(yc.inner.ProteinPool) ;
@@ -161,8 +165,8 @@ yc.ui.BuildingCreateMenu = function(){
 		}
 		
 		this.ui.css({
-				left: window.event.clientX-this.ui.width()/2
-				, top: window.event.clientY-this.ui.height()/2
+				left: window.event.clientX-this.ui.width()-100
+				, top: ($(window).height()-this.ui.height())/2
 			})
 			.show()
 			[0].focus() ;
@@ -178,7 +182,7 @@ yc.ui.BuildingCreateMenu = function(){
 		this.ui.hide() ;
 	}
 	
-	this.createBuilding = function(hexgon,buildingClass){
+	this.createBuilding = function(hexgon,item){
 		
 		var inner = yc.inner.InnerLayer.ins() ;
 		
@@ -213,9 +217,10 @@ yc.ui.BuildingCreateMenu = function(){
 			}
 		}
 		
-		
 		// create building ----
-		inner.buildings.createBuilding(buildingClass,hexgon.x,hexgon.y) ;
+		var building = inner.buildings.createBuilding(item.buildingClass,hexgon.x,hexgon.y) ;
+		building.info = item ;
+		building.cost = item.cost() ;
 	}
 }
 
