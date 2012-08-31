@@ -33,6 +33,7 @@ var $ = jquery ;
         engineDir:'lib/cocos2d/',
         appFiles:[
             'bin/test.js'   
+            , 'bin/settings.js'   
             , 'bin/Cocos2dPatchs.js'
             , 'bin/GameScene.js'   
             
@@ -44,6 +45,8 @@ var $ = jquery ;
             , 'bin/ui/BuildingCreateMenu.js'
             , 'bin/ui/BuildingUpgradeMenu.js'
             , 'bin/ui/DlgRewardGene.js'
+            , 'bin/ui/WorldEditer.js'
+            , 'bin/ui/WorldEditerLayer.js'
             , 'bin/ui/UILayer.js'
             , 'bin/ui/dashboard/Dashboard.js'
             
@@ -56,7 +59,7 @@ var $ = jquery ;
             , 'bin/outer/VirusCluster.js'
             , 'bin/outer/Boss.js'
             , 'bin/outer/BossCompass.js'
-            , 'bin/outer/RolesLayer.js'
+            , 'bin/outer/RandomRolesLayer.js'
             
             , 'bin/inner/AminoAcidPool.js'
             , 'bin/inner/ProteinPool.js'

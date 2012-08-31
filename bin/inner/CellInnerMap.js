@@ -11,8 +11,8 @@ yc.inner.CellInnerMap = cc.Layer.extend({
 		this._super() ;
 		
 		this.setAnchorPoint(cc.p(0,0)) ;
-		this.setContentSize(game.settings.inner.width,game.settings.inner.height) ;
-		//this.initWithColor(new cc.Color4B(255,255,255,50),game.settings.inner.width,game.settings.inner.height) ;
+		this.setContentSize(yc.settings.inner.width,yc.settings.inner.height) ;
+		//this.initWithColor(new cc.Color4B(255,255,255,50),yc.settings.inner.width,yc.settings.inner.height) ;
 		
 
 		this.setTouchEnabled(true);
@@ -80,7 +80,7 @@ yc.inner.CellInnerMap = cc.Layer.extend({
 			ctx.stroke() ;
 		}
 		
-		if(game.settings.dbg)
+		if(yc.settings.dbg)
 		{
 			// 坐标
 			ctx.font="normal 10px san-serif";

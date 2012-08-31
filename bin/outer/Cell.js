@@ -60,7 +60,7 @@ yc.outer.Cell = yc.outer.LifeEntity.extend({
 			this.moving() ;
 	    	
 	    	// 移动摄像机
-	    	yc.outer.Camera.ins().moveByFocus(this.x,this.y) ;
+	    	ins(yc.outer.Camera).moveByFocus(this.x,this.y) ;
     	}
     	
     	return this._visit() ;
@@ -82,7 +82,7 @@ yc.outer.Cell = yc.outer.LifeEntity.extend({
     	this.x = x ;
     	this.y = y ;
     	// 移动摄像机
-	    yc.outer.Camera.ins().moveByFocus(this.x,this.y) ;
+	    ins(yc.outer.Camera).moveByFocus(this.x,this.y) ;
     	
     	// 停止移动
     	this.stopRun() ;

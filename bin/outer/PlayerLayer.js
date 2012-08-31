@@ -27,7 +27,7 @@ yc.outer.PlayerLayer = cc.Layer.extend({
     , onTouchesMoved: function(touches, event){
         if(this.followPoint)
         {
-            var cellPos = yc.outer.Camera.ins().offsetFocus() ;
+            var cellPos = ins(yc.outer.Camera).offsetFocus() ;
             this.cell.angle = yc.util.radianBetweenPoints(cellPos[0],cellPos[1],touches[0]._point.x,touches[0]._point.y) ;
         }
     }

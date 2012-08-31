@@ -81,7 +81,7 @@ yc.outer.BossCompass = cc.Sprite.extend({
 		var bossPoint = [ l*Math.sin(this.bossAngle), l*Math.cos(this.bossAngle) ] ;
 		
 		// 检查射线在摄像机边界上的交点
-		var camera = yc.outer.Camera.ins() ;
+		var camera = ins(yc.outer.Camera) ;
 		var lft = -camera.focusX ;
 		var rgt = w-camera.focusX ;
 		var top = h-camera.focusY ;

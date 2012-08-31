@@ -1,18 +1,11 @@
-yc.outer.RolesLayer = cc.Layer.extend({
+yc.outer.RandomRolesLayer = cc.Layer.extend({
     
-    maxNums: {
-        'yc.outer.Stain': 40
-        , 'yc.outer.VirusCluster': 15
-        , 'yc.outer.AminoAcid': 30
-    }
-
-	//, nAminoAcids: 0 
-	//, aminoAcidDensity: 20
-	// this.dbg = $('<div id="dbg-aminoacid"></div>').appendTo('#debug-output') ;
-		
-    , ctor:function  () { 
+    ctor:function(roleClass,maxNum) { 
         
         this._super () ;
+        
+        this.roleClass = roleClass ;
+        this.randomNumMax = 0 ;
         
         this.setAnchorPoint(cc.p(0,0)) ;
         
@@ -23,8 +16,7 @@ yc.outer.RolesLayer = cc.Layer.extend({
     
 	, update: function()
 	{
-        var camera = yc.outer.Camera.ins() ;
-        
+        var camera = ins(yc.outer.Camera) ;
         var range = {
             left: 0|(camera.x - camera.width)
             , right: 0|(camera.x + 2*camera.width)
@@ -35,22 +27,11 @@ yc.outer.RolesLayer = cc.Layer.extend({
         range.height = range.top - range.bottom ;
         
         
-        // 污渍
-        this._updateRole(yc.outer.Stain,range) ;
-        // 氨基酸
-        this._updateRole(yc.outer.AminoAcid,range) ;
-        // 病毒群
-        this._updateRole(yc.outer.VirusCluster,range) ;
-		
-	}
-	, _updateRole: function(roleCls,range)
-	{
-        var camera = yc.outer.Camera.ins() ;
         
 		// 回收范围以外的对象
-		for(var id in yc.util.ObjectPool.ins(roleCls).usingObjects)
+		for(var id in yc.util.ObjectPool.ins(this.roleClass).usingObjects)
 		{
-			var aRole = yc.util.ObjectPool.ins(roleCls).usingObjects[id] ;
+			var aRole = yc.util.ObjectPool.ins(this.roleClass).usingObjects[id] ;
 			// dbgOutput+= '<br />AminoAcid:'+Math.round(aAminoAcid.x)+','+Math.round(aAminoAcid.y) ;
 			
 			if( aRole.x<range.left || aRole.x>range.right || aRole.y>range.top || aRole.y<range.bottom )
@@ -59,7 +40,7 @@ yc.outer.RolesLayer = cc.Layer.extend({
 			}
 		}
 		
-		var num = this.maxNums[roleCls.className]-yc.util.ObjectPool.ins(roleCls).count ;
+		var num = this.randomNumMax-yc.util.ObjectPool.ins(this.roleClass).count ;
 		//log('new amino acid '+num)
 		if(num)
 		{
@@ -70,12 +51,8 @@ yc.outer.RolesLayer = cc.Layer.extend({
         	    var y = range.bottom+(0|(Math.random()*range.height)) ;
         	    
         	    // 避免在玩家视线内产生一个氨基酸
-        	    if( x>camera.x && x<(camera.x+camera.width) && y>camera.y && y<(camera.y+camera.height) )
-        	    {
-        	        continue ;
-        	    }
         	    
-        		var aRole = yc.util.ObjectPool.ins(roleCls).ob() ;
+        		var aRole = yc.util.ObjectPool.ins(this.roleClass).ob() ;
         		
         		aRole.x = x ;
         		aRole.y = y ;

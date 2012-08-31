@@ -39,9 +39,14 @@ yc.GameScene = cc.Scene.extend({
         
         
         // 层：显示其他角色
-        this.layerRoles = new yc.outer.RolesLayer() ;
-        this.addChild(this.layerRoles) ;
+        this.layerEnemies = new yc.outer.RandomRolesLayer(yc.outer.VirusCluster) ;
+        this.addChild(this.layerEnemies) ;
         
+        this.layerAminoAcids = new yc.outer.RandomRolesLayer(yc.outer.AminoAcid) ;
+        this.addChild(this.layerAminoAcids) ;
+        
+        this.layerStains = new yc.outer.RandomRolesLayer(yc.outer.Stain) ;
+        this.addChild(this.layerStains) ;
         
         // 层：细胞内部场景
         this.layerInner = yc.inner.InnerLayer.ins() ;

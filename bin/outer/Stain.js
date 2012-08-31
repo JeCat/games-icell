@@ -7,6 +7,11 @@ yc.outer.Stain = yc.outer.LifeEntity.extend({
     
     , damping: 0.3
     
+    , ctor: function(){
+		this._super() ;
+		this.id = yc.outer.Stain.assigned ++ ;
+	}
+    
     , init: function(){
         
         var stain = this ;
@@ -51,14 +56,37 @@ yc.outer.Stain = yc.outer.LifeEntity.extend({
             
         return ;
     }
+    
+    , appendPoint: function(x,y){
+    	this.points.push({
+    		x: x-this.x
+    		, y: y-this.y
+    		, idx: this.points.length
+    	}) ;
+    }
 	
     , transform: yc.outer.Camera.transformSprite
 	, draw: function(ctx){
 	    ctx.lineJoin = 'round' ;
 	    yc.util.drawPolygon(this.points,ctx,'rgba(50,50,50,'+this.damping+')','rgba(100,100,100,'+this.damping+')',true) ;
-	    
+
 	    // 绘制调试辅助线
-	    // this.testCollision( ins(yc.outer.Cell), ctx ) ; 
+	    if(yc.settings.outer.stain.dbg)
+	    {
+	    	ctx.fillStyle = 'red' ;
+			ctx.arc(0,0, 2, 0, 2*Math.PI, false) ;
+			ctx.stroke() ;
+
+	        ctx.fillText(this.id,-4,-2);
+	        
+	        for ( var p = 0; p < this.points.length; p++) {
+	        	var point = this.points[p] ;
+		        ctx.fillText(point.idx,point.x-6,-point.y+10);
+			}
+
+		    // 绘制调试辅助线
+	    	this.testCollision( ins(yc.outer.Cell), ctx ) ;
+	    }
 
 	}
 	
@@ -74,7 +102,7 @@ yc.outer.Stain = yc.outer.LifeEntity.extend({
             , y: entity.y - this.y
         }
         
-        // 到变形中心点的角度
+        // 到多边形中心点的角度
         var crossBoards = 0 ;
         var rayRadian = yc.util.radianBetweenPoints(target.x,target.y,0,0) ;
         var rayRadianRevert = rayRadian - 2*Math.PI ;
@@ -181,3 +209,4 @@ yc.outer.Stain.downSpeed = function(entity){
     entity.runDamping = 1 - downSpeed ;
 }
 
+yc.outer.Stain.assigned = 0 ;

@@ -44,7 +44,7 @@ yc.inner.monster.Mitochondria = cc.Sprite.extend({
 		}
 		var targetHexgon = unblocks.length? unblocks[0|(Math.random()*unblocks.length)]: hexgon ;
 		
-		var range = game.settings.inner.hexgonSideLength ;
+		var range = yc.settings.inner.hexgonSideLength ;
 		var x = targetHexgon.center[0] + (range/2 - range*Math.random()) ;
 		var y = targetHexgon.center[1] + (range/2 - range*Math.random()) ;
 		

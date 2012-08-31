@@ -98,16 +98,23 @@ yc.levels.FreeWorld = yc.GameScene.extend({
         
         
 		// ---------------
-		// 初始化 Boss
+		// 初始化 角色
+        this.layerEnemies.randomNumMax = 15 ;
+        this.layerAminoAcids.randomNumMax = 30 ;
+        this.layerStains.randomNumMax = 40 ;
+        
 		this._initBoss() ;
 		
+		
+		// 打开世界编辑器
+		worldediter() ;
 	}
 	
 	, _initBoss: function(){
 		
 		// boss 指南针
 		this.compassBoss = yc.outer.BossCompass.ins() ;
-		this.layerRoles.addChild(this.compassBoss) ;
+		this.layerEnemies.addChild(this.compassBoss) ;
 		//this.compassBoss.setPosition(cc.p(100,100)) ;
 		compass = this.compassBoss ;
 		
@@ -125,7 +132,7 @@ yc.levels.FreeWorld = yc.GameScene.extend({
         boss.genes.push(yc.dna.genes['grow']) ;
         
         this.compassBoss.arrBosses.push(boss);
-        this.layerRoles.addChild(boss) ;
+        this.layerEnemies.addChild(boss) ;
         
 		
 		// 一环: 半径5km, 4个boss, lv30
@@ -160,7 +167,7 @@ yc.levels.FreeWorld = yc.GameScene.extend({
 		boss.x = radius*Math.sin(angle) ;
 		boss.y = radius*Math.cos(angle) ;
 		
-		this.layerRoles.addChild(boss) ;
+		this.layerEnemies.addChild(boss) ;
 		
 		return boss ;
 	}

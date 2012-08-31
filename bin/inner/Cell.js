@@ -3,7 +3,7 @@ yc.inner.Cell = function()
 	this.hpMax = 10 ;
 	this.hp = this.hpMax ;
 	
-    this.aAxes = new HexgonAxes( game.settings.inner.width, game.settings.inner.height, game.settings.inner.hexgonSideLength ) ;
+    this.aAxes = new HexgonAxes( yc.settings.inner.width, yc.settings.inner.height, yc.settings.inner.hexgonSideLength ) ;
     this.aAxes._hexgonClass = yc.inner.CellHexgon ;
     this.aAxes.initHexgons() ;
     
@@ -17,7 +17,7 @@ yc.inner.Cell = function()
     // 格子：细胞质
     this.cytoplasms = [] ;
     // 细胞质格子的厚度
-    this.cytoplasmLevels = game.settings.inner.cellInitialLevels ;
+    this.cytoplasmLevels = yc.settings.inner.cellInitialLevels ;
     
     // 氨基酸池
     this.poolAminoAcids = ins(yc.inner.AminoAcidPool) ;
@@ -95,7 +95,7 @@ yc.inner.Cell.prototype.newborn = function()
     // 找到关键的格子
     // ------
     // 细胞核
-    this.nucleus = this.aAxes.hexgon( game.settings.inner.nucleus.x, game.settings.inner.nucleus.y ) ;
+    this.nucleus = this.aAxes.hexgon( yc.settings.inner.nucleus.x, yc.settings.inner.nucleus.y ) ;
     this.nucleus.type = 'nucleus' ;
     
     // 细胞质
@@ -201,6 +201,12 @@ yc.inner.Cell.prototype.pathMap = function(){
  */
 yc.inner.Cell.prototype.getHurt = function(){
 
+	// 免受伤害
+	if( yc.settings.player.nohurt )
+	{
+		return ;
+	}
+	
 	// 偷走蛋白质
 	var pool = ins(yc.inner.ProteinPool) ;
 	if(pool.total>0)

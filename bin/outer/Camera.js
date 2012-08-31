@@ -1,5 +1,6 @@
-yc.outer.Camera = function(canvas)
+yc.outer.Camera = function()
 {
+	var canvas = $('#gameCanvas')[0] ;
 	this.width = canvas.width ;
 	this.height = canvas.height ;
 	
@@ -65,18 +66,9 @@ yc.outer.Camera = function(canvas)
 	}
 }
 
-yc.outer.Camera._ins = null ;
-yc.outer.Camera.ins = function(){
-	if(!yc.outer.Camera._ins)
-	{
-		yc.outer.Camera._ins = new yc.outer.Camera($('#gameCanvas')[0]) ;
-	}
-	return yc.outer.Camera._ins ;
-}
-
 
 yc.outer.Camera.transformSprite = function(context){
-    var camera = yc.outer.Camera.ins() ;
+    var camera = ins(yc.outer.Camera) ;
     //context.save() ;
     this.transformX = 0|(this.x-camera.x) ;
     this.transformY = -(0 |(this.y-camera.y)) ;

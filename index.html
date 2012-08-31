@@ -158,6 +158,52 @@
 	</div>
 	
 	
+	<!-- 关卡编辑器 -->
+	<div id='dlg-world-editer' style='display:none;font-size:12px'>
+		<div id='tabs-world-editer'>
+			<ul>
+				<li><a href="#panel-world">世界</a></li>
+				<li><a href="#panel-stains">污渍</a></li>
+				<li><a href="#panel-virus-clursters">病毒群</a></li>
+			</ul>
+			
+		
+			<div id='panel-stains'>
+				<button onclick="ins(yc.ui.WorldEditer).refresh()">刷新</button>
+				<button onclick="ins(yc.ui.WorldEditer).createStain()">新建</button>
+				<button onclick="ins(yc.ui.WorldEditer).createStainPoint()">增加点</button>
+				| <button onclick="yc.settings.outer.stain.dbg=!yc.settings.outer.stain.dbg">dbg</button>
+				<div>
+					<select multiple=true size="20" id="lst-stains" style="float:left;width:150px"></select>
+					<select multiple=true size="12" id="lst-stain-points" style="float:left;width:150px"></select>
+					<div style="float:left">
+						减速：<input id='ipt-damping' style='width:50px' value='' />
+					</div>
+					<div style="clear:both"></div>
+				</div>
+			</div>
+			
+			<div id='panel-world'>
+				<div>
+					范围：
+					Top:<input id='ipt-world-top' style='width:50px' value='null' />
+					Lft:<input id='ipt-world-lft' style='width:50px' value='null' />
+					Btm:<input id='ipt-world-btm' style='width:50px' value='null' />
+					Rgt:<input id='ipt-world-rgt' style='width:50px' value='null' />
+				</div>
+				
+				<div>
+					<button onclick="yc.settings.player.nohurt=!yc.settings.player.nohurt">无敌</button>
+				</div>
+			</div>
+			
+			<div id='panel-virus-clursters'>
+				<button>刷新</button>
+				<select multiple=true size="10" id="lst-stains" style="width:80px"></select>
+			</div>
+		</div>
+	</div>
+	
 
 </body>
 </html>
