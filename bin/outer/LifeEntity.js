@@ -3,11 +3,19 @@ yc.outer.LifeEntity = cc.Sprite.extend({
     x: 0
     , y: 0
     
+    , homeX: null
+    , homeY: null
+    
     , accel: -0.1
     , maxSpeed: 0.5
     , speed: 0.3
     , angle: 1
     , turnRate: 0.2
+    
+    , initWithPosition: function(x,y){
+		this.x = this.homeX = x ;
+		this.y = this.homeY = y ;
+	}
     
     // 阻尼，1表示无阻挡全速状态
     , runDamping: 1
@@ -32,6 +40,20 @@ yc.outer.LifeEntity = cc.Sprite.extend({
     , mosey: function(speed){
         
         this.speed = typeof(speed)=='undefined'? 0.5: speed ;
+        
+        // 返回原始点
+        if(this.homeX!==null && this.homeY!==null && Math.random()<0.05)
+        {
+        	var rHome = yc.util.radianBetweenPoints(this.x,this.y,this.homeX,this.homeY) ;
+        	if( this.angle > rHome )
+        	{
+        		this.incAngle( this.angle-rHome>Math.PI?1: -1 ) ;
+        	}
+        	else
+        	{
+        		this.incAngle( rHome-this.angle>Math.PI?-1: 1 ) ;
+        	}
+        }
         
         // 随机方向
         if( Math.random()<0.1 )

@@ -37,13 +37,22 @@ yc.outer.AminoAcid = yc.outer.LifeEntity.extend({
 	
 	, _visit: cc.Sprite.prototype.visit
 	, visit: function(c){//return;
-	    
+		
+		var cell = ins(yc.outer.Cell) ;
+        var camera = ins(yc.outer.Camera) ;
+		
+		var dis = yc.util.pointsDis(this.x,this.y,cell.x,cell.y) ;
+
+		// 远离玩家，处于睡眠状态
+		if( dis>camera.width )
+		{
+			return ;
+		}
+		
         // 随机改变方向
         this.mosey() ;
         
 	    // 判断碰撞
-	    var cell = ins(yc.outer.Cell) ;
-	    var dis = Math.sqrt(Math.pow(this.x-cell.x,2) + Math.pow(this.y-cell.y,2)) ;
 	    if( dis<this.size+cell.size )
 	    {
 	        this._parent.removeChild(this) ;

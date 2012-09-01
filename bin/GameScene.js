@@ -84,9 +84,7 @@ yc.GameScene = cc.Scene.extend({
     	    var y = range.bottom+(0|(Math.random()*range.height)) ;
     	    
     		var aRole = new entityClass ;
-    		
-    		aRole.x = x ;
-    		aRole.y = y ;
+    		aRole.initWithPosition(x,y) ;
     		aRole.initRandom() ;
     		
     		layer.addChild(aRole) ;
