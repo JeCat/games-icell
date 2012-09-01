@@ -39,13 +39,12 @@ yc.GameScene = cc.Scene.extend({
         
         
         // 层：显示其他角色
-        this.layerEnemies = new yc.outer.RandomRolesLayer(yc.outer.VirusCluster) ;
-        this.addChild(this.layerEnemies) ;
+        this.layerRoles = new cc.Layer() ;
+        this.layerRoles.setAnchorPoint(cc.p(0,0)) ;
+        this.addChild(this.layerRoles) ;
         
-        this.layerAminoAcids = new yc.outer.RandomRolesLayer(yc.outer.AminoAcid) ;
-        this.addChild(this.layerAminoAcids) ;
-        
-        this.layerStains = new yc.outer.RandomRolesLayer(yc.outer.Stain) ;
+        this.layerStains = new cc.Layer() ;
+        this.layerStains.setAnchorPoint(cc.p(0,0)) ;
         this.addChild(this.layerStains) ;
         
         // 层：细胞内部场景
@@ -68,4 +67,29 @@ yc.GameScene = cc.Scene.extend({
     
     , transform: yc.cocos2d.patchs.Node.transform
     
+    , randomCreateEntities: function(entityClass,num,layer){
+
+        var range = {
+            left: this.minX
+            , right: this.maxX
+            , top: this.maxY
+            , bottom: this.minY
+        } ;
+        range.width = Math.abs(range.right - range.left) ;
+        range.height = Math.abs(range.top - range.bottom) ;
+        
+    	for(var i=0;i<num;i++)
+    	{
+    	    var x = range.left+(0|(Math.random()*range.width)) ;
+    	    var y = range.bottom+(0|(Math.random()*range.height)) ;
+    	    
+    		var aRole = new entityClass ;
+    		
+    		aRole.x = x ;
+    		aRole.y = y ;
+    		aRole.initRandom() ;
+    		
+    		layer.addChild(aRole) ;
+    	}
+    }
 });

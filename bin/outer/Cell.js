@@ -79,6 +79,12 @@ yc.outer.Cell = yc.outer.LifeEntity.extend({
     }
     
     , jump: function(x,y){
+    	
+    	if( typeof(x)!=='number' || x.toString()=='NaN' || typeof(y)!=='number' || y.toString()=='NaN' )
+    	{
+    		return ;
+    	}
+    	
     	this.x = x ;
     	this.y = y ;
     	// 移动摄像机

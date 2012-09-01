@@ -10,6 +10,7 @@ var yc = {} ;
 yc.util = {} ;
 yc.ui = {} ;
 yc.ui.dashboard = {} ;
+yc.ui.editer = {} ;
 yc.outer = {} ;
 yc.inner = {} ;
 yc.inner.building = {} ;
@@ -45,10 +46,12 @@ var $ = jquery ;
             , 'bin/ui/BuildingCreateMenu.js'
             , 'bin/ui/BuildingUpgradeMenu.js'
             , 'bin/ui/DlgRewardGene.js'
-            , 'bin/ui/WorldEditer.js'
-            , 'bin/ui/WorldEditerLayer.js'
             , 'bin/ui/UILayer.js'
             , 'bin/ui/dashboard/Dashboard.js'
+
+            , 'bin/ui/editer/WorldEditer.js'
+            , 'bin/ui/editer/WorldEditerLayer.js'
+            , 'bin/ui/editer/ObjectEditer.js'
             
             , 'bin/outer/Camera.js'
             , 'bin/outer/LifeEntity.js'

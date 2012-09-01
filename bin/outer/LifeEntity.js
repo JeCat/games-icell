@@ -51,17 +51,24 @@ yc.outer.LifeEntity = cc.Sprite.extend({
         
         if(accel)
         {
-            this.speed += accel ;
-            
             var maxSpeed = this.maxSpeed*this.runDamping ;
             
             if (this.speed > maxSpeed)
             {
-                this.speed = maxSpeed
+                this.speed-= 0.5
             }
-            else if(this.speed<0)
+            else
             {
-                this.speed = 0;
+            	this.speed += accel ;
+                
+            	if(this.speed > maxSpeed)
+            	{
+            		this.speed = maxSpeed ;
+            	}
+            	else if(this.speed<0)
+	            {
+	                this.speed = 0;
+	            }
             }
         }
     }

@@ -160,28 +160,18 @@
 	
 	<!-- 关卡编辑器 -->
 	<div id='dlg-world-editer' style='display:none;font-size:12px'>
+	
+		<div id='worldediter-message'></div>
+		
 		<div id='tabs-world-editer'>
 			<ul>
 				<li><a href="#panel-world">世界</a></li>
 				<li><a href="#panel-stains">污渍</a></li>
-				<li><a href="#panel-virus-clursters">病毒群</a></li>
+				<li><a href="#panel-roles">角色</a></li>
+				<li><a href="#panel-cell">细胞</a></li>
+				<li><a href="#panel-balance">平衡</a></li>
 			</ul>
 			
-		
-			<div id='panel-stains'>
-				<button onclick="ins(yc.ui.WorldEditer).refresh()">刷新</button>
-				<button onclick="ins(yc.ui.WorldEditer).createStain()">新建</button>
-				<button onclick="ins(yc.ui.WorldEditer).createStainPoint()">增加点</button>
-				| <button onclick="yc.settings.outer.stain.dbg=!yc.settings.outer.stain.dbg">dbg</button>
-				<div>
-					<select multiple=true size="20" id="lst-stains" style="float:left;width:150px"></select>
-					<select multiple=true size="12" id="lst-stain-points" style="float:left;width:150px"></select>
-					<div style="float:left">
-						减速：<input id='ipt-damping' style='width:50px' value='' />
-					</div>
-					<div style="clear:both"></div>
-				</div>
-			</div>
 			
 			<div id='panel-world'>
 				<div>
@@ -194,13 +184,61 @@
 				
 				<div>
 					<button onclick="yc.settings.player.nohurt=!yc.settings.player.nohurt">无敌</button>
+					<button onclick="yc.settings.player.stealth=!yc.settings.player.stealth">隐身</button>
+					| <button onclick="ins(yc.outer.Cell).speed=30">冲刺</button>
+					x:<input value="" id='ipt-pos-x' style='width:40px' />
+					y:<input value="" id='ipt-pos-y' style='width:40px' />
+					<button onclick="ins(yc.outer.Cell).jump(parseInt($('#ipt-pos-x').val()),parseInt($('#ipt-pos-y').val()))">跃迁</button>
+				</div>
+			</div>
+		
+			<div id='panel-stains'>
+				<button onclick="ins(yc.ui.editer.WorldEditer).refreshStains()">刷新</button>
+				<button onclick="ins(yc.ui.editer.WorldEditer).createStain()">+ 污渍</button>
+				<button onclick="ins(yc.ui.editer.WorldEditer).removeStain()">- 污渍</button>
+				| <button onclick="ins(yc.ui.editer.WorldEditer).createStainPoint()">+ 点</button>
+				<button onclick="ins(yc.ui.editer.WorldEditer).removeStainPoint()">- 点</button>
+				| <button onclick="yc.settings.outer.stain.dbg=!yc.settings.outer.stain.dbg">dbg</button>
+				<div>
+					<select multiple=true size="20" id="lst-stains" style="float:left;width:150px"></select>
+					<div style="float:left">
+						x:<input id='ipt-stain-x' style='width:70px' value='' /><br />
+						y:<input id='ipt-stain-y' style='width:70px' value='' /><br />
+						减速：<input id='ipt-stain-damping' style='width:50px' value='' /><br />
+						<select multiple=true size="12" id="lst-stain-points" style="width:150px"></select>
+					</div>
+					<div style="float:left">
+						x:<input id='ipt-stain-point-x' style='width:50px' value='' /><br />
+						y:<input id='ipt-stain-point-y' style='width:50px' value='' /><br />
+					</div>
+					<div style="clear:both"></div>
 				</div>
 			</div>
 			
-			<div id='panel-virus-clursters'>
-				<button>刷新</button>
-				<select multiple=true size="10" id="lst-stains" style="width:80px"></select>
+			
+			<div id='panel-roles'>
+				<button onclick="ins(yc.ui.editer.WorldEditer).refreshRoles()">刷新</button>
+				<button>删除</button>
+				<button>新建</button>
+				| <button onclick="yc.settings.outer.virus.dbg.showId=!yc.settings.outer.virus.dbg.showId">dbg</button>
+				<div>
+					<select multiple=true size="20" id="lst-roles"  style="float:left;width:120px"></select>
+					<div style="float:left">
+						类型:<select>
+							<option></option>
+						</select><br/>
+						<ul style="width:275px;height:260px;overflow:scroll;" id='ul-role-properties'></ul>
+					</div>
+					<div style="clear:both"></div>
+				</div>
 			</div>
+			
+			
+			<div id="panel-balance">
+				<button onclick="ins(yc.ui.editer.WorldEditer).refreshSettings()">刷新</button>
+				<ul id='ul-settings'></ul>
+			</div>
+			
 		</div>
 	</div>
 	

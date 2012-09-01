@@ -56,7 +56,7 @@ yc.outer.RandomRolesLayer = cc.Layer.extend({
         		
         		aRole.x = x ;
         		aRole.y = y ;
-        		aRole.init() ;
+        		aRole.initRandom() ;
         		
         		this.addChild(aRole) ;
         	}

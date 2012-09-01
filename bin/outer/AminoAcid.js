@@ -3,7 +3,7 @@ yc.outer.AminoAcid = yc.outer.LifeEntity.extend({
 
     size: 6
     
-    , init: function(){
+    , initRandom: function(){
     	// 随机类型和数量
     	this.type = yc.inner.AminoAcidPool.types[ 0|(Math.random()*(yc.inner.AminoAcidPool.types.length)) ] ;
     	this.num = Math.round(Math.random()*20) ;
@@ -46,7 +46,7 @@ yc.outer.AminoAcid = yc.outer.LifeEntity.extend({
 	    var dis = Math.sqrt(Math.pow(this.x-cell.x,2) + Math.pow(this.y-cell.y,2)) ;
 	    if( dis<this.size+cell.size )
 	    {
-	        this._parent.deleteRole(this) ;
+	        this._parent.removeChild(this) ;
 	        
 	       ins(yc.inner.AminoAcidPool).increase(this.type,this.num) ;
 	        

@@ -56,6 +56,10 @@ yc.levels.FreeWorld = yc.GameScene.extend({
 		// 初始化基本场景
 		this._onEnter() ;
 		
+		// 创建各种角色
+		this.randomCreateEntities(yc.outer.VirusCluster,40,this.layerRoles) ;
+		this.randomCreateEntities(yc.outer.AminoAcid,40,this.layerRoles) ;
+		this.randomCreateEntities(yc.outer.Stain,60,this.layerStains) ;
 		
 		// ---------------
 		// 初始化资源
@@ -97,12 +101,6 @@ yc.levels.FreeWorld = yc.GameScene.extend({
         this.layerInner.cell.newborn() ;
         
         
-		// ---------------
-		// 初始化 角色
-        this.layerEnemies.randomNumMax = 15 ;
-        this.layerAminoAcids.randomNumMax = 30 ;
-        this.layerStains.randomNumMax = 40 ;
-        
 		this._initBoss() ;
 		
 		
@@ -114,7 +112,7 @@ yc.levels.FreeWorld = yc.GameScene.extend({
 		
 		// boss 指南针
 		this.compassBoss = yc.outer.BossCompass.ins() ;
-		this.layerEnemies.addChild(this.compassBoss) ;
+		this.layerUi.addChild(this.compassBoss) ;
 		//this.compassBoss.setPosition(cc.p(100,100)) ;
 		compass = this.compassBoss ;
 		
@@ -132,30 +130,7 @@ yc.levels.FreeWorld = yc.GameScene.extend({
         boss.genes.push(yc.dna.genes['grow']) ;
         
         this.compassBoss.arrBosses.push(boss);
-        this.layerEnemies.addChild(boss) ;
-        
-		
-		// 一环: 半径5km, 4个boss, lv30
-		/*for(var i=0;i<4;i++)
-		{
-			this.compassBoss.arrBosses.push( this._createRandomBoss(5000,20) ) ;
-		}
-		
-		// 二环: 半径10km, 8个boss, lv50
-		for(var i=0;i<8;i++)
-		{
-			this.compassBoss.arrBosses.push( this._createRandomBoss(10000,40) ) ;
-		}
-		
-		// 三环:半径15km, 12个boss, lv80
-		for(var i=0;i<12;i++)
-		{
-			this.compassBoss.arrBosses.push( this._createRandomBoss(15000,60) ) ;
-		}*/
-		
-		
-        //this.compassBoss.arrBosses.push( this._createRandomBoss(500,10) ) ;
-		
+        this.layerRoles.addChild(boss) ;
        
 	}
 	

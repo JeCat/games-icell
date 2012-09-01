@@ -1,4 +1,4 @@
-yc.ui.WorldEditerLayer = cc.Layer.extend({
+yc.ui.editer.WorldEditerLayer = cc.Layer.extend({
 
 	
 	
@@ -23,6 +23,13 @@ yc.ui.WorldEditerLayer = cc.Layer.extend({
 		{
 			return ;
 		}
+
+		var camera = ins(yc.outer.Camera) ;
+		for ( var t = 0; t < touches.length; t++) {
+			touches[t]._point.wx = camera.x+touches[t]._point.x ;
+			touches[t]._point.wy = camera.y+touches[t]._point.y ;
+		}
+		
 		this.touchCallback(touches,event) ;
 	}
 	

@@ -10,9 +10,10 @@ yc.outer.Stain = yc.outer.LifeEntity.extend({
     , ctor: function(){
 		this._super() ;
 		this.id = yc.outer.Stain.assigned ++ ;
+		yc.outer.Stain.pool.push(this) ;
 	}
     
-    , init: function(){
+    , initRandom: function(){
         
         var stain = this ;
         
@@ -63,6 +64,12 @@ yc.outer.Stain = yc.outer.LifeEntity.extend({
     		, y: y-this.y
     		, idx: this.points.length
     	}) ;
+    }
+    , removePoint: function(idx){
+    	this.points.splice(idx,1) ;
+    	for ( var i = 0; i < this.points.length; i++) {
+    		this.points[i].idx = i ;
+		}
     }
 	
     , transform: yc.outer.Camera.transformSprite
@@ -187,6 +194,11 @@ yc.outer.Stain = yc.outer.LifeEntity.extend({
         }
 	}
 	
+	, removeFromParentAndCleanup: function(){
+		this._super() ;
+		yc.util.arr.remove(yc.outer.Stain.pool,this);
+	}
+	
 }) ;
 
 
@@ -194,14 +206,14 @@ yc.outer.Stain.downSpeed = function(entity){
     
     var downSpeed = 0 ;
     
-    var stains = yc.util.ObjectPool.ins(yc.outer.Stain).usingObjects ;
-    for(var id in stains)
+    var stains = yc.outer.Stain.pool ;
+    for(var i=0;i<stains.length;i++)
     {
-        if( stains[id].testCollision(entity) )
+        if( stains[i].testCollision(entity) )
         {
-            if( downSpeed < stains[id].damping )
+            if( downSpeed < stains[i].damping )
             {
-                downSpeed = stains[id].damping ;
+                downSpeed = stains[i].damping ;
             }
         }
     }
@@ -209,4 +221,5 @@ yc.outer.Stain.downSpeed = function(entity){
     entity.runDamping = 1 - downSpeed ;
 }
 
+yc.outer.Stain.pool = [] ;
 yc.outer.Stain.assigned = 0 ;

@@ -29,11 +29,20 @@ yc.settings = {
 		stain: {
 			dbg: false
 		}
+	
+		, virus:{
+			dbg: {
+				showId: false
+			}
+		}
 		
 	}
 	
 	, player: {
+		// 免伤害
 		nohurt: false
+		// 隐身(怪不会攻击)
+		, stealth: false
 	}
 	
 	, dbg: true

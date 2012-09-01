@@ -5,8 +5,13 @@ yc.outer.VirusCluster = yc.outer.LifeEntity.extend({
     , speed: 0.5
     , _char: '$'
     , lv: 1
+    
+    , ctor: function(){
+		this._super() ;
+		this.id = yc.outer.VirusCluster.assigned ++ ;
+	}
         
-    , init: function(){
+    , initRandom: function(){
     	
         var idx = Math.round(Math.random()*(yc.outer.VirusCluster.charset.length-1)) ;
         this._char = yc.outer.VirusCluster.charset.charAt(idx) ;
@@ -34,6 +39,11 @@ yc.outer.VirusCluster = yc.outer.LifeEntity.extend({
         ctx.fillText(this._char,0,0);
         
         ctx.fillText('Lv '+this.lv,5,-8);
+
+	    if(yc.settings.outer.virus.dbg.showId)
+	    {
+	        ctx.fillText('id:'+this.id,40,-8);
+	    }
     }
     
     , vigilanceRange: function(){
@@ -46,14 +56,14 @@ yc.outer.VirusCluster = yc.outer.LifeEntity.extend({
         var cell = ins(yc.outer.Cell) ;
         
         // 判断碰撞
-        if( this.testTouching(cell) )
+        if( !yc.settings.player.stealth && this.testTouching(cell) )
         {
         	this.touchingCell(cell) ;
         	return ;
         }
         
         // 警示范围
-        if( this.vigilanceRange() > yc.util.pointsDis(cell.x,cell.y,this.x,this.y) )
+        if( !yc.settings.player.stealth && this.vigilanceRange() > yc.util.pointsDis(cell.x,cell.y,this.x,this.y) )
         {
             // 调整角度
             var targetAngle = yc.util.radianBetweenPoints(this.x,this.y,cell.x,cell.y) ;
@@ -125,7 +135,7 @@ yc.outer.VirusCluster = yc.outer.LifeEntity.extend({
     }
         
     , touchingCell: function(cell){
-        this._parent.deleteRole(this) ;
+        this._parent.removeChild(this) ;
         
         // 接触位置
         var hexgon = this.touchingHexgon(cell) ;
@@ -140,3 +150,4 @@ yc.outer.VirusCluster.className = 'yc.outer.VirusCluster' ;
 
 yc.outer.VirusCluster.charset = '#&~ξζ§$ぷ￡' ;
 yc.outer.VirusCluster.className = 'yc.outer.VirusCluster' ;
+yc.outer.VirusCluster.assigned = 0 ;
