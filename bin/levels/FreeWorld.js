@@ -103,9 +103,6 @@ yc.levels.FreeWorld = yc.GameScene.extend({
         
 		this._initBoss() ;
 		
-		
-		// 打开世界编辑器
-		worldediter() ;
 	}
 	
 	, _initBoss: function(){
