@@ -1,23 +1,19 @@
-yc.outer.VirusCluster = yc.outer.LifeEntity.extend({
+yc.outer.VirusCluster = yc.outer.PhysicalEntity.extend({
 	
 	size: 6 
 	
-	, speed: 0.5
-	, _char: '$'
 	, lv: 1
+	, moseySpeed: 0.1
+	, normalSpeed: 4
 	
 	, ctor: function(){
 		this._super() ;
 		this.id = yc.outer.VirusCluster.assigned ++ ;
+		
+		yc.outer.VirusCluster.instances[this.id] = this ;
 	}
 		
 	, initRandom: function(){
-		
-		var idx = Math.round(Math.random()*(yc.outer.VirusCluster.charset.length-1)) ;
-		this._char = yc.outer.VirusCluster.charset.charAt(idx) ;
-		
-		this.randomTurn() ;
-		
 		// 根据离Boss的距离确定病毒群的等级
 		var compass = yc.outer.BossCompass.ins() ;
 		if(compass.nearestBoss)
@@ -29,83 +25,102 @@ yc.outer.VirusCluster = yc.outer.LifeEntity.extend({
 				this.lv = 1 ;
 			}
 		}
+		
+		this.initWithCircle(6,this.x,this.y) ;
 	}
-	
-	, transform: yc.outer.Camera.transformSprite
+
 	, draw: function(ctx){
+		
+
+		ctx.beginPath() ;
+		ctx.strokeStyle='rgb(30,30,30)' ;
+		ctx.moveTo(this.size,0);
+		ctx.arc(0,0, this.size, 0, 2*Math.PI, false);
+		ctx.stroke() ;
+		ctx.closePath() ;
 		
 		ctx.fillStyle = 'red' ;
 		ctx.font="normal 12px san-serif";
-		ctx.fillText(this._char,0,0);
 		
 		ctx.fillText('Lv '+this.lv,5,-8);
 
 		if(yc.settings.outer.virus.dbg.showId)
 		{
 			ctx.fillText('id:'+this.id,40,-8);
+			
+			// 到 home 的连线
+			if( this.homeX!==null && this.homeY!==null )
+			{
+				ctx.beginPath() ;
+				ctx.moveTo(0,0) ;
+				ctx.strokeStyle='white' ; 
+				ctx.lineTo(this.homeX-this.x,-(this.homeY-this.y)) ;
+				ctx.stroke() ;
+				ctx.closePath() ;
+			}
+			
+			// 画方向
+			ctx.beginPath() ;
+			ctx.strokeStyle='green' ; 
+			var speed = this.b2Body.GetLinearVelocity() ;
+			ctx.moveTo(0,0) ;
+			ctx.lineTo(speed.x*PTM_RATIO,-speed.y*PTM_RATIO) ;
+			ctx.stroke() ;
+			ctx.closePath() ;
 		}
+
 	}
 	
 	, vigilanceRange: function(){
 		return 200 ;
 	}
 	
-	, _visit: cc.Sprite.prototype.visit
-	, visit: function(c){
+	, update: function(dt){
+
+		this._super(dt) ;
 		
-		var cell = ins(yc.outer.Cell) ;
-        var camera = ins(yc.outer.Camera) ;
-		
-		var dis = yc.util.pointsDis(this.x,this.y,cell.x,cell.y) ;
-		
-		// 远离玩家，处于睡眠状态
-		if( dis>camera.width )
+		if(!this.b2Body)
 		{
 			return ;
 		}
-		
-		// 判断碰撞
-		if( !yc.settings.player.stealth && dis<this.size+cell.size )
+
+		var cell = ins(yc.outer.Cell) ;
+		var dis = yc.util.pointsDis(this.x,this.y,cell.x,cell.y) ;
+		if(!this.autoWakeup(dis))
 		{
-			this.touchingCell(cell) ;
 			return ;
 		}
 		
 		// 警示范围
-		if( !yc.settings.player.stealth && this.vigilanceRange() > dis )
+		if( !yc.settings.player.stealth && this.vigilanceRange()>dis )
 		{
+	        this.setSpeed(this.normalSpeed) ;
+			
 			// 调整角度
 			var targetAngle = yc.util.radianBetweenPoints(this.x,this.y,cell.x,cell.y) ;
-			var turnAngle = this.angle - targetAngle ;
-			if(turnAngle<0)
-			{
-				this.incAngle( turnAngle>-Math.PI? 1: -1 ) ;
-			}
-			else
-			{
-				this.incAngle( turnAngle<Math.PI? -1: 1 ) ;
-			}
+			this.drive(targetAngle) ;
 			
 			// 切换到追击速度
-			this.maxSpeed = 3.5 ;
+			//this.maxSpeed = 3.5 ;
 			
-			this.run(0.2) ;
+			//this.run(0.2) ;
 			
 			// 遇到污渍减速
-			yc.outer.Stain.downSpeed(this) ;
+			// yc.outer.Stain.downSpeed(this) ;
 		
-			this.accelerating() ;
+			//this.accelerating() ;
 			
-			this.moving() ;
+			//this.moving() ;
 		}
 		
 		// 漫步
 		else
 		{
+	        this.setSpeed(this.moseySpeed) ;
+	        
 			this.mosey() ;
 		}
 		
-		this._visit(c) ;
 	}
 	
 	, touchingHexgon: function(cell) {
@@ -150,8 +165,5 @@ yc.outer.VirusCluster = yc.outer.LifeEntity.extend({
 	  
 }) ;
 
-yc.outer.VirusCluster.className = 'yc.outer.VirusCluster' ;
-
-yc.outer.VirusCluster.charset = '#&~ξζ§$ぷ￡' ;
-yc.outer.VirusCluster.className = 'yc.outer.VirusCluster' ;
+yc.outer.VirusCluster.instances = {} ;
 yc.outer.VirusCluster.assigned = 0 ;

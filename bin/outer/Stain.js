@@ -1,5 +1,5 @@
 /*** 污渍 ***/
-yc.outer.Stain = yc.outer.LifeEntity.extend({
+yc.outer.Stain = yc.outer.PhysicalEntity.extend({
 
     size: 0
     
@@ -14,15 +14,24 @@ yc.outer.Stain = yc.outer.LifeEntity.extend({
 	}
     
     , initRandom: function(){
+
+        
+        // 
+    	this.points = [] ;
+        this.appendPoint(0,50) ;
+        this.appendPoint(-30,-50) ;
+        this.appendPoint(30,-50) ;
+        this.initWithPolygon(this.points,this.x,this.y) ;
+        return ;
+        
         
         var stain = this ;
         
-        // 顶点数量( 3-6 个顶点)
-        var pointNum = 3 + Math.floor(Math.random()*4) ;
+        // 顶点数量( 3-4 个顶点)
+        var pointNum = 3 + Math.round(Math.random()*1) ;
         var maxRadius = 400 * Math.random() ;
         this.points = [] ;
         this.size = 0 ;
-        this.damping = Math.random() ;
         
         var createPoint = function(radian){
             
@@ -49,13 +58,14 @@ yc.outer.Stain = yc.outer.LifeEntity.extend({
         // 第一个顶点
         var point = createPoint( 2*Math.PI*Math.random() ) ;
         
-        // 处理第二个到倒数第二个
+        // 处理第二个到最后一个
         for(var p=1;p<pointNum;p++)
         {
             point = createPoint( point.radian + angle ) ;
         }
             
-        return ;
+        
+        this.initWithPolygon(this.points,this.x,this.y) ;
     }
     
     , appendPoint: function(x,y){
@@ -72,9 +82,11 @@ yc.outer.Stain = yc.outer.LifeEntity.extend({
 		}
     }
 	
-    , transform: yc.outer.Camera.transformSprite
 	, draw: function(ctx){
 	    ctx.lineJoin = 'round' ;
+
+		ctx.rotate(this.angle);
+	    
 	    yc.util.drawPolygon(this.points,ctx,'rgba(50,50,50,'+this.damping+')','rgba(100,100,100,'+this.damping+')',true) ;
 
 	    // 绘制调试辅助线

@@ -13,27 +13,32 @@ yc.outer.PlayerLayer = cc.Layer.extend({
         
         // 细胞
         this.cell = ins(yc.outer.Cell) ;
+        this.cell.initWithCircle(10,0,0) ;
         this.addChild(this.cell) ;
+        cellOuter = this.cell ;
         
         
         this.followPoint = false ;
-    }  
-    
+    }
+
     , onTouchesBegan: function(touches, event){
         this.followPoint = true ;
         this.onTouchesMoved(touches, event) ;
-        this.cell.run() ;
     }
+    
     , onTouchesMoved: function(touches, event){
         if(this.followPoint)
         {
             var cellPos = ins(yc.outer.Camera).offsetFocus() ;
-            this.cell.angle = yc.util.radianBetweenPoints(cellPos[0],cellPos[1],touches[0]._point.x,touches[0]._point.y) ;
+            var radian = yc.util.radianBetweenPoints(cellPos[0],cellPos[1],touches[0]._point.x,touches[0]._point.y) ;
+            
+            this.cell.drive(radian) ;
         }
+        
     }
     , onTouchesEnded:function (touches, event) {
         this.followPoint = false ;
-        this.cell.stopRun() ;
+        this.cell.stopDriving() ;
     }
     
     , onKeyUp:function (key) {

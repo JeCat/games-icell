@@ -57,9 +57,9 @@ yc.levels.FreeWorld = yc.GameScene.extend({
 		this._onEnter() ;
 		
 		// 创建各种角色
-		this.randomCreateEntities(yc.outer.VirusCluster,40,this.layerRoles) ;
-		this.randomCreateEntities(yc.outer.AminoAcid,40,this.layerRoles) ;
-		this.randomCreateEntities(yc.outer.Stain,60,this.layerStains) ;
+		this.randomCreateEntities(yc.outer.VirusCluster,10,this.layerRoles) ;
+		this.randomCreateEntities(yc.outer.AminoAcid,100,this.layerRoles) ;
+		//this.randomCreateEntities(yc.outer.Stain,60,this.layerStains) ;
 		
 		// ---------------
 		// 初始化资源
@@ -104,9 +104,106 @@ yc.levels.FreeWorld = yc.GameScene.extend({
 		this._initBoss() ;
 		
 		
+
+//        var b2Vec2 = Box2D.Common.Math.b2Vec2
+//            , b2BodyDef = Box2D.Dynamics.b2BodyDef
+//            , b2Body = Box2D.Dynamics.b2Body
+//            , b2FixtureDef = Box2D.Dynamics.b2FixtureDef
+//            , b2World = Box2D.Dynamics.b2World
+//            , b2PolygonShape = Box2D.Collision.Shapes.b2PolygonShape;
+//
+//        var screenSize = cc.Director.getInstance().getWinSize();
+//        log(screenSize) ;
+//
+//        var fixDef = new b2FixtureDef;
+//        fixDef.density = 1.0;
+//        fixDef.friction = 0.5;
+//        fixDef.restitution = 0.2;
+//
+//        var bodyDef = new b2BodyDef;
+//
+//        //create ground
+//        bodyDef.type = b2Body.b2_staticBody;
+//        fixDef.shape = new b2PolygonShape;
+//        fixDef.shape.SetAsBox(20, 2);
+//        // upper
+//        bodyDef.position.Set(10, screenSize.height / PTM_RATIO + 1.8);
+//        this.world.CreateBody(bodyDef).CreateFixture(fixDef);
+//        // bottom
+//        bodyDef.position.Set(10, -1.8);
+//        this.world.CreateBody(bodyDef).CreateFixture(fixDef);
+//
+//        fixDef.shape.SetAsBox(2, 14);
+//        // left
+//        bodyDef.position.Set(-1.8, 13);
+//        this.world.CreateBody(bodyDef).CreateFixture(fixDef);
+//        // right
+//        bodyDef.position.Set(26.8, 13);
+//        this.world.CreateBody(bodyDef).CreateFixture(fixDef);
+//        
+       
+        
+
+        var debugDraw = new Box2D.Dynamics.b2DebugDraw();
+        debugDraw.SetSprite ( document.getElementById ("gameCanvas").getContext ("2d"));
+        debugDraw.SetDrawScale(30); //define scale
+        debugDraw.SetFillAlpha(0.3); //define transparency
+        debugDraw.SetLineThickness(1.0);
+        debugDraw.SetFlags(Box2D.Dynamics.b2DebugDraw.e_shapeBit | Box2D.Dynamics.b2DebugDraw.e_jointBit);
+        this.world.SetDebugDraw(debugDraw);
+        
+        
+		box = this.addNewSpriteWithCoords(100,100) ;
+		body = box.body ;
+		
 		// 打开世界编辑器
 		worldediter() ;
 	}
+
+
+, addNewSpriteWithCoords:function (x,y) {
+	
+	
+    var sprite = new yc.outer.PhysicalEntity();
+    sprite.draw = function(ctx){
+    	yc.util.drawPolygon( [
+          [-PTM_RATIO/2,PTM_RATIO/2]
+          ,[PTM_RATIO/2,PTM_RATIO/2]
+          ,[PTM_RATIO/2,-PTM_RATIO/2]
+          ,[-PTM_RATIO/2,-PTM_RATIO/2]
+    	],ctx,'yellow') ;
+    }
+    this.layerPlayer.addChild(sprite);
+
+    sprite.setWorldPosition(x, y) ;
+
+    // Define the dynamic body.
+    //Set up a 1m squared box in the physics world
+    var b2BodyDef = Box2D.Dynamics.b2BodyDef
+        , b2Body = Box2D.Dynamics.b2Body
+        , b2FixtureDef = Box2D.Dynamics.b2FixtureDef
+        , b2PolygonShape = Box2D.Collision.Shapes.b2PolygonShape;
+
+    var bodyDef = new b2BodyDef();
+    bodyDef.type = b2Body.b2_dynamicBody;
+    bodyDef.userData = sprite;
+    var body = this.world.CreateBody(bodyDef);
+
+    // Define another box shape for our dynamic body.
+    var dynamicBox = new b2PolygonShape();
+    dynamicBox.SetAsBox(1,1);//These are mid points for our 1m box
+
+    // Define the dynamic body fixture.
+    var fixtureDef = new b2FixtureDef();
+    fixtureDef.shape = dynamicBox;
+    fixtureDef.density = 1.0;
+    fixtureDef.friction = 0.3;
+    body.CreateFixture(fixtureDef);
+
+    sprite.body = body ;
+    return sprite ;
+}
+
 	
 	, _initBoss: function(){
 		

@@ -10,12 +10,12 @@ yc.util.radianBetweenPoints = function(p1X,p1Y,p2X,p2Y)
         // 第一象限
         if(p1X<p2X)
         {
-            return Math.PI/2 - radian ;
+        	radian = Math.PI/2 - radian ;
         }
         // 第二象限
         else
         {
-            return Math.PI*3/2 + radian ;
+        	radian = Math.PI*3/2 + radian ;
         }
     }
     else
@@ -28,9 +28,16 @@ yc.util.radianBetweenPoints = function(p1X,p1Y,p2X,p2Y)
         // 第三象限
         else
         {
-            return Math.PI/2 - radian + Math.PI ;
+        	radian = Math.PI/2 - radian + Math.PI ;
         }
     }
+    
+    if(Number.isNaN(radian))
+    {
+    	radian = 0 ;
+    }
+    
+    return radian ;
 }
 
 /**

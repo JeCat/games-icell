@@ -20,6 +20,11 @@ yc.levels = {} ;
 yc.dna = {} ;
 yc.actions = {} ;
 
+
+var PTM_RATIO = 32;
+var TAG_SPRITE_MANAGER = 1;
+
+
 var $ = jquery ;
 
 (function () {
@@ -27,7 +32,7 @@ var $ = jquery ;
     var c = {
         menuType:'canvas', //whether to use canvas mode menu or dom menu
         COCOS2D_DEBUG:2, //0 to turn debug off, 1 for basic debug, and 2 for full debug
-        box2d:false,
+        box2d:true,
         showFPS:true,
         frameRate:60,
         tag:'gameCanvas', //the dom element to run cocos2d on
@@ -55,6 +60,7 @@ var $ = jquery ;
             
             , 'bin/outer/Camera.js'
             , 'bin/outer/LifeEntity.js'
+            , 'bin/outer/PhysicalEntity.js'
             , 'bin/outer/Cell.js'
             , 'bin/outer/PlayerLayer.js'
             , 'bin/outer/AminoAcid.js'

@@ -1,46 +1,47 @@
-yc.outer.Cell = yc.outer.LifeEntity.extend({
+yc.outer.Cell = yc.outer.PhysicalEntity.extend({
 
-	size: 10
-	
-    , maxSpeed: 4
     
-    , _running: false
-	
-	, _turn: null
-    
-    , ctor: function(){
-    	
-    	this._super() ;
+    draw: function(ctx){
         
-        this.setVisible(true);
-        //this.setAnchorPoint(cc.p(0.5, 0.5));
-    }
-    
-    , _draw: cc.Sprite.prototype.draw
-    , draw: function(ctx){
-        
-        this._draw(ctx) ;
-        
+        this._super(ctx) ;
+
+		var speed = this.b2Body.GetLinearVelocity() ;
+		var radian = yc.util.radianBetweenPoints(0,0,speed.x*PTM_RATIO,speed.y*PTM_RATIO) ;
+
+		// 画方向
+		/*ctx.beginPath() ;
+		ctx.strokeStyle='green' ; 
+		ctx.moveTo(0,0) ;
+		ctx.lineTo(speed.x*PTM_RATIO,-speed.y*PTM_RATIO) ;
+		ctx.stroke() ;
+		ctx.closePath() ;*/
+		
+		ctx.beginPath() ;
 		ctx.strokeStyle = 'rgba(255, 255, 255, 1.0)' ;
 		ctx.fillStyle = 'rgba(115, 115, 115, 1.0)' ;
 		
-		ctx.rotate(this.angle);
+		ctx.rotate(radian);
 		
-		ctx.beginPath() ;
 		ctx.arc(0,0, this.size, 0, 2*Math.PI, false);
 		
 		ctx.moveTo(0+3, 0-this.size+5);
 		ctx.arc(0, 0-this.size+5, 2, 0, Math.PI*2 , false) ;
 		
 		ctx.stroke() ;
+		ctx.closePath() ;
+		
     }
     
-    , incAngle: function(sign) {
-		this.angle = (this.angle + sign * this.turnRate) % (2 * Math.PI);
+	, setWorldPosition: function(x,y){
+		this._super(x,y) ;
+
+    	// 移动摄像机
+    	ins(yc.outer.Camera).moveByFocus(this.x,this.y) ;
 	}
-    
-    , _visit: cc.Sprite.prototype.visit
-    , visit: function(){
+	
+    , visit: function(ctx){
+    	return this._super(ctx) ;
+    	
     	
     	// 转向
     	if(this._turn)
@@ -63,19 +64,7 @@ yc.outer.Cell = yc.outer.LifeEntity.extend({
 	    	ins(yc.outer.Camera).moveByFocus(this.x,this.y) ;
     	}
     	
-    	return this._visit() ;
-    }
-    
-    , transform: yc.outer.Camera.transformSprite
-    
-    , turn: function(way){
-    	this._turn = way ;
-    }
-    , stopTurn: function(way){
-    	if( this._turn == way )
-    	{
-    		this._turn = null ;
-    	}
+    	return this._super() ;
     }
     
     , jump: function(x,y){

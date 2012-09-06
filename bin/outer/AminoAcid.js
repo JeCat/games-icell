@@ -1,9 +1,7 @@
 /*** 氨基酸 ***/
-yc.outer.AminoAcid = yc.outer.LifeEntity.extend({
+yc.outer.AminoAcid = yc.outer.PhysicalEntity.extend({
 
-    size: 6
-    
-    , initRandom: function(){
+    initRandom: function(){
     	// 随机类型和数量
     	this.type = yc.inner.AminoAcidPool.types[ 0|(Math.random()*(yc.inner.AminoAcidPool.types.length)) ] ;
     	this.num = Math.round(Math.random()*20) ;
@@ -11,14 +9,9 @@ yc.outer.AminoAcid = yc.outer.LifeEntity.extend({
     	
     	var colors = {red:'255,0,0',blue:'0,0,255',yellow:'255,255,0'}
     	this.color = 'rgb(' + colors[this.type] + ')' ;
-    	
-    	// 随机方向
-        this.randomTurn() ;
+
+		this.initWithCircle(this.size,this.x,this.y) ;
     }
-	
-	,get_collision_circle:  function() {
-		return [[this.x, this.y], this.size];
-	}
 		
     , transform: yc.outer.Camera.transformSprite
 	, draw: function(c)
@@ -28,23 +21,13 @@ yc.outer.AminoAcid = yc.outer.LifeEntity.extend({
 		c.arc(0, 0, this.size, 0, Math.PI*2, true);
 		c.closePath();
 		c.fill();
-
-		/*c.fillStyle = 'rgb(255,255,255)' ;
-	    c.font="6pt san-serif";
-		c.fillText(this.num,0,0);
-		*/
 	}
 	
-	, _visit: cc.Sprite.prototype.visit
-	, visit: function(c){//return;
-		
-		var cell = ins(yc.outer.Cell) ;
-        var camera = ins(yc.outer.Camera) ;
-		
-		var dis = yc.util.pointsDis(this.x,this.y,cell.x,cell.y) ;
+	, update: function(dt){
 
-		// 远离玩家，处于睡眠状态
-		if( dis>camera.width )
+		var cell = ins(yc.outer.Cell) ;
+		var dis = yc.util.pointsDis(this.x,this.y,cell.x,cell.y) ;
+		if(!this.autoWakeup(dis))
 		{
 			return ;
 		}
@@ -53,17 +36,19 @@ yc.outer.AminoAcid = yc.outer.LifeEntity.extend({
         this.mosey() ;
         
 	    // 判断碰撞
-	    if( dis<this.size+cell.size )
+	    /*if( dis<this.size+cell.size )
 	    {
 	        this._parent.removeChild(this) ;
 	        
 	       ins(yc.inner.AminoAcidPool).increase(this.type,this.num) ;
 	        
 	        return ;
-	    }
-	    
-        this._visit(c) ;
+	    }*/
+
+
+        this._super(dt) ;
 	}
+	
 }) ;
 
 
