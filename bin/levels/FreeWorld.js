@@ -102,62 +102,6 @@ yc.levels.FreeWorld = yc.GameScene.extend({
         
         
 		this._initBoss() ;
-		
-		
-
-//        var b2Vec2 = Box2D.Common.Math.b2Vec2
-//            , b2BodyDef = Box2D.Dynamics.b2BodyDef
-//            , b2Body = Box2D.Dynamics.b2Body
-//            , b2FixtureDef = Box2D.Dynamics.b2FixtureDef
-//            , b2World = Box2D.Dynamics.b2World
-//            , b2PolygonShape = Box2D.Collision.Shapes.b2PolygonShape;
-//
-//        var screenSize = cc.Director.getInstance().getWinSize();
-//        log(screenSize) ;
-//
-//        var fixDef = new b2FixtureDef;
-//        fixDef.density = 1.0;
-//        fixDef.friction = 0.5;
-//        fixDef.restitution = 0.2;
-//
-//        var bodyDef = new b2BodyDef;
-//
-//        //create ground
-//        bodyDef.type = b2Body.b2_staticBody;
-//        fixDef.shape = new b2PolygonShape;
-//        fixDef.shape.SetAsBox(20, 2);
-//        // upper
-//        bodyDef.position.Set(10, screenSize.height / PTM_RATIO + 1.8);
-//        this.world.CreateBody(bodyDef).CreateFixture(fixDef);
-//        // bottom
-//        bodyDef.position.Set(10, -1.8);
-//        this.world.CreateBody(bodyDef).CreateFixture(fixDef);
-//
-//        fixDef.shape.SetAsBox(2, 14);
-//        // left
-//        bodyDef.position.Set(-1.8, 13);
-//        this.world.CreateBody(bodyDef).CreateFixture(fixDef);
-//        // right
-//        bodyDef.position.Set(26.8, 13);
-//        this.world.CreateBody(bodyDef).CreateFixture(fixDef);
-//        
-       
-        
-
-        var debugDraw = new Box2D.Dynamics.b2DebugDraw();
-        debugDraw.SetSprite ( document.getElementById ("gameCanvas").getContext ("2d"));
-        debugDraw.SetDrawScale(30); //define scale
-        debugDraw.SetFillAlpha(0.3); //define transparency
-        debugDraw.SetLineThickness(1.0);
-        debugDraw.SetFlags(Box2D.Dynamics.b2DebugDraw.e_shapeBit | Box2D.Dynamics.b2DebugDraw.e_jointBit);
-        this.world.SetDebugDraw(debugDraw);
-        
-        
-		box = this.addNewSpriteWithCoords(100,100) ;
-		body = box.body ;
-		
-		// 打开世界编辑器
-		worldediter() ;
 	}
 
 
