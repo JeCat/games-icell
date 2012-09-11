@@ -28,7 +28,7 @@ yc.outer.Boss = yc.outer.VirusCluster.extend({
 
         	// 直接杀死玩家
         	, attack: function(){
-        		yc.inner.Cell.ins().increaseHp(-5) ;
+        		ins(yc.inner.Cell).increaseHp(-5) ;
         	}
         
         	// 击杀boss
@@ -46,7 +46,7 @@ yc.outer.Boss = yc.outer.VirusCluster.extend({
     	this._touchingCell(cell) ;
     	
     	// 从 boss 指南针中回收
-        var compass = yc.outer.BossCompass.ins() ;
+        var compass = ins(yc.outer.BossCompass) ;
     	yc.util.arr.remove(compass.arrBosses,this) ;
     }
 }) ;

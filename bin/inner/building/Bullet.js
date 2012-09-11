@@ -20,7 +20,7 @@ yc.inner.building.Bullet = cc.Sprite.extend({
             
             // 计算被命中的敌人
             var bHited = false ;
-            var arrVirus = yc.inner.InnerLayer.ins().layerVirus.arrVirus ;
+            var arrVirus = ins(yc.inner.InnerLayer).layerVirus.arrVirus ;
             var myPos = bullet.getPosition() ;
             for(var i=0;i<arrVirus.length;i++)
             {
@@ -101,7 +101,7 @@ yc.inner.building.Bullet.className = 'yc.inner.building.Bullet' ;
 yc.inner.building.Bullet.create = function(){
     
     var bullet = yc.op.ins(yc.inner.building.Bullet).ob() ;
-    yc.inner.InnerLayer.ins().buildings.addChild(bullet) ;
+    ins(yc.inner.InnerLayer).buildings.addChild(bullet) ;
     bullet.setVisible(false) ;
     
     return bullet ;

@@ -4,7 +4,7 @@ yc.inner.building.BuildingLayer = cc.Layer.extend({
 	
     , createBuilding: function(buildingClass,x,y)
     {   
-        var hexgon = yc.inner.InnerLayer.ins().cell.aAxes.hexgon(x,y)
+        var hexgon = ins(yc.inner.InnerLayer).cell.aAxes.hexgon(x,y)
         if( !hexgon || hexgon.type!='cytoplasm' || hexgon.building )
         {
             return ;

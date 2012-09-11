@@ -10,10 +10,10 @@ yc.inner.InnerLayer = cc.LayerColor.extend({
         this.setScale(1) ;
         
         // 细胞
-        this.cell = yc.inner.Cell.ins() ;
+        this.cell = ins(yc.inner.Cell) ;
         
         // 层：细胞地图
-        this.map = yc.inner.CellInnerMap.ins() ;
+        this.map = ins(yc.inner.CellInnerMap) ;
         this.addChild(this.map) ;
         
         // 层：建筑
@@ -21,7 +21,7 @@ yc.inner.InnerLayer = cc.LayerColor.extend({
         this.addChild(this.buildings) ;
         
         // 层：病毒
-        this.layerVirus = yc.inner.monster.VirusLayer.ins() ;
+        this.layerVirus = ins(yc.inner.monster.VirusLayer) ;
         this.addChild(this.layerVirus) ;
     }
     
@@ -99,11 +99,3 @@ yc.inner.InnerLayer = cc.LayerColor.extend({
     
 }) ;
 
-
-yc.inner.InnerLayer._ins = null ;
-yc.inner.InnerLayer.ins = function(){
-    if(!yc.inner.InnerLayer._ins){
-        yc.inner.InnerLayer._ins = new yc.inner.InnerLayer() ;
-    }
-    return yc.inner.InnerLayer._ins ;
-}

@@ -17,7 +17,7 @@ function moremoney()
 }
 
 function newVirusCluster(){
-	var cell = yc.inner.Cell.ins() ;
+	var cell = ins(yc.inner.Cell) ;
 	
 	var v = yc.util.ObjectPool.ins(yc.outer.VirusCluster ).ob() ;
 	v.x = cell.x + 100 ;
@@ -29,7 +29,7 @@ function newVirusCluster(){
 
 function testVirusRun(startX,startY){
     
-    var layer = yc.inner.monster.VirusLayer.ins() ;
+    var layer = ins(yc.inner.monster.VirusLayer) ;
     var virus = layer.createVirusSprite() ;
     
     virus.run(startX,startY) ;

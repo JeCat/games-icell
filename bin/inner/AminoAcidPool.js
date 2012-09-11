@@ -26,10 +26,3 @@ yc.inner.AminoAcidPool = function ()
 }
 yc.inner.AminoAcidPool.types = ['red','yellow','blue'] ;
 
-yc.inner.AminoAcidPool._ins = null ;
-yc.inner.AminoAcidPool.ins = function(){
-    if(!yc.inner.AminoAcidPool._ins){
-        yc.inner.AminoAcidPool._ins = new yc.inner.AminoAcidPool() ;
-    }
-    return yc.inner.AminoAcidPool._ins ;
-}

@@ -16,7 +16,7 @@ yc.outer.VirusCluster = yc.outer.PhysicalEntity.extend({
 		
 	, initRandom: function(){
 		// 根据离Boss的距离确定病毒群的等级
-		var compass = yc.outer.BossCompass.ins() ;
+		var compass = ins(yc.outer.BossCompass) ;
 		if(compass.nearestBoss)
 		{
 			var dis = yc.util.pointsDis(this.x,this.y,compass.nearestBoss.x,compass.nearestBoss.y) ;
@@ -123,7 +123,7 @@ yc.outer.VirusCluster = yc.outer.PhysicalEntity.extend({
 			radian = 2*Math.PI + radian ;
 		}
 
-		return yc.inner.InnerLayer.ins().touchVirusCluster(radian) ;
+		return ins(yc.inner.InnerLayer).touchVirusCluster(radian) ;
 	}
 	
 	, createInnerSprite: function(hexgon){

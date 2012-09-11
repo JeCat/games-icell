@@ -112,10 +112,3 @@ yc.outer.BossCompass = cc.Sprite.extend({
 	
 }) ;
 
-
-yc.outer.BossCompass.ins = function(){
-    if(typeof(yc.outer.BossCompass._ins)=='undefined'){
-        yc.outer.BossCompass._ins = new yc.outer.BossCompass() ;
-    }
-    return yc.outer.BossCompass._ins ;
-}

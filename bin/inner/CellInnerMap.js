@@ -22,7 +22,7 @@ yc.inner.CellInnerMap = cc.Layer.extend({
 	
 	, draw: function(ctx){//return;
 		
-		var cell = yc.inner.Cell.ins() ;
+		var cell = ins(yc.inner.Cell) ;
 		
 		// 画细胞质
 		for(var i=0;i<cell.cytoplasms.length;i++)
@@ -110,14 +110,14 @@ yc.inner.CellInnerMap = cc.Layer.extend({
 	, onTouchesBegan: function(touches, event){
 		if(touches.length<1){ return ; }
 		
-		var p = yc.inner.InnerLayer.ins().windowToClient(touches[0]._point.x,touches[0]._point.y) ;
+		var p = ins(yc.inner.InnerLayer).windowToClient(touches[0]._point.x,touches[0]._point.y) ;
 		if(!p){ return ; }
 		
 		if(this.selcted_hexgon)
 		{
 			this.selcted_hexgon.selected = false ;
 		}
-		this.selcted_hexgon = yc.inner.InnerLayer.ins().cell.aAxes.hexgonByPoint(p[0],p[1]) ;
+		this.selcted_hexgon = ins(yc.inner.InnerLayer).cell.aAxes.hexgonByPoint(p[0],p[1]) ;
 		this.selcted_hexgon.selected = true ;
 		
 		this.touching = true ;
@@ -128,14 +128,14 @@ yc.inner.CellInnerMap = cc.Layer.extend({
 		if(touches.length<1){ return ; }
 		if(!this.touching){ return ; }
 		
-		var p = yc.inner.InnerLayer.ins().windowToClient(touches[0]._point.x,touches[0]._point.y) ;
+		var p = ins(yc.inner.InnerLayer).windowToClient(touches[0]._point.x,touches[0]._point.y) ;
 		if(!p){ return ; }
 		
 		if(this.selcted_hexgon)
 		{
 			this.selcted_hexgon.selected = false ;
 		}
-		this.selcted_hexgon = yc.inner.InnerLayer.ins().cell.aAxes.hexgonByPoint(p[0],p[1]) ;
+		this.selcted_hexgon = ins(yc.inner.InnerLayer).cell.aAxes.hexgonByPoint(p[0],p[1]) ;
 		this.selcted_hexgon.selected = true ;
 		
 		return false ;
@@ -143,14 +143,14 @@ yc.inner.CellInnerMap = cc.Layer.extend({
 	, onTouchesEnded:function (touches, event) {
 		if(touches.length<1){ return ; }
 		
-		var p = yc.inner.InnerLayer.ins().windowToClient(touches[0]._point.x,touches[0]._point.y) ;
+		var p = ins(yc.inner.InnerLayer).windowToClient(touches[0]._point.x,touches[0]._point.y) ;
 		if(!p){ return ; }
 		
 		if(this.selcted_hexgon)
 		{
 			this.selcted_hexgon.selected = false ;
 		}
-		this.selcted_hexgon = yc.inner.InnerLayer.ins().cell.aAxes.hexgonByPoint(p[0],p[1]) ;
+		this.selcted_hexgon = ins(yc.inner.InnerLayer).cell.aAxes.hexgonByPoint(p[0],p[1]) ;
 		this.selcted_hexgon.selected = true ;
 		
 		this.touching = false ;
@@ -171,12 +171,4 @@ yc.inner.CellInnerMap = cc.Layer.extend({
 	
 	, transform: cc.Sprite.prototype.transform
 });  
-
-yc.inner.CellInnerMap.ins = function(){
-	if( typeof(yc.inner.CellInnerMap._ins)=='undefined' )
-	{
-		yc.inner.CellInnerMap._ins = new yc.inner.CellInnerMap () ;
-	}
-	return yc.inner.CellInnerMap._ins ;
-}
 

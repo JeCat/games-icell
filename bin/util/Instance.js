@@ -1,8 +1,5 @@
 
-yc.util.Instance = {} ;
-yc.util.Instance._instances = {} ;
-
-var ins = yc.util.Instance.ins = function(className)
+var ins = yc.util.ins = function(className)
 {   
     var name = typeof(className.className)=='undefined'? className.name: className.className ;
     
@@ -11,9 +8,19 @@ var ins = yc.util.Instance.ins = function(className)
         return null ;
     }
     
-	if( typeof(yc.util.Instance._instances[name])=='undefined' )
+    var scene = cc.Director.getInstance()._runningScene ;
+    if(!scene)
+    {
+    	return ;
+    }
+
+	if( typeof(scene._instances)=='undefined' )
 	{
-		yc.util.Instance._instances[name] = new className ;
+		scene._instances = {} ;
 	}
-	return yc.util.Instance._instances[name] ;
+	if( typeof(scene._instances[name])=='undefined' )
+	{
+		scene._instances[name] = new className ;
+	}
+	return scene._instances[name] ;
 }

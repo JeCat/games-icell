@@ -109,7 +109,7 @@ yc.GameScene = cc.Scene.extend({
         this.addChild(this.layerStains) ;
         
         // 层：细胞内部场景
-        this.layerInner = yc.inner.InnerLayer.ins() ;
+        this.layerInner = ins(yc.inner.InnerLayer) ;
         this.addChild(this.layerInner) ;
         
         // 层：ui

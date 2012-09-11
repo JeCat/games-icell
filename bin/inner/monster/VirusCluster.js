@@ -24,7 +24,7 @@ yc.inner.monster.VirusCluster = cc.Sprite.extend({
         
         this.setPosition(cc.p(stay.center[0],stay.center[1])) ;
         
-        var layer  = yc.inner.monster.VirusLayer.ins() ;
+        var layer  = ins(yc.inner.monster.VirusLayer) ;
         layer.addChild(this) ;
         
         var release = function(){
@@ -49,7 +49,7 @@ yc.inner.monster.VirusCluster = cc.Sprite.extend({
     }
     
     , releaseOver: function(){
-        yc.inner.monster.VirusLayer.ins().removeChild(this) ;
+        ins(yc.inner.monster.VirusLayer).removeChild(this) ;
         yc.op.ins(yc.inner.monster.VirusCluster).free(this) ;
     }
 });

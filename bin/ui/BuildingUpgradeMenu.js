@@ -31,7 +31,7 @@ yc.ui.BuildingUpgradeMenu = function(){
 		}
 		
 		// 重新计算路径
-		var cell = yc.inner.InnerLayer.ins().cell ;
+		var cell = ins(yc.inner.InnerLayer).cell ;
 		var map = cell.researchPath() ;
 	}) ;
 	
@@ -118,7 +118,7 @@ yc.ui.BuildingUpgradeMenu = function(){
 	}
 
 	this.close = function(){
-		var inner = yc.inner.InnerLayer.ins() ;
+		var inner = ins(yc.inner.InnerLayer) ;
 		if(inner.map.selcted_hexgon)
 		{
 			inner.map.selcted_hexgon.selected = false ;

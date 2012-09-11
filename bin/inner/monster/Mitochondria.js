@@ -26,7 +26,7 @@ yc.inner.monster.Mitochondria = cc.Sprite.extend({
 		}
 		
 		var p = this.getPosition() ;
-		var axes = yc.inner.Cell.ins().aAxes ;
+		var axes = ins(yc.inner.Cell).aAxes ;
 		var hexgon = axes.hexgonByPoint(p.x,p.y) ;
 		if(!hexgon)
 		{

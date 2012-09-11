@@ -28,7 +28,7 @@ yc.inner.building.Recycle = yc.inner.building.Building.extend({
 		while( this.mitochondrias.length < this.mitochondriaCount )
 		{
 			var entity = new yc.inner.monster.Mitochondria(this) ;
-			yc.inner.monster.VirusLayer.ins().addChild(entity) ;
+			ins(yc.inner.monster.VirusLayer).addChild(entity) ;
 			this.mitochondrias.push(entity) ;
 
 			entity.release(cc.p( this.hexgon.center[0], this.hexgon.center[1] )) ;

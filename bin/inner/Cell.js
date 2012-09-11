@@ -269,9 +269,3 @@ yc.inner.Cell.prototype.revive = function(){
 	ins(yc.outer.Cell).jump(0,0) ;
 }
 
-yc.inner.Cell.ins = function(){
-    if(typeof(yc.inner.Cell._ins)=='undefined'){
-        yc.inner.Cell._ins = new yc.inner.Cell() ;
-    }
-    return yc.inner.Cell._ins ;
-}

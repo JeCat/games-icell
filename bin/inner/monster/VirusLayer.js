@@ -27,10 +27,3 @@ yc.inner.monster.VirusLayer = cc.Layer.extend({
     
 }) ;
 
-
-yc.inner.monster.VirusLayer.ins = function(){
-    if(typeof(yc.inner.monster.VirusLayer._ins)=='undefined'){
-        yc.inner.monster.VirusLayer._ins = new yc.inner.monster.VirusLayer() ;
-    }
-    return yc.inner.monster.VirusLayer._ins ;
-}

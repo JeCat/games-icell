@@ -45,7 +45,7 @@ yc.inner.monster.Virus = cc.Sprite.extend({
     , run: function() {
     	
     	var p = this.getPosition() ;
-    	if( !(this.runningFrom=yc.inner.Cell.ins().aAxes.hexgonByPoint(p.x,p.y)) )
+    	if( !(this.runningFrom=ins(yc.inner.Cell).aAxes.hexgonByPoint(p.x,p.y)) )
     	{
     		// something wrong!
     		return ;
@@ -93,7 +93,7 @@ yc.inner.monster.Virus = cc.Sprite.extend({
     }
     
     , attack: function(){
-    	yc.inner.Cell.ins().getHurt() ;
+    	ins(yc.inner.Cell).getHurt() ;
     }
     
     , setPos: function(x,y){
@@ -148,7 +148,7 @@ yc.inner.monster.Virus = cc.Sprite.extend({
     , destroy: function(){
     	this.stopRun() ;
         this.stopAllActions() ;
-        yc.inner.monster.VirusLayer.ins().removeVirusSprite(this) ;
+        ins(yc.inner.monster.VirusLayer).removeVirusSprite(this) ;
     }
     
 }) ;

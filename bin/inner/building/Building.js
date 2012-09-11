@@ -18,7 +18,7 @@ yc.inner.building.Building = cc.Sprite.extend({
         return yc.inner.building.Building ;
     }
     , putOn: function(x,y){
-        return this.put(yc.inner.InnerLayer.ins().cell.aAxes.hexgon(x,y)) ;
+        return this.put(ins(yc.inner.InnerLayer).cell.aAxes.hexgon(x,y)) ;
     }
     
     , draw: function(ctx){

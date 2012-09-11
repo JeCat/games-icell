@@ -63,13 +63,13 @@ yc.ui.BuildingCreateMenu = function(){
 			, cost: function(){
 				
 				return {
-					red: 10 * (yc.inner.Cell.ins().grown+1)
-					, green: 10 * (yc.inner.Cell.ins().grown+1)
-					, violet: 10 * (yc.inner.Cell.ins().grown+1)
+					red: 10 * (ins(yc.inner.Cell).grown+1)
+					, green: 10 * (ins(yc.inner.Cell).grown+1)
+					, violet: 10 * (ins(yc.inner.Cell).grown+1)
 				}
 			}
 			, constructFunc: function(hexgon){
-				yc.inner.Cell.ins().grow(hexgon.x,hexgon.y) ;
+				ins(yc.inner.Cell).grow(hexgon.x,hexgon.y) ;
 				menu.close() ;
 			}
 			, isUnlock: function(){
@@ -77,7 +77,7 @@ yc.ui.BuildingCreateMenu = function(){
 				{
 					return false ;
 				}
-				return yc.inner.Cell.ins().grown < ins(yc.dna.DNA).genes.grow.superimposing ;
+				return ins(yc.inner.Cell).grown < ins(yc.dna.DNA).genes.grow.superimposing ;
 			}
 		}
 	} ;
@@ -88,7 +88,7 @@ yc.ui.BuildingCreateMenu = function(){
 
 	this.show = function(hexgon){
 
-		var inner = yc.inner.InnerLayer.ins() ;
+		var inner = ins(yc.inner.InnerLayer) ;
 		
 		this.ui.find('#bulding-create-items').html("") ;
 		var itemNums = 0 ;
@@ -173,7 +173,7 @@ yc.ui.BuildingCreateMenu = function(){
 	}
 	
 	this.close = function(){
-		var inner = yc.inner.InnerLayer.ins() ;
+		var inner = ins(yc.inner.InnerLayer) ;
 		if(inner.map.selcted_hexgon)
 		{
 			inner.map.selcted_hexgon.selected = false ;
@@ -184,7 +184,7 @@ yc.ui.BuildingCreateMenu = function(){
 	
 	this.createBuilding = function(hexgon,item){
 		
-		var inner = yc.inner.InnerLayer.ins() ;
+		var inner = ins(yc.inner.InnerLayer) ;
 		
 		// 已经有建筑了
 		if(hexgon.building)
@@ -196,7 +196,7 @@ yc.ui.BuildingCreateMenu = function(){
 		var oriBlock = hexgon.block ;
 		hexgon.block = true ;
 		// 重新计算路径
-		var cell = yc.inner.InnerLayer.ins().cell ;
+		var cell = ins(yc.inner.InnerLayer).cell ;
 		var map = cell.researchPath() ;
 		
 		// 检查所有细胞膜格子，必须保证病毒从任何一个细胞膜格子进入时，都能够到达细胞核
