@@ -49,6 +49,12 @@ yc.outer.AminoAcid = yc.outer.PhysicalEntity.extend({
         this._super(dt) ;
 	}
 	
+	, catchMe: function(){
+		ins(yc.inner.AminoAcidPool).increase(this.type,this.num) ;
+		
+		this.destroy() ;
+	}
+	
 }) ;
 
 

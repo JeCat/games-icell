@@ -2,10 +2,12 @@
 
 var b2BodyDef = Box2D.Dynamics.b2BodyDef
     , b2Body = Box2D.Dynamics.b2Body
+    , b2World = Box2D.Dynamics.b2World
     , b2FixtureDef = Box2D.Dynamics.b2FixtureDef
     , b2PolygonShape = Box2D.Collision.Shapes.b2PolygonShape
     , b2Vec2 = Box2D.Common.Math.b2Vec2
-    , b2DebugDraw = Box2D.Dynamics.b2DebugDraw ;
+    , b2DebugDraw = Box2D.Dynamics.b2DebugDraw
+    , b2Transform = Box2D.Common.Math.b2Transform ;
 
 
 var YouCellGame = cc.Application.extend({

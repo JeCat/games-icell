@@ -154,7 +154,9 @@ yc.outer.VirusCluster = yc.outer.PhysicalEntity.extend({
 	}
 		
 	, touchingCell: function(cell){
-		this._parent.removeChild(this) ;
+		
+		// 回收
+		this.destroy() ;
 		
 		// 接触位置
 		var hexgon = this.touchingHexgon(cell) ;

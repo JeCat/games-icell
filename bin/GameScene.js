@@ -8,28 +8,48 @@ yc.GameScene = cc.Scene.extend({
 		this.minY = null ;
 		this.maxY = null ;
 
+        this.scheduleUpdate();
+	}
 
-        var b2Vec2 = Box2D.Common.Math.b2Vec2
-            , b2BodyDef = Box2D.Dynamics.b2BodyDef
-            , b2Body = Box2D.Dynamics.b2Body
-            , b2FixtureDef = Box2D.Dynamics.b2FixtureDef
-            , b2World = Box2D.Dynamics.b2World
-            , b2CircleShape = Box2D.Collision.Shapes.b2CircleShape
-        	, b2PolygonShape = Box2D.Collision.Shapes.b2PolygonShape;
+	, initWorld: function(){
 
         var screenSize = cc.Director.getInstance().getWinSize();
         //UXLog(L"Screen width %0.2f screen height %0.2f",screenSize.width,screenSize.height);
 
-
         // Construct a world object, which will hold and simulate the rigid bodies.
-        this.world = new b2World(new b2Vec2(0, 0), true);
-        world = this.world ;
+        world = this.world = new b2World(new b2Vec2(0, 0), true);
         this.world.SetContinuousPhysics(false);
         this.world.SetContactListener(new yc.outer.ContactListener) ;
+        this.world.removingBodies = [] ;
         
+        // 边界墙 ---------------
 
-        
-        this.scheduleUpdate();
+        var fixDef = new b2FixtureDef;
+        fixDef.density = 1.0;
+        fixDef.friction = 0.5;
+        fixDef.restitution = 0.2;
+
+        var bodyDef = new b2BodyDef;
+        var w = this.maxX-this.minX, h = this.maxY-this.minY ;
+
+        //create ground
+        bodyDef.type = b2Body.b2_staticBody;
+        fixDef.shape = new b2PolygonShape;
+        fixDef.shape.SetAsBox(w/2/PTM_RATIO, 2);  // 墙要厚一点
+        // upper
+        bodyDef.position.Set((this.minX+(w/2))/PTM_RATIO, this.maxY/PTM_RATIO+2);
+        this.world.CreateBody(bodyDef).CreateFixture(fixDef);
+        // bottom
+        bodyDef.position.Set((this.minX+(w/2))/PTM_RATIO, this.minY/PTM_RATIO-2);
+        this.world.CreateBody(bodyDef).CreateFixture(fixDef);
+
+        fixDef.shape.SetAsBox(2,h/2/PTM_RATIO);
+        // left
+        bodyDef.position.Set(this.minX/PTM_RATIO-2,(this.minY+(h/2))/PTM_RATIO);
+        this.world.CreateBody(bodyDef).CreateFixture(fixDef);
+        // right
+        bodyDef.position.Set(this.maxX/PTM_RATIO+2,(this.minY+(h/2))/PTM_RATIO);
+        this.world.CreateBody(bodyDef).CreateFixture(fixDef);
 	}
 
 	, testWorldBoard: function(x,y) {
@@ -54,6 +74,9 @@ yc.GameScene = cc.Scene.extend({
 	
     , onEnter:function () {
         this._super();
+
+        this.initWorld() ;
+        
         
         this.setAnchorPoint(cc.p(0,0)) ;
         
@@ -131,6 +154,14 @@ yc.GameScene = cc.Scene.extend({
         var velocityIterations = 8;
         var positionIterations = 1;
 
+    	for(var i=0; i<this.world.removingBodies.length;i++)
+    	{
+    		var body = this.world.removingBodies[i] ;
+    		this.world.DestroyBody(body) ;
+    		yc.util.arr.remove(this.world.removingBodies,body) ;
+    	}
+        
+        
         // Instruct the world to perform a single step of simulation. It is
         // generally best to keep the time step and iterations fixed.
         this.world.Step(dt, velocityIterations, positionIterations);

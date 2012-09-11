@@ -75,7 +75,7 @@ yc.outer.PhysicalEntity = cc.Sprite.extend({
         var bodyDef = new b2BodyDef();
         bodyDef.type = b2Body.b2_dynamicBody;
         bodyDef.position.Set(x / PTM_RATIO, y / PTM_RATIO);
-        bodyDef.allowSleep = false;
+        bodyDef.allowSleep = true;
         bodyDef.userData = this;
         this.b2Body = world.CreateBody(bodyDef);
 
@@ -180,6 +180,22 @@ yc.outer.PhysicalEntity = cc.Sprite.extend({
 		else
 		{
 			this.drive( this.angle + (Math.random()>0.5?-1:1)*this.turnRate ) ;
+		}
+	}
+	
+	, destroy: function(){
+		
+		// 从场景中移除
+		this.removeFromParentAndCleanup() ;
+		
+		// 从物理世界中移除
+		if(this.b2Body)
+		{
+			this.b2Body.GetWorld().removingBodies.push(this.b2Body) ;
+			
+			// 解除关系
+			this.b2Body.SetUserData(null) ;
+			this.b2Body = null ;
 		}
 	}
 	

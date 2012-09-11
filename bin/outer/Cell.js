@@ -41,6 +41,23 @@ yc.outer.Cell = yc.outer.PhysicalEntity.extend({
     	ins(yc.outer.Camera).moveByFocus(this.x,this.y) ;
 	}
 	
+	/**
+	 * 碰撞
+	 */
+	, collide: function(entity){
+		
+		// 病毒群
+		if(entity.constructor.className=='yc.outer.VirusCluster')
+		{
+			entity.touchingCell(this) ;
+		}
+		// 氨基酸
+		else if(entity.constructor.className=='yc.outer.AminoAcid')
+		{
+			entity.catchMe() ;
+		}
+	}
+	
     , visit: function(ctx){
     	return this._super(ctx) ;
     	

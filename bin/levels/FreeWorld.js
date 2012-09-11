@@ -57,9 +57,9 @@ yc.levels.FreeWorld = yc.GameScene.extend({
 		this._onEnter() ;
 		
 		// 创建各种角色
-		this.randomCreateEntities(yc.outer.VirusCluster,10,this.layerRoles) ;
-		this.randomCreateEntities(yc.outer.AminoAcid,100,this.layerRoles) ;
-		this.randomCreateEntities(yc.outer.Stain,50,this.layerStains) ;
+		this.randomCreateEntities(yc.outer.VirusCluster,30,this.layerRoles) ;
+		this.randomCreateEntities(yc.outer.AminoAcid,30,this.layerRoles) ;
+		this.randomCreateEntities(yc.outer.Stain,30,this.layerStains) ;
 		
 		// ---------------
 		// 初始化资源
