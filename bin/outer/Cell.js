@@ -2,7 +2,7 @@ yc.outer.Cell = yc.outer.PhysicalEntity.extend({
 
 	ctor: function(){
 		this._super() ;
-		this.maxSpeed = 5 ;
+		this.maxSpeed = yc.settings.outer.player.defaultMaxSpeed ;
 	}
     
     , draw: function(ctx){

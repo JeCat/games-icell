@@ -17,12 +17,15 @@ yc.settings = {
 	    
 	    // 细胞核
 	    , nucleus: {
+			// 细胞核所在格子的坐标
 	        x: null
 	        , y: null
 	    }
 	    , dbg: true
 	}
 
+
+	// 外部场景
 	, outer: {
 		
 		// 污渍
@@ -30,13 +33,46 @@ yc.settings = {
 			dbg: false
 		}
 	
+		// 病毒群
 		, virus:{
 			dbg: {
 				showId: false
 			}
+			, vigilanceRange: 200	// 警视范围
+			, turnRate: 0.04		// 转向灵活度
+			, moseySpeed: 2			// 漫步速度
+			, normalSpeed: 5		// 正常速度 (追击速度)
+			, size: 6				// 尺寸（半径）
+		}
+		
+		// 氨基酸
+		, aminoacid: {
+			turnRate: 0.2			// 转向灵活度
+			, normalSpeed: 2		// 正常速度
+		}
+		
+		// 角色
+		, role: {
+			// TSD(turn speed down)
+			// NPC转向时角度大于 TSD_radian 时，减速 TSD_rate
+			TSD_radian: Math.PI/3		
+			, TSD_rate: 0.3
+			
+		}
+		
+		// 玩家
+		, player: {
+			// 正常减速
+			// 当玩家停止移动后，每帧递减值
+			normalSpeedDown: 0.5
+
+				
+			, defaultAccel: 0.3			// 默认加速度
+			, defaultMaxSpeed: 5		// 默认最大速度
 		}
 		
 		, box2d: {
+			// world debug draw
 			dbg: false
 		}
 		

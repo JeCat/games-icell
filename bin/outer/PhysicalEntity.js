@@ -57,9 +57,6 @@ yc.outer.PhysicalEntity = cc.Sprite.extend({
         fixtureDef.density = 1.0 ;
         fixtureDef.friction = 1.0 ;
         this.b2Body.CreateFixture(fixtureDef);
-        
-        // 动力
-        this.setSpeed(this.speed) ;
 	}
 
 	, initWithB2Body: function(b2body){
@@ -107,7 +104,7 @@ yc.outer.PhysicalEntity = cc.Sprite.extend({
 	}
 	
 	, setSpeed: function(speed){
-		this.power = this.b2Body.GetMass()*speed ;
+		//this.power = this.b2Body.GetMass()*speed ;
 		//this.b2Body.SetLinearDamping(this.b2Body.GetMass()*2) ;
 		//this.b2Body.SetAngularDamping(this.b2Body.GetMass()*2) ;
 	}
@@ -241,9 +238,9 @@ yc.outer.PhysicalEntity = cc.Sprite.extend({
 		}
 
 		// 如果角度较大，则降低速度
-		if( Math.abs(this.angle-rTarget)>Math.PI/3 )
+		if( Math.abs(this.angle-rTarget) > yc.settings.outer.role.TSD_radian )
 		{
-			this.speed*= 0.3 ;
+			this.speed*= yc.settings.outer.role.TSD_rate ;
 		}
 	}
 	
@@ -273,7 +270,7 @@ yc.outer.PhysicalEntity = cc.Sprite.extend({
 			
 			if (this.speed > maxSpeed)
 			{
-				this.speed-= 0.5
+				this.speed-= yc.settings.outer.player.normalSpeedDown ;
 			}
 			else
 			{
@@ -293,7 +290,7 @@ yc.outer.PhysicalEntity = cc.Sprite.extend({
 		}
 	}
 	, run: function(accel){
-		this.accel = typeof(accel)=='undefined'? 0.3: accel ;
+		this.accel = typeof(accel)=='undefined'? yc.settings.outer.player.defaultAccel: accel ;
 	}
 	, stopRun: function(){
 		this.accel = -0.1 ;

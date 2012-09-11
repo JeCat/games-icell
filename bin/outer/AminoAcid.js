@@ -1,7 +1,14 @@
 /*** 氨基酸 ***/
 yc.outer.AminoAcid = yc.outer.PhysicalEntity.extend({
 
-    initRandom: function(){
+	ctor: function(){
+		this._super() ;
+		
+		this.turnRate = yc.settings.outer.aminoacid.turnRate ;
+		this.normalSpeed = yc.settings.outer.aminoacid.normalSpeed ;
+	}
+	
+    , initRandom: function(){
     	// 随机类型和数量
     	this.type = yc.inner.AminoAcidPool.types[ 0|(Math.random()*(yc.inner.AminoAcidPool.types.length)) ] ;
     	this.num = Math.round(Math.random()*20) ;
@@ -33,18 +40,8 @@ yc.outer.AminoAcid = yc.outer.PhysicalEntity.extend({
 		}
 		
         // 随机改变方向
-        this.mosey() ;
+        this.mosey(this.normalSpeed) ;
         
-	    // 判断碰撞
-	    /*if( dis<this.size+cell.size )
-	    {
-	        this._parent.removeChild(this) ;
-	        
-	       ins(yc.inner.AminoAcidPool).increase(this.type,this.num) ;
-	        
-	        return ;
-	    }*/
-
 
         this._super(dt) ;
 	}

@@ -1,15 +1,14 @@
 yc.outer.VirusCluster = yc.outer.PhysicalEntity.extend({
 	
-	size: 6 
-	
-	, lv: 1
-	, moseySpeed: 2
-	, normalSpeed: 5
+	lv: 1
 	
 	, ctor: function(){
 		this._super() ;
 		
-		this.turnRate = 0.04 ;
+		this.turnRate = yc.settings.outer.virus.turnRate ;
+		this.moseySpeed = yc.settings.outer.virus.moseySpeed ;
+		this.normalSpeed = yc.settings.outer.virus.normalSpeed ;
+		this.size = yc.settings.outer.virus.size ;
 		
 		this.id = yc.outer.VirusCluster.assigned ++ ;
 		yc.outer.VirusCluster.instances[this.id] = this ;
@@ -74,7 +73,7 @@ yc.outer.VirusCluster = yc.outer.PhysicalEntity.extend({
 	}
 	
 	, vigilanceRange: function(){
-		return 200 ;
+		return yc.settings.outer.virus.vigilanceRange ;
 	}
 	
 	, update: function(dt){
