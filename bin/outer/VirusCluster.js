@@ -3,13 +3,15 @@ yc.outer.VirusCluster = yc.outer.PhysicalEntity.extend({
 	size: 6 
 	
 	, lv: 1
-	, moseySpeed: 0.1
-	, normalSpeed: 4
+	, moseySpeed: 2
+	, normalSpeed: 5
 	
 	, ctor: function(){
 		this._super() ;
-		this.id = yc.outer.VirusCluster.assigned ++ ;
 		
+		this.turnRate = 0.04 ;
+		
+		this.id = yc.outer.VirusCluster.assigned ++ ;
 		yc.outer.VirusCluster.instances[this.id] = this ;
 	}
 		
@@ -94,31 +96,18 @@ yc.outer.VirusCluster = yc.outer.PhysicalEntity.extend({
 		// 警示范围
 		if( !yc.settings.player.stealth && this.vigilanceRange()>dis )
 		{
-	        this.setSpeed(this.normalSpeed) ;
+	        this.speed = this.normalSpeed ;
 			
-			// 调整角度
-			var targetAngle = yc.util.radianBetweenPoints(this.x,this.y,cell.x,cell.y) ;
-			this.drive(targetAngle) ;
-			
-			// 切换到追击速度
-			//this.maxSpeed = 3.5 ;
-			
-			//this.run(0.2) ;
-			
-			// 遇到污渍减速
-			// yc.outer.Stain.downSpeed(this) ;
-		
-			//this.accelerating() ;
-			
-			//this.moving() ;
+	        // 调整方向
+	        this.turnTarget(cell.x,cell.y) ;
+	        
+	        this.updateVelocity() ;
 		}
 		
 		// 漫步
 		else
 		{
-	        this.setSpeed(this.moseySpeed) ;
-	        
-			this.mosey() ;
+			this.mosey(this.moseySpeed) ;
 		}
 		
 	}

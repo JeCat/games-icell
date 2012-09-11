@@ -11,7 +11,7 @@ yc.outer.PhysicalEntity = cc.Sprite.extend({
 	, turnRate: 0.2
 
 	, maxSpeed: 1
-	, speed: 0
+	, speed: 3
 	
 	, homeX: null
 	, homeY: null
@@ -121,28 +121,28 @@ yc.outer.PhysicalEntity = cc.Sprite.extend({
 		}
 	}
 	
-	, drive: function(radian){
-		
-		this.angle = radian%(2*Math.PI) ;
-		
-		// 停止原有的动力
-		this.stopDriving() ;
-	    
-		var force = new Box2D.Common.Math.b2Vec2( this.power*Math.sin(radian), this.power*Math.cos(radian) ) ;
-		this.b2Body.ApplyForce( force, this.b2Body.GetWorldCenter() ) ;
-	}
-	
-	, stopDriving: function(){
-		this.b2Body.m_force.SetZero();
-		this.b2Body.m_torque = 0.0;
-		
-		// 
-//		var v = this.b2Body.GetLinearVelocity() ;
-//		v.x*= 0.1 ;
-//		v.y*= 0.1 ;
-//		this.b2Body.SetLinearVelocity(v) ;
-	}
-	
+//	, drive: function(radian){
+//		
+//		this.angle = radian%(2*Math.PI) ;
+//		
+//		// 停止原有的动力
+//		this.stopDriving() ;
+//	    
+//		var force = new Box2D.Common.Math.b2Vec2( this.power*Math.sin(radian), this.power*Math.cos(radian) ) ;
+//		this.b2Body.ApplyForce( force, this.b2Body.GetWorldCenter() ) ;
+//	}
+//	
+//	, stopDriving: function(){
+//		this.b2Body.m_force.SetZero();
+//		this.b2Body.m_torque = 0.0;
+//		
+//		// 
+////		var v = this.b2Body.GetLinearVelocity() ;
+////		v.x*= 0.1 ;
+////		v.y*= 0.1 ;
+////		this.b2Body.SetLinearVelocity(v) ;
+//	}
+//	
 	, setWorldPosition: function(x,y){
 		this.x = x ;
 		this.y = y ;
@@ -174,7 +174,7 @@ yc.outer.PhysicalEntity = cc.Sprite.extend({
 		return true ;
 	}
 	
-	, mosey: function(){
+	/*, mosey: function(){
 		
 		// 返回原始点
 		if( this.homeX!==null && this.homeY!==null && Math.random()<0.05 )
@@ -188,9 +188,32 @@ yc.outer.PhysicalEntity = cc.Sprite.extend({
 		{
 			this.drive( this.angle + (Math.random()>0.5?-1:1)*this.turnRate ) ;
 		}
+	}*/
+	
+
+	, mosey: function(speed){
+		
+		this.speed = typeof(speed)=='undefined'? 0.5: speed ;
+		
+		// 返回原始点
+		if(this.homeX!==null && this.homeY!==null && Math.random()<0.05)
+		{
+			this.turnTarget(this.homeX,this.homeY) ;
+		}
+		
+		// 随机方向
+		else if( Math.random()<0.1 )
+		{
+			this.turnRandom() ;
+		}
+		
+		// 移动
+		this.updateVelocity() ;
 	}
 	
-	
+	, turnRandom: function(){
+		this.incAngle( Math.random()>0.5? -1: 1 ) ;
+	}
 
 	
 	, updateVelocity: function(){
@@ -201,6 +224,26 @@ yc.outer.PhysicalEntity = cc.Sprite.extend({
 			v.y = this.speed * Math.cos(this.angle) ;
 			this.b2Body.SetLinearVelocity(v) ;
 			this.b2Body.SetAwake(true) ;
+		}
+	}
+	
+	, turnTarget: function(targetX,targetY) {
+
+		var rTarget = yc.util.radianBetweenPoints(this.x,this.y,targetX,targetY) ;
+		
+		if( this.angle > rTarget )
+		{
+			this.incAngle( this.angle-rTarget>Math.PI?1: -1 ) ;
+		}
+		else
+		{
+			this.incAngle( rTarget-this.angle>Math.PI?-1: 1 ) ;
+		}
+
+		// 如果角度较大，则降低速度
+		if( Math.abs(this.angle-rTarget)>Math.PI/3 )
+		{
+			this.speed*= 0.3 ;
 		}
 	}
 	
