@@ -101,8 +101,8 @@ yc.outer.PhysicalEntity = cc.Sprite.extend({
 	
 	, setSpeed: function(speed){
 		this.power = this.b2Body.GetMass()*speed ;
-		this.b2Body.SetLinearDamping(this.power/2) ;
-		this.b2Body.SetAngularDamping(this.power/2) ;
+		this.b2Body.SetLinearDamping(this.b2Body.GetMass()*2) ;
+		this.b2Body.SetAngularDamping(this.b2Body.GetMass()*2) ;
 	}
 	
 	, update: function(dt){

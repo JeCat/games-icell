@@ -70,6 +70,7 @@ var $ = jquery ;
             , 'bin/outer/Boss.js'
             , 'bin/outer/BossCompass.js'
             , 'bin/outer/RandomRolesLayer.js'
+            , 'bin/outer/ContactListener.js'
             
             , 'bin/inner/AminoAcidPool.js'
             , 'bin/inner/ProteinPool.js'

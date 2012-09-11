@@ -25,7 +25,7 @@ yc.GameScene = cc.Scene.extend({
         this.world = new b2World(new b2Vec2(0, 0), true);
         world = this.world ;
         this.world.SetContinuousPhysics(false);
-        
+        this.world.SetContactListener(new yc.outer.ContactListener) ;
         
 
         
@@ -134,7 +134,11 @@ yc.GameScene = cc.Scene.extend({
         // Instruct the world to perform a single step of simulation. It is
         // generally best to keep the time step and iterations fixed.
         this.world.Step(dt, velocityIterations, positionIterations);
-        this.world.DrawDebugData() ;
+        
+        if(yc.settings.outer.box2d.dbg)
+        {
+        	this.world.DrawDebugData() ;
+        }
         
         //outerCell.angle
         /*

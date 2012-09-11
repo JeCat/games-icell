@@ -15,7 +15,7 @@
 	
 	
 	<div style="position:absolute;">
-		<canvas id="debugCanvas" width="2000" height="1000"></canvas>
+		<canvas id="debugCanvas" style="display:none" width="2000" height="1000"></canvas>
 	</div>
 	<div id="stage" style="position:absolute;">
 		<canvas id="gameCanvas" width="800" height="450"></canvas>
@@ -179,7 +179,7 @@
 			
 			<div id='panel-world'>
 				<div>
-					范围：
+					世界范围：
 					Top:<input id='ipt-world-top' style='width:50px' value='null' />
 					Lft:<input id='ipt-world-lft' style='width:50px' value='null' />
 					Btm:<input id='ipt-world-btm' style='width:50px' value='null' />
@@ -187,9 +187,12 @@
 				</div>
 				
 				<div>
+					
+					<button onclick="yc.settings.outer.box2d.dbg=!yc.settings.outer.box2d.dbg; $('#debugCanvas').toggle()">Debug Draw</button>
+					
 					<button onclick="yc.settings.player.nohurt=!yc.settings.player.nohurt">无敌</button>
 					<button onclick="yc.settings.player.stealth=!yc.settings.player.stealth">隐身</button>
-					| <button onclick="ins(yc.outer.Cell).speed=30">冲刺</button>
+					| <button onclick="ins(yc.outer.Cell).spurt(30)">冲刺</button>
 					x:<input value="" id='ipt-pos-x' style='width:40px' />
 					y:<input value="" id='ipt-pos-y' style='width:40px' />
 					<button onclick="ins(yc.outer.Cell).jump(parseInt($('#ipt-pos-x').val()),parseInt($('#ipt-pos-y').val()))">跃迁</button>

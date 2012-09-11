@@ -36,6 +36,10 @@ yc.settings = {
 			}
 		}
 		
+		, box2d: {
+			dbg: false
+		}
+		
 	}
 	
 	, player: {
