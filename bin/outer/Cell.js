@@ -5,10 +5,10 @@ yc.outer.Cell = yc.outer.PhysicalEntity.extend({
         
         this._super(ctx) ;
 
-		var speed = this.b2Body.GetLinearVelocity() ;
-		var radian = yc.util.radianBetweenPoints(0,0,speed.x*PTM_RATIO,speed.y*PTM_RATIO) ;
+		//var speed = this.b2Body.GetLinearVelocity() ;
+		//var radian = yc.util.radianBetweenPoints(0,0,speed.x*PTM_RATIO,speed.y*PTM_RATIO) ;
 
-		// 画方向
+		// 画方向（debug）
 		/*ctx.beginPath() ;
 		ctx.strokeStyle='green' ; 
 		ctx.moveTo(0,0) ;
@@ -20,7 +20,9 @@ yc.outer.Cell = yc.outer.PhysicalEntity.extend({
 		ctx.strokeStyle = 'rgba(255, 255, 255, 1.0)' ;
 		ctx.fillStyle = 'rgba(115, 115, 115, 1.0)' ;
 		
-		ctx.rotate(radian);
+		// ctx.rotate(radian);					// 移动方向
+		// ctx.rotate(this.getRotation());		// 物体旋转方向
+		ctx.rotate(this.angle);					// 受力方向
 		
 		ctx.arc(0,0, this.size, 0, 2*Math.PI, false);
 		

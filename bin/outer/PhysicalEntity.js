@@ -54,7 +54,11 @@ yc.outer.PhysicalEntity = cc.Sprite.extend({
         // 动力
         this.setSpeed(this.speed) ;
 	}
-	
+
+	, initWithB2Body: function(b2body){
+		this.b2Body = b2body ;
+		b2body.SetUserData(this) ;
+	}
 
 	, initWithPolygon: function(points,x,y){
 		
@@ -77,15 +81,15 @@ yc.outer.PhysicalEntity = cc.Sprite.extend({
 
         // 逆时针输入顶点
         var vertices = [] ;
-        log(points) ;
-        for(var i=points.length-1;i>=0;i--)
+        //log(points) ;
+        //for(var i=points.length-1;i>=0;i--)
+        for(var i=0;i<points.length;i++)
         {
         	vertices.push(new b2Vec2((points[i].x)/PTM_RATIO,(points[i].y)/PTM_RATIO)) ;
         }
-        log(vertices) ;
+       // log(vertices) ;
         var shape = new b2PolygonShape() ;
         shape.SetAsArray(vertices) ;
-        
         
         // Define the dynamic body fixture.
         var fixtureDef = new b2FixtureDef();
@@ -93,12 +97,12 @@ yc.outer.PhysicalEntity = cc.Sprite.extend({
         fixtureDef.density = 1.0 ;
         fixtureDef.friction = 1.0 ;
         this.b2Body.CreateFixture(fixtureDef);
-
 	}
 	
 	, setSpeed: function(speed){
 		this.power = this.b2Body.GetMass()*speed ;
 		this.b2Body.SetLinearDamping(this.power/2) ;
+		this.b2Body.SetAngularDamping(this.power/2) ;
 	}
 	
 	, update: function(dt){
@@ -106,6 +110,7 @@ yc.outer.PhysicalEntity = cc.Sprite.extend({
 		{
 			var p = this.b2Body.GetPosition() ;
 			this.setWorldPosition(p.x*PTM_RATIO,p.y*PTM_RATIO) ;
+            this.setRotation(-1*this.b2Body.GetAngle()) ;
 		}
 	}
 	
@@ -123,6 +128,12 @@ yc.outer.PhysicalEntity = cc.Sprite.extend({
 	, stopDriving: function(){
 		this.b2Body.m_force.SetZero();
 		this.b2Body.m_torque = 0.0;
+		
+		// 
+//		var v = this.b2Body.GetLinearVelocity() ;
+//		v.x*= 0.1 ;
+//		v.y*= 0.1 ;
+//		this.b2Body.SetLinearVelocity(v) ;
 	}
 	
 	, setWorldPosition: function(x,y){
@@ -136,7 +147,7 @@ yc.outer.PhysicalEntity = cc.Sprite.extend({
         var camera = ins(yc.outer.Camera) ;
         
 		// 远离玩家，处于睡眠状态
-		if( dis>camera.width )
+		if( dis>(camera.width/2) )
 		{
 			if(this.b2Body.IsAwake())
 			{

@@ -15,14 +15,73 @@ yc.outer.Stain = yc.outer.PhysicalEntity.extend({
     
     , initRandom: function(){
 
-        
-        // 
-    	this.points = [] ;
-        this.appendPoint(0,50) ;
-        this.appendPoint(-30,-50) ;
-        this.appendPoint(30,-50) ;
-        this.initWithPolygon(this.points,this.x,this.y) ;
-        return ;
+//    	this.x = 100 ;
+//    	this.y = 100 ;
+//        
+//        // 
+//    	this.points = [] ;
+//        this.appendPoint(0,50) ;
+//        this.appendPoint(30,-50) ;
+//        this.appendPoint(-30,-50) ;
+//        
+//
+//		var world = cc.Director.getInstance()._runningScene.world ;
+//		
+//        // Define the dynamic body.
+//        //Set up a 1m squared box in the physics world
+//        var b2BodyDef = Box2D.Dynamics.b2BodyDef
+//            , b2Body = Box2D.Dynamics.b2Body
+//            , b2FixtureDef = Box2D.Dynamics.b2FixtureDef
+//            , b2Vec2 = Box2D.Common.Math.b2Vec2
+//            , b2PolygonShape = Box2D.Collision.Shapes.b2PolygonShape ;
+//
+//        var bodyDef = new b2BodyDef();
+//        bodyDef.type = b2Body.b2_dynamicBody;
+//        bodyDef.position.Set(this.x / PTM_RATIO, this.y / PTM_RATIO);
+//        bodyDef.allowSleep = false;
+//        bodyDef.userData = this;
+//        this.b2Body = world.CreateBody(bodyDef);
+//
+//        // 逆时针输入顶点
+//        var vertices = [
+//              new b2Vec2(0,50/PTM_RATIO)
+//	        , new b2Vec2(-30/PTM_RATIO,-50/PTM_RATIO)
+//	        , new b2Vec2(30/PTM_RATIO,-50/PTM_RATIO)
+//        ] ;
+//        //log(points) ;
+//        //for(var i=points.length-1;i>=0;i--)
+////        for(var i=0;i<points.length;i++)
+////        {
+////        	vertices.push(new b2Vec2((points[i].x)/PTM_RATIO,(points[i].y)/PTM_RATIO)) ;
+////        }
+//       // log(vertices) ;
+//        var shape = new b2PolygonShape() ;
+//        shape.SetAsArray(vertices) ;
+//        shape.SetAsBox(100/PTM_RATIO,100/PTM_RATIO) ;
+////        shape.m_vertices.push(new b2Vec2(0,50/PTM_RATIO)) ;
+////        shape.m_vertices.push(new b2Vec2(-30/PTM_RATIO,-50/PTM_RATIO)) ;
+////        shape.m_vertices.push(new b2Vec2(30/PTM_RATIO,-50/PTM_RATIO)) ;
+//
+//        
+//        
+//        // Define the dynamic body fixture.
+//        var fixtureDef = new b2FixtureDef();
+//        fixtureDef.shape = shape ;
+//        fixtureDef.density = 1.0 ;
+//        fixtureDef.friction = 1.0 ;
+//        this.b2Body.CreateFixture(fixtureDef);
+//        
+//
+//		this.b2Body.SetLinearDamping(1) ;
+//		this.b2Body.SetAngularDamping(1) ;
+//		
+//log(this) ;
+//
+//box = this ;
+//        
+//        
+//        // this.initWithPolygon(this.points,this.x,this.y) ;
+//        return ;
         
         
         var stain = this ;
@@ -67,11 +126,18 @@ yc.outer.Stain = yc.outer.PhysicalEntity.extend({
         
         this.initWithPolygon(this.points,this.x,this.y) ;
     }
-    
-    , appendPoint: function(x,y){
+
+    , appendWorldPoint: function(x,y){
     	this.points.push({
     		x: x-this.x
     		, y: y-this.y
+    		, idx: this.points.length
+    	}) ;
+    }
+    , appendPoint: function(x,y){
+    	this.points.push({
+    		x: x
+    		, y: y
     		, idx: this.points.length
     	}) ;
     }
@@ -85,9 +151,10 @@ yc.outer.Stain = yc.outer.PhysicalEntity.extend({
 	, draw: function(ctx){
 	    ctx.lineJoin = 'round' ;
 
-		ctx.rotate(this.angle);
+		ctx.rotate(this.getRotation());
 	    
 	    yc.util.drawPolygon(this.points,ctx,'rgba(50,50,50,'+this.damping+')','rgba(100,100,100,'+this.damping+')',true) ;
+	    //yc.util.drawRect([-100,100],[100,-100],ctx,'rgba(50,50,50,'+this.damping+')','rgba(100,100,100,'+this.damping+')',true) ;
 
 	    // 绘制调试辅助线
 	    if(yc.settings.outer.stain.dbg)
@@ -209,6 +276,15 @@ yc.outer.Stain = yc.outer.PhysicalEntity.extend({
 	, removeFromParentAndCleanup: function(){
 		this._super() ;
 		yc.util.arr.remove(yc.outer.Stain.pool,this);
+	}
+	
+	, update: function(dt){
+		
+		this._super(dt) ;
+
+		var cell = ins(yc.outer.Cell) ;
+		var dis = yc.util.pointsDis(this.x,this.y,cell.x,cell.y) ;
+		this.autoWakeup(dis) ;
 	}
 	
 }) ;

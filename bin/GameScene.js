@@ -27,6 +27,8 @@ yc.GameScene = cc.Scene.extend({
         this.world.SetContinuousPhysics(false);
         
         
+
+        
         this.scheduleUpdate();
 	}
 
@@ -132,7 +134,7 @@ yc.GameScene = cc.Scene.extend({
         // Instruct the world to perform a single step of simulation. It is
         // generally best to keep the time step and iterations fixed.
         this.world.Step(dt, velocityIterations, positionIterations);
-        
+        this.world.DrawDebugData() ;
         
         //outerCell.angle
         /*

@@ -124,7 +124,7 @@ yc.ui.editer.WorldEditer = function(){
 				alert("没有选择污渍") ;
 				return ;
 			}
-			editer.selectedStain.appendPoint( touches[0]._point.wx, touches[0]._point.wy ) ;
+			editer.selectedStain.appendWorldPoint( touches[0]._point.wx, touches[0]._point.wy ) ;
 		}
 	}
 
