@@ -12,7 +12,7 @@ yc.outer.PlayerLayer = cc.Layer.extend({
         this.setAnchorPoint(cc.p(0,0)) ;
         
         // 细胞
-        this.cell = ins(yc.outer.Cell) ;
+        outerCell = this.cell = ins(yc.outer.Cell) ;
         this.cell.initWithCircle(10,0,0) ;
         this.addChild(this.cell) ;
         cellOuter = this.cell ;
@@ -23,6 +23,7 @@ yc.outer.PlayerLayer = cc.Layer.extend({
 
     , onTouchesBegan: function(touches, event){
         this.followPoint = true ;
+        this.cell.run(4) ;
         this.onTouchesMoved(touches, event) ;
     }
     
@@ -30,15 +31,19 @@ yc.outer.PlayerLayer = cc.Layer.extend({
         if(this.followPoint)
         {
             var cellPos = ins(yc.outer.Camera).offsetFocus() ;
-            var radian = yc.util.radianBetweenPoints(cellPos[0],cellPos[1],touches[0]._point.x,touches[0]._point.y) ;
             
-            this.cell.drive(radian) ;
+            //var radian = yc.util.radianBetweenPoints(cellPos[0],cellPos[1],touches[0]._point.x,touches[0]._point.y) ;
+            //this.cell.drive(radian) ;
+            
+            this.cell.angle = yc.util.radianBetweenPoints(cellPos[0],cellPos[1],touches[0]._point.x,touches[0]._point.y) ;
+            this.cell.updateVelocity() ;
         }
         
     }
     , onTouchesEnded:function (touches, event) {
         this.followPoint = false ;
-        this.cell.stopDriving() ;
+        //this.cell.stopDriving() ;
+        this.cell.stopRun() ;
     }
     
     , onKeyUp:function (key) {

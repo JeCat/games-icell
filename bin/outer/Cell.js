@@ -1,7 +1,11 @@
 yc.outer.Cell = yc.outer.PhysicalEntity.extend({
 
+	ctor: function(){
+		this._super() ;
+		this.maxSpeed = 5 ;
+	}
     
-    draw: function(ctx){
+    , draw: function(ctx){
         
         this._super(ctx) ;
 
@@ -59,7 +63,14 @@ yc.outer.Cell = yc.outer.PhysicalEntity.extend({
 	}
 	
     , visit: function(ctx){
-    	return this._super(ctx) ;
+    	
+    	this._super(ctx) ;
+
+    	// 加速
+    	this.accelerating() ;
+    	
+    	return ;
+    	
     	
     	
     	// 转向

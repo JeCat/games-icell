@@ -4,14 +4,21 @@ yc.outer.PhysicalEntity = cc.Sprite.extend({
 	
     , x: 0
 	, y: 0
-	, angle: 0
 	, power: 0
-	, speed: 4
+
+	, accel: -0.1
+	, angle: 1
+	, turnRate: 0.2
+
+	, maxSpeed: 1
+	, speed: 0
 	
 	, homeX: null
 	, homeY: null
 	
 	, turnRate: 0.5
+	
+	, runDamping: 0
 	
 	, ctor: function(){
 		this.b2Body = null ;
@@ -101,8 +108,8 @@ yc.outer.PhysicalEntity = cc.Sprite.extend({
 	
 	, setSpeed: function(speed){
 		this.power = this.b2Body.GetMass()*speed ;
-		this.b2Body.SetLinearDamping(this.b2Body.GetMass()*2) ;
-		this.b2Body.SetAngularDamping(this.b2Body.GetMass()*2) ;
+		//this.b2Body.SetLinearDamping(this.b2Body.GetMass()*2) ;
+		//this.b2Body.SetAngularDamping(this.b2Body.GetMass()*2) ;
 	}
 	
 	, update: function(dt){
@@ -182,6 +189,73 @@ yc.outer.PhysicalEntity = cc.Sprite.extend({
 			this.drive( this.angle + (Math.random()>0.5?-1:1)*this.turnRate ) ;
 		}
 	}
+	
+	
+
+	
+	, updateVelocity: function(){
+		if( this.b2Body )
+		{
+			var v = this.b2Body.GetLinearVelocity() ;
+			v.x = this.speed * Math.sin(this.angle) ;
+			v.y = this.speed * Math.cos(this.angle) ;
+			this.b2Body.SetLinearVelocity(v) ;
+			this.b2Body.SetAwake(true) ;
+		}
+	}
+	
+	, incAngle: function(sign) {
+		this.angle = this.angle + sign*this.turnRate ;
+		if(this.angle<0)
+		{
+			this.angle+= 2 * Math.PI ;
+		}
+		else
+		{
+			this.angle = this.angle % (2 * Math.PI);
+		}
+		
+		// 改变线速度
+		this.updateVelocity() ;
+	}
+	, accelerating: function(){
+		
+		var accel = this.accel>0?
+				this.accel*(1-this.runDamping):
+				this.accel ;
+		
+		if(accel)
+		{
+			var maxSpeed = this.maxSpeed*(1-this.runDamping) ;
+			
+			if (this.speed > maxSpeed)
+			{
+				this.speed-= 0.5
+			}
+			else
+			{
+				this.speed += accel ;
+				
+				if(this.speed > maxSpeed)
+				{
+					this.speed = maxSpeed ;
+				}
+				else if(this.speed<0)
+				{
+					this.speed = 0;
+				}
+			}
+			
+			this.updateVelocity() ;
+		}
+	}
+	, run: function(accel){
+		this.accel = typeof(accel)=='undefined'? 0.3: accel ;
+	}
+	, stopRun: function(){
+		this.accel = -0.1 ;
+	}
+	
 	
 	, destroy: function(){
 		
