@@ -13,7 +13,7 @@ yc.outer.PlayerLayer = cc.Layer.extend({
         
         // 细胞
         outerCell = this.cell = ins(yc.outer.Cell) ;
-        this.cell.initWithCircle(10,0,0) ;
+        this.cell.initWithCircle(10,0,0,yc.settings.outer.cell.density) ;
         this.addChild(this.cell) ;
         cellOuter = this.cell ;
         

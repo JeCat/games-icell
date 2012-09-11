@@ -194,54 +194,7 @@ yc.levels.FreeWorld = yc.GameScene.extend({
 	
 	, testscript: function(){
 		
-		// DebugDraw需要一个canvas实例，所以我们先创建b2DebugDraw实例，并设置相关参数
-		var debugDraw = new b2DebugDraw();
-		var ctx = document.getElementById("debugCanvas").getContext("2d") ;
-		debugDraw.SetSprite(ctx);
-		debugDraw.SetDrawScale(PTM_RATIO/5);
-		debugDraw.SetFillAlpha(0.5);
-		debugDraw.SetLineThickness(1.0);
-		debugDraw.SetFlags(b2DebugDraw.e_shapeBit | b2DebugDraw.e_jointBit/*|b2DebugDraw.e_aabbBit|b2DebugDraw.e_pairBit|b2DebugDraw.e_centerOfMassBit*/);
-        
-		// 捆绑到物理世界实例
-		this.world.SetDebugDraw(debugDraw);
-		
-		//ctx.translate(400,250) ;
-		
-		
 		return ;
-        var screenSize = cc.Director.getInstance().getWinSize();
-
-        var fixDef = new b2FixtureDef;
-        fixDef.density = 1.0;
-        fixDef.friction = 0.5;
-        fixDef.restitution = 0.2;
-
-        var bodyDef = new b2BodyDef;
-
-        //create ground
-        bodyDef.type = b2Body.b2_staticBody;
-        fixDef.shape = new b2PolygonShape;
-        fixDef.shape.SetAsBox(20, 2);
-        // upper
-        /*bodyDef.position.Set(10, screenSize.height / PTM_RATIO + 1.8);
-        this.world.CreateBody(bodyDef).CreateFixture(fixDef);*/
-        // bottom
-        bodyDef.position.Set(0,0);
-        body = this.world.CreateBody(bodyDef) ;
-        body.CreateFixture(fixDef);
-
-        /*fixDef.shape.SetAsBox(2, 14);
-        // left
-        bodyDef.position.Set(-1.8, 13);
-        this.world.CreateBody(bodyDef).CreateFixture(fixDef);
-        // right
-        bodyDef.position.Set(26.8, 13);
-        var body = this.world.CreateBody(bodyDef)
-        body.CreateFixture(fixDef);*/
-        
-        log(body) ;
-        this.createBoxForB2Body(body,20*PTM_RATIO,2*PTM_RATIO) ;
 	}
 	
 	, createBoxForB2Body: function(body,w,h){

@@ -116,18 +116,14 @@ yc.outer.Cell = yc.outer.PhysicalEntity.extend({
     	this.stopTurn() ;
     }
     
-    , spurt: function(power,radian){
+    , spurt: function(speed,radian){
 
     	if(typeof(radian)!='undefined')
     	{
     		this.angle = radian%(2*Math.PI) ;
     	}
-		
-		// 停止原有的动力
-		this.stopDriving() ;
-	    
-		var force = new Box2D.Common.Math.b2Vec2( power*Math.sin(this.angle), power*Math.cos(this.angle) ) ;
-		this.b2Body.ApplyImpulse( force, this.b2Body.GetWorldCenter() ) ;
+    	
+    	this.speed = speed ;
     }
 });  
 

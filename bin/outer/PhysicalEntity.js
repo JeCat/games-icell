@@ -29,8 +29,13 @@ yc.outer.PhysicalEntity = cc.Sprite.extend({
 		this.x = this.homeX = x ;
 		this.y = this.homeY = y ;
 	}
+
+	, initWithB2Body: function(b2body){
+		this.b2Body = b2body ;
+		b2body.SetUserData(this) ;
+	}
 	
-	, initWithCircle: function(radius,x,y){
+	, initWithCircle: function(radius,x,y,density){
 
 		this.size = radius ;
 		
@@ -54,17 +59,12 @@ yc.outer.PhysicalEntity = cc.Sprite.extend({
         // Define the dynamic body fixture.
         var fixtureDef = new b2FixtureDef();
         fixtureDef.shape = new Box2D.Collision.Shapes.b2CircleShape(radius/PTM_RATIO) ;
-        fixtureDef.density = 1.0 ;
+        fixtureDef.density = density ;
         fixtureDef.friction = 1.0 ;
         this.b2Body.CreateFixture(fixtureDef);
 	}
 
-	, initWithB2Body: function(b2body){
-		this.b2Body = b2body ;
-		b2body.SetUserData(this) ;
-	}
-
-	, initWithPolygon: function(points,x,y){
+	, initWithPolygon: function(points,x,y,density){
 		
 		var world = cc.Director.getInstance()._runningScene.world ;
 		
@@ -85,28 +85,19 @@ yc.outer.PhysicalEntity = cc.Sprite.extend({
 
         // 逆时针输入顶点
         var vertices = [] ;
-        //log(points) ;
-        //for(var i=points.length-1;i>=0;i--)
         for(var i=0;i<points.length;i++)
         {
         	vertices.push(new b2Vec2((points[i].x)/PTM_RATIO,(points[i].y)/PTM_RATIO)) ;
         }
-       // log(vertices) ;
         var shape = new b2PolygonShape() ;
         shape.SetAsArray(vertices) ;
         
         // Define the dynamic body fixture.
         var fixtureDef = new b2FixtureDef();
         fixtureDef.shape = shape ;
-        fixtureDef.density = 1.0 ;
+        fixtureDef.density = density ;
         fixtureDef.friction = 1.0 ;
         this.b2Body.CreateFixture(fixtureDef);
-	}
-	
-	, setSpeed: function(speed){
-		//this.power = this.b2Body.GetMass()*speed ;
-		//this.b2Body.SetLinearDamping(this.b2Body.GetMass()*2) ;
-		//this.b2Body.SetAngularDamping(this.b2Body.GetMass()*2) ;
 	}
 	
 	, update: function(dt){
@@ -118,28 +109,6 @@ yc.outer.PhysicalEntity = cc.Sprite.extend({
 		}
 	}
 	
-//	, drive: function(radian){
-//		
-//		this.angle = radian%(2*Math.PI) ;
-//		
-//		// 停止原有的动力
-//		this.stopDriving() ;
-//	    
-//		var force = new Box2D.Common.Math.b2Vec2( this.power*Math.sin(radian), this.power*Math.cos(radian) ) ;
-//		this.b2Body.ApplyForce( force, this.b2Body.GetWorldCenter() ) ;
-//	}
-//	
-//	, stopDriving: function(){
-//		this.b2Body.m_force.SetZero();
-//		this.b2Body.m_torque = 0.0;
-//		
-//		// 
-////		var v = this.b2Body.GetLinearVelocity() ;
-////		v.x*= 0.1 ;
-////		v.y*= 0.1 ;
-////		this.b2Body.SetLinearVelocity(v) ;
-//	}
-//	
 	, setWorldPosition: function(x,y){
 		this.x = x ;
 		this.y = y ;
@@ -170,22 +139,6 @@ yc.outer.PhysicalEntity = cc.Sprite.extend({
 		
 		return true ;
 	}
-	
-	/*, mosey: function(){
-		
-		// 返回原始点
-		if( this.homeX!==null && this.homeY!==null && Math.random()<0.05 )
-		{
-			var rHome = yc.util.radianBetweenPoints(this.x,this.y,this.homeX,this.homeY) ;
-			this.drive( rHome ) ;
-		}
-		
-		// 随机方向
-		else
-		{
-			this.drive( this.angle + (Math.random()>0.5?-1:1)*this.turnRate ) ;
-		}
-	}*/
 	
 
 	, mosey: function(speed){

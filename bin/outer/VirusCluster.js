@@ -27,7 +27,7 @@ yc.outer.VirusCluster = yc.outer.PhysicalEntity.extend({
 			}
 		}
 		
-		this.initWithCircle(6,this.x,this.y) ;
+		this.initWithCircle(6,this.x,this.y,yc.settings.outer.virus.density) ;
 	}
 
 	, draw: function(ctx){

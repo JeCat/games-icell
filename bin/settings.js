@@ -31,6 +31,8 @@ yc.settings = {
 		// 污渍
 		stain: {
 			dbg: false
+			, defaultMultipleLinearDamping: 2			// 默认 线速度阻尼系数倍数 (相对污渍质量的倍数)
+			, defaultMultipleAngularDamping: 4			// 默认 角速度阻尼系数倍数 (相对污渍质量的倍数)
 		}
 	
 		// 病毒群
@@ -43,12 +45,14 @@ yc.settings = {
 			, moseySpeed: 2			// 漫步速度
 			, normalSpeed: 5		// 正常速度 (追击速度)
 			, size: 6				// 尺寸（半径）
+			, density: 0.2 			// 物理密度（决定物体的物理质量，影响物体的冲撞力）
 		}
 		
 		// 氨基酸
 		, aminoacid: {
 			turnRate: 0.2			// 转向灵活度
 			, normalSpeed: 2		// 正常速度
+			, density: 0.2 			// 物理密度（决定物体的物理质量，影响物体的冲撞力）
 		}
 		
 		// 角色
@@ -58,6 +62,11 @@ yc.settings = {
 			TSD_radian: Math.PI/3		
 			, TSD_rate: 0.3
 			
+		}
+		
+		// 玩家控制的细胞
+		, cell: {
+			density: 0.2 			// 物理密度（决定物体的物理质量，影响物体的冲撞力）
 		}
 		
 		// 玩家

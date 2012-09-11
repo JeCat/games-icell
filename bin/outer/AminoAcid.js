@@ -17,7 +17,7 @@ yc.outer.AminoAcid = yc.outer.PhysicalEntity.extend({
     	var colors = {red:'255,0,0',blue:'0,0,255',yellow:'255,255,0'}
     	this.color = 'rgb(' + colors[this.type] + ')' ;
 
-		this.initWithCircle(this.size,this.x,this.y) ;
+		this.initWithCircle(this.size,this.x,this.y,yc.settings.outer.aminoacid.density) ;
     }
 		
     , transform: yc.outer.Camera.transformSprite
