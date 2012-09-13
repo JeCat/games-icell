@@ -19,6 +19,7 @@ yc.inner.monster.Virus = cc.Sprite.extend({
     
     , init: function(prototype){
 	
+		this.alive = true ;
 		this.lv = yc.inner.monster.Virus.prototype.lv ;
 		this.file = yc.inner.monster.Virus.prototype.file ;
 		this.speed = yc.inner.monster.Virus.prototype.speed ;
@@ -146,9 +147,17 @@ yc.inner.monster.Virus = cc.Sprite.extend({
 	}
 	
     , destroy: function(){
+        this.alive = false ;
     	this.stopRun() ;
         this.stopAllActions() ;
         ins(yc.inner.monster.VirusLayer).removeVirusSprite(this) ;
+    }
+    
+    , onExit: function(){
+    	if(this.alive)
+    	{
+    		this.destroy() ;
+    	}
     }
     
 }) ;

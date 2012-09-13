@@ -221,7 +221,9 @@ yc.outer.Stain = yc.outer.PhysicalEntity.extend({
 		var dis = yc.util.pointsDis(this.x,this.y,cell.x,cell.y) ;
 		this.autoWakeup(dis) ;
 	}
-	
+
+	, initWithScript: function(script){
+	}
 }) ;
 
 

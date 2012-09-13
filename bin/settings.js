@@ -22,6 +22,13 @@ yc.settings = {
 	        , y: null
 	    }
 	    , dbg: true
+	    
+	    
+	    // 病毒
+	    , virus: {
+	    	// 病毒群释放病毒的默认间隔时间(sec)
+	    	defaultReleaseDt: 1.5
+	    }
 	}
 
 
@@ -40,12 +47,12 @@ yc.settings = {
 			dbg: {
 				showId: false
 			}
-			, vigilanceRange: 200	// 警视范围
-			, turnRate: 0.04		// 转向灵活度
-			, moseySpeed: 2			// 漫步速度
-			, normalSpeed: 5		// 正常速度 (追击速度)
-			, size: 6				// 尺寸（半径）
-			, density: 0.2 			// 物理密度（决定物体的物理质量，影响物体的冲撞力）
+			, defaultVigilanceRange: 200	// 默认警视范围
+			, turnRate: 0.04				// 转向灵活度
+			, moseySpeed: 2					// 漫步速度
+			, normalSpeed: 5				// 正常速度 (追击速度)
+			, size: 6						// 尺寸（半径）
+			, density: 0.2 					// 物理密度（决定物体的物理质量，影响物体的冲撞力）
 		}
 		
 		// 氨基酸

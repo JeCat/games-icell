@@ -1,12 +1,11 @@
 yc.levels.FreeWorld = yc.GameScene.extend({
 	
-	_onEnter: yc.GameScene.prototype.onEnter
-	, onEnter: function(){
+	onEnter: function(){
 
-		this.minX = -1000 ;
-		this.maxX = 10000 ;
-		this.minY = -800 ;
-		this.maxY = 800 ;
+		this.lft = -1000 ;
+		this.rgt = 1000 ;
+		this.top = 800 ;
+		this.btm = -800 ;
 	
 		// dna ----------------
 		//  定义基因
@@ -54,7 +53,7 @@ yc.levels.FreeWorld = yc.GameScene.extend({
 		
 		// ---------------
 		// 初始化基本场景
-		this._onEnter() ;
+		this._super() ;
 		
 		// 创建各种角色
 		this.randomCreateEntities(yc.outer.VirusCluster,30,this.layerRoles) ;
@@ -96,60 +95,11 @@ yc.levels.FreeWorld = yc.GameScene.extend({
 		        , rgb: [255,0,255]
 		    }) ;
 		
-		// ---------------
-        // 新玩家初始化一个新细胞 
-        this.layerInner.cell.newborn() ;
-        
-        
 		this._initBoss() ;
 		
 		
 		this.testscript() ;
 	}
-
-
-, addNewSpriteWithCoords:function (x,y) {
-	
-	
-    var sprite = new yc.outer.PhysicalEntity();
-    sprite.draw = function(ctx){
-    	yc.util.drawPolygon( [
-          [-PTM_RATIO/2,PTM_RATIO/2]
-          ,[PTM_RATIO/2,PTM_RATIO/2]
-          ,[PTM_RATIO/2,-PTM_RATIO/2]
-          ,[-PTM_RATIO/2,-PTM_RATIO/2]
-    	],ctx,'yellow') ;
-    }
-    this.layerPlayer.addChild(sprite);
-
-    sprite.setWorldPosition(x, y) ;
-
-    // Define the dynamic body.
-    //Set up a 1m squared box in the physics world
-    var b2BodyDef = Box2D.Dynamics.b2BodyDef
-        , b2Body = Box2D.Dynamics.b2Body
-        , b2FixtureDef = Box2D.Dynamics.b2FixtureDef
-        , b2PolygonShape = Box2D.Collision.Shapes.b2PolygonShape;
-
-    var bodyDef = new b2BodyDef();
-    bodyDef.type = b2Body.b2_dynamicBody;
-    bodyDef.userData = sprite;
-    var body = this.world.CreateBody(bodyDef);
-
-    // Define another box shape for our dynamic body.
-    var dynamicBox = new b2PolygonShape();
-    dynamicBox.SetAsBox(1,1);//These are mid points for our 1m box
-
-    // Define the dynamic body fixture.
-    var fixtureDef = new b2FixtureDef();
-    fixtureDef.shape = dynamicBox;
-    fixtureDef.density = 1.0;
-    fixtureDef.friction = 0.3;
-    body.CreateFixture(fixtureDef);
-
-    sprite.body = body ;
-    return sprite ;
-}
 
 	
 	, _initBoss: function(){
@@ -195,15 +145,5 @@ yc.levels.FreeWorld = yc.GameScene.extend({
 	, testscript: function(){
 		
 		return ;
-	}
-	
-	, createBoxForB2Body: function(body,w,h){
-
-        entity = new yc.outer.PhysicalEntity() ;
-        entity.initWithB2Body(body) ;
-        entity.draw = function(ctx){
-        	yc.util.drawRect([-w,h],[w,-h],ctx,'red') ;
-        }
-        this.layerPlayer.addChild(entity) ;
 	}
 }) ;

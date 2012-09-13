@@ -23,7 +23,7 @@ yc.actions.Timer = cc.DelayTime.extend(/** @lends cc.MoveTo# */{
      * @param {Number} time time in seconds
      */
     update:function (t) {
-    	if(t==1)
+    	if(t>=1)
     	{
 	    	this.got ++ ;
 	    	this.cbFunc.apply(this.cbOb,this.cbArgvs) ;

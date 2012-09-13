@@ -5,6 +5,7 @@ yc.inner.monster.VirusCluster = cc.Sprite.extend({
     
     , stay: null
     , lv: 1
+    , releasing: false
     
     , virusPrototype: {}
         
@@ -15,42 +16,56 @@ yc.inner.monster.VirusCluster = cc.Sprite.extend({
     
     , init: function(){
     	this.num = this.totalNum ;
+    	this.releasing = true ;
+    	this.actRelease = null ;
     }
     
     , enterCell: function(stay){
         
-        var cluster = this ;
         this.stay = stay ;
         
         this.setPosition(cc.p(stay.center[0],stay.center[1])) ;
         
         var layer  = ins(yc.inner.monster.VirusLayer) ;
         layer.addChild(this) ;
+
+        this.actRelease = yc.actions.Timer.create(yc.settings.inner.virus.defaultReleaseDt,this.num-1,this,this.release) ;        
+        this.release() ; // 立即执行第一次
+        this.runAction(this.actRelease) ;
         
-        var release = function(){
-            
-            var virus = layer.createVirusSprite() ;
-            virus.init(cluster.virusPrototype) ;
-            virus.setPosition(cc.p(stay.center[0]+10-20*Math.random(),stay.center[1]+10-20*Math.random())) ;
-            virus.run(stay) ;
-            
-            cluster.num -- ;
-            
-            if(cluster.num>0)
-            {
-                window.setTimeout(release,1500) ;
-            }
-            else
-            {
-                cluster.releaseOver() ;
-            }
+    }
+
+    , release: function(){
+    	
+        var virus = this._parent.createVirusSprite() ;
+        virus.init(this.virusPrototype) ;
+        virus.setPosition(cc.p(this.stay.center[0]+10-20*Math.random(),this.stay.center[1]+10-20*Math.random())) ;
+        virus.run(this.stay) ;
+        
+        this.num -- ;
+        
+        if(this.num<=0)
+        {
+            this.releaseOver() ;
         }
-        release() ;
     }
     
     , releaseOver: function(){
+    	this.releasing = false ;
+    	if(this.actRelease)
+    	{
+            this.stopAction(this.actRelease) ;
+            this.actRelease = null ;
+    	}
         ins(yc.inner.monster.VirusLayer).removeChild(this) ;
         yc.op.ins(yc.inner.monster.VirusCluster).free(this) ;
+    }
+    
+    , onExit: function(){
+    	if(this.releasing)
+    	{
+    		this.releaseOver() ;
+    	}
     }
 });
 

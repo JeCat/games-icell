@@ -78,4 +78,8 @@ yc.inner.building.Building = cc.Sprite.extend({
         }
     	return this._upgraders[upgraderClass.className] ;
     }
+    
+    , onExit: function(){
+    	this.stop() ;
+    }
 }) ;

@@ -9,12 +9,16 @@ yc.outer.VirusCluster = yc.outer.PhysicalEntity.extend({
 		this.moseySpeed = yc.settings.outer.virus.moseySpeed ;
 		this.normalSpeed = yc.settings.outer.virus.normalSpeed ;
 		this.size = yc.settings.outer.virus.size ;
+		this.vigilanceRange = yc.settings.outer.virus.defaultVigilanceRange ;
 		
 		this.id = yc.outer.VirusCluster.assigned ++ ;
 		yc.outer.VirusCluster.instances[this.id] = this ;
 	}
 		
 	, initRandom: function(){
+		this.init() ;
+	}
+	, init: function(){
 		// 根据离Boss的距离确定病毒群的等级
 		var compass = ins(yc.outer.BossCompass) ;
 		if(compass.nearestBoss)
@@ -29,7 +33,7 @@ yc.outer.VirusCluster = yc.outer.PhysicalEntity.extend({
 		
 		this.initWithCircle(6,this.x,this.y,yc.settings.outer.virus.density) ;
 	}
-
+	
 	, draw: function(ctx){
 		
 
@@ -72,10 +76,6 @@ yc.outer.VirusCluster = yc.outer.PhysicalEntity.extend({
 
 	}
 	
-	, vigilanceRange: function(){
-		return yc.settings.outer.virus.vigilanceRange ;
-	}
-	
 	, update: function(dt){
 
 		this._super(dt) ;
@@ -93,7 +93,7 @@ yc.outer.VirusCluster = yc.outer.PhysicalEntity.extend({
 		}
 		
 		// 警示范围
-		if( !yc.settings.player.stealth && this.vigilanceRange()>dis )
+		if( !yc.settings.player.stealth && this.vigilanceRange>dis )
 		{
 	        this.speed = this.normalSpeed ;
 			

@@ -110,6 +110,7 @@ var $ = jquery ;
             
             
             , 'bin/levels/FreeWorld.js'
+            , 'bin/levels/LevelSelector.js'
             
             
             

@@ -237,20 +237,23 @@ yc.inner.Cell.prototype.getHurt = function(){
 yc.inner.Cell.prototype.die = function(){
 	alert('you are die !') ;
 	
-	// 清空资源
-	ins(yc.inner.AminoAcidPool).clear() ;
-	ins(yc.inner.ProteinPool).clear() ;
+	// 回到关卡选择菜单
+	cc.Director.getInstance().replaceScene( new yc.levels.LevelSelector ) ;
 	
-	// 回收所有建筑
-	for(var i=0;i<this.cytoplasms.length;i++)
-	{
-		if( this.cytoplasms[i].building )
-		{
-			this.cytoplasms[i].building.demolish() ;
-		}
-	}
-	
-	this.revive() ;
+//	// 清空资源
+//	ins(yc.inner.AminoAcidPool).clear() ;
+//	ins(yc.inner.ProteinPool).clear() ;
+//	
+//	// 回收所有建筑
+//	for(var i=0;i<this.cytoplasms.length;i++)
+//	{
+//		if( this.cytoplasms[i].building )
+//		{
+//			this.cytoplasms[i].building.demolish() ;
+//		}
+//	}
+//	
+//	this.revive() ;
 }
 
 /**

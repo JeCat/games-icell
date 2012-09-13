@@ -25,6 +25,10 @@ yc.outer.PhysicalEntity = cc.Sprite.extend({
         this.scheduleUpdate();
 	}
 
+	, init: function(){
+		// abstract method
+	}
+
 	, initWithPosition: function(x,y){
 		this.x = this.homeX = x ;
 		this.y = this.homeY = y ;
@@ -98,6 +102,15 @@ yc.outer.PhysicalEntity = cc.Sprite.extend({
         fixtureDef.density = density ;
         fixtureDef.friction = 1.0 ;
         this.b2Body.CreateFixture(fixtureDef);
+	}
+	
+	, initWithScript: function(script){
+		for(var prop in script)
+		{
+			this[prop] = script[prop] ;
+		}
+		this.initWithPosition(this.x,this.y) ;
+		this.init() ;
 	}
 	
 	, update: function(dt){

@@ -3,56 +3,72 @@ yc.GameScene = cc.Scene.extend({
 	
 	ctor: function(){
 		// 场景的世界边界， null 表示不限
-		this.minX = null ;
-		this.maxX = null ;
-		this.minY = null ;
-		this.maxY = null ;
+		this.lft = -5000 ;
+		this.rgt = 5000 ;
+		this.btm = -1500 ;
+		this.top = 1500 ;
+		this.b2BodyLft = null ;
+		this.b2BodyRgt = null ;
+		this.b2BodyBtm = null ;
+		this.b2BodyTop = null ;
 
-        this.scheduleUpdate();
+		this.scheduleUpdate();
+	}
+
+	, onEnter:function () {
+		
+		this._super();
+	
+		this.setAnchorPoint(cc.p(0,0)) ;
+		
+		this.initWorld() ;
+		
+		// 层：显示玩家
+		this.layerPlayer = new yc.outer.PlayerLayer();
+		this.addChild(this.layerPlayer);
+		
+		// 层：显示其他角色
+		this.layerRoles = new cc.Layer() ;
+		this.layerRoles.setAnchorPoint(cc.p(0,0)) ;
+		this.addChild(this.layerRoles) ;
+		
+		this.layerStains = new cc.Layer() ;
+		this.layerStains.setAnchorPoint(cc.p(0,0)) ;
+		this.addChild(this.layerStains) ;
+		
+		// 层：细胞内部场景
+		this.layerInner = ins(yc.inner.InnerLayer) ;
+		this.addChild(this.layerInner) ;
+		
+		// 层：ui
+		this.layerUi = ins(yc.ui.UILayer) ;
+		this.addChild(this.layerUi) ;
+		
+		// ---------------
+	    // 新玩家初始化一个新细胞 
+	    this.layerInner.cell.newborn() ;
+	    
+	    // 全局变量
+	    scene = this ;
 	}
 
 	, initWorld: function(){
 
-        var screenSize = cc.Director.getInstance().getWinSize();
-        //UXLog(L"Screen width %0.2f screen height %0.2f",screenSize.width,screenSize.height);
+		var screenSize = cc.Director.getInstance().getWinSize();
+		//UXLog(L"Screen width %0.2f screen height %0.2f",screenSize.width,screenSize.height);
 
-        // Construct a world object, which will hold and simulate the rigid bodies.
-        world = this.world = new b2World(new b2Vec2(0, 0), true);
-        this.world.SetContinuousPhysics(false);
-        this.world.SetContactListener(new yc.outer.ContactListener) ;
-        this.world.removingBodies = [] ;
-        
-        // 边界墙 ---------------
+		// Construct a world object, which will hold and simulate the rigid bodies.
+		world = this.world = new b2World(new b2Vec2(0, 0), true);
+		this.world.SetContinuousPhysics(false);
+		this.world.SetContactListener(new yc.outer.ContactListener) ;
+		this.world.removingBodies = [] ;
+		
+		// 世界边界墙
+		this.createWalls() ;
+		
+		
 
-        var fixDef = new b2FixtureDef;
-        fixDef.density = 1.0;
-        fixDef.friction = 0.5;
-        fixDef.restitution = 0.2;
-
-        var bodyDef = new b2BodyDef;
-        var w = this.maxX-this.minX, h = this.maxY-this.minY ;
-
-        //create ground
-        bodyDef.type = b2Body.b2_staticBody;
-        fixDef.shape = new b2PolygonShape;
-        fixDef.shape.SetAsBox(w/2/PTM_RATIO, 2);  // 墙要厚一点
-        // upper
-        bodyDef.position.Set((this.minX+(w/2))/PTM_RATIO, this.maxY/PTM_RATIO+2);
-        this.world.CreateBody(bodyDef).CreateFixture(fixDef);
-        // bottom
-        bodyDef.position.Set((this.minX+(w/2))/PTM_RATIO, this.minY/PTM_RATIO-2);
-        this.world.CreateBody(bodyDef).CreateFixture(fixDef);
-
-        fixDef.shape.SetAsBox(2,h/2/PTM_RATIO);
-        // left
-        bodyDef.position.Set(this.minX/PTM_RATIO-2,(this.minY+(h/2))/PTM_RATIO);
-        this.world.CreateBody(bodyDef).CreateFixture(fixDef);
-        // right
-        bodyDef.position.Set(this.maxX/PTM_RATIO+2,(this.minY+(h/2))/PTM_RATIO);
-        this.world.CreateBody(bodyDef).CreateFixture(fixDef);
-        
-        
-        // b2DebugDraw ------
+		// b2DebugDraw ------
 		// DebugDraw需要一个canvas实例，所以我们先创建b2DebugDraw实例，并设置相关参数
 		var debugDraw = new b2DebugDraw();
 		var ctx = document.getElementById("debugCanvas").getContext("2d") ;
@@ -61,181 +77,296 @@ yc.GameScene = cc.Scene.extend({
 		debugDraw.SetFillAlpha(0.5);
 		debugDraw.SetLineThickness(1.0);
 		debugDraw.SetFlags(b2DebugDraw.e_shapeBit | b2DebugDraw.e_jointBit/*|b2DebugDraw.e_aabbBit|b2DebugDraw.e_pairBit|b2DebugDraw.e_centerOfMassBit*/);
-        
+		
 		// 捆绑到物理世界实例
-		this.world.SetDebugDraw(debugDraw);
+		this.world.SetDebugDraw(debugDraw) ;
 	}
+	, createWalls: function(){
+		
+		if( this.rgt===null || this.lft===null || this.top===null || this.btm===null )
+		{
+			return ;
+		}
+		
+		if( this.rgt<this.lft )
+		{
+			throw new Error("world boundary rgt:"+this.rgt+" < lft"+this.btm) ;
+		}
+		if( this.top<this.btm )
+		{
+			throw new Error("world boundary top:"+this.top+" < btm:"+this.btm) ;
+		}
+		
+		// 边界墙 ---------------
+		var fixDef = new b2FixtureDef;
+		fixDef.density = 1.0;
+		fixDef.friction = 0.5;
+		fixDef.restitution = 0.2;
 
-	, testWorldBoard: function(x,y) {
-        if( this.minX!==null && x<this.minX )
-        {
-        	x = this.minX ;
-        }
-        if( this.maxX!==null && x>this.maxX )
-        {
-        	x = this.maxX ;
-        }
-        if( this.minY!==null && y<this.minY )
-        {
-        	y = this.minY ;
-        }
-        if( this.maxY!==null && y>this.maxY )
-        {
-        	y = this.maxY ;
-        }
-        return [x,y] ;
+		var bodyDef = new b2BodyDef;
+		var w = this.rgt-this.lft, h = this.top-this.btm ;
+
+		//create ground
+		bodyDef.type = b2Body.b2_staticBody;
+		fixDef.shape = new b2PolygonShape;
+		fixDef.shape.SetAsBox(w/2/PTM_RATIO, 2);  // 墙要厚一点
+		
+		// top
+		bodyDef.position.Set((this.lft+(w/2))/PTM_RATIO, this.top/PTM_RATIO+2);
+		this._buildWall(fixDef,bodyDef,'b2BodyTop') ;
+		
+		// bottom
+		bodyDef.position.Set((this.lft+(w/2))/PTM_RATIO, this.btm/PTM_RATIO-2);
+		this._buildWall(fixDef,bodyDef,'b2BodyBtm') ;
+
+		fixDef.shape.SetAsBox(2,h/2/PTM_RATIO);
+		// left
+		bodyDef.position.Set(this.lft/PTM_RATIO-2,(this.btm+(h/2))/PTM_RATIO);
+		this._buildWall(fixDef,bodyDef,'b2BodyLft') ;
+		
+		// right
+		bodyDef.position.Set(this.rgt/PTM_RATIO+2,(this.btm+(h/2))/PTM_RATIO);
+		this._buildWall(fixDef,bodyDef,'b2BodyRgt') ;
 	}
 	
-    , onEnter:function () {
-        this._super();
 
-        this.initWorld() ;
-        
-        
-        this.setAnchorPoint(cc.p(0,0)) ;
-        
-        // 层：显示玩家
-        this.layerPlayer = new yc.outer.PlayerLayer();
-        this.addChild(this.layerPlayer);
-        
-        
-        // 层：显示其他角色
-        this.layerRoles = new cc.Layer() ;
-        this.layerRoles.setAnchorPoint(cc.p(0,0)) ;
-        this.addChild(this.layerRoles) ;
-        
-        this.layerStains = new cc.Layer() ;
-        this.layerStains.setAnchorPoint(cc.p(0,0)) ;
-        this.addChild(this.layerStains) ;
-        
-        // 层：细胞内部场景
-        this.layerInner = ins(yc.inner.InnerLayer) ;
-        this.addChild(this.layerInner) ;
-        
-        // 层：ui
-        this.layerUi = ins(yc.ui.UILayer) ;
-        this.addChild(this.layerUi) ;
-        
-        
+	, _buildWall: function(fixDef,bodyDef,wall){
+		if( this[wall] )
+		{
+			
+		}
+		else
+		{
+			this[wall] = this.world.CreateBody(bodyDef) ;
+			this[wall].CreateFixture(fixDef) ;
+		}
+	}
+	
 
-        // 测试 box2d sprite
-        /*sss = this.addNewSprite(cc.p(100,100)) ;
-        body = sss.b2Body ;
-        body.SetUserData(this.layerPlayer.cell) ;*/
-    }
-    
-    , onTouchesBegan: function(touches, event){
-        log('onTouchesBegan') ;
-    }
-    , onTouchesMoved: function(touches, event){
-    }
-    , onTouchesEnded:function (touches, event) {
-    }
-    
-    , transform: yc.cocos2d.patchs.Node.transform
-    
-    , randomCreateEntities: function(entityClass,num,layer){
+	, testWorldBoard: function(x,y) {
+		if( this.lft!==null && x<this.lft )
+		{
+			x = this.lft ;
+		}
+		if( this.rgt!==null && x>this.rgt )
+		{
+			x = this.rgt ;
+		}
+		if( this.btm!==null && y<this.btm )
+		{
+			y = this.btm ;
+		}
+		if( this.top!==null && y>this.top )
+		{
+			y = this.top ;
+		}
+		return [x,y] ;
+	}
+	
+	
+	, onTouchesBegan: function(touches, event){
+		log('onTouchesBegan') ;
+	}
+	, onTouchesMoved: function(touches, event){
+	}
+	, onTouchesEnded:function (touches, event) {
+	}
+	
+	, transform: yc.cocos2d.patchs.Node.transform
+	
+	, randomCreateEntities: function(entityClass,num,layer){
 
-        var range = {
-            left: this.minX
-            , right: this.maxX
-            , top: this.maxY
-            , bottom: this.minY
-        } ;
-        range.width = Math.abs(range.right - range.left) ;
-        range.height = Math.abs(range.top - range.bottom) ;
-        
-    	for(var i=0;i<num;i++)
-    	{
-    	    var x = range.left+(0|(Math.random()*range.width)) ;
-    	    var y = range.bottom+(0|(Math.random()*range.height)) ;
-    	    
-    		var aRole = new entityClass ;
-    		aRole.initWithPosition(x,y) ;
-    		aRole.initRandom() ;
-    		
-    		layer.addChild(aRole) ;
-    	}
-    }
-    
-    , update: function(dt){// return ;
+		var range = {
+			left: this.lft
+			, right: this.rgt
+			, top: this.top
+			, bottom: this.btm
+		} ;
+		range.width = Math.abs(range.right - range.left) ;
+		range.height = Math.abs(range.top - range.bottom) ;
+		
+		for(var i=0;i<num;i++)
+		{
+			var x = range.left+(0|(Math.random()*range.width)) ;
+			var y = range.bottom+(0|(Math.random()*range.height)) ;
+			
+			var aRole = new entityClass ;
+			aRole.initWithPosition(x,y) ;
+			aRole.initRandom() ;
+			
+			layer.addChild(aRole) ;
+		}
+	}
+	
+	, update: function(dt){
 
-        //It is recommended that a fixed time step is used with Box2D for stability
-        //of the simulation, however, we are using a variable time step here.
-        //You need to make an informed choice, the following URL is useful
-        //http://gafferongames.com/game-physics/fix-your-timestep/
+		var velocityIterations = 8;
+		var positionIterations = 1;
 
-        var velocityIterations = 8;
-        var positionIterations = 1;
+		for(var i=0; i<this.world.removingBodies.length;i++)
+		{
+			var body = this.world.removingBodies[i] ;
+			this.world.DestroyBody(body) ;
+			yc.util.arr.remove(this.world.removingBodies,body) ;
+		}
+		
+		this.world.Step(dt, velocityIterations, positionIterations);
+		
+		if(yc.settings.outer.box2d.dbg)
+		{
+			this.world.DrawDebugData() ;
+		}
+	}
+	
+	
+	/**
+	 * 通过一个json脚本来加载关卡
+	 */
+	, initWithScript: function(script){
+		
+		// selection world -----------
+		if( 'world' in script && 'boundary' in script.world )
+		{
+			this.lft = this.rgt = this.top = this.btm = null ;
+			for(var wall in script.world.boundary)
+			{
+				this[wall] = script.world.boundary[wall] ;
+			}
+			this.createWalls() ;
+		}
+		
+		
+		// selection aminoacids, virusclusters -----------
+		// 创建外部场景中的 氨基酸 和 病毒群
+		var selections = {
+				aminoacids:yc.outer.AminoAcid
+				, virusclusters:yc.outer.VirusCluster
+		} ;
+		for(var key in selections)
+		{
+			var className = selections[key] ;
+			
+			if( key in script )
+			{
+				for(var i=0;i<script[key].length;i++)
+				{
+					var ins = new className ;
+					ins.initWithScript(script[key][i]) ;
+					this.layerRoles.addChild(ins) ;
+				}
+			}
+		}
+		
+	}
+	
+	// 关卡脚本的标准格式：
+	, scriptDemo: {
+		world: {
+			// 世界的边界（null表示不设限制）
+			boundary: {
+				lft: null
+				, rgt: null
+				, top: null
+				, btm: null
+			}
+		}
+	
+		// 玩家的初始属性
+		, player: {
+			
+			// 起始位置
+			x: 0
+			,y: 0
+			
+			, cell: {
+			
+				// 内部场景中细胞核所在格子的坐标
+			    nucleus: {
+			        x: 6
+			        , y: 6
+			    }
+			
+				// 细胞质格子
+				, cytoplasms: [
+					{ x: 6 , y: 6 }
+					, { x: 6 , y: 6 }
+					, { x: 6 , y: 6 }
+					, { x: 6 , y: 6 }
+					, { x: 6 , y: 6 }
+					, { x: 6 , y: 6 }
+				]
+			
+				// 细胞膜格子
+				, membranes: [
+					{ x: 6 , y: 6 }
+					, { x: 6 , y: 6 }
+					, { x: 6 , y: 6 }
+					, { x: 6 , y: 6 }
+					, { x: 6 , y: 6 }
+					, { x: 6 , y: 6 }
+				]
+			}
 
-    	for(var i=0; i<this.world.removingBodies.length;i++)
-    	{
-    		var body = this.world.removingBodies[i] ;
-    		this.world.DestroyBody(body) ;
-    		yc.util.arr.remove(this.world.removingBodies,body) ;
-    	}
-        
-        
-        // Instruct the world to perform a single step of simulation. It is
-        // generally best to keep the time step and iterations fixed.
-        this.world.Step(dt, velocityIterations, positionIterations);
-        
-        if(yc.settings.outer.box2d.dbg)
-        {
-        	this.world.DrawDebugData() ;
-        }
-        
-        //outerCell.angle
-        /*
-    	var body = sss.b2Body ;
-    	var vel = body.GetLinearVelocity();
-    	var desiredVel = 0;
-    	switch ( moveState )
-    	{  
-    	   case -1:  desiredVel = Math.max( vel.x - 0.1, -15.0 ); break;
-    	   case 0:  desiredVel = vel.x * 0.98; break;
-    	   case 1: desiredVel = Math.min( vel.x + 0.1,  15.0 ); break;
-    	   
-    	}
-    	var velChange = desiredVel - vel.x;
-    	var impulse = body.GetMass() * velChange; //disregard time factor
-    	body.ApplyImpulse( new Box2D.Common.Math.b2Vec2(impulse,0), body.GetWorldCenter() );*/
-        /*
-        if( typeof(body._force_radian)!='undefined' && body._force_radian!==null )
-        {
-        	body.m_force.SetZero();
-            body.m_torque = 0.0;
-            
-            
-        	var vel = body.GetLinearVelocity();
-        	if(Math.sqrt(vel.x*vel.x + vel.y*vel.y)<2)
-        	{
-	        	var desiredVel = new Box2D.Common.Math.b2Vec2( 0.1*Math.sin(body._force_radian), 0.1 *Math.cos(body._force_radian) )
-	        	body.ApplyForce( desiredVel, body.GetWorldCenter() ) ;
-	        	
-	        	log(['use impulse:',desiredVel.x,desiredVel.y])
-        	}
-        	
-        }*/
-    	
-
-//        //Iterate over the bodies in the physics world
-//        for (var b = this.world.GetBodyList(); b; b = b.GetNext()) {
-//        	var myActor = b.GetUserData();
-//            if (myActor!=null) {
-//                //Synchronize the AtlasSprites position and rotation with the corresponding body
-//            	// myActor.update() ;
-//            	if( myActor.setWorldPosition )
-////                myActor.x = b.GetPosition().x * PTM_RATIO ;
-////                myActor.y = b.GetPosition().y * PTM_RATIO ;
-//                myActor.setWorldPosition(b.GetPosition().x * PTM_RATIO, b.GetPosition().y * PTM_RATIO);
-//                //myActor.setRotation(-1 * cc.RADIANS_TO_DEGREES(b.GetAngle()));
-//                //console.log(b.GetAngle());
-//                //log([b.GetPosition().x * PTM_RATIO, b.GetPosition().y * PTM_RATIO])
-//            }
-//        }
-        
-       //world.ClearForces() ;
-        
-    }
+			// 氨基酸池
+			, aminoacidpool: {
+				red: 0
+				, blue: 0
+				, yellow: 0
+			}
+			
+			// 蛋白质池
+			, proteinpool: {
+				red: 0
+				, blue: 0
+				, yellow: 0
+			}
+			
+			// 蛋白质公式
+			// todo ...
+		}
+		
+		// 氨基酸
+		, aminoacids: [
+			{
+				x: 100
+				, y: 100
+				, num: 10
+				, type: 'red' // red, blue, yellow
+			}
+			, {
+				x: 150
+				, y: 150
+				, num: 15
+				, type: 'yellow' // red, blue, yellow
+			}
+			, {
+				x: 50
+				, y: 50
+				, num: 5
+				, type: 'blue' // red, blue, yellow
+			}
+		]
+		
+		// 病毒群
+		, virusclusters: [
+		  	{
+		  		x: 100
+		  		, y: 100
+		  		, lv: 1					// 病毒等级
+		  		, turnRate: 0.04		// 转向灵敏度
+		  		, moseySpeed: 2			// 漫步速度
+		  		, normalSpeed: 5		// 正常速度
+		  		, vigilanceRange: 200	// 警视范围
+		  	}
+		]
+		
+		// 污渍
+		, stans: [
+			{
+				x: 500
+				, y: 500
+				, shapes:[]
+			}
+		]
+	}
 });

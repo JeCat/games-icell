@@ -12,8 +12,12 @@ yc.outer.AminoAcid = yc.outer.PhysicalEntity.extend({
     	// 随机类型和数量
     	this.type = yc.inner.AminoAcidPool.types[ 0|(Math.random()*(yc.inner.AminoAcidPool.types.length)) ] ;
     	this.num = Math.round(Math.random()*20) ;
-    	this.size = 3 + Math.round(this.num/4) ;
     	
+    	this.init() ;
+    }
+    
+    , init: function(){
+    	this.size = 3 + Math.round(this.num/4) ;
     	var colors = {red:'255,0,0',blue:'0,0,255',yellow:'255,255,0'}
     	this.color = 'rgb(' + colors[this.type] + ')' ;
 

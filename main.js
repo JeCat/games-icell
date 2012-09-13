@@ -84,7 +84,7 @@ function startGame(){
 		[0].focus() ;
 	
 	
-	game = new YouCellGame(yc.levels.FreeWorld);
+	game = new YouCellGame(yc.levels.LevelSelector);
 	dbg = false ;
 	
 	// webkitRequestAnimationFrame 似乎不太流畅
@@ -97,7 +97,11 @@ function startGame(){
 	// 在ui上输出游戏状态
 	setInterval(function(){
 		
-		var cell = cc.Director.getInstance()._runningScene.layerPlayer.cell ;
+		var cell = ins(yc.outer.Cell) ;
+		if(!cell)
+		{
+			return false ;
+		}
 		var pos = cell.getPosition() ;
 		var camera = ins(yc.outer.Camera) ;
 		

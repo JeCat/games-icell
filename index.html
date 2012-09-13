@@ -89,6 +89,7 @@
 		<button onclick="cc.Director.getInstance()._runningScene.layerInner.setScale(0.1)">0.1x</button>
 		<button onclick="cc.Director.getInstance()._runningScene.layerInner.setScale(0.5)">0.5x</button>
 		<button onclick="cc.Director.getInstance()._runningScene.layerInner.setScale(1)">1x</button>
+		| <button title="回到主菜单" onclick=" if(!confirm('确定要放弃当前游戏，退回到主菜单吗？')) return ; cc.Director.getInstance().replaceScene( new yc.levels.LevelSelector )">退出</button>
 	</div>
 	
 		
@@ -249,6 +250,28 @@
 		</div>
 	</div>
 	
+	
+	<!-- 场景：关卡选择 -->
+	<div id="ui-levels-selector" style="position:absolute;display:none">
+		<h1>I, Cell</h1>
+		<p>You are a cell ……</p>
+		<ul>
+			<li>
+				<button title="正在苦逼中……" disabled>故事模式</button>
+			</li>
+			<br />
+			<li>
+				<button onclick="cc.Director.getInstance().replaceScene( new yc.levels.FreeWorld ); $('#ui-levels-selector').toggle();">
+					随机关卡
+				</button>
+			</li>
+			<li>
+				<button onclick="cc.Director.getInstance().replaceScene( new yc.GameScene ); $('#ui-levels-selector').toggle();">
+					建造模式（空白关卡）
+				</button>
+			</li>
+		</ul>
+	</div>
 
 </body>
 </html>
