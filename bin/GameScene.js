@@ -236,11 +236,12 @@ yc.GameScene = cc.Scene.extend({
 		}
 		
 		
-		// selection aminoacids, virusclusters -----------
-		// 创建外部场景中的 氨基酸 和 病毒群
+		// selection aminoacids, virusclusters, stains -----------
+		// 创建外部场景中的 氨基酸、 病毒群 和 污渍
 		var selections = {
-				aminoacids:yc.outer.AminoAcid
-				, virusclusters:yc.outer.VirusCluster
+				aminoacids: yc.outer.AminoAcid
+				, virusclusters: yc.outer.VirusCluster
+				, stains: yc.outer.Stain
 		} ;
 		for(var key in selections)
 		{
@@ -361,11 +362,30 @@ yc.GameScene = cc.Scene.extend({
 		]
 		
 		// 污渍
-		, stans: [
+		, stains: [
 			{
 				x: 500
 				, y: 500
-				, shapes:[]
+				, linearDampingMultiple: 2		// 线速度阻尼倍数(相对质量)
+				, angularDampingMultiple: 4		// 角速度阻尼倍数(相对质量)
+				, shapes:[
+					{
+						type: 'polygon'			// 类型 circle, polygon
+						, density: 0.5			// 密度
+						, friction: 1			// 摩擦力
+						, restitution: 1		// 弹性
+						// 多边形的顶点
+						, points: [ [-50,50], [-60,-75], [23,-55], [23,65] ]
+					}
+					, {
+						type: 'polygon'			// 类型 circle, polygon
+						, density: 0.5			// 密度
+						, friction: 1			// 摩擦力
+						, restitution: 1		// 弹性
+						// 多边形的顶点
+						, points: [ [-150,20], [-40,-25], [33,-25] ]
+					}
+				]
 			}
 		]
 	}
