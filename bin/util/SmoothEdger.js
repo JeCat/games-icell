@@ -14,16 +14,37 @@ yc.util.SmoothEdger = function(){
 		if( !(keyY in this._pointMapping[keyX]) )
 		{
 			this._pointMapping[keyX][keyY] = point ;
-			this._points.push(point) ;
+			this._points.push({
+				p: point
+				, used: false
+				, idx: this._points.length
+			}) ;
 		}
 	}
 	
 	this.build = function(len){
 		
+		// 找到 y 最大的一个点
+		var maxY = null ;
+		var maxYPtIdx = -1 ;
+		for(var i=0;i<this._points.length;i++)
+		{
+			var p = this._points[i].p ;
+			
+			if(maxY===null || p[1]>maxY)
+			{
+				maxYPtIdx = i ;
+				maxY = p[1] ;
+			}
+		}
+		// log([maxYPtIdx,maxY]) ;
+		
+		// -------
 		var output = [] ;
-		var pt = this._points[0] ;
-        arr.splice(0,1) ;
-		output.push(pt) ;
+		var pt = this._points[maxYPtIdx] ;
+		this._points[maxYPtIdx].used = true ;
+		output.push(pt.p) ;
+		var preR = 0 ;
 		
 		while(1){
 			
@@ -33,20 +54,30 @@ yc.util.SmoothEdger = function(){
 				break ;
 			}
 			
-			var nearestPtDis = 0 ;
+			var nearestPtR = 0 ;
 			var nearestPtIdx = -1 ;
 			
 			for(var i=0;i<this._points.length;i++)
 			{
-				var nextPt = this._points[i] ;
-				var dis = yc.util.yc.util.pointsDis(pt[0].pt[1],nextPt[0],nextPt[1]) ;
+				var nextPt = this._points[i].p ;
+				if(pt.idx==nextPt.idx)
+				{
+					continue ;
+				}
+				var dis = yc.util.pointsDis(pt.p[0],pt.p[1],nextPt[0],nextPt[1]) ;
 				if( dis < len )
 				{
-					nearPts.push(nextPt) ;
+					//nearPts.push(nextPt) ;
+					var r = yc.util.radianBetweenPoints(pt.p[0],pt.p[1],nextPt[0],nextPt[1]) ;
 					
-					if(nearestPtDis==0 || nearestPtDis>dis)
+					if(r<preR)
 					{
-						nearestPtDis = dis ;
+						r+= Math.PI * 2 ;
+					}
+					
+					if(nearestPtR==0 || nearestPtR>r)
+					{
+						nearestPtR = r ;
 						nearestPtIdx = i ;
 					}
 				}
@@ -55,11 +86,24 @@ yc.util.SmoothEdger = function(){
 			// 断了 ……
 			if(nearestPtIdx==-1)
 			{
+				log('break') ;
 				break ;
 			}
 			
-			output.push( this._points[nearestPtIdx] ) ;
+			// 完成
+			if(this._points[nearestPtIdx].used)
+			{
+				break ;
+			}
+			
+			this._points[nearestPtIdx].used = true ;
+			output.push( this._points[nearestPtIdx].p ) ;
+			pt = this._points[nearestPtIdx] ;
+			
+			preR = nearestPtR - Math.PI ;
+			
 			this._points.splice(nearestPtIdx,1) ;
+			
 		}
 		
 		this._points = [] ;

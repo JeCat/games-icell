@@ -59,43 +59,43 @@ yc.GameLayer = cc.Layer.extend({
 		// 高于 显示内部视图的缩放比例
 		if( yc.settings.inner.displayZoom<scalex && yc.settings.inner.displayZoom>this.getScale() )
 		{
-			log('显示') ;
+			//log('显示') ;
 			// 显示内部视图
 			if(this.actFadeCellInner)
 			{
-				this._parent.layerPlayer.layerInner.stopAction(this.actFadeCellInner) ;
+				this._parent.layerPlayer.cell.layerInner.stopAction(this.actFadeCellInner) ;
 			}
 			this.actFadeCellInner = cc.FadeIn.create(0.5) ;
-			this._parent.layerPlayer.layerInner.runAction(this.actFadeCellInner) ;
+			this._parent.layerPlayer.cell.layerInner.runAction(this.actFadeCellInner) ;
 
 			// 细胞外壳消失
-//			if(this.actFadeCellOuter)
-//			{
-//				this._parent.layerPlayer.cell.stopAction(this.actFadeCellOuter) ;
-//			}
-//			this.actFadeCellOuter = cc.FadeOut.create(0.5) ;
-//			this._parent.layerPlayer.cell.runAction(this.actFadeCellOuter) ;
+			if(this.actFadeCellOuter)
+			{
+				this._parent.layerPlayer.cell.shell.stopAction(this.actFadeCellOuter) ;
+			}
+			this.actFadeCellOuter = cc.FadeTo.create(1,30) ;
+			this._parent.layerPlayer.cell.shell.runAction(this.actFadeCellOuter) ;
 		}
 
 		// 低于 显示内部视图的缩放比例
 		else if( yc.settings.inner.displayZoom>scalex && yc.settings.inner.displayZoom<this.getScale() )
 		{
-			log('消失') ;
+			//log('消失') ;
 			// 内部视图消失
 			if(this.actFadeCellInner)
 			{
-				this._parent.layerPlayer.layerInner.stopAction(this.actFadeCellInner) ;
+				this._parent.layerPlayer.cell.layerInner.stopAction(this.actFadeCellInner) ;
 			}
 			this.actFadeCellInner = cc.FadeOut.create(0.5) ;
-			this._parent.layerPlayer.layerInner.runAction(this.actFadeCellInner) ;
+			this._parent.layerPlayer.cell.layerInner.runAction(this.actFadeCellInner) ;
 
 			// 显示细胞外壳
-//			if(this.actFadeCellOuter)
-//			{
-//				this._parent.layerPlayer.cell.stopAction(this.actFadeCellOuter) ;
-//			}
-//			this.actFadeCellOuter = cc.FadeIn.create(0.5) ;
-//			this._parent.layerPlayer.cell.runAction(this.actFadeCellOuter) ;
+			if(this.actFadeCellOuter)
+			{
+				this._parent.layerPlayer.cell.shell.stopAction(this.actFadeCellOuter) ;
+			}
+			this.actFadeCellOuter = cc.FadeIn.create(0.5) ;
+			this._parent.layerPlayer.cell.shell.runAction(this.actFadeCellOuter) ;
 		}
 		
 			

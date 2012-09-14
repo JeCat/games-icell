@@ -126,6 +126,7 @@ yc.inner.InnerLayer = cc.Sprite.extend({
 
 	, draw: function(ctx){
 		ctx.rotate(this.getRotation()) ;
+		ctx.globalAlpha = this.getOpacity()/255 ;
 	}
 	
 }) ;

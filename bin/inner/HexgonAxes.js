@@ -211,12 +211,12 @@ HexgonAxes.prototype._createHexgon = function(x,y)
 	aHexgon.center = [centerX, centerY] ;
 	aHexgon.aAxes = this ;
 	
-	aHexgon.points.A = [centerX-this.sideLen/2,centerY+Math.sqrt(3)*this.sideLen/2] ;
-	aHexgon.points.E = [centerX-this.sideLen/2,centerY-Math.sqrt(3)*this.sideLen/2] ;
-	aHexgon.points.B = [centerX+this.sideLen/2,aHexgon.points.A[1]] ;
-	aHexgon.points.D = [centerX+this.sideLen/2,aHexgon.points.E[1]] ;
-	aHexgon.points.C = [centerX+this.sideLen,centerY] ;
-	aHexgon.points.F = [centerX-this.sideLen,centerY] ;
+	aHexgon.points.A = [centerX-this.sideLen/2,centerY+Math.sqrt(3)*this.sideLen/2,'A'] ;
+	aHexgon.points.E = [centerX-this.sideLen/2,centerY-Math.sqrt(3)*this.sideLen/2,'E'] ;
+	aHexgon.points.B = [centerX+this.sideLen/2,aHexgon.points.A[1],'B'] ;
+	aHexgon.points.D = [centerX+this.sideLen/2,aHexgon.points.E[1],'D'] ;
+	aHexgon.points.C = [centerX+this.sideLen,centerY,'C'] ;
+	aHexgon.points.F = [centerX-this.sideLen,centerY,'F'] ;
 
 	return this.mapHexgons[x][y] = aHexgon ;
 }

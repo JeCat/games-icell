@@ -4,20 +4,29 @@ yc.outer.Cell = yc.outer.PhysicalEntity.extend({
 		this._super() ;
 		this.maxSpeed = yc.settings.outer.player.defaultMaxSpeed ;
 
+		// 细胞内部视图
+		this.layerInner = ins(yc.inner.InnerLayer) ;
+        this.addChild(this.layerInner) ;
+	    
 		// 细胞外壳 -------
 		var cell = this ;
 		this.shell = new cc.Sprite() ;
 		this.shell.draw = function(ctx){
-			ctx.beginPath() ;
-			ctx.strokeStyle = 'white' ;
-			for(var i=0;i<cell.boundaryLines.length;i++)
-			{
-				var line = cell.boundaryLines[i] ;
-				ctx.moveTo(line[0][0],-line[0][1]) ;
-				ctx.lineTo(line[1][0],-line[1][1]) ;
-			}
-			ctx.stroke() ;
-			ctx.closePath() ;
+
+			ctx.globalAlpha = this.getOpacity()/255 ;
+			
+			yc.util.drawPolygon(cell._points,ctx,'white') ;
+			
+//			ctx.beginPath() ;
+//			ctx.strokeStyle = 'white' ;
+//			for(var i=0;i<cell.boundaryLines.length;i++)
+//			{
+//				var line = cell.boundaryLines[i] ;
+//				ctx.moveTo(line[0][0],-line[0][1]) ;
+//				ctx.lineTo(line[1][0],-line[1][1]) ;
+//			}
+//			ctx.stroke() ;
+//			ctx.closePath() ;
 		}
 		this.addChild(this.shell) ;
 	}
@@ -27,8 +36,13 @@ yc.outer.Cell = yc.outer.PhysicalEntity.extend({
 	}
 
 	, init: function(){
+
+		var innerCell = this.layerInner.cell ;
+		
+	    // 新玩家初始化一个新细胞 
+		innerCell.newborn() ;
+	    
         // this.cell.initWithCircle(10,0,0,yc.settings.outer.cell.density) ;
-		var innerCell = ins(yc.inner.Cell) ;
 
 		this.shapes = [] ;
 		this.boundaryLines = [] ;
@@ -71,14 +85,27 @@ yc.outer.Cell = yc.outer.PhysicalEntity.extend({
 					//log(way) ;
 					var line = hexgon.line(way) ;
 					this.boundaryLines.push([transPoint(line[0]),transPoint(line[1]),way]) ;
-					edger.put(transPoint(line[0])) ;
-					edger.put(transPoint(line[1])) ;
+
+					
+					var pt = transPoint(line[0]) ;
+					pt.push(hexgon.x) ;
+					pt.push(hexgon.y) ;
+					pt.push(line[0][2]) ;
+					edger.put(pt) ;
+
+					pt = transPoint(line[1]) ;
+					pt.push(hexgon.x) ;
+					pt.push(hexgon.y) ;
+					pt.push(line[1][2]) ;
+					edger.put(pt) ;
 				}
 			}
 		}
 		
 		
-		this._points = edger._points ;
+		this._points = edger.build(scale*yc.settings.inner.hexgonSideLength*2) ;
+		log(this._points) ;
+		
 		this.initWithScriptShapes(this.shapes) ;
 		
 
