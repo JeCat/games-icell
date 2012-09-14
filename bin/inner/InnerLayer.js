@@ -4,12 +4,12 @@ yc.inner.InnerLayer = cc.Sprite.extend({
         
         this._super() ;
 
-        this.setAnchorPoint(cc.p(0,0)) ;
+        this.setAnchorPoint(cc.p(0.5,0.5)) ;
         this.setOpacity(0) ;
 
         var scale = 1/yc.settings.inner.zoom ;
         this.setScale(scale) ;
-        this.setPosition(cc.p(-yc.settings.inner.width/2*scale,-yc.settings.inner.height/2*scale)) ;
+        //this.setPosition(cc.p(-yc.settings.inner.width/2*scale,-yc.settings.inner.height/2*scale)) ;
 
         // 细胞
         this.cell = ins(yc.inner.Cell) ;

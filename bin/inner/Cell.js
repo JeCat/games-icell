@@ -3,9 +3,8 @@ yc.inner.Cell = function()
 	this.hpMax = 10 ;
 	this.hp = this.hpMax ;
 	
-    this.aAxes = new HexgonAxes( yc.settings.inner.width, yc.settings.inner.height, yc.settings.inner.hexgonSideLength ) ;
+    this.aAxes = new HexgonAxes( yc.settings.inner.hexgonSideLength ) ;
     this.aAxes._hexgonClass = yc.inner.CellHexgon ;
-    this.aAxes.initHexgons() ;
     
     axes = this.aAxes ;
     cell = this ;
@@ -135,8 +134,8 @@ yc.inner.Cell.prototype.newborn = function()
 yc.inner.Cell.prototype.newbornBuildings = function(){
  // 初始化一个 炮塔 和 蛋白质工厂
 	var menu = ins(yc.ui.BuildingCreateMenu) ;
-	 menu.createBuilding( this.aAxes.hexgon(6,5), menu.items.tower ) ;
-	 menu.createBuilding( this.aAxes.hexgon(7,5), menu.items.factory ) ;
+	menu.createBuilding( this.aAxes.hexgon(0,-1), menu.items.tower ) ;
+	menu.createBuilding( this.aAxes.hexgon(1,-1), menu.items.factory ) ;
 }
 
 
@@ -260,15 +259,13 @@ yc.inner.Cell.prototype.die = function(){
  * 重生
  */
 yc.inner.Cell.prototype.revive = function(){
-	
-	this.increaseHp(10) ;
-	
-	// 重置基础建筑
-    this.newbornBuildings() ;
-	
-	// 清除尚未结束攻击的病毒
-	
-	// 返回原点
-	ins(yc.outer.Cell).jump(0,0) ;
+//	
+//	this.increaseHp(10) ;
+//	
+//	// 重置基础建筑
+//    this.newbornBuildings() ;
+//	
+//	// 返回原点
+//	ins(yc.outer.Cell).jump(0,0) ;
 }
 

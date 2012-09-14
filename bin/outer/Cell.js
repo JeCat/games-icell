@@ -39,7 +39,7 @@ yc.outer.Cell = yc.outer.PhysicalEntity.extend({
 
 		var scale = 1/yc.settings.inner.zoom ;
 		var transPoint = function(pt){
-			return [(pt[0]-yc.settings.inner.width/2)*scale, (pt[1]-yc.settings.inner.height/2)*scale,pn]
+			return [(pt[0])*scale, (pt[1])*scale]
 		}
 
 		var edger = new yc.util.SmoothEdger ;
@@ -56,20 +56,23 @@ yc.outer.Cell = yc.outer.PhysicalEntity.extend({
 				, userData: hexgon
 			}
 			
-			for(var pn in hexgon.points)
+			var pointKeys = ['F','E','D','C','B','A'] ;
+			for(var pi=0;pi<pointKeys.length;pi++)
 			{
-				var pt = hexgon.points[pn] ;
+				var pt = hexgon.points[pointKeys[pi]] ;
 				sp.points.push(transPoint(pt)) ;
 			}
 			
 			this.shapes.push(sp) ;
 			
 			// 计算细胞膜格子的平滑外边缘
+			//log([hexgon.x,hexgon.y]) ;
 			for(var way in hexgon.neighbors)
 			{
 				var neighbor = hexgon[way]() ;
 				if( neighbor===null || neighbor.type===null )
 				{
+					//log(way) ;
 					var line = hexgon.line(way) ;
 					this.boundaryLines.push([transPoint(line[0]),transPoint(line[1]),way]) ;
 					edger.put(transPoint(line[0])) ;

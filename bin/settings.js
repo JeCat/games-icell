@@ -23,8 +23,8 @@ yc.settings = {
 	    // 细胞核
 	    , nucleus: {
 			// 细胞核所在格子的坐标
-	        x: null
-	        , y: null
+	        x: 0
+	        , y: 0
 	    }
 	    , dbg: true
 	    
@@ -116,7 +116,7 @@ yc.settings = {
 yc.settings.inner.totalHexgonLevels = yc.settings.inner.cellMaxLevels*2+1+2 ;
 
 // 细胞核 六边形的坐标
-yc.settings.inner.nucleus.x = yc.settings.inner.nucleus.y = yc.settings.inner.cellMaxLevels+1 ;
+//yc.settings.inner.nucleus.x = yc.settings.inner.nucleus.y = yc.settings.inner.cellMaxLevels+1 ;
 
 // 内部舞台的宽
 yc.settings.inner.width = Math.ceil( 1.5 * yc.settings.inner.hexgonSideLength * yc.settings.inner.totalHexgonLevels + yc.settings.inner.hexgonSideLength/2 ) ;
