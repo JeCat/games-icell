@@ -63,10 +63,10 @@ yc.GameLayer = cc.Layer.extend({
 			// 显示内部视图
 			if(this.actFadeCellInner)
 			{
-				this._parent.layerInner.stopAction(this.actFadeCellInner) ;
+				this._parent.layerPlayer.layerInner.stopAction(this.actFadeCellInner) ;
 			}
 			this.actFadeCellInner = cc.FadeIn.create(0.5) ;
-			this._parent.layerInner.runAction(this.actFadeCellInner) ;
+			this._parent.layerPlayer.layerInner.runAction(this.actFadeCellInner) ;
 
 			// 细胞外壳消失
 //			if(this.actFadeCellOuter)
@@ -84,10 +84,10 @@ yc.GameLayer = cc.Layer.extend({
 			// 内部视图消失
 			if(this.actFadeCellInner)
 			{
-				this._parent.layerInner.stopAction(this.actFadeCellInner) ;
+				this._parent.layerPlayer.layerInner.stopAction(this.actFadeCellInner) ;
 			}
 			this.actFadeCellInner = cc.FadeOut.create(0.5) ;
-			this._parent.layerInner.runAction(this.actFadeCellInner) ;
+			this._parent.layerPlayer.layerInner.runAction(this.actFadeCellInner) ;
 
 			// 显示细胞外壳
 //			if(this.actFadeCellOuter)

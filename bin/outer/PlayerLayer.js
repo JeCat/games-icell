@@ -7,15 +7,21 @@ yc.outer.PlayerLayer = cc.Layer.extend({
         this.setKeyboardEnabled(true);  
         this.setTouchEnabled(true);
         
-        //var winSize = cc.Director.getInstance().getWinSize();
-        //this.initWithColor(new cc.Color4B(255,255,255,150),winSize.width,winSize.height) ;
         this.setAnchorPoint(cc.p(0,0)) ;
-        
+
+		// 层：细胞内部场景
+		this.layerInner = ins(yc.inner.InnerLayer) ;
+
+	    // 新玩家初始化一个新细胞 
+	    this.layerInner.cell.newborn() ;
+	    
         // 细胞
         outerCell = this.cell = ins(yc.outer.Cell) ;
         this.cell.init() ;
         this.addChild(this.cell) ;
+        this.cell.addChild(this.layerInner) ;
         cellOuter = this.cell ;
+        
         
         
         this.followPoint = false ;

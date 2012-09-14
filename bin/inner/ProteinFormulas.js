@@ -1,7 +1,5 @@
 yc.inner.ProteinFormulas = function(){
     
-    log('ProteinFormulas init') ;
-    
     this.formulaNum = 0 ;
     this.mapFormulas = {} ;
     

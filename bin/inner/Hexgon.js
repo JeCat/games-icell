@@ -43,8 +43,10 @@ function Hexgon()
 	this.es = function(){ return this.neighbor('s','e') ; }
 	
 	
-	this.neighbor = function(waySN,wayEW)
+	this.neighbor = function(waySN,wayEW,bAutoCreate)
 	{
+		bAutoCreate = typeof(bAutoCreate)=='undefined' || bAutoCreate ;
+		
 		var way = wayEW + waySN ;
 		
 		if(typeof(this.neighbors[way])=='undefined')
@@ -52,11 +54,13 @@ function Hexgon()
 			switch(way)
 			{
 				case 'n' :
-					this.neighbors[way] = this.aAxes.hexgon(this.x,this.y+1) ;
+					var x = this.x ;
+					var y = this.y + 1 ;
 					break ;
 					
 				case 's' :
-					this.neighbors[way] = this.aAxes.hexgon(this.x,this.y-1) ;
+					var x = this.x ;
+					var y = this.y - 1 ;
 					break ;
 				
 				default :
@@ -83,13 +87,14 @@ function Hexgon()
                             y-= 1 ;
                         }
 					}
-    	           
-					this.neighbors[way] = this.aAxes.hexgon(x,y) ;
 					
 					break ;
 			}
+			
+			this.neighbors[way] = this.aAxes.hexgon(x,y,bAutoCreate) || undefined ;
 		}
-		return this.neighbors[way] ;
+		
+		return typeof(this.neighbors[way])=='undefined'? null: this.neighbors[way] ;
 	}
 	
 	this.line = function(way)

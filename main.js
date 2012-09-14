@@ -109,6 +109,7 @@ function startGame(){
 		output+= 'player:'+cell.x.toFixed(1)+', '+cell.y.toFixed(1) + '<br />';
 		//output+= 'speed:'+ cell.speed.toFixed(2) + '<br />';
 		output+= 'camera:'+camera.x.toFixed(1)+', '+camera.y.toFixed(1) + '<br />';
+		//output+= 'xx,yy:'+xx.toFixed(1)+', '+yy.toFixed(1) + '<br />';
 		$('#player-status').html(output) ;
 		
 	},500) ;

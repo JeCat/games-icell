@@ -98,40 +98,43 @@ function HexgonAxes(sideLen,dbgCanvas)
 //	}
 //}
 
-HexgonAxes.prototype.hexgonByPoint = function(px,py){
+HexgonAxes.prototype.hexgonByPoint = function(px,py,bAutoCreate){
 
+	bAutoCreate = typeof(bAutoCreate)=='undefined' || bAutoCreate ;
+	
+	var floor = function(v){
+		return v>0? Math.floor(v): Math.ceil(v) ;
+	}
+	
+	
+	
     var gridW = 3/2*this.sideLen ;
     var gridH = Math.sqrt(3)*this.sideLen ;
+    var gridHalfH = gridH/2 ;
     
-    var x = Math.floor(px/gridW) ;
-    var xx = px % gridW ;
+    var x = (Math.floor((px-this.sideLen/2)/gridW) + 1) ;
     
     if(x%2)
     {
-       var y = Math.floor( (py - gridH/2) / gridH ) ;
-       var yy = (py - gridH/2) % gridH ;
+       var y = Math.floor( py / gridH ) ;
     }
     else
     {
-       var y = Math.floor( py/gridH ) ;
-       var yy = py % gridH ;
+        var y = (Math.floor((py-gridHalfH)/gridH) + 1) ;
     }
     
-    var hexgon = this.hexgon(x,y) ;
+    var hexgon = this.hexgon(x,y,bAutoCreate) ;
     
-    if( hexgon && xx<this.sideLen/2 )
+    if( hexgon && hexgon.center[0]-px>this.sideLen/2 )
     {
-        if(yy>gridH/2)
+        if(py>hexgon.center[1])
         {
-            var neighbor = hexgon.wn() ;
+            var neighbor = hexgon.wn(bAutoCreate) ;
         }
         else
         {
-            var neighbor = hexgon.ws() ;
+            var neighbor = hexgon.ws(bAutoCreate) ;
         }
-        
-        //log(['hexgon',hexgon.x,hexgon.y,':',hexgon.center[0],hexgon.center[1],'=',yc.util.pointsDis(hexgon.center[0],hexgon.center[1],px,py)]) ;
-        //log(['neighbor',neighbor.x,neighbor.y,':',neighbor.center[0],neighbor.center[1],'=',yc.util.pointsDis(neighbor.center[0],neighbor.center[1],px,py)]) ;
         
         if( neighbor && yc.util.pointsDis(hexgon.center[0],hexgon.center[1],px,py) > yc.util.pointsDis(neighbor.center[0],neighbor.center[1],px,py) )
         {
@@ -141,15 +144,25 @@ HexgonAxes.prototype.hexgonByPoint = function(px,py){
     
     return hexgon ;
 }
-HexgonAxes.prototype.hexgon = function(x,y)
+HexgonAxes.prototype.hexgon = function(x,y,bAutoCreate)
 {
+	bAutoCreate = typeof(bAutoCreate)=='undefined' || bAutoCreate ;
+	
 	if( typeof(this.mapHexgons[x])=='undefined' )
 	{
+		if(!bAutoCreate)
+		{
+			return null ;
+		}
 		this.mapHexgons[x] = {} ;		
 	}
 	
 	if( typeof(this.mapHexgons[x][y])=='undefined' )
 	{
+		if(!bAutoCreate)
+		{
+			return null ;
+		}
 		this._createHexgon(x,y) ;
 	}
 	

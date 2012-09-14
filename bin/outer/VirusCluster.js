@@ -127,6 +127,8 @@ yc.outer.VirusCluster = yc.outer.PhysicalEntity.extend({
 	}
 	
 	, createInnerSprite: function(hexgon){
+
+    	//log(['virus cluster touch cell on: ',hexgon]) ;
 		
 		var innerCluster = yc.inner.monster.VirusCluster.create(hexgon) ;
 		
@@ -148,6 +150,7 @@ yc.outer.VirusCluster = yc.outer.PhysicalEntity.extend({
 		
 		// 接触位置
 		// var hexgon = this.touchingHexgon(cell) ;
+		
 		
 		// 创建内部场景种的病毒群 
 		this.createInnerSprite(hexgon) ;

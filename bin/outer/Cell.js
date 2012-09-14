@@ -3,31 +3,27 @@ yc.outer.Cell = yc.outer.PhysicalEntity.extend({
 	ctor: function(){
 		this._super() ;
 		this.maxSpeed = yc.settings.outer.player.defaultMaxSpeed ;
+
+		// 细胞外壳 -------
+		var cell = this ;
+		this.shell = new cc.Sprite() ;
+		this.shell.draw = function(ctx){
+			ctx.beginPath() ;
+			ctx.strokeStyle = 'white' ;
+			for(var i=0;i<cell.boundaryLines.length;i++)
+			{
+				var line = cell.boundaryLines[i] ;
+				ctx.moveTo(line[0][0],-line[0][1]) ;
+				ctx.lineTo(line[1][0],-line[1][1]) ;
+			}
+			ctx.stroke() ;
+			ctx.closePath() ;
+		}
+		this.addChild(this.shell) ;
 	}
 
 	, draw: function(ctx){
-		
 		ctx.rotate(this.getRotation());		// 物体旋转方向
-
-		//this._super(ctx) ;
-		
-//		for(var i=0;i<this._points.length;i++)
-//		{
-//			var pt = this._points[i] ;
-//			ctx.fillText(i,pt[0],-pt[1]) ;
-//		}
-
-		ctx.beginPath() ;
-		
-		ctx.strokeStyle = 'white' ;
-		for(var i=0;i<this.boundaryLines.length;i++)
-		{
-			var line = this.boundaryLines[i] ;
-			ctx.moveTo(line[0][0],-line[0][1]) ;
-			ctx.lineTo(line[1][0],-line[1][1]) ;
-		}
-		ctx.stroke() ;
-		ctx.closePath() ;
 	}
 
 	, init: function(){
@@ -141,7 +137,6 @@ yc.outer.Cell = yc.outer.PhysicalEntity.extend({
 		// 病毒群
 		if(entity.constructor.className=='yc.outer.VirusCluster')
 		{
-			log(fixture) ;
 			entity.touchingCell(this,fixture.GetUserData()) ;
 		}
 		// 氨基酸
@@ -214,6 +209,7 @@ yc.outer.Cell = yc.outer.PhysicalEntity.extend({
     	
     	this.speed = speed ;
     }
+    
 });  
 
 

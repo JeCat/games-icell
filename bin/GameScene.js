@@ -41,18 +41,9 @@ yc.GameScene = cc.Scene.extend({
 		this.layerRoles.setAnchorPoint(cc.p(0,0)) ;
 		this.layerGame.addChild(this.layerRoles) ;
 
-		// 层：细胞内部场景
-		this.layerInner = ins(yc.inner.InnerLayer) ;
-		//this.layerInner.setVisible(false) ;
-		this.layerGame.addChild(this.layerInner) ;
-
-	    // 新玩家初始化一个新细胞 
-	    this.layerInner.cell.newborn() ;
-	    
 		// 层：显示玩家
 		this.layerPlayer = new yc.outer.PlayerLayer();
 		this.layerGame.addChild(this.layerPlayer);
-
 		
 		// 层：ui
 		this.layerUi = ins(yc.ui.UILayer) ;

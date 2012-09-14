@@ -18,9 +18,12 @@ yc.inner.monster.VirusCluster = cc.Sprite.extend({
     	this.num = this.totalNum ;
     	this.releasing = true ;
     	this.actRelease = null ;
+    	this.stay = null
     }
     
     , enterCell: function(stay){
+    	
+    	//log(['virus cluster enter cell on: ',stay]) ;
         
         this.stay = stay ;
         
@@ -37,10 +40,18 @@ yc.inner.monster.VirusCluster = cc.Sprite.extend({
 
     , release: function(){
     	
+    	//log(['release virus on ',this.stay]) ;
+    	
         var virus = this._parent.createVirusSprite() ;
         virus.init(this.virusPrototype) ;
-        virus.setPosition(cc.p(this.stay.center[0]+10-20*Math.random(),this.stay.center[1]+10-20*Math.random())) ;
-        virus.run(this.stay) ;
+        
+        var shakeRange = yc.settings.inner.hexgonSideLength/4 ;
+        var shakeX = shakeRange - shakeRange*2*Math.random() ;
+        var shakeY = shakeRange - shakeRange*2*Math.random() ;
+        //log(['shake',shakeX,shakeY]) ;
+        virus.setPosition(cc.p(this.stay.center[0]+shakeX,this.stay.center[1]+shakeY)) ;
+
+        virus.run() ;
         
         this.num -- ;
         

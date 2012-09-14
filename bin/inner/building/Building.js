@@ -30,8 +30,8 @@ yc.inner.building.Building = cc.Sprite.extend({
         ctx.fillStyle = "rgb(150,150,200)" ;
     
         ctx.beginPath() ;
-        ctx.moveTo(0+15,0) ;
-        ctx.arc(0,0, 15, 0, Math.PI*2 , false) ;
+        ctx.moveTo(yc.settings.inner.hexgonSideLength-5,0) ;
+        ctx.arc(0,0, yc.settings.inner.hexgonSideLength-5, 0, Math.PI*2 , false) ;
         ctx.closePath() ;
         
         ctx.fill() ;

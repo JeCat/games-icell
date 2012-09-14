@@ -18,6 +18,7 @@ yc.inner.monster.Virus = cc.Sprite.extend({
     , file: 'res/virus16.png'
     
     , init: function(prototype){
+		//log('virus ('+this.__ObjectPoolId__+') init') ;
 	
 		this.alive = true ;
 		this.lv = yc.inner.monster.Virus.prototype.lv ;
@@ -44,24 +45,35 @@ yc.inner.monster.Virus = cc.Sprite.extend({
     }
     
     , run: function() {
-    	
+
     	var p = this.getPosition() ;
-    	if( !(this.runningFrom=ins(yc.inner.Cell).aAxes.hexgonByPoint(p.x,p.y)) )
+    	var cell = ins(yc.inner.Cell) ;
+    	if( !(this.runningFrom=cell.aAxes.hexgonByPoint(p.x,p.y)) )
     	{
+    		throw new Error("病毒所在坐标无效："+p.x+','+p.y) ;
     		// something wrong!
     		return ;
     	}
+
+		//log(['virus ('+this.__ObjectPoolId__+') run from ',this.runningFrom]) ;
     	
         this.runningTarget = cell.pathMap().next(this.runningFrom) ;
         
         // 到达
         if(!this.runningTarget)
         {
-            this.attack() ;
-            
-            this.destroy() ;
-            
-            return false ;
+        	if(this.runningTarget!=cell.nuclues)
+        	{
+        		throw new Error("病毒所在坐标无效：hexgon "+this.runningTarget.x+','+this.runningTarget.y+"; position "+p.x+','+p.y) ;
+        	}
+        	else
+        	{
+	            this.attack() ;
+	            
+	            this.destroy() ;
+	            
+	            return false ;
+        	}
         }
         
         this.actRunning = this.createRunAction(this.runningTarget,this.speed) ;
@@ -137,6 +149,7 @@ yc.inner.monster.Virus = cc.Sprite.extend({
 
     // 被击杀
 	, bekill: function(){
+		//log('virus ('+this.__ObjectPoolId__+') be kill') ;
 		// 一定几率在细胞内掉落一个氨基酸，持续若干秒钟，等待线粒体回收
 		if(Math.random()>0.5)
 		{
@@ -147,6 +160,7 @@ yc.inner.monster.Virus = cc.Sprite.extend({
 	}
 	
     , destroy: function(){
+		//log('virus ('+this.__ObjectPoolId__+') destroy') ;
         this.alive = false ;
     	this.stopRun() ;
         this.stopAllActions() ;

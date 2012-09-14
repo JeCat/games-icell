@@ -39,7 +39,18 @@ yc.inner.CellInnerMap = cc.Layer.extend({
 		{
 			this.drawHexgon(cell.membranes[i],ctx,"rgb(140,140,140)","rgb(170,170,170)") ;
 		}
-		
+
+//		if(this.touchPoint)
+//		{
+//			ctx.moveTo(0,0) ;
+//			ctx.lineTo(this.touchPoint[0],-this.touchPoint[1]) ;
+//			ctx.stroke() ;
+//		}
+//		if(this.selcted_hexgon)
+//		{
+//			ctx.fillText(this.selcted_hexgon.x+','+this.selcted_hexgon.y,this.touchPoint[0],-this.touchPoint[1]) ;
+//			ctx.fill() ;
+//		}
 	}
 	
 	, drawHexgon: function(hexgon,ctx,strokeStyle,fillStyle){
@@ -110,66 +121,72 @@ yc.inner.CellInnerMap = cc.Layer.extend({
 		ctx.restore() ;
 	}
 	
-	, onTouchesBegan: function(touches, event){
-		if(touches.length<1){ return ; }
+	, _touchHexgon: function(touches){
+
+		if(touches.length<1){ return null ; }
 		
 		var p = ins(yc.inner.InnerLayer).windowToClient(touches[0]._point.x,touches[0]._point.y) ;
-		if(!p){ return ; }
+		
+		if(!p){ return null ; }
+
+		//log([touches[0]._point.x,touches[0]._point.y,p[0],p[1]]) ;
+		this.touchPoint = p ;
 		
 		if(this.selcted_hexgon)
 		{
 			this.selcted_hexgon.selected = false ;
+			this.selcted_hexgon = null ;
 		}
-		this.selcted_hexgon = ins(yc.inner.InnerLayer).cell.aAxes.hexgonByPoint(p[0],p[1]) ;
-		this.selcted_hexgon.selected = true ;
+		
+		var hexgon = ins(yc.inner.InnerLayer).cell.aAxes.hexgonByPoint(p[0],p[1],false) ;
+		if( hexgon && hexgon.type!==null )
+		{
+			this.selcted_hexgon = hexgon ;
+			this.selcted_hexgon.selected = true ;
+		}
+		
+		return this.selcted_hexgon ;
+	}
+	
+	, onTouchesBegan: function(touches, event){
+		
+		if( !this._touchHexgon(touches) )
+		{
+			return undefined ;
+		}
 		
 		this.touching = true ;
 		
 		return false ;
 	}
+	
 	, onTouchesMoved: function(touches, event){
-		if(touches.length<1){ return ; }
-		if(!this.touching){ return ; }
-		
-		var p = ins(yc.inner.InnerLayer).windowToClient(touches[0]._point.x,touches[0]._point.y) ;
-		if(!p){ return ; }
-		
-		if(this.selcted_hexgon)
-		{
-			this.selcted_hexgon.selected = false ;
-		}
-		this.selcted_hexgon = ins(yc.inner.InnerLayer).cell.aAxes.hexgonByPoint(p[0],p[1]) ;
-		this.selcted_hexgon.selected = true ;
-		
-		return false ;
+		return (!this.touching && this._touchHexgon(touches))? false: undefined ;
 	}
+	
 	, onTouchesEnded:function (touches, event) {
-		if(touches.length<1){ return ; }
-		
-		var p = ins(yc.inner.InnerLayer).windowToClient(touches[0]._point.x,touches[0]._point.y) ;
-		if(!p){ return ; }
-		
-		if(this.selcted_hexgon)
-		{
-			this.selcted_hexgon.selected = false ;
-		}
-		this.selcted_hexgon = ins(yc.inner.InnerLayer).cell.aAxes.hexgonByPoint(p[0],p[1]) ;
-		this.selcted_hexgon.selected = true ;
-		
+
 		this.touching = false ;
 		
-		// 升级
-		if(this.selcted_hexgon.building)
+		if( this._touchHexgon(touches) )
 		{
-			ins(yc.ui.BuildingUpgradeMenu).show(this.selcted_hexgon.building) ;
+			// 升级
+			if(this.selcted_hexgon.building)
+			{
+				ins(yc.ui.BuildingUpgradeMenu).show(this.selcted_hexgon.building) ;
+			}
+			// 新建
+			else
+			{
+				ins(yc.ui.BuildingCreateMenu).show(this.selcted_hexgon) ;
+			}
+			
+			return false ;
 		}
-		// 新建
 		else
 		{
-			ins(yc.ui.BuildingCreateMenu).show(this.selcted_hexgon) ;
+			return undefined ;
 		}
-		
-		return false ;
 	}
 	
 	, transform: cc.Sprite.prototype.transform

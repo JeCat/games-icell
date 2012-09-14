@@ -86,9 +86,9 @@
 	
 	<div id='menu-inner-layer-zoom' style="float:right;position: absolute;">
 		<button onclick="worldediter()">世界编辑器</button> | 
-		<button onclick="cc.Director.getInstance()._runningScene.layerInner.setScale(0.1)">0.1x</button>
-		<button onclick="cc.Director.getInstance()._runningScene.layerInner.setScale(0.5)">0.5x</button>
-		<button onclick="cc.Director.getInstance()._runningScene.layerInner.setScale(1)">1x</button>
+		<button onclick="cc.Director.getInstance()._runningScene.layerPlayer.layerInner.setScale(0.1)">0.1x</button>
+		<button onclick="cc.Director.getInstance()._runningScene.layerPlayer.layerInner.setScale(0.5)">0.5x</button>
+		<button onclick="cc.Director.getInstance()._runningScene.layerPlayer.layerInner.setScale(1)">1x</button>
 		| <button title="回到主菜单" onclick=" if(!confirm('确定要放弃当前游戏，退回到主菜单吗？')) return ; cc.Director.getInstance().replaceScene( new yc.levels.LevelSelector )">退出</button>
 	</div>
 	
