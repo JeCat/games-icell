@@ -19,40 +19,53 @@ yc.GameScene = cc.Scene.extend({
 		
 		this._super();
 	
+		
 		this.setAnchorPoint(cc.p(0,0)) ;
 		
-		this.initWorld() ;
+		this._initWorld() ;
 		
-		// 层：显示玩家
-		this.layerPlayer = new yc.outer.PlayerLayer();
-		this.addChild(this.layerPlayer);
+		// 层：游戏
+		this.layerGame = new yc.GameLayer() ;
+		this.layerGame.setAnchorPoint(cc.p(0,0)) ;
+		var wsize = cc.Director.getInstance().getWinSize() ;
+		this.layerGame.setPosition(cc.p(wsize.width/2,wsize.height/2)) ;
+		this.addChild(this.layerGame) ;
+		
+		// 层：污渍
+		this.layerStains = new cc.Layer() ;
+		this.layerStains.setAnchorPoint(cc.p(0,0)) ;
+		this.layerGame.addChild(this.layerStains) ;
 		
 		// 层：显示其他角色
 		this.layerRoles = new cc.Layer() ;
 		this.layerRoles.setAnchorPoint(cc.p(0,0)) ;
-		this.addChild(this.layerRoles) ;
-		
-		this.layerStains = new cc.Layer() ;
-		this.layerStains.setAnchorPoint(cc.p(0,0)) ;
-		this.addChild(this.layerStains) ;
-		
+		this.layerGame.addChild(this.layerRoles) ;
+
 		// 层：细胞内部场景
 		this.layerInner = ins(yc.inner.InnerLayer) ;
-		this.addChild(this.layerInner) ;
+		//this.layerInner.setVisible(false) ;
+		this.layerGame.addChild(this.layerInner) ;
+
+	    // 新玩家初始化一个新细胞 
+	    this.layerInner.cell.newborn() ;
+	    
+		// 层：显示玩家
+		this.layerPlayer = new yc.outer.PlayerLayer();
+		this.layerGame.addChild(this.layerPlayer);
+
 		
 		// 层：ui
 		this.layerUi = ins(yc.ui.UILayer) ;
 		this.addChild(this.layerUi) ;
 		
-		// ---------------
-	    // 新玩家初始化一个新细胞 
-	    this.layerInner.cell.newborn() ;
-	    
+		// 游戏显示比例缩放
+		this._initZoomer() ;
+		
 	    // 全局变量
 	    scene = this ;
 	}
 
-	, initWorld: function(){
+	, _initWorld: function(){
 
 		var screenSize = cc.Director.getInstance().getWinSize();
 		//UXLog(L"Screen width %0.2f screen height %0.2f",screenSize.width,screenSize.height);
@@ -64,7 +77,7 @@ yc.GameScene = cc.Scene.extend({
 		this.world.removingBodies = [] ;
 		
 		// 世界边界墙
-		this.createWalls() ;
+		this._createWalls() ;
 		
 		
 
@@ -81,7 +94,7 @@ yc.GameScene = cc.Scene.extend({
 		// 捆绑到物理世界实例
 		this.world.SetDebugDraw(debugDraw) ;
 	}
-	, createWalls: function(){
+	, _createWalls: function(){
 		
 		if( this.rgt===null || this.lft===null || this.top===null || this.btm===null )
 		{
@@ -133,7 +146,7 @@ yc.GameScene = cc.Scene.extend({
 	, _buildWall: function(fixDef,bodyDef,wall){
 		if( this[wall] )
 		{
-			
+			// 圆形 未实现
 		}
 		else
 		{
@@ -142,6 +155,8 @@ yc.GameScene = cc.Scene.extend({
 		}
 	}
 	
+	, _initZoomer: function(){
+	}
 
 	, testWorldBoard: function(x,y) {
 		if( this.lft!==null && x<this.lft )

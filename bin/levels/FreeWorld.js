@@ -2,10 +2,10 @@ yc.levels.FreeWorld = yc.GameScene.extend({
 	
 	onEnter: function(){
 
-		this.lft = -1000 ;
-		this.rgt = 1000 ;
-		this.top = 800 ;
-		this.btm = -800 ;
+		this.lft = -3000 ;
+		this.rgt = 3000 ;
+		this.top = 1500 ;
+		this.btm = -1500 ;
 	
 		// dna ----------------
 		//  定义基因

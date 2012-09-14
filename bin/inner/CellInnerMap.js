@@ -87,6 +87,9 @@ yc.inner.CellInnerMap = cc.Layer.extend({
 			ctx.fillStyle = "rgb(100,100,150)" ;
 			ctx.fillText(hexgon.x+','+hexgon.y,hexgon.center[0]-8,-(hexgon.center[1]-4));
 		}
+		
+		// 画外边界
+		
 	}
 	
 	, drawHexgonPoint: function(hexgon,ctx,fillStyle){

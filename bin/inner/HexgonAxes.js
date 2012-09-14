@@ -9,7 +9,7 @@ function HexgonAxes(w,h,sideLen,dbgCanvas)
 	
 	this.mapHexgons = {} ;
 	
-	// 纵向的方向，1 表示从上向下递增，-1表示从下向上递增
+	// 纵向的方向，1 表示从上向下递增，-1表示从下向上递减
 	this.vDirection = -1 ;
 }
 

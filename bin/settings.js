@@ -3,7 +3,7 @@ yc.settings = {
 	// 内部场景 ------------------------------
 	inner: {
 	    // 六边形边长
-	    hexgonSideLength: 30
+	    hexgonSideLength: 15
 	    // 六边形格子的最大层数
 	    , cellMaxLevels: 5
 	    // 六边形格子层数的游戏初始值
@@ -14,6 +14,11 @@ yc.settings = {
 	    
 	    , width: 600
 	    , height: 676
+	    
+	    // 当放大倍数大于 zoom 时，显示细胞内部
+	    , displayZoom: 2
+	    
+	    , zoom: 5
 	    
 	    // 细胞核
 	    , nucleus: {

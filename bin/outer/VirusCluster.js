@@ -141,13 +141,13 @@ yc.outer.VirusCluster = yc.outer.PhysicalEntity.extend({
 		innerCluster.enterCell(hexgon) ;
 	}
 		
-	, touchingCell: function(cell){
+	, touchingCell: function(cell,hexgon){
 		
 		// 回收
 		this.destroy() ;
 		
 		// 接触位置
-		var hexgon = this.touchingHexgon(cell) ;
+		// var hexgon = this.touchingHexgon(cell) ;
 		
 		// 创建内部场景种的病毒群 
 		this.createInnerSprite(hexgon) ;

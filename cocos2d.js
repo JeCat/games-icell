@@ -43,10 +43,12 @@ var $ = jquery ;
             , 'bin/settings.js'   
             , 'bin/Cocos2dPatchs.js'
             , 'bin/GameScene.js'   
+            , 'bin/GameLayer.js'   
             
             , 'bin/util/ObjectPool.js'
             , 'bin/util/functions.js'
             , 'bin/util/Instance.js'
+            , 'bin/util/SmoothEdger.js'
             
             , 'bin/ui/UI.js'
             , 'bin/ui/BuildingCreateMenu.js'

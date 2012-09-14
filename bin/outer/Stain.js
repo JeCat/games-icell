@@ -88,14 +88,7 @@ yc.outer.Stain = yc.outer.PhysicalEntity.extend({
 
 		ctx.rotate(this.getRotation());
 		
-		for(var i=0;i<this.shapes.length;i++)
-		{
-			var shape = this.shapes[i] ;
-			if(shape.type=='polygon')
-			{
-				yc.util.drawPolygon(shape.points,ctx,'rgba(50,50,50,'+shape.density+')','rgba(100,100,100,'+shape.density+')',true) ;
-			}
-		}
+		this._super(ctx) ;
 		
 //		// 绘制调试辅助线
 //		if(yc.settings.outer.stain.dbg)
@@ -134,66 +127,15 @@ yc.outer.Stain = yc.outer.PhysicalEntity.extend({
 	, initWithScript: function(script){
 		
 		this._super(script) ;
-		
+
 		if('shapes' in script)
 		{
-			var world = cc.Director.getInstance()._runningScene.world ;
-			var bodyDef = new b2BodyDef();
-			bodyDef.type = b2Body.b2_dynamicBody;
-			bodyDef.position.Set(this.x/PTM_RATIO,this.y/PTM_RATIO) ;
-			bodyDef.allowSleep = true;
-			bodyDef.userData = this;
-			this.b2Body = world.CreateBody(bodyDef);
-			
-			for(var i=0;i<script.shapes.length;i++)
-			{
-				var shape = script.shapes[i] ;
-				var fixture = null ;
-				
-				if(shape.type=='polygon')
-				{
-					fixture = this._createB2PolygonFixtureDef(shape.points) ;
-				}
-				else
-				{
-					continue ;
-				}
-				
-				fixture.density = ('density' in shape)? shape.density: 0.5 ;
-				fixture.friction = ('friction' in shape)? shape.friction: 1 ;
-				fixture.friction = ('restitution' in shape)? shape.restitution: 1 ;
-				
-				this.b2Body.CreateFixture(fixture) ;
-			}
+			this.initWithScriptShapes(script.shapes) ;
 		}
-		
 
 		//this.b2Body.SetLinearDamping( this.b2Body.GetMass() * yc.settings.outer.stain.defaultMultipleLinearDamping ) ;
 		//this.b2Body.SetAngularDamping( this.b2Body.GetMass() * yc.settings.outer.stain.defaultMultipleAngularDamping ) ;
 	}
-	
-	/**
-	 * points 中的多边形顶点，必须是逆时针，并且为凸多边形
-	 */
-	, _createB2PolygonFixtureDef: function(points){
-
-		// 逆时针输入顶点
-		var vertices = [] ;
-		for(var i=0;i<points.length;i++)
-		{
-			vertices.push(new b2Vec2((points[i][0])/PTM_RATIO,(points[i][1])/PTM_RATIO)) ;
-		}
-		var shape = new b2PolygonShape() ;
-		shape.SetAsArray(vertices) ;
-		
-		// Define the dynamic body fixture.
-		var fixtureDef = new b2FixtureDef();
-		fixtureDef.shape = shape ;
-		
-		return fixtureDef ;
-	}
-	
-	
 
 	/**
 	 * 废弃不用的点相对多边形内外检测函数

@@ -13,7 +13,7 @@ yc.outer.PlayerLayer = cc.Layer.extend({
         
         // 细胞
         outerCell = this.cell = ins(yc.outer.Cell) ;
-        this.cell.initWithCircle(10,0,0,yc.settings.outer.cell.density) ;
+        this.cell.init() ;
         this.addChild(this.cell) ;
         cellOuter = this.cell ;
         
@@ -30,12 +30,13 @@ yc.outer.PlayerLayer = cc.Layer.extend({
     , onTouchesMoved: function(touches, event){
         if(this.followPoint)
         {
-            var cellPos = ins(yc.outer.Camera).offsetFocus() ;
+    		var wsize = cc.Director.getInstance().getWinSize() ;
+            // var cellPos = ins(yc.outer.Camera).offsetFocus() ;
             
             //var radian = yc.util.radianBetweenPoints(cellPos[0],cellPos[1],touches[0]._point.x,touches[0]._point.y) ;
             //this.cell.drive(radian) ;
             
-            this.cell.angle = yc.util.radianBetweenPoints(cellPos[0],cellPos[1],touches[0]._point.x,touches[0]._point.y) ;
+            this.cell.angle = yc.util.radianBetweenPoints(wsize.width/2,wsize.height/2,touches[0]._point.x,touches[0]._point.y) ;
             this.cell.updateVelocity() ;
         }
         

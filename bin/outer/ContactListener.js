@@ -3,16 +3,18 @@ yc.outer.ContactListener = function () {};
 
 yc.outer.ContactListener.prototype.BeginContact = function (contact)
 {
-	var a = contact.GetFixtureA().GetBody().GetUserData() ;
-	var b = contact.GetFixtureB().GetBody().GetUserData() ;
+	var A = contact.GetFixtureA() ;
+	var B = contact.GetFixtureB() ;
+	var a = A.GetBody().GetUserData() ;
+	var b = B.GetBody().GetUserData() ;
 	
 	if(a && a.constructor.className=='yc.outer.Cell' && b )
 	{
-		a.collide(b) ;
+		a.collide(b,A,B) ;
 	}
 	else if(b && b.constructor.className=='yc.outer.Cell' && a )
 	{
-		b.collide(a) ;
+		b.collide(a,B,A) ;
 	}
 }
 

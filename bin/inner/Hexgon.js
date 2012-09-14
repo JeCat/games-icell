@@ -124,22 +124,22 @@ function Hexgon()
 			switch(way)
 			{
 				case 'n' :
-					this.lines[way] = [this.points.A,this.points.B] ;
+					this.lines[way] = this.aAxes.vDirection==1? [this.points.A,this.points.B]: [this.points.D,this.points.E] ;
 					break ;
 				case 's' :
-					this.lines[way] = [this.points.D,this.points.E] ;
+					this.lines[way] = this.aAxes.vDirection==1? [this.points.D,this.points.E]: [this.points.A,this.points.B] ;
 					break ;
 				case 'wn' :
-					this.lines[way] = [this.points.F,this.points.A] ;
+					this.lines[way] = this.aAxes.vDirection==1? [this.points.F,this.points.A]: [this.points.F,this.points.E] ;
 					break ;
 				case 'en' :
-					this.lines[way] = [this.points.B,this.points.C] ;
+					this.lines[way] = this.aAxes.vDirection==1? [this.points.B,this.points.C]: [this.points.D,this.points.C] ;
 					break ;
 				case 'ws' :
-					this.lines[way] = [this.points.E,this.points.F] ;
+					this.lines[way] = this.aAxes.vDirection==1? [this.points.E,this.points.F]: [this.points.A,this.points.F] ;
 					break ;
 				case 'es' :
-					this.lines[way] = [this.points.C,this.points.D] ;
+					this.lines[way] = this.aAxes.vDirection==1? [this.points.C,this.points.D]: [this.points.C,this.points.B] ;
 					break ;
 			}
 		}

@@ -1,6 +1,6 @@
 yc.outer.PhysicalEntity = cc.Sprite.extend({
 
-	size: 10
+	size: 30
 	
     , x: 0
 	, y: 0
@@ -261,7 +261,81 @@ yc.outer.PhysicalEntity = cc.Sprite.extend({
 	, stopRun: function(){
 		this.accel = -0.1 ;
 	}
+
 	
+	/**
+	 * points 中的多边形顶点，必须是逆时针，并且为凸多边形
+	 */
+	, _createB2PolygonFixtureDef: function(points){
+
+		// 逆时针输入顶点
+		var vertices = [] ;
+		for(var i=0;i<points.length;i++)
+		{
+			vertices.push(new b2Vec2((points[i][0])/PTM_RATIO,(points[i][1])/PTM_RATIO)) ;
+		}
+		var shape = new b2PolygonShape() ;
+		shape.SetAsArray(vertices) ;
+		
+		// Define the dynamic body fixture.
+		var fixtureDef = new b2FixtureDef();
+		fixtureDef.shape = shape ;
+		
+		return fixtureDef ;
+	}
+	
+	
+	, initWithScriptShapes: function(shapes){
+
+		var world = cc.Director.getInstance()._runningScene.world ;
+		var bodyDef = new b2BodyDef();
+		bodyDef.type = b2Body.b2_dynamicBody;
+		bodyDef.position.Set(this.x/PTM_RATIO,this.y/PTM_RATIO) ;
+		bodyDef.allowSleep = true;
+		bodyDef.userData = this;
+		this.b2Body = world.CreateBody(bodyDef);
+		
+		for(var i=0;i<shapes.length;i++)
+		{
+			var shape = shapes[i] ;
+			var fixture = null ;
+			
+			if(shape.type=='polygon')
+			{
+				fixture = this._createB2PolygonFixtureDef(shape.points) ;
+			}
+			else
+			{
+				continue ;
+			}
+			
+			fixture.density = ('density' in shape)? shape.density: 0.5 ;
+			fixture.friction = ('friction' in shape)? shape.friction: 1 ;
+			fixture.friction = ('restitution' in shape)? shape.restitution: 1 ;
+			
+			if( 'userData' in shape)
+			{
+				fixture.userData = shape.userData ;
+			}
+			
+			this.b2Body.CreateFixture(fixture) ;
+		}
+	}
+	
+	, draw: function(ctx){
+		
+		if('shapes' in this)
+		{
+			for(var i=0;i<this.shapes.length;i++)
+			{
+				var shape = this.shapes[i] ;
+				if(shape.type=='polygon')
+				{
+					yc.util.drawPolygon(shape.points,ctx,'rgba(50,50,50,'+shape.density+')','rgba(100,100,100,'+shape.density+')',true) ;
+				}
+			}
+		}
+	}
 	
 	, destroy: function(){
 		
