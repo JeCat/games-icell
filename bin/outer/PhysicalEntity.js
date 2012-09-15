@@ -45,13 +45,6 @@ yc.outer.PhysicalEntity = cc.Sprite.extend({
 		
 		var world = cc.Director.getInstance()._runningScene.world ;
 		
-        // Define the dynamic body.
-        //Set up a 1m squared box in the physics world
-        var b2BodyDef = Box2D.Dynamics.b2BodyDef
-            , b2Body = Box2D.Dynamics.b2Body
-            , b2FixtureDef = Box2D.Dynamics.b2FixtureDef
-            , b2CircleShape = Box2D.Collision.Shapes.b2CircleShape ;
-
         var bodyDef = new b2BodyDef();
         bodyDef.type = b2Body.b2_dynamicBody;
         bodyDef.position.Set(x / PTM_RATIO, y / PTM_RATIO);
@@ -72,14 +65,6 @@ yc.outer.PhysicalEntity = cc.Sprite.extend({
 		
 		var world = cc.Director.getInstance()._runningScene.world ;
 		
-        // Define the dynamic body.
-        //Set up a 1m squared box in the physics world
-        var b2BodyDef = Box2D.Dynamics.b2BodyDef
-            , b2Body = Box2D.Dynamics.b2Body
-            , b2FixtureDef = Box2D.Dynamics.b2FixtureDef
-            , b2Vec2 = Box2D.Common.Math.b2Vec2
-            , b2PolygonShape = Box2D.Collision.Shapes.b2PolygonShape ;
-
         var bodyDef = new b2BodyDef();
         bodyDef.type = b2Body.b2_dynamicBody;
         bodyDef.position.Set(x / PTM_RATIO, y / PTM_RATIO);
@@ -289,16 +274,36 @@ yc.outer.PhysicalEntity = cc.Sprite.extend({
 		return fixtureDef ;
 	}
 	
+	, _createB2Body: function(){
+
+		// 清理 body 中的fixture
+		if(this.b2Body)
+		{
+			var fixture = this.b2Body.GetFixtureList() ;
+			do{
+				this.b2Body.DestroyFixture(fixture) ;
+				fixture = fixture.GetNext() ;
+			} while(fixture) ;
+		}
+
+		// 新建body
+		else
+		{
+			var world = cc.Director.getInstance()._runningScene.world ;
+			var bodyDef = new b2BodyDef();
+			bodyDef.type = b2Body.b2_dynamicBody;
+			bodyDef.position.Set(this.x/PTM_RATIO,this.y/PTM_RATIO) ;
+			bodyDef.allowSleep = true;
+			bodyDef.userData = this;
+			this.b2Body = world.CreateBody(bodyDef);
+		}
+
+		return this.b2Body ;
+	}
 	
 	, initWithScriptShapes: function(shapes){
 
-		var world = cc.Director.getInstance()._runningScene.world ;
-		var bodyDef = new b2BodyDef();
-		bodyDef.type = b2Body.b2_dynamicBody;
-		bodyDef.position.Set(this.x/PTM_RATIO,this.y/PTM_RATIO) ;
-		bodyDef.allowSleep = true;
-		bodyDef.userData = this;
-		this.b2Body = world.CreateBody(bodyDef);
+		this._createB2Body() ;
 		
 		for(var i=0;i<shapes.length;i++)
 		{

@@ -9,8 +9,12 @@ yc.outer.PlayerLayer = cc.Layer.extend({
         
         this.setAnchorPoint(cc.p(0,0)) ;
 	    
-        // 细胞
         outerCell = this.cell = ins(yc.outer.Cell) ;
+
+        // 初始化细胞内部
+        this.cell.layerInner.cell.newborn() ;
+
+        // 初始化细胞外壳
         this.cell.init() ;
         this.addChild(this.cell) ;
         cellOuter = this.cell ;

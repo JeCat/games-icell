@@ -15,19 +15,9 @@ yc.outer.Cell = yc.outer.PhysicalEntity.extend({
 		this.shell.draw = function(ctx){
 
 			ctx.globalAlpha = this.getOpacity()/255 ;
+			ctx.lineCap = "round" ;
 			
-			yc.util.drawPolygon(cell._points,ctx,'white') ;
-			
-//			ctx.beginPath() ;
-//			ctx.strokeStyle = 'white' ;
-//			for(var i=0;i<cell.boundaryLines.length;i++)
-//			{
-//				var line = cell.boundaryLines[i] ;
-//				ctx.moveTo(line[0][0],-line[0][1]) ;
-//				ctx.lineTo(line[1][0],-line[1][1]) ;
-//			}
-//			ctx.stroke() ;
-//			ctx.closePath() ;
+			yc.util.drawPolygon(cell._points,ctx,'white',"rgba(255,255,255,0.5)",true) ;
 		}
 		this.addChild(this.shell) ;
 	}
@@ -39,9 +29,6 @@ yc.outer.Cell = yc.outer.PhysicalEntity.extend({
 	, init: function(){
 
 		var innerCell = this.layerInner.cell ;
-		
-	    // 新玩家初始化一个新细胞 
-		innerCell.newborn() ;
 	    
         // this.cell.initWithCircle(10,0,0,yc.settings.outer.cell.density) ;
 

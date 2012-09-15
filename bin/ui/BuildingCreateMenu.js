@@ -70,6 +70,7 @@ yc.ui.BuildingCreateMenu = function(){
 			}
 			, constructFunc: function(hexgon){
 				ins(yc.inner.Cell).grow(hexgon.x,hexgon.y) ;
+				ins(yc.outer.Cell).init() ;
 				menu.close() ;
 			}
 			, isUnlock: function(){
