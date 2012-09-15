@@ -27,15 +27,13 @@ yc.outer.PlayerLayer = cc.Layer.extend({
     }
     
     , onTouchesMoved: function(touches, event){
+        
+        var wsize = cc.Director.getInstance().getWinSize() ;
+        this.cell.rotationTarget = yc.util.radianBetweenPoints(wsize.width/2,wsize.height/2,touches[0]._point.x,touches[0]._point.y) ;
+
         if(this.followPoint)
         {
-    		var wsize = cc.Director.getInstance().getWinSize() ;
-            // var cellPos = ins(yc.outer.Camera).offsetFocus() ;
-            
-            //var radian = yc.util.radianBetweenPoints(cellPos[0],cellPos[1],touches[0]._point.x,touches[0]._point.y) ;
-            //this.cell.drive(radian) ;
-            
-            this.cell.angle = yc.util.radianBetweenPoints(wsize.width/2,wsize.height/2,touches[0]._point.x,touches[0]._point.y) ;
+            this.cell.angle = this.cell.rotationTarget ;
             this.cell.updateVelocity() ;
         }
         

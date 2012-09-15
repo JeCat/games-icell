@@ -118,7 +118,12 @@ yc.outer.PhysicalEntity = cc.Sprite.extend({
 		{
 			var p = this.b2Body.GetPosition() ;
 			this.setWorldPosition(p.x*PTM_RATIO,p.y*PTM_RATIO) ;
-            this.setRotation(-1*this.b2Body.GetAngle()) ;
+			var r = (-this.b2Body.GetAngle())%(Math.PI*2) ;
+			if(r<0)
+			{
+				r+= Math.PI*2 ;
+			}
+            this.setRotation( r ) ;
 		}
 	}
 	

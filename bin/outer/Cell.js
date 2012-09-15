@@ -3,6 +3,7 @@ yc.outer.Cell = yc.outer.PhysicalEntity.extend({
 	ctor: function(){
 		this._super() ;
 		this.maxSpeed = yc.settings.outer.player.defaultMaxSpeed ;
+		this.rotationTarget = 0 ;
 
 		// 细胞内部视图
 		this.layerInner = ins(yc.inner.InnerLayer) ;
@@ -235,6 +236,29 @@ yc.outer.Cell = yc.outer.PhysicalEntity.extend({
     	}
     	
     	this.speed = speed ;
+    }
+
+    , setRotation: function(r){
+
+    	this._super(r) ;
+
+    	if( Math.abs(this.rotationTarget-r) < 0.1 )
+    	{
+    		// 停止旋转
+    		this.b2Body.SetAngularVelocity(0) ;
+    	}
+    	else
+    	{
+    		// 设置角速度
+	        if( this.rotationTarget>r )
+	        {
+	            this.b2Body.SetAngularVelocity( this.rotationTarget-r>Math.PI? Math.PI*2: -Math.PI*2 ) ;
+	        }
+	        else
+	        {
+	            this.b2Body.SetAngularVelocity( r-this.rotationTarget >Math.PI? -Math.PI*2: Math.PI*2 ) ;
+	        }
+    	}
     }
     
 });  

@@ -16,7 +16,7 @@ yc.settings = {
 	    , height: 676
 	    
 	    // 当放大倍数大于 zoom 时，显示细胞内部
-	    , displayZoom: 3
+	    , displayZoom: 2
 	    
 	    , zoom: 5
 	    

@@ -73,7 +73,7 @@ yc.GameLayer = cc.Layer.extend({
 			{
 				this._parent.layerPlayer.cell.shell.stopAction(this.actFadeCellOuter) ;
 			}
-			this.actFadeCellOuter = cc.FadeTo.create(1,30) ;
+			this.actFadeCellOuter = cc.FadeTo.create(0.5,30) ;
 			this._parent.layerPlayer.cell.shell.runAction(this.actFadeCellOuter) ;
 		}
 
@@ -86,7 +86,7 @@ yc.GameLayer = cc.Layer.extend({
 			{
 				this._parent.layerPlayer.cell.layerInner.stopAction(this.actFadeCellInner) ;
 			}
-			this.actFadeCellInner = cc.FadeOut.create(0.5) ;
+			this.actFadeCellInner = cc.FadeOut.create(1) ;
 			this._parent.layerPlayer.cell.layerInner.runAction(this.actFadeCellInner) ;
 
 			// 显示细胞外壳
