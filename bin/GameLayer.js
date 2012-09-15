@@ -22,8 +22,10 @@ yc.GameLayer = cc.Layer.extend({
 		    {
 		    	layer.stopAction(layer.actScale)
 		    }
-		    var scale = 1-value/120*0.3 ;
-		    
+		    var scale = 1+value/120*0.3 ;
+		    if(navigator.platform.indexOf('Mac') !== -1)
+		    	scale = 1-value/120*0.3 ;
+
 		    // 一次缩放的速度，不超过3倍
 		    if(scale<0.33)
 		    {
