@@ -1,7 +1,7 @@
 yc.inner.monster.VirusCluster = cc.Sprite.extend({
     
     totalNum: 10
-    , num: 10
+    , num: 2
     
     , stay: null
     , lv: 1
@@ -34,9 +34,9 @@ yc.inner.monster.VirusCluster = cc.Sprite.extend({
        
         this.release() ; // 立即执行第一次
 
-        if(this.num>1)
+        if(this.num>0)
         {
-            this.actRelease = yc.actions.Timer.create(yc.settings.inner.virus.defaultReleaseDt,this.num-1,this,this.release) ; 
+            this.actRelease = yc.actions.Timer.create(yc.settings.inner.virus.defaultReleaseDt,this.num,this,this.release) ; 
             this.runAction(this.actRelease) ;
         }
     }

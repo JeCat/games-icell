@@ -92,7 +92,7 @@ yc.outer.Cell = yc.outer.PhysicalEntity.extend({
 		
 		
 		this._points = edger.build(scale*yc.settings.inner.hexgonSideLength*2) ;
-		log(this._points) ;
+		//log(this._points) ;
 		
 		this.initWithScriptShapes(this.shapes) ;
 		
