@@ -73,7 +73,6 @@ yc.outer.VirusCluster = yc.outer.PhysicalEntity.extend({
 			ctx.stroke() ;
 			ctx.closePath() ;
 		}
-
 	}
 	
 	, update: function(dt){

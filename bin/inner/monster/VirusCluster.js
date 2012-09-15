@@ -31,11 +31,14 @@ yc.inner.monster.VirusCluster = cc.Sprite.extend({
         
         var layer  = ins(yc.inner.monster.VirusLayer) ;
         layer.addChild(this) ;
-
-        this.actRelease = yc.actions.Timer.create(yc.settings.inner.virus.defaultReleaseDt,this.num-1,this,this.release) ;        
+       
         this.release() ; // 立即执行第一次
-        this.runAction(this.actRelease) ;
-        
+
+        if(this.num>1)
+        {
+            this.actRelease = yc.actions.Timer.create(yc.settings.inner.virus.defaultReleaseDt,this.num-1,this,this.release) ; 
+            this.runAction(this.actRelease) ;
+        }
     }
 
     , release: function(){

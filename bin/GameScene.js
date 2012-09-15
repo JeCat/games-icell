@@ -3,10 +3,10 @@ yc.GameScene = cc.Scene.extend({
 	
 	ctor: function(){
 		// 场景的世界边界， null 表示不限
-		this.lft = -5000 ;
-		this.rgt = 5000 ;
-		this.btm = -1500 ;
-		this.top = 1500 ;
+		this.lft = null ;
+		this.rgt = null ;
+		this.btm = null ;
+		this.top = null ;
 		this.b2BodyLft = null ;
 		this.b2BodyRgt = null ;
 		this.b2BodyBtm = null ;
@@ -30,6 +30,14 @@ yc.GameScene = cc.Scene.extend({
 		var wsize = cc.Director.getInstance().getWinSize() ;
 		this.layerGame.setPosition(cc.p(wsize.width/2,wsize.height/2)) ;
 		this.addChild(this.layerGame) ;
+
+		// 层：玻片
+		this.layerGlassSlide = cc.LayerColor.create(cc.c4(255,255,255,50),this.rgt-this.lft,this.top-this.btm);  
+		this.layerGlassSlide.setAnchorPoint(cc.p(0,0)) ;
+		this.layerGlassSlide.x = this.lft ;
+		this.layerGlassSlide.y = this.btm ;
+		this.layerGlassSlide.transform = yc.outer.Camera.transformSprite
+		this.layerGame.addChild(this.layerGlassSlide) ;
 		
 		// 层：污渍
 		this.layerStains = new cc.Layer() ;

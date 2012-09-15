@@ -149,8 +149,8 @@ yc.outer.Cell = yc.outer.PhysicalEntity.extend({
 	 */
 	, collide: function(entity,fixture,otherFixture){
 		
-		// 病毒群
-		if(entity.constructor.className=='yc.outer.VirusCluster')
+		// 病毒群 或 boss
+		if(entity.constructor.className=='yc.outer.VirusCluster' || entity.constructor.className=='yc.outer.Boss' )
 		{
 			entity.touchingCell(this,fixture.GetUserData()) ;
 		}

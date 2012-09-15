@@ -2,8 +2,8 @@ yc.levels.FreeWorld = yc.GameScene.extend({
 	
 	onEnter: function(){
 
-		this.lft = -3000 ;
-		this.rgt = 3000 ;
+		this.lft = -800 ;
+		this.rgt = 6000 ;
 		this.top = 1500 ;
 		this.btm = -1500 ;
 	
@@ -113,10 +113,8 @@ yc.levels.FreeWorld = yc.GameScene.extend({
 		
 
 		// boss
-        var boss = new yc.outer.Boss() ;
+        var boss = new yc.outer.Boss(5800,200) ;
 		boss.lv = 5 ;
-        boss.x = 9500 ;
-        boss.y = 200 ;
         
         // boss掉落的基因
         boss.genes.push(yc.dna.genes['tower:firepower']) ;
