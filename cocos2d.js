@@ -25,9 +25,6 @@ yc.actions = {} ;
 var PTM_RATIO = 32;
 var TAG_SPRITE_MANAGER = 1;
 
-
-var $ = jquery ;
-
 (function () {
     var d = document;
     var c = {

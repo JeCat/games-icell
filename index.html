@@ -5,7 +5,7 @@
     <title>you,cell</title>
 	<link rel="stylesheet" href="jquery.ui/jquery-ui-1.8.16.full.css"></link>
 	<link rel="stylesheet" href="style.css"></link>
-	<script src="jquery-1.7.1.js"></script>
+	<script src="jquery.js"></script>
 	<script src="jquery.ui/jquery-ui-1.8.16.full.min.js"></script>
 	<script src="jquery.json.js"></script>
 	<script src="cocos2d.js"></script>
@@ -266,25 +266,31 @@
 	
 	<!-- 场景：关卡选择 -->
 	<div id="ui-levels-selector" style="position:absolute;display:none">
-		<h1>I, Cell</h1>
-		<p>You are a cell under someone's microscope ……</p>
-		<ul>
-			<li>
-				<button title="正在苦逼中……" disabled>故事模式</button>
-			</li>
-			<br />
-			<li>
-				<button onclick="cc.Director.getInstance().replaceScene( new yc.levels.FreeWorld ); $('#ui-levels-selector').toggle();">
-					随机关卡
-				</button>
-			</li>
-			<li>
-				<button onclick="cc.Director.getInstance().replaceScene( new yc.GameScene ); $('#ui-levels-selector').toggle();">
-					建造模式（空白关卡）
-				</button>
-			</li>
-		</ul>
-	</div>
+		<div id="ui-levels-selector-title">
+			<h1>I, Cell</h1>
+			<p>You are a cell under someone's microscope ……</p>
+		</div>
+		<div id="ui-levels-selector-login">
 
+		</div>
+		<div id="ui-levels-selector-menu">
+			<ul>
+				<li>
+					<button title="正在苦逼中……" disabled>故事模式</button>
+				</li>
+				<br />
+				<li>
+					<button onclick="cc.Director.getInstance().replaceScene( new yc.levels.FreeWorld ); $('#ui-levels-selector').toggle();">
+						随机关卡
+					</button>
+				</li>
+				<li>
+					<button onclick="cc.Director.getInstance().replaceScene( new yc.GameScene ); $('#ui-levels-selector').toggle();">
+						建造模式（空白关卡）
+					</button>
+				</li>
+			</ul>
+		</div>
+	</div>
 </body>
 </html>
