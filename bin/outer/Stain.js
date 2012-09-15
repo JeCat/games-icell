@@ -86,27 +86,39 @@ yc.outer.Stain = yc.outer.PhysicalEntity.extend({
 
 		ctx.lineJoin = 'round' ;
 
-		ctx.rotate(this.getRotation());
+		ctx.rotate(this.getRotation()) ;
 		
 		this._super(ctx) ;
 		
-//		// 绘制调试辅助线
-//		if(yc.settings.outer.stain.dbg)
-//		{
-//			ctx.fillStyle = 'red' ;
-//			ctx.arc(0,0, 2, 0, 2*Math.PI, false) ;
-//			ctx.stroke() ;
-//
-//			ctx.fillText(this.id,-4,-2);
-//			
-//			for ( var p = 0; p < this.points.length; p++) {
-//				var point = this.points[p] ;
-//				ctx.fillText(point.idx,point.x-6,-point.y+10);
-//			}
-//
-//			// 绘制调试辅助线
-//			this.testCollision( ins(yc.outer.Cell), ctx ) ;
-//		}
+		// 绘制调试信息
+		if(yc.settings.outer.stain.dbg)
+		{
+			ctx.fillStyle = 'red' ;
+			ctx.moveTo(0,0) ;
+			ctx.arc(0,0, 1, 0, 2*Math.PI, false) ;
+			ctx.stroke() ;
+
+			ctx.fillText('id:'+this.id,-10,-3);
+			
+
+			// 绘制点
+			ctx.fillStyle = 'green' ;
+			if('shapes' in this)
+			{
+				for(var si=0;si<this.shapes.length;si++)
+				{
+					var shape = this.shapes[si] ;
+					if(shape.type=='polygon')
+					{
+						for(var pi=0;pi<shape.points.length;pi++)
+						{
+							var pt = shape.points[pi] ;
+							ctx.fillText('S'+si+'; P'+pi,pt[0]-10,-pt[1]-3);
+						}
+					}
+				}
+			}
+		}
 
 	}
 	

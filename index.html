@@ -168,7 +168,9 @@
 		<div id='tabs-world-editer'>
 			<ul>
 				<li><a href="#panel-world">世界</a></li>
-				<li><a href="#panel-stains">污渍</a></li>
+				<li><a href="#panel-stains">地形</a></li>
+				<li><a href="#">贴图</a></li>
+				<li><a href="#">场景道具</a></li>
 				<li><a href="#panel-roles">角色</a></li>
 				<li><a href="#panel-cell">细胞</a></li>
 				<li><a href="#panel-balance">平衡</a></li>
@@ -188,8 +190,8 @@
 					
 					<button onclick="yc.settings.outer.box2d.dbg=!yc.settings.outer.box2d.dbg; $('#debugCanvas').toggle()">Debug Draw</button>
 					
-					<button onclick="yc.settings.player.nohurt=!yc.settings.player.nohurt">无敌</button>
-					<button onclick="yc.settings.player.stealth=!yc.settings.player.stealth">隐身</button>
+					<label><input type="checkbox" onchange="yc.settings.player.nohurt=$(this).attr('checked')?true:false" checked />无敌</label>
+					<label><input type="checkbox" onchange="yc.settings.player.stealth=$(this).attr('checked')?true:false" checked />隐身</label>
 					| <button onclick="ins(yc.outer.Cell).spurt(100)">冲刺</button>
 					x:<input value="" id='ipt-pos-x' style='width:40px' />
 					y:<input value="" id='ipt-pos-y' style='width:40px' />
@@ -201,19 +203,33 @@
 				<button onclick="ins(yc.ui.editer.WorldEditer).refreshStains()">刷新</button>
 				<button onclick="ins(yc.ui.editer.WorldEditer).createStain()">+ 污渍</button>
 				<button onclick="ins(yc.ui.editer.WorldEditer).removeStain()">- 污渍</button>
-				| <button onclick="ins(yc.ui.editer.WorldEditer).createStainPoint()">+ 点</button>
-				<button onclick="ins(yc.ui.editer.WorldEditer).removeStainPoint()">- 点</button>
-				| <button onclick="yc.settings.outer.stain.dbg=!yc.settings.outer.stain.dbg">dbg</button>
+				| <label><input type="checkbox" onchange="yc.settings.outer.stain.dbg=$(this).attr('checked')?true:false" />debug info</label>
 				<div>
-					<select multiple=true size="20" id="lst-stains" style="float:left;width:150px"></select>
-					<div style="float:left">
-						x:<input id='ipt-stain-x' style='width:70px' value='' /><br />
-						y:<input id='ipt-stain-y' style='width:70px' value='' /><br />
-						减速：<input id='ipt-stain-damping' style='width:50px' value='' /><br />
-						<select multiple=true size="12" id="lst-stain-points" style="width:150px"></select>
+					<div style="float:left;">
+						污渍：<br />
+						<select multiple=true size="19" id="lst-stains" style="width:150px"></select>
 					</div>
-					<div style="float:left">
-						x:<input id='ipt-stain-point-x' style='width:50px' value='' /><br />
+					<div style="float:left; margin-left:20px">
+						x:<input id='ipt-stain-x' style='width:70px' value='' />
+						y:<input id='ipt-stain-y' style='width:70px' value='' /><br />
+						旋转： <input id='ipt-stain-rotation' style='width:50px' value='' />
+						密度： <input id='ipt-stain-density' style='width:50px' value='' />
+
+						<hr />
+
+						形状：
+						<button onclick="ins(yc.ui.editer.WorldEditer).createStainPoint()">+ 形状</button>
+						<button onclick="ins(yc.ui.editer.WorldEditer).removeStainPoint()">- 形状</button><br />
+						<select multiple=true size="3" id="lst-stain-shapes" style="width:150px"></select><br />
+
+						多边形顶点：
+						<button onclick="ins(yc.ui.editer.WorldEditer).createStainPoint()">+ 点</button>
+						<button onclick="ins(yc.ui.editer.WorldEditer).removeStainPoint()">- 点</button>
+						<br />
+						<select multiple=true size="6" id="lst-stain-points" style="width:150px"></select><br />
+
+						顶点坐标：<br />
+						x:<input id='ipt-stain-point-x' style='width:50px' value='' />
 						y:<input id='ipt-stain-point-y' style='width:50px' value='' /><br />
 					</div>
 					<div style="clear:both"></div>
@@ -251,7 +267,7 @@
 	<!-- 场景：关卡选择 -->
 	<div id="ui-levels-selector" style="position:absolute;display:none">
 		<h1>I, Cell</h1>
-		<p>You are a cell ……</p>
+		<p>You are a cell under someone's microscope ……</p>
 		<ul>
 			<li>
 				<button title="正在苦逼中……" disabled>故事模式</button>

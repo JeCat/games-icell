@@ -54,25 +54,47 @@ yc.ui.editer.WorldEditer = function(){
 				, value: stain.id
 				, click: function(stain){
 					editer.selectedStain = stain ;
+					editer.selectedStainShape = null ;
 					editer.selectedStainPoint = null ;
 					
 					editer.ui.find('#ipt-stain-x').val(stain.x) ;
 					editer.ui.find('#ipt-stain-y').val(stain.y) ;
-					editer.ui.find('#ipt-stain-damping').val(stain.damping) ;
+					editer.ui.find('#ipt-stain-rotation').val(stain.getRotation()) ;
+					editer.ui.find('#ipt-stain-density').val(stain.density) ;
 					
 
-					editer._loadOptions(editer.ui.find('#lst-stain-points'),stain.points,function(point){
-					
+					editer.ui.find('#lst-stain-points').html('') ;
+					editer.ui.find('#ipt-stain-point-x').val('') ;
+					editer.ui.find('#ipt-stain-point-y').val('') ;
+
+					// 加载形状list
+					editer._loadOptions(editer.ui.find('#lst-stain-shapes'),stain.shapes,function(shape,si){
+						
+						editer.selectedStainShape = shape ;
+						editer.selectedStainPoint = null ;
+
 						return {
-							text: '[idx:'+point.idx+']'+point.x.toFixed(1)+','+point.y.toFixed(1)
-							, value: point.idx
-							, click: function(point){
-									editer.selectedStainPoint = point ;
-									editer.ui.find('#ipt-stain-point-x').val(point.x.toFixed(0)) ;
-									editer.ui.find('#ipt-stain-point-y').val(point.y.toFixed(0)) ;
+							text: '[idx:' + si + '] ' + shape.type
+							, value: si
+							, click: function(shape){
+
+								editer._loadOptions(editer.ui.find('#lst-stain-points'),shape.points,function(point,pi){
+								
+									return {
+										text: '[idx:'+pi+']'+point[0].toFixed(0)+','+point[1].toFixed(0)
+										, value: pi
+										, click: function(point){
+												editer.selectedStainPoint = point ;
+												editer.ui.find('#ipt-stain-point-x').val(point[0].toFixed(0)) ;
+												editer.ui.find('#ipt-stain-point-y').val(point[1].toFixed(0)) ;
+										}
+									}
+								}) ;
+
 							}
 						}
 					}) ;
+
 				}
 			}
 		}) ;
