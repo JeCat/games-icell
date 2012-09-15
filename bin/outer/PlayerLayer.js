@@ -15,7 +15,8 @@ yc.outer.PlayerLayer = cc.Layer.extend({
         this.addChild(this.cell) ;
         cellOuter = this.cell ;
         
-        
+        this.hMoving = 0 ;
+        this.vMoving = 0 ;
         
         this.followPoint = false ;
     }
@@ -47,41 +48,85 @@ yc.outer.PlayerLayer = cc.Layer.extend({
     , onKeyUp:function (key) {
         switch(key)
         {
-        	// left
-        	case 37 :
-        		this.cell.stopTurn('left') ;
-        		break;
-        	
-        	// up
-        	case 38 :
-        		this.cell.stopRun() ;
-        		break;
-        		
-        	// right
-        	case 39 :
-        		this.cell.stopTurn('right') ;
-        		break;
+            // left
+            case 65 : // s
+            case 37 :
+                var prop = 'hMoving' ;
+                var v = -1 ;
+                break;
+            
+            // up
+            case 87 : // w
+            case 38 :
+                var prop = 'vMoving' ;
+                var v = 1 ;
+                break;
+                
+            // right
+            case 68 : // d
+            case 39 :
+                var prop = 'hMoving' ;
+                var v = 1 ;
+                break;
+
+            // down
+            case 83 : // s 
+            case 40 :
+                var prop = 'vMoving' ;
+                var v = -1 ;
+                break;
         }
+
+        if( this[prop]==v )
+        {
+            this[prop] = 0 ;
+        }
+
+        this.updateCellMoving() ;
     }
     
-    , onKeyDown:function (key) { 
-    	//log(key) ;
-        switch(key)
+    , onKeyDown:function (key) {
+    	switch(key)
         {
-        	// left
-        	case 37 :
-        		this.cell.turn('left') ;
-        		break;
-        	
-        	// up
-        	case 38 :
-        		this.cell.run() ;
-        		break;
-        		
-        	// right
-        	case 39 :
-        		this.cell.turn('right') ;
-        		break;
+            // left
+            case 65 : // s
+            case 37 :
+                this.hMoving = -1 ;
+                break;
+            
+            // up
+            case 87 : // w
+            case 38 :
+                this.vMoving = 1 ;
+                break;
+                
+            // right
+            case 68 : // d
+            case 39 :
+                this.hMoving = 1 ;
+                break;
+
+            // down
+            case 83 : // s 
+            case 40 :
+                this.vMoving = -1 ;
+                break;
+        }
+
+        this.updateCellMoving() ;
+    }
+
+    , updateCellMoving: function(){
+
+        if(!this.hMoving&&!this.vMoving)
+        {
+            this.cell.stopRun() ;
+        }
+        else
+        {
+            this.cell.angle = yc.util.radianBetweenPoints(0,0,this.hMoving,this.vMoving) ;
+            this.cell.run(4) ;
+            this.cell.updateVelocity() ;
         }
     }
     
