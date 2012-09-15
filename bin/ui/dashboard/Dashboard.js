@@ -48,7 +48,15 @@ yc.ui.dashboard.Dashboard = cc.Layer.extend({
         menu.setPosition(new cc.p(0,0)) ;
        
 		
-		
+		// 根据关卡中已有的公式创建label
+		var formulas = ins(yc.inner.ProteinFormulas).mapFormulas ;
+		for(var name in formulas)
+		{
+			var fml = formulas[name] ;
+
+            this.labelProteins[name] = this._createLabel("♫ 0",new cc.Color3B(fml.rgb[0],fml.rgb[1],fml.rgb[2])) ;
+            this._createSeparator(10) ;
+		}
 		
 		// 调整布局
 		this.layout() ;

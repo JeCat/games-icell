@@ -52,15 +52,6 @@ yc.levels.FreeWorld = yc.GameScene.extend({
 		ins(yc.dna.DNA).obtainGene(yc.dna.genes['grow']) ;
 		
 		// ---------------
-		// 初始化基本场景
-		this._super() ;
-		
-		// 创建各种角色
-		this.randomCreateEntities(yc.outer.VirusCluster,30,this.layerRoles) ;
-		this.randomCreateEntities(yc.outer.AminoAcid,30,this.layerRoles) ;
-		this.randomCreateEntities(yc.outer.Stain,30,this.layerStains) ;
-		
-		// ---------------
 		// 初始化资源
 		//  合成公式
 		ins(yc.inner.ProteinFormulas)
@@ -94,6 +85,16 @@ yc.levels.FreeWorld = yc.GameScene.extend({
 		        , materials: {red:3,blue:3}
 		        , rgb: [255,0,255]
 		    }) ;
+		
+		
+		// ---------------
+		// 初始化基本场景
+		this._super() ;
+		
+		// 创建各种角色
+		this.randomCreateEntities(yc.outer.VirusCluster,30,this.layerRoles) ;
+		this.randomCreateEntities(yc.outer.AminoAcid,30,this.layerRoles) ;
+		this.randomCreateEntities(yc.outer.Stain,30,this.layerStains) ;
 		
 		this._initBoss() ;
 		
