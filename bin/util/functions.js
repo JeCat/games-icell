@@ -32,7 +32,7 @@ yc.util.radianBetweenPoints = function(p1X,p1Y,p2X,p2Y)
         }
     }
     
-    if(Number.isNaN(radian))
+    if(isNaN(radian))
     {
     	radian = 0 ;
     }
