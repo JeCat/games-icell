@@ -198,7 +198,7 @@ class SaeTOAuthV2 {
 		$token = json_decode($response, true);
 		if ( is_array($token) && !isset($token['error']) ) {
 			$this->access_token = $token['access_token'];
-			$this->refresh_token = $token['refresh_token'];
+			//$this->refresh_token = $token['refresh_token'];
 		} else {
 			throw new OAuthException("get access token failed." . $token['error']);
 		}

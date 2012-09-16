@@ -20,11 +20,12 @@ if ($token) {
 	$_SESSION['token'] = $token;
 	setcookie( 'weibojs_'.$o->client_id, http_build_query($token) );
 ?>
-授权完成,<a href="weibolist.php">进入你的微博列表页面</a><br />
+
+Login success! ^_^<a href="<?php echo GAME_URL?>">Go to your cell world!</a><br />
 <?php
 } else {
 ?>
-授权失败。
+Login failed... -_-! <a href="/">Try again ?</a>
 <?php
 }
 ?>
