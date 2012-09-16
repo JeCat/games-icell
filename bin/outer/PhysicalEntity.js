@@ -372,6 +372,20 @@ yc.outer.PhysicalEntity = cc.Sprite.extend({
 				if(shape.type=='polygon')
 				{
 					yc.util.drawPolygon(shape.points,ctx,'rgba('+shape.borderColor+','+shape.density+')','rgba('+shape.color+','+shape.density+')',true) ;
+
+					// 文本
+					if( shape.text )
+					{
+						ctx.save() ;
+
+						ctx.textBaseline = 'middle' ;
+						ctx.textAlign = 'center' ;
+						ctx.font = shape.textStyle ;
+						ctx.fillStyle = "rgba("+shape.textColor+")" ;
+						ctx.fillText(shape.text,0,0) ;
+
+						ctx.restore() ;
+					}
 				}
 			}
 		}

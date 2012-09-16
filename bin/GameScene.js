@@ -480,6 +480,9 @@ yc.GameScene = cc.Scene.extend({
 						, borderColor: "80,80,80"		// 边界颜色
 						// 多边形的顶点
 						, points: [ [-50,50], [-60,-75], [23,-55], [23,65] ]
+						, text: null
+						, textStyle: "normal 16px san-serif"
+						, textColor: "0,0,0,1"
 					}
 					, {
 						type: 'polygon'			// 类型 circle, polygon
@@ -488,6 +491,9 @@ yc.GameScene = cc.Scene.extend({
 						, restitution: 1		// 弹性
 						// 多边形的顶点
 						, points: [ [-150,20], [-40,-25], [33,-25] ]
+						, text: null
+						, textStyle: "normal 16px san-serif"
+						, textColor: "0,0,0,1"
 					}
 				]
 			}
