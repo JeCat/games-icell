@@ -145,7 +145,6 @@ yc.GameScene = cc.Scene.extend({
 	, _buildWall: function(fixDef,bodyDef,wall){
 		if( this[wall] )
 		{
-			// 圆形 未实现
 		}
 		else
 		{
@@ -246,7 +245,7 @@ yc.GameScene = cc.Scene.extend({
 			{
 				this[wall] = script.world.boundary[wall] ;
 			}
-			this.createWalls() ;
+			this._createWalls() ;
 		}
 		
 		
@@ -267,7 +266,14 @@ yc.GameScene = cc.Scene.extend({
 				{
 					var ins = new className ;
 					ins.initWithScript(script[key][i]) ;
-					this.layerRoles.addChild(ins) ;
+					if(className===yc.outer.Stain)
+					{
+						this.layerStains.addChild(ins) ;
+					}
+					else
+					{
+						this.layerRoles.addChild(ins) ;
+					}
 				}
 			}
 		}
@@ -343,20 +349,20 @@ yc.GameScene = cc.Scene.extend({
 		// 氨基酸
 		, aminoacids: [
 			{
-				x: 100
-				, y: 100
+				x: 400
+				, y: 400
 				, num: 10
 				, type: 'red' // red, blue, yellow
 			}
 			, {
-				x: 150
-				, y: 150
+				x: -150
+				, y: -150
 				, num: 15
 				, type: 'yellow' // red, blue, yellow
 			}
 			, {
-				x: 50
-				, y: 50
+				x: 350
+				, y: 350
 				, num: 5
 				, type: 'blue' // red, blue, yellow
 			}
@@ -365,8 +371,8 @@ yc.GameScene = cc.Scene.extend({
 		// 病毒群
 		, virusclusters: [
 		  	{
-		  		x: 100
-		  		, y: 100
+		  		x: 300
+		  		, y: 300
 		  		, lv: 1					// 病毒等级
 		  		, turnRate: 0.04		// 转向灵敏度
 		  		, moseySpeed: 2			// 漫步速度
@@ -378,8 +384,8 @@ yc.GameScene = cc.Scene.extend({
 		// 污渍
 		, stains: [
 			{
-				x: 500
-				, y: 500
+				x: 150
+				, y: 150
 				, linearDampingMultiple: 2		// 线速度阻尼倍数(相对质量)
 				, angularDampingMultiple: 4		// 角速度阻尼倍数(相对质量)
 				, shapes:[

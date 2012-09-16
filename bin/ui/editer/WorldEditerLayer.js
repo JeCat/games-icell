@@ -17,21 +17,23 @@ yc.ui.editer.WorldEditerLayer = cc.Layer.extend({
 	}
 	
 	, onTouchesBegan: function(touches, event){}
-	, onTouchesMoved: function(touches, event){}
+	, onTouchesMoved: function(touches, event) {
+
+		wx = touches[0]._point.x ;
+		wy = touches[0]._point.y ;
+
+	}
 	, onTouchesEnded:function (touches, event) {
 		if( !this.touchCallback )
 		{
 			return ;
 		}
-
-		var camera = ins(yc.outer.Camera) ;
-		for ( var t = 0; t < touches.length; t++) {
-			touches[t]._point.wx = camera.x+touches[t]._point.x ;
-			touches[t]._point.wy = camera.y+touches[t]._point.y ;
-		}
-		
-		this.touchCallback(touches,event) ;
+		return this.touchCallback(touches,event) ;
 	}
 	
 	
 }) ;
+
+
+wx = 0 ;
+wy = 0 ;

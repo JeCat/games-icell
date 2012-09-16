@@ -60,27 +60,6 @@ yc.outer.Stain = yc.outer.PhysicalEntity.extend({
 		
 		this.initWithScript(script) ;
 	}
-
-	, appendWorldPoint: function(x,y){
-		this.points.push({
-			x: x-this.x
-			, y: y-this.y
-			, idx: this.points.length
-		}) ;
-	}
-	, appendPoint: function(x,y){
-		this.points.push({
-			x: x
-			, y: y
-			, idx: this.points.length
-		}) ;
-	}
-	, removePoint: function(idx){
-		this.points.splice(idx,1) ;
-		for ( var i = 0; i < this.points.length; i++) {
-			this.points[i].idx = i ;
-		}
-	}
 	
 	, draw: function(ctx){
 
@@ -98,7 +77,7 @@ yc.outer.Stain = yc.outer.PhysicalEntity.extend({
 			ctx.arc(0,0, 1, 0, 2*Math.PI, false) ;
 			ctx.stroke() ;
 
-			ctx.fillText('id:'+this.id,-10,-3);
+			ctx.fillText('stain:'+this.id,-10,-3);
 			
 
 			// 绘制点
@@ -118,6 +97,12 @@ yc.outer.Stain = yc.outer.PhysicalEntity.extend({
 					}
 				}
 			}
+
+			// 
+			var pt = yc.util.windowToClient(this,wx,wy) ;
+			ctx.moveTo(0,0) ;
+			ctx.lineTo(pt[0],-pt[1]) ;
+			ctx.stroke() ;
 		}
 
 	}

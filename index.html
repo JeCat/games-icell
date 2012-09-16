@@ -197,13 +197,17 @@
 					y:<input value="" id='ipt-pos-y' style='width:40px' />
 					<button onclick="ins(yc.outer.Cell).jump(parseInt($('#ipt-pos-x').val()),parseInt($('#ipt-pos-y').val()))">跃迁</button>
 				</div>
+
+				<div>
+					<button onclick="cc.Director.getInstance()._runningScene.initWithScript(yc.GameScene.prototype.scriptDemo)">test</button>
+				</div>
 			</div>
 		
 			<div id='panel-stains'>
 				<button onclick="ins(yc.ui.editer.WorldEditer).refreshStains()">刷新</button>
 				<button onclick="ins(yc.ui.editer.WorldEditer).createStain()">+ 污渍</button>
 				<button onclick="ins(yc.ui.editer.WorldEditer).removeStain()">- 污渍</button>
-				| <label><input type="checkbox" onchange="yc.settings.outer.stain.dbg=$(this).attr('checked')?true:false" />debug info</label>
+				| <label><input type="checkbox" onchange="yc.settings.outer.stain.dbg=$(this).attr('checked')?true:false" checked />debug info</label>
 				<div>
 					<div style="float:left;">
 						污渍：<br />
@@ -218,8 +222,8 @@
 						<hr />
 
 						形状：
-						<button onclick="ins(yc.ui.editer.WorldEditer).createStainPoint()">+ 形状</button>
-						<button onclick="ins(yc.ui.editer.WorldEditer).removeStainPoint()">- 形状</button><br />
+						<button onclick="ins(yc.ui.editer.WorldEditer).createStainShape()">+ 形状</button>
+						<button onclick="ins(yc.ui.editer.WorldEditer).removeStainShape()">- 形状</button><br />
 						<select multiple=true size="3" id="lst-stain-shapes" style="width:150px"></select><br />
 
 						多边形顶点：

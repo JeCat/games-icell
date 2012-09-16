@@ -80,49 +80,6 @@ yc.inner.InnerLayer = cc.Sprite.extend({
 	
 	, transform: yc.cocos2d.patchs.Node.transform
 	
-	, windowToClient: function(x,y){
-		
-		var path = [] ;
-		var node = this ;
-		do{
-			path.push(node) ;
-		} while( node=node._parent )
-			
-		for(var i=path.length-1;i>=0;i--)
-		{
-			node = path[i] ;
-			
-			var p = node.getPosition() ;
-			x = (x-p.x)/node._scaleX ;
-			y = (y-p.y)/node._scaleY ;
-			
-			// 计算角度
-			var r = node.getRotation() ;
-			if(r)
-			{
-				var l = Math.sqrt(x*x+y*y) ;
-				r = yc.util.radianBetweenPoints(0,0,x,y) - r ;
-				x = l * Math.sin(r) ;
-				y = l * Math.cos(r) ;
-			}
-		}
-
-//		var p = this.getPosition() ;
-//		x = x-p.x ;
-//		y = y-p.y ;
-//		
-//		var s = this.getContentSize() ;
-//		
-//		if( x<0 || y<0 || x>s.width || y>s.height )
-//		{
-//			return null ;
-//		}
-//		
-//		x = Math.round(this._scaleX * x);
-//		y = Math.round(this._scaleY * y);
-		
-		return [x,y] ;
-	}
 
 	, draw: function(ctx){
 		ctx.rotate(this.getRotation()) ;

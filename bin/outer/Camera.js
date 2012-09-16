@@ -71,12 +71,21 @@ yc.outer.Camera = function()
 //	}
 }
 
+yc.outer.Camera.transformPosition = function(entity){
+    var camera = ins(yc.outer.Camera) ;
+    return {
+    	x:0|(entity.x-camera.focusX)
+    	, y: -(0 |(entity.y-camera.focusY))
+    } ;
+}
 
 yc.outer.Camera.transformSprite = function(context){
-    var camera = ins(yc.outer.Camera) ;
+
+    var transform = yc.outer.Camera.transformPosition(this) ;
+
     //context.save() ;
-    this.transformX = 0|(this.x-camera.focusX) ;
-    this.transformY = -(0 |(this.y-camera.focusY)) ;
+    this.transformX = transform.x ;
+    this.transformY = transform.y ;
     context.translate( this.transformX, this.transformY );
     //context.restore() ;
 }
