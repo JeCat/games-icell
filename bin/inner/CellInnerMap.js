@@ -125,7 +125,7 @@ yc.inner.CellInnerMap = cc.Layer.extend({
 
 		if(touches.length<1){ return null ; }
 		
-		var p = ins(yc.inner.InnerLayer).windowToClient(touches[0]._point.x,touches[0]._point.y) ;
+		var p = yc.util.windowToClient(ins(yc.inner.InnerLayer),touches[0]._point.x,touches[0]._point.y) ;
 		
 		if(!p){ return null ; }
 

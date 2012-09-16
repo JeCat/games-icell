@@ -3,6 +3,7 @@ yc.ui.editer.WorldEditer = function(){
 	this.ui = $('#dlg-world-editer').dialog({
 		title: '世界编辑器'
 		, width:500
+		, position: [0,0]
 	}) ;
 	$('#tabs-world-editer').tabs() ;
 	
@@ -11,6 +12,7 @@ yc.ui.editer.WorldEditer = function(){
 	// 进入无敌模式
 	yc.settings.player.nohurt = true ;
 	yc.settings.player.stealth = true ;
+	yc.settings.outer.stain.dbg = true ;
 
 	this.layer = new yc.ui.editer.WorldEditerLayer() ;
 	cc.Director.getInstance()._runningScene.addChild( this.layer ) ;
@@ -21,14 +23,20 @@ yc.ui.editer.WorldEditer = function(){
 	
 	// 污渍---------------------------
 	this.selectedStain = null ;
+	this.selectedStainShape = null ;
 	this.selectedStainPoint = null ;
-	
-	this.ui.find('#ipt-stain-x').change(function(){
-		editer.selectedStain.x = parseInt($(this).val()) ;
-	}) ;
-	this.ui.find('#ipt-stain-y').change(function(){
-		editer.selectedStain.y = parseInt($(this).val()) ;
-	}) ;
+
+	var onChangePosition = function(){
+		var x = parseInt($('#ipt-stain-x').val())/PTM_RATIO ;
+		var y = parseInt($('#ipt-stain-y').val())/PTM_RATIO ;
+		editer.selectedStain.b2Body.SetTransform( new b2Transform(new b2Vec2(x,y),new b2Mat22) ) ;
+		//var p = editer.selectedStain.b2Body.GetPosition( new b2Vec2(parseInt($('#ipt-stain-x').val())/PTM_RATIO, parseInt($('#ipt-stain-y').val())/PTM_RATIO), 0 ) ;
+		//p.Set( parseInt($('#ipt-stain-x').val())/PTM_RATIO, parseInt($('#ipt-stain-y').val())/PTM_RATIO ) ;
+
+		//log(editer.selectedStain.b2Body.GetPosition()) ;
+	}
+	this.ui.find('#ipt-stain-x').change(onChangePosition) ;
+	this.ui.find('#ipt-stain-y').change(onChangePosition) ;
 	this.ui.find('#ipt-stain-damping').change(function(){
 		editer.selectedStain.damping = parseFloat($(this).val()) ;
 	}) ;
@@ -54,25 +62,47 @@ yc.ui.editer.WorldEditer = function(){
 				, value: stain.id
 				, click: function(stain){
 					editer.selectedStain = stain ;
+					editer.selectedStainShape = null ;
 					editer.selectedStainPoint = null ;
 					
 					editer.ui.find('#ipt-stain-x').val(stain.x) ;
 					editer.ui.find('#ipt-stain-y').val(stain.y) ;
-					editer.ui.find('#ipt-stain-damping').val(stain.damping) ;
+					editer.ui.find('#ipt-stain-rotation').val(stain.getRotation()) ;
+					editer.ui.find('#ipt-stain-density').val(stain.density) ;
 					
 
-					editer._loadOptions(editer.ui.find('#lst-stain-points'),stain.points,function(point){
-					
+					editer.ui.find('#lst-stain-points').html('') ;
+					editer.ui.find('#ipt-stain-point-x').val('') ;
+					editer.ui.find('#ipt-stain-point-y').val('') ;
+
+					// 加载形状list
+					editer._loadOptions(editer.ui.find('#lst-stain-shapes'),stain.shapes,function(shape,si){
+						
+						editer.selectedStainShape = shape ;
+						editer.selectedStainPoint = null ;
+
 						return {
-							text: '[idx:'+point.idx+']'+point.x.toFixed(1)+','+point.y.toFixed(1)
-							, value: point.idx
-							, click: function(point){
-									editer.selectedStainPoint = point ;
-									editer.ui.find('#ipt-stain-point-x').val(point.x.toFixed(0)) ;
-									editer.ui.find('#ipt-stain-point-y').val(point.y.toFixed(0)) ;
+							text: '[S' + si + '] ' + shape.type
+							, value: si
+							, click: function(shape){
+
+								editer._loadOptions(editer.ui.find('#lst-stain-points'),shape.points,function(point,pi){
+								
+									return {
+										text: '[P'+pi+']'+point[0].toFixed(0)+','+point[1].toFixed(0)
+										, value: pi
+										, click: function(point){
+												editer.selectedStainPoint = point ;
+												editer.ui.find('#ipt-stain-point-x').val(point[0].toFixed(0)) ;
+												editer.ui.find('#ipt-stain-point-y').val(point[1].toFixed(0)) ;
+										}
+									}
+								}) ;
+
 							}
 						}
 					}) ;
+
 				}
 			}
 		}) ;
@@ -107,11 +137,29 @@ yc.ui.editer.WorldEditer = function(){
 		}
 		this.selectedStain.removeFromParentAndCleanup() ;
 	}
-	
-	this.createStainPoint = function(){
+
+	this.createStainShape = function(){
 		if(!this.selectedStain)
 		{
 			alert("没有选择污渍") ;
+			return ;
+		}
+		this.selectedStain.shapes.push({
+			type: 'polygon'			// 类型 circle, polygon
+			, density: 0.5			// 密度
+			, friction: 1			// 摩擦力
+			, restitution: 1		// 弹性
+			// 多边形的顶点
+			, points: [ [-50,50], [-60,-75], [23,-55] ]
+		}) ;
+
+		editer.selectedStain.initWithScriptShapes(editer.selectedStain.shapes) ;
+	}
+	
+	this.createStainPoint = function(){
+		if(!this.selectedStain || !this.selectedStainShape)
+		{
+			alert("没有选择污渍 或 污渍中的形状") ;
 			return ;
 		}
 		this.message('在地图上点出顶点的位置') ;
@@ -119,12 +167,24 @@ yc.ui.editer.WorldEditer = function(){
 			editer.layer.touchCallback = null ;
 			editer.message('') ;
 
-			if(!editer.selectedStain)
+log([touches[0]._point.x,touches[0]._point.y,touches[0]._point.wx,touches[0]._point.wy]) ;
+
+
+			if(!editer.selectedStain || !editer.selectedStainShape)
 			{
-				alert("没有选择污渍") ;
-				return ;
+				alert("没有选择污渍 或 污渍中的形状，操作无效") ;
+				return false ;
 			}
-			editer.selectedStain.appendWorldPoint( touches[0]._point.wx, touches[0]._point.wy ) ;
+			
+			//var pt = yc.util.windowToClient(editer.selectedStain,touches[0]._point.x,touches[0]._point.y) ;
+			var pt = yc.util.windowToClient(editer.selectedStain,touches[0]._point.x,touches[0]._point.y) ;
+			editer.selectedStainShape.points.push(pt) ;
+
+			log(pt) ;
+			log(editer.selectedStain.shapes) ;
+			editer.selectedStain.initWithScriptShapes(editer.selectedStain.shapes) ;
+
+			return false ;
 		}
 	}
 

@@ -11,6 +11,7 @@ yc.outer.Stain = yc.outer.PhysicalEntity.extend({
 		this._super() ;
 		this.id = yc.outer.Stain.assigned ++ ;
 		yc.outer.Stain.pool.push(this) ;
+		this.className = this.constructor.className ;
 	}
 	
 	, initRandom: function(){
@@ -60,53 +61,50 @@ yc.outer.Stain = yc.outer.PhysicalEntity.extend({
 		
 		this.initWithScript(script) ;
 	}
-
-	, appendWorldPoint: function(x,y){
-		this.points.push({
-			x: x-this.x
-			, y: y-this.y
-			, idx: this.points.length
-		}) ;
-	}
-	, appendPoint: function(x,y){
-		this.points.push({
-			x: x
-			, y: y
-			, idx: this.points.length
-		}) ;
-	}
-	, removePoint: function(idx){
-		this.points.splice(idx,1) ;
-		for ( var i = 0; i < this.points.length; i++) {
-			this.points[i].idx = i ;
-		}
-	}
 	
 	, draw: function(ctx){
 
 		ctx.lineJoin = 'round' ;
 
-		ctx.rotate(this.getRotation());
+		ctx.rotate(this.getRotation()) ;
 		
 		this._super(ctx) ;
 		
-//		// 绘制调试辅助线
-//		if(yc.settings.outer.stain.dbg)
-//		{
-//			ctx.fillStyle = 'red' ;
-//			ctx.arc(0,0, 2, 0, 2*Math.PI, false) ;
-//			ctx.stroke() ;
-//
-//			ctx.fillText(this.id,-4,-2);
-//			
-//			for ( var p = 0; p < this.points.length; p++) {
-//				var point = this.points[p] ;
-//				ctx.fillText(point.idx,point.x-6,-point.y+10);
-//			}
-//
-//			// 绘制调试辅助线
-//			this.testCollision( ins(yc.outer.Cell), ctx ) ;
-//		}
+		// 绘制调试信息
+		if(yc.settings.outer.stain.dbg)
+		{
+			ctx.fillStyle = 'red' ;
+			ctx.moveTo(0,0) ;
+			ctx.arc(0,0, 1, 0, 2*Math.PI, false) ;
+			ctx.stroke() ;
+
+			ctx.fillText('stain:'+this.id,-10,-3);
+			
+
+			// 绘制点
+			ctx.fillStyle = 'green' ;
+			if('shapes' in this)
+			{
+				for(var si=0;si<this.shapes.length;si++)
+				{
+					var shape = this.shapes[si] ;
+					if(shape.type=='polygon')
+					{
+						for(var pi=0;pi<shape.points.length;pi++)
+						{
+							var pt = shape.points[pi] ;
+							ctx.fillText('S'+si+'; P'+pi,pt[0]-10,-pt[1]-3);
+						}
+					}
+				}
+			}
+
+			// 
+			var pt = yc.util.windowToClient(this,wx,wy) ;
+			ctx.moveTo(0,0) ;
+			ctx.lineTo(pt[0],-pt[1]) ;
+			ctx.stroke() ;
+		}
 
 	}
 	

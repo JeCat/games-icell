@@ -7,7 +7,8 @@ var b2BodyDef = Box2D.Dynamics.b2BodyDef
     , b2PolygonShape = Box2D.Collision.Shapes.b2PolygonShape
     , b2Vec2 = Box2D.Common.Math.b2Vec2
     , b2DebugDraw = Box2D.Dynamics.b2DebugDraw
-    , b2Transform = Box2D.Common.Math.b2Transform ;
+    , b2Transform = Box2D.Common.Math.b2Transform
+    , b2Mat22 = Box2D.Common.Math.b2Mat22 ;
 
 
 var YouCellGame = cc.Application.extend({
