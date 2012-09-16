@@ -199,13 +199,8 @@ yc.GameScene = cc.Scene.extend({
 		
 		for(var i=0;i<num;i++)
 		{
-			var x = range.left+(0|(Math.random()*range.width)) ;
-			var y = range.bottom+(0|(Math.random()*range.height)) ;
-			
 			var aRole = new entityClass ;
-			aRole.initWithPosition(x,y) ;
-			aRole.initRandom() ;
-			
+			aRole.initRandom(range) ;
 			layer.addChild(aRole) ;
 		}
 	}
@@ -288,6 +283,30 @@ yc.GameScene = cc.Scene.extend({
 			script.player.proteinpool[name] = pool.mapProteins[name] ;
 		}
 
+		// 污渍 ----------
+		script.stains = [] ;
+		var stains = this.layerStains.getChildren() ;
+		for(var i=0;i<stains.length;i++)
+		{
+			script.stains.push( stains[i].exportScript() ) ;
+		}
+
+		// 角色：病毒群、boss、氨基酸
+		script.aminoacids = [] ;
+		script.virusclusters = [] ;
+		var roles = this.layerRoles.getChildren() ;
+		for(var i=0;i<roles.length;i++)
+		{
+			switch(roles[i].constructor.className)
+			{
+				case 'yc.outer.AminoAcid' :
+					script.aminoacids.push( roles[i].exportScript() ) ;
+
+				case 'yc.outer.VirusCluster' :
+					script.virusclusters.push( roles[i].exportScript() ) ;
+			}
+		}
+
 		return script ;
 	}
 	
@@ -305,6 +324,10 @@ yc.GameScene = cc.Scene.extend({
 				this[wall] = script.world.boundary[wall] ;
 			}
 			this._createWalls() ;
+
+			this.layerGlassSlide.setContentSize(cc.size(this.rgt-this.lft,this.top-this.btm)) ;
+			this.layerGlassSlide.x = this.lft ;
+			this.layerGlassSlide.y = this.btm ;
 		}
 		
 		

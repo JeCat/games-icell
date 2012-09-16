@@ -8,12 +8,15 @@ yc.outer.AminoAcid = yc.outer.PhysicalEntity.extend({
 		this.normalSpeed = yc.settings.outer.aminoacid.normalSpeed ;
 	}
 	
-    , initRandom: function(){
-    	// 随机类型和数量
-    	this.type = yc.inner.AminoAcidPool.types[ 0|(Math.random()*(yc.inner.AminoAcidPool.types.length)) ] ;
-    	this.num = Math.round(Math.random()*20) ;
-    	
-    	this.init() ;
+    , initRandom: function(range){
+    	this.initWithScript({
+			x: range.left+(0|(Math.random()*range.width))
+			, y: range.bottom+(0|(Math.random()*range.height))
+
+			, num: Math.round(Math.random()*20)
+			 // red, blue, yellow
+			, type: yc.inner.AminoAcidPool.types[ 0|(Math.random()*(yc.inner.AminoAcidPool.types.length)) ]
+		}) ;
     }
     
     , init: function(){

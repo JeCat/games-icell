@@ -14,7 +14,7 @@ yc.outer.Stain = yc.outer.PhysicalEntity.extend({
 		this.className = this.constructor.className ;
 	}
 	
-	, initRandom: function(){
+	, initRandom: function(range){
 
 		var stain = this ;
 
@@ -50,7 +50,9 @@ yc.outer.Stain = yc.outer.PhysicalEntity.extend({
 		}
 
 		var script = {
-				shapes: [
+				x: range.left+(0|(Math.random()*range.width))
+				, y: range.bottom+(0|(Math.random()*range.height))
+				, shapes: [
 					{
 						type: 'polygon'				// 类型 circle, polygon
 						, density: Math.random()	// 密度

@@ -94,10 +94,25 @@ yc.outer.PhysicalEntity = cc.Sprite.extend({
 		{
 			this[prop] = script[prop] ;
 		}
+		this._script = script ;
 		this.initWithPosition(this.x,this.y) ;
 		this.init() ;
 	}
 	
+	// 导出为 script
+	, exportScript: function(){
+		var script = this._script || {} ;
+		if(this.homeX)
+		{
+			script.x = this.homeX ;
+		}
+		if(this.homeY)
+		{
+			script.y = this.homeY ;
+		}
+		return script ;
+	}
+
 	, update: function(dt){
 		if(this.b2Body)
 		{

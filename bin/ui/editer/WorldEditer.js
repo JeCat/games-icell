@@ -54,7 +54,7 @@ yc.ui.editer.WorldEditer = function(){
 			}
 		}) ;
 	}
-		
+
 	// 平衡
 	this.refreshSettings = function(){
 		new yc.ui.editer.ObjectEditer(yc.settings,$('#ul-settings')) ;

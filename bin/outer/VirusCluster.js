@@ -15,9 +15,18 @@ yc.outer.VirusCluster = yc.outer.PhysicalEntity.extend({
 		yc.outer.VirusCluster.instances[this.id] = this ;
 	}
 		
-	, initRandom: function(){
-		this.init() ;
+	, initRandom: function(range){
+		this.initWithScript({
+			x: range.left+(0|(Math.random()*range.width))
+			, y: range.bottom+(0|(Math.random()*range.height))
+			, lv: 1					// 病毒等级
+			, turnRate: 0.04		// 转向灵敏度
+			, moseySpeed: 2			// 漫步速度
+			, normalSpeed: 5		// 正常速度
+			, vigilanceRange: 200	// 警视范围
+		}) ;
 	}
+
 	, init: function(){
 		// 根据离Boss的距离确定病毒群的等级
 		var compass = ins(yc.outer.BossCompass) ;
