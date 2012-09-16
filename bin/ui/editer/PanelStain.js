@@ -38,9 +38,15 @@ yc.ui.editer.PanelStain = function(editer){
 	var onChangeShape = function(){
 		panel.selectedStainShape.color = $('#ipt-stain-shape-color').val();
 		panel.selectedStainShape.borderColor = $('#ipt-stain-shape-border-color').val();
+		panel.selectedStainShape.textStyle = $('#ipt-stain-shape-text-style').val();
+		panel.selectedStainShape.textColor = $('#ipt-stain-shape-text-color').val();
+		panel.selectedStainShape.text = $('#txt-stain-shape-text').val();
 	}
 	this.ui.find('#ipt-stain-shape-color').change(onChangeShape) ;
 	this.ui.find('#ipt-stain-shape-border-color').change(onChangeShape) ;
+	this.ui.find('#ipt-stain-shape-text-style').change(onChangeShape) ;
+	this.ui.find('#ipt-stain-shape-text-color').change(onChangeShape) ;
+	this.ui.find('#txt-stain-shape-text').change(onChangeShape) ;
 
 	// 修改多边形顶点位置
 	var onChangePointPosition = function(){
@@ -85,6 +91,9 @@ yc.ui.editer.PanelStain = function(editer){
 					panel.ui.find('#ipt-stain-shape-friction').val('') ;
 					panel.ui.find('#ipt-stain-shape-color').val('') ;
 					panel.ui.find('#ipt-stain-shape-border-color').val('') ;
+					panel.ui.find('#ipt-stain-shape-text-style').val('') ;
+					panel.ui.find('#ipt-stain-shape-text-color').val('') ;
+					panel.ui.find('#txt-stain-shape-text').val('') ;
 
 					panel.ui.find('#lst-stain-points').html('') ;
 					panel.ui.find('#ipt-stain-point-x').val('') ;
@@ -114,6 +123,9 @@ yc.ui.editer.PanelStain = function(editer){
 					panel.ui.find('#ipt-stain-shape-friction').val(shape.friction) ;
 					panel.ui.find('#ipt-stain-shape-color').val(shape.color) ;
 					panel.ui.find('#ipt-stain-shape-border-color').val(shape.borderColor) ;
+					panel.ui.find('#ipt-stain-shape-text-style').val(shape.textStyle) ;
+					panel.ui.find('#ipt-stain-shape-text-color').val(shape.textColor) ;
+					panel.ui.find('#txt-stain-shape-text').val(shape.text) ;
 
 					panel.ui.find('#ipt-stain-point-x').val('') ;
 					panel.ui.find('#ipt-stain-point-y').val('') ;
@@ -142,6 +154,15 @@ yc.ui.editer.PanelStain = function(editer){
 			}
 		}) ;
 	}
+
+
+
+
+
+
+
+
+
 	
 	this.createStain = function(){
 
@@ -161,6 +182,9 @@ yc.ui.editer.PanelStain = function(editer){
 						, restitution: 1		// 弹性
 						// 多边形的顶点
 						, points: [ [-50,50], [-60,-75], [23,-55], [23,65] ]
+						, text: null
+						, textStyle: "normal 16px san-serif"
+						, textColor: "0,0,0,1"
 					}
 				]
 			}]
