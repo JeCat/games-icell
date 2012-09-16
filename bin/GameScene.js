@@ -18,7 +18,6 @@ yc.GameScene = cc.Scene.extend({
 	, onEnter:function () {
 		
 		this._super();
-	
 		
 		this.setAnchorPoint(cc.p(0,0)) ;
 		

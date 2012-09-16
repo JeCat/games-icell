@@ -11,6 +11,7 @@ yc.outer.Stain = yc.outer.PhysicalEntity.extend({
 		this._super() ;
 		this.id = yc.outer.Stain.assigned ++ ;
 		yc.outer.Stain.pool.push(this) ;
+		this.className = this.constructor.className ;
 	}
 	
 	, initRandom: function(){

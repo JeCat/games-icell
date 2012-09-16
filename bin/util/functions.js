@@ -314,3 +314,9 @@ yc.util.windowToClient = function(node,x,y){
     return [x,y] ;
 }
 yc.util.windowToClient.debug = false ;
+
+yc.util.traceNode = function(node){
+    do{
+        log(node) ;
+    } while( node=node._parent )
+}
