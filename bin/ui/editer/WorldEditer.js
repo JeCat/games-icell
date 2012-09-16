@@ -11,10 +11,6 @@ yc.ui.editer.WorldEditer = function(){
 	
 	this.stain = new yc.ui.editer.PanelStain(this) ;
 	editer = this ;
-	
-	// 进入无敌模式
-	yc.settings.player.nohurt = true ;
-	yc.settings.player.stealth = true ;
 
 	// 辅助层
 	this.layer = new yc.ui.editer.WorldEditerLayer() ;
@@ -93,7 +89,24 @@ function enterEditMode(){
 	cc.Director.getInstance().replaceScene(new (yc.GameScene.extend({
 		onEnter: function(){
 			this._super() ;
+
+			// 进入状态
+			yc.settings.player.nohurt = true ;		// 无敌
+			yc.settings.player.stealth = true ;		// 隐身
+			yc.settings.outer.stain.dbg = true ;	// 绘制污渍信息
+
 			ins(yc.ui.editer.WorldEditer).show() ;
+		}
+
+		, onExit: function(){
+
+			// 退出状态
+			yc.settings.player.nohurt = false ;		// 无敌
+			yc.settings.player.stealth = false ;	// 隐身
+			yc.settings.outer.stain.dbg = false ;	// 绘制污渍信息
+
+			// 关闭窗口
+			ins(yc.ui.editer.WorldEditer).ui.dialog('close') ;
 		}
 	})));
 }

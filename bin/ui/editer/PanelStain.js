@@ -3,8 +3,6 @@ yc.ui.editer.PanelStain = function(editer){
 	this.ui = editer.ui ;
 	var panel = this ;
 
-	// 绘制污渍信息
-	yc.settings.outer.stain.dbg = true ;
 
 	// 污渍---------------------------
 	this.selectedStain = null ;

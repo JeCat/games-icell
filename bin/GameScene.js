@@ -230,6 +230,66 @@ yc.GameScene = cc.Scene.extend({
 		}
 	}
 	
+	/**
+	 * 将当前场景的设置导出成json脚本
+	 */
+	, exportScript: function(){
+
+		// 世界 -------
+		var script = {
+			world: {
+				// 世界的边界（null表示不设限制）
+				boundary: {
+					lft: this.lft
+					, rgt: this.rgt
+					, top: this.top
+					, btm: this.btm
+				}
+			}
+		} ;
+
+		// 玩家 -------
+		var outerCell = ins(yc.outer.Cell) ;
+		var innerCell = ins(yc.inner.Cell) ;
+		script.player = {
+			x: outerCell.x
+			, y: outerCell.y
+
+			, cell: {
+				nucleus: {
+					x: innerCell.nucleus.x
+					, y: innerCell.nucleus.y
+				}
+			}
+		}
+
+		script.player.cytoplasms = [] ;
+		for(var i=0;i<innerCell.cytoplasms.length;i++)
+		{
+			script.player.cytoplasms.push({x:innerCell.cytoplasms[i].x,y:innerCell.cytoplasms[i].y}) ;
+		}
+		script.player.membranes = [] ;
+		for(var i=0;i<innerCell.membranes.length;i++)
+		{
+			script.player.membranes.push({x:innerCell.membranes[i].x,y:innerCell.membranes[i].y}) ;
+		}
+		// 氨基酸池
+		var pool = ins(yc.inner.AminoAcidPool) ;
+		script.player.aminoacidpool = {
+			red: pool.red
+			, yellow: pool.yellow
+			, blue: pool.blue
+		} ;
+		// 蛋白质池
+		pool = ins(yc.inner.ProteinPool) ;
+		script.player.proteinpool = {} ;
+		for(var name in  pool.mapProteins)
+		{
+			script.player.proteinpool[name] = pool.mapProteins[name] ;
+		}
+
+		return script ;
+	}
 	
 	/**
 	 * 通过一个json脚本来加载关卡
@@ -302,8 +362,8 @@ yc.GameScene = cc.Scene.extend({
 			
 				// 内部场景中细胞核所在格子的坐标
 			    nucleus: {
-			        x: 6
-			        , y: 6
+			        x: 0
+			        , y: 0
 			    }
 			
 				// 细胞质格子

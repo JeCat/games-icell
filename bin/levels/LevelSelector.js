@@ -12,7 +12,7 @@ yc.levels.LevelSelector = cc.Scene.extend({
 	}
 
 	, onExit: function(){
-		$('#ui-levels-selector').toggle() ;
+		$('#ui-levels-selector').hide() ;
 
 		this._super() ;
 	}
