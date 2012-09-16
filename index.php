@@ -1,6 +1,12 @@
 <?php
+include_once('config.php');
 session_start();
 
+if(SITE_DEBUG_MODE === 1){
+var_dump($_SESSION);
+echo "<br/>";
+var_dump($_COOKIE);
+}
 ?>
 <!DOCTYPE html>
 <html>
@@ -9,11 +15,12 @@ session_start();
     <title>you,cell</title>
 	<link rel="stylesheet" href="style.css"></link>
 	<script src="jquery.js"></script>
-	<script src="jquery.json.js"></script>
 </head>
 <body>
 
-
+<?php
+if(SITE_CLOSE === 0){
+?>
 <div id="ui-levels-selector" style="margin:150px auto 0 auto;">
 	<div id="ui-levels-selector-title">
 		<h1>I, Cell</h1>
@@ -33,6 +40,17 @@ session_start();
 		</div>
 	</div>
 </div>
-
+<?php
+}else{
+?>
+<div id="ui-levels-selector" style="margin:150px auto 0 auto;">
+	<div id="ui-levels-selector-title">
+		<h1>I, Cell</h1>
+		<h2>We will be back soon...</h2>
+	</div>
+</div>
+<?php
+}
+?>
 </body>
 </html>
