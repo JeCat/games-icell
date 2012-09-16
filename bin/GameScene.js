@@ -389,10 +389,12 @@ yc.GameScene = cc.Scene.extend({
 				, angularDampingMultiple: 4		// 角速度阻尼倍数(相对质量)
 				, shapes:[
 					{
-						type: 'polygon'			// 类型 circle, polygon
-						, density: 0.5			// 密度
-						, friction: 1			// 摩擦力
-						, restitution: 1		// 弹性
+						type: 'polygon'					// 类型 circle, polygon
+						, density: 0.5					// 密度
+						, friction: 1					// 摩擦力
+						, restitution: 1				// 弹性
+						, color: "150,150,150"			// 颜色
+						, borderColor: "80,80,80"		// 边界颜色
 						// 多边形的顶点
 						, points: [ [-50,50], [-60,-75], [23,-55], [23,65] ]
 					}

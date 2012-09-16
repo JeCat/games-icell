@@ -160,6 +160,12 @@ yc.outer.Cell = yc.outer.PhysicalEntity.extend({
 			entity.catchMe() ;
 		}
 	}
+
+	, update: function(dt){
+		this._super(dt) ;
+
+		ins(yc.util.DbgPannel).output['player'] = this.x.toFixed(1)+', '+this.y.toFixed(1) ;
+	}
 	
     , visit: function(ctx){
     	

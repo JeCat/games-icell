@@ -23,12 +23,16 @@ yc.outer.PlayerLayer = cc.Layer.extend({
         this.vMoving = 0 ;
         
         this.followPoint = false ;
+        this.dontMoving = false ;
     }
 
     , onTouchesBegan: function(touches, event){
-        this.followPoint = true ;
-        this.cell.run(4) ;
-        this.onTouchesMoved(touches, event) ;
+        if(!this.dontMoving)
+        {
+            this.followPoint = true ;
+            this.cell.run(4) ;
+            this.onTouchesMoved(touches, event) ;
+        }
     }
     
     , onTouchesMoved: function(touches, event){
@@ -36,17 +40,22 @@ yc.outer.PlayerLayer = cc.Layer.extend({
         var wsize = cc.Director.getInstance().getWinSize() ;
         this.cell.rotationTarget = yc.util.radianBetweenPoints(wsize.width/2,wsize.height/2,touches[0]._point.x,touches[0]._point.y) ;
 
-        if(this.followPoint)
+        if(!this.dontMoving)
         {
-            this.cell.angle = this.cell.rotationTarget ;
-            this.cell.updateVelocity() ;
+            if(this.followPoint)
+            {
+                this.cell.angle = this.cell.rotationTarget ;
+                this.cell.updateVelocity() ;
+            }
         }
         
     }
     , onTouchesEnded:function (touches, event) {
-        this.followPoint = false ;
-        //this.cell.stopDriving() ;
-        this.cell.stopRun() ;
+        if(!this.dontMoving)
+        {
+            this.followPoint = false ;
+            this.cell.stopRun() ;
+        }
     }
     
     , onKeyUp:function (key) {

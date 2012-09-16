@@ -45,6 +45,9 @@ yc.settings = {
 			dbg: false
 			, defaultMultipleLinearDamping: 2			// 默认 线速度阻尼系数倍数 (相对污渍质量的倍数)
 			, defaultMultipleAngularDamping: 4			// 默认 角速度阻尼系数倍数 (相对污渍质量的倍数)
+
+			, defaultColor: "150,150,150"
+			, defaultBorderColor: "80,80,80"
 		}
 	
 		// 病毒群

@@ -48,6 +48,8 @@ yc.outer.Camera = function()
 	{
 		this.x = this.focusX = x ;
 		this.y = this.focusY = y ;
+
+		ins(yc.util.DbgPannel).output['camera'] = this.x.toFixed(1)+', '+this.y.toFixed(1) ;
 	}
 	
 //	this.setFocus = function(offsetX,offsetY)
@@ -75,7 +77,7 @@ yc.outer.Camera.transformPosition = function(entity){
     var camera = ins(yc.outer.Camera) ;
     return {
     	x:0|(entity.x-camera.focusX)
-    	, y: -(0 |(entity.y-camera.focusY))
+    	, y: (0 |(entity.y-camera.focusY))
     } ;
 }
 
@@ -85,7 +87,7 @@ yc.outer.Camera.transformSprite = function(context){
 
     //context.save() ;
     this.transformX = transform.x ;
-    this.transformY = transform.y ;
+    this.transformY = -transform.y ;
     context.translate( this.transformX, this.transformY );
     //context.restore() ;
 }

@@ -85,8 +85,7 @@
 	</div>
 	
 	<div id='menu-inner-layer-zoom' style="float:right;position: absolute;">
-		<button onclick="worldediter()">世界编辑器</button>
-		| <button title="回到主菜单" onclick=" if(!confirm('确定要放弃当前游戏，退回到主菜单吗？')) return ; cc.Director.getInstance().replaceScene( new yc.levels.LevelSelector )">主菜单</button>
+		<button title="回到主菜单" onclick=" if(!confirm('确定要放弃当前游戏，退回到主菜单吗？')) return ; cc.Director.getInstance().replaceScene( new yc.levels.LevelSelector )">主菜单</button>
 	</div>
 	
 		
@@ -204,31 +203,43 @@
 			</div>
 		
 			<div id='panel-stains'>
-				<button onclick="ins(yc.ui.editer.WorldEditer).refreshStains()">刷新</button>
-				<button onclick="ins(yc.ui.editer.WorldEditer).createStain()">+ 污渍</button>
-				<button onclick="ins(yc.ui.editer.WorldEditer).removeStain()">- 污渍</button>
+				<button onclick="ins(yc.ui.editer.WorldEditer).stain.refreshStains()">刷新</button>
+				<button onclick="ins(yc.ui.editer.WorldEditer).stain.createStain()">+ 污渍</button>
+				<button onclick="ins(yc.ui.editer.WorldEditer).stain.removeStain()">- 污渍</button>
 				| <label><input type="checkbox" onchange="yc.settings.outer.stain.dbg=$(this).attr('checked')?true:false" checked />debug info</label>
 				<div>
 					<div style="float:left;">
 						污渍：<br />
-						<select multiple=true size="19" id="lst-stains" style="width:150px"></select>
+						<select multiple=true size="22" id="lst-stains" style="width:150px"></select>
 					</div>
 					<div style="float:left; margin-left:20px">
 						x:<input id='ipt-stain-x' style='width:70px' value='' />
-						y:<input id='ipt-stain-y' style='width:70px' value='' /><br />
-						旋转： <input id='ipt-stain-rotation' style='width:50px' value='' />
-						密度： <input id='ipt-stain-density' style='width:50px' value='' />
+						y:<input id='ipt-stain-y' style='width:70px' value='' />
+						<button onclick="ins(yc.ui.editer.WorldEditer).stain.stopStainMoving()">停止移动</button>
+						<br />
+						角度： <input id='ipt-stain-rotation' style='width:100px' value='' />
+						<button onclick="ins(yc.ui.editer.WorldEditer).stain.stopStainRotation()">停止旋转</button>
+						
 
 						<hr />
 
 						形状：
-						<button onclick="ins(yc.ui.editer.WorldEditer).createStainShape()">+ 形状</button>
-						<button onclick="ins(yc.ui.editer.WorldEditer).removeStainShape()">- 形状</button><br />
+						<button onclick="ins(yc.ui.editer.WorldEditer).stain.createStainShape()">+ 形状</button>
+						<button onclick="ins(yc.ui.editer.WorldEditer).stain.removeStainShape()">- 形状</button><br />
 						<select multiple=true size="3" id="lst-stain-shapes" style="width:150px"></select><br />
 
+						密度：<input id='ipt-stain-shape-density' style='width:30px' value='' />
+						弹性：<input id='ipt-stain-shape-restitution' style='width:30px' value='' />
+						摩擦：<input id='ipt-stain-shape-friction' style='width:30px' value='' /> <br />
+
+						染色：<input id='ipt-stain-shape-color' style='width:80px' value='' />
+						边界色：<input id='ipt-stain-shape-border-color' style='width:80px' value='' />
+
+						<hr />
+
 						多边形顶点：
-						<button onclick="ins(yc.ui.editer.WorldEditer).createStainPoint()">+ 点</button>
-						<button onclick="ins(yc.ui.editer.WorldEditer).removeStainPoint()">- 点</button>
+						<button onclick="ins(yc.ui.editer.WorldEditer).stain.createStainPoint()">+ 点</button>
+						<button onclick="ins(yc.ui.editer.WorldEditer).stain.removeStainPoint()">- 点</button>
 						<br />
 						<select multiple=true size="6" id="lst-stain-points" style="width:150px"></select><br />
 
@@ -289,7 +300,7 @@
 					</button>
 				</li>
 				<li>
-					<button onclick="cc.Director.getInstance().replaceScene( new yc.GameScene ); $('#ui-levels-selector').toggle();">
+					<button onclick="enterEditMode()">
 						建造模式（空白关卡）
 					</button>
 				</li>

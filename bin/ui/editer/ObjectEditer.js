@@ -6,8 +6,6 @@ yc.ui.editer.ObjectEditer = function(object,eleUi,indent){
 	}*/
 	this.ui = eleUi  ;
 	this.object = object ;
-	
-	editer = this 
 
 	this._displayEle = function(parent,key){
 

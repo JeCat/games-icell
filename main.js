@@ -86,34 +86,12 @@ function startGame(){
 	
 	
 	game = new YouCellGame(yc.levels.LevelSelector);
-	dbg = false ;
 	
 	// webkitRequestAnimationFrame 似乎不太流畅
 	if( window.requestAnimFrame === window.webkitRequestAnimationFrame )
 	{
 	   window.requestAnimFrame = null 
 	}
-	
-	
-	// 在ui上输出游戏状态
-	setInterval(function(){
-		
-		var cell = ins(yc.outer.Cell) ;
-		if(!cell)
-		{
-			return false ;
-		}
-		var pos = cell.getPosition() ;
-		var camera = ins(yc.outer.Camera) ;
-		
-		var output = 'left:' + pos.x.toFixed(1) + ', top:' + pos.y.toFixed(1)+'<br />' ;
-		output+= 'player:'+cell.x.toFixed(1)+', '+cell.y.toFixed(1) + '<br />';
-		//output+= 'speed:'+ cell.speed.toFixed(2) + '<br />';
-		output+= 'camera:'+camera.x.toFixed(1)+', '+camera.y.toFixed(1) + '<br />';
-		//output+= 'xx,yy:'+xx.toFixed(1)+', '+yy.toFixed(1) + '<br />';
-		$('#player-status').html(output) ;
-		
-	},500) ;
 }
 
 

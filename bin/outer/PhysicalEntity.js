@@ -273,17 +273,21 @@ yc.outer.PhysicalEntity = cc.Sprite.extend({
 		
 		return fixtureDef ;
 	}
+
+	, _cleanupFixtures: function(){
+		var fixture = this.b2Body.GetFixtureList() ;
+		do{
+			var nextFixture = fixture.GetNext() ;
+			this.b2Body.DestroyFixture(fixture) ;
+		} while(fixture=nextFixture) ;
+	}
 	
 	, _createB2Body: function(){
 
 		// 清理 body 中的fixture
 		if(this.b2Body)
 		{
-			var fixture = this.b2Body.GetFixtureList() ;
-			do{
-				this.b2Body.DestroyFixture(fixture) ;
-				fixture = fixture.GetNext() ;
-			} while(fixture) ;
+			this._cleanupFixtures() ;
 		}
 
 		// 新建body
@@ -323,6 +327,17 @@ yc.outer.PhysicalEntity = cc.Sprite.extend({
 			fixture.friction = ('friction' in shape)? shape.friction: 1 ;
 			fixture.friction = ('restitution' in shape)? shape.restitution: 1 ;
 			
+
+			if( !('color' in shape) )
+			{
+				shape.color = yc.settings.outer.stain.defaultColor ;
+			}
+			if( !('borderColor' in shape) )
+			{
+				shape.borderColor = yc.settings.outer.stain.defaultBorderColor ;
+			}
+			
+
 			if( 'userData' in shape)
 			{
 				fixture.userData = shape.userData ;
@@ -341,10 +356,23 @@ yc.outer.PhysicalEntity = cc.Sprite.extend({
 				var shape = this.shapes[i] ;
 				if(shape.type=='polygon')
 				{
-					yc.util.drawPolygon(shape.points,ctx,'rgba(50,50,50,'+shape.density+')','rgba(100,100,100,'+shape.density+')',true) ;
+					yc.util.drawPolygon(shape.points,ctx,'rgba('+shape.borderColor+','+shape.density+')','rgba('+shape.color+','+shape.density+')',true) ;
 				}
 			}
 		}
+	}
+
+	, b2bodyFixture: function(idx){
+		if(idx<0)
+		{
+			return null ;
+		}
+		var fixture = this.b2Body.GetFixtureList() ;
+		while(idx--)
+		{
+			fixture = fixture.GetNext() ;
+		}
+		return fixture ;
 	}
 	
 	, destroy: function(){
@@ -355,11 +383,14 @@ yc.outer.PhysicalEntity = cc.Sprite.extend({
 		// 从物理世界中移除
 		if(this.b2Body)
 		{
+			this._cleanupFixtures() ;
+
 			this.b2Body.GetWorld().removingBodies.push(this.b2Body) ;
 			
 			// 解除关系
 			this.b2Body.SetUserData(null) ;
 			this.b2Body = null ;
+
 		}
 	}
 	

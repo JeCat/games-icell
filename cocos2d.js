@@ -46,6 +46,7 @@ var TAG_SPRITE_MANAGER = 1;
             , 'bin/util/functions.js'
             , 'bin/util/Instance.js'
             , 'bin/util/SmoothEdger.js'
+            , 'bin/util/DbgPannel.js'
             
             , 'bin/ui/UI.js'
             , 'bin/ui/BuildingCreateMenu.js'
@@ -57,6 +58,7 @@ var TAG_SPRITE_MANAGER = 1;
             , 'bin/ui/editer/WorldEditer.js'
             , 'bin/ui/editer/WorldEditerLayer.js'
             , 'bin/ui/editer/ObjectEditer.js'
+            , 'bin/ui/editer/PanelStain.js'
             
             , 'bin/outer/Camera.js'
             , 'bin/outer/LifeEntity.js'

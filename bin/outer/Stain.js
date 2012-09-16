@@ -98,12 +98,6 @@ yc.outer.Stain = yc.outer.PhysicalEntity.extend({
 					}
 				}
 			}
-
-			// 
-			var pt = yc.util.windowToClient(this,wx,wy) ;
-			ctx.moveTo(0,0) ;
-			ctx.lineTo(pt[0],-pt[1]) ;
-			ctx.stroke() ;
 		}
 
 	}

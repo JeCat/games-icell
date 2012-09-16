@@ -102,7 +102,5 @@ yc.GameLayer = cc.Layer.extend({
 		
 			
 		this._super(scalex,scaley) ;
-		
 	}
-	
 }) ;

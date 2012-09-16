@@ -257,7 +257,8 @@ yc.util.lineOnLine = function(l1, l2) {
 
 
 yc.util.windowToClient = function(node,x,y){
-    
+    var iptX = x ;
+    var iptY = y ;
     if(yc.util.windowToClient.debug)
     {
         log(['input ',x,y]) ;
@@ -284,10 +285,14 @@ yc.util.windowToClient = function(node,x,y){
         {
             var p = node.getPosition() ;
         }
+        x-= p.x ;
+        y-= p.y ;
 
-        x = (x-p.x)/node._scaleX ;
-        y = (y-p.y)/node._scaleY ;
+        // zoom
+        x/= node._scaleX ;
+        y/= node._scaleY ;
         
+        // 
         if(yc.util.windowToClient.debug)
         {
             log(['trans to ',x,y, ' by ',node.constructor.className, p.x, p.y, node._scaleX, node._scaleY]) ;
