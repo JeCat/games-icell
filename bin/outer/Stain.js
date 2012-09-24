@@ -52,6 +52,7 @@ yc.outer.Stain = yc.outer.PhysicalEntity.extend({
 		var script = {
 				x: range.left+(0|(Math.random()*range.width))
 				, y: range.bottom+(0|(Math.random()*range.height))
+				, bodyType: Math.random()>0.5? b2Body.b2_dynamicBody: b2Body.b2_staticBody
 				, shapes: [
 					{
 						type: 'polygon'				// 类型 circle, polygon
@@ -124,6 +125,8 @@ yc.outer.Stain = yc.outer.PhysicalEntity.extend({
 
 		if('shapes' in script)
 		{
+			this._initB2Body(script.bodyType) ;
+
 			this.initWithScriptShapes(script.shapes) ;
 		}
 

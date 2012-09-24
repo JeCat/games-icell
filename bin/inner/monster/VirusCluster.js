@@ -13,12 +13,20 @@ yc.inner.monster.VirusCluster = cc.Sprite.extend({
         this._super() ;
         this.initWithFile('res/virus24.png') ;
     }
+
+    , draw: function(ctx){
+
+        // ctx.rotate( yc.util.correctRotation(this) ) ;
+        ctx.rotate( -ins(yc.outer.Cell).rotationTarget ) ;
+
+        this._super(ctx) ;
+    }
     
     , init: function(){
     	this.num = this.totalNum ;
     	this.releasing = true ;
     	this.actRelease = null ;
-    	this.stay = null
+    	this.stay = null ;
     }
     
     , enterCell: function(stay){

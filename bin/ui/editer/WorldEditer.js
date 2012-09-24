@@ -4,7 +4,7 @@ yc.ui.editer.WorldEditer = function(){
 
 	this.ui = $('#dlg-world-editer').dialog({
 		title: '世界编辑器'
-		, width:500
+		, width:650
 		, position: [0,0]
 	}) ;
 	$('#tabs-world-editer').tabs() ;

@@ -9,7 +9,7 @@ yc.ui.editer.PanelStain = function(editer){
 	this.selectedStainShape = null ;
 	this.selectedStainPoint = null ;
 
-	// 修改污渍位置和角度
+	// 修改污渍的属性：位置、角度
 	var onChangeStainPosition = function(){
 		var y = parseInt($('#ipt-stain-y').val())/PTM_RATIO ;
 		var x = parseInt($('#ipt-stain-x').val())/PTM_RATIO ;
@@ -21,6 +21,17 @@ yc.ui.editer.PanelStain = function(editer){
 	this.ui.find('#ipt-stain-x').change(onChangeStainPosition) ;
 	this.ui.find('#ipt-stain-y').change(onChangeStainPosition) ;
 	this.ui.find('#ipt-stain-rotation').change(onChangeStainPosition) ;
+
+	// 修改污渍的类型
+	this.ui.find('#sel-stain-bodyType').change(function(){
+		
+		panel.selectedStain._script.bodyType = this.options[this.selectedIndex].value ;
+		log(panel.selectedStain) ;
+		
+		// 重新构建多边形
+		panel.selectedStain.initWithScript(panel.selectedStain._script) ;
+	}) ;
+
 
 	// 修改多形状属性
 	var onChangeShape = function(){
@@ -40,13 +51,13 @@ yc.ui.editer.PanelStain = function(editer){
 		panel.selectedStainShape.borderColor = $('#ipt-stain-shape-border-color').val();
 		panel.selectedStainShape.textStyle = $('#ipt-stain-shape-text-style').val();
 		panel.selectedStainShape.textColor = $('#ipt-stain-shape-text-color').val();
-		panel.selectedStainShape.text = $('#txt-stain-shape-text').val();
+		panel.selectedStainShape.text = $('#ipt-stain-shape-text').val();
 	}
 	this.ui.find('#ipt-stain-shape-color').change(onChangeShape) ;
 	this.ui.find('#ipt-stain-shape-border-color').change(onChangeShape) ;
 	this.ui.find('#ipt-stain-shape-text-style').change(onChangeShape) ;
 	this.ui.find('#ipt-stain-shape-text-color').change(onChangeShape) ;
-	this.ui.find('#txt-stain-shape-text').change(onChangeShape) ;
+	this.ui.find('#ipt-stain-shape-text').change(onChangeShape) ;
 
 	// 修改多边形顶点位置
 	var onChangePointPosition = function(){
@@ -76,6 +87,8 @@ yc.ui.editer.PanelStain = function(editer){
 			return {
 				text: '[id:'+stain.id+']'+stain.x.toFixed(1)+','+stain.y.toFixed(1)
 				, value: stain.id
+
+				// 选中污渍事件 -----
 				, click: function(stain){
 					panel.selectedStain = stain ;
 					panel.selectedStainShape = null ;
@@ -84,6 +97,7 @@ yc.ui.editer.PanelStain = function(editer){
 					
 					panel.ui.find('#ipt-stain-x').val(stain.x.toFixed(1)) ;
 					panel.ui.find('#ipt-stain-y').val(stain.y.toFixed(1)) ;
+					panel.ui.find('#sel-stain-bodyType>option[value='+stain.bodyType+']').attr('selected','selected') ;
 					panel.ui.find('#ipt-stain-rotation').val(stain.getRotation()) ;
 					
 					panel.ui.find('#ipt-stain-shape-density').val('') ;
@@ -93,7 +107,7 @@ yc.ui.editer.PanelStain = function(editer){
 					panel.ui.find('#ipt-stain-shape-border-color').val('') ;
 					panel.ui.find('#ipt-stain-shape-text-style').val('') ;
 					panel.ui.find('#ipt-stain-shape-text-color').val('') ;
-					panel.ui.find('#txt-stain-shape-text').val('') ;
+					panel.ui.find('#ipt-stain-shape-text').val('') ;
 
 					panel.ui.find('#lst-stain-points').html('') ;
 					panel.ui.find('#ipt-stain-point-x').val('') ;
@@ -125,7 +139,7 @@ yc.ui.editer.PanelStain = function(editer){
 					panel.ui.find('#ipt-stain-shape-border-color').val(shape.borderColor) ;
 					panel.ui.find('#ipt-stain-shape-text-style').val(shape.textStyle) ;
 					panel.ui.find('#ipt-stain-shape-text-color').val(shape.textColor) ;
-					panel.ui.find('#txt-stain-shape-text').val(shape.text) ;
+					panel.ui.find('#ipt-stain-shape-text').val(shape.text) ;
 
 					panel.ui.find('#ipt-stain-point-x').val('') ;
 					panel.ui.find('#ipt-stain-point-y').val('') ;
@@ -174,6 +188,7 @@ yc.ui.editer.PanelStain = function(editer){
 				, y: cell.y + 100
 				, linearDampingMultiple: 2		// 线速度阻尼倍数(相对质量)
 				, angularDampingMultiple: 4		// 角速度阻尼倍数(相对质量)
+				, bodyType: b2Body.b2_staticBody
 				, shapes:[
 					{
 						type: 'polygon'			// 类型 circle, polygon

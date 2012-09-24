@@ -114,9 +114,13 @@ yc.inner.monster.Virus = cc.Sprite.extend({
         this.setPosition(cc.p(hexgon.center[0],hexgon.center[1])) ;
     }
     
-    , _draw: cc.Sprite.prototype.draw
     , draw: function(ctx){
-        this._draw() ;
+
+
+        //ctx.rotate( yc.util.correctRotation(this) ) ;
+        ctx.rotate( -ins(yc.outer.Cell).rotationTarget ) ;
+
+        this._super(ctx) ;
         
 //        ctx.fillStyle = 'red' ;
 //        ctx.font="normal 3px san-serif";

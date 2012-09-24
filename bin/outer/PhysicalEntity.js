@@ -61,12 +61,12 @@ yc.outer.PhysicalEntity = cc.Sprite.extend({
         this.b2Body.CreateFixture(fixtureDef);
 	}
 
-	, initWithPolygon: function(points,x,y,density){
+	, initWithPolygon: function(points,x,y,density,type){
 		
 		var world = cc.Director.getInstance()._runningScene.world ;
 		
         var bodyDef = new b2BodyDef();
-        bodyDef.type = b2Body.b2_dynamicBody;
+        bodyDef.type = typeof(type)=='undefined'? b2Body.b2_staticBody: type ;
         bodyDef.position.Set(x / PTM_RATIO, y / PTM_RATIO);
         bodyDef.allowSleep = true;
         bodyDef.userData = this;
@@ -296,33 +296,38 @@ yc.outer.PhysicalEntity = cc.Sprite.extend({
 			this.b2Body.DestroyFixture(fixture) ;
 		} while(fixture=nextFixture) ;
 	}
+
+	, _destoryBody: function(){
+		this._cleanupFixtures() ;
+
+		this.b2Body.GetWorld().removingBodies.push(this.b2Body) ;
+		
+		// 解除关系
+		this.b2Body.SetUserData(null) ;
+		this.b2Body = null ;
+	}
 	
-	, _createB2Body: function(){
+	, _initB2Body: function(type){
 
 		// 清理 body 中的fixture
 		if(this.b2Body)
 		{
-			this._cleanupFixtures() ;
+			this._destoryBody() ;
 		}
 
 		// 新建body
-		else
-		{
-			var world = cc.Director.getInstance()._runningScene.world ;
-			var bodyDef = new b2BodyDef();
-			bodyDef.type = b2Body.b2_dynamicBody;
-			bodyDef.position.Set(this.x/PTM_RATIO,this.y/PTM_RATIO) ;
-			bodyDef.allowSleep = true;
-			bodyDef.userData = this;
-			this.b2Body = world.CreateBody(bodyDef);
-		}
+		var world = cc.Director.getInstance()._runningScene.world ;
+		var bodyDef = new b2BodyDef() ;
+    	bodyDef.type = typeof(type)=='undefined'? b2Body.b2_dynamicBody: type ;
+		bodyDef.position.Set(this.x/PTM_RATIO,this.y/PTM_RATIO) ;
+		bodyDef.allowSleep = true;
+		bodyDef.userData = this;
+		this.b2Body = world.CreateBody(bodyDef);
 
 		return this.b2Body ;
 	}
 	
 	, initWithScriptShapes: function(shapes){
-
-		this._createB2Body() ;
 		
 		for(var i=0;i<shapes.length;i++)
 		{
@@ -412,14 +417,7 @@ yc.outer.PhysicalEntity = cc.Sprite.extend({
 		// 从物理世界中移除
 		if(this.b2Body)
 		{
-			this._cleanupFixtures() ;
-
-			this.b2Body.GetWorld().removingBodies.push(this.b2Body) ;
-			
-			// 解除关系
-			this.b2Body.SetUserData(null) ;
-			this.b2Body = null ;
-
+			this._destoryBody() ;
 		}
 	}
 	

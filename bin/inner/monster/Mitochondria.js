@@ -10,6 +10,14 @@ yc.inner.monster.Mitochondria = cc.Sprite.extend({
         this.setAnchorPoint(cc.p(0.5,0.5)) ;
     }
 
+    , draw: function(ctx){
+
+        //ctx.rotate( yc.util.correctRotation(this) ) ;
+        ctx.rotate( -ins(yc.outer.Cell).rotationTarget ) ;
+
+        this._super(ctx) ;
+    }
+
 	, release: function(p){
 		this.setPosition(p) ;
 		this.mosey() ;

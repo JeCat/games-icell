@@ -470,6 +470,7 @@ yc.GameScene = cc.Scene.extend({
 				, y: 150
 				, linearDampingMultiple: 2		// 线速度阻尼倍数(相对质量)
 				, angularDampingMultiple: 4		// 角速度阻尼倍数(相对质量)
+				, bodyType: b2Body.b2_dynamicBody
 				, shapes:[
 					{
 						type: 'polygon'					// 类型 circle, polygon

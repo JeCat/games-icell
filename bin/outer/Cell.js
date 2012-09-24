@@ -94,6 +94,9 @@ yc.outer.Cell = yc.outer.PhysicalEntity.extend({
 		this._points = edger.build(scale*yc.settings.inner.hexgonSideLength*2) ;
 		//log(this._points) ;
 		
+		// 创建body
+		this._initB2Body(b2Body.b2_dynamicBody) ;
+
 		this.initWithScriptShapes(this.shapes) ;
 		
 

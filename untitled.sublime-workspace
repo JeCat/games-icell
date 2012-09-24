@@ -1,0 +1,385 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"si",
+				"size  (function)"
+			],
+			[
+				"virus",
+				"virusclusters"
+			],
+			[
+				"layer",
+				"layerStains"
+			],
+			[
+				"init",
+				"initWithScriptShapes"
+			],
+			[
+				"s",
+				"selectedStainShape  (variable)"
+			],
+			[
+				"b",
+				"b2Vec2"
+			],
+			[
+				"b2",
+				"b2Body"
+			],
+			[
+				"ini",
+				"initWithScriptShapes"
+			],
+			[
+				"Dicr",
+				"Director  (namespace)"
+			],
+			[
+				"refreshStain",
+				"refreshStainShapePoint"
+			],
+			[
+				"po",
+				"points"
+			],
+			[
+				"selectedSa",
+				"selectedStainShape"
+			],
+			[
+				"_",
+				"_super"
+			],
+			[
+				"ly",
+				"layerGame"
+			],
+			[
+				"initWi",
+				"initWithScript"
+			],
+			[
+				"h",
+				"hMoving"
+			],
+			[
+				"v",
+				"vMoving"
+			],
+			[
+				"set",
+				"SetAngularDamping"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"contents": "<?php\ndefine( \"WB_AKEY\" , '749560871' );\ndefine( \"WB_SKEY\" , '3d894a6cff49cd1bfbd523d4ee21cab3' );\ndefine( \"WB_CALLBACK_URL\" , 'http://' . $_SERVER['HTTP_HOST'] . '/service/sina_user/callback.php' );\ndefine( \"GAME_URL\" , 'http://' . $_SERVER['HTTP_HOST'] . '/icell.php' );\n",
+			"file": "app_key_config.php",
+			"file_size": 273,
+			"file_write_time": 1347793851000000,
+			"settings":
+			{
+				"buffer_size": 273,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 392.0,
+		"selected_items":
+		[
+			[
+				"k",
+				"Preferences: Key Bindings - Default"
+			]
+		],
+		"width": 602.0
+	},
+	"console":
+	{
+		"height": 125.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/private/var/root/Desktop/拉贾卫士20120825/index_new2.html",
+		"/Users/xiaye/project/youcell/bin/ui/editer/WorldEditerLayer.js",
+		"/Users/xiaye/project/youcell/bin/ui/editer/PanelStain.js",
+		"/Users/xiaye/project/youcell/bin/GameScene.js",
+		"/Users/xiaye/project/youcell/bin/outer/Stain.js",
+		"/Users/xiaye/project/youcell/bin/util/DbgPannel.js",
+		"/Users/xiaye/project/youcell/bin/inner/ProteinPool.js",
+		"/Users/xiaye/project/youcell/bin/outer/PhysicalEntity.js",
+		"/Users/xiaye/project/youcell/bin/outer/VirusCluster.js",
+		"/Users/xiaye/project/youcell/bin/outer/AminoAcid.js",
+		"/Users/xiaye/project/youcell/bin/inner/ProteinFormulas.js",
+		"/Users/xiaye/project/youcell/bin/ui/editer/WorldEditer.js",
+		"/Users/xiaye/project/youcell/bin/inner/AminoAcidPool.js",
+		"/Users/xiaye/project/youcell/bin/inner/InnerLayer.js",
+		"/Users/xiaye/project/youcell/bin/outer/Camera.js",
+		"/Users/xiaye/project/youcell/bin/outer/Cell.js",
+		"/Users/xiaye/project/youcell/bin/levels/LevelSelector.js",
+		"/Users/xiaye/project/youcell/bin/inner/Cell.js",
+		"/Users/xiaye/project/youcell/bin/settings.js",
+		"/Users/xiaye/project/youcell/index.html",
+		"/Users/xiaye/project/youcell/main.js",
+		"/Users/xiaye/project/youcell/cocos2d.js",
+		"/Users/xiaye/project/youcell/bin/outer/PlayerLayer.js",
+		"/Users/xiaye/project/youcell/bin/util/functions.js",
+		"/Users/xiaye/project/youcell/bin/ui/editer/ObjectEditer.js",
+		"/Users/xiaye/project/youcell/bin/util/Instance.js",
+		"/Users/xiaye/project/youcell/bin/GameLayer.js",
+		"/Users/xiaye/project/youcell/bin/inner/CellInnerMap.js",
+		"/Users/xiaye/project/youcell/style.css",
+		"/Users/xiaye/project/youcell/jquery.json.js",
+		"/Users/xiaye/project/youcell/bin/inner/monster/VirusCluster.js",
+		"/Users/xiaye/project/youcell/bin/outer/Boss.js",
+		"/Users/xiaye/project/youcell/bin/levels/FreeWorld.js",
+		"/Users/xiaye/project/youcell/bin/outer/ContactListener.js",
+		"/Users/xiaye/project/youcell/bin/ui/BuildingCreateMenu.js",
+		"/Users/xiaye/project/youcell/bin/inner/building/ProteinFactory.js",
+		"/Users/xiaye/project/youcell/bin/ui/dashboard/Dashboard.js",
+		"/Users/xiaye/project/youcell/bin/outer/LifeEntity.js",
+		"/private/var/root/Library/Application Support/Sublime Text 2/Packages/Default/Preferences.sublime-settings",
+		"/private/var/root/Library/Application Support/Sublime Text 2/Packages/User/Preferences.sublime-settings",
+		"/Users/xiaye/project/youcell/jquery-1.7.1.js",
+		"/private/var/root/Library/Application Support/Sublime Text 2/Packages/Default/Default (OSX).sublime-keymap"
+	],
+	"find":
+	{
+		"height": 36.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+			"/Users/xiaye/project/youcell"
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"txt-stain-shape-text",
+			"16px",
+			"textColor",
+			"text-color",
+			"removeStainShape",
+			"panel",
+			"panel =",
+			"editer",
+			"this._loadOptions",
+			"windowToClient",
+			"appendWorldPoint",
+			"b2Mat22",
+			"log",
+			"initRandom",
+			"turnTarget"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"ipt-stain-shape-text",
+			"textStyle",
+			"text-style",
+			"yc.ui.editer.WorldEditer._loadOptions",
+			" = function(sel,opts,each)\n = function(sel,opts,each)\nyc.ui.editer.WorldEditer._loadOptions"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "app_key_config.php",
+					"settings":
+					{
+						"buffer_size": 273,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								249,
+								273
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"replace":
+	{
+		"height": 0.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+			[
+				"games",
+				"bin/GameScene.js"
+			],
+			[
+				"py",
+				"bin/outer/PhysicalEntity.js"
+			],
+			[
+				"pro",
+				"bin/inner/ProteinPool.js"
+			],
+			[
+				"amino",
+				"bin/inner/AminoAcidPool.js"
+			],
+			[
+				"cell",
+				"bin/inner/Cell.js"
+			],
+			[
+				"sett",
+				"bin/settings.js"
+			],
+			[
+				"p",
+				"bin/outer/PhysicalEntity.js"
+			],
+			[
+				"fu",
+				"bin/util/functions.js"
+			],
+			[
+				"inn",
+				"bin/inner/InnerLayer.js"
+			],
+			[
+				"innerl",
+				"bin/inner/InnerLayer.js"
+			],
+			[
+				"sta",
+				"bin/outer/Stain.js"
+			],
+			[
+				"boss",
+				"bin/outer/Boss.js"
+			],
+			[
+				"vi",
+				"bin/inner/monster/VirusCluster.js"
+			],
+			[
+				"vir",
+				"bin/outer/VirusCluster.js"
+			],
+			[
+				"player",
+				"bin/outer/PlayerLayer.js"
+			],
+			[
+				"form",
+				"bin/inner/ProteinFormulas.js"
+			],
+			[
+				"ce",
+				"bin/outer/Cell.js"
+			],
+			[
+				"en",
+				"bin/outer/PhysicalEntity.js"
+			],
+			[
+				"play",
+				"bin/outer/PlayerLayer.js"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 223.0,
+	"status_bar_visible": true
+}

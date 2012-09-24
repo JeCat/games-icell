@@ -44,6 +44,7 @@ var TAG_SPRITE_MANAGER = 1;
             
             , 'bin/util/ObjectPool.js'
             , 'bin/util/functions.js'
+            , 'bin/util/node.funcs.js'
             , 'bin/util/Instance.js'
             , 'bin/util/SmoothEdger.js'
             , 'bin/util/DbgPannel.js'
