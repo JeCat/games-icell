@@ -13,6 +13,8 @@ yc.ui.editer.WorldEditerLayer = cc.Layer.extend({
 		this.worldMaxY = null ;
 		
 		this.touchCallback = null ;
+		this.touchBeginCallback = null ;
+		this.touchMovedCallback = null ;
 
 		this.touchingX = null ;
 		this.touchingY = null ;
@@ -24,12 +26,25 @@ yc.ui.editer.WorldEditerLayer = cc.Layer.extend({
 	}
 	
 	, onTouchesBegan: function(touches, event){
+
+		if( this.touchBeginCallback )
+		{
+			return this.touchBeginCallback(touches,event) ;
+		}
+
 		if(!this.touchCallback)
 		{
 			this._ptDragging = touches[0]._point ;
 		}
+
 	}
 	, onTouchesMoved: function(touches, event) {
+
+		if( this.touchMovedCallback )
+		{
+			return this.touchMovedCallback(touches,event) ;
+		}
+
 		this.touchingX= touches[0]._point.x ;
 		this.touchingY = touches[0]._point.y ;
 		ins(yc.util.DbgPannel).output['touch'] = this.touchingX.toFixed(1)+', '+this.touchingY.toFixed(1) ;
@@ -73,6 +88,33 @@ yc.ui.editer.WorldEditerLayer = cc.Layer.extend({
 		}
 	}
 	
+
+
+
+	// 让用户在场景中划出一个区域，返回区域的起始点
+	, lineOutRect: function(callback){
+
+		// 按下点
+		var pressPt = null ;
+		editer.layer.touchBeginCallback = function(touches,event){
+			editer.layer.touchBeginCallback = null ;
+			pressPt = touches[0]._point ;
+			return false ;
+		}
+
+		// 释放点
+		editer.layer.touchCallback = function(touches,event){
+			editer.layer.touchCallback = null ;
+
+			if(!pressPt)
+			{
+				return false ;
+			}
+
+			return callback(pressPt,touches[0]._point) ;
+		}
+	}
+
 }) ;
 
 

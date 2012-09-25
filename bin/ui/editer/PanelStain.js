@@ -187,32 +187,37 @@ yc.ui.editer.PanelStain = function(editer){
 	
 	this.createStain = function(){
 
-		var cell = ins(yc.outer.Cell) ;
+		editer.layer.lineOutRect( function(pressPt,releasePt){
 
-		cc.Director.getInstance()._runningScene.initWithScript({
-			stains: [{
-				x: cell.x
-				, y: cell.y + 100
-				, linearDampingMultiple: 2		// 线速度阻尼倍数(相对质量)
-				, angularDampingMultiple: 4		// 角速度阻尼倍数(相对质量)
-				, bodyType: b2Body.b2_staticBody
-				, shapes:[
-					{
-						type: 'polygon'			// 类型 circle, polygon
-						, density: 0.5			// 密度
-						, friction: 1			// 摩擦力
-						, restitution: 1		// 弹性
-						// 多边形的顶点
-						, points: [ [-50,50], [-60,-75], [23,-55], [23,65] ]
-						, text: null
-						, textStyle: "normal 16px san-serif"
-						, textColor: "0,0,0,1"
-					}
-				]
-			}]
-		}) ;
+			var polygon = panel._polygonShapeScript(releasePt,pressPt) ;
+			var center = {
+				x: polygon.points[0][0] + ((polygon.points[3][0]-polygon.points[0][0])/2)|0
+				, y: polygon.points[1][1] + ((polygon.points[0][1] - polygon.points[1][1])/2)|0
+			} ;
+			// 取相对坐标
+			for(var i=0;i<polygon.points.length;i++)
+			{
+				polygon.points[i][0]-= center.x ;
+				polygon.points[i][1]-= center.y ;
+			}
 
-		this.refreshStains() ;
+			var cam = ins(yc.outer.Camera) ;
+			cc.Director.getInstance()._runningScene.initWithScript({
+				stains: [{
+					x: cam.x = (center.x - cam.offsetX)
+					, y: cam.y = (center.y - cam.offsetY)
+					, linearDampingMultiple: 2		// 线速度阻尼倍数(相对质量)
+					, angularDampingMultiple: 4		// 角速度阻尼倍数(相对质量)
+					, bodyType: b2Body.b2_staticBody
+					, shapes:[ polygon ]
+				}]
+			}) ;
+
+			// 刷新所有污渍列表
+			panel.refreshStains() ;
+
+			return false ;
+		} ) ;
 	}
 	
 	this.removeStain = function(){
@@ -266,19 +271,61 @@ yc.ui.editer.PanelStain = function(editer){
 			alert("没有选择污渍") ;
 			return ;
 		}
-		this.selectedStain.shapes.push({
-			type: 'polygon'			// 类型 circle, polygon
-			, density: 0.5			// 密度
-			, friction: 1			// 摩擦力
-			, restitution: 1		// 弹性
+
+		editer.layer.lineOutRect( function(pressPt,releasePt){
+
+			if(!panel.selectedStain)
+			{
+				alert("没有选择污渍，操作无效") ;
+				return false ;
+			}
+
+			pressPt = yc.util.windowToClient(panel.selectedStain,pressPt.x,pressPt.y) ;
+			releasePt = yc.util.windowToClient(panel.selectedStain,releasePt.x,releasePt.y) ;
+
+			panel.selectedStain._script.shapes.push(panel._polygonShapeScript(releasePt,pressPt)) ;
+			panel.selectedStain.initWithScript(panel.selectedStain._script) ;
+
+			// 刷新顶点
+			panel.refreshStainShapes(panel.selectedStain) ;
+
+			return false ;
+		} ) ;
+	}
+
+
+	this._polygonShapeScript = function(pt1,pt2){
+
+		yc.util.formatPoint(pt1) ;
+		yc.util.formatPoint(pt2) ;
+
+		// 避免0 宽度、高度
+		if(pt1.x==pt2.x)
+		{
+			pt1.x+= 1 ;
+		}
+		if(pt1.y==pt2.y)
+		{
+			pt1.y+= 1 ;
+		}
+		var lft = Math.min(pt1.x,pt2.x) ;
+		var rgt = Math.max(pt1.x,pt2.x) ;
+		var btn = Math.min(pt1.y,pt2.y) ;
+		var top = Math.max(pt1.y,pt2.y) ;
+
+		return {
+			type: 'polygon'					// 类型 circle, polygon
+			, density: 0.5					// 密度
+			, friction: 1					// 摩擦力
+			, restitution: 1				// 弹性
+			, color: "150,150,150"			// 颜色
+			, borderColor: "80,80,80"		// 边界颜色
 			// 多边形的顶点
-			, points: [ [-50,50], [-60,-75], [23,-55] ]
-		}) ;
-
-		panel.selectedStain.initWithScriptShapes(panel.selectedStain.shapes) ;
-
-		// 刷新形状
-		this.refreshStainShapes(panel.selectedStain) ;
+			, points: [ [lft,top], [lft,btn], [rgt,btn], [rgt,top] ]
+			, text: null
+			, textStyle: "normal 16px san-serif"
+			, textColor: "0,0,0,1"
+		} ;
 	}
 
 	this.removeStainShape = function(){

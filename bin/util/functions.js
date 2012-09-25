@@ -4,40 +4,40 @@
  */
 yc.util.radianBetweenPoints = function(p1X,p1Y,p2X,p2Y)
 {
-    var radian = Math.atan( Math.abs(p1Y-p2Y)/  Math.abs(p1X-p2X) ) ;
-    if(p1Y<p2Y)
-    {
-        // 第一象限
-        if(p1X<p2X)
-        {
-        	radian = Math.PI/2 - radian ;
-        }
-        // 第二象限
-        else
-        {
-        	radian = Math.PI*3/2 + radian ;
-        }
-    }
-    else
-    { 
-        // 第四象限
-        if(p1X<p2X)
-        {
-            return Math.PI/2 + radian ;
-        }
-        // 第三象限
-        else
-        {
-        	radian = Math.PI/2 - radian + Math.PI ;
-        }
-    }
-    
-    if(isNaN(radian))
-    {
-    	radian = 0 ;
-    }
-    
-    return radian ;
+	var radian = Math.atan( Math.abs(p1Y-p2Y)/  Math.abs(p1X-p2X) ) ;
+	if(p1Y<p2Y)
+	{
+		// 第一象限
+		if(p1X<p2X)
+		{
+			radian = Math.PI/2 - radian ;
+		}
+		// 第二象限
+		else
+		{
+			radian = Math.PI*3/2 + radian ;
+		}
+	}
+	else
+	{ 
+		// 第四象限
+		if(p1X<p2X)
+		{
+			return Math.PI/2 + radian ;
+		}
+		// 第三象限
+		else
+		{
+			radian = Math.PI/2 - radian + Math.PI ;
+		}
+	}
+	
+	if(isNaN(radian))
+	{
+		radian = 0 ;
+	}
+	
+	return radian ;
 }
 
 /**
@@ -45,7 +45,7 @@ yc.util.radianBetweenPoints = function(p1X,p1Y,p2X,p2Y)
  */
 yc.util.pointsDis = function(p1X,p1Y,p2X,p2Y)
 {
-    return Math.sqrt(Math.pow(Math.abs(p1X-p2X),2) + Math.pow(Math.abs(p1Y-p2Y),2)) ;
+	return Math.sqrt(Math.pow(Math.abs(p1X-p2X),2) + Math.pow(Math.abs(p1Y-p2Y),2)) ;
 }
 
 
@@ -54,99 +54,99 @@ yc.util.pointsDis = function(p1X,p1Y,p2X,p2Y)
  * 画一个正方形区域
  */
 yc.util.drawRect = function(lftTop,rgtBtm,ctx,strokeStyle,fillStyle){
-        
-    
-    if( typeof(strokeStyle)!='undefined' && strokeStyle )
-    {
-        ctx.strokeStyle = strokeStyle ;
-    }
-    else
-    {
-        strokeStyle = null ;
-    }
-    
-    if( typeof(fillStyle)!='undefined' && fillStyle )
-    {
-        ctx.fillStyle = fillStyle ;
-    }
-    else
-    {
-        fillStyle = null ;
-    }
-    
-    ctx.beginPath() ;
-    ctx.moveTo(lftTop[0],-lftTop[1]) ;
-    ctx.lineTo(rgtBtm[0],-lftTop[1]) ;
-    ctx.lineTo(rgtBtm[0],-rgtBtm[1]) ;
-    ctx.lineTo(lftTop[0],-rgtBtm[1]) ;
-    ctx.lineTo(lftTop[0],-lftTop[1]) ;
-    ctx.closePath() ;
-    
-    if(fillStyle)
-    {
-        ctx.fill() ;
-    }
-    if(strokeStyle)
-    {
-        ctx.stroke() ;
-    }
+		
+	
+	if( typeof(strokeStyle)!='undefined' && strokeStyle )
+	{
+		ctx.strokeStyle = strokeStyle ;
+	}
+	else
+	{
+		strokeStyle = null ;
+	}
+	
+	if( typeof(fillStyle)!='undefined' && fillStyle )
+	{
+		ctx.fillStyle = fillStyle ;
+	}
+	else
+	{
+		fillStyle = null ;
+	}
+	
+	ctx.beginPath() ;
+	ctx.moveTo(lftTop[0],-lftTop[1]) ;
+	ctx.lineTo(rgtBtm[0],-lftTop[1]) ;
+	ctx.lineTo(rgtBtm[0],-rgtBtm[1]) ;
+	ctx.lineTo(lftTop[0],-rgtBtm[1]) ;
+	ctx.lineTo(lftTop[0],-lftTop[1]) ;
+	ctx.closePath() ;
+	
+	if(fillStyle)
+	{
+		ctx.fill() ;
+	}
+	if(strokeStyle)
+	{
+		ctx.stroke() ;
+	}
 }
 
 /**
  * 画一个多边形
  */
 yc.util.drawPolygon = function(points,ctx,strokeStyle,fillStyle,convert){
-    if( typeof(strokeStyle)!='undefined' && strokeStyle )
-    {
-        ctx.strokeStyle = strokeStyle ;
-    }
-    else
-    {
-        strokeStyle = null ;
-    }
-    
-    if( typeof(fillStyle)!='undefined' && fillStyle )
-    {
-        ctx.fillStyle = fillStyle ;
-    }
-    else
-    {
-        fillStyle = null ;
-    }
-    
-    if( typeof(convert)=='undefined' )
-    {
-        convert = 1 ;
-    }
-    else
-    {
-        convert = convert? -1: 1 ;
-    }
-    
-    ctx.beginPath() ;
-    
-    var transPoint = function(p)
-    {
-        return typeof(p.x)!=='undefined'? [p.x,p.y]: p ;
-    }
-    var last = transPoint(points[points.length-1]) ;
-    
-    ctx.moveTo(last[0],last[1]*convert) ;
-    for(var p=0;p<points.length;p++)
-    {
-        point = transPoint(points[p]) ;
-    	ctx.lineTo(point[0],point[1]*convert) ;
-    }
-    ctx.closePath() ;
-    
-    if(fillStyle)
-    {
-        ctx.fill() ;
-    }
-    if(strokeStyle)
-    {
-        ctx.stroke() ;
-    }
+	if( typeof(strokeStyle)!='undefined' && strokeStyle )
+	{
+		ctx.strokeStyle = strokeStyle ;
+	}
+	else
+	{
+		strokeStyle = null ;
+	}
+	
+	if( typeof(fillStyle)!='undefined' && fillStyle )
+	{
+		ctx.fillStyle = fillStyle ;
+	}
+	else
+	{
+		fillStyle = null ;
+	}
+	
+	if( typeof(convert)=='undefined' )
+	{
+		convert = 1 ;
+	}
+	else
+	{
+		convert = convert? -1: 1 ;
+	}
+	
+	ctx.beginPath() ;
+	
+	var transPoint = function(p)
+	{
+		return typeof(p.x)!=='undefined'? [p.x,p.y]: p ;
+	}
+	var last = transPoint(points[points.length-1]) ;
+	
+	ctx.moveTo(last[0],last[1]*convert) ;
+	for(var p=0;p<points.length;p++)
+	{
+		point = transPoint(points[p]) ;
+		ctx.lineTo(point[0],point[1]*convert) ;
+	}
+	ctx.closePath() ;
+	
+	if(fillStyle)
+	{
+		ctx.fill() ;
+	}
+	if(strokeStyle)
+	{
+		ctx.stroke() ;
+	}
 }
 
 
@@ -154,55 +154,55 @@ yc.util.drawPolygon = function(points,ctx,strokeStyle,fillStyle,convert){
  * 画一个多边形
  */
 yc.util.drawLine = function(pointA,pointB,ctx,strokeStyle,convert){
-    if( typeof(strokeStyle)!='undefined' && strokeStyle )
-    {
-        ctx.strokeStyle = strokeStyle ;
-    }
-    if( typeof(convert)=='undefined' )
-    {
-        convert = 1 ;
-    }
-    else
-    {
-        convert = convert? -1: 1 ;
-    }
-    
-    var transPoint = function(p)
-    {
-        return typeof(p.x)!=='undefined'? [p.x,p.y]: p ;
-    }
-    pointA = transPoint(pointA) ;
-    pointB = transPoint(pointB) ;
-    
-    ctx.beginPath() ;
-    ctx.moveTo(pointA[0],pointA[1]*convert) ;
-    ctx.lineTo(pointB[0],pointB[1]*convert) ;
-    ctx.closePath() ;
-    
-    ctx.stroke() ;
+	if( typeof(strokeStyle)!='undefined' && strokeStyle )
+	{
+		ctx.strokeStyle = strokeStyle ;
+	}
+	if( typeof(convert)=='undefined' )
+	{
+		convert = 1 ;
+	}
+	else
+	{
+		convert = convert? -1: 1 ;
+	}
+	
+	var transPoint = function(p)
+	{
+		return typeof(p.x)!=='undefined'? [p.x,p.y]: p ;
+	}
+	pointA = transPoint(pointA) ;
+	pointB = transPoint(pointB) ;
+	
+	ctx.beginPath() ;
+	ctx.moveTo(pointA[0],pointA[1]*convert) ;
+	ctx.lineTo(pointB[0],pointB[1]*convert) ;
+	ctx.closePath() ;
+	
+	ctx.stroke() ;
 }
 
 
 yc.util.arr = {} ;
 yc.util.arr.search = function(arr,ele){
-    for(var i=0;i<arr.length;i++)
-    {
-        if(ele===arr[i])
-        {
-            return i ;
-        }
-    }
-    return false ;
+	for(var i=0;i<arr.length;i++)
+	{
+		if(ele===arr[i])
+		{
+			return i ;
+		}
+	}
+	return false ;
 }
 
 yc.util.arr.remove = function(arr,ele){
-    var idx = yc.util.arr.search(arr,ele) ;
-    if(idx!==false)
-    {
-        arr.splice(idx,1) ;
-        return true ;
-    }
-    return false ;
+	var idx = yc.util.arr.search(arr,ele) ;
+	if(idx!==false)
+	{
+		arr.splice(idx,1) ;
+		return true ;
+	}
+	return false ;
 }
 
 
@@ -253,4 +253,26 @@ yc.util.lineOnLine = function(l1, l2) {
 			return [];
 		}
 	}
+}
+
+
+yc.util.formatPoint = function(pt){
+    // array to object
+	if( !(0 in pt) && ('x' in pt) )
+	{
+		pt[0] = pt.x ;
+	}
+    if( !(1 in pt) && ('y' in pt) )
+    {
+        pt[1] = pt.y ;
+    }
+    // object to array
+    if( (0 in pt) && !('x' in pt) )
+    {
+        pt.x = pt[0] ;
+    }
+    if( (1 in pt) && !('y' in pt) )
+    {
+        pt.y = pt[1] ;
+    }
 }
