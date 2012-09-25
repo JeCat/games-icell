@@ -2,7 +2,7 @@ yc.outer.PhysicalEntity = cc.Sprite.extend({
 
 	size: 30
 	
-    , x: 0
+	, x: 0
 	, y: 0
 	, power: 0
 
@@ -22,9 +22,9 @@ yc.outer.PhysicalEntity = cc.Sprite.extend({
 	
 	, ctor: function(){
 		this.b2Body = null ;
-        this.scheduleUpdate();
+		this.scheduleUpdate();
 
-        this._followingCamera = null ;
+		this._followingCamera = null ;
 	}
 
 	, init: function(){
@@ -47,48 +47,48 @@ yc.outer.PhysicalEntity = cc.Sprite.extend({
 		
 		var world = cc.Director.getInstance()._runningScene.world ;
 		
-        var bodyDef = new b2BodyDef();
-        bodyDef.type = b2Body.b2_dynamicBody;
-        bodyDef.position.Set(x / PTM_RATIO, y / PTM_RATIO);
-        bodyDef.userData = this;
-        this.b2Body = world.CreateBody(bodyDef);
+		var bodyDef = new b2BodyDef();
+		bodyDef.type = b2Body.b2_dynamicBody;
+		bodyDef.position.Set(x / PTM_RATIO, y / PTM_RATIO);
+		bodyDef.userData = this;
+		this.b2Body = world.CreateBody(bodyDef);
 
-        new Box2D.Collision.Shapes.b2CircleShape(radius/PTM_RATIO) ;
-        
-        // Define the dynamic body fixture.
-        var fixtureDef = new b2FixtureDef();
-        fixtureDef.shape = new Box2D.Collision.Shapes.b2CircleShape(radius/PTM_RATIO) ;
-        fixtureDef.density = density ;
-        fixtureDef.friction = 1.0 ;
-        this.b2Body.CreateFixture(fixtureDef);
+		new Box2D.Collision.Shapes.b2CircleShape(radius/PTM_RATIO) ;
+		
+		// Define the dynamic body fixture.
+		var fixtureDef = new b2FixtureDef();
+		fixtureDef.shape = new Box2D.Collision.Shapes.b2CircleShape(radius/PTM_RATIO) ;
+		fixtureDef.density = density ;
+		fixtureDef.friction = 1.0 ;
+		this.b2Body.CreateFixture(fixtureDef);
 	}
 
 	, initWithPolygon: function(points,x,y,density,type){
 		
 		var world = cc.Director.getInstance()._runningScene.world ;
 		
-        var bodyDef = new b2BodyDef();
-        bodyDef.type = typeof(type)=='undefined'? b2Body.b2_staticBody: type ;
-        bodyDef.position.Set(x / PTM_RATIO, y / PTM_RATIO);
-        bodyDef.allowSleep = true;
-        bodyDef.userData = this;
-        this.b2Body = world.CreateBody(bodyDef);
+		var bodyDef = new b2BodyDef();
+		bodyDef.type = typeof(type)=='undefined'? b2Body.b2_staticBody: type ;
+		bodyDef.position.Set(x / PTM_RATIO, y / PTM_RATIO);
+		bodyDef.allowSleep = true;
+		bodyDef.userData = this;
+		this.b2Body = world.CreateBody(bodyDef);
 
-        // 逆时针输入顶点
-        var vertices = [] ;
-        for(var i=0;i<points.length;i++)
-        {
-        	vertices.push(new b2Vec2((points[i].x)/PTM_RATIO,(points[i].y)/PTM_RATIO)) ;
-        }
-        var shape = new b2PolygonShape() ;
-        shape.SetAsArray(vertices) ;
-        
-        // Define the dynamic body fixture.
-        var fixtureDef = new b2FixtureDef();
-        fixtureDef.shape = shape ;
-        fixtureDef.density = density ;
-        fixtureDef.friction = 1.0 ;
-        this.b2Body.CreateFixture(fixtureDef);
+		// 逆时针输入顶点
+		var vertices = [] ;
+		for(var i=0;i<points.length;i++)
+		{
+			vertices.push(new b2Vec2((points[i].x)/PTM_RATIO,(points[i].y)/PTM_RATIO)) ;
+		}
+		var shape = new b2PolygonShape() ;
+		shape.SetAsArray(vertices) ;
+		
+		// Define the dynamic body fixture.
+		var fixtureDef = new b2FixtureDef();
+		fixtureDef.shape = shape ;
+		fixtureDef.density = density ;
+		fixtureDef.friction = 1.0 ;
+		this.b2Body.CreateFixture(fixtureDef);
 	}
 	
 	, initWithScript: function(script){
@@ -125,7 +125,7 @@ yc.outer.PhysicalEntity = cc.Sprite.extend({
 			{
 				r+= Math.PI*2 ;
 			}
-            this.setRotation( r ) ;
+			this.setRotation( r ) ;
 		}
 	}
 	
@@ -133,18 +133,18 @@ yc.outer.PhysicalEntity = cc.Sprite.extend({
 		this.x = x ;
 		this.y = y ;
 
-    	// 移动摄像机
-    	if( this._followingCamera )
-    	{
-    		this._followingCamera.moveByFocus(this.x,this.y) ;
-    	}
+		// 移动摄像机
+		if( this._followingCamera )
+		{
+			this._followingCamera.moveByFocus(this.x,this.y) ;
+		}
 	}
 
 	
 	, autoWakeup: function(dis){
 
-        var camera = ins(yc.outer.Camera) ;
-        
+		var camera = ins(yc.outer.Camera) ;
+		
 		// 远离玩家，处于睡眠状态
 		if( dis>(camera.width/2) )
 		{
@@ -326,7 +326,7 @@ yc.outer.PhysicalEntity = cc.Sprite.extend({
 		// 新建body
 		var world = cc.Director.getInstance()._runningScene.world ;
 		var bodyDef = new b2BodyDef() ;
-    	bodyDef.type = typeof(type)=='undefined'? b2Body.b2_dynamicBody: type ;
+		bodyDef.type = typeof(type)=='undefined'? b2Body.b2_dynamicBody: type ;
 		bodyDef.position.Set(this.x/PTM_RATIO,this.y/PTM_RATIO) ;
 		bodyDef.allowSleep = true;
 		bodyDef.userData = this;

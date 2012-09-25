@@ -103,12 +103,12 @@ yc.outer.VirusCluster = yc.outer.PhysicalEntity.extend({
 		// 警示范围
 		if( !yc.settings.player.stealth && this.vigilanceRange>dis )
 		{
-	        this.speed = this.normalSpeed ;
+			this.speed = this.normalSpeed ;
 			
-	        // 调整方向
-	        this.turnTarget(cell.x,cell.y) ;
-	        
-	        this.updateVelocity() ;
+			// 调整方向
+			this.turnTarget(cell.x,cell.y) ;
+			
+			this.updateVelocity() ;
 		}
 		
 		// 漫步
@@ -136,7 +136,7 @@ yc.outer.VirusCluster = yc.outer.PhysicalEntity.extend({
 	
 	, createInnerSprite: function(hexgon){
 
-    	//log(['virus cluster touch cell on: ',hexgon]) ;
+		//log(['virus cluster touch cell on: ',hexgon]) ;
 		
 		var innerCluster = yc.inner.monster.VirusCluster.create(hexgon) ;
 		

@@ -108,41 +108,41 @@ HexgonAxes.prototype.hexgonByPoint = function(px,py,bAutoCreate){
 	
 	
 	
-    var gridW = 3/2*this.sideLen ;
-    var gridH = Math.sqrt(3)*this.sideLen ;
-    var gridHalfH = gridH/2 ;
-    
-    var x = (Math.floor((px-this.sideLen/2)/gridW) + 1) ;
-    
-    if(x%2)
-    {
-       var y = Math.floor( py / gridH ) ;
-    }
-    else
-    {
-        var y = (Math.floor((py-gridHalfH)/gridH) + 1) ;
-    }
-    
-    var hexgon = this.hexgon(x,y,bAutoCreate) ;
-    
-    if( hexgon && hexgon.center[0]-px>this.sideLen/2 )
-    {
-        if(py>hexgon.center[1])
-        {
-            var neighbor = hexgon.wn(bAutoCreate) ;
-        }
-        else
-        {
-            var neighbor = hexgon.ws(bAutoCreate) ;
-        }
-        
-        if( neighbor && yc.util.pointsDis(hexgon.center[0],hexgon.center[1],px,py) > yc.util.pointsDis(neighbor.center[0],neighbor.center[1],px,py) )
-        {
-            hexgon = neighbor ;
-        }
-    }
-    
-    return hexgon ;
+	var gridW = 3/2*this.sideLen ;
+	var gridH = Math.sqrt(3)*this.sideLen ;
+	var gridHalfH = gridH/2 ;
+	
+	var x = (Math.floor((px-this.sideLen/2)/gridW) + 1) ;
+	
+	if(x%2)
+	{
+	   var y = Math.floor( py / gridH ) ;
+	}
+	else
+	{
+		var y = (Math.floor((py-gridHalfH)/gridH) + 1) ;
+	}
+	
+	var hexgon = this.hexgon(x,y,bAutoCreate) ;
+	
+	if( hexgon && hexgon.center[0]-px>this.sideLen/2 )
+	{
+		if(py>hexgon.center[1])
+		{
+			var neighbor = hexgon.wn(bAutoCreate) ;
+		}
+		else
+		{
+			var neighbor = hexgon.ws(bAutoCreate) ;
+		}
+		
+		if( neighbor && yc.util.pointsDis(hexgon.center[0],hexgon.center[1],px,py) > yc.util.pointsDis(neighbor.center[0],neighbor.center[1],px,py) )
+		{
+			hexgon = neighbor ;
+		}
+	}
+	
+	return hexgon ;
 }
 HexgonAxes.prototype.hexgon = function(x,y,bAutoCreate)
 {

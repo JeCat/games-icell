@@ -10,50 +10,50 @@ yc.GameLayer = cc.Layer.extend({
 		var layer = this ;
 		
 		this.onScrollFunc = function(e){
-		    e=e || window.event; 
-		     
-		    if(e.wheelDelta){//IE/Opera/Chrome 
-		        var value=e.wheelDelta; 
-		    }else if(e.detail){//Firefox 
-		        var value=e.detail; 
-		    }
-		    
-		    if(layer.actScale)
-		    {
-		    	layer.stopAction(layer.actScale)
-		    }
-		    var scale = 1+value/120*0.3 ;
-		    if(navigator.platform.indexOf('Mac') !== -1)
-		    	scale = 1-value/120*0.3 ;
+			e=e || window.event; 
+			 
+			if(e.wheelDelta){//IE/Opera/Chrome 
+				var value=e.wheelDelta; 
+			}else if(e.detail){//Firefox 
+				var value=e.detail; 
+			}
+			
+			if(layer.actScale)
+			{
+				layer.stopAction(layer.actScale)
+			}
+			var scale = 1+value/120*0.3 ;
+			if(navigator.platform.indexOf('Mac') !== -1)
+				scale = 1-value/120*0.3 ;
 
-		    // 一次缩放的速度，不超过3倍
-		    if(scale<0.33)
-		    {
-		    	scale = 0.33 ;
-		    }
-		    else if(scale>3)
-		    {
-		    	scale = 3 ;
-		    }
-		    layer.actScale = cc.ScaleBy.create(0.3,scale) ;
-		    layer.runAction(layer.actScale) ;
+			// 一次缩放的速度，不超过3倍
+			if(scale<0.33)
+			{
+				scale = 0.33 ;
+			}
+			else if(scale>3)
+			{
+				scale = 3 ;
+			}
+			layer.actScale = cc.ScaleBy.create(0.3,scale) ;
+			layer.runAction(layer.actScale) ;
 		}
 
-	    /*注册事件*/ 
-	    if( document && document.addEventListener )
-	    { 
-	        document.addEventListener('DOMMouseScroll',this.onScrollFunc,false); 
-	    }//W3C 
-	    window.onmousewheel=document.onmousewheel = this.onScrollFunc;//IE/Opera/Chrome 
-	    
+		/*注册事件*/ 
+		if( document && document.addEventListener )
+		{ 
+			document.addEventListener('DOMMouseScroll',this.onScrollFunc,false); 
+		}//W3C 
+		window.onmousewheel=document.onmousewheel = this.onScrollFunc;//IE/Opera/Chrome 
+		
 	}
 
 	, onExit: function(){
-	    if( document && document.removeEventListener )
-	    { 
-	        document.removeEventListener('DOMMouseScroll',this.onScrollFunc); 
-	    }//W3C 
-	    window.onmousewheel=document.onmousewheel = null ;//IE/Opera/Chrome
+		if( document && document.removeEventListener )
+		{ 
+			document.removeEventListener('DOMMouseScroll',this.onScrollFunc); 
+		}//W3C 
+		window.onmousewheel=document.onmousewheel = null ;//IE/Opera/Chrome
 	}
 	
 	, setScale: function(scalex,scaley){

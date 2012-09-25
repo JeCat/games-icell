@@ -59,8 +59,8 @@ yc.GameScene = cc.Scene.extend({
 		// 游戏显示比例缩放
 		this._initZoomer() ;
 		
-	    // 全局变量
-	    scene = this ;
+		// 全局变量
+		scene = this ;
 	}
 
 	, _initWorld: function(){
@@ -384,10 +384,10 @@ yc.GameScene = cc.Scene.extend({
 			, cell: {
 			
 				// 内部场景中细胞核所在格子的坐标
-			    nucleus: {
-			        x: 0
-			        , y: 0
-			    }
+				nucleus: {
+					x: 0
+					, y: 0
+				}
 			
 				// 细胞质格子
 				, cytoplasms: [

@@ -87,8 +87,8 @@ function HexgonAxesPathMap(aAxes)
 			var neighbor = hexgon[way]() ;
 			if(!neighbor)
 			{
-			    //log(['hexgon 没有'+way+'方向上的邻接格子',hexgon]) ;
-			    continue ;
+				//log(['hexgon 没有'+way+'方向上的邻接格子',hexgon]) ;
+				continue ;
 			}
 			var neighborInfo = this.pos(neighbor.x,neighbor.y) ;
 			

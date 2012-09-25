@@ -10,18 +10,18 @@ yc.levels.FreeWorld = yc.GameScene.extend({
 		// dna ----------------
 		//  定义基因
 		yc.dna.genes = {
-            'tower:firepower': new yc.dna.GeneBuildingUpgrader({
-                name: 'tower:firepower'
-                , title: '防御塔：火力'
-                , description: '解锁：能够将“防御塔：火力”升级到更高等级'
-                , upgrader: yc.inner.building.up.TowerFierpower
-            })
-            , 'tower:bombing': new yc.dna.GeneBuildingUpgrader({
-                name: 'tower:bombing'
-                , title: '防御塔：轰炸'
-                , description: '解锁：能够将“防御塔：轰炸”升级到更高等级'
-                , upgrader: yc.inner.building.up.TowerBombing
-            })
+			'tower:firepower': new yc.dna.GeneBuildingUpgrader({
+				name: 'tower:firepower'
+				, title: '防御塔：火力'
+				, description: '解锁：能够将“防御塔：火力”升级到更高等级'
+				, upgrader: yc.inner.building.up.TowerFierpower
+			})
+			, 'tower:bombing': new yc.dna.GeneBuildingUpgrader({
+				name: 'tower:bombing'
+				, title: '防御塔：轰炸'
+				, description: '解锁：能够将“防御塔：轰炸”升级到更高等级'
+				, upgrader: yc.inner.building.up.TowerBombing
+			})
 			, 'tower:retardment': new yc.dna.GeneBuildingUpgrader({
 				name: 'tower:retardment'
 				, title: '防御塔：减速'
@@ -55,36 +55,36 @@ yc.levels.FreeWorld = yc.GameScene.extend({
 		// 初始化资源
 		//  合成公式
 		ins(yc.inner.ProteinFormulas)
-		    .addNewFormula({
-		        name: 'red'
-		        , materials: {red:5}
-		        , rgb: [255,0,0]
-		    })
-		    .addNewFormula({
-		        name: 'yellow'
-		        , materials: {yellow:5}
-		        , rgb: [255,255,0]
-		    })
-		    .addNewFormula({
-		        name: 'blue'
-		        , materials: {blue:5}
-		        , rgb: [0,0,255]
-		    })
-		    .addNewFormula({
-		        name: 'orange'
-		        , materials: {red:3,yellow:3}
-		        , rgb: [255,165,0]
-		    }) 
-		    .addNewFormula({
-		        name: 'green'
-		        , materials: {blue:3,yellow:3}
-		        , rgb: [0,165,0]
-		    }) 
-		    .addNewFormula({
-		        name: 'violet'
-		        , materials: {red:3,blue:3}
-		        , rgb: [255,0,255]
-		    }) ;
+			.addNewFormula({
+				name: 'red'
+				, materials: {red:5}
+				, rgb: [255,0,0]
+			})
+			.addNewFormula({
+				name: 'yellow'
+				, materials: {yellow:5}
+				, rgb: [255,255,0]
+			})
+			.addNewFormula({
+				name: 'blue'
+				, materials: {blue:5}
+				, rgb: [0,0,255]
+			})
+			.addNewFormula({
+				name: 'orange'
+				, materials: {red:3,yellow:3}
+				, rgb: [255,165,0]
+			}) 
+			.addNewFormula({
+				name: 'green'
+				, materials: {blue:3,yellow:3}
+				, rgb: [0,165,0]
+			}) 
+			.addNewFormula({
+				name: 'violet'
+				, materials: {red:3,blue:3}
+				, rgb: [255,0,255]
+			}) ;
 		
 		
 		// ---------------
@@ -113,18 +113,18 @@ yc.levels.FreeWorld = yc.GameScene.extend({
 		
 
 		// boss
-        var boss = new yc.outer.Boss(5800,200) ;
+		var boss = new yc.outer.Boss(5800,200) ;
 		boss.lv = 5 ;
-        
-        // boss掉落的基因
-        boss.genes.push(yc.dna.genes['tower:firepower']) ;
-        boss.genes.push(yc.dna.genes['tower:bombing']) ;
-        boss.genes.push(yc.dna.genes['tower:retardment']) ;
-        boss.genes.push(yc.dna.genes['grow']) ;
-        
-        this.compassBoss.arrBosses.push(boss);
-        this.layerRoles.addChild(boss) ;
-       
+		
+		// boss掉落的基因
+		boss.genes.push(yc.dna.genes['tower:firepower']) ;
+		boss.genes.push(yc.dna.genes['tower:bombing']) ;
+		boss.genes.push(yc.dna.genes['tower:retardment']) ;
+		boss.genes.push(yc.dna.genes['grow']) ;
+		
+		this.compassBoss.arrBosses.push(boss);
+		this.layerRoles.addChild(boss) ;
+	   
 	}
 	
 	, _createRandomBoss: function(radius,lv){

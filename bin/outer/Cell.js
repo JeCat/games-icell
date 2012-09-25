@@ -7,8 +7,8 @@ yc.outer.Cell = yc.outer.PhysicalEntity.extend({
 
 		// 细胞内部视图
 		this.layerInner = ins(yc.inner.InnerLayer) ;
-        this.addChild(this.layerInner) ;
-	    
+		this.addChild(this.layerInner) ;
+		
 		// 细胞外壳 -------
 		var cell = this ;
 		this.shell = new cc.Sprite() ;
@@ -22,7 +22,7 @@ yc.outer.Cell = yc.outer.PhysicalEntity.extend({
 		this.addChild(this.shell) ;
 
 
-        this._bWatching = true ;
+		this._bWatching = true ;
 	}
 
 	, draw: function(ctx){
@@ -32,8 +32,8 @@ yc.outer.Cell = yc.outer.PhysicalEntity.extend({
 	, init: function(){
 
 		var innerCell = this.layerInner.cell ;
-	    
-        // this.cell.initWithCircle(10,0,0,yc.settings.outer.cell.density) ;
+		
+		// this.cell.initWithCircle(10,0,0,yc.settings.outer.cell.density) ;
 
 		this.shapes = [] ;
 		this.boundaryLines = [] ;
@@ -105,12 +105,12 @@ yc.outer.Cell = yc.outer.PhysicalEntity.extend({
 
 		this.b2Body.SetAngularDamping( 4 ) ;
 	}
-//    
-//    , draw: function(ctx){
-//        
-//        this._super(ctx) ;
-//        
-//        return ;
+//	
+//	, draw: function(ctx){
+//		
+//		this._super(ctx) ;
+//		
+//		return ;
 //
 //		//var speed = this.b2Body.GetLinearVelocity() ;
 //		//var radian = yc.util.radianBetweenPoints(0,0,speed.x*PTM_RATIO,speed.y*PTM_RATIO) ;
@@ -141,7 +141,7 @@ yc.outer.Cell = yc.outer.PhysicalEntity.extend({
 //		ctx.stroke() ;
 //		ctx.closePath() ;
 //		
-//    }
+//	}
 	
 	/**
 	 * 碰撞
@@ -166,93 +166,93 @@ yc.outer.Cell = yc.outer.PhysicalEntity.extend({
 		ins(yc.util.DbgPannel).output['player'] = this.x.toFixed(1)+', '+this.y.toFixed(1) ;
 	}
 	
-    , visit: function(ctx){
-    	
-    	this._super(ctx) ;
+	, visit: function(ctx){
+		
+		this._super(ctx) ;
 
-    	// 加速
-    	this.accelerating() ;
-    	
-    	return ;
-    	
-    	
-    	
-    	// 转向
-    	if(this._turn)
-    	{
-    		this.incAngle( this._turn=='right'? 1: -1 ) ;
-    	}
-    	
-    	// 遇到污渍减速
-    	yc.outer.Stain.downSpeed(this) ;
-    	
-    	// 加速
-    	this.accelerating() ;
+		// 加速
+		this.accelerating() ;
+		
+		return ;
+		
+		
+		
+		// 转向
+		if(this._turn)
+		{
+			this.incAngle( this._turn=='right'? 1: -1 ) ;
+		}
+		
+		// 遇到污渍减速
+		yc.outer.Stain.downSpeed(this) ;
+		
+		// 加速
+		this.accelerating() ;
 		
 		// 移动
 		if(this.speed)
 		{
 			this.moving() ;
-	    	
-	    	// 移动摄像机
-	    	ins(yc.outer.Camera).moveByFocus(this.x,this.y) ;
-    	}
-    	
-    	return this._super() ;
-    }
-    
-    , jump: function(x,y){
-    	
-    	if( typeof(x)!=='number' || x.toString()=='NaN' || typeof(y)!=='number' || y.toString()=='NaN' )
-    	{
-    		return ;
-    	}
-    	
-    	this.x = x ;
-    	this.y = y ;
-    	// 移动摄像机
-	    ins(yc.outer.Camera).moveByFocus(this.x,this.y) ;
-    	
-    	// 停止移动
-    	this.stopRun() ;
-        this.speed = 0 ;
-        
-    	this.stopTurn() ;
-    }
-    
-    , spurt: function(speed,radian){
+			
+			// 移动摄像机
+			ins(yc.outer.Camera).moveByFocus(this.x,this.y) ;
+		}
+		
+		return this._super() ;
+	}
+	
+	, jump: function(x,y){
+		
+		if( typeof(x)!=='number' || x.toString()=='NaN' || typeof(y)!=='number' || y.toString()=='NaN' )
+		{
+			return ;
+		}
+		
+		this.x = x ;
+		this.y = y ;
+		// 移动摄像机
+		ins(yc.outer.Camera).moveByFocus(this.x,this.y) ;
+		
+		// 停止移动
+		this.stopRun() ;
+		this.speed = 0 ;
+		
+		this.stopTurn() ;
+	}
+	
+	, spurt: function(speed,radian){
 
-    	if(typeof(radian)!='undefined')
-    	{
-    		this.angle = radian%(2*Math.PI) ;
-    	}
-    	
-    	this.speed = speed ;
-    }
+		if(typeof(radian)!='undefined')
+		{
+			this.angle = radian%(2*Math.PI) ;
+		}
+		
+		this.speed = speed ;
+	}
 
-    , setRotation: function(r){
+	, setRotation: function(r){
 
-    	this._super(r) ;
+		this._super(r) ;
 
-    	if( Math.abs(this.rotationTarget-r) < 0.1 )
-    	{
-    		// 停止旋转
-    		this.b2Body.SetAngularVelocity(0) ;
-    	}
-    	else
-    	{
-    		// 设置角速度
-	        if( this.rotationTarget>r )
-	        {
-	            this.b2Body.SetAngularVelocity( this.rotationTarget-r>Math.PI? Math.PI*2: -Math.PI*2 ) ;
-	        }
-	        else
-	        {
-	            this.b2Body.SetAngularVelocity( r-this.rotationTarget >Math.PI? -Math.PI*2: Math.PI*2 ) ;
-	        }
-    	}
-    }
-    
+		if( Math.abs(this.rotationTarget-r) < 0.1 )
+		{
+			// 停止旋转
+			this.b2Body.SetAngularVelocity(0) ;
+		}
+		else
+		{
+			// 设置角速度
+			if( this.rotationTarget>r )
+			{
+				this.b2Body.SetAngularVelocity( this.rotationTarget-r>Math.PI? Math.PI*2: -Math.PI*2 ) ;
+			}
+			else
+			{
+				this.b2Body.SetAngularVelocity( r-this.rotationTarget >Math.PI? -Math.PI*2: Math.PI*2 ) ;
+			}
+		}
+	}
+	
 });  
 
 

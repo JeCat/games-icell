@@ -9,12 +9,12 @@ function Hexgon()
 	this.mapData = {} ;
 	
 	this.points = {
-	    A: null ,
-	    B: null ,
-	    C: null ,
-	    D: null ,
-	    E: null ,
-	    F: null ,
+		A: null ,
+		B: null ,
+		C: null ,
+		D: null ,
+		E: null ,
+		F: null ,
 	} ;
 	
 	this.lines = {
@@ -71,21 +71,21 @@ function Hexgon()
 					// 单数列
 					if( this.x%2 )
 					{
-                        // 偏北
-                        if( waySN=='n' )
-                        {
-                            y+= 1 ;
-                        }
+						// 偏北
+						if( waySN=='n' )
+						{
+							y+= 1 ;
+						}
 					}
 					
 					// 双数列
 					else
 					{
-                        // 偏南
-                        if(waySN=='s')
-                        {
-                            y-= 1 ;
-                        }
+						// 偏南
+						if(waySN=='s')
+						{
+							y-= 1 ;
+						}
 					}
 					
 					break ;

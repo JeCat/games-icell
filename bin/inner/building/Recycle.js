@@ -6,23 +6,23 @@ yc.inner.building.Recycle = yc.inner.building.Building.extend({
 	}
 
 	, draw: function(ctx){
-	    if(!this.hexgon)
-	    {
-	        return ;
-	    }
+		if(!this.hexgon)
+		{
+			return ;
+		}
 	
-	    this._super(ctx) ;
-	    
-	    ctx.fillStyle = 'green' ;
-	    ctx.font="normal san-serif";
-	    ctx.fillText('∆',-6,+5) ;
+		this._super(ctx) ;
+		
+		ctx.fillStyle = 'green' ;
+		ctx.font="normal san-serif";
+		ctx.fillText('∆',-6,+5) ;
 	}
 	
-    , put: function(hexgon){
-    	this._super(hexgon) ;
-    	
-    	this.releaseMitochondrias() ;
-    }
+	, put: function(hexgon){
+		this._super(hexgon) ;
+		
+		this.releaseMitochondrias() ;
+	}
 	
 	, releaseMitochondrias: function(){
 		while( this.mitochondrias.length < this.mitochondriaCount )

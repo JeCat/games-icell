@@ -8,8 +8,8 @@ yc.outer.AminoAcid = yc.outer.PhysicalEntity.extend({
 		this.normalSpeed = yc.settings.outer.aminoacid.normalSpeed ;
 	}
 	
-    , initRandom: function(range){
-    	this.initWithScript({
+	, initRandom: function(range){
+		this.initWithScript({
 			x: range.left+(0|(Math.random()*range.width))
 			, y: range.bottom+(0|(Math.random()*range.height))
 
@@ -17,20 +17,20 @@ yc.outer.AminoAcid = yc.outer.PhysicalEntity.extend({
 			 // red, blue, yellow
 			, type: yc.inner.AminoAcidPool.types[ 0|(Math.random()*(yc.inner.AminoAcidPool.types.length)) ]
 		}) ;
-    }
-    
-    , init: function(){
-    	this.size = 3 + Math.round(this.num/4) ;
-    	var colors = {red:'255,0,0',blue:'0,0,255',yellow:'255,255,0'}
-    	this.color = 'rgb(' + colors[this.type] + ')' ;
+	}
+	
+	, init: function(){
+		this.size = 3 + Math.round(this.num/4) ;
+		var colors = {red:'255,0,0',blue:'0,0,255',yellow:'255,255,0'}
+		this.color = 'rgb(' + colors[this.type] + ')' ;
 
 		this.initWithCircle(this.size,this.x,this.y,yc.settings.outer.aminoacid.density) ;
-    }
+	}
 		
-    , transform: yc.outer.Camera.transformSprite
+	, transform: yc.outer.Camera.transformSprite
 	, draw: function(c)
 	{
-        c.fillStyle = this.color ;
+		c.fillStyle = this.color ;
 		c.beginPath();
 		c.arc(0, 0, this.size, 0, Math.PI*2, true);
 		c.closePath();
@@ -46,11 +46,11 @@ yc.outer.AminoAcid = yc.outer.PhysicalEntity.extend({
 			return ;
 		}
 		
-        // 随机改变方向
-        this.mosey(this.normalSpeed) ;
-        
+		// 随机改变方向
+		this.mosey(this.normalSpeed) ;
+		
 
-        this._super(dt) ;
+		this._super(dt) ;
 	}
 	
 	, catchMe: function(){

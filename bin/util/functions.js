@@ -257,22 +257,22 @@ yc.util.lineOnLine = function(l1, l2) {
 
 
 yc.util.formatPoint = function(pt){
-    // array to object
+	// array to object
 	if( !(0 in pt) && ('x' in pt) )
 	{
 		pt[0] = pt.x ;
 	}
-    if( !(1 in pt) && ('y' in pt) )
-    {
-        pt[1] = pt.y ;
-    }
-    // object to array
-    if( (0 in pt) && !('x' in pt) )
-    {
-        pt.x = pt[0] ;
-    }
-    if( (1 in pt) && !('y' in pt) )
-    {
-        pt.y = pt[1] ;
-    }
+	if( !(1 in pt) && ('y' in pt) )
+	{
+		pt[1] = pt.y ;
+	}
+	// object to array
+	if( (0 in pt) && !('x' in pt) )
+	{
+		pt.x = pt[0] ;
+	}
+	if( (1 in pt) && !('y' in pt) )
+	{
+		pt.y = pt[1] ;
+	}
 }

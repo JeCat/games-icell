@@ -4,9 +4,9 @@ yc.ui.editer.WorldEditerLayer = cc.Layer.extend({
 	
 	ctor: function(){
 		this._super() ;
-        this.setTouchEnabled(true);
-        
-        
+		this.setTouchEnabled(true);
+		
+		
 		this.worldMinX = null ;
 		this.worldMaxX = null ;
 		this.worldMinY = null ;
@@ -57,7 +57,7 @@ yc.ui.editer.WorldEditerLayer = cc.Layer.extend({
 			var y = cam.y - (touches[0]._point.y-this._ptDragging.y)*this._dragingScale ;
 
 
-		    // log([this._ptDragging.x,this._ptDragging.y,' > ',touches[0]._point.x,touches[0]._point.y, '; scale:', this._dragingScale, '; from' ,cam.x,cam.y, ' > move to ', x,y])
+			// log([this._ptDragging.x,this._ptDragging.y,' > ',touches[0]._point.x,touches[0]._point.y, '; scale:', this._dragingScale, '; from' ,cam.x,cam.y, ' > move to ', x,y])
 
 			cam.moveByFocus(x,y) ;
 

@@ -15,7 +15,7 @@ yc.ui.editer.PanelStain = function(editer){
 		var x = parseInt($('#ipt-stain-x').val())/PTM_RATIO ;
 		var r = parseFloat($('#ipt-stain-rotation').val()) ;
 		var mat22 = new b2Mat22();
-        mat22.Set(Math.PI*2-r) ;
+		mat22.Set(Math.PI*2-r) ;
 		panel.selectedStain.b2Body.SetTransform( new b2Transform(new b2Vec2(x,y),mat22) ) ;
 	}
 	this.ui.find('#ipt-stain-x').change(onChangeStainPosition) ;

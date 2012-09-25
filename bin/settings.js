@@ -2,38 +2,38 @@ yc.settings = {
 		
 	// 内部场景 ------------------------------
 	inner: {
-	    // 六边形边长
-	    hexgonSideLength: 15
-	    // 六边形格子的最大层数
-	    , cellMaxLevels: 5
-	    // 六边形格子层数的游戏初始值
-	    , cellInitialLevels: 1
-	    
-	    // 六边形格子 总共层数： 1(细胞核) + 2*(细胞膜) + 实际空间
-	    , totalHexgonLevels: 13
-	    
-	    , width: 600
-	    , height: 676
-	    
-	    // 当放大倍数大于 zoom 时，显示细胞内部
-	    , displayZoom: 2
-	    
-	    , zoom: 5
-	    
-	    // 细胞核
-	    , nucleus: {
+		// 六边形边长
+		hexgonSideLength: 15
+		// 六边形格子的最大层数
+		, cellMaxLevels: 5
+		// 六边形格子层数的游戏初始值
+		, cellInitialLevels: 1
+		
+		// 六边形格子 总共层数： 1(细胞核) + 2*(细胞膜) + 实际空间
+		, totalHexgonLevels: 13
+		
+		, width: 600
+		, height: 676
+		
+		// 当放大倍数大于 zoom 时，显示细胞内部
+		, displayZoom: 2
+		
+		, zoom: 5
+		
+		// 细胞核
+		, nucleus: {
 			// 细胞核所在格子的坐标
-	        x: 0
-	        , y: 0
-	    }
-	    , dbg: true
-	    
-	    
-	    // 病毒
-	    , virus: {
-	    	// 病毒群释放病毒的默认间隔时间(sec)
-	    	defaultReleaseDt: 1.5
-	    }
+			x: 0
+			, y: 0
+		}
+		, dbg: true
+		
+		
+		// 病毒
+		, virus: {
+			// 病毒群释放病毒的默认间隔时间(sec)
+			defaultReleaseDt: 1.5
+		}
 	}
 
 
@@ -131,11 +131,11 @@ yc.settings.inner.height = Math.ceil( Math.sqrt(3) * yc.settings.inner.hexgonSid
 
 
 var b2BodyDef = Box2D.Dynamics.b2BodyDef
-    , b2Body = Box2D.Dynamics.b2Body
-    , b2World = Box2D.Dynamics.b2World
-    , b2FixtureDef = Box2D.Dynamics.b2FixtureDef
-    , b2PolygonShape = Box2D.Collision.Shapes.b2PolygonShape
-    , b2Vec2 = Box2D.Common.Math.b2Vec2
-    , b2DebugDraw = Box2D.Dynamics.b2DebugDraw
-    , b2Transform = Box2D.Common.Math.b2Transform
-    , b2Mat22 = Box2D.Common.Math.b2Mat22 ;
+	, b2Body = Box2D.Dynamics.b2Body
+	, b2World = Box2D.Dynamics.b2World
+	, b2FixtureDef = Box2D.Dynamics.b2FixtureDef
+	, b2PolygonShape = Box2D.Collision.Shapes.b2PolygonShape
+	, b2Vec2 = Box2D.Common.Math.b2Vec2
+	, b2DebugDraw = Box2D.Dynamics.b2DebugDraw
+	, b2Transform = Box2D.Common.Math.b2Transform
+	, b2Mat22 = Box2D.Common.Math.b2Mat22 ;

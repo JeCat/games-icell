@@ -39,7 +39,7 @@ yc.util.ObjectPool = yc.op = function ObjectPool(className)
 	}
 	
 	this.total = function(){
-	    return this.freeObjects.length + this.count ;
+		return this.freeObjects.length + this.count ;
 	}
 }
 
@@ -59,12 +59,12 @@ yc.util.ObjectPool.ActionFree = cc.Action.extend({
 
 yc.util.ObjectPool.mapFlyweights = {} ;
 yc.util.ObjectPool.ins = function(className){
-    
-    var name = typeof(className.className)=='undefined'? className.name: className.className ;
-    if( !name || typeof(name)=='undefined' )
-    {
-        return null ;
-    }
+	
+	var name = typeof(className.className)=='undefined'? className.name: className.className ;
+	if( !name || typeof(name)=='undefined' )
+	{
+		return null ;
+	}
 	if( typeof(yc.util.ObjectPool.mapFlyweights[name])=='undefined' )
 	{
 		yc.util.ObjectPool.mapFlyweights[name] = new yc.util.ObjectPool(className) ;

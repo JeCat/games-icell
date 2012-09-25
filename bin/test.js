@@ -28,10 +28,10 @@ function newVirusCluster(){
 }
 
 function testVirusRun(startX,startY){
-    
-    var layer = ins(yc.inner.monster.VirusLayer) ;
-    var virus = layer.createVirusSprite() ;
-    
-    virus.run(startX,startY) ;
+	
+	var layer = ins(yc.inner.monster.VirusLayer) ;
+	var virus = layer.createVirusSprite() ;
+	
+	virus.run(startX,startY) ;
 	
 }
