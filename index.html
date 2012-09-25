@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -160,7 +161,7 @@
 	
 	
 	<!-- 关卡编辑器 -->
-	<div id='dlg-world-editer' style='display:none;font-size:12px'>
+	<div id='dlg-world-editer' style='display:none;font-size:12px;position:fixed;top:0px;left:40px'>
 	
 		<div id='worldediter-message'></div>
 		
@@ -216,7 +217,6 @@
 					<div style="float:left; margin-left:20px">
 						x:<input id='ipt-stain-x' style='width:70px' value='' />
 						y:<input id='ipt-stain-y' style='width:70px' value='' />
-						<button onclick="ins(yc.ui.editer.WorldEditer).stain.stopStainMoving()">停止移动</button>
 						<br />
 
 						<select id="sel-stain-bodyType">
@@ -224,9 +224,11 @@
 							<option value='2'>可动</option>
 						</select>
 
-						角度： <input id='ipt-stain-rotation' style='width:100px' value='' />
-						<button onclick="ins(yc.ui.editer.WorldEditer).stain.stopStainRotation()">停止旋转</button>
+						角度： <input id='ipt-stain-rotation' style='width:60px' value='' /><br />
 						
+						<button onclick="ins(yc.ui.editer.WorldEditer).stain.locateStain()">定位</button>
+						<button onclick="ins(yc.ui.editer.WorldEditer).stain.stopStainMoving()">停止移动</button>
+						<button onclick="ins(yc.ui.editer.WorldEditer).stain.stopStainRotation()">停止旋转</button>
 
 						<hr />
 
@@ -251,21 +253,26 @@
 							文本样式：<input id='ipt-stain-shape-text-style' title="污渍上绘制文本的样式" style='width:80px' value='' /> 
 							颜色：<input id='ipt-stain-shape-text-color' title="污渍上绘制文本的颜色" style='width:50px' value='' />
 
+							<br />
 							贴图：
 						
+
+							<div>
+								<b>多边形顶点：</b>
+								<button onclick="ins(yc.ui.editer.WorldEditer).stain.createStainPoint()">+ 点</button>
+								<button onclick="ins(yc.ui.editer.WorldEditer).stain.removeStainPoint()">- 点</button>
+								<br />
+								<select multiple=true size="6" id="lst-stain-points" style="width:150px"></select><br />
+
+								顶点坐标：<br />
+								x:<input id='ipt-stain-point-x' style='width:50px' value='' />
+								y:<input id='ipt-stain-point-y' style='width:50px' value='' />
+								<button onclick="ins(yc.ui.editer.WorldEditer).stain.locateStainPoint()">定位</button>
+								<br />
+							</div>
+
 						</div>
 
-						<div style="float:left; margin-left:30px">
-							<b>多边形顶点：</b>
-							<button onclick="ins(yc.ui.editer.WorldEditer).stain.createStainPoint()">+ 点</button>
-							<button onclick="ins(yc.ui.editer.WorldEditer).stain.removeStainPoint()">- 点</button>
-							<br />
-							<select multiple=true size="6" id="lst-stain-points" style="width:150px"></select><br />
-
-							顶点坐标：<br />
-							x:<input id='ipt-stain-point-x' style='width:50px' value='' />
-							y:<input id='ipt-stain-point-y' style='width:50px' value='' /><br />
-						</div>
 					
 						<div style="clear:both"></div>
 

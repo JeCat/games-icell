@@ -2,11 +2,14 @@ yc.ui.editer.WorldEditer = function(){
 
 	log('create WorldEditer') ;
 
-	this.ui = $('#dlg-world-editer').dialog({
+	/*this.ui = $('#dlg-world-editer').dialog({
 		title: '世界编辑器'
 		, width:650
 		, position: [0,0]
-	}) ;
+	}) ;*/
+	this.ui = $('#dlg-world-editer')
+				.height($(window).height())
+				.show() ;
 	$('#tabs-world-editer').tabs() ;
 	
 	this.stain = new yc.ui.editer.PanelStain(this) ;
@@ -15,6 +18,10 @@ yc.ui.editer.WorldEditer = function(){
 	// 辅助层
 	this.layer = new yc.ui.editer.WorldEditerLayer() ;
 	cc.Director.getInstance()._runningScene.addChild( this.layer ) ;
+
+
+	ins(yc.outer.Cell)._followingCamera = null ; 	// 停止摄像机跟随
+	cc.Director.getInstance()._runningScene.layerPlayer.dontMoving = true ;
 
 	this.show = function(){
 		this.ui.dialog('open') ;

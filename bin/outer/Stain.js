@@ -12,6 +12,9 @@ yc.outer.Stain = yc.outer.PhysicalEntity.extend({
 		this.id = yc.outer.Stain.assigned ++ ;
 		yc.outer.Stain.pool.push(this) ;
 		this.className = this.constructor.className ;
+
+		this.dbgBrightShape = null ;
+		this.dbgBrightShapePoint = null ;
 	}
 	
 	, initRandom: function(range){
@@ -96,6 +99,20 @@ yc.outer.Stain = yc.outer.PhysicalEntity.extend({
 						for(var pi=0;pi<shape.points.length;pi++)
 						{
 							var pt = shape.points[pi] ;
+
+							// 
+							if( this.dbgBrightShapePoint==pt )
+							{
+								ctx.save() ;
+								ctx.beginPath() ;
+								ctx.strokeStyle = 'red' ;
+								ctx.moveTo(pt[0],-pt[1]) ;
+								ctx.arc(pt[0],-pt[1], 3, 0, 2*Math.PI, false) ;
+								ctx.stroke() ;
+								ctx.closePath() ;
+								ctx.restore() ;
+							}
+
 							ctx.fillText('S'+si+'; P'+pi,pt[0]-10,-pt[1]-3);
 						}
 					}

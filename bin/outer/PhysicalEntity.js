@@ -23,6 +23,8 @@ yc.outer.PhysicalEntity = cc.Sprite.extend({
 	, ctor: function(){
 		this.b2Body = null ;
         this.scheduleUpdate();
+
+        this._followingCamera = null ;
 	}
 
 	, init: function(){
@@ -130,6 +132,12 @@ yc.outer.PhysicalEntity = cc.Sprite.extend({
 	, setWorldPosition: function(x,y){
 		this.x = x ;
 		this.y = y ;
+
+    	// 移动摄像机
+    	if( this._followingCamera )
+    	{
+    		this._followingCamera.moveByFocus(this.x,this.y) ;
+    	}
 	}
 
 	
@@ -374,24 +382,37 @@ yc.outer.PhysicalEntity = cc.Sprite.extend({
 			for(var i=0;i<this.shapes.length;i++)
 			{
 				var shape = this.shapes[i] ;
+
+				// 形状组合模式
+				ctx.globalCompositeOperation = "source-over" ;
+
+				// 多边形
 				if(shape.type=='polygon')
 				{
 					yc.util.drawPolygon(shape.points,ctx,'rgba('+shape.borderColor+','+shape.density+')','rgba('+shape.color+','+shape.density+')',true) ;
-
-					// 文本
-					if( shape.text )
-					{
-						ctx.save() ;
-
-						ctx.textBaseline = 'middle' ;
-						ctx.textAlign = 'center' ;
-						ctx.font = shape.textStyle ;
-						ctx.fillStyle = "rgba("+shape.textColor+")" ;
-						ctx.fillText(shape.text,0,0) ;
-
-						ctx.restore() ;
-					}
 				}
+				// 圆
+				else if(shape.type=='circle')
+				{
+					// todo ...
+				}
+
+				// 文本
+				if( shape.text )
+				{
+					ctx.save() ;
+
+					ctx.textBaseline = 'middle' ;
+					ctx.textAlign = 'center' ;
+					ctx.font = shape.textStyle ;
+					ctx.fillStyle = "rgba("+shape.textColor+")" ;
+					ctx.fillText(shape.text,0,0) ;
+
+					ctx.restore() ;
+				}
+
+				// 材质贴图
+				// todo ...
 			}
 		}
 	}

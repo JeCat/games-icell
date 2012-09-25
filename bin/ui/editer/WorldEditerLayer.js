@@ -16,23 +16,48 @@ yc.ui.editer.WorldEditerLayer = cc.Layer.extend({
 
 		this.touchingX = null ;
 		this.touchingY = null ;
+
+		this._ptDragging = null ;
+		this._dragingScale = 1 ;
 		
 		log('create WorldEditerLayer') ;
 	}
 	
-	, onTouchesBegan: function(touches, event){}
+	, onTouchesBegan: function(touches, event){
+		if(!this.touchCallback)
+		{
+			this._ptDragging = touches[0]._point ;
+		}
+	}
 	, onTouchesMoved: function(touches, event) {
 		this.touchingX= touches[0]._point.x ;
 		this.touchingY = touches[0]._point.y ;
 		ins(yc.util.DbgPannel).output['touch'] = this.touchingX.toFixed(1)+', '+this.touchingY.toFixed(1) ;
 
+		if(this._ptDragging)
+		{
+			var cam = ins(yc.outer.Camera) ;
+
+			var x = cam.x - (touches[0]._point.x-this._ptDragging.x)*this._dragingScale ;
+			var y = cam.y - (touches[0]._point.y-this._ptDragging.y)*this._dragingScale ;
+
+
+		    // log([this._ptDragging.x,this._ptDragging.y,' > ',touches[0]._point.x,touches[0]._point.y, '; scale:', this._dragingScale, '; from' ,cam.x,cam.y, ' > move to ', x,y])
+
+			cam.moveByFocus(x,y) ;
+
+			this._ptDragging = touches[0]._point ;
+		}
 	}
 	, onTouchesEnded:function (touches, event) {
-		if( !this.touchCallback )
+		if( this.touchCallback )
 		{
-			return ;
+			return this.touchCallback(touches,event) ;
 		}
-		return this.touchCallback(touches,event) ;
+		else
+		{
+			this._ptDragging = null ;
+		}
 	}
 	
 	, draw: function(ctx){

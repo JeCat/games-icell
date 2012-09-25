@@ -83,7 +83,7 @@ yc.ui.editer.PanelStain = function(editer){
 		this.ui.find('#lst-stains').html('') ;
 		this.selectedStain = null ;
 		
-		yc.ui.editer.WorldEditer._loadOptions(this.ui.find('#lst-stains'),arrStains,function(stain){
+		yc.ui.editer.WorldEditer._loadOptions(this.ui.find('#lst-stains'),arrStains,function(stain,si){
 			return {
 				text: '[id:'+stain.id+']'+stain.x.toFixed(1)+','+stain.y.toFixed(1)
 				, value: stain.id
@@ -126,6 +126,8 @@ yc.ui.editer.PanelStain = function(editer){
 			return {
 				text: '[S' + si + '] ' + shape.type
 				, value: si
+
+				// 选择形状事件 ----------------
 				, click: function(shape){
 
 					panel.selectedStainShape = shape ;
@@ -154,14 +156,19 @@ yc.ui.editer.PanelStain = function(editer){
 		// 加载顶点
 		yc.ui.editer.WorldEditer._loadOptions(editer.ui.find('#lst-stain-points'),shape.points,function(point,pi){
 		
-			panel.selectedStainPoint = point ;
+			panel.selectedStainPoint = null ;
 
 			return {
 				text: '[P'+pi+']'+point[0].toFixed(0)+','+point[1].toFixed(0)
 				, value: pi
+
+				// 选择顶点 ---------------
 				, click: function(point,pi){
 						panel.selectedStainPoint = point ;
 						panel.selectedStainPointIdx = pi ;
+
+						panel.selectedStain.dbgBrightShapePoint = point ;
+
 						panel.ui.find('#ipt-stain-point-x').val(point[0].toFixed(0)) ;
 						panel.ui.find('#ipt-stain-point-y').val(point[1].toFixed(0)) ;
 				}
@@ -220,6 +227,39 @@ yc.ui.editer.PanelStain = function(editer){
 		this.refreshStains() ;
 	}
 
+	this.locateStain = function(){
+		if(!this.selectedStain)
+		{
+			alert("没有选择污渍") ;
+			return ;
+		}
+
+		// cc.Director.getInstance()._runningScene.layerPlayer.dontMoving = true ;
+
+		editer.layer.touchCallback = function(touches,event){
+			// cc.Director.getInstance()._runningScene.layerPlayer.dontMoving = false ;
+			editer.layer.touchCallback = null ;
+			editer.message('') ;
+
+			if(!panel.selectedStain)
+			{
+				alert("没有选择污渍") ;
+				return ;
+			}
+			
+			var cam = ins(yc.outer.Camera) ;
+			$('#ipt-stain-x').val( cam.x - cam.offsetX + touches[0]._point.x ) ;
+			$('#ipt-stain-y').val( cam.y - cam.offsetY + touches[0]._point.y ) ;
+			onChangeStainPosition() ;
+
+			return false ;
+		}
+
+	}
+
+
+
+
 	this.createStainShape = function(){
 		if(!this.selectedStain)
 		{
@@ -268,10 +308,10 @@ yc.ui.editer.PanelStain = function(editer){
 			return ;
 		}
 		editer.message('在地图上点出顶点的位置') ;
-		cc.Director.getInstance()._runningScene.layerPlayer.dontMoving = true ;
+		// cc.Director.getInstance()._runningScene.layerPlayer.dontMoving = true ;
 
 		editer.layer.touchCallback = function(touches,event){
-			cc.Director.getInstance()._runningScene.layerPlayer.dontMoving = false ;
+			// cc.Director.getInstance()._runningScene.layerPlayer.dontMoving = false ;
 			editer.layer.touchCallback = null ;
 			editer.message('') ;
 
@@ -310,6 +350,38 @@ yc.ui.editer.PanelStain = function(editer){
 
 		// 刷新顶点
 		this.refreshStainShapePoints(this.selectedStainShape) ;
+	}
+
+	this.locateStainPoint = function(){
+		if(!this.selectedStain || !this.selectedStainPoint)
+		{
+			alert("没有选择污渍或顶点") ;
+			return ;
+		}
+
+		// cc.Director.getInstance()._runningScene.layerPlayer.dontMoving = true ;
+
+		editer.layer.touchCallback = function(touches,event){
+			// cc.Director.getInstance()._runningScene.layerPlayer.dontMoving = false ;
+			editer.layer.touchCallback = null ;
+			editer.message('') ;
+
+			if(!panel.selectedStain || !panel.selectedStainShape || !panel.selectedStainPoint)
+			{
+				alert("没有选择污渍 或 污渍中的形状，操作无效") ;
+				return false ;
+			}
+			
+			var pt = yc.util.windowToClient(panel.selectedStain,touches[0]._point.x,touches[0]._point.y) ;
+			panel.selectedStainPoint[0] = pt[0] ;
+			panel.selectedStainPoint[1] = pt[1] ;
+			panel.selectedStain.initWithScriptShapes(panel.selectedStain.shapes) ;
+
+			// 刷新顶点
+			panel.refreshStainShapePoints(panel.selectedStainShape) ;
+
+			return false ;
+		}
 	}
 
 

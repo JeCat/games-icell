@@ -8,8 +8,10 @@ yc.outer.Camera = function()
 	this.focusY = 0 ;
 	this.x = 0 ;
 	this.y = 0 ;
-//	this.focusX = Math.ceil(this.width/2) ;
-//	this.focusY = Math.ceil(this.height/2) ;
+	
+	// 偏移
+	this.offsetX = Math.ceil(this.width/2) ;
+	this.offsetY = Math.ceil(this.height/2) ;
 	
 //	// 偏移
 //	this.offsetX = 0 ;

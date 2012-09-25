@@ -16,6 +16,7 @@ yc.outer.PlayerLayer = cc.Layer.extend({
 
         // 初始化细胞外壳
         this.cell.init() ;
+        this.cell._followingCamera = ins(yc.outer.Camera) ; // 摄像机跟随
         this.addChild(this.cell) ;
         cellOuter = this.cell ;
         

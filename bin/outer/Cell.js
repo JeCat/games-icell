@@ -20,6 +20,9 @@ yc.outer.Cell = yc.outer.PhysicalEntity.extend({
 			yc.util.drawPolygon(cell._points,ctx,'white',"rgba(255,255,255,0.5)",true) ;
 		}
 		this.addChild(this.shell) ;
+
+
+        this._bWatching = true ;
 	}
 
 	, draw: function(ctx){
@@ -139,13 +142,6 @@ yc.outer.Cell = yc.outer.PhysicalEntity.extend({
 //		ctx.closePath() ;
 //		
 //    }
-    
-	, setWorldPosition: function(x,y){
-		this._super(x,y) ;
-
-    	// 移动摄像机
-    	ins(yc.outer.Camera).moveByFocus(this.x,this.y) ;
-	}
 	
 	/**
 	 * 碰撞
