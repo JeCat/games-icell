@@ -53,32 +53,6 @@
 		
 	</div>
 	
-	<!-- 仪表盘 -->
-	<div style="float:left;position: absolute; display:none">
-
-		<div>
-			Debug:
-			<button onclick="ins(yc.inner.monster.VirusLayer).createVirusSprite().run( ins(yc.inner.Cell).aAxes.hexgon(6,9) ) ;" title="创建一个进入细胞内的病毒">病毒</button>
-			<button onclick="yc.inner.monster.VirusCluster.create( ins(yc.inner.Cell).aAxes.hexgon(6,9) ) ;" title="创建一个进入细胞内的病毒群">病毒群</button>
-		</div>
-		
-		<div id="aminoacid-dashboard" style='display:none'>
-			<div style="color:red; margin-top:10px" class="aminoacid-num aminoacid-num-red"></div>
-			<div style="color:yellow; margin-top:10px" class="aminoacid-num aminoacid-num-yellow"></div>
-			<div style="color:blue; margin-top:10px" class="aminoacid-num aminoacid-num-blue"></div>
-		</div>
-		
-		<hr style="margin-left:0px;width:20px" />
-		
-		<div id="protein-pool-dashboard"></div>
-	
-		<button onclick="yc.ui.UI.ins.toggleProteinComposion()">@</button>
-		
-		<hr />
-		<div><span id="dashboard-hp" style="color:green"></span></div>
-			
-	</div>
-	
 	
 	
 	<div id="debug-output" style="float:right;position: absolute;width:400px">
@@ -164,7 +138,7 @@
 			<ul>
 				<li><a href="#panel-world">世界</a></li>
 				<li><a href="#panel-stains">地形</a></li>
-				<li><a href="#">贴图</a></li>
+				<li><a href="#panel-pinups">贴图</a></li>
 				<li><a href="#">场景道具</a></li>
 				<li><a href="#panel-roles">角色</a></li>
 				<li><a href="#panel-cell">细胞</a></li>
@@ -293,6 +267,48 @@
 			</div>
 			
 			
+			<div id='panel-pinups'>
+				<div style="float:left">
+					前景层：
+					<button onclick="ins(yc.ui.editer.WorldEditer).pinup.createPinup('foreground')">+</button>
+					<button onclick="ins(yc.ui.editer.WorldEditer).pinup.removePinup()">-</button>
+					<br />
+					<select multiple=true size="10" id="lst-pinup-foreground" style="width:120px"></select>
+					<br />
+					背景层：
+					<button onclick="ins(yc.ui.editer.WorldEditer).pinup.createPinup('background')">+</button>
+					<button onclick="ins(yc.ui.editer.WorldEditer).pinup.removePinup()">-</button>
+					<br />
+					<select multiple=true size="10" id="lst-pinup-background" style="width:120px"></select>
+				</div>			
+
+				<div style="float:left;margin-left:20px">
+					坐标 x:<input id='ipt-pinup-x' style='width:30px' value='' />
+					y:<input id='ipt-pinup-y' style='width:30px' value='' />
+					旋转:<input id='ipt-pinup-rotation' style='width:40px' value='' />
+					<br />
+
+					锚点 x:<input id='ipt-pinup-anchor-x' style='width:30px' value='' />
+					y:<input id='ipt-pinup-anchor-y' style='width:30px' value='' />
+					透明:<input id='ipt-pinup-opacity' style='width:40px' value='' />
+					<br />
+
+					缩放 x:<input id='ipt-pinup-scale-x' style='width:30px' value='' />
+					y:<input id='ipt-pinup-scale-y' style='width:30px' value='' />
+					<br />
+
+					Img Url<input id='ipt-pinup-img-url' style='width:180px' value='' />
+					<br />
+
+					文本<input id='ipt-pinup-text' style='width:200px' value='' /><br />
+					文本样式<input id='ipt-pinup-text-style' style='width:170px' value='' /><br />
+					文本颜色<input id='ipt-pinup-text-color' style='width:70px' value='' /><br />
+				</div>
+
+				<div style="clear:both"></div>
+			</div>
+
+
 			<!-- <div id="panel-balance">
 				<button onclick="ins(yc.ui.editer.WorldEditer).refreshSettings()">刷新</button>
 				<ul id='ul-settings'></ul>

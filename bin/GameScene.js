@@ -22,6 +22,7 @@ yc.GameScene = cc.Scene.extend({
 		this.setAnchorPoint(cc.p(0,0)) ;
 		
 		this._initWorld() ;
+
 		
 		// 层：游戏
 		this.layerGame = new yc.GameLayer() ;
@@ -29,6 +30,11 @@ yc.GameScene = cc.Scene.extend({
 		var wsize = cc.Director.getInstance().getWinSize() ;
 		this.layerGame.setPosition(cc.p(wsize.width/2,wsize.height/2)) ;
 		this.addChild(this.layerGame) ;
+
+		// 层：背景
+		this.layerBg = new yc.outer.pinups.LayerGround() ;
+		this.layerBg.type = 'background' ;
+		this.layerGame.addChild(this.layerBg) ;
 
 		// 层：玻片
 		this.layerGlassSlide = cc.LayerColor.create(cc.c4(255,255,255,50),this.rgt-this.lft,this.top-this.btm);  
@@ -52,6 +58,11 @@ yc.GameScene = cc.Scene.extend({
 		this.layerPlayer = new yc.outer.PlayerLayer();
 		this.layerGame.addChild(this.layerPlayer);
 		
+		// 层：前景
+		this.layerFg = new yc.outer.pinups.LayerGround() ;
+		this.layerFg.type = 'foreground' ;
+		this.layerGame.addChild(this.layerFg) ;
+
 		// 层：ui
 		this.layerUi = ins(yc.ui.UILayer) ;
 		this.addChild(this.layerUi) ;
@@ -307,6 +318,22 @@ yc.GameScene = cc.Scene.extend({
 			}
 		}
 
+		// 贴图
+		script.pinups = [] ;
+		var funcExportPinups = function(pinups){
+			for(var i=0;i<pinups.length;i++)
+			{
+				if( pinups[i].constructor == yc.outer.pinups.Pinup )
+				{
+					script.pinups.push(pinups[i]._script) ;
+				}
+			}
+			return this ;
+		}	// 定义匿名函数
+		funcExportPinups(this.layerFg.getChildren()) ;	// 导出 前景层 上的贴图
+		funcExportPinups(this.layerBg.getChildren()) ;	// 导出 背景层 上的贴图
+
+
 		return script ;
 	}
 	
@@ -360,6 +387,10 @@ yc.GameScene = cc.Scene.extend({
 			}
 		}
 		
+
+		// 贴图（背景层、前景层） -----------
+		this.layerBg.initWithScript(script) ;
+		this.layerFg.initWithScript(script) ;
 	}
 	
 	// 关卡脚本的标准格式：
@@ -499,5 +530,40 @@ yc.GameScene = cc.Scene.extend({
 				]
 			}
 		]
+
+		// 背景和前景 贴图
+		, pinups: [
+			{
+				layer: 'background'
+				, x: 10
+				, y: 30
+				, anchorX: 0.5
+				, anchorY: 0.5
+				, rotation: 0
+				, opacity: 255
+				, scaleX: 1
+				, scaleY: 1
+				, img: "res/null-pinup.png"
+				, text: null
+				, textStyle: "normal 16px san-serif"
+				, textColor: "0,0,0,1"
+			}
+			,{
+				layer: 'background'
+				, x: 10
+				, y: 30
+				, anchorX: 0.5
+				, anchorY: 0.5
+				, rotation: 0
+				, opacity: 255
+				, scaleX: 1
+				, scaleY: 1
+				, img: "res/null-pinup.png"
+				, text: null
+				, textStyle: "normal 16px san-serif"
+				, textColor: "0,0,0,1"
+			}
+		]
+
 	}
 });

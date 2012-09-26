@@ -93,3 +93,6 @@ yc.outer.Camera.transformSprite = function(context){
 	context.translate( this.transformX, this.transformY );
 	//context.restore() ;
 }
+
+yc.outer.Camera.singleton = true ;
+

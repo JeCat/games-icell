@@ -13,18 +13,41 @@ yc.ui.editer.WorldEditer = function(){
 	$('#tabs-world-editer').tabs() ;
 	
 	this.stain = new yc.ui.editer.PanelStain(this) ;
+	this.pinup = new yc.ui.editer.PanelPinup(this) ;
 	editer = this ;
 
 	// 辅助层
 	this.layer = new yc.ui.editer.WorldEditerLayer() ;
-	cc.Director.getInstance()._runningScene.addChild( this.layer ) ;
 
+	this.open = function(){
+		this.ui.show() ;
 
-	ins(yc.outer.Cell)._followingCamera = null ; 	// 停止摄像机跟随
-	cc.Director.getInstance()._runningScene.layerPlayer.dontMoving = true ;
+		// 进入状态
+		yc.settings.player.nohurt = true ;		// 无敌
+		yc.settings.player.stealth = true ;		// 隐身
+		yc.settings.outer.stain.dbg = true ;	// 绘制污渍信息
 
-	this.show = function(){
-		this.ui.dialog('open') ;
+		ins(yc.outer.Cell)._followingCamera = null ; 									// 停止摄像机跟随
+		cc.Director.getInstance().getRunningScene().layerPlayer.dontMoving = true ;		// 停止鼠标控制玩家
+
+		// 辅助层
+		cc.Director.getInstance().getRunningScene().addChild( this.layer ) ;
+	}
+
+	this.close = function(){
+
+		// 关闭窗口
+		this.ui.hide() ;
+
+		// 退出状态
+		yc.settings.player.nohurt = false ;		// 无敌
+		yc.settings.player.stealth = false ;	// 隐身
+		yc.settings.outer.stain.dbg = false ;	// 绘制污渍信息
+
+		ins(yc.outer.Cell)._followingCamera = ins(yc.outer.Camera) ; 					// 恢复摄像机跟随
+		cc.Director.getInstance().getRunningScene().layerPlayer.dontMoving = false ;	// 恢复鼠标控制玩家
+
+		this.layer.removeFromParentAndCleanup() ;
 	}
 	
 	this.message = function(msg){
@@ -51,7 +74,7 @@ yc.ui.editer.WorldEditer = function(){
 		this.ui.find('#lst-roles').html('') ;
 		this.selectedRole = null ;
 		
-		yc.ui.editer.WorldEditer._loadOptions(this.ui.find('#lst-roles'),arrRoles,function(role,idx){
+		yc.ui.editer.WorldEditer.loadOptions(this.ui.find('#lst-roles'),arrRoles,function(role,idx){
 			return {
 				text: '[idx'+idx+']' + (role.constructor.className in editer.roleClasses? editer.roleClasses[role.constructor.className]: 'unknow')
 				, value: null
@@ -68,14 +91,12 @@ yc.ui.editer.WorldEditer = function(){
 	}
 		
 	
-
 	this.refreshRoles() ;
 	this.refreshSettings() ;
 }
 
-yc.ui.editer.WorldEditer.singleton = true ;
 
-yc.ui.editer.WorldEditer._loadOptions = function(sel,opts,each)
+yc.ui.editer.WorldEditer.loadOptions = function(sel,opts,each)
 {
 	sel.html('') ;
 	for ( var i = 0; i < opts.length; i++) {
@@ -92,29 +113,23 @@ yc.ui.editer.WorldEditer._loadOptions = function(sel,opts,each)
 }
 
 function enterEditMode(){
-	
+
 	cc.Director.getInstance().replaceScene(new (yc.GameScene.extend({
 		onEnter: function(){
 			this._super() ;
 
-			// 进入状态
-			yc.settings.player.nohurt = true ;		// 无敌
-			yc.settings.player.stealth = true ;		// 隐身
-			yc.settings.outer.stain.dbg = true ;	// 绘制污渍信息
-
-			ins(yc.ui.editer.WorldEditer).show() ;
+			// 打开世界编辑器
+			ins(yc.ui.editer.WorldEditer).open() ;
 		}
 
 		, onExit: function(){
 
-			// 退出状态
-			yc.settings.player.nohurt = false ;		// 无敌
-			yc.settings.player.stealth = false ;	// 隐身
-			yc.settings.outer.stain.dbg = false ;	// 绘制污渍信息
-
-			// 关闭窗口
-			ins(yc.ui.editer.WorldEditer).ui.dialog('close') ;
+			// 关闭世界编辑器
+			ins(yc.ui.editer.WorldEditer).close() ;
 		}
 	})));
 }
+
+yc.ui.editer.WorldEditer.singleton = true ;
+
 

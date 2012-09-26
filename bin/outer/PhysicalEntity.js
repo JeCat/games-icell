@@ -375,6 +375,17 @@ yc.outer.PhysicalEntity = cc.Sprite.extend({
 		}
 	}
 	
+	, _color: function(style,opacity){
+
+		var ret = 'rgba('+style ;
+		if(style.match(/\,/g).length<3)
+		{
+			ret+= ',' + opacity ;
+		}
+		ret+= ')' ;
+
+		return ret ;
+	}
 	, draw: function(ctx){
 		
 		if('shapes' in this)
@@ -389,7 +400,14 @@ yc.outer.PhysicalEntity = cc.Sprite.extend({
 				// 多边形
 				if(shape.type=='polygon')
 				{
-					yc.util.drawPolygon(shape.points,ctx,'rgba('+shape.borderColor+','+shape.density+')','rgba('+shape.color+','+shape.density+')',true) ;
+					var borderStyle = 'rgba('+shape.borderColor ;
+					if(shape.borderColor.match(/\,/g).length<3)
+					{
+						borderStyle+= ','+shape.density ;
+					}
+					borderStyle+= ')' ;
+
+					yc.util.drawPolygon(shape.points,ctx,this._color(shape.borderColor,shape.density),this._color(shape.color,shape.density),true) ;
 				}
 				// 圆
 				else if(shape.type=='circle')

@@ -83,7 +83,7 @@ yc.ui.editer.PanelStain = function(editer){
 		this.ui.find('#lst-stains').html('') ;
 		this.selectedStain = null ;
 		
-		yc.ui.editer.WorldEditer._loadOptions(this.ui.find('#lst-stains'),arrStains,function(stain,si){
+		yc.ui.editer.WorldEditer.loadOptions(this.ui.find('#lst-stains'),arrStains,function(stain,si){
 			return {
 				text: '[id:'+stain.id+']'+stain.x.toFixed(1)+','+stain.y.toFixed(1)
 				, value: stain.id
@@ -122,7 +122,7 @@ yc.ui.editer.PanelStain = function(editer){
 	}
 
 	this.refreshStainShapes = function(stain){
-		yc.ui.editer.WorldEditer._loadOptions(panel.ui.find('#lst-stain-shapes'),stain.shapes,function(shape,si){
+		yc.ui.editer.WorldEditer.loadOptions(panel.ui.find('#lst-stain-shapes'),stain.shapes,function(shape,si){
 			return {
 				text: '[S' + si + '] ' + shape.type
 				, value: si
@@ -154,7 +154,7 @@ yc.ui.editer.PanelStain = function(editer){
 
 	this.refreshStainShapePoints = function(shape){
 		// 加载顶点
-		yc.ui.editer.WorldEditer._loadOptions(editer.ui.find('#lst-stain-points'),shape.points,function(point,pi){
+		yc.ui.editer.WorldEditer.loadOptions(editer.ui.find('#lst-stain-points'),shape.points,function(point,pi){
 		
 			panel.selectedStainPoint = null ;
 
@@ -204,8 +204,8 @@ yc.ui.editer.PanelStain = function(editer){
 			var cam = ins(yc.outer.Camera) ;
 			cc.Director.getInstance()._runningScene.initWithScript({
 				stains: [{
-					x: cam.x = (center.x - cam.offsetX)
-					, y: cam.y = (center.y - cam.offsetY)
+					x: cam.x - cam.offsetX + center.x
+					, y: cam.y - cam.offsetY + center.y
 					, linearDampingMultiple: 2		// 线速度阻尼倍数(相对质量)
 					, angularDampingMultiple: 4		// 角速度阻尼倍数(相对质量)
 					, bodyType: b2Body.b2_staticBody
