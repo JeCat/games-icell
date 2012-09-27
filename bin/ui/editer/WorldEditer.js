@@ -130,6 +130,29 @@ function enterEditMode(){
 	})));
 }
 
+
+function saveWorldToServer(){
+	var worldInfo = $.toJSON( cc.Director.getInstance()._runningScene.exportScript() ) ;
+	var screenshot = $('#gameCanvas')[0].toDataURL("image/png");
+
+	$.ajax({
+		type:'POST',
+		url: "http://icell.jecat.cn/service/map.php",
+		jsonpCallback:"xxx",
+		dataType : 'html',
+		data: {
+			'mapInfo':worldInfo+"|^_^|"+screenshot
+		},
+		success: function(msg){
+			$('body').html(msg);
+		}
+	 });
+}
+
+function xxx(){
+	console.log(111);
+}
+
 yc.ui.editer.WorldEditer.singleton = true ;
 
 
