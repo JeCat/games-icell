@@ -139,7 +139,8 @@ function saveWorldToServer(){
 		type:'POST',
 		url: "http://icell.jecat.cn/service/map.php",
 		jsonpCallback:"xxx",
-		dataType : 'html',
+		jsonp:"yyy",
+		dataType : 'jsonp',
 		data: {
 			'mapInfo':worldInfo+"|^_^|"+screenshot
 		},
@@ -151,6 +152,10 @@ function saveWorldToServer(){
 
 function xxx(){
 	console.log(111);
+}
+
+function yyy(){
+	console.log(222);
 }
 
 yc.ui.editer.WorldEditer.singleton = true ;
