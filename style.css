@@ -72,6 +72,8 @@ body{
 }
 
 #ui-levels-selector {
+    position:absolute;
+    display:none;
     width: 300px ;
     padding: 10px ;
     background-color: #cdcdcd ;

@@ -26,5 +26,5 @@ function loginCallback(data){
 
 	$("#ui-levels-selector-login").html("<h3>"+username+"</h3>");
 
-	$("#ui-levels-selector-menu").slideDown(1000);
+	$("#ui-levels-selector-menu").stop(false,true).slideDown(1000);
 }
