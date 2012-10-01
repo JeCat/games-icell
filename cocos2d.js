@@ -21,7 +21,7 @@ yc.inner.monster = {} ;
 yc.dna = {} ;
 yc.actions = {} ;
 yc.levels = {} ;
-yc.levels.C1 = {} ;
+yc.levels.c1 = {} ;
 
 
 var PTM_RATIO = 32;
@@ -46,6 +46,7 @@ var TAG_SPRITE_MANAGER = 1;
 			
 			, 'bin/util/ObjectPool.js'
 			, 'bin/util/functions.js'
+			, 'bin/util/canvas.js'
 			, 'bin/util/node.funcs.js'
 			, 'bin/util/Instance.js'
 			, 'bin/util/SmoothEdger.js'
@@ -119,7 +120,8 @@ var TAG_SPRITE_MANAGER = 1;
 			
 			, 'bin/levels/FreeWorld.js'
 			, 'bin/levels/LevelSelector.js'
-			, 'bin/levels/C1/L1.js'
+            , 'bin/levels/c1/tutorial.js'
+			, 'bin/levels/c1/l1.js'
 			
 			
 			

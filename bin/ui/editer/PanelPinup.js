@@ -18,6 +18,9 @@ yc.ui.editer.PanelPinup = function(editor){
 		, text: 'ipt-pinup-text'
 		, textStyle: "ipt-pinup-text-style"
 		, textColor: "ipt-pinup-text-color"
+		, tile: "ipt-pinup-tile"
+		, tileWidth: "ipt-pinup-tile-width"
+		, tileHeight: "ipt-pinup-tile-height"
 	}
 
 	// 定义事件
@@ -28,8 +31,27 @@ yc.ui.editer.PanelPinup = function(editor){
 		}
 		for(var key in props)
 		{
-			var iptId = props[key] ;
-			selectedPinup._script[key] = panel.ui.find('#'+iptId).val() ;
+			var ipt = panel.ui.find('#'+props[key]) ;
+
+			// checkbox 类型
+			if( ipt.attr('type') == 'checkbox' )
+			{
+				selectedPinup._script[key] = ipt.attr('checked')=='checked'? true: false ;
+			}
+			// text 类型
+			else
+			{
+				var val = ipt.val() ;
+				if(ipt.attr('format')=='int')
+				{
+					val = parseInt(val) ;
+				}
+				else if(ipt.attr('format')=='float')
+				{
+					val = parseFloat(val) ;
+				}
+				selectedPinup._script[key] = val ;
+			}
 		}
 
 		// 重新初始化
@@ -70,8 +92,18 @@ yc.ui.editer.PanelPinup = function(editor){
 
 					for(var key in props)
 					{
-						var iptId = props[key] ;
-						panel.ui.find('#'+iptId).val(pinup._script[key]) ;
+						var ipt = panel.ui.find('#'+props[key]) ;
+
+						// checkbox 类型
+						if( ipt.attr('type') == 'checkbox' )
+						{
+							ipt.attr('checked', pinup._script[key]? 'checked': false ) ;
+						}
+						// text 类型
+						else
+						{
+							ipt.val(pinup._script[key]) ;
+						}
 					}
 				}
 			}

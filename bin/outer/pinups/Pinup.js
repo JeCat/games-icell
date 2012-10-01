@@ -15,7 +15,17 @@ yc.outer.pinups.Pinup = cc.Sprite.extend({
 		ctx.rotate(this.getRotation()) ;
 		ctx.scale(this.getScaleX(),this.getScaleY()) ;
 
-		this._super(ctx) ;
+		// 平铺
+		if(this._script.tile)
+		{
+			yc.util.tileImage( ctx, this._script.img, 0,0, this._script.tileWidth,this._script.tileHeight) ;
+		}
+
+		// 贴图
+		else
+		{
+			this._super(ctx) ;
+		}
 
 		if( 'text' in this._script && this._script.text ){
 

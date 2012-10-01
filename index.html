@@ -60,7 +60,7 @@
 	</div>
 	
 	<div id='menu-inner-layer-zoom' style="float:right;position: absolute;">
-		<button title="回到主菜单" onclick=" if(!confirm('确定要放弃当前游戏，退回到主菜单吗？')) return ; cc.Director.getInstance().replaceScene( new yc.levels.LevelSelector )">主菜单</button>
+		<button title="回到主菜单" onclick=" if(!confirm('确定要放弃当前游戏，退回到主菜单吗？')) return ; cc.Director.getInstance().replaceScene( ins(yc.levels.LevelSelector) )">主菜单</button>
 	</div>
 	
 		
@@ -220,7 +220,7 @@
 							文本<input id='ipt-stain-shape-text' style='width:150px' /><br />
 							文本样式<input id='ipt-stain-shape-text-style' title="污渍上绘制文本的样式" style='width:120px' value='' /> <br />
 							文本颜色<input id='ipt-stain-shape-text-color' title="污渍上绘制文本的颜色" style='width:100px' value='' /><br />
-							贴图：...
+							贴图<input id="ipt-stain-shape-img" style='width:140px' value='' />
 
 						</div>
 
@@ -283,21 +283,29 @@
 				</div>			
 
 				<div style="float:left;margin-left:20px">
-					坐标 x:<input id='ipt-pinup-x' style='width:30px' value='' />
-					y:<input id='ipt-pinup-y' style='width:30px' value='' />
-					旋转:<input id='ipt-pinup-rotation' style='width:40px' value='' />
+					坐标 x:<input id='ipt-pinup-x' style='width:30px' value='' format="int" />
+					y:<input id='ipt-pinup-y' style='width:30px' value='' format="int" />
+					旋转:<input id='ipt-pinup-rotation' style='width:40px' value='' format="float" />
 					<br />
 
-					锚点 x:<input id='ipt-pinup-anchor-x' style='width:30px' value='' />
-					y:<input id='ipt-pinup-anchor-y' style='width:30px' value='' />
-					透明:<input id='ipt-pinup-opacity' style='width:40px' value='' />
+					锚点 x:<input id='ipt-pinup-anchor-x' style='width:30px' value='' format="int" />
+					y:<input id='ipt-pinup-anchor-y' style='width:30px' value='' format="int" />
+					透明:<input id='ipt-pinup-opacity' style='width:40px' value='' format="int" />
 					<br />
 
-					缩放 x:<input id='ipt-pinup-scale-x' style='width:30px' value='' />
-					y:<input id='ipt-pinup-scale-y' style='width:30px' value='' />
+					缩放 x:<input id='ipt-pinup-scale-x' style='width:30px' value='' format="float" />
+					y:<input id='ipt-pinup-scale-y' style='width:30px' value='' format="float" />
 					<br />
 
 					Img Url<input id='ipt-pinup-img-url' style='width:180px' value='' />
+					<br />
+
+					<label>
+						<input id="ipt-pinup-tile" type="checkbox" />
+						平铺
+					</label>
+					宽<input id="ipt-pinup-tile-width" style="width:40px" format="int" value="100" />
+					高<input id="ipt-pinup-tile-height" style="width:40px" format="int" value="100" />
 					<br />
 
 					文本<input id='ipt-pinup-text' style='width:200px' value='' /><br />
@@ -325,13 +333,10 @@
 			<p>You are a cell under someone's microscope ……</p>
 		</div>
 		
-		<div id="ui-levels-selector-menu">
+		<div id="ui-levels-selector-menu" class="">
 			<ul>
 				<li>
-					<button title="coming soon" disabled>教学模式</button>
-				</li>
-				<li>
-					<button title="正在苦逼中……" disabled>故事模式</button>
+					<button onclick="$('#ui-levels-selector-menu,#ui-buildin-levels-menu').slideToggle();">故事模式</button>
 				</li>
 				<li>
 					<button disabled>探索模式</button>
@@ -346,6 +351,27 @@
 					<button onclick="enterEditMode()">
 						建造模式（空白关卡）
 					</button>
+				</li>
+			</ul>
+		</div>
+
+		<div id="ui-buildin-levels-menu" style="display:none">
+			<ul>
+				<li>
+					<button onclick="yc.levels.LevelSelector.enterLevel(yc.levels.c1.tutorial)">教学关卡</button>
+				</li>
+				<li>
+					<button onclick="yc.levels.LevelSelector.enterLevel(yc.levels.c1.l1)">Lv 1</button>
+				</li>
+				<li>
+					<button disabled>Lv 2</button>
+				</li>
+				<li>
+					<button disabled>Lv 3</button>
+				</li>
+				<hr />
+				<li>
+					<button onclick="$('#ui-levels-selector-menu,#ui-buildin-levels-menu').slideToggle();">返回</button>
 				</li>
 			</ul>
 		</div>

@@ -4,6 +4,54 @@
 		"selected_items":
 		[
 			[
+				"pin",
+				"pinups  (variable)"
+			],
+			[
+				"layer",
+				"layerFg"
+			],
+			[
+				"sca",
+				"scaleY"
+			],
+			[
+				"sc",
+				"scaleX"
+			],
+			[
+				"ipt-pinup-an",
+				"ipt-pinup-anchor-y"
+			],
+			[
+				"ipt-pinup-t",
+				"ipt-pinup-text-color"
+			],
+			[
+				"te",
+				"textColor"
+			],
+			[
+				"fu",
+				"function"
+			],
+			[
+				"p",
+				"pinups"
+			],
+			[
+				"lay",
+				"layerBg"
+			],
+			[
+				"la",
+				"layer"
+			],
+			[
+				"_",
+				"_script"
+			],
+			[
 				"sele",
 				"selected"
 			],
@@ -26,10 +74,6 @@
 			[
 				"virus",
 				"virusclusters"
-			],
-			[
-				"layer",
-				"layerStains"
 			],
 			[
 				"init",
@@ -68,10 +112,6 @@
 				"selectedStainShape"
 			],
 			[
-				"_",
-				"_super"
-			],
-			[
 				"ly",
 				"layerGame"
 			],
@@ -96,58 +136,10 @@
 	"buffers":
 	[
 		{
-			"file": "bin/inner/monster/VirusCluster.js",
-			"settings":
-			{
-				"buffer_size": 2590,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "bin/inner/monster/Mitochondria.js",
-			"settings":
-			{
-				"buffer_size": 4269,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "bin/inner/monster/Virus.js",
-			"settings":
-			{
-				"buffer_size": 4310,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "bin/inner/building/Building.js",
-			"settings":
-			{
-				"buffer_size": 1885,
-				"line_ending": "Unix"
-			}
-		},
-		{
 			"file": "index.html",
 			"settings":
 			{
-				"buffer_size": 11000,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "bin/outer/Stain.js",
-			"settings":
-			{
-				"buffer_size": 5207,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "bin/outer/PhysicalEntity.js",
-			"settings":
-			{
-				"buffer_size": 8686,
+				"buffer_size": 12283,
 				"line_ending": "Unix"
 			}
 		},
@@ -155,39 +147,39 @@
 			"file": "bin/GameScene.js",
 			"settings":
 			{
-				"buffer_size": 10809,
+				"buffer_size": 12176,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "bin/outer/Cell.js",
+			"file": "cocos2d.js",
 			"settings":
 			{
-				"buffer_size": 5599,
+				"buffer_size": 3480,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "main.js",
+			"file": "bin/levels/LevelSelector.js",
 			"settings":
 			{
-				"buffer_size": 2477,
+				"buffer_size": 669,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "bin/settings.js",
+			"file": "bin/levels/c1/tutorial.js",
 			"settings":
 			{
-				"buffer_size": 2805,
+				"buffer_size": 1356,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "bin/ui/editer/PanelStain.js",
+			"file": "bin/levels/c1/l1.js",
 			"settings":
 			{
-				"buffer_size": 9611,
+				"buffer_size": 3968,
 				"line_ending": "Unix"
 			}
 		}
@@ -220,48 +212,83 @@
 	},
 	"file_history":
 	[
+		"/Users/xiaye/project/youcell/bin/levels/c1/L1.js",
+		"/Users/xiaye/project/youcell/jquery.json.js",
+		"/Users/xiaye/project/youcell/bin/ui/editer/WorldEditer.js",
 		"/Users/xiaye/project/youcell/bin/util/Instance.js",
+		"/Users/xiaye/project/youcell/bin/outer/Camera.js",
+		"/Users/xiaye/project/youcell/bin/ui/editer/PanelStain.js",
+		"/Users/xiaye/project/youcell/bin/ui/editer/WorldEditerLayer.js",
+		"/Users/xiaye/project/youcell/bin/outer/Stain.js",
+		"/Users/xiaye/project/youcell/bin/outer/PhysicalEntity.js",
+		"/Users/xiaye/project/oc.release/extensions/openoa/0.1/class/Attendance/Punch.php",
+		"/Users/xiaye/project/youcell/bin/outer/pinups/LayerGround.js",
+		"/Users/xiaye/project/youcell/bin/ui/editer/PanelPinup.js",
+		"/Users/xiaye/project/youcell/bin/outer/pinups/Pinup.js",
+		"/Users/xiaye/project/youcell/lib/cocos2d/sprite_nodes/CCSprite.js",
+		"/Users/xiaye/project/youcell/cocos2d.js",
+		"/Users/xiaye/project/youcell/bin/GameScene.js",
+		"/Users/xiaye/project/youcell/main.js",
+		"/Users/xiaye/project/youcell/bin/outer/Cell.js",
+		"/Users/xiaye/project/youcell/bin/GameLayer.js",
+		"/Users/xiaye/project/youcell/bin/ui/UI.js",
+		"/Users/xiaye/project/youcell/bin/ui/UILayer.js",
+		"/Users/xiaye/project/youcell/bin/util/declareClassName.js",
+		"/Users/xiaye/project/youcell/index.html",
+		"/Users/xiaye/project/youcell/bin/actions/DynamicMove.js",
+		"/Users/xiaye/project/youcell/bin/actions/Timer.js",
+		"/Users/xiaye/project/youcell/bin/Cocos2dPatchs.js",
+		"/Users/xiaye/project/youcell/bin/Demo.js",
+		"/Users/xiaye/project/youcell/bin/dna/DNA.js",
+		"/Users/xiaye/project/youcell/bin/dna/Gene.js",
+		"/Users/xiaye/project/youcell/bin/dna/GeneBuildingUpgrader.js",
+		"/Users/xiaye/project/youcell/bin/inner/building/Building.js",
+		"/Users/xiaye/project/youcell/bin/inner/building/BuildingLayer.js",
+		"/Users/xiaye/project/youcell/bin/inner/building/Bullet.js",
+		"/Users/xiaye/project/youcell/bin/inner/building/Recycle.js",
+		"/Users/xiaye/project/youcell/bin/inner/building/Tower.js",
+		"/Users/xiaye/project/youcell/bin/inner/building/up/TowerBombing.js",
+		"/Users/xiaye/project/youcell/bin/inner/building/up/TowerFirepower.js",
+		"/Users/xiaye/project/youcell/bin/inner/building/up/TowerRetardment.js",
+		"/Users/xiaye/project/youcell/bin/inner/building/up/UpgraderBase.js",
+		"/Users/xiaye/project/youcell/bin/inner/Cell.js",
+		"/Users/xiaye/project/youcell/bin/inner/Hexgon.js",
+		"/Users/xiaye/project/youcell/bin/inner/HexgonAxes.js",
+		"/Users/xiaye/project/youcell/bin/inner/HexgonAxesPathMap.js",
+		"/Users/xiaye/project/youcell/bin/inner/monster/FlopAminoAcid.js",
+		"/Users/xiaye/project/youcell/bin/inner/monster/Mitochondria.js",
+		"/Users/xiaye/project/youcell/bin/inner/monster/Virus.js",
+		"/Users/xiaye/project/youcell/bin/inner/monster/VirusCluster.js",
+		"/Users/xiaye/project/youcell/bin/inner/monster/VirusLayer.js",
+		"/Users/xiaye/project/youcell/bin/inner/ProteinFormulas.js",
+		"/Users/xiaye/project/youcell/bin/inner/ProteinPool.js",
+		"/Users/xiaye/project/youcell/bin/levels/FreeWorld.js",
+		"/Users/xiaye/project/youcell/bin/outer/AminoAcid.js",
+		"/Users/xiaye/project/youcell/bin/outer/Boss.js",
+		"/Users/xiaye/project/youcell/bin/outer/BossCompass.js",
+		"/Users/xiaye/project/youcell/bin/LayerBackground.js",
+		"/Users/xiaye/project/youcell/bin/outer/PlayerLayer.js",
+		"/Users/xiaye/project/youcell/bin/outer/RandomRolesLayer.js",
+		"/Users/xiaye/project/youcell/bin/outer/VirusCluster.js",
+		"/Users/xiaye/project/youcell/bin/settings.js",
+		"/Users/xiaye/project/youcell/bin/test.js",
+		"/Users/xiaye/project/youcell/bin/ui/dashboard/Dashboard.js",
+		"/Users/xiaye/project/youcell/bin/ui/DlgRewardGene.js",
 		"/Users/xiaye/project/youcell/bin/util/functions.js",
 		"/Users/xiaye/project/youcell/bin/util/node.funcs.js",
-		"/Users/xiaye/project/youcell/bin/inner/monster/VirusLayer.js",
-		"/Users/xiaye/project/youcell/bin/outer/Cell.js",
-		"/Users/xiaye/project/youcell/bin/outer/PlayerLayer.js",
+		"/Users/xiaye/project/youcell/bin/util/ObjectPool.js",
 		"/Users/xiaye/project/youcell/bin/inner/InnerLayer.js",
-		"/Users/xiaye/project/youcell/bin/inner/monster/FlopAminoAcid.js",
-		"/Users/xiaye/project/youcell/cocos2d.js",
 		"/Users/xiaye/project/youcell/bin/inner/CellInnerMap.js",
-		"/Users/xiaye/project/youcell/bin/inner/monster/Mitochondria.js",
 		"/Users/xiaye/project/youcell/app_key_config.php",
 		"/private/var/root/Desktop/拉贾卫士20120825/index_new2.html",
-		"/Users/xiaye/project/youcell/bin/ui/editer/WorldEditerLayer.js",
-		"/Users/xiaye/project/youcell/bin/ui/editer/PanelStain.js",
-		"/Users/xiaye/project/youcell/bin/GameScene.js",
-		"/Users/xiaye/project/youcell/bin/outer/Stain.js",
 		"/Users/xiaye/project/youcell/bin/util/DbgPannel.js",
-		"/Users/xiaye/project/youcell/bin/inner/ProteinPool.js",
-		"/Users/xiaye/project/youcell/bin/outer/PhysicalEntity.js",
-		"/Users/xiaye/project/youcell/bin/outer/VirusCluster.js",
-		"/Users/xiaye/project/youcell/bin/outer/AminoAcid.js",
-		"/Users/xiaye/project/youcell/bin/inner/ProteinFormulas.js",
-		"/Users/xiaye/project/youcell/bin/ui/editer/WorldEditer.js",
 		"/Users/xiaye/project/youcell/bin/inner/AminoAcidPool.js",
-		"/Users/xiaye/project/youcell/bin/outer/Camera.js",
 		"/Users/xiaye/project/youcell/bin/levels/LevelSelector.js",
-		"/Users/xiaye/project/youcell/bin/inner/Cell.js",
-		"/Users/xiaye/project/youcell/bin/settings.js",
-		"/Users/xiaye/project/youcell/index.html",
-		"/Users/xiaye/project/youcell/main.js",
 		"/Users/xiaye/project/youcell/bin/ui/editer/ObjectEditer.js",
-		"/Users/xiaye/project/youcell/bin/GameLayer.js",
 		"/Users/xiaye/project/youcell/style.css",
-		"/Users/xiaye/project/youcell/jquery.json.js",
-		"/Users/xiaye/project/youcell/bin/inner/monster/VirusCluster.js",
-		"/Users/xiaye/project/youcell/bin/outer/Boss.js",
-		"/Users/xiaye/project/youcell/bin/levels/FreeWorld.js",
 		"/Users/xiaye/project/youcell/bin/outer/ContactListener.js",
 		"/Users/xiaye/project/youcell/bin/ui/BuildingCreateMenu.js",
 		"/Users/xiaye/project/youcell/bin/inner/building/ProteinFactory.js",
-		"/Users/xiaye/project/youcell/bin/ui/dashboard/Dashboard.js",
 		"/Users/xiaye/project/youcell/bin/outer/LifeEntity.js",
 		"/private/var/root/Library/Application Support/Sublime Text 2/Packages/Default/Preferences.sublime-settings",
 		"/private/var/root/Library/Application Support/Sublime Text 2/Packages/User/Preferences.sublime-settings",
@@ -274,9 +301,15 @@
 	},
 	"find_in_files":
 	{
-		"height": 0.0,
+		"height": 93.0,
 		"where_history":
 		[
+			"/Users/xiaye/project/youcell/cocos2d.js",
+			"/Users/xiaye/project/youcell/",
+			"/Users/xiaye/project/youcell/*.js",
+			"/Users/xiaye/project/youcell/bin",
+			"/Users/xiaye/project/youcell",
+			"*functions.js",
 			"/Users/xiaye/project/youcell"
 		]
 	},
@@ -285,6 +318,21 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"    ",
+			"ins(yc.ui.editer.WorldEditer)",
+			"layer",
+			"density",
+			"selectedPinup",
+			"_opacity",
+			"props",
+			"_loadOptions",
+			";\n",
+			"draw",
+			";\n",
+			"    ",
+			"draw",
+			"dontMoving",
+			"refreshStainShapePoints",
 			"exportScript",
 			"script",
 			"_script",
@@ -314,6 +362,9 @@
 		"regex": false,
 		"replace_history":
 		[
+			"	",
+			"loadOptions",
+			"	",
 			"ipt-stain-shape-text",
 			"textStyle",
 			"text-style",
@@ -329,133 +380,23 @@
 	"groups":
 	[
 		{
-			"selected": 11,
+			"selected": 5,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "bin/inner/monster/VirusCluster.js",
-					"settings":
-					{
-						"buffer_size": 2590,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								427,
-								427
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 145.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "bin/inner/monster/Mitochondria.js",
-					"settings":
-					{
-						"buffer_size": 4269,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								436,
-								436
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 73.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "bin/inner/monster/Virus.js",
-					"settings":
-					{
-						"buffer_size": 4310,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								3040,
-								2981
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 1692.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "bin/inner/building/Building.js",
-					"settings":
-					{
-						"buffer_size": 1885,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								692,
-								692
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 80.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 4,
 					"file": "index.html",
 					"settings":
 					{
-						"buffer_size": 11000,
+						"buffer_size": 12283,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								7383,
-								7401
+								11649,
+								11649
 							]
 						],
 						"settings":
@@ -464,79 +405,25 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 3094.0,
+						"translation.y": 5132.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
-					"buffer": 5,
-					"file": "bin/outer/Stain.js",
-					"settings":
-					{
-						"buffer_size": 5207,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2074,
-								2074
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 1501.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 6,
-					"file": "bin/outer/PhysicalEntity.js",
-					"settings":
-					{
-						"buffer_size": 8686,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2523,
-								2523
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 1250.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 7,
+					"buffer": 1,
 					"file": "bin/GameScene.js",
 					"settings":
 					{
-						"buffer_size": 10809,
+						"buffer_size": 12176,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								10033,
-								10041
+								7688,
+								7689
 							]
 						],
 						"settings":
@@ -545,51 +432,25 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 6850.0,
+						"translation.y": 4759.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
-					"buffer": 8,
-					"file": "bin/outer/Cell.js",
+					"buffer": 2,
+					"file": "cocos2d.js",
 					"settings":
 					{
-						"buffer_size": 5599,
+						"buffer_size": 3480,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2287,
-								2287
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 3278.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 9,
-					"file": "main.js",
-					"settings":
-					{
-						"buffer_size": 2477,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1,
-								1
+								342,
+								342
 							]
 						],
 						"settings":
@@ -605,19 +466,19 @@
 					"type": "text"
 				},
 				{
-					"buffer": 10,
-					"file": "bin/settings.js",
+					"buffer": 3,
+					"file": "bin/levels/LevelSelector.js",
 					"settings":
 					{
-						"buffer_size": 2805,
+						"buffer_size": 669,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1850,
-								1850
+								423,
+								389
 							]
 						],
 						"settings":
@@ -626,33 +487,58 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 1551.0,
+						"translation.y": 2.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
-					"buffer": 11,
-					"file": "bin/ui/editer/PanelStain.js",
+					"buffer": 4,
+					"file": "bin/levels/c1/tutorial.js",
 					"settings":
 					{
-						"buffer_size": 9611,
+						"buffer_size": 1356,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								470,
-								470
+								21,
+								21
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"translate_tabs_to_spaces": false
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
 						},
 						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "bin/levels/c1/l1.js",
+					"settings":
+					{
+						"buffer_size": 3968,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3968,
+								3968
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+						},
+						"translation.x": 26855.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
@@ -702,6 +588,10 @@
 		"height": 0.0,
 		"selected_items":
 		[
+			[
+				"stain",
+				"bin/ui/editer/PanelStain.js"
+			],
 			[
 				"games",
 				"bin/GameScene.js"
@@ -783,11 +673,11 @@
 	},
 	"select_project":
 	{
-		"height": 0.0,
+		"height": 500.0,
 		"selected_items":
 		[
 		],
-		"width": 0.0
+		"width": 380.0
 	},
 	"show_minimap": true,
 	"show_open_files": false,

@@ -52,12 +52,14 @@ yc.ui.editer.PanelStain = function(editer){
 		panel.selectedStainShape.textStyle = $('#ipt-stain-shape-text-style').val();
 		panel.selectedStainShape.textColor = $('#ipt-stain-shape-text-color').val();
 		panel.selectedStainShape.text = $('#ipt-stain-shape-text').val();
+		panel.selectedStainShape.img = $('#ipt-stain-shape-img').val();
 	}
 	this.ui.find('#ipt-stain-shape-color').change(onChangeShape) ;
 	this.ui.find('#ipt-stain-shape-border-color').change(onChangeShape) ;
 	this.ui.find('#ipt-stain-shape-text-style').change(onChangeShape) ;
 	this.ui.find('#ipt-stain-shape-text-color').change(onChangeShape) ;
 	this.ui.find('#ipt-stain-shape-text').change(onChangeShape) ;
+	this.ui.find('#ipt-stain-shape-img').change(onChangeShape) ;
 
 	// 修改多边形顶点位置
 	var onChangePointPosition = function(){
