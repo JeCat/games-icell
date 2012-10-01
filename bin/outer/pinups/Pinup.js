@@ -24,7 +24,8 @@ yc.outer.pinups.Pinup = cc.Sprite.extend({
 		// 贴图
 		else
 		{
-			this._super(ctx) ;
+			// this._super(ctx) ;
+			yc.util.drawImage(ctx,this._script.img,0,0,this._script.anchorX,this._script.anchorY) ;
 		}
 
 		if( 'text' in this._script && this._script.text ){

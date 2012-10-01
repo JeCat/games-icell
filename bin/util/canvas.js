@@ -138,9 +138,10 @@ yc.util.drawImage = function(ctx,imgurl,x,y,anchorX,anchorY){
 	var texture = yc.util.ccShareTexture(imgurl) ;
 	if (texture instanceof HTMLImageElement)
 	{
+		y = -y ;
 		x-= texture.width * (anchorX || 0) ;
 		y-= texture.height * (anchorY || 0) ;
-		ctx.drawImage(texture,x,-y) ;
+		ctx.drawImage(texture,x,y) ;
 	}
 }
 
