@@ -10,6 +10,7 @@
 	<script src="jquery.ui/jquery-ui-1.8.23.custom.min.js"></script>
 	<script src="jquery.json.js"></script>
 	<script src="cocos2d.js"></script>
+	<script src="users.js"></script>
 </head>
 <body>
 
@@ -170,6 +171,11 @@
 				<div>
 					<button onclick="cc.Director.getInstance()._runningScene.initWithScript(yc.GameScene.prototype.scriptDemo)">test</button>
 				</div>
+
+				<div>
+					<button onclick="saveWorldToServer()">保存到服务器</button>
+					<div id="saveWorldMsg"></div>
+				</div>
 			</div>
 		
 			<div id='panel-stains'>
@@ -327,11 +333,27 @@
 	
 	
 	<!-- 场景：关卡选择 -->
-	<div id="ui-levels-selector" style="position:absolute;display:none">
+	<div id="ui-levels-selector">
 		<div id="ui-levels-selector-title">
 			<h1>I, Cell</h1>
 			<p>You are a cell under someone's microscope ……</p>
 		</div>
+
+		<div id="ui-levels-selector-login">
+
+			<div>
+				<a id="weibo_auth_login" href="service/sina_user/login.php">
+					<img src="img/weibo_login.png" title="点击进入授权页面" alt="点击进入授权页面" border="0" width="119" height="24"/>
+				</a>
+			</div>
+			<div>
+				<a id="loginWithTestUser" href="#">
+					TEST
+				</a>
+			</div>
+
+		</div>
+
 		
 		<div id="ui-levels-selector-menu" class="">
 			<ul>

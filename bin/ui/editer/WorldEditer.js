@@ -130,6 +130,48 @@ function enterEditMode(){
 	})));
 }
 
+
+function saveWorldToServer(){
+	var worldInfo = $.toJSON( cc.Director.getInstance()._runningScene.exportScript() ) ;
+	var screenshot = $('#gameCanvas')[0].toDataURL("image/png");
+
+	if(!icell_userInfo){
+		$('#saveWorldMsg').html('<span id="aSaveWorldMsg">user info is missing , save failed!</span>');
+		setTimeout(function(){
+			$("#aSaveWorldMsg").remove();
+		}
+		,5000);
+		return;
+	}
+
+	$.ajax({
+		type:'POST',
+		url: "http://icell.jecat.cn/service/map.php",
+		jsonpCallback:"xxx",
+		jsonp:"yyy",
+		dataType : 'jsonp',
+		data: {
+			'mapInfo':worldInfo+"|^_^|"+screenshot
+			, 'userInfo' : icell_userInfo
+		},
+		success: function(msg){
+			$('#saveWorldMsg').html('<span id="aSaveWorldMsg">'+msg+'</span>');
+			setTimeout(function(){
+				$("#aSaveWorldMsg").remove();
+			}
+			,5000);
+		}
+	 });
+}
+
+function xxx(){
+	console.log(111);
+}
+
+function yyy(){
+	console.log(222);
+}
+
 yc.ui.editer.WorldEditer.singleton = true ;
 
 

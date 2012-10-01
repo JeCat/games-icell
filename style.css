@@ -71,10 +71,14 @@ body{
 	float:left ;
 }
 
-
 #ui-levels-selector {
+    position:absolute;
+    display:none;
     width: 300px ;
     padding: 10px ;
     background-color: #cdcdcd ;
 }
-	
+
+#ui-levels-selector-menu{
+    display: none;
+}
