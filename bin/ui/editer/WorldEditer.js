@@ -132,44 +132,54 @@ function enterEditMode(){
 
 
 function saveWorldToServer(){
+
+	$("#aSaveWorldMsg").remove();
+
 	var worldInfo = $.toJSON( cc.Director.getInstance()._runningScene.exportScript() ) ;
 	var screenshot = $('#gameCanvas')[0].toDataURL("image/png");
+
+	var msgTimeout = 30000;
 
 	if(!icell_userInfo){
 		$('#saveWorldMsg').html('<span id="aSaveWorldMsg">user info is missing , save failed!</span>');
 		setTimeout(function(){
 			$("#aSaveWorldMsg").remove();
 		}
-		,5000);
+		,msgTimeout);
+		return;
+	}
+
+	var mapName = prompt('please input map name');
+	if(!mapName){
+		$('#saveWorldMsg').html('<span id="aSaveWorldMsg">You must tell us what the map name is , save failed!</span>');
+		setTimeout(function(){
+			$("#aSaveWorldMsg").remove();
+		}
+		,msgTimeout);
 		return;
 	}
 
 	$.ajax({
 		type:'POST',
 		url: "http://icell.jecat.cn/service/map.php",
-		jsonpCallback:"xxx",
-		jsonp:"yyy",
-		dataType : 'jsonp',
+		dataType : 'html',
 		data: {
-			'mapInfo':worldInfo+"|^_^|"+screenshot
+			'act':'save'
+			, 'mapInfo':worldInfo+"|^_^|"+screenshot
 			, 'userInfo' : icell_userInfo
+			, 'mapName' : mapName
+		},
+		beforeSent: function(){
+			$('#saveWorldMsg').html('<span id="aSaveWorldMsg">saving...</span>');
 		},
 		success: function(msg){
 			$('#saveWorldMsg').html('<span id="aSaveWorldMsg">'+msg+'</span>');
 			setTimeout(function(){
 				$("#aSaveWorldMsg").remove();
 			}
-			,5000);
+			,msgTimeout);
 		}
-	 });
-}
-
-function xxx(){
-	console.log(111);
-}
-
-function yyy(){
-	console.log(222);
+	});
 }
 
 yc.ui.editer.WorldEditer.singleton = true ;
