@@ -31,6 +31,11 @@ yc.GameScene = cc.Scene.extend({
 		this.layerGame.setPosition(cc.p(wsize.width/2,wsize.height/2)) ;
 		this.addChild(this.layerGame) ;
 
+		// 层：远景
+		this.layerPg = new yc.outer.pinups.LayerGround() ;
+		this.layerPg.type = 'perspective' ;
+		this.layerGame.addChild(this.layerPg) ;
+
 		// 层：背景
 		this.layerBg = new yc.outer.pinups.LayerGround() ;
 		this.layerBg.type = 'background' ;
@@ -332,6 +337,7 @@ yc.GameScene = cc.Scene.extend({
 		}	// 定义匿名函数
 		funcExportPinups(this.layerFg.getChildren()) ;	// 导出 前景层 上的贴图
 		funcExportPinups(this.layerBg.getChildren()) ;	// 导出 背景层 上的贴图
+		funcExportPinups(this.layerPg.getChildren()) ;	// 导出 远景层 上的贴图
 
 
 		return script ;
@@ -388,7 +394,8 @@ yc.GameScene = cc.Scene.extend({
 		}
 		
 
-		// 贴图（背景层、前景层） -----------
+		// 贴图（远景层、背景层、前景层） -----------
+		this.layerPg.initWithScript(script) ;
 		this.layerBg.initWithScript(script) ;
 		this.layerFg.initWithScript(script) ;
 	}
@@ -552,6 +559,8 @@ yc.GameScene = cc.Scene.extend({
 				, tile: false
 				, tileWidth: null 
 				, tileHeight: null
+				, mosey: false
+				, moseySpeed: 5
 			}
 			,{
 				layer: 'background'
@@ -570,6 +579,8 @@ yc.GameScene = cc.Scene.extend({
 				, tile: false
 				, tileWidth: null 
 				, tileHeight: null
+				, mosey: false
+				, moseySpeed: 5
 			}
 		]
 

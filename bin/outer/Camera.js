@@ -77,9 +77,10 @@ yc.outer.Camera = function()
 
 yc.outer.Camera.transformPosition = function(entity){
 	var camera = ins(yc.outer.Camera) ;
+	var parallax = entity.parallax || 1 ; // 视差
 	return {
-		x:0|(entity.x-camera.focusX)
-		, y: (0 |(entity.y-camera.focusY))
+		x: 0|((entity.x-camera.focusX)*parallax)
+		, y: 0 |((entity.y-camera.focusY)*parallax)
 	} ;
 }
 

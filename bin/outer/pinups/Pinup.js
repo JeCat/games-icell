@@ -4,8 +4,11 @@ yc.outer.pinups.Pinup = cc.Sprite.extend({
 		this._super() ;
 		this._script = {} ;
 		//this._opacity = 255 ;
+		this.parallax = null ;
 		this.id = ++yc.outer.pinups.Pinup.insId ;
 		yc.outer.pinups.Pinup.pool[this.id] = this ;
+		this.velocity = [0,0,0] ;	// 0: x, 1: y, 2: angle
+		this.scheduleUpdate();
 	}
 
 	, draw: function(ctx){
@@ -43,7 +46,6 @@ yc.outer.pinups.Pinup = cc.Sprite.extend({
 	}
 
 	, initWithScript: function(script){
-		log(script)
 		this._script = script ;
 
 		this.x = script.x ;
@@ -58,11 +60,37 @@ yc.outer.pinups.Pinup = cc.Sprite.extend({
 			this.initWithFile("res/null.png") ;
 		}
 
+
+		// 视差
+		if ('parallax' in script)
+		{
+			this.parallax = script.parallax ;
+		}
+
 		this.setOpacity(parseInt(script.opacity)) ;
 		this.setRotation(script.rotation) ;
 		this.setScale(script.scaleX,script.scaleY) ;
 		this.setAnchorPoint(cc.p(script.anchorX,script.anchorY)) ;
 
+	}
+
+	, update: function(dt){
+
+		if( !this._script.mosey )
+		{
+			return ;
+		}
+
+		// 随机转向
+		if( Math.random()<0.01 )
+		{
+			this.velocity[2]+= (Math.random()>0.5? 1: -1) ;								// 角度
+			this.velocity[0] = Math.sin(this.velocity[2]) * this._script.moseySpeed ;	// x 方向
+			this.velocity[1] = Math.cos(this.velocity[2]) * this._script.moseySpeed ;	// y 方向
+		}
+
+		this.x+= dt * this.velocity[0] ;
+		this.y+= dt * this.velocity[1] ;
 	}
 
 	, transform: yc.outer.Camera.transformSprite

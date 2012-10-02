@@ -6,9 +6,11 @@ yc.outer.pinups.LayerGround = cc.Layer.extend({
 		this.type = 'background' ;
 		this._script = {} ;
 		this.setAnchorPoint(cc.p(0,0)) ;
+		this.defaultParallax = 1 ;
 	}
 
 	, initWithScript: function(gameScript){
+		//log([gameScript,this]) ;
 		if( 'pinups' in gameScript )
 		{
 			for(var pi=0;pi<gameScript.pinups.length;pi++)

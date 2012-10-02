@@ -21,6 +21,9 @@ yc.ui.editer.PanelPinup = function(editor){
 		, tile: "ipt-pinup-tile"
 		, tileWidth: "ipt-pinup-tile-width"
 		, tileHeight: "ipt-pinup-tile-height"
+		, mosey: "ipt-pinup-mosey"
+		, moseySpeed: "ipt-pinup-mosey-speed"
+		, parallax: "ipt-pinup-parallax"
 	}
 
 	// 定义事件
@@ -54,6 +57,9 @@ yc.ui.editer.PanelPinup = function(editor){
 			}
 		}
 
+		// 旋转：角度转换成弧度
+		selectedPinup._script.rotation = (selectedPinup._script.rotation/180) * Math.PI ;
+
 		// 重新初始化
 		selectedPinup.initWithScript(selectedPinup._script) ;
 
@@ -81,13 +87,12 @@ yc.ui.editer.PanelPinup = function(editor){
 
 					selectedPinup = pinup ;
 
-					if(pinup._script.layer=='background')
+					for(var n in {foreground:null,background:null,perspective:null})
 					{
-						panel.ui.find('#lst-pinup-foreground')[0].selectedIndex = -1 ;
-					}
-					else if(pinup._script.layer=='foreground')
-					{
-						panel.ui.find('#lst-pinup-background')[0].selectedIndex = -1 ;
+						if( n!=pinup._script.layer )
+						{
+							panel.ui.find('#lst-pinup-'+n)[0].selectedIndex = -1 ;
+						}
 					}
 
 					for(var key in props)
@@ -105,11 +110,15 @@ yc.ui.editer.PanelPinup = function(editor){
 							ipt.val(pinup._script[key]) ;
 						}
 					}
+
+					// 旋转：弧度转换成角度
+					$('#ipt-pinup-rotation').val( (pinup._script['rotation']/Math.PI*180).toFixed(2) ) ;
 				}
 			}
 		}
 		yc.ui.editer.WorldEditer.loadOptions(this.ui.find('#lst-pinup-foreground'),scene.layerFg.getChildren(),eachfunc) ;
 		yc.ui.editer.WorldEditer.loadOptions(this.ui.find('#lst-pinup-background'),scene.layerBg.getChildren(),eachfunc) ;
+		yc.ui.editer.WorldEditer.loadOptions(this.ui.find('#lst-pinup-perspective'),scene.layerPg.getChildren(),eachfunc) ;
 	}
 
 
@@ -132,6 +141,8 @@ yc.ui.editer.PanelPinup = function(editor){
 				, text: null
 				, textStyle: "normal 16px san-serif"
 				, textColor: "0,0,0,1"
+				, moseySpeed: 5
+				, parallax: yc.settings.outer.defaultParallax[type]
 			}]
 		}) ;
 

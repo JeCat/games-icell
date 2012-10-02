@@ -99,6 +99,13 @@ yc.settings = {
 			// world debug draw
 			dbg: false
 		}
+
+		// 透视视差
+		, defaultParallax: {
+			foreground: 1.2 		// 前景层
+			, background: 1			// 背景层
+			, perspective: 0.25		// 远景层
+		}
 		
 	}
 	
