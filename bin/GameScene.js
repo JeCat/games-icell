@@ -515,6 +515,7 @@ yc.GameScene = cc.Scene.extend({
 						, text: null
 						, textStyle: "normal 16px san-serif"
 						, textColor: "0,0,0,1"
+						, img: null
 					}
 					, {
 						type: 'polygon'			// 类型 circle, polygon
@@ -526,6 +527,7 @@ yc.GameScene = cc.Scene.extend({
 						, text: null
 						, textStyle: "normal 16px san-serif"
 						, textColor: "0,0,0,1"
+						, img: null
 					}
 				]
 			}
@@ -543,10 +545,13 @@ yc.GameScene = cc.Scene.extend({
 				, opacity: 255
 				, scaleX: 1
 				, scaleY: 1
-				, img: "res/null-pinup.png"
 				, text: null
 				, textStyle: "normal 16px san-serif"
 				, textColor: "0,0,0,1"
+				, img: "res/null-pinup.png"
+				, tile: false
+				, tileWidth: null 
+				, tileHeight: null
 			}
 			,{
 				layer: 'background'
@@ -558,10 +563,13 @@ yc.GameScene = cc.Scene.extend({
 				, opacity: 255
 				, scaleX: 1
 				, scaleY: 1
-				, img: "res/null-pinup.png"
 				, text: null
 				, textStyle: "normal 16px san-serif"
 				, textColor: "0,0,0,1"
+				, img: "res/null-pinup.png"
+				, tile: false
+				, tileWidth: null 
+				, tileHeight: null
 			}
 		]
 

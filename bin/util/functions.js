@@ -50,138 +50,6 @@ yc.util.pointsDis = function(p1X,p1Y,p2X,p2Y)
 
 
 
-/**
- * 画一个正方形区域
- */
-yc.util.drawRect = function(lftTop,rgtBtm,ctx,strokeStyle,fillStyle){
-		
-	
-	if( typeof(strokeStyle)!='undefined' && strokeStyle )
-	{
-		ctx.strokeStyle = strokeStyle ;
-	}
-	else
-	{
-		strokeStyle = null ;
-	}
-	
-	if( typeof(fillStyle)!='undefined' && fillStyle )
-	{
-		ctx.fillStyle = fillStyle ;
-	}
-	else
-	{
-		fillStyle = null ;
-	}
-	
-	ctx.beginPath() ;
-	ctx.moveTo(lftTop[0],-lftTop[1]) ;
-	ctx.lineTo(rgtBtm[0],-lftTop[1]) ;
-	ctx.lineTo(rgtBtm[0],-rgtBtm[1]) ;
-	ctx.lineTo(lftTop[0],-rgtBtm[1]) ;
-	ctx.lineTo(lftTop[0],-lftTop[1]) ;
-	ctx.closePath() ;
-	
-	if(fillStyle)
-	{
-		ctx.fill() ;
-	}
-	if(strokeStyle)
-	{
-		ctx.stroke() ;
-	}
-}
-
-/**
- * 画一个多边形
- */
-yc.util.drawPolygon = function(points,ctx,strokeStyle,fillStyle,convert){
-	if( typeof(strokeStyle)!='undefined' && strokeStyle )
-	{
-		ctx.strokeStyle = strokeStyle ;
-	}
-	else
-	{
-		strokeStyle = null ;
-	}
-	
-	if( typeof(fillStyle)!='undefined' && fillStyle )
-	{
-		ctx.fillStyle = fillStyle ;
-	}
-	else
-	{
-		fillStyle = null ;
-	}
-	
-	if( typeof(convert)=='undefined' )
-	{
-		convert = 1 ;
-	}
-	else
-	{
-		convert = convert? -1: 1 ;
-	}
-	
-	ctx.beginPath() ;
-	
-	var transPoint = function(p)
-	{
-		return typeof(p.x)!=='undefined'? [p.x,p.y]: p ;
-	}
-	var last = transPoint(points[points.length-1]) ;
-	
-	ctx.moveTo(last[0],last[1]*convert) ;
-	for(var p=0;p<points.length;p++)
-	{
-		point = transPoint(points[p]) ;
-		ctx.lineTo(point[0],point[1]*convert) ;
-	}
-	ctx.closePath() ;
-	
-	if(fillStyle)
-	{
-		ctx.fill() ;
-	}
-	if(strokeStyle)
-	{
-		ctx.stroke() ;
-	}
-}
-
-
-/**
- * 画一个多边形
- */
-yc.util.drawLine = function(pointA,pointB,ctx,strokeStyle,convert){
-	if( typeof(strokeStyle)!='undefined' && strokeStyle )
-	{
-		ctx.strokeStyle = strokeStyle ;
-	}
-	if( typeof(convert)=='undefined' )
-	{
-		convert = 1 ;
-	}
-	else
-	{
-		convert = convert? -1: 1 ;
-	}
-	
-	var transPoint = function(p)
-	{
-		return typeof(p.x)!=='undefined'? [p.x,p.y]: p ;
-	}
-	pointA = transPoint(pointA) ;
-	pointB = transPoint(pointB) ;
-	
-	ctx.beginPath() ;
-	ctx.moveTo(pointA[0],pointA[1]*convert) ;
-	ctx.lineTo(pointB[0],pointB[1]*convert) ;
-	ctx.closePath() ;
-	
-	ctx.stroke() ;
-}
-
 
 yc.util.arr = {} ;
 yc.util.arr.search = function(arr,ele){
@@ -275,4 +143,24 @@ yc.util.formatPoint = function(pt){
 	{
 		pt.y = pt[1] ;
 	}
+}
+
+yc.util.ccShareTexture = function (url,rect){
+	var texture = cc.TextureCache.getInstance().textureForKey(url);
+	if (!texture)
+	{
+		texture = new Image();
+		texture.addEventListener("load", function () {
+			if (!rect) {
+				rect = cc.rect(0, 0, texture.width, texture.height);
+			}
+			cc.TextureCache.getInstance().cacheImage(url,texture);
+		});
+		texture.addEventListener("error", function () {
+			cc.log("load failure:" + url);
+		});
+		texture.src = url ;
+	}
+
+	return texture ;
 }

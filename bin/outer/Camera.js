@@ -94,5 +94,14 @@ yc.outer.Camera.transformSprite = function(context){
 	//context.restore() ;
 }
 
+yc.outer.Camera.worldPosX2ScreenPosX = function(x){
+	var camera = ins(yc.outer.Camera) ;
+	return camera.offsetX - (camera.x - x) ;
+}
+yc.outer.Camera.worldPosY2ScreenPosY = function(y){
+	var camera = ins(yc.outer.Camera) ;
+	return camera.offsetY - (camera.y - y) ;
+}
+
 yc.outer.Camera.singleton = true ;
 

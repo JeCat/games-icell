@@ -18,3 +18,18 @@ yc.levels.LevelSelector = cc.Scene.extend({
 	}
 	
 }) ;
+
+
+yc.levels.LevelSelector.enterLevel = function(levelScript){
+		
+	cc.Director.getInstance().replaceScene(new (yc.GameScene.extend({
+		onEnter: function(){
+			this._super() ;
+
+			// 加载关卡脚本
+			this.initWithScript(levelScript) ;
+		}
+	})));
+}
+
+yc.levels.LevelSelector.singleton = true ;

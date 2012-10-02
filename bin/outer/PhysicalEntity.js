@@ -430,7 +430,17 @@ yc.outer.PhysicalEntity = cc.Sprite.extend({
 				}
 
 				// 材质贴图
-				// todo ...
+				if( shape.img )
+				{
+					if(shape.tile)
+					{
+						//yc.util.tileImage(ctx,shape.img,shape.tileLft,shape.tileTop,shape.tileRgt,shape.tileBtm) ;
+					}
+					else
+					{
+						yc.util.drawImage(ctx,shape.img,0,0,0.5,0.5) ;
+					}
+				}
 			}
 		}
 	}
