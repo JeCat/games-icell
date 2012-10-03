@@ -89,6 +89,9 @@ yc.ui.editer.WorldEditer = function(){
 	this.refreshSettings = function(){
 		new yc.ui.editer.ObjectEditer(yc.settings,$('#ul-settings')) ;
 	}
+
+
+
 		
 	
 	this.refreshRoles() ;
@@ -128,8 +131,40 @@ function enterEditMode(){
 			ins(yc.ui.editer.WorldEditer).close() ;
 		}
 	})));
+
+	$("#mapListDiv").dialog("close");
 }
 
+function mapList(){
+	var mapListDiv = $("#mapListDiv");
+
+	$.ajax({
+		type:'POST',
+		url: "http://icell.jecat.cn/service/map.php",
+		dataType : 'json',
+		data: {
+			'act':'list'
+		},
+		success: function(json){
+			$.each( json , function(v,b){
+				$('#mapListDiv_list').append(
+					  "<div class='mapListDiv_list_li'>"
+						+ "<a href='fsdfdsfds_"+b['mid']+"' class='mapListDiv_list_a'>"+b['mapname']+"</a><br/>"
+						+ "<span class='mapListDiv_list_span'>"+b['createTime']+"</span><br/>"
+						+ "<img class='mapListDiv_thumb' src='"+b['thumbName']+"'/>"
+					+ "</div>"
+				);
+			});
+		}
+	});
+
+
+	mapListDiv.dialog({
+		title: 'map list'
+		, width:800
+		, height:500
+	});
+}
 
 function saveWorldToServer(){
 
@@ -162,7 +197,7 @@ function saveWorldToServer(){
 	$.ajax({
 		type:'POST',
 		url: "http://icell.jecat.cn/service/map.php",
-		dataType : 'html',
+		dataType : 'json',
 		data: {
 			'act':'save'
 			, 'mapInfo':worldInfo+"|^_^|"+screenshot
@@ -172,7 +207,8 @@ function saveWorldToServer(){
 		beforeSent: function(){
 			$('#saveWorldMsg').html('<span id="aSaveWorldMsg">saving...</span>');
 		},
-		success: function(msg){
+		success: function(json){
+			var msg = json['msg'];
 			$('#saveWorldMsg').html('<span id="aSaveWorldMsg">'+msg+'</span>');
 			setTimeout(function(){
 				$("#aSaveWorldMsg").remove();

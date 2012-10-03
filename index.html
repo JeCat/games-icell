@@ -370,13 +370,8 @@
 					</button>
 				</li>
 				<li>
-					<button onclick="enterEditMode()">
+					<button onclick="mapList()">
 						地图列表
-					</button>
-				</li>
-				<li>
-					<button onclick="enterEditMode()">
-						建造模式（空白关卡）
 					</button>
 				</li>
 			</ul>
@@ -402,6 +397,16 @@
 				</li>
 			</ul>
 		</div>
+
+		<div id="mapListDiv">
+			<div id="mapListDiv_title">
+				<a id="mapListDiv_newMapBtn" href="#"  onclick="enterEditMode();return false;">Create my map</a>
+				<h2>map list</h2>
+			</div>
+			<div id="mapListDiv_list">
+			</div>
+		</div>
+
 	</div>
 </body>
 </html>
