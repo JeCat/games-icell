@@ -61,6 +61,11 @@ $(function(){
 	$('#ui').width($(window).width()) ;
 	
 	startGame() ;
+
+    
+
+        // for test
+        enterEditMode() ;
 }) ;
 
 
@@ -89,6 +94,7 @@ function startGame(){
 	{
 	   window.requestAnimFrame = null 
 	}
+    
 }
 
 

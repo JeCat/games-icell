@@ -3,7 +3,7 @@
 <html>
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
-    <title>you,cell</title>
+	<title>you,cell</title>
 	<link rel="stylesheet" href="jquery.ui/jquery-ui-1.8.23.custom.css"></link>
 	<link rel="stylesheet" href="style.css"></link>
 	<script src="jquery.js"></script>
@@ -258,13 +258,28 @@
 			<div id='panel-roles'>
 				<button onclick="ins(yc.ui.editer.WorldEditer).refreshRoles()">刷新</button>
 				<button>删除</button>
-				<button>新建</button>
+				<button>+ ♪</button>
+				<button>+ V</button>
+				<button>+ Boss</button>
 				| <button onclick="yc.settings.outer.virus.dbg.showId=!yc.settings.outer.virus.dbg.showId">dbg</button>
 				<div>
 					<select multiple=true size="20" id="lst-roles"  style="float:left;width:120px"></select>
+					<div id="properties-aminoacid" style="display:none; float:left">
+						类型:<select id="properties-aminoacid-type">
+							<option value="red">red</option>
+							<option value="yellow">yellow</option>
+							<option value="blue">blue</option>
+						</select>
+						<br />
+						数量：<input id="properties-aminoacid-num" style="width:40" />
+						<br />
+						x<input />
+					</div>
 					<div style="float:left">
 						类型:<select>
-							<option></option>
+							<option value="aminoacid">氨基酸</option>
+							<option value="virus">病毒群</option>
+							<option value="boss">Boss</option>
 						</select><br/>
 						<ul style="width:200px;height:260px;overflow:scroll;" id='ul-role-properties'></ul>
 					</div>
@@ -277,21 +292,21 @@
 				<div style="float:left">
 					前景层：
 					<button onclick="ins(yc.ui.editer.WorldEditer).pinup.createPinup('foreground')">+</button>
-					<button onclick="ins(yc.ui.editer.WorldEditer).pinup.removePinup()">-</button>
+					<button onclick="ins(yc.ui.editer.WorldEditer).pinup.removePinup('foreground')">-</button>
 					<br />
 					<select multiple=true size="7" id="lst-pinup-foreground" style="width:120px"></select>
 					<br />
 					
 					背景层：
 					<button onclick="ins(yc.ui.editer.WorldEditer).pinup.createPinup('background')">+</button>
-					<button onclick="ins(yc.ui.editer.WorldEditer).pinup.removePinup()">-</button>
+					<button onclick="ins(yc.ui.editer.WorldEditer).pinup.removePinup('background')">-</button>
 					<br />
 					<select multiple=true size="7" id="lst-pinup-background" style="width:120px"></select>
 					<br />
 					
 					远景层：
 					<button onclick="ins(yc.ui.editer.WorldEditer).pinup.createPinup('perspective')">+</button>
-					<button onclick="ins(yc.ui.editer.WorldEditer).pinup.removePinup()">-</button>
+					<button onclick="ins(yc.ui.editer.WorldEditer).pinup.removePinup('perspective')">-</button>
 					<br />
 					<select multiple=true size="7" id="lst-pinup-perspective" style="width:120px"></select>
 				</div>			

@@ -164,14 +164,6 @@ function saveWorldToServer(){
 	 });
 }
 
-function xxx(){
-	console.log(111);
-}
-
-function yyy(){
-	console.log(222);
-}
-
 yc.ui.editer.WorldEditer.singleton = true ;
 
 

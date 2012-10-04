@@ -77,6 +77,7 @@ yc.GameScene = cc.Scene.extend({
 		
 		// 全局变量
 		scene = this ;
+
 	}
 
 	, _initWorld: function(){
@@ -324,20 +325,10 @@ yc.GameScene = cc.Scene.extend({
 		}
 
 		// 贴图
-		script.pinups = [] ;
-		var funcExportPinups = function(pinups){
-			for(var i=0;i<pinups.length;i++)
-			{
-				if( pinups[i].constructor == yc.outer.pinups.Pinup )
-				{
-					script.pinups.push(pinups[i]._script) ;
-				}
-			}
-			return this ;
-		}	// 定义匿名函数
-		funcExportPinups(this.layerFg.getChildren()) ;	// 导出 前景层 上的贴图
-		funcExportPinups(this.layerBg.getChildren()) ;	// 导出 背景层 上的贴图
-		funcExportPinups(this.layerPg.getChildren()) ;	// 导出 远景层 上的贴图
+		script.pinups = {} ;
+		script.pinups.foreground = this.layerFg._script ;	// 导出 前景层 上的贴图
+		script.pinups.background = this.layerBg._script ;	// 导出 背景层 上的贴图
+		script.pinups.perspective = this.layerPg._script ;	// 导出 远景层 上的贴图
 
 
 		return script ;
@@ -395,9 +386,21 @@ yc.GameScene = cc.Scene.extend({
 		
 
 		// 贴图（远景层、背景层、前景层） -----------
-		this.layerPg.initWithScript(script) ;
-		this.layerBg.initWithScript(script) ;
-		this.layerFg.initWithScript(script) ;
+		if( 'pinups' in script )
+		{
+			if('perspective' in script.pinups)
+			{
+				this.layerPg.initWithScript(script.pinups.perspective) ;
+			}
+			if('background' in script.pinups)
+			{
+				this.layerBg.initWithScript(script.pinups.background) ;
+			}
+			if('foreground' in script.pinups)
+			{
+				this.layerFg.initWithScript(script.pinups.foreground) ;
+			}
+		}
 	}
 	
 	// 关卡脚本的标准格式：
@@ -541,48 +544,50 @@ yc.GameScene = cc.Scene.extend({
 		]
 
 		// 背景和前景 贴图
-		, pinups: [
-			{
-				layer: 'background'
-				, x: 10
-				, y: 30
-				, anchorX: 0.5
-				, anchorY: 0.5
-				, rotation: 0
-				, opacity: 255
-				, scaleX: 1
-				, scaleY: 1
-				, text: null
-				, textStyle: "normal 16px san-serif"
-				, textColor: "0,0,0,1"
-				, img: "res/null-pinup.png"
-				, tile: false
-				, tileWidth: null 
-				, tileHeight: null
-				, mosey: false
-				, moseySpeed: 5
-			}
-			,{
-				layer: 'background'
-				, x: 10
-				, y: 30
-				, anchorX: 0.5
-				, anchorY: 0.5
-				, rotation: 0
-				, opacity: 255
-				, scaleX: 1
-				, scaleY: 1
-				, text: null
-				, textStyle: "normal 16px san-serif"
-				, textColor: "0,0,0,1"
-				, img: "res/null-pinup.png"
-				, tile: false
-				, tileWidth: null 
-				, tileHeight: null
-				, mosey: false
-				, moseySpeed: 5
-			}
-		]
+		, pinups: {
+			background: [
+				{
+					layer: 'background'
+					, x: 10
+					, y: 30
+					, anchorX: 0.5
+					, anchorY: 0.5
+					, rotation: 0
+					, opacity: 255
+					, scaleX: 1
+					, scaleY: 1
+					, text: null
+					, textStyle: "normal 16px san-serif"
+					, textColor: "0,0,0,1"
+					, img: "res/null-pinup.png"
+					, tile: false
+					, tileWidth: null 
+					, tileHeight: null
+					, mosey: false
+					, moseySpeed: 5
+				}
+				,{
+					layer: 'background'
+					, x: 10
+					, y: 30
+					, anchorX: 0.5
+					, anchorY: 0.5
+					, rotation: 0
+					, opacity: 255
+					, scaleX: 1
+					, scaleY: 1
+					, text: null
+					, textStyle: "normal 16px san-serif"
+					, textColor: "0,0,0,1"
+					, img: "res/null-pinup.png"
+					, tile: false
+					, tileWidth: null 
+					, tileHeight: null
+					, mosey: false
+					, moseySpeed: 5
+				}
+			]
+		}
 
 	}
 });
