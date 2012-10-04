@@ -149,7 +149,7 @@ function mapList(){
 			$.each( json , function(v,b){
 				$('#mapListDiv_list').append(
 					  "<div class='mapListDiv_list_li'>"
-						+ "<a href='fsdfdsfds_"+b['mid']+"' class='mapListDiv_list_a'>"+b['mapname']+"</a><br/>"
+						+ "<a href='#' onclick='initMap("+b['mid']+");return false;' class='mapListDiv_list_a'>"+b['mapname']+"</a><br/>"
 						+ "<span class='mapListDiv_list_span'>"+b['createTime']+"</span><br/>"
 						+ "<img class='mapListDiv_thumb' src='"+b['thumbName']+"'/>"
 					+ "</div>"
@@ -163,6 +163,22 @@ function mapList(){
 		title: 'map list'
 		, width:800
 		, height:500
+	});
+
+}
+
+function initMap(mid){
+	$.ajax({
+		type:'POST',
+		url: "http://icell.jecat.cn/service/map.php",
+		dataType : 'json',
+		data: {
+			'act':'data'
+		},
+		success: function(json){
+			var scene = cc.Director.getInstance()._runningScene ; 
+			scene.initWithScript(json);
+		}
 	});
 }
 

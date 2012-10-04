@@ -361,17 +361,12 @@
 					<button onclick="$('#ui-levels-selector-menu,#ui-buildin-levels-menu').slideToggle();">故事模式</button>
 				</li>
 				<li>
-					<button disabled>探索模式</button>
+					<button onclick="mapList()">探索模式</button>
 				</li>
 				<br />
 				<li>
 					<button onclick="cc.Director.getInstance().replaceScene( new yc.levels.FreeWorld ); $('#ui-levels-selector').toggle();">
 						随机关卡
-					</button>
-				</li>
-				<li>
-					<button onclick="mapList()">
-						地图列表
 					</button>
 				</li>
 			</ul>
