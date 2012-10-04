@@ -6,7 +6,7 @@ yc.levels.LevelSelector = cc.Scene.extend({
 		
 		$('#ui-levels-selector').show()
 			.css('left',$(window).width()/2-$('#ui-levels-selector').width()/2) 
-			.css('top',$(window).height()/2-$('#ui-levels-selector').height()/2) 
+			.css('top',$(window).height()/4-$('#ui-levels-selector').height()/2) 
 			
 		this._super() ;
 

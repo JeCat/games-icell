@@ -1,10 +1,5 @@
 yc.ui.editer.WorldEditer = function(){
 
-	/*this.ui = $('#dlg-world-editer').dialog({
-		title: '世界编辑器'
-		, width:650
-		, position: [0,0]
-	}) ;*/
 	this.ui = $('#dlg-world-editer')
 				.height($(window).height())
 				.show() ;
@@ -92,6 +87,9 @@ yc.ui.editer.WorldEditer = function(){
 	this.refreshSettings = function(){
 		new yc.ui.editer.ObjectEditer(yc.settings,$('#ul-settings')) ;
 	}
+
+
+
 		
 	
 	this.refreshRoles() ;
@@ -131,40 +129,107 @@ function enterEditMode(){
 			ins(yc.ui.editer.WorldEditer).close() ;
 		}
 	})));
+
+	$("#mapListDiv").dialog("close");
 }
 
+function mapList(){
+	var mapListDiv = $("#mapListDiv");
+
+	$.ajax({
+		type:'POST',
+		url: "http://icell.jecat.cn/service/map.php",
+		dataType : 'json',
+		data: {
+			'act':'list'
+		},
+		success: function(json){
+			$.each( json , function(v,b){
+				$('#mapListDiv_list').append(
+					  "<div class='mapListDiv_list_li'>"
+						+ "<a href='#' onclick='initMap("+b['mid']+");return false;' class='mapListDiv_list_a'>"+b['mapname']+"</a><br/>"
+						+ "<span class='mapListDiv_list_span'>"+b['createTime']+"</span><br/>"
+						+ "<img class='mapListDiv_thumb' src='"+b['thumbName']+"'/>"
+					+ "</div>"
+				);
+			});
+		}
+	});
+
+
+	mapListDiv.dialog({
+		title: 'map list'
+		, width:800
+		, height:500
+	});
+
+}
+
+function initMap(mid){
+	$.ajax({
+		type:'POST',
+		url: "http://icell.jecat.cn/service/map.php",
+		dataType : 'json',
+		data: {
+			'act':'data'
+		},
+		success: function(json){
+			var scene = cc.Director.getInstance()._runningScene ; 
+			scene.initWithScript(json);
+		}
+	});
+}
 
 function saveWorldToServer(){
+
+	$("#aSaveWorldMsg").remove();
+
 	var worldInfo = $.toJSON( cc.Director.getInstance()._runningScene.exportScript() ) ;
 	var screenshot = $('#gameCanvas')[0].toDataURL("image/png");
+
+	var msgTimeout = 30000;
 
 	if(!icell_userInfo){
 		$('#saveWorldMsg').html('<span id="aSaveWorldMsg">user info is missing , save failed!</span>');
 		setTimeout(function(){
 			$("#aSaveWorldMsg").remove();
 		}
-		,5000);
+		,msgTimeout);
+		return;
+	}
+
+	var mapName = prompt('please input map name');
+	if(!mapName){
+		$('#saveWorldMsg').html('<span id="aSaveWorldMsg">You must tell us what the map name is , save failed!</span>');
+		setTimeout(function(){
+			$("#aSaveWorldMsg").remove();
+		}
+		,msgTimeout);
 		return;
 	}
 
 	$.ajax({
 		type:'POST',
 		url: "http://icell.jecat.cn/service/map.php",
-		jsonpCallback:"xxx",
-		jsonp:"yyy",
-		dataType : 'jsonp',
+		dataType : 'json',
 		data: {
-			'mapInfo':worldInfo+"|^_^|"+screenshot
+			'act':'save'
+			, 'mapInfo':worldInfo+"|^_^|"+screenshot
 			, 'userInfo' : icell_userInfo
+			, 'mapName' : mapName
 		},
-		success: function(msg){
+		beforeSent: function(){
+			$('#saveWorldMsg').html('<span id="aSaveWorldMsg">saving...</span>');
+		},
+		success: function(json){
+			var msg = json['msg'];
 			$('#saveWorldMsg').html('<span id="aSaveWorldMsg">'+msg+'</span>');
 			setTimeout(function(){
 				$("#aSaveWorldMsg").remove();
 			}
-			,5000);
+			,msgTimeout);
 		}
-	 });
+	});
 }
 
 yc.ui.editer.WorldEditer.singleton = true ;

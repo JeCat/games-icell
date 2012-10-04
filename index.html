@@ -400,17 +400,12 @@
 					<button onclick="$('#ui-levels-selector-menu,#ui-buildin-levels-menu').slideToggle();">故事模式</button>
 				</li>
 				<li>
-					<button disabled>探索模式</button>
+					<button onclick="mapList()">探索模式</button>
 				</li>
 				<br />
 				<li>
 					<button onclick="cc.Director.getInstance().replaceScene( new yc.levels.FreeWorld ); $('#ui-levels-selector').toggle();">
 						随机关卡
-					</button>
-				</li>
-				<li>
-					<button onclick="enterEditMode()">
-						建造模式（空白关卡）
 					</button>
 				</li>
 			</ul>
@@ -436,6 +431,16 @@
 				</li>
 			</ul>
 		</div>
+
+		<div id="mapListDiv">
+			<div id="mapListDiv_title">
+				<a id="mapListDiv_newMapBtn" href="#"  onclick="enterEditMode();return false;">Create my map</a>
+				<h2>map list</h2>
+			</div>
+			<div id="mapListDiv_list">
+			</div>
+		</div>
+
 	</div>
 </body>
 </html>

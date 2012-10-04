@@ -1,3 +1,86 @@
+
+/* CSS reset */
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, input, textarea, p, blockquote, th, td {
+    margin:0;
+    padding:0;
+}
+table {
+    border-collapse:collapse;
+    border-spacing:0;
+}
+fieldset, img {
+    border:0;
+}
+address, caption, cite, code, dfn, em, strong, th, var, i {
+    font-style:normal;
+    font-weight:normal;
+}
+ol, ul {
+    list-style:none;
+}
+caption, th {
+    text-align:left;
+}
+h1, h5, h6 {
+    font-size:100%;
+    font-weight:normal;
+}
+q:before, q:after {
+    content:'';
+}
+abbr, acronym {
+    border:0;
+}
+img {
+    color: transparent;
+    font-size: 0;
+    vertical-align: middle;
+    -ms-interpolation-mode: bicubic;/*Only fot IE7*/
+}
+b, strong {
+    /*
+  Makes browsers agree.
+  IE + Opera = font-weight: bold.
+  Gecko + WebKit = font-weight: bolder.
+*/
+  font-weight: bold;
+}
+*:focus {
+    /* 去掉获得焦点时出现的虚线框 */
+    outline: none;
+}
+textarea {
+    /* chrome 不允许 textarea 可更改大小  */
+    resize:none;
+}
+.clearfix:after {
+    clear: both;
+    content: ".";
+    display: block;
+    height: 0;
+    visibility: hidden;
+}
+.clearfix {
+    display: inline-block;
+}
+* html .clearfix {
+    height: 1%;
+}
+.clearfix {
+    display: block;
+}
+.clear {
+    clear: both;
+    display: block;
+    overflow: hidden;
+    visibility: hidden;
+    width: 0;
+    height: 0;
+}
+
+/* CSS reset */
+
+
 html{
     overflow-x: hidden; overflow-y: hidden;
 }
@@ -81,4 +164,24 @@ body{
 
 #ui-levels-selector-menu{
     display: none;
+}
+
+#mapListDiv{
+    display: none;
+    position: relative;
+}
+
+#mapListDiv .mapListDiv_thumb{
+    width:160px;
+    height:90px;
+}
+
+#mapListDiv_title h2{
+    display: block;
+    width:500px;
+}
+
+#mapListDiv_newMapBtn{
+    display:block;
+    float:right;
 }
