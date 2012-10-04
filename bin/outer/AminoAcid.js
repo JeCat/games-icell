@@ -6,6 +6,7 @@ yc.outer.AminoAcid = yc.outer.PhysicalEntity.extend({
 		
 		this.turnRate = yc.settings.outer.aminoacid.turnRate ;
 		this.normalSpeed = yc.settings.outer.aminoacid.normalSpeed ;
+		this.id = this.constructor.assigned ++ ;
 	}
 	
 	, initRandom: function(range){
@@ -28,13 +29,18 @@ yc.outer.AminoAcid = yc.outer.PhysicalEntity.extend({
 	}
 		
 	, transform: yc.outer.Camera.transformSprite
-	, draw: function(c)
+	, draw: function(ctx)
 	{
-		c.fillStyle = this.color ;
-		c.beginPath();
-		c.arc(0, 0, this.size, 0, Math.PI*2, true);
-		c.closePath();
-		c.fill();
+		ctx.fillStyle = this.color ;
+		ctx.beginPath();
+		ctx.arc(0, 0, this.size, 0, Math.PI*2, true);
+		ctx.closePath();
+		ctx.fill();
+
+		if(yc.settings.outer.aminoacid.dbgInfo)
+		{
+			this.drawDbgInfo(ctx) ;
+		}
 	}
 	
 	, update: function(dt){
@@ -62,4 +68,5 @@ yc.outer.AminoAcid = yc.outer.PhysicalEntity.extend({
 }) ;
 
 
+yc.outer.AminoAcid.assigned = 0 ;
 yc.outer.AminoAcid.className = 'yc.outer.AminoAcid' ;

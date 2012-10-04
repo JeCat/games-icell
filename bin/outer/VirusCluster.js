@@ -58,29 +58,9 @@ yc.outer.VirusCluster = yc.outer.PhysicalEntity.extend({
 		
 		ctx.fillText('Lv '+this.lv,5,-8);
 
-		if(yc.settings.outer.virus.dbg.showId)
+		if(yc.settings.outer.virus.dbgInfo)
 		{
-			ctx.fillText('id:'+this.id,40,-8);
-			
-			// 到 home 的连线
-			if( this.homeX!==null && this.homeY!==null )
-			{
-				ctx.beginPath() ;
-				ctx.moveTo(0,0) ;
-				ctx.strokeStyle='white' ; 
-				ctx.lineTo(this.homeX-this.x,-(this.homeY-this.y)) ;
-				ctx.stroke() ;
-				ctx.closePath() ;
-			}
-			
-			// 画方向
-			ctx.beginPath() ;
-			ctx.strokeStyle='green' ; 
-			var speed = this.b2Body.GetLinearVelocity() ;
-			ctx.moveTo(0,0) ;
-			ctx.lineTo(speed.x*PTM_RATIO,-speed.y*PTM_RATIO) ;
-			ctx.stroke() ;
-			ctx.closePath() ;
+			this.drawDbgInfo(ctx) ;
 		}
 	}
 	

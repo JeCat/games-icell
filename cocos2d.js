@@ -64,6 +64,7 @@ var TAG_SPRITE_MANAGER = 1;
 			, 'bin/ui/editer/ObjectEditer.js'
 			, 'bin/ui/editer/PanelStain.js'
 			, 'bin/ui/editer/PanelPinup.js'
+			, 'bin/ui/editer/PanelRole.js'
 			, 'bin/ui/editer/PropsList.js'
 			
 			, 'bin/outer/Camera.js'

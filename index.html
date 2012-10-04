@@ -142,7 +142,6 @@
 				<li><a href="#panel-pinups">贴图</a></li>
 				<li><a href="#">场景道具</a></li>
 				<li><a href="#panel-roles">角色</a></li>
-				<li><a href="#panel-cell">细胞</a></li>
 			</ul>
 			
 			
@@ -255,38 +254,6 @@
 			</div>
 			
 			
-			<div id='panel-roles'>
-				<button onclick="ins(yc.ui.editer.WorldEditer).refreshRoles()">刷新</button>
-				<button>删除</button>
-				<button>+ ♪</button>
-				<button>+ V</button>
-				<button>+ Boss</button>
-				| <button onclick="yc.settings.outer.virus.dbg.showId=!yc.settings.outer.virus.dbg.showId">dbg</button>
-				<div>
-					<select multiple=true size="20" id="lst-roles"  style="float:left;width:120px"></select>
-					<div id="properties-aminoacid" style="display:none; float:left">
-						类型:<select id="properties-aminoacid-type">
-							<option value="red">red</option>
-							<option value="yellow">yellow</option>
-							<option value="blue">blue</option>
-						</select>
-						<br />
-						数量：<input id="properties-aminoacid-num" style="width:40" />
-						<br />
-						x<input />
-					</div>
-					<div style="float:left">
-						类型:<select>
-							<option value="aminoacid">氨基酸</option>
-							<option value="virus">病毒群</option>
-							<option value="boss">Boss</option>
-						</select><br/>
-						<ul style="width:200px;height:260px;overflow:scroll;" id='ul-role-properties'></ul>
-					</div>
-					<div style="clear:both"></div>
-				</div>
-			</div>
-			
 			
 			<div id='panel-pinups'>
 				<div style="float:left">
@@ -353,6 +320,47 @@
 				<div style="clear:both"></div>
 			</div>
 
+			
+			<div id='panel-roles'>
+				<div>
+					
+					<div style="float:left;" >
+						<button onclick="ins(yc.ui.editer.WorldEditer).role.createAminoAcid()">+ ♪</button>
+						<button onclick="ins(yc.ui.editer.WorldEditer).role.removeAminoAcid()">- ♪</button>
+						<label>
+							<input type="checkbox" checked onclick="yc.settings.outer.aminoacid.dbgInfo=!yc.settings.outer.aminoacid.dbgInfo" />dbg
+						</label>
+						<br />
+						<select multiple=true size="10" id="lst-roles-aminoacid"  style="width:120px"></select>
+						<br />
+
+						<button onclick="ins(yc.ui.editer.WorldEditer).role.createAminoAcid()">+</button>
+						<button onclick="ins(yc.ui.editer.WorldEditer).role.removeAminoAcid()">-</button>
+						<label>
+							<input type="checkbox" checked onclick="yc.settings.outer.virus.dbgInfo=!yc.settings.outer.virus.dbgInfo" />dbg
+						</label>
+						<br />
+						<select multiple=true size="10" id="lst-roles-aminoacid"  style="width:120px"></select>
+
+					</div>
+
+					<div id="props-aminoacid" style="display:block; float:left; margin-left:5px">
+						类型:<select id="sel-aminoacid-type">
+							<option value="red">red</option>
+							<option value="yellow">yellow</option>
+							<option value="blue">blue</option>
+						</select>
+						<br />
+						数量：<input id="ipt-aminoacid-num" style="width:40px" format="int" />
+						<br />
+						坐标 x:<input id='ipt-aminoacid-x' style='width:30px' value='' format="int" />
+						y:<input id='ipt-aminoacid-y' style='width:30px' value='' format="int" />
+					</div>
+					
+					<div style="clear:both"></div>
+
+				</div>
+			</div>
 
 			<!-- <div id="panel-balance">
 				<button onclick="ins(yc.ui.editer.WorldEditer).refreshSettings()">刷新</button>

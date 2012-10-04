@@ -104,5 +104,14 @@ yc.outer.Camera.worldPosY2ScreenPosY = function(y){
 	return camera.offsetY - (camera.y - y) ;
 }
 
+yc.outer.Camera.screenPosX2WorldPosX = function(x){
+	var camera = ins(yc.outer.Camera) ;
+	return camera.x + (x - camera.offsetX) ;
+}
+yc.outer.Camera.screenPosY2WorldPosY = function(y){
+	var camera = ins(yc.outer.Camera) ;
+	return camera.y + (y - camera.offsetY) ;
+}
+
 yc.outer.Camera.singleton = true ;
 

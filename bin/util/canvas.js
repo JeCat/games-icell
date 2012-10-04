@@ -157,3 +157,15 @@ yc.util.tileImage = function(ctx,imgurl,x,y,w,h){
 		ctx.fillRect(x,-y,w,h) ;
 	}
 }
+
+/**
+ * 描绘文本
+ */
+yc.util.text = function(ctx,text,x,y,style){
+	ctx.save() ;
+
+	ctx.fillText() ;
+
+	ctx.restore();
+}
+

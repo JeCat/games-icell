@@ -52,9 +52,7 @@ yc.settings = {
 	
 		// 病毒群
 		, virus:{
-			dbg: {
-				showId: false
-			}
+			dbgInfo: false
 			, defaultVigilanceRange: 200	// 默认警视范围
 			, turnRate: 0.04				// 转向灵活度
 			, moseySpeed: 2					// 漫步速度
@@ -68,6 +66,7 @@ yc.settings = {
 			turnRate: 0.2			// 转向灵活度
 			, normalSpeed: 2		// 正常速度
 			, density: 0.2 			// 物理密度（决定物体的物理质量，影响物体的冲撞力）
+			, dbgInfo: false
 		}
 		
 		// 角色

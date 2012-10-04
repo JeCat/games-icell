@@ -115,6 +115,11 @@
 				{
 					model[prop] = $(ipt).attr('checked')=='checked'? true: false ;
 				}
+				// select 类型
+				else if(ipt.tagName=='SELECT')
+				{
+					model[prop] = ipt.options[ipt.selectedIndex].value ;
+				}
 				// text 类型
 				else
 				{
@@ -154,6 +159,10 @@
 			// load options
 			for ( var i = 0; i < array.length; i++) {
 				var info = eachFunc(array[i],i) ;
+				if(!info)
+				{
+					continue ;
+				}
 
 				var optUi = $('<option></option>').appendTo( this )
 					.text(info.text)

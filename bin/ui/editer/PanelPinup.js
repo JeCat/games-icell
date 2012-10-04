@@ -109,6 +109,7 @@ yc.ui.editer.PanelPinup = function(editor){
 		if(!eleOpt || !pinup)
 		{
 			alert("请选择需要移除的贴图") ;
+			return ;
 		}
 		pinup.removeFromParentAndCleanup() ;
 
