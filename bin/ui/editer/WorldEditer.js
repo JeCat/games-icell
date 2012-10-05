@@ -176,11 +176,8 @@ function initMap(mid){
 		},
 		success: function(json){
 
-			// cc.Director.getInstance().getRunningScene();
 			var game = new yc.GameScene;
 
-			// console.log(json);
-			
 			cc.Director.getInstance().replaceScene(game);
 
 			game.initWithScript(json);
