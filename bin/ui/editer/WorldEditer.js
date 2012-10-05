@@ -176,11 +176,14 @@ function initMap(mid){
 		},
 		success: function(json){
 
-			var game = new yc.GameScene;
+			cc.Director.getInstance().replaceScene(new (yc.GameScene.extend({
+				onEnter: function(){
+					this._super() ;
 
-			cc.Director.getInstance().replaceScene(game);
-
-			game.initWithScript(json);
+					this.initWithScript(json);
+				}
+			})));
+			
 		}
 	});
 }
