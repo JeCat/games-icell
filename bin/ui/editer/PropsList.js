@@ -132,6 +132,10 @@
 					{
 						model[prop] = parseFloat(val) ;
 					}
+					else
+					{
+						model[prop] = val ;
+					}
 				}
 
 				// input 上的 数据转换
@@ -140,6 +144,8 @@
 				{
 					model[prop] = transfer(model[prop]) ;
 				}
+
+				log(ipt,model) ;
 
 
 				// model change 事件
