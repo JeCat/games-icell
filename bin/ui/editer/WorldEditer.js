@@ -1,12 +1,5 @@
 yc.ui.editer.WorldEditer = function(){
 
-	log('create WorldEditer') ;
-
-	/*this.ui = $('#dlg-world-editer').dialog({
-		title: '世界编辑器'
-		, width:650
-		, position: [0,0]
-	}) ;*/
 	this.ui = $('#dlg-world-editer')
 				.height($(window).height())
 				.show() ;
@@ -14,6 +7,7 @@ yc.ui.editer.WorldEditer = function(){
 	
 	this.stain = new yc.ui.editer.PanelStain(this) ;
 	this.pinup = new yc.ui.editer.PanelPinup(this) ;
+	this.role = new yc.ui.editer.PanelRole(this) ;
 	editer = this ;
 
 	// 辅助层
@@ -26,6 +20,8 @@ yc.ui.editer.WorldEditer = function(){
 		yc.settings.player.nohurt = true ;		// 无敌
 		yc.settings.player.stealth = true ;		// 隐身
 		yc.settings.outer.stain.dbg = true ;	// 绘制污渍信息
+		yc.settings.outer.aminoacid.dbgInfo = true ;
+		yc.settings.outer.virus.dbgInfo = true ;
 
 		ins(yc.outer.Cell)._followingCamera = null ; 									// 停止摄像机跟随
 		cc.Director.getInstance().getRunningScene().layerPlayer.dontMoving = true ;		// 停止鼠标控制玩家
@@ -43,6 +39,8 @@ yc.ui.editer.WorldEditer = function(){
 		yc.settings.player.nohurt = false ;		// 无敌
 		yc.settings.player.stealth = false ;	// 隐身
 		yc.settings.outer.stain.dbg = false ;	// 绘制污渍信息
+		yc.settings.outer.aminoacid.dbgInfo = false ;
+		yc.settings.outer.virus.dbgInfo = false ;
 
 		ins(yc.outer.Cell)._followingCamera = ins(yc.outer.Camera) ; 					// 恢复摄像机跟随
 		cc.Director.getInstance().getRunningScene().layerPlayer.dontMoving = false ;	// 恢复鼠标控制玩家

@@ -445,6 +445,34 @@ yc.outer.PhysicalEntity = cc.Sprite.extend({
 		}
 	}
 
+	, drawDbgInfo: function(ctx){
+
+		if( this.id!==undefined )
+		{
+			ctx.fillText('id:'+this.id,40,-8);
+		}
+		
+		// 到 home 的连线
+		if( this.homeX!==null && this.homeY!==null )
+		{
+			ctx.beginPath() ;
+			ctx.moveTo(0,0) ;
+			ctx.strokeStyle='white' ; 
+			ctx.lineTo(this.homeX-this.x,-(this.homeY-this.y)) ;
+			ctx.stroke() ;
+			ctx.closePath() ;
+		}
+		
+		// 画方向
+		ctx.beginPath() ;
+		ctx.strokeStyle='green' ; 
+		var speed = this.b2Body.GetLinearVelocity() ;
+		ctx.moveTo(0,0) ;
+		ctx.lineTo(speed.x*PTM_RATIO/2,-speed.y*PTM_RATIO/2) ;
+		ctx.stroke() ;
+		ctx.closePath() ;
+	}
+
 	, b2bodyFixture: function(idx){
 		if(idx<0)
 		{

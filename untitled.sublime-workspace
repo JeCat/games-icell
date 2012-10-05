@@ -4,6 +4,18 @@
 		"selected_items":
 		[
 			[
+				"in",
+				"input	Tag"
+			],
+			[
+				"anch",
+				"anchorX"
+			],
+			[
+				"create",
+				"createMessage"
+			],
+			[
 				"pin",
 				"pinups  (variable)"
 			],
@@ -139,7 +151,23 @@
 			"file": "index.html",
 			"settings":
 			{
-				"buffer_size": 12283,
+				"buffer_size": 13777,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "bin/ui/editer/PanelPinup.js",
+			"settings":
+			{
+				"buffer_size": 3744,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "bin/outer/pinups/Pinup.js",
+			"settings":
+			{
+				"buffer_size": 2139,
 				"line_ending": "Unix"
 			}
 		},
@@ -147,39 +175,31 @@
 			"file": "bin/GameScene.js",
 			"settings":
 			{
-				"buffer_size": 12176,
+				"buffer_size": 12670,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "cocos2d.js",
+			"file": "bin/outer/pinups/LayerGround.js",
 			"settings":
 			{
-				"buffer_size": 3480,
+				"buffer_size": 582,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "bin/levels/LevelSelector.js",
+			"file": "bin/outer/Camera.js",
 			"settings":
 			{
-				"buffer_size": 669,
+				"buffer_size": 2398,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "bin/levels/c1/tutorial.js",
+			"file": "bin/settings.js",
 			"settings":
 			{
-				"buffer_size": 1356,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "bin/levels/c1/l1.js",
-			"settings":
-			{
-				"buffer_size": 3968,
+				"buffer_size": 2807,
 				"line_ending": "Unix"
 			}
 		}
@@ -212,29 +232,43 @@
 	},
 	"file_history":
 	[
+		"/Users/xiaye/project/youcell/bin/outer/PhysicalEntity.js",
+		"/Users/xiaye/project/youcell/bin/util/canvas.js",
+		"/Users/xiaye/project/youcell/index.html",
+		"/Users/xiaye/project/youcell/bin/ui/editer/PanelPinup.js",
+		"/Users/xiaye/project/youcell/bin/GameScene.js",
+		"/Users/xiaye/project/youcell/bin/outer/Stain.js",
+		"/Users/xiaye/project/youcell/bin/outer/pinups/Pinup.js",
+		"/Users/xiaye/project/youcell/lib/cocos2d/sprite_nodes/CCSprite.js",
+		"/Users/xiaye/project/youcell/cocos2d.js",
+		"/Users/xiaye/project/youcell/bin/outer/Camera.js",
+		"/Users/xiaye/project/youcell/jquery.js",
+		"/Users/xiaye/project/youcell/bin/util/functions.js",
+		"/Users/xiaye/project/youcell/main.js",
+		"/Users/xiaye/project/youcell/bin/ui/editer/PanelStain.js",
+		"/Users/xiaye/project/oc.release/extensions/airticket/0.2/class/MakeOrder.php",
+		"/Users/xiaye/project/oc.release/extensions/airticket/0.2/template/AirTicketForm.html",
+		"/Users/xiaye/project/oc.release/extensions/airticket/0.2/class/AirTicketQuery.php",
+		"/Users/xiaye/project/oc.release/extensions/airticket/0.2/template/AirTicketQuery.html",
+		"/Users/xiaye/project/oc.release/extensions/airticket/0.2/template/MakeOrder.html",
+		"/Users/xiaye/project/oc.release/services/at.oc.local/setting/extensions/airticket/user/querylog/items.php",
+		"/Users/xiaye/project/oc.release/services/at.oc.local/setting/extensions/airticket/user/querylog/2012-09-09/1/items.php",
+		"/Users/xiaye/project/oc.release/services/at.oc.local/setting/extensions/airticket/contact/items.php",
+		"/Users/xiaye/project/youcell/bin/levels/c1/l1.js",
+		"/Users/xiaye/project/youcell/bin/levels/LevelSelector.js",
+		"/Users/xiaye/project/youcell/bin/levels/c1/tutorial.js",
 		"/Users/xiaye/project/youcell/bin/levels/c1/L1.js",
 		"/Users/xiaye/project/youcell/jquery.json.js",
 		"/Users/xiaye/project/youcell/bin/ui/editer/WorldEditer.js",
 		"/Users/xiaye/project/youcell/bin/util/Instance.js",
-		"/Users/xiaye/project/youcell/bin/outer/Camera.js",
-		"/Users/xiaye/project/youcell/bin/ui/editer/PanelStain.js",
 		"/Users/xiaye/project/youcell/bin/ui/editer/WorldEditerLayer.js",
-		"/Users/xiaye/project/youcell/bin/outer/Stain.js",
-		"/Users/xiaye/project/youcell/bin/outer/PhysicalEntity.js",
 		"/Users/xiaye/project/oc.release/extensions/openoa/0.1/class/Attendance/Punch.php",
 		"/Users/xiaye/project/youcell/bin/outer/pinups/LayerGround.js",
-		"/Users/xiaye/project/youcell/bin/ui/editer/PanelPinup.js",
-		"/Users/xiaye/project/youcell/bin/outer/pinups/Pinup.js",
-		"/Users/xiaye/project/youcell/lib/cocos2d/sprite_nodes/CCSprite.js",
-		"/Users/xiaye/project/youcell/cocos2d.js",
-		"/Users/xiaye/project/youcell/bin/GameScene.js",
-		"/Users/xiaye/project/youcell/main.js",
 		"/Users/xiaye/project/youcell/bin/outer/Cell.js",
 		"/Users/xiaye/project/youcell/bin/GameLayer.js",
 		"/Users/xiaye/project/youcell/bin/ui/UI.js",
 		"/Users/xiaye/project/youcell/bin/ui/UILayer.js",
 		"/Users/xiaye/project/youcell/bin/util/declareClassName.js",
-		"/Users/xiaye/project/youcell/index.html",
 		"/Users/xiaye/project/youcell/bin/actions/DynamicMove.js",
 		"/Users/xiaye/project/youcell/bin/actions/Timer.js",
 		"/Users/xiaye/project/youcell/bin/Cocos2dPatchs.js",
@@ -274,7 +308,6 @@
 		"/Users/xiaye/project/youcell/bin/test.js",
 		"/Users/xiaye/project/youcell/bin/ui/dashboard/Dashboard.js",
 		"/Users/xiaye/project/youcell/bin/ui/DlgRewardGene.js",
-		"/Users/xiaye/project/youcell/bin/util/functions.js",
 		"/Users/xiaye/project/youcell/bin/util/node.funcs.js",
 		"/Users/xiaye/project/youcell/bin/util/ObjectPool.js",
 		"/Users/xiaye/project/youcell/bin/inner/InnerLayer.js",
@@ -283,7 +316,6 @@
 		"/private/var/root/Desktop/拉贾卫士20120825/index_new2.html",
 		"/Users/xiaye/project/youcell/bin/util/DbgPannel.js",
 		"/Users/xiaye/project/youcell/bin/inner/AminoAcidPool.js",
-		"/Users/xiaye/project/youcell/bin/levels/LevelSelector.js",
 		"/Users/xiaye/project/youcell/bin/ui/editer/ObjectEditer.js",
 		"/Users/xiaye/project/youcell/style.css",
 		"/Users/xiaye/project/youcell/bin/outer/ContactListener.js",
@@ -304,6 +336,8 @@
 		"height": 93.0,
 		"where_history":
 		[
+			"/Users/xiaye/project/youcell/bin/util/functions.js",
+			"/Users/xiaye/project/youcell/bin/util/function.js",
 			"/Users/xiaye/project/youcell/cocos2d.js",
 			"/Users/xiaye/project/youcell/",
 			"/Users/xiaye/project/youcell/*.js",
@@ -318,6 +352,17 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"log",
+			"draw",
+			"draw:",
+			"    ",
+			"initWithFile",
+			"initWithTexture",
+			"draw:",
+			"draw(",
+			"drawImage",
+			"'type'",
+			"suggest2",
 			"    ",
 			"ins(yc.ui.editer.WorldEditer)",
 			"layer",
@@ -380,7 +425,7 @@
 	"groups":
 	[
 		{
-			"selected": 5,
+			"selected": 6,
 			"sheets":
 			[
 				{
@@ -388,15 +433,15 @@
 					"file": "index.html",
 					"settings":
 					{
-						"buffer_size": 12283,
+						"buffer_size": 13777,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								11649,
-								11649
+								10325,
+								10325
 							]
 						],
 						"settings":
@@ -405,25 +450,25 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 5132.0,
+						"translation.y": 3022.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "bin/GameScene.js",
+					"file": "bin/ui/editer/PanelPinup.js",
 					"settings":
 					{
-						"buffer_size": 12176,
+						"buffer_size": 3744,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								7688,
-								7689
+								3447,
+								3447
 							]
 						],
 						"settings":
@@ -432,32 +477,31 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 4759.0,
+						"translation.y": 1639.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 2,
-					"file": "cocos2d.js",
+					"file": "bin/outer/pinups/Pinup.js",
 					"settings":
 					{
-						"buffer_size": 3480,
+						"buffer_size": 2139,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								342,
-								342
+								648,
+								648
 							]
 						],
 						"settings":
 						{
 							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -467,18 +511,18 @@
 				},
 				{
 					"buffer": 3,
-					"file": "bin/levels/LevelSelector.js",
+					"file": "bin/GameScene.js",
 					"settings":
 					{
-						"buffer_size": 669,
+						"buffer_size": 12670,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								423,
-								389
+								743,
+								754
 							]
 						],
 						"settings":
@@ -487,30 +531,31 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 2.0,
+						"translation.y": 347.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 4,
-					"file": "bin/levels/c1/tutorial.js",
+					"file": "bin/outer/pinups/LayerGround.js",
 					"settings":
 					{
-						"buffer_size": 1356,
+						"buffer_size": 582,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								21,
-								21
+								564,
+								564
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -520,26 +565,54 @@
 				},
 				{
 					"buffer": 5,
-					"file": "bin/levels/c1/l1.js",
+					"file": "bin/outer/Camera.js",
 					"settings":
 					{
-						"buffer_size": 3968,
+						"buffer_size": 2398,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3968,
-								3968
+								1757,
+								1757
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
 						},
-						"translation.x": 26855.0,
-						"translation.y": 0.0,
+						"translation.x": 0.0,
+						"translation.y": 835.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "bin/settings.js",
+					"settings":
+					{
+						"buffer_size": 2807,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1648,
+								1648
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 1249.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -589,8 +662,32 @@
 		"selected_items":
 		[
 			[
+				"game",
+				"youcell/bin/GameScene.js"
+			],
+			[
+				"pinup",
+				"youcell/bin/outer/pinups/Pinup.js"
+			],
+			[
+				"pin",
+				"youcell/bin/ui/editer/PanelPinup.js"
+			],
+			[
+				"phy",
+				"youcell/bin/outer/PhysicalEntity.js"
+			],
+			[
+				"panel",
+				"youcell/bin/ui/editer/PanelPinup.js"
+			],
+			[
 				"stain",
-				"bin/ui/editer/PanelStain.js"
+				"youcell/bin/outer/Stain.js"
+			],
+			[
+				"physi",
+				"youcell/bin/outer/PhysicalEntity.js"
 			],
 			[
 				"games",

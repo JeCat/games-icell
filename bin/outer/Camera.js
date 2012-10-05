@@ -77,9 +77,10 @@ yc.outer.Camera = function()
 
 yc.outer.Camera.transformPosition = function(entity){
 	var camera = ins(yc.outer.Camera) ;
+	var parallax = entity.parallax || 1 ; // 视差
 	return {
-		x:0|(entity.x-camera.focusX)
-		, y: (0 |(entity.y-camera.focusY))
+		x: 0|((entity.x-camera.focusX)*parallax)
+		, y: 0 |((entity.y-camera.focusY)*parallax)
 	} ;
 }
 
@@ -101,6 +102,15 @@ yc.outer.Camera.worldPosX2ScreenPosX = function(x){
 yc.outer.Camera.worldPosY2ScreenPosY = function(y){
 	var camera = ins(yc.outer.Camera) ;
 	return camera.offsetY - (camera.y - y) ;
+}
+
+yc.outer.Camera.screenPosX2WorldPosX = function(x){
+	var camera = ins(yc.outer.Camera) ;
+	return camera.x + (x - camera.offsetX) ;
+}
+yc.outer.Camera.screenPosY2WorldPosY = function(y){
+	var camera = ins(yc.outer.Camera) ;
+	return camera.y + (y - camera.offsetY) ;
 }
 
 yc.outer.Camera.singleton = true ;

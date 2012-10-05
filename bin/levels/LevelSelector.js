@@ -9,6 +9,10 @@ yc.levels.LevelSelector = cc.Scene.extend({
 			.css('top',$(window).height()/4-$('#ui-levels-selector').height()/2) 
 			
 		this._super() ;
+
+
+		// for test
+		enterEditMode() ;
 	}
 
 	, onExit: function(){
