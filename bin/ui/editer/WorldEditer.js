@@ -247,5 +247,18 @@ $('body , canvas').keydown(function(event){
 		case 187:
 			ins(yc.ui.editer.WorldEditer).stain.createStainPoint();
 			break;
+		case 48:
+		case 49:
+		case 50:
+		case 51:
+		case 52:
+		case 53:
+		case 54:
+		case 55:
+		case 56:
+		case 57:
+			var index = event.keyCode - 48;
+			$("#lst-stain-points option").get(index).click();
+			$("#btn-stain-position").click();
 	}
 });
