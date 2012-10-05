@@ -135,7 +135,7 @@ function enterEditMode(){
 
 function mapList(){
 	var mapListDiv = $("#mapListDiv");
-
+	$('#mapListDiv_list').html('');
 	$.ajax({
 		type:'POST',
 		url: "http://icell.jecat.cn/service/map.php",
@@ -175,12 +175,15 @@ function initMap(mid){
 			, 'mid':mid
 		},
 		success: function(json){
-			var scene = cc.Director.getInstance().getRunningScene() ; 
 
-			// console.log(scene);
+			// cc.Director.getInstance().getRunningScene();
+			var game = new yc.GameScene;
 
-			scene.initWithScript(json);
-			// cc.Director.getInstance().replaceScene( new yc.levels.FreeWorld );
+			// console.log(json);
+			
+			cc.Director.getInstance().replaceScene(game);
+
+			game.initWithScript(json);
 		}
 	});
 }
