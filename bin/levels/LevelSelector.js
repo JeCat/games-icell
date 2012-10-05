@@ -12,7 +12,7 @@ yc.levels.LevelSelector = cc.Scene.extend({
 
 
 		// for test
-		// enterEditMode() ;
+		enterEditMode() ;
 	}
 
 	, onExit: function(){
