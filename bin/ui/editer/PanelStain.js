@@ -82,8 +82,8 @@ yc.ui.editer.PanelStain = function(editer){
 
 		var arrStains = scene.layerStains.getChildren() ;
 		
-		this.ui.find('#lst-stains').html('') ;
-		this.selectedStain = null ;
+		// this.ui.find('#lst-stains').html('') ;
+		// this.selectedStain = null ;
 		
 		yc.ui.editer.WorldEditer.loadOptions(this.ui.find('#lst-stains'),arrStains,function(stain,si){
 			return {
@@ -93,9 +93,9 @@ yc.ui.editer.PanelStain = function(editer){
 				// 选中污渍事件 -----
 				, click: function(stain){
 					panel.selectedStain = stain ;
-					panel.selectedStainShape = null ;
-					panel.selectedStainPoint = null ;
-					panel.selectedStainPointIdx = -1 ;
+					// panel.selectedStainShape = null ;
+					// panel.selectedStainPoint = null ;
+					// panel.selectedStainPointIdx = -1 ;
 					
 					panel.ui.find('#ipt-stain-x').val(stain.x.toFixed(1)) ;
 					panel.ui.find('#ipt-stain-y').val(stain.y.toFixed(1)) ;
@@ -133,8 +133,8 @@ yc.ui.editer.PanelStain = function(editer){
 				, click: function(shape){
 
 					panel.selectedStainShape = shape ;
-					panel.selectedStainPoint = null ;
-					panel.selectedStainPointIdx = -1 ;
+					// panel.selectedStainPoint = null ;
+					// panel.selectedStainPointIdx = -1 ;
 
 					panel.ui.find('#ipt-stain-shape-density').val(shape.density) ;
 					panel.ui.find('#ipt-stain-shape-restitution').val(shape.restitution) ;
@@ -158,7 +158,7 @@ yc.ui.editer.PanelStain = function(editer){
 		// 加载顶点
 		yc.ui.editer.WorldEditer.loadOptions(editer.ui.find('#lst-stain-points'),shape.points,function(point,pi){
 		
-			panel.selectedStainPoint = null ;
+			// panel.selectedStainPoint = null ;
 
 			return {
 				text: '[P'+pi+']'+point[0].toFixed(0)+','+point[1].toFixed(0)

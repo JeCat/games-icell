@@ -89,9 +89,6 @@ yc.ui.editer.WorldEditer = function(){
 	}
 
 
-
-		
-	
 	this.refreshRoles() ;
 	this.refreshSettings() ;
 }
@@ -183,7 +180,7 @@ function initMap(mid){
 					this.initWithScript(json);
 				}
 			})));
-			
+
 		}
 	});
 }
@@ -243,3 +240,12 @@ function saveWorldToServer(){
 yc.ui.editer.WorldEditer.singleton = true ;
 
 
+//快捷键
+$('body , canvas').keydown(function(event){
+	switch(event.keyCode) {
+		case 107:
+		case 187:
+			ins(yc.ui.editer.WorldEditer).stain.createStainPoint();
+			break;
+	}
+});
