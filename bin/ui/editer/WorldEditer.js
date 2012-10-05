@@ -174,10 +174,15 @@ function initMap(mid){
 		dataType : 'json',
 		data: {
 			'act':'data'
+			, 'mid':mid
 		},
 		success: function(json){
-			var scene = cc.Director.getInstance()._runningScene ; 
+			var scene = cc.Director.getInstance().getRunningScene() ; 
+
+			// console.log(scene);
+
 			scene.initWithScript(json);
+			// cc.Director.getInstance().replaceScene( new yc.levels.FreeWorld );
 		}
 	});
 }
