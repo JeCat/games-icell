@@ -352,13 +352,24 @@
 				</div>
 
 				<div>
-					<button onclick="ins(yc.ui.editer.WorldEditer).role.createAminoAcid()">+</button>
-					<button onclick="ins(yc.ui.editer.WorldEditer).role.removeAminoAcid()">-</button>
-					<label>
-						<input type="checkbox" checked onclick="yc.settings.outer.virus.dbgInfo=!yc.settings.outer.virus.dbgInfo" />dbg
-					</label>
-					<br />
-					<select multiple=true size="10" id="lst-roles-aminoacid"  style="width:120px"></select>				</div>
+					<div style="float:left;">
+						<button onclick="ins(yc.ui.editer.WorldEditer).role.createVirusCluster()">+</button>
+						<button onclick="ins(yc.ui.editer.WorldEditer).role.removeVirusCluster()">-</button>
+						<label>
+							<input type="checkbox" checked onclick="yc.settings.outer.virus.dbgInfo=!yc.settings.outer.virus.dbgInfo" />dbg
+						</label>
+						<br />
+						<select multiple=true size="10" id="lst-roles-virusclusters"  style="width:120px"></select>
+					</div>
+
+					<div id="props-viruscluster" style="float:left; margin-left:5px; margin-top:15px">
+						坐标 x:<input id='ipt-virusclusters-x' style='width:30px' value='' format="int" />
+						y:<input id='ipt-virusclusters-y' style='width:30px' value='' format="int" />
+					</div>
+					
+					<div style="clear:both"></div>
+				</div>
+
 			</div>
 
 			<!-- <div id="panel-balance">

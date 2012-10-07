@@ -131,6 +131,44 @@ yc.util.drawLine = function(pointA,pointB,ctx,strokeStyle,convert){
 	ctx.stroke() ;
 }
 
+
+yc.util.drawCircle = function(ctx,x,y,w,h,strokeStyle,fillStyle){
+
+	y = -y ;
+
+	if( typeof(strokeStyle)!='undefined' && strokeStyle )
+	{
+		ctx.strokeStyle = strokeStyle ;
+	}
+	else
+	{
+		strokeStyle = null ;
+	}
+	
+	if( typeof(fillStyle)!='undefined' && fillStyle )
+	{
+		ctx.fillStyle = fillStyle ;
+	}
+	else
+	{
+		fillStyle = null ;
+	}
+
+	ctx.beginPath() ;
+	ctx.moveTo(x+w,y);
+	ctx.arc(x,y, w, 0, 2*Math.PI, false);
+	ctx.closePath() ;
+		
+	if(fillStyle)
+	{
+		ctx.fill() ;
+	}
+	if(strokeStyle)
+	{
+		ctx.stroke() ;
+	}
+}
+
 /**
  * 画一个图像 
  */
@@ -161,11 +199,24 @@ yc.util.tileImage = function(ctx,imgurl,x,y,w,h){
 /**
  * 描绘文本
  */
-yc.util.text = function(ctx,text,x,y,style){
-	ctx.save() ;
+yc.util.text = function(ctx,text,x,y,style,font){
 
-	ctx.fillText() ;
+	if( typeof(style)!='undefined' && style )
+	{
+		ctx.fillStyle = style ;
+	}
 
-	ctx.restore();
+	if(font)
+	if( typeof(font)=='undefined' || !font )
+	{
+		ctx.font = "normal 12px san-serif" ;
+	}
+	else
+	{
+		ctx.font = font ;
+	}
+
+	ctx.fillText(text,x,y) ;
+
 }
 

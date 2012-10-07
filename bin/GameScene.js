@@ -25,7 +25,7 @@ yc.GameScene = cc.Scene.extend({
 
 		
 		// 层：游戏
-		this.layerGame = new yc.GameLayer() ;
+		this.layerGame = ins(yc.GameLayer) ;
 		this.layerGame.setAnchorPoint(cc.p(0,0)) ;
 		var wsize = cc.Director.getInstance().getWinSize() ;
 		this.layerGame.setPosition(cc.p(wsize.width/2,wsize.height/2)) ;
@@ -60,7 +60,7 @@ yc.GameScene = cc.Scene.extend({
 		this.layerGame.addChild(this.layerRoles) ;
 
 		// 层：显示玩家
-		this.layerPlayer = new yc.outer.PlayerLayer();
+		this.layerPlayer = ins(yc.outer.PlayerLayer);
 		this.layerGame.addChild(this.layerPlayer);
 		
 		// 层：前景
@@ -501,6 +501,15 @@ yc.GameScene = cc.Scene.extend({
 		  		, moseySpeed: 2			// 漫步速度
 		  		, normalSpeed: 5		// 正常速度
 		  		, vigilanceRange: 200	// 警视范围
+		  		, viruses: [
+		  			{}
+		  		]
+		  		, boss: false 			// 是否是一个boss
+		  		, killdown:[			// 击杀后掉落的 dna
+		  			"..."
+		  			, "..."
+		  			, "..."
+		  		]
 		  	}
 		]
 		

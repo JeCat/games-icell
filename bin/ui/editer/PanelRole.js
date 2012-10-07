@@ -18,9 +18,24 @@ yc.ui.editer.PanelRole = function(editor){
 		}
 	}) ;
 
+	// 初始化 viruscluster propslst
+	$('#lst-roles-virusclusters').propslst({
+		exchanges: {
+			x: 'ipt-viruscluster-x'
+			, y: 'ipt-viruscluster-y'
+		}
+		, onModelChnage: function(roleScript){
+			// 将用户修改的数值，应用到场景里的对象中
+			// var eleOption = $(this).propslst('selectedOption') ;
+			// $(eleOption).data('object').initWithScript(roleScript) ;
+		}
+	}) ;
 
 
-	// 刷新贴图列表
+	// -----------------------------------
+	// for amino acid 
+
+	// 刷新氨基酸列表
 	this.refreshAminoAcids = function(){
 
 		$('#lst-roles-aminoacid')
@@ -29,7 +44,6 @@ yc.ui.editer.PanelRole = function(editor){
 
 				if( object.constructor!==yc.outer.AminoAcid )
 				{
-					log(object.constructor) ;
 					return null ;
 				}
 
@@ -42,8 +56,6 @@ yc.ui.editer.PanelRole = function(editor){
 		
 		return ;
 	}
-
-
 
 	this.createAminoAcid = function(type){
 
@@ -85,6 +97,66 @@ yc.ui.editer.PanelRole = function(editor){
 		// 刷新贴图列表
 		this.refreshAminoAcids() ;
 	}
+
+
+
+	// -----------------------------------
+	// for virus cluster
+
+	this.refreshVirusCluster = function(){
+		$('#lst-roles-virusclusters')
+			.html('')
+			.propslst('load',[scene.layerRoles.getChildren(),function(object){
+
+				if( object.constructor!==yc.outer.VirusCluster )
+				{
+					log(object.constructor) ;
+					return null ;
+				}
+
+				return {
+					text: "[id:"+object.id+"]"
+					, model: object._script
+				}
+			}]
+		) ;
+		
+		return ;
+	}
+
+	this.createVirusCluster = function(){
+
+
+		editor.layer.touchCallback = function(touches,event){
+
+			editer.layer.touchCallback = null ;
+
+			cc.Director.getInstance().getRunningScene().initWithScript({
+				virusclusters: [ {
+					x: yc.outer.Camera.screenPosX2WorldPosX(touches[0]._point.wx)
+					, y: yc.outer.Camera.screenPosY2WorldPosY(touches[0]._point.wy)
+			  		, turnRate: 0.04			// 转向灵敏度
+					, moseySpeed: 2				// 漫步速度
+					, normalSpeed: 5			// 正常速度
+					, vigilanceRange: 200		// 警视范围
+					, viruses: [
+						{}
+					]
+					, boss: false 				// 是否是一个boss
+					, killdown:[				// 击杀后掉落的 dna
+						"..."
+						, "..."
+						, "..."
+					]
+				} ]
+			}) ;
+
+			// 刷新贴图列表
+			panel.refreshVirusCluster() ;
+
+		}
+	}
+
 
 
 	this.refreshAminoAcids() ;
