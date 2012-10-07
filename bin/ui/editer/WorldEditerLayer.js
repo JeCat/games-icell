@@ -24,11 +24,25 @@ yc.ui.editer.WorldEditerLayer = cc.Layer.extend({
 		
 		log('create WorldEditerLayer') ;
 	}
+
+	, _screenToWorld: function(touches) {
+
+		var cam = ins(yc.outer.Camera) ; 
+
+		for(var i=0;i<touches.length;i++)
+		{
+			var p = yc.util.windowToClient(ins(yc.GameLayer),touches[i]._point.x,touches[i]._point.y) ;
+			touches[i]._point.wx = cam.x + p[0] ;
+			touches[i]._point.wy = cam.y + p[1] ;
+		}
+	}
 	
 	, onTouchesBegan: function(touches, event){
 
 		if( this.touchBeginCallback )
 		{
+			this._screenToWorld(touches) ;
+
 			return this.touchBeginCallback(touches,event) ;
 		}
 
@@ -39,7 +53,13 @@ yc.ui.editer.WorldEditerLayer = cc.Layer.extend({
 
 	}
 	, onTouchesMoved: function(touches, event) {
+ 
+		if( this.touchMovedCallback || this._ptDragging )
+		{
+			this._screenToWorld(touches) ;
+		}
 
+			
 		if( this.touchMovedCallback )
 		{
 			return this.touchMovedCallback(touches,event) ;
@@ -67,6 +87,8 @@ yc.ui.editer.WorldEditerLayer = cc.Layer.extend({
 	, onTouchesEnded:function (touches, event) {
 		if( this.touchCallback )
 		{
+			this._screenToWorld(touches) ;
+
 			return this.touchCallback(touches,event) ;
 		}
 		else
@@ -76,6 +98,24 @@ yc.ui.editer.WorldEditerLayer = cc.Layer.extend({
 	}
 	
 	, draw: function(ctx){
+
+		var c = "rgb(122,200,214)" ;
+		var cam = ins(yc.outer.Camera) ;
+
+		yc.util.drawCircle(ctx,0,0,3,3,c,null) ;
+		yc.util.drawLine([-10,0],[-1,0],ctx,c) ;
+		yc.util.drawLine([10,0],[1,0],ctx,c) ;
+		yc.util.drawLine([0,10],[0,1],ctx,c) ;
+		yc.util.drawLine([0,-10],[0,-1],ctx,c) ;
+
+		c = "rgba(122,200,214,0.3)" ;
+		yc.util.drawLine([-cam.offsetX,0],[cam.offsetX,0],ctx,c) ;
+		yc.util.drawLine([0,-cam.offsetY],[0,cam.offsetY],ctx,c) ;
+
+
+
+		yc.util.text(ctx, "x:"+cam.x+", y:"+cam.y ,-30,25, "rgb(191,219,129)") ;
+
 		if(this.touchCallback)
 		{
 			var wsize = cc.Director.getInstance().getWinSize() ;

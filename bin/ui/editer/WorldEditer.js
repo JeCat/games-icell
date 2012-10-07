@@ -110,25 +110,18 @@ yc.ui.editer.WorldEditer.loadOptions = function(sel,opts,each)
 	}
 }
 
-function enterEditMode(){
+yc.levels.creater = {
+	onEnter: function(){
+		// 打开世界编辑器
+		ins(yc.ui.editer.WorldEditer).open() ;
+	}
 
-	cc.Director.getInstance().replaceScene(new (yc.GameScene.extend({
-		onEnter: function(){
-			this._super() ;
+	, onExit: function(){
 
-			// 打开世界编辑器
-			ins(yc.ui.editer.WorldEditer).open() ;
-		}
-
-		, onExit: function(){
-
-			// 关闭世界编辑器
-			ins(yc.ui.editer.WorldEditer).close() ;
-		}
-	})));
-
-	$("#mapListDiv").dialog("close");
-}
+		// 关闭世界编辑器
+		ins(yc.ui.editer.WorldEditer).close() ;
+	}
+};
 
 function mapList(){
 	var mapListDiv = $("#mapListDiv");

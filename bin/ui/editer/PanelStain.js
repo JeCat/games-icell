@@ -203,11 +203,12 @@ yc.ui.editer.PanelStain = function(editer){
 				polygon.points[i][1]-= center.y ;
 			}
 
+
 			var cam = ins(yc.outer.Camera) ;
 			cc.Director.getInstance()._runningScene.initWithScript({
 				stains: [{
-					x: cam.x - cam.offsetX + center.x
-					, y: cam.y - cam.offsetY + center.y
+					x: center.x
+					, y: center.y
 					, linearDampingMultiple: 2		// 线速度阻尼倍数(相对质量)
 					, angularDampingMultiple: 4		// 角速度阻尼倍数(相对质量)
 					, bodyType: b2Body.b2_staticBody
@@ -282,8 +283,14 @@ yc.ui.editer.PanelStain = function(editer){
 				return false ;
 			}
 
-			pressPt = yc.util.windowToClient(panel.selectedStain,pressPt.x,pressPt.y) ;
-			releasePt = yc.util.windowToClient(panel.selectedStain,releasePt.x,releasePt.y) ;
+			pressPt = {
+				wx: pressPt.wx - panel.selectedStain.x
+				, wy: pressPt.wy - panel.selectedStain.y
+			}
+			releasePt = {
+				wx: releasePt.wx - panel.selectedStain.x
+				, wy: releasePt.wy - panel.selectedStain.y
+			}
 
 			panel.selectedStain._script.shapes.push(panel._polygonShapeScript(releasePt,pressPt)) ;
 			panel.selectedStain.initWithScript(panel.selectedStain._script) ;
@@ -298,22 +305,19 @@ yc.ui.editer.PanelStain = function(editer){
 
 	this._polygonShapeScript = function(pt1,pt2){
 
-		yc.util.formatPoint(pt1) ;
-		yc.util.formatPoint(pt2) ;
-
 		// 避免0 宽度、高度
-		if(pt1.x==pt2.x)
+		if(pt1.wx==pt2.wx)
 		{
-			pt1.x+= 1 ;
+			pt1.wx+= 1 ;
 		}
-		if(pt1.y==pt2.y)
+		if(pt1.wy==pt2.wy)
 		{
-			pt1.y+= 1 ;
+			pt1.wy+= 1 ;
 		}
-		var lft = Math.min(pt1.x,pt2.x) ;
-		var rgt = Math.max(pt1.x,pt2.x) ;
-		var btn = Math.min(pt1.y,pt2.y) ;
-		var top = Math.max(pt1.y,pt2.y) ;
+		var lft = Math.min(pt1.wx,pt2.wx) ;
+		var rgt = Math.max(pt1.wx,pt2.wx) ;
+		var btn = Math.min(pt1.wy,pt2.wy) ;
+		var top = Math.max(pt1.wy,pt2.wy) ;
 
 		return {
 			type: 'polygon'					// 类型 circle, polygon
