@@ -141,14 +141,27 @@ function mapList(){
 			'act':'list'
 		},
 		success: function(json){
+
+			var userInfo = unEncryptUserInfo(icell_userInfo);
+
+
 			$.each( json , function(v,b){
-				$('#mapListDiv_list').append(
-					  "<div class='mapListDiv_list_li'>"
-						+ "<a href='#' onclick='initMap("+b['mid']+");return false;' class='mapListDiv_list_a'>"+b['mapname']+"</a><br/>"
-						+ "<span class='mapListDiv_list_span'>"+b['createTime']+"</span><br/>"
-						+ "<img class='mapListDiv_thumb' src='"+b['thumbName']+"'/>"
-					+ "</div>"
-				);
+
+				var li = $("<div class='mapListDiv_list_li'>"
+							+ "<a href='#' onclick='initMap("+b['mid']+");return false;' class='mapListDiv_list_a'>"+b['mapname']+"</a><br/>"
+							+ "<span class='mapListDiv_list_span'>"+b['createTime']+"</span><br/>"
+							+ "<img class='mapListDiv_thumb' src='"+b['thumbName']+"'/>"
+						+ "</div>");
+
+				//map owner ?
+				if(b['uid'] == userInfo['uid'] && b['service'] == userInfo['service']){
+					li.find('.mapListDiv_list_span').after('<a class="mapListDiv_list_a" href="#">edit</a>');
+				}
+
+			console.log(userInfo , b['uid'] ,  b['service'] );
+				
+
+				$('#mapListDiv_list').append(li);
 			});
 		}
 	});
@@ -181,6 +194,7 @@ function initMap(mid){
 				}
 			})));
 
+			$("#mapListDiv").dialog("close");
 		}
 	});
 }

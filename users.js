@@ -28,3 +28,8 @@ function loginCallback(data){
 
 	$("#ui-levels-selector-menu").stop(false,true).slideDown(600);
 }
+
+function unEncryptUserInfo(icell_userInfo){
+	var userInfo = icell_userInfo.split('#');
+	return {'uid':userInfo[0],'service':userInfo[1]};
+}
