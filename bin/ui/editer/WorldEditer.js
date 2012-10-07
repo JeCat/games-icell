@@ -90,8 +90,6 @@ yc.ui.editer.WorldEditer = function(){
 
 
 
-		
-	
 	this.refreshRoles() ;
 	this.refreshSettings() ;
 }
@@ -112,7 +110,6 @@ yc.ui.editer.WorldEditer.loadOptions = function(sel,opts,each)
 			}) ;
 	}
 }
-
 
 yc.levels.creater = {
 	onEnter: function(){
@@ -172,12 +169,13 @@ function initMap(mid){
 			, 'mid':mid
 		},
 		success: function(json){
-// json = json ;
-			var game = new yc.GameScene;
+			cc.Director.getInstance().replaceScene(new (yc.GameScene.extend({
+				onEnter: function(){
+					this._super() ;
 
-			cc.Director.getInstance().replaceScene(game);
-
-			game.initWithScript(json);
+					this.initWithScript(json);
+				}
+			})));
 		}
 	});
 }
@@ -237,3 +235,25 @@ function saveWorldToServer(){
 yc.ui.editer.WorldEditer.singleton = true ;
 
 
+//快捷键
+$('body , canvas').keydown(function(event){
+	switch(event.keyCode) {
+		case 107:
+		case 187:
+			ins(yc.ui.editer.WorldEditer).stain.createStainPoint();
+			break;
+		case 48:
+		case 49:
+		case 50:
+		case 51:
+		case 52:
+		case 53:
+		case 54:
+		case 55:
+		case 56:
+		case 57:
+			var index = event.keyCode - 48;
+			$("#lst-stain-points option").get(index).click();
+			$("#btn-stain-position").click();
+	}
+});
