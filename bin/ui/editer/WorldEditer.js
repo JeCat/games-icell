@@ -137,7 +137,6 @@ function mapList(){
 
 			var userInfo = unEncryptUserInfo(icell_userInfo);
 
-
 			$.each( json , function(v,b){
 
 				var li = $("<div class='mapListDiv_list_li'>"
@@ -148,11 +147,8 @@ function mapList(){
 
 				//map owner ?
 				if(b['uid'] == userInfo['uid'] && b['service'] == userInfo['service']){
-					li.find('.mapListDiv_list_span').after('<a class="mapListDiv_list_a" href="#">edit</a>');
+					li.find('.mapListDiv_list_span').after('<a class="mapListDiv_list_a" href="#" onclick="editMap('+b['mid']+');return false;">edit</a>');
 				}
-
-			console.log(userInfo , b['uid'] ,  b['service'] );
-				
 
 				$('#mapListDiv_list').append(li);
 			});
@@ -190,6 +186,11 @@ function initMap(mid){
 			$("#mapListDiv").dialog("close");
 		}
 	});
+}
+
+function editMap(mid){
+	initMap(mid);
+	ins(yc.ui.editer.WorldEditer).open() ;
 }
 
 function saveWorldToServer(){
@@ -244,9 +245,6 @@ function saveWorldToServer(){
 	});
 }
 
-yc.ui.editer.WorldEditer.singleton = true ;
-
-
 //快捷键
 $('body , canvas').keydown(function(event){
 	switch(event.keyCode) {
@@ -269,3 +267,9 @@ $('body , canvas').keydown(function(event){
 			$("#btn-stain-position").click();
 	}
 });
+
+
+yc.ui.editer.WorldEditer.singleton = true ;
+
+
+
