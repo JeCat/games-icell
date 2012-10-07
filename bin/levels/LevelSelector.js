@@ -11,8 +11,26 @@ yc.levels.LevelSelector = cc.Scene.extend({
 		this._super() ;
 
 
-		// for test
-		//enterEditMode() ;
+		if(location!==undefined)
+		{
+			var url = parseUrl(location.toString()) ;
+
+			// 自动加载内置关卡
+			if( 'l' in url.anchorParams )
+			{
+				var level = eval('yc.levels.'+url.anchorParams.l) ;
+				if( level!==undefined && level )
+				{
+					yc.levels.LevelSelector.enterLevel(level) ;
+				}
+			}
+
+			// 自动加载玩家关卡
+			if( 'cl' in url.anchorParams )
+			{
+				// todo by kongyuan ...
+			}
+		}
 	}
 
 	, onExit: function(){
@@ -24,6 +42,8 @@ yc.levels.LevelSelector = cc.Scene.extend({
 }) ;
 
 
+
+
 yc.levels.LevelSelector.enterLevel = function(levelScript){
 		
 	cc.Director.getInstance().replaceScene(new (yc.GameScene.extend({
@@ -32,6 +52,19 @@ yc.levels.LevelSelector.enterLevel = function(levelScript){
 
 			// 加载关卡脚本
 			this.initWithScript(levelScript) ;
+
+			// 
+			if('onEnter' in levelScript)
+			{
+				levelScript.onEnter.apply(this) ;
+			}
+		}
+
+		, onExit: function(){
+			if('onExit' in levelScript)
+			{
+				levelScript.onExit.apply(this) ;
+			}
 		}
 	})));
 }

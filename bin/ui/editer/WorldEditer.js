@@ -113,25 +113,22 @@ yc.ui.editer.WorldEditer.loadOptions = function(sel,opts,each)
 	}
 }
 
-function enterEditMode(){
 
-	cc.Director.getInstance().replaceScene(new (yc.GameScene.extend({
-		onEnter: function(){
-			this._super() ;
+yc.levels.creater = {
+	onEnter: function(){
+		// 打开世界编辑器
+		ins(yc.ui.editer.WorldEditer).open() ;
+	}
 
-			// 打开世界编辑器
-			ins(yc.ui.editer.WorldEditer).open() ;
-		}
+	, onExit: function(){
 
-		, onExit: function(){
+		// 关闭世界编辑器
+		ins(yc.ui.editer.WorldEditer).close() ;
+	}
+};
 
-			// 关闭世界编辑器
-			ins(yc.ui.editer.WorldEditer).close() ;
-		}
-	})));
 
-	$("#mapListDiv").dialog("close");
-}
+
 
 function mapList(){
 	var mapListDiv = $("#mapListDiv");
@@ -175,7 +172,7 @@ function initMap(mid){
 			, 'mid':mid
 		},
 		success: function(json){
-
+// json = json ;
 			var game = new yc.GameScene;
 
 			cc.Director.getInstance().replaceScene(game);

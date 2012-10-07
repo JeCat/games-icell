@@ -61,11 +61,6 @@ $(function(){
 	$('#ui').width($(window).width()) ;
 	
 	startGame() ;
-
-    
-
-        // for test
-        enterEditMode() ;
 }) ;
 
 
