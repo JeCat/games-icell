@@ -27,11 +27,13 @@ yc.ui.editer.WorldEditerLayer = cc.Layer.extend({
 
 	, _screenToWorld: function(touches) {
 
+		var cam = ins(yc.outer.Camera) ; 
+
 		for(var i=0;i<touches.length;i++)
 		{
 			var p = yc.util.windowToClient(ins(yc.GameLayer),touches[i]._point.x,touches[i]._point.y) ;
-			touches[i]._point.wx = p[0] ;
-			touches[i]._point.wy = p[1] ;
+			touches[i]._point.wx = cam.x + p[0] ;
+			touches[i]._point.wy = cam.y + p[1] ;
 		}
 	}
 	

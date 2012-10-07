@@ -69,8 +69,8 @@ yc.ui.editer.PanelRole = function(editor){
 					{
 						type: 'red'
 						, num: 10
-						, x: yc.outer.Camera.screenPosX2WorldPosX(touches[0]._point.x)
-						, y: yc.outer.Camera.screenPosY2WorldPosY(touches[0]._point.y)
+						, x: touches[0]._point.wx
+						, y: touches[0]._point.wy
 					}
 				]
 			}) ;
@@ -133,8 +133,8 @@ yc.ui.editer.PanelRole = function(editor){
 
 			cc.Director.getInstance().getRunningScene().initWithScript({
 				virusclusters: [ {
-					x: yc.outer.Camera.screenPosX2WorldPosX(touches[0]._point.wx)
-					, y: yc.outer.Camera.screenPosY2WorldPosY(touches[0]._point.wy)
+					x: touches[0]._point.wx
+					, y: touches[0]._point.wy
 			  		, turnRate: 0.04			// 转向灵敏度
 					, moseySpeed: 2				// 漫步速度
 					, normalSpeed: 5			// 正常速度
