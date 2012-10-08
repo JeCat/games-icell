@@ -35,7 +35,7 @@ yc.inner.ProteinFormulas = function(){
 		}
 		formula.colorHtml = '#'+to16(formula.rgb[0])+to16(formula.rgb[1])+to16(formula.rgb[2]) ;
 
-		formula.status = 'waiting' ;
+		formula.status = 'pause' ;
 		
 		formula.total = 0 ;
 		for(var key in formula.materials)
@@ -110,7 +110,7 @@ yc.inner.ProteinFormulas = function(){
 		else if(this.mapFormulas[name].status=='waiting')
 		{
 			this.mapFormulas[name].status = 'pause' ;
-			this.mapFormulas[name].ui.find('.protein-formula-togglebtn').text('继续') ;
+			this.mapFormulas[name].ui.find('.protein-formula-togglebtn').text('自动') ;
 			this.mapFormulas[name].ui.find('.formula-msg').text('暂停').show() ;
 		}
 	}
