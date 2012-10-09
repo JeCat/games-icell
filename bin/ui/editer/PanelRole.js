@@ -157,7 +157,7 @@ yc.ui.editer.PanelRole = function(editor){
 				virusclusters: [ {
 					x: touches[0]._point.wx
 					, y: touches[0]._point.wy
-			  		, turnRate: 0.04				// 转向灵敏度
+			  		, turnRate: 0.2					// 转向灵敏度
 					, moseySpeed: 2					// 漫步速度
 					, normalSpeed: 5				// 正常速度
 					, vigilanceRange: 200			// 警视范围

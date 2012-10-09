@@ -8,10 +8,9 @@ yc.outer.PhysicalEntity = cc.Sprite.extend({
 
 	, accel: -0.1
 	, angle: 1
-	, turnRate: 0.2
 
 	, maxSpeed: 1
-	, speed: 3
+	, speed: 1
 	
 	, homeX: null
 	, homeY: null
@@ -172,7 +171,7 @@ yc.outer.PhysicalEntity = cc.Sprite.extend({
 		this.speed = typeof(speed)=='undefined'? 0.5: speed ;
 		
 		// 返回原始点
-		if(this.homeX!==null && this.homeY!==null && Math.random()<0.05)
+		if(this.homeX!==null && this.homeY!==null && Math.random()<0.1)
 		{
 			this.turnTarget(this.homeX,this.homeY) ;
 		}
@@ -209,10 +208,12 @@ yc.outer.PhysicalEntity = cc.Sprite.extend({
 		
 		if( this.angle > rTarget )
 		{
+			//log(this.angle-rTarget>Math.PI?1: -1) ;
 			this.incAngle( this.angle-rTarget>Math.PI?1: -1 ) ;
 		}
 		else
 		{
+			//log(rTarget-this.angle>Math.PI?-1: 1)
 			this.incAngle( rTarget-this.angle>Math.PI?-1: 1 ) ;
 		}
 
