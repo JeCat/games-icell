@@ -77,7 +77,7 @@ yc.inner.building.ProteinFactory = yc.inner.building.Building.extend({
 			}
 			else
 			{
-				formula.ui.find('.formula-msg').text('').hide() ;
+				formula.ui.find('.formula-msg').text('暂停').hide() ;
 			}
 				
 			this.working_formula = formula ;
@@ -93,7 +93,8 @@ yc.inner.building.ProteinFactory = yc.inner.building.Building.extend({
 		
 		
 		// 开始合成过程
-		var freq = Math.round( 1000 * (this.working_formula.total / this.composition_efficient) / 10) ;
+		var freq = Math.round( 1 * (this.working_formula.total / this.composition_efficient) / 10) ;
+						  //1000 * (this.working_formula.total / this.composition_efficient) / 10) ;
 	   
 		this.composition_progress = 0 ;
 		this.working_formula.ui.find('.protein-composite-progress').show().progressbar({value:0}) ;
@@ -109,7 +110,8 @@ yc.inner.building.ProteinFactory = yc.inner.building.Building.extend({
 		}
 			
 		var func = function(){
-			factory.composition_progress+= 10 ;			
+			factory.composition_progress+= 10000 ;			
+		  //factory.composition_progress+= 10 ;			
 			factory.working_formula.ui.find('.protein-composite-progress').show().progressbar({value:factory.composition_progress}) ;
 			
 			// 
