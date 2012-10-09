@@ -49,16 +49,7 @@ yc.inner.building.ProteinFactory = yc.inner.building.Building.extend({
 		
 		var formula = loopStart ;
 		this.working_formula = null ;
-		var checkingMaterials = function(formula){
-			for(var key in formula.materials)
-			{
-				if(ins(yc.inner.AminoAcidPool)[key] < formula.materials[key])
-				{
-					return false ;
-				}
-			}
-			return true ;
-		}
+		
 		do{
 			
 			var formula = formula.next ;
@@ -70,7 +61,7 @@ yc.inner.building.ProteinFactory = yc.inner.building.Building.extend({
 			}
 			
 			// 检查氨基酸
-			if(!checkingMaterials(formula))
+			if(!this.checkingMaterials(formula))
 			{
 				formula.ui.find('.formula-msg').text('原料不足').show() ;
 				continue ;
@@ -144,6 +135,40 @@ yc.inner.building.ProteinFactory = yc.inner.building.Building.extend({
 		}
 		setTimeout(func,freq) ;
 	}
+
+	, singleComposite : function(formula){
+		// 检查氨基酸
+		if(!this.checkingMaterials(formula))
+		{
+			formula.ui.find('.formula-msg').text('原料不足').show() ;
+			return;
+		}
+		else
+		{
+			formula.ui.find('.formula-msg').text('暂停').hide() ;
+		}
+
+		// 消耗氨基酸
+		for(var key in formula.materials)
+		{
+			ins(yc.inner.AminoAcidPool).increase(key,-formula.materials[key]) ;
+		}
+
+		// 增加蛋白质池中的存数
+		ins(yc.inner.ProteinPool).increase(formula.name,1) ;
+	}
+
+	, checkingMaterials : function(formula){
+		for(var key in formula.materials)
+		{
+			if(ins(yc.inner.AminoAcidPool)[key] < formula.materials[key])
+			{
+				return false ;
+			}
+		}
+		return true ;
+	}
+
 }) ;
 
 
