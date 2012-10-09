@@ -3,7 +3,7 @@ yc.inner.monster.Virus = cc.Sprite.extend({
 	radius: 10
 	
 	, hpFull: 30
-	, hpRate: 1
+	, hpRate: 1 	// 所剩 hp 的百分比， 用来绘制血槽
 	, hp: 0
 	
 	, speed: 15
@@ -13,27 +13,33 @@ yc.inner.monster.Virus = cc.Sprite.extend({
 	, runningTarget: null
 	, actRunning: null
 	
-	, lv: 1
+	// , lv: 1
 	
-	, file: 'res/virus16.png'
+	, spriter: 'res/virus16.png'
 	
-	, init: function(prototype){
+	, initWithScript: function(script){
 		//log('virus ('+this.__ObjectPoolId__+') init') ;
+
+		this._script = script ;
 	
 		this.alive = true ;
-		this.lv = yc.inner.monster.Virus.prototype.lv ;
-		this.file = yc.inner.monster.Virus.prototype.file ;
-		this.speed = yc.inner.monster.Virus.prototype.speed ;
-		this.hpFull = yc.inner.monster.Virus.prototype.hpFull ;
-		this.attack = yc.inner.monster.Virus.prototype.attack ;
-		this.bekill = yc.inner.monster.Virus.prototype.bekill ;
+		// this.lv = script.lv ;
+		this.spriter = script.spriter ;
+		this.speed = script.speed ;
+		this.hpFull = script.hp ;
 
-		for(var key in prototype)
-		{
-			this[key] = prototype[key] ;
-		}
+		// this.attack = yc.inner.monster.Virus.script.attack ;
+		// this.bekill = yc.inner.monster.Virus.script.bekill ;
 
-		this.initWithFile(this.file) ;
+		// for(var key in prototype)
+		// {
+		// 	this[key] = prototype[key] ;
+		// }
+		this.init() ;
+	}
+
+	, init: function(){
+		this.initWithFile(this.spriter) ;
    
 		this.hpRate = 1 ;
 		this.hp = this.hpFull ;
@@ -154,13 +160,12 @@ yc.inner.monster.Virus = cc.Sprite.extend({
 	// 被击杀
 	, bekill: function(){
 		//log('virus ('+this.__ObjectPoolId__+') be kill') ;
-		// 一定几率在细胞内掉落一个氨基酸，持续若干秒钟，等待线粒体回收
-		if(Math.random()>0.5)
+		// 在细胞内掉落一个氨基酸，持续若干秒钟，等待线粒体回收
+		if(this._script.flopNum)
 		{
 			var aminoacid = yc.inner.monster.FlopAminoAcid.ob() ;
-			aminoacid.init(this) ;
+			aminoacid.init(this,this._script.flop,this._script.flopNum) ;
 		}
-		
 	}
 	
 	, destroy: function(){

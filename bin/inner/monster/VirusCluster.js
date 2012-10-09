@@ -1,17 +1,13 @@
 yc.inner.monster.VirusCluster = cc.Sprite.extend({
 	
-	totalNum: 10
-	, num: 2
-	
-	, stay: null
-	, lv: 1
+	stay: null
+	, actRelease: null
 	, releasing: false
 	
 	, virusPrototype: {}
 		
 	, ctor: function(){
 		this._super() ;
-		this.initWithFile('res/virus24.png') ;
 	}
 
 	, draw: function(ctx){
@@ -22,53 +18,62 @@ yc.inner.monster.VirusCluster = cc.Sprite.extend({
 		this._super(ctx) ;
 	}
 	
+
+	, initWithScript: function(script){
+		this._script = script ;
+		log(script) ;
+		this.initWithFile(script.spriter) ;
+	}
+
 	, init: function(){
-		this.num = this.totalNum ;
 		this.releasing = true ;
 		this.actRelease = null ;
 		this.stay = null ;
+		this.releaseIndex = 0 ;
 	}
 	
 	, enterCell: function(stay){
-		
-		//log(['virus cluster enter cell on: ',stay]) ;
-		
-		this.stay = stay ;
-		
-		this.setPosition(cc.p(stay.center[0],stay.center[1])) ;
-		
+
 		var layer  = ins(yc.inner.monster.VirusLayer) ;
 		layer.addChild(this) ;
-	   
-		this.release() ; // 立即执行第一次
+		
+		this.stay = stay ;
+		this.setPosition(cc.p(stay.center[0],stay.center[1])) ;
 
-		if(this.num>0)
-		{
-			this.actRelease = yc.actions.Timer.create(yc.settings.inner.virus.defaultReleaseDt,this.num,this,this.release) ; 
-			this.runAction(this.actRelease) ;
-		}
+		this.release() ; // 立即执行第一次
 	}
 
 	, release: function(){
-		
-		//log(['release virus on ',this.stay]) ;
-		
-		var virus = this._parent.createVirusSprite() ;
-		virus.init(this.virusPrototype) ;
-		
-		var shakeRange = yc.settings.inner.hexgonSideLength/4 ;
-		var shakeX = shakeRange - shakeRange*2*Math.random() ;
-		var shakeY = shakeRange - shakeRange*2*Math.random() ;
-		//log(['shake',shakeX,shakeY]) ;
-		virus.setPosition(cc.p(this.stay.center[0]+shakeX,this.stay.center[1]+shakeY)) ;
 
-		virus.run() ;
-		
-		this.num -- ;
-		
-		if(this.num<=0)
+		if( this.releaseIndex>=this._script.viruses.length )
 		{
+			// 结束
 			this.releaseOver() ;
+			return ;
+		}
+
+		else
+		{
+			var virusScript = this._script.viruses[ this.releaseIndex++ ] ;
+			this.actRelease = yc.actions.Timer.create( virusScript.wait, 1, this, function(){
+
+				var virus = this._parent.createVirusSprite() ;
+				virus.initWithScript(virusScript) ;
+				
+				var shakeRange = yc.settings.inner.hexgonSideLength/4 ;
+				var shakeX = shakeRange - shakeRange*2*Math.random() ;
+				var shakeY = shakeRange - shakeRange*2*Math.random() ;
+				// virus.setPosition(cc.p(this.stay.center[0]+shakeX,this.stay.center[1]+shakeY)) ;
+
+				virus.setPosition(cc.p(this.stay.center[0]+shakeX,this.stay.center[1]+shakeY)) ;
+
+				virus.run() ;
+
+				// next
+				this.release() ;
+
+			} ) ; 
+			this.runAction(this.actRelease) ;
 		}
 	}
 	

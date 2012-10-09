@@ -1,6 +1,4 @@
 yc.ui.UI = function(){
-
-	log('UI init') ;
 	
 	$('#menu-inner-layer-zoom').css('left',$(window).width()-$('#menu-inner-layer-zoom').width()-10) ;
 	$('#debug-output').css('left',$(window).width()-$('#debug-output').width()-10) ;

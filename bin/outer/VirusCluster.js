@@ -1,8 +1,6 @@
 yc.outer.VirusCluster = yc.outer.PhysicalEntity.extend({
 	
-	lv: 1
-	
-	, ctor: function(){
+	ctor: function(){
 		this._super() ;
 		
 		this.turnRate = yc.settings.outer.virus.turnRate ;
@@ -28,19 +26,32 @@ yc.outer.VirusCluster = yc.outer.PhysicalEntity.extend({
 	}
 
 	, init: function(){
-		// 根据离Boss的距离确定病毒群的等级
-		var compass = ins(yc.outer.BossCompass) ;
-		if(compass.nearestBoss)
-		{
-			var dis = yc.util.pointsDis(this.x,this.y,compass.nearestBoss.x,compass.nearestBoss.y) ;
-			this.lv = compass.nearestBoss.lv - Math.round(dis/1000) ;
-			if(this.lv<1)
-			{
-				this.lv = 1 ;
-			}
-		}
+		// // 根据离Boss的距离确定病毒群的等级
+		// var compass = ins(yc.outer.BossCompass) ;
+		// if(compass.nearestBoss)
+		// {
+		// 	var dis = yc.util.pointsDis(this.x,this.y,compass.nearestBoss.x,compass.nearestBoss.y) ;
+		// 	this.lv = compass.nearestBoss.lv - Math.round(dis/1000) ;
+		// 	if(this.lv<1)
+		// 	{
+		// 		this.lv = 1 ;
+		// 	}
+		// }
 		
 		this.initWithCircle(6,this.x,this.y,yc.settings.outer.virus.density) ;
+	}
+
+	, initWithScript: function(script){
+
+		this._script = script ;
+
+		this.turnRate = script.turnRate ;					// 转向灵敏度
+		this.moseySpeed = script.moseySpeed ;				// 漫步速度
+		this.normalSpeed = script.normalSpeed ;				// 正常速度
+		this.vigilanceRange = script.vigilanceRange ;		// 警视范围
+
+		this.initWithPosition(script.x,script.y) ;
+		this.init() ;
 	}
 	
 	, draw: function(ctx){
@@ -55,8 +66,6 @@ yc.outer.VirusCluster = yc.outer.PhysicalEntity.extend({
 		
 		ctx.fillStyle = 'red' ;
 		ctx.font="normal 12px san-serif";
-		
-		ctx.fillText('Lv '+this.lv,5,-8);
 
 		if(yc.settings.outer.virus.dbgInfo)
 		{
@@ -119,14 +128,15 @@ yc.outer.VirusCluster = yc.outer.PhysicalEntity.extend({
 		//log(['virus cluster touch cell on: ',hexgon]) ;
 		
 		var innerCluster = yc.inner.monster.VirusCluster.create(hexgon) ;
+		innerCluster.initWithScript( this._script ) ;
 		
 		// 根据等级设置能力
-		innerCluster.virusPrototype = {
-			lv: this.lv
-			, file: 'res/virus16.png'
-			, speed: 15 + (this.lv-1)
-			, hpFull: 10 + (this.lv-1)*10
-		}
+		// innerCluster.virusPrototype = {
+		// 	lv: this.lv
+		// 	, file: 'res/virus16.png'
+		// 	, speed: 15 + (this.lv-1)
+		// 	, hpFull: 10 + (this.lv-1)*10
+		// }
 		
 		innerCluster.enterCell(hexgon) ;
 	}
