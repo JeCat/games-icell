@@ -147,6 +147,12 @@ yc.outer.Cell = yc.outer.PhysicalEntity.extend({
 	 * 碰撞
 	 */
 	, collide: function(entity,fixture,otherFixture){
+
+		// 隐身状态，碰撞无效
+		if( yc.settings.player.stealth )
+		{
+			return ;
+		}
 		
 		// 病毒群 或 boss
 		if(entity.constructor.className=='yc.outer.VirusCluster' || entity.constructor.className=='yc.outer.Boss' )
