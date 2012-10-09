@@ -21,8 +21,6 @@ yc.ui.editer.WorldEditerLayer = cc.Layer.extend({
 
 		this._ptDragging = null ;
 		this._dragingScale = 1 ;
-		
-		log('create WorldEditerLayer') ;
 	}
 
 	, _screenToWorld: function(touches) {
@@ -73,8 +71,8 @@ yc.ui.editer.WorldEditerLayer = cc.Layer.extend({
 		{
 			var cam = ins(yc.outer.Camera) ;
 
-			var x = cam.x - (touches[0]._point.x-this._ptDragging.x)*this._dragingScale ;
-			var y = cam.y - (touches[0]._point.y-this._ptDragging.y)*this._dragingScale ;
+			var x = cam.x - (touches[0]._point.x-this._ptDragging.x)*this._dragingScale / ins(yc.GameLayer).getScale() ;
+			var y = cam.y - (touches[0]._point.y-this._ptDragging.y)*this._dragingScale / ins(yc.GameLayer).getScale() ;
 
 
 			// log([this._ptDragging.x,this._ptDragging.y,' > ',touches[0]._point.x,touches[0]._point.y, '; scale:', this._dragingScale, '; from' ,cam.x,cam.y, ' > move to ', x,y])
@@ -114,7 +112,7 @@ yc.ui.editer.WorldEditerLayer = cc.Layer.extend({
 
 
 
-		yc.util.text(ctx, "x:"+cam.x+", y:"+cam.y ,-30,25, "rgb(191,219,129)") ;
+		yc.util.text(ctx, "x:"+cam.x.toFixed(1)+", y:"+cam.y.toFixed(1) ,-30,25, "rgb(191,219,129)") ;
 
 		if(this.touchCallback)
 		{

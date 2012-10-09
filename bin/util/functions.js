@@ -196,3 +196,35 @@ function parseUrl(url) {
         segments: a.pathname.replace(/^\//,'').split('/')
     };
 }
+
+
+yc.util.cloneObject = function (newObj,srcObj){
+
+	var cloneProps = function(newObj,srcObj,propName){
+
+			if( typeof(srcObj[propName])=='object' )
+			{
+				newObj[propName] = srcObj[propName].constructor===Array? []: {} ;
+				yc.util.cloneObject( newObj[propName], srcObj[propName] ) ;
+			}
+			else
+			{
+				newObj[propName] = srcObj[propName] ;
+			}
+	}
+
+	if( srcObj.constructor === Array )
+	{
+		for(var i=0; i<srcObj.length; i++)
+		{
+			cloneProps(newObj,srcObj,i) ;
+		}
+	}
+	else
+	{
+		for(var k in srcObj)
+		{
+			cloneProps(newObj,srcObj,k) ;
+		}
+	}
+}

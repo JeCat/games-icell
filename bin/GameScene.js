@@ -502,7 +502,18 @@ yc.GameScene = cc.Scene.extend({
 		  		, normalSpeed: 5		// 正常速度
 		  		, vigilanceRange: 200	// 警视范围
 		  		, viruses: [
-		  			{}
+		  			{
+						file: 'res/virus16.png'
+						, wait: 1
+						, speed: 15
+						, hp: 10
+					}
+		  			, {
+						file: 'res/virus16.png'
+						, wait: 1
+						, speed: 15
+						, hp: 10
+					}
 		  		]
 		  		, boss: false 			// 是否是一个boss
 		  		, killdown:[			// 击杀后掉落的 dna

@@ -1,12 +1,12 @@
 yc.inner.monster.FlopAminoAcid = cc.Sprite.extend({  
 
-	init: function(virus){
+	init: function(virus,type,num){
 		var aminoacid = this ;
 		this.beWatched = null ;
 		this.beCatched = null ;
 		this.actFade = null ;
-		this.type = yc.inner.AminoAcidPool.types[ 0|(Math.random()*(yc.inner.AminoAcidPool.types.length)) ] ;
-		this.num = Math.round(Math.random()*10) ;
+		this.type = type ;
+		this.num = num ;
 		
 		virus._parent.addChild(this) ;
 		var p = virus.getPosition() ;

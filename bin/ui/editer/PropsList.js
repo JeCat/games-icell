@@ -41,7 +41,7 @@
 					.data('exchange-prop',key) ;
 			}
 
-			//
+			// 
 			if('onModelChnage' in options)
 			{
 				this.data('model-change',options.onModelChnage) ;
@@ -53,7 +53,42 @@
 
 	var methods = {
 
-		selectedModel: function(){
+
+		load: function(array,eachFunc){
+
+			var sel = this ;
+
+			// load options
+			for ( var i = 0; i < array.length; i++) {
+				var info = eachFunc(array[i],i) ;
+				if(!info)
+				{
+					continue ;
+				}
+
+				var optUi = $('<option></option>').appendTo( this )
+					.text(info.text)
+					.val(info.value)
+					.data('model',info.model!==undefined?info.model:array[i])
+					.data('object',array[i])
+					.data('_info',info)
+					.click(function(){
+						var info = $(this).data('_info') ;
+
+						// 数据交换
+						methods.updateUI.apply( sel, [$(this).data('model'),this] ) ;
+
+						// onclick 事件
+						if( 'click' in info )
+						{
+							info.click.apply( sel, [this, $(this).data('model')] ) ;
+						}
+					}) ;
+			}
+		}
+
+
+		, selectedModel: function(){
 			if( this[0].selectedIndex < 0 )
 			{
 				return null ;
@@ -127,10 +162,18 @@
 					if($(ipt).attr('format')=='int')
 					{
 						model[prop] = parseInt(val) ;
+						if(isNaN(model[prop]))
+						{
+							model[prop] = 0 ;
+						}
 					}
 					else if($(ipt).attr('format')=='float')
 					{
 						model[prop] = parseFloat(val) ;
+						if(isNaN(model[prop]))
+						{
+							model[prop] = 0 ;
+						}
 					}
 					else
 					{
@@ -155,41 +198,6 @@
 					changeEvent.apply(this[0],[model]) ;
 				}
 			}
-		}
-
-
-		, load: function(array,eachFunc){
-
-			var sel = this ;
-
-			// load options
-			for ( var i = 0; i < array.length; i++) {
-				var info = eachFunc(array[i],i) ;
-				if(!info)
-				{
-					continue ;
-				}
-
-				var optUi = $('<option></option>').appendTo( this )
-					.text(info.text)
-					.val(info.value)
-					.data('model',info.model!==undefined?info.model:array[i])
-					.data('object',array[i])
-					.data('_info',info)
-					.click(function(){
-						var info = $(this).data('_info') ;
-
-						// 数据交换
-						methods.updateUI.apply( sel, [$(this).data('model'),this] ) ;
-
-						// onclick 事件
-						if( 'click' in info )
-						{
-							info.click($(this).data('model')) ;
-						}
-					}) ;
-			}
-
 		}
 	} ;
 

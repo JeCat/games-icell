@@ -146,15 +146,6 @@
 			
 			<div id='panel-world'>
 				<div>
-					世界范围
-					Top<input id='ipt-world-top' style='width:40px' value='null' />
-					Lft<input id='ipt-world-lft' style='width:40px' value='null' />
-					Btm<input id='ipt-world-btm' style='width:40px' value='null' />
-					Rgt<input id='ipt-world-rgt' style='width:40px' value='null' />
-				</div>
-				
-				<div>
-					
 					<button onclick="yc.settings.outer.box2d.dbg=!yc.settings.outer.box2d.dbg; $('#debugCanvas').toggle()">Debug Draw</button>
 					
 					<label><input type="checkbox" onchange="yc.settings.player.nohurt=$(this).attr('checked')?true:false" checked />无敌</label>
@@ -184,7 +175,7 @@
 				<div>
 					<div style="float:left;">
 						污渍：<br />
-						<select multiple=true size="22" id="lst-stains" style="width:120px"></select>
+						<select size="22" id="lst-stains" style="width:120px"></select>
 					</div>
 
 					<div style="float:left; margin-left:20px">
@@ -210,7 +201,7 @@
 							<b>形状：</b>
 							<button onclick="ins(yc.ui.editer.WorldEditer).stain.createStainShape()">+ 形状</button>
 							<button onclick="ins(yc.ui.editer.WorldEditer).stain.removeStainShape()">- 形状</button><br />
-							<select multiple=true size="3" id="lst-stain-shapes" style="width:150px"></select><br />
+							<select size="3" id="lst-stain-shapes" style="width:150px"></select><br />
 
 							密度<input id='ipt-stain-shape-density' style='width:20px' value='' />
 							弹性<input id='ipt-stain-shape-restitution' style='width:20px' value='' />
@@ -235,7 +226,7 @@
 							<button onclick="ins(yc.ui.editer.WorldEditer).stain.createStainPoint()">+ 点</button>
 							<button onclick="ins(yc.ui.editer.WorldEditer).stain.removeStainPoint()">- 点</button>
 							<br />
-							<select multiple=true size="6" id="lst-stain-points" style="width:150px"></select><br />
+							<select size="6" id="lst-stain-points" style="width:150px"></select><br />
 
 							顶点坐标：<br />
 							x:<input id='ipt-stain-point-x' style='width:50px' value='' />
@@ -260,21 +251,21 @@
 					<button onclick="ins(yc.ui.editer.WorldEditer).pinup.createPinup('foreground')">+</button>
 					<button onclick="ins(yc.ui.editer.WorldEditer).pinup.removePinup('foreground')">-</button>
 					<br />
-					<select multiple=true size="7" id="lst-pinup-foreground" style="width:120px"></select>
+					<select size="7" id="lst-pinup-foreground" style="width:120px"></select>
 					<br />
 					
 					背景层：
 					<button onclick="ins(yc.ui.editer.WorldEditer).pinup.createPinup('background')">+</button>
 					<button onclick="ins(yc.ui.editer.WorldEditer).pinup.removePinup('background')">-</button>
 					<br />
-					<select multiple=true size="7" id="lst-pinup-background" style="width:120px"></select>
+					<select size="7" id="lst-pinup-background" style="width:120px"></select>
 					<br />
 					
 					远景层：
 					<button onclick="ins(yc.ui.editer.WorldEditer).pinup.createPinup('perspective')">+</button>
 					<button onclick="ins(yc.ui.editer.WorldEditer).pinup.removePinup('perspective')">-</button>
 					<br />
-					<select multiple=true size="7" id="lst-pinup-perspective" style="width:120px"></select>
+					<select size="7" id="lst-pinup-perspective" style="width:120px"></select>
 				</div>			
 
 				<div style="float:left;margin-left:20px">
@@ -330,41 +321,111 @@
 							<input type="checkbox" checked onclick="yc.settings.outer.aminoacid.dbgInfo=!yc.settings.outer.aminoacid.dbgInfo" />dbg
 						</label>
 						<br />
-						<select multiple=true size="10" id="lst-roles-aminoacid"  style="width:120px"></select>
+						<select size="8" id="lst-roles-aminoacid"  style="width:120px"></select>
 
 					</div>
 
 					<div id="props-aminoacid" style="float:left; margin-left:5px; margin-top:15px">
 						类型:<select id="sel-aminoacid-type">
-							<option value="red">red</option>
-							<option value="yellow">yellow</option>
-							<option value="blue">blue</option>
+							<option value="red" style="color:red">red</option>
+							<option value="yellow" style="color:yellow">yellow</option>
+							<option value="blue" style="color:blue">blue</option>
 						</select>
 						<br />
 						数量：<input id="ipt-aminoacid-num" style="width:40px" format="int" />
 						<br />
-						坐标 x:<input id='ipt-aminoacid-x' style='width:30px' value='' format="int" />
-						y:<input id='ipt-aminoacid-y' style='width:30px' value='' format="int" />
+						坐标 x:<input id='ipt-aminoacid-x' style='width:40px' value='' format="int" />
+						y:<input id='ipt-aminoacid-y' style='width:40px' value='' format="int" />
 					</div>
 					
 					<div style="clear:both"></div>
 
 				</div>
 
-				<div>
-					<div style="float:left;">
-						<button onclick="ins(yc.ui.editer.WorldEditer).role.createVirusCluster()">+</button>
-						<button onclick="ins(yc.ui.editer.WorldEditer).role.removeVirusCluster()">-</button>
-						<label>
-							<input type="checkbox" checked onclick="yc.settings.outer.virus.dbgInfo=!yc.settings.outer.virus.dbgInfo" />dbg
-						</label>
-						<br />
-						<select multiple=true size="10" id="lst-roles-virusclusters"  style="width:120px"></select>
-					</div>
+				<hr />
 
-					<div id="props-viruscluster" style="float:left; margin-left:5px; margin-top:15px">
-						坐标 x:<input id='ipt-virusclusters-x' style='width:30px' value='' format="int" />
-						y:<input id='ipt-virusclusters-y' style='width:30px' value='' format="int" />
+
+				<button onclick="ins(yc.ui.editer.WorldEditer).role.createVirusCluster()">+</button>
+				<button onclick="ins(yc.ui.editer.WorldEditer).role.removeVirusCluster()">-</button>
+				<button onclick="ins(yc.ui.editer.WorldEditer).role.copyVirusCluster()">copy</button>
+				<label>
+					<input type="checkbox" checked onclick="yc.settings.outer.virus.dbgInfo=!yc.settings.outer.virus.dbgInfo" />dbg
+				</label>
+
+				<div>
+					<select size="15" id="lst-roles-virusclusters"  style="float:left;width:80px"></select>
+
+					<div id="props-viruscluster" style="float:left; margin-left:5px; margin-top:8px">
+
+						精灵: <input id='ipt-viruscluster-spriter' style='width:120px' value='' />
+						<br />
+
+						坐标 x:<input id='ipt-viruscluster-x' style='width:40px' value='' format="int" />
+						y:<input id='ipt-viruscluster-y' style='width:40px' value='' format="int" />
+						<br />
+
+						转向：<input id='ipt-viruscluster-turnRate' style='width:40px' value='' format="int" />
+						警视：<input id='ipt-viruscluster-vigilanceRange' style='width:40px' value='' format="int" />
+						<br />
+
+						[速度]
+						漫步：<input id='ipt-viruscluster-moseySpeed' style='width:30px' value='' format="int" />
+						追击：<input id='ipt-viruscluster-normalSpeed' style='width:30px' value='' format="int" />
+
+						<hr />
+
+						<div>
+							<h3 style="float:left">病毒队列</h3>
+							<spane style="float:right" id="spn-virus-num"></spane>
+							<div style="clear:both"></div>
+						</div>
+
+						<button onclick="ins(yc.ui.editer.WorldEditer).role.createVirus()">+</button>
+						<button onclick="ins(yc.ui.editer.WorldEditer).role.removeVirus()">-</button>
+						<button onclick="ins(yc.ui.editer.WorldEditer).role.copyVirus()">copy</button>
+						<button onclick="ins(yc.ui.editer.WorldEditer).role.order(-1)">↑</button>
+						<button onclick="ins(yc.ui.editer.WorldEditer).role.order(1)">↓</button>
+						<br />
+						<div>
+							<select size="8" id="lst-roles-virus-queue"  style="float:left;width:120px"></select>
+					
+							<div style="float:left;margin-left:6px">
+
+								精灵: <input id='ipt-virus-spriter' style='width:120px' value='' />
+								<br />
+
+								掉落:
+								<select id='sel-virus-flop'>
+									<option value="red" style="color:red">red</option>
+									<option value="yellow" style="color:yellow">yellow</option>
+									<option value="blue" style="color:blue">blue</option>
+								</select>
+								<input id='ipt-virus-flop-num' style='width:40px' value='0' format="int" />
+								<br />
+
+								HP: <input id='ipt-virus-hp' style='width:30px' value='' format="int" />
+								<br />
+								速度: <input id='ipt-virus-speed' style='width:30px' value='' format="int" />
+								<br />
+								等待: <input id='ipt-virus-wait' style='width:30px' value='' format="float" />sec
+								<br />
+								特殊能力：
+								<br />
+								<label>
+									<input type="checkbox" disabled />
+									分裂
+								</label>
+								<br />
+								<label>
+									<input type="checkbox" disabled />
+									潜行
+								</label>
+							</div>
+
+							<div style="clear:both"></div>
+						</div>
+
+
 					</div>
 					
 					<div style="clear:both"></div>
