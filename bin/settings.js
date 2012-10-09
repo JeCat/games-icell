@@ -114,6 +114,160 @@ yc.settings = {
 		// 隐身(怪不会攻击)
 		, stealth: false
 	}
+
+	, building: {
+
+		// 射击防御塔
+		Shooter: {
+			// 基础属性
+			base: {
+				speed: 300					// 炮弹速度
+				, freq: 1500				// 射击频率
+				, injure: 20				// 伤害
+				, range: 100				// 射程
+				, sputtering: 10 			// 溅射半径
+				, sputtering_injure: 2 		// 溅射伤害
+				, retardment: 0				// 减速
+				, retardment_duration: 0	// 减速持续时间
+			}
+			// 建造费用（蛋白质）
+			, cost: {
+				red: 3
+				, yellow: 3 
+				, blue: 3
+			}
+		}
+
+		// 火炮防御塔
+		, Cannon: {
+			// 基础属性
+			base: {
+				speed: 300					// 炮弹速度
+				, freq: 1500				// 射击频率
+				, injure: 10				// 伤害
+				, range: 60					// 射程
+				, sputtering: 20 			// 溅射半径
+				, sputtering_injure: 10		// 溅射伤害
+				, retardment: 0				// 减速
+				, retardment_duration: 0	// 减速持续时间
+			}
+			// 建造费用（蛋白质）
+			, cost: {
+				red: 3
+				, yellow: 3 
+				, blue: 3
+			}
+		}
+
+		// 喷射防御塔
+		, Jetter: {
+			// 基础属性
+			base: {
+				speed: 300					// 炮弹速度
+				, freq: 1500				// 射击频率
+				, injure: 10				// 伤害
+				, range: 80					// 射程
+				, sputtering: 0 			// 溅射半径
+				, sputtering_injure: 0 		// 溅射伤害
+				, retardment: 0				// 减速
+				, retardment_duration: 0	// 减速持续时间
+			}
+			// 建造费用（蛋白质）
+			, cost: {
+				red: 3
+				, yellow: 3 
+				, blue: 3
+			}
+		}
+
+		// 减速防御塔
+		, Slower : {
+			// 基础属性
+			base: {
+				speed: 300					// 炮弹速度
+				, freq: 1500				// 射击频率
+				, injure: 10				// 伤害
+				, range: 80					// 射程
+				, sputtering: 20 			// 溅射半径
+				, sputtering_injure: 3 		// 溅射伤害
+				, retardment: 0.5			// 减速
+				, retardment_duration: 2	// 减速持续时间
+			}
+			// 建造费用（蛋白质）
+			, cost: {
+				red: 3
+				, yellow: 3 
+				, blue: 3
+			}
+		}
+
+	}
+
+
+	// 蛋白质的合成公式
+	, protein: {
+		red: {
+			name: 'red'
+			// 材料（氨基酸）
+			, materials: {		
+				red: 5
+			}
+			// 颜色值（红、绿、蓝）
+			, rgb: [255,0,0]
+		}
+		, yellow: {
+			name: 'yellow'
+			// 材料（氨基酸）
+			, materials: {		
+				yellow: 5
+			}
+			// 颜色值（红、绿、蓝）
+			, rgb: [255,255,0]
+		}
+		, blue: {
+			name: 'blue'
+			// 材料（氨基酸）
+			, materials: {		
+				blue: 5
+			}
+			// 颜色值（红、绿、蓝）
+			, rgb: [0,0,255]
+		}
+
+
+		, orange: {
+			name: 'orange'
+			// 材料（氨基酸）
+			, materials: {		
+				red: 3
+				, yellow: 3
+			}
+			// 颜色值（红、绿、蓝）
+			, rgb: [255,165,0]
+		}
+
+		, green: {
+			name: 'green'
+			// 材料（氨基酸）
+			, materials: {		
+				blue: 3
+				, yellow: 3
+			}
+			// 颜色值（红、绿、蓝）
+			, rgb: [0,165,0]
+		}
+
+		, violet: {
+			name: 'violet'
+			// 材料（氨基酸）
+			, materials: {		
+				red: 3
+				, blue: 3
+			}
+			// 颜色值（红、绿、蓝）
+			, rgb: [255,0,255]
+		}
+	}
 	
 	, dbg: true
 } 

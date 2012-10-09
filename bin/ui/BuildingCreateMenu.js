@@ -5,23 +5,58 @@ yc.ui.BuildingCreateMenu = function(){
 	
 	this.items = {
 				 
-		tower: {
-			title: '防御塔'
+		shooter: {
+			title: '防御塔：射击'
 			, description: '用于攻击进入细胞内的病毒'
 			, hexgonTypes: ['cytoplasm']
 			, cost: function(){
-				return {
-					red: 3
-					, yellow: 3 
-					, blue: 3
-				}
+				return yc.settings.building.Shooter.cost ;
 			}
-			, buildingClass: yc.inner.building.Tower
+			, buildingClass: yc.inner.building.TowerShooter
 			, isUnlock: function(){
 				return true ;
 			}
 		}
 	
+		, cannon: {
+			title: '防御塔：火炮'
+			, description: '大范围攻击进入细胞内的病毒'
+			, hexgonTypes: ['cytoplasm']
+			, cost: function(){
+				return yc.settings.building.Cannon.cost ;
+			}
+			, buildingClass: yc.inner.building.TowerCannon
+			, isUnlock: function(){
+				return true ;
+			}
+		}
+
+		, jetter: {
+			title: '防御塔：喷射'
+			, description: '向进入细胞体内的病毒喷射酸性物质，接触到的病毒都将受到伤害'
+			, hexgonTypes: ['cytoplasm']
+			, cost: function(){
+				return yc.settings.building.Jetter.cost ;
+			}
+			, buildingClass: yc.inner.building.TowerJetter
+			, isUnlock: function(){
+				return true ;
+			}
+		}
+
+		, slower: {
+			title: '防御塔：减速'
+			, description: '用于攻击进入细胞内的病毒，同时使病毒的移动减慢'
+			, hexgonTypes: ['cytoplasm']
+			, cost: function(){
+				return yc.settings.building.Slower.cost ;
+			}
+			, buildingClass: yc.inner.building.TowerSlower
+			, isUnlock: function(){
+				return true ;
+			}
+		}
+
 		, recycle: {
 			title: '回收站'
 			, description: '在细胞内释放出线粒体，线粒体会主动搜集病毒在细胞内被杀死时掉落的氨基酸'
@@ -219,6 +254,11 @@ yc.ui.BuildingCreateMenu = function(){
 		}
 		
 		// create building ----
+		if(typeof(item.buildingClass)!='function')
+		{
+			log(item.title + " has no avalid class") ;
+			return ;
+		}
 		var building = inner.buildings.createBuilding(item.buildingClass,hexgon.x,hexgon.y) ;
 		building.info = item ;
 		building.cost = item.cost() ;
@@ -232,6 +272,11 @@ yc.ui.costHtml = function(cost){
 	for(var proteinName in cost)
 	{
 		var proteinFormula = ins(yc.inner.ProteinFormulas).mapFormulas[proteinName] ;
+		if(proteinFormula===undefined)
+		{
+			log("mission protein "+proteinName+"'s formula.") ;
+			continue ;
+		}
 		if(idx++)
 		{
 			costHtml+= ' + ' ;

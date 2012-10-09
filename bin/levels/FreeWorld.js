@@ -51,40 +51,6 @@ yc.levels.FreeWorld = yc.GameScene.extend({
 		ins(yc.dna.DNA).obtainGene(yc.dna.genes['grow']) ;
 		ins(yc.dna.DNA).obtainGene(yc.dna.genes['grow']) ;
 		
-		// ---------------
-		// 初始化资源
-		//  合成公式
-		ins(yc.inner.ProteinFormulas)
-			.addNewFormula({
-				name: 'red'
-				, materials: {red:5}
-				, rgb: [255,0,0]
-			})
-			.addNewFormula({
-				name: 'yellow'
-				, materials: {yellow:5}
-				, rgb: [255,255,0]
-			})
-			.addNewFormula({
-				name: 'blue'
-				, materials: {blue:5}
-				, rgb: [0,0,255]
-			})
-			.addNewFormula({
-				name: 'orange'
-				, materials: {red:3,yellow:3}
-				, rgb: [255,165,0]
-			}) 
-			.addNewFormula({
-				name: 'green'
-				, materials: {blue:3,yellow:3}
-				, rgb: [0,165,0]
-			}) 
-			.addNewFormula({
-				name: 'violet'
-				, materials: {red:3,blue:3}
-				, rgb: [255,0,255]
-			}) ;
 		
 		
 		// ---------------

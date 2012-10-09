@@ -116,6 +116,11 @@ yc.inner.ProteinFormulas = function(){
 	}
 	
 	
+	// 初始化蛋白质公式
+	for(var name in yc.settings.protein )
+	{
+		this.addNewFormula(yc.settings.protein[name]) ;
+	}
 }
 
 // 由物理三原色 转换为屏幕三原色

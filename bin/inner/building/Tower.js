@@ -29,6 +29,8 @@ yc.inner.building.Tower = yc.inner.building.Building.extend({
 		this.hexgon = null
 		
 		this.bShoting = true	
+
+		this.color = 'red' ;
 	}
 	
 	
@@ -55,7 +57,7 @@ yc.inner.building.Tower = yc.inner.building.Building.extend({
 
 		this._super(ctx) ;
 		
-		ctx.fillStyle = 'red' ;
+		ctx.fillStyle = this.color ;
 		ctx.font="normal san-serif";
 		ctx.fillText('╭☆',-12,+4) ;
 	}
@@ -111,8 +113,66 @@ yc.inner.building.Tower = yc.inner.building.Building.extend({
 }) ;
 
 
-yc.inner.building.Tower.upgraders = [] ;
+// yc.inner.building.Tower.upgraders = [] ;
+// yc.inner.building.Tower.block = true ;
 
-yc.inner.building.Tower.block = true ;
+
+
+/**
+ * 射击防御塔
+ */
+yc.inner.building.TowerShooter = yc.inner.building.Tower.extend({
+	ctor: function(){
+		this._super() ;
+		this.color = 'yellow' ;
+		yc.util.cloneObject(this,yc.settings.building.Shooter.base) ;
+	}
+}) ;
+yc.inner.building.TowerShooter.upgraders = [] ;
+yc.inner.building.TowerShooter.block = true ;
 
 	
+
+
+/**
+ * 火炮防御塔
+ */
+yc.inner.building.TowerCannon = yc.inner.building.Tower.extend({
+	ctor: function(){
+		this._super() ;
+		this.color = 'red' ;
+		yc.util.cloneObject(this,yc.settings.building.Cannon.base) ;
+	}
+}) ;
+yc.inner.building.TowerCannon.upgraders = [] ;
+yc.inner.building.TowerCannon.block = true ;
+
+
+
+/**
+ * 减速防御塔
+ */
+yc.inner.building.TowerSlower = yc.inner.building.Tower.extend({
+	ctor: function(){
+		this._super() ;
+		this.color = 'blue' ;
+		yc.util.cloneObject(this,yc.settings.building.Slower.base) ;
+	}
+}) ;
+yc.inner.building.TowerSlower.upgraders = [] ;
+yc.inner.building.TowerSlower.block = true ;
+
+
+
+/**
+ * 喷射防御塔
+ */
+yc.inner.building.TowerJetter = yc.inner.building.Tower.extend({
+	ctor: function(){
+		this._super() ;
+		this.color = 'orange' ;
+		yc.util.cloneObject(this,yc.settings.building.Jetter.base) ;
+	}
+}) ;
+yc.inner.building.TowerJetter.upgraders = [] ;
+yc.inner.building.TowerJetter.block = true ;
