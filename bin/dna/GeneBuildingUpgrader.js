@@ -21,7 +21,7 @@ yc.dna.GeneBuildingUpgrader = function(opts){
 			
 			if( yc.util.arr.search(buildingClass.upgraders,this.upgrader)===false )
 			{
-				buildingClass.upgraders.push(this.upgrader)
+				buildingClass.upgraders.push(this.upgrader) ;
 			}
 		}
 	}

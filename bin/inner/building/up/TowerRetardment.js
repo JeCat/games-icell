@@ -32,4 +32,4 @@ yc.inner.building.up.TowerRetardment = function(){
 yc.inner.building.up.TowerRetardment.maxLv = 0 ;
 
 // 可用于建筑
-yc.inner.building.up.TowerRetardment.buildings = [ yc.inner.building.Tower ] ;
+yc.inner.building.up.TowerRetardment.buildings = [ yc.inner.building.TowerSlower ] ;

@@ -13,7 +13,8 @@ yc.inner.monster.Virus = cc.Sprite.extend({
 	, runningTarget: null
 	, actRunning: null
 	
-	// , lv: 1
+	, cluster: null
+	, hurt: 1
 	
 	, spriter: 'res/virus16.png'
 	
@@ -27,6 +28,7 @@ yc.inner.monster.Virus = cc.Sprite.extend({
 		this.spriter = script.spriter ;
 		this.speed = script.speed ;
 		this.hpFull = script.hp ;
+		this.hurt = 1 ;
 
 		// this.attack = yc.inner.monster.Virus.script.attack ;
 		// this.bekill = yc.inner.monster.Virus.script.bekill ;
@@ -48,6 +50,7 @@ yc.inner.monster.Virus = cc.Sprite.extend({
 		this.runningFrom = null ;
 		this.runningTarget = null ;
 		this.actRunning = null ;
+		this.cluster = null ;
 	}
 	
 	, run: function() {
@@ -76,6 +79,12 @@ yc.inner.monster.Virus = cc.Sprite.extend({
 			{
 				this.attack() ;
 				
+				// 
+				if(this.cluster)
+				{
+					this.cluster.virusArrived(this) ;
+				}
+		
 				this.destroy() ;
 				
 				return false ;
@@ -165,6 +174,12 @@ yc.inner.monster.Virus = cc.Sprite.extend({
 		{
 			var aminoacid = yc.inner.monster.FlopAminoAcid.ob() ;
 			aminoacid.init(this,this._script.flop,this._script.flopNum) ;
+		}
+
+		// 
+		if(this.cluster)
+		{
+			this.cluster.virusBekill(this) ;
 		}
 	}
 	

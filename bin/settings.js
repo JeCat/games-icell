@@ -57,7 +57,7 @@ yc.settings = {
 			, turnRate: 0.04				// 转向灵活度
 			, moseySpeed: 2					// 漫步速度
 			, normalSpeed: 5				// 正常速度 (追击速度)
-			, size: 6						// 尺寸（半径）
+			, defaultSize: 6				// 默认尺寸（半径）
 			, density: 0.2 					// 物理密度（决定物体的物理质量，影响物体的冲撞力）
 		}
 		
@@ -122,7 +122,7 @@ yc.settings = {
 			// 基础属性
 			base: {
 				speed: 300					// 炮弹速度
-				, freq: 1500				// 射击频率
+				, freq: 1300				// 射击频率
 				, injure: 20				// 伤害
 				, range: 100				// 射程
 				, sputtering: 10 			// 溅射半径

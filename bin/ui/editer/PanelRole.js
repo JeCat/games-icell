@@ -28,6 +28,9 @@ yc.ui.editer.PanelRole = function(editor){
 			, moseySpeed: 'ipt-viruscluster-moseySpeed'
 			, normalSpeed: 'ipt-viruscluster-normalSpeed'
 			, vigilanceRange: 'ipt-viruscluster-vigilanceRange'
+			, size: 'ipt-viruscluster-size'
+			, unlockLevel: 'ipt-viruscluster-unlock-level'
+			, dna: 'lst-boss-dna'
 		}
 		, onModelChnage: function(roleScript){
 			// 将用户修改的数值，应用到场景里的对象中
@@ -49,6 +52,13 @@ yc.ui.editer.PanelRole = function(editor){
 			, flopNum: 'ipt-virus-flop-num'
 		}
 	}) ;
+
+	// 初始化 boss dna 菜单
+	$("#lst-boss-dna").html("") ;
+	for(var name in yc.dna.genes){
+		var gene = yc.dna.genes[name] ;
+		$("#lst-boss-dna").append("<option value='"+gene.name+"'>"+gene.title+"</option>") ;
+	}
 
 
 	// -----------------------------------
@@ -164,7 +174,8 @@ yc.ui.editer.PanelRole = function(editor){
 					, viruses: []
 					, boss: false 					// 是否是一个boss
 					, killdown:[]
-					, spriter: 'res/virus24.png'
+					, spriter: "res/virus24.png"
+					, size: yc.settings.outer.virus.defaultSize
 				} ]
 			} ;
 			for(var i=0; i<10; i++)

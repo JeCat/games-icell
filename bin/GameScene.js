@@ -516,11 +516,7 @@ yc.GameScene = cc.Scene.extend({
 					}
 		  		]
 		  		, boss: false 			// 是否是一个boss
-		  		, killdown:[			// 击杀后掉落的 dna
-		  			"..."
-		  			, "..."
-		  			, "..."
-		  		]
+		  		, dna: []				// 击杀后掉落的 dna
 		  	}
 		]
 		

@@ -13,4 +13,5 @@ yc.dna.DNA = function(){
 		}
 	}
 }
-yc.dna.DNA.className = 'yc.dna.DNA' ;
+yc.dna.DNA.singleton = true ;
+// yc.dna.DNA.className = 'yc.dna.DNA' ;

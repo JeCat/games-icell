@@ -33,4 +33,4 @@ yc.inner.building.up.TowerBombing = function(){
 yc.inner.building.up.TowerBombing.maxLv = 0 ;
 
 // 可用于建筑
-yc.inner.building.up.TowerBombing.buildings = [ yc.inner.building.Tower ] ;
+yc.inner.building.up.TowerBombing.buildings = [ yc.inner.building.TowerCannon ] ;

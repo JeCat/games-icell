@@ -10,8 +10,7 @@ yc.levels.LevelSelector = cc.Scene.extend({
 			
 		this._super() ;
 
-
-		if(location!==undefined)
+		if( location!==undefined && yc.levels.LevelSelector.autoLoadByUrl )
 		{
 			var url = parseUrl(location.toString()) ;
 
@@ -30,6 +29,9 @@ yc.levels.LevelSelector = cc.Scene.extend({
 			{
 				// todo by kongyuan ...
 			}
+
+			// 只自动加载一次
+			yc.levels.LevelSelector.autoLoadByUrl = false ;
 		}
 	}
 
@@ -70,3 +72,4 @@ yc.levels.LevelSelector.enterLevel = function(levelScript){
 }
 
 yc.levels.LevelSelector.singleton = true ;
+yc.levels.LevelSelector.autoLoadByUrl = true ;

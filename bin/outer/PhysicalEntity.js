@@ -387,8 +387,13 @@ yc.outer.PhysicalEntity = cc.Sprite.extend({
 
 		return ret ;
 	}
-	, draw: function(ctx){
+	, draw: function(ctx,_parent){
 		
+		if(_parent!==undefined && _parent)
+		{
+			return this._super(ctx) ;
+		}
+
 		if('shapes' in this)
 		{
 			for(var i=0;i<this.shapes.length;i++)

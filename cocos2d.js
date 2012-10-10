@@ -115,6 +115,7 @@ var TAG_SPRITE_MANAGER = 1;
 			, 'bin/dna/DNA.js'
 			, 'bin/dna/Gene.js'
 			, 'bin/dna/GeneBuildingUpgrader.js'
+			, 'bin/dna/genes.js'
 			
 			, 'bin/actions/DynamicMove.js'
 			, 'bin/actions/Timer.js'
@@ -126,6 +127,7 @@ var TAG_SPRITE_MANAGER = 1;
 			, 'bin/levels/c1/l1.js'
 			
 			
+			, 'bin/Charactar.js'
 			
 			, 'bin/util/declareClassName.js'
 		 

@@ -135,7 +135,7 @@ yc.inner.Cell.prototype.newbornBuildings = function(){
  // 初始化一个 炮塔 和 蛋白质工厂
 	var menu = ins(yc.ui.BuildingCreateMenu) ;
 	menu.createBuilding( this.aAxes.hexgon(0,-1), menu.items.shooter ) ;
-	menu.createBuilding( this.aAxes.hexgon(1,-1), menu.items.factory ) ;
+	menu.createBuilding( this.aAxes.hexgon(1,-1), menu.hideItems.factory ) ;
 }
 
 

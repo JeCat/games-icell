@@ -126,8 +126,27 @@
 					val = formater(val) ;
 				}
 
+				var multiple = $(ipt).attr('multiple') ;
+
+				// select multiple
+				if( ipt.tagName=='SELECT' && multiple!==undefined && multiple )
+				{
+					for(var p=0;p<ipt.length;p++)
+					{
+						ipt[p].selected = undefined ;
+
+						for(var v=0;v<val.length;v++)
+						{
+							if( val[v] == ipt[p].value )
+							{
+								ipt[p].selected = 'selected' ;
+								break ;
+							}
+						}
+					}
+				}
 				// checkbox 类型
-				if( ipt.attr('type') == 'checkbox' )
+				else if( ipt.attr('type') == 'checkbox' )
 				{
 					ipt.attr('checked', val? 'checked': false ) ;
 				}
@@ -153,7 +172,21 @@
 				// select 类型
 				else if(ipt.tagName=='SELECT')
 				{
-					model[prop] = ipt.options[ipt.selectedIndex].value ;
+					if( $(ipt).attr('multiple')===undefined )
+					{
+						model[prop] = ipt.options[ipt.selectedIndex].value ;
+					}
+					else
+					{
+						model[prop] = [] ;
+						for(var p=0;p<ipt.length;p++)
+						{
+							if( ipt[p].selected )
+							{
+								model[prop].push( ipt[p].value ) ;
+							}
+						}
+					}
 				}
 				// text 类型
 				else
@@ -187,8 +220,6 @@
 				{
 					model[prop] = transfer(model[prop]) ;
 				}
-
-				log(ipt,model) ;
 
 
 				// model change 事件

@@ -34,4 +34,4 @@ yc.inner.building.up.TowerFierpower = function(){
 yc.inner.building.up.TowerFierpower.maxLv = 0 ;
 
 // 可用于建筑
-yc.inner.building.up.TowerFierpower.buildings = [ yc.inner.building.Tower ] ;
+yc.inner.building.up.TowerFierpower.buildings = [ yc.inner.building.TowerShooter ] ;

@@ -6,7 +6,7 @@ yc.ui.BuildingCreateMenu = function(){
 	this.items = {
 				 
 		shooter: {
-			title: '防御塔：射击'
+			title: '防御塔(射击)'
 			, description: '用于攻击进入细胞内的病毒'
 			, hexgonTypes: ['cytoplasm']
 			, cost: function(){
@@ -14,12 +14,12 @@ yc.ui.BuildingCreateMenu = function(){
 			}
 			, buildingClass: yc.inner.building.TowerShooter
 			, isUnlock: function(){
-				return true ;
+				return yc.charactar.dna.genes['tower(shooter)']!==undefined ;
 			}
 		}
 	
 		, cannon: {
-			title: '防御塔：火炮'
+			title: '防御塔(火炮)'
 			, description: '大范围攻击进入细胞内的病毒'
 			, hexgonTypes: ['cytoplasm']
 			, cost: function(){
@@ -27,12 +27,12 @@ yc.ui.BuildingCreateMenu = function(){
 			}
 			, buildingClass: yc.inner.building.TowerCannon
 			, isUnlock: function(){
-				return true ;
+				return yc.charactar.dna.genes['tower(cannon)']!==undefined ;
 			}
 		}
 
 		, jetter: {
-			title: '防御塔：喷射'
+			title: '防御塔(喷射)'
 			, description: '向进入细胞体内的病毒喷射酸性物质，接触到的病毒都将受到伤害'
 			, hexgonTypes: ['cytoplasm']
 			, cost: function(){
@@ -40,12 +40,12 @@ yc.ui.BuildingCreateMenu = function(){
 			}
 			, buildingClass: yc.inner.building.TowerJetter
 			, isUnlock: function(){
-				return true ;
+				return yc.charactar.dna.genes['tower(jetter)']!==undefined ;
 			}
 		}
 
 		, slower: {
-			title: '防御塔：减速'
+			title: '防御塔(减速)'
 			, description: '用于攻击进入细胞内的病毒，同时使病毒的移动减慢'
 			, hexgonTypes: ['cytoplasm']
 			, cost: function(){
@@ -53,7 +53,7 @@ yc.ui.BuildingCreateMenu = function(){
 			}
 			, buildingClass: yc.inner.building.TowerSlower
 			, isUnlock: function(){
-				return true ;
+				return yc.charactar.dna.genes['tower(slower)']!==undefined ; ;
 			}
 		}
 
@@ -70,24 +70,7 @@ yc.ui.BuildingCreateMenu = function(){
 			}
 			, buildingClass: yc.inner.building.Recycle
 			, isUnlock: function(){
-				return true ;
-			}
-		}
-		
-		, factory: {
-			title: '蛋白质工厂'
-			, description: '用于将细胞搜集到的氨基酸合成为蛋白质；蛋白质是建造和升级细胞器官的材料。'
-			, hexgonTypes: ['cytoplasm']
-			, cost: function(){
-				return {
-					red: 5
-					, yellow: 5
-					, blue: 5
-				}
-			}
-			, buildingClass: yc.inner.building.ProteinFactory
-			, isUnlock: function(){
-				return true ;
+				return yc.charactar.dna.genes['recycle']!==undefined ;
 			}
 		}
 		
@@ -109,14 +92,34 @@ yc.ui.BuildingCreateMenu = function(){
 				menu.close() ;
 			}
 			, isUnlock: function(){
-				if( typeof(ins(yc.dna.DNA).genes.grow)=='undefined' )
+				if( typeof(yc.charactar.dna.genes.grow)=='undefined' )
 				{
 					return false ;
 				}
-				return ins(yc.inner.Cell).grown < ins(yc.dna.DNA).genes.grow.superimposing ;
+				return ins(yc.inner.Cell).grown < yc.charactar.dna.genes.grow.superimposing ;
 			}
 		}
 	} ;
+
+
+	this.hideItems = {
+		factory: {
+			title: '蛋白质工厂'
+			, description: '用于将细胞搜集到的氨基酸合成为蛋白质；蛋白质是建造和升级细胞器官的材料。'
+			, hexgonTypes: ['cytoplasm']
+			, cost: function(){
+				return {
+					red: 5
+					, yellow: 5
+					, blue: 5
+				}
+			}
+			, buildingClass: yc.inner.building.ProteinFactory
+			, isUnlock: function(){
+				return true ;
+			}
+		}
+	}
 
 	this.ui.find('.btn-close').click(function(){
 		menu.close() ;

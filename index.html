@@ -313,65 +313,85 @@
 			
 			<div id='panel-roles'>
 				<div>
-					
-					<div style="float:left;" >
-						<button onclick="ins(yc.ui.editer.WorldEditer).role.createAminoAcid()">+ ♪</button>
-						<button onclick="ins(yc.ui.editer.WorldEditer).role.removeAminoAcid()">- ♪</button>
-						<label>
-							<input type="checkbox" checked onclick="yc.settings.outer.aminoacid.dbgInfo=!yc.settings.outer.aminoacid.dbgInfo" />dbg
-						</label>
-						<br />
-						<select size="8" id="lst-roles-aminoacid"  style="width:120px"></select>
+					<b>氨基酸</b>
+					<button onclick="ins(yc.ui.editer.WorldEditer).role.createAminoAcid()">+ ♪</button>
+					<button onclick="ins(yc.ui.editer.WorldEditer).role.removeAminoAcid()">- ♪</button>
+					<label>
+						<input type="checkbox" checked onclick="yc.settings.outer.aminoacid.dbgInfo=!yc.settings.outer.aminoacid.dbgInfo" /> 辅助信息(debug)
+					</label>
 
+					<div>
+						<div style="float:left;" >
+							<select size="6" id="lst-roles-aminoacid"  style="width:120px"></select>
+						</div>
+
+						<div id="props-aminoacid" style="float:left; margin-left:5px;">
+							类型:<select id="sel-aminoacid-type">
+								<option value="red" style="color:red">red</option>
+								<option value="yellow" style="color:yellow">yellow</option>
+								<option value="blue" style="color:blue">blue</option>
+							</select>
+							<br />
+							数量：<input id="ipt-aminoacid-num" style="width:40px" format="int" />
+							<br />
+							坐标 x:<input id='ipt-aminoacid-x' style='width:40px' value='' format="int" />
+							y:<input id='ipt-aminoacid-y' style='width:40px' value='' format="int" />
+						</div>
+						
+						<div style="clear:both"></div>
 					</div>
-
-					<div id="props-aminoacid" style="float:left; margin-left:5px; margin-top:15px">
-						类型:<select id="sel-aminoacid-type">
-							<option value="red" style="color:red">red</option>
-							<option value="yellow" style="color:yellow">yellow</option>
-							<option value="blue" style="color:blue">blue</option>
-						</select>
-						<br />
-						数量：<input id="ipt-aminoacid-num" style="width:40px" format="int" />
-						<br />
-						坐标 x:<input id='ipt-aminoacid-x' style='width:40px' value='' format="int" />
-						y:<input id='ipt-aminoacid-y' style='width:40px' value='' format="int" />
-					</div>
-					
-					<div style="clear:both"></div>
-
 				</div>
 
 				<hr />
 
 
+				<b>病毒群</b>
 				<button onclick="ins(yc.ui.editer.WorldEditer).role.createVirusCluster()">+</button>
 				<button onclick="ins(yc.ui.editer.WorldEditer).role.removeVirusCluster()">-</button>
 				<button onclick="ins(yc.ui.editer.WorldEditer).role.copyVirusCluster()">copy</button>
 				<label>
-					<input type="checkbox" checked onclick="yc.settings.outer.virus.dbgInfo=!yc.settings.outer.virus.dbgInfo" />dbg
+					<input type="checkbox" checked onclick="yc.settings.outer.virus.dbgInfo=!yc.settings.outer.virus.dbgInfo" /> 辅助信息(debug)
 				</label>
 
 				<div>
-					<select size="15" id="lst-roles-virusclusters"  style="float:left;width:80px"></select>
+					<select size="18" id="lst-roles-virusclusters"  style="float:left;width:80px"></select>
 
-					<div id="props-viruscluster" style="float:left; margin-left:5px; margin-top:8px">
+					<div id="props-viruscluster" style="float:left; margin-left:5px;">
 
-						精灵: <input id='ipt-viruscluster-spriter' style='width:120px' value='' />
-						<br />
+						<div style="float:left">
+							精灵: <input id='ipt-viruscluster-spriter' style='width:120px' value='' />
+							<br />
 
-						坐标 x:<input id='ipt-viruscluster-x' style='width:40px' value='' format="int" />
-						y:<input id='ipt-viruscluster-y' style='width:40px' value='' format="int" />
-						<br />
+							坐标 x:<input id='ipt-viruscluster-x' style='width:40px' value='' format="int" />
+							y:<input id='ipt-viruscluster-y' style='width:40px' value='' format="int" />
+							<br />
 
-						转向：<input id='ipt-viruscluster-turnRate' style='width:40px' value='' format="float" />
-						警视：<input id='ipt-viruscluster-vigilanceRange' style='width:40px' value='' format="int" />
-						<br />
+							转向<input id='ipt-viruscluster-turnRate' style='width:40px' value='' format="float" />
+							警视<input id='ipt-viruscluster-vigilanceRange' style='width:40px' value='' format="int" />
+							<br />
 
-						[速度]
-						漫步：<input id='ipt-viruscluster-moseySpeed' style='width:30px' value='' format="float" />
-						追击：<input id='ipt-viruscluster-normalSpeed' style='width:30px' value='' format="int" />
+							漫步速度：<input id='ipt-viruscluster-moseySpeed' style='width:30px' value='' format="float" />
+							<br />
+							追击速度：<input id='ipt-viruscluster-normalSpeed' style='width:30px' value='' format="float" />
 
+							<br />
+							体积半径：<input id='ipt-viruscluster-size' style='width:30px' value='' format="int" />
+
+						</div>
+
+						<div style="float:left; margin-left:5px">
+							<label>
+								解锁关卡<input id="ipt-viruscluster-unlock-level" style="width:80px" />
+							</label>
+
+							<div>
+								掉落DNS
+								<br />
+								<select multiple id="lst-boss-dna" size="4"></select>
+							</div>
+						</div>
+
+						<div style="clear:both"></div>
 						<hr />
 
 						<div>
@@ -387,7 +407,7 @@
 						<button onclick="ins(yc.ui.editer.WorldEditer).role.order(1)">↓</button>
 						<br />
 						<div>
-							<select size="8" id="lst-roles-virus-queue"  style="float:left;width:120px"></select>
+							<select size="8" id="lst-roles-virus-queue"  style="float:left;width:150px"></select>
 					
 							<div style="float:left;margin-left:6px">
 
