@@ -13,7 +13,7 @@ yc.inner.monster.VirusCluster = cc.Sprite.extend({
 	, draw: function(ctx){
 
 		// ctx.rotate( yc.util.correctRotation(this) ) ;
-		ctx.rotate( -ins(yc.outer.Cell).rotationTarget ) ;
+		ctx.rotate( this.getRotation() ) ;
 
 		this._super(ctx) ;
 	}
