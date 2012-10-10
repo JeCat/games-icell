@@ -257,8 +257,19 @@ yc.outer.Cell = yc.outer.PhysicalEntity.extend({
 				this.b2Body.SetAngularVelocity( r-this.rotationTarget >Math.PI? -Math.PI*2: Math.PI*2 ) ;
 			}
 		}
+		
+		var innerLayer = ins(yc.inner.InnerLayer);
+		var i,j;
+		for( i in innerLayer._children ){
+			var child = innerLayer._children[i];
+			
+			if( child._children != undefined ){
+				for( j in child._children ){
+					var cch = child._children[j] ;
+					cch.setRotation( -r );
+				}
+			}
+		}
 	}
 	
-});  
-
-
+});

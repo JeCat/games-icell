@@ -28,7 +28,7 @@ yc.inner.building.Building = cc.Sprite.extend({
 		}
 
 		// 调整建筑的旋转（补偿细胞旋转）
-		ctx.rotate( -ins(yc.outer.Cell).rotationTarget ) ;
+		ctx.rotate( this.getRotation() ) ;
 
 		ctx.fillStyle = "rgb(150,150,200)" ;
 	

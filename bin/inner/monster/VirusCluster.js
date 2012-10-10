@@ -4,18 +4,20 @@ yc.inner.monster.VirusCluster = cc.Sprite.extend({
 	, actRelease: null
 	, releasing: false
 	
-	, outer: {}
-
+	, virusPrototype: {}
 		
 	, ctor: function(){
 		this._super() ;
 	}
 
 	, draw: function(ctx){
-		ctx.rotate( -ins(yc.outer.Cell).rotationTarget ) ;
+
+		// ctx.rotate( yc.util.correctRotation(this) ) ;
+		ctx.rotate( this.getRotation() ) ;
 
 		this._super(ctx) ;
 	}
+	
 
 	, initWithScript: function(script){
 		this._script = script ;
@@ -28,7 +30,6 @@ yc.inner.monster.VirusCluster = cc.Sprite.extend({
 		this.actRelease = null ;
 		this.stay = null ;
 		this.releaseIndex = 0 ;
-		this.outer = null ;
 	}
 	
 	, enterCell: function(stay){
@@ -58,7 +59,6 @@ yc.inner.monster.VirusCluster = cc.Sprite.extend({
 
 				var virus = this._parent.createVirusSprite() ;
 				virus.initWithScript(virusScript) ;
-				virus.cluster = this.outer ;
 				
 				var shakeRange = yc.settings.inner.hexgonSideLength/4 ;
 				var shakeX = shakeRange - shakeRange*2*Math.random() ;
@@ -84,9 +84,7 @@ yc.inner.monster.VirusCluster = cc.Sprite.extend({
 			this.stopAction(this.actRelease) ;
 			this.actRelease = null ;
 		}
-		this.removeFromParentAndCleanup() ;
-
-		// 回收
+		ins(yc.inner.monster.VirusLayer).removeChild(this) ;
 		yc.op.ins(yc.inner.monster.VirusCluster).free(this) ;
 	}
 	
@@ -96,7 +94,6 @@ yc.inner.monster.VirusCluster = cc.Sprite.extend({
 			this.releaseOver() ;
 		}
 	}
-
 });
 
 yc.inner.monster.VirusCluster.className = 'yc.inner.monster.VirusCluster' ;
