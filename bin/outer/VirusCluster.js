@@ -182,11 +182,15 @@ yc.outer.VirusCluster = yc.outer.PhysicalEntity.extend({
 		// 解锁关卡，启动传送门
 		if( this._script.unlockLevel )
 		{
-			// todo ...
-		}
+			var portal = new yc.outer.Portal() ;
+			portal.initWithScript({
+				x: this._script.x
+				, y: this._script.y
+				, level: this._script.unlockLevel
+			}) ;
 
-		// 回收
-		log('病毒群 结束',this.failViruses,this.successViruses) ;
+			cc.Director.getInstance().getRunningScene().layerRoles.addChild(portal) ;
+		}
 	}
 	  
 }) ;

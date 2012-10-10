@@ -164,6 +164,11 @@ yc.outer.Cell = yc.outer.PhysicalEntity.extend({
 		{
 			entity.catchMe() ;
 		}
+		// 传送门
+		else if(entity.constructor===yc.outer.Portal)
+		{
+			entity.touchingCell(this) ;
+		}
 	}
 
 	, update: function(dt){

@@ -77,6 +77,7 @@ var TAG_SPRITE_MANAGER = 1;
 			, 'bin/outer/VirusCluster.js'
 			, 'bin/outer/Boss.js'
 			, 'bin/outer/BossCompass.js'
+			, 'bin/outer/Portal.js'
 			, 'bin/outer/RandomRolesLayer.js'
 			, 'bin/outer/ContactListener.js'
 

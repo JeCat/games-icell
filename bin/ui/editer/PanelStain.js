@@ -26,7 +26,6 @@ yc.ui.editer.PanelStain = function(editer){
 	this.ui.find('#sel-stain-bodyType').change(function(){
 		
 		panel.selectedStain._script.bodyType = this.options[this.selectedIndex].value ;
-		log(panel.selectedStain) ;
 		
 		// 重新构建多边形
 		panel.selectedStain.initWithScript(panel.selectedStain._script) ;
