@@ -3,8 +3,7 @@ yc.inner.monster.VirusCluster = cc.Sprite.extend({
 	stay: null
 	, actRelease: null
 	, releasing: false
-	
-	, virusPrototype: {}
+	, outer: {}
 		
 	, ctor: function(){
 		this._super() ;
@@ -21,7 +20,6 @@ yc.inner.monster.VirusCluster = cc.Sprite.extend({
 
 	, initWithScript: function(script){
 		this._script = script ;
-		log(script) ;
 		this.initWithFile(script.spriter) ;
 	}
 
@@ -30,6 +28,7 @@ yc.inner.monster.VirusCluster = cc.Sprite.extend({
 		this.actRelease = null ;
 		this.stay = null ;
 		this.releaseIndex = 0 ;
+		this.outer = null ;
 	}
 	
 	, enterCell: function(stay){
@@ -59,6 +58,7 @@ yc.inner.monster.VirusCluster = cc.Sprite.extend({
 
 				var virus = this._parent.createVirusSprite() ;
 				virus.initWithScript(virusScript) ;
+				virus.cluster = this.outer ;
 				
 				var shakeRange = yc.settings.inner.hexgonSideLength/4 ;
 				var shakeX = shakeRange - shakeRange*2*Math.random() ;

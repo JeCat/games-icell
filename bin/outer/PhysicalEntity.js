@@ -40,14 +40,18 @@ yc.outer.PhysicalEntity = cc.Sprite.extend({
 		b2body.SetUserData(this) ;
 	}
 	
-	, initWithCircle: function(radius,x,y,density){
+	, initWithCircle: function(radius,x,y,density,type){
 
 		this.size = radius ;
+		if(type===undefined)
+		{
+			type = b2Body.b2_dynamicBody ;
+		}
 		
-		var world = cc.Director.getInstance()._runningScene.world ;
+		var world = cc.Director.getInstance().getRunningScene().world ;
 		
 		var bodyDef = new b2BodyDef();
-		bodyDef.type = b2Body.b2_dynamicBody;
+		bodyDef.type = type;
 		bodyDef.position.Set(x / PTM_RATIO, y / PTM_RATIO);
 		bodyDef.userData = this;
 		this.b2Body = world.CreateBody(bodyDef);
