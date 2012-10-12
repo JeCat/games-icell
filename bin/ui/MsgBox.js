@@ -1,46 +1,65 @@
-yc.ui.msgBox = cc.Layer.extend({
-	attachedMenu : null
-	, mainMenu : null
+yc.ui.MsgBox = cc.Layer.extend({
+	bg : null
+	, btns : null
+	, yesBtn : null
+	, noBtn : null
 	, ctor: function(){
 
 		this._super() ;
+
 	    var screenSize = cc.Director.getInstance().getWinSize();
-	    attachedMenu.setPosition(cc.p(screenSize.width - 120, screenSize.height - 40));
 
-	    this.addChild(attachedMenu);
-	    attachedMenu.setVisible(false);
-	    this.attachedMenu = attachedMenu;
+	    this.bg = cc.Sprite.create("res/bg300x200.png");
+	    this.addChild(this.bg);
 
-		var mainMenuItem = cc.MenuItemImage.create(
-	        "res/btn-pause.png",
-	        "res/btn-pause-1.png",
+	    this.setPosition(cc.p(screenSize.width / 2 , screenSize.height / 2));
+
+		this.yesBtn = cc.MenuItemImage.create(
+	        "res/btn-yes.png",
+	        "res/btn-yes-1.png",
 	        null,
 	        this,
 	        function (sender){
-	        	var director = cc.Director.getInstance();
-		        if(director.isPaused()){
-		            director.resume();       //注意游戏暂停
-		            this.hideMenus();		//注意游戏暂停
-		        }else{
-		        	this.showMenus();		//注意游戏暂停
-		            director.pause();		//注意游戏暂停
-		        }
+	        	this.hide();
+	        }
+	    );
+	    this.noBtn = cc.MenuItemImage.create(
+	        "res/btn-no.png",
+	        "res/btn-no-1.png",
+	        null,
+	        this,
+	        function (sender){
+	        	this.hide();
 	        }
 	    );
 
-	    mainMenuItem.setPosition(cc.p( 20 , 20 ));
+	    this.yesBtn.setPosition(cc.p( 20 , 20 ));
+	    this.noBtn.setPosition(cc.p( 20 , 20 ));
 
-	    var menu = cc.Menu.create(mainMenuItem);
+	    this.btns = cc.Menu.create(this.yesBtn , this.noBtn);
 
-	    menu.setPosition(cc.p(screenSize.width - 40, screenSize.height - 40));
+	    this.btns.setPosition(cc.p(screenSize.width - 40, screenSize.height - 40));
 
-	    this.addChild(menu);
-	    this.mainMenu = menu;
+	    this.addChild(this.btns);
+
+	    this.hide();
+	}
+	, hideYesBtn : function(){
+
+	}
+	, hideNoBtn : function(){
+
 	}
 	, show : function(){
-		this.attachedMenu.setVisible(true);
+		this.setVisible(true);
 	}
 	, hide : function(){
-		this.attachedMenu.setVisible(false);
+		this.setVisible(false);
+	}
+	, YesBtnCallBack : function(){
+
+	}
+	, NoBtnCallBack : function(){
+		
 	}
 }) ;

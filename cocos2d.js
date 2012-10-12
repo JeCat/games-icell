@@ -56,6 +56,7 @@ var TAG_SPRITE_MANAGER = 1;
 			, 'bin/ui/BuildingCreateMenu.js'
 			, 'bin/ui/BuildingUpgradeMenu.js'
 			, 'bin/ui/PauseMenu.js'
+			, 'bin/ui/MsgBox.js'
 			, 'bin/ui/DlgRewardGene.js'
 			, 'bin/ui/UILayer.js'
 			, 'bin/ui/dashboard/Dashboard.js'
