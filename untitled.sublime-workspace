@@ -4,6 +4,90 @@
 		"selected_items":
 		[
 			[
+				"_",
+				"_script"
+			],
+			[
+				"lay",
+				"layerPlayer"
+			],
+			[
+				"v",
+				"virus"
+			],
+			[
+				"h",
+				"hurt"
+			],
+			[
+				"sele",
+				"selected"
+			],
+			[
+				"set",
+				"settings"
+			],
+			[
+				"flop",
+				"flopNum"
+			],
+			[
+				"op",
+				"option	Tag"
+			],
+			[
+				"viu",
+				"virusqueue"
+			],
+			[
+				"len",
+				"length"
+			],
+			[
+				"src",
+				"srcObj"
+			],
+			[
+				"re",
+				"removeAminoAcid"
+			],
+			[
+				"relea",
+				"releaseIndex"
+			],
+			[
+				"_s",
+				"_script"
+			],
+			[
+				"fill",
+				"fillStyle"
+			],
+			[
+				"VirusClus",
+				"viruscluster"
+			],
+			[
+				"on",
+				"onExit"
+			],
+			[
+				"s",
+				"selected"
+			],
+			[
+				"arg",
+				"arguments  (variable)"
+			],
+			[
+				"pro",
+				"propslst"
+			],
+			[
+				"sc",
+				"script"
+			],
+			[
 				"in",
 				"input	Tag"
 			],
@@ -28,10 +112,6 @@
 				"scaleY"
 			],
 			[
-				"sc",
-				"scaleX"
-			],
-			[
 				"ipt-pinup-an",
 				"ipt-pinup-anchor-y"
 			],
@@ -52,24 +132,8 @@
 				"pinups"
 			],
 			[
-				"lay",
-				"layerBg"
-			],
-			[
 				"la",
 				"layer"
-			],
-			[
-				"_",
-				"_script"
-			],
-			[
-				"sele",
-				"selected"
-			],
-			[
-				"op",
-				"option	Tag"
 			],
 			[
 				"wor",
@@ -90,10 +154,6 @@
 			[
 				"init",
 				"initWithScriptShapes"
-			],
-			[
-				"s",
-				"selectedStainShape  (variable)"
 			],
 			[
 				"b",
@@ -130,44 +190,16 @@
 			[
 				"initWi",
 				"initWithScript"
-			],
-			[
-				"h",
-				"hMoving"
-			],
-			[
-				"v",
-				"vMoving"
-			],
-			[
-				"set",
-				"SetAngularDamping"
 			]
 		]
 	},
 	"buffers":
 	[
 		{
-			"file": "index.html",
+			"file": "bin/outer/Portal.js",
 			"settings":
 			{
-				"buffer_size": 13777,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "bin/ui/editer/PanelPinup.js",
-			"settings":
-			{
-				"buffer_size": 3744,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "bin/outer/pinups/Pinup.js",
-			"settings":
-			{
-				"buffer_size": 2139,
+				"buffer_size": 637,
 				"line_ending": "Unix"
 			}
 		},
@@ -175,31 +207,55 @@
 			"file": "bin/GameScene.js",
 			"settings":
 			{
-				"buffer_size": 12670,
+				"buffer_size": 13357,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "bin/outer/pinups/LayerGround.js",
+			"file": "bin/outer/PhysicalEntity.js",
 			"settings":
 			{
-				"buffer_size": 582,
+				"buffer_size": 10104,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "bin/outer/Camera.js",
+			"file": "bin/outer/Stain.js",
 			"settings":
 			{
-				"buffer_size": 2398,
+				"buffer_size": 5593,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "bin/settings.js",
+			"file": "bin/outer/Cell.js",
 			"settings":
 			{
-				"buffer_size": 2807,
+				"buffer_size": 5628,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "bin/outer/VirusCluster.js",
+			"settings":
+			{
+				"buffer_size": 4086,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "bin/ui/editer/PanelRole.js",
+			"settings":
+			{
+				"buffer_size": 7371,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "bin/inner/monster/VirusCluster.js",
+			"settings":
+			{
+				"buffer_size": 2336,
 				"line_ending": "Unix"
 			}
 		}
@@ -207,9 +263,17 @@
 	"build_system": "",
 	"command_palette":
 	{
-		"height": 392.0,
+		"height": 47.0,
 		"selected_items":
 		[
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"",
+				"About"
+			],
 			[
 				"k",
 				"Preferences: Key Bindings - Default"
@@ -232,20 +296,71 @@
 	},
 	"file_history":
 	[
-		"/Users/xiaye/project/youcell/bin/outer/PhysicalEntity.js",
-		"/Users/xiaye/project/youcell/bin/util/canvas.js",
-		"/Users/xiaye/project/youcell/index.html",
-		"/Users/xiaye/project/youcell/bin/ui/editer/PanelPinup.js",
-		"/Users/xiaye/project/youcell/bin/GameScene.js",
-		"/Users/xiaye/project/youcell/bin/outer/Stain.js",
-		"/Users/xiaye/project/youcell/bin/outer/pinups/Pinup.js",
-		"/Users/xiaye/project/youcell/lib/cocos2d/sprite_nodes/CCSprite.js",
 		"/Users/xiaye/project/youcell/cocos2d.js",
-		"/Users/xiaye/project/youcell/bin/outer/Camera.js",
-		"/Users/xiaye/project/youcell/jquery.js",
-		"/Users/xiaye/project/youcell/bin/util/functions.js",
-		"/Users/xiaye/project/youcell/main.js",
+		"/Users/xiaye/project/youcell/bin/levels/LevelSelector.js",
+		"/Users/xiaye/project/youcell/index.html",
+		"/Users/xiaye/project/youcell/bin/inner/Cell.js",
 		"/Users/xiaye/project/youcell/bin/ui/editer/PanelStain.js",
+		"/Users/xiaye/project/youcell/main.js",
+		"/Users/xiaye/project/youcell/bin/util/canvas.js",
+		"/Users/xiaye/project/youcell/bin/outer/VirusCluster.js",
+		"/Users/xiaye/project/youcell/bin/outer/Cell.js",
+		"/Users/xiaye/project/youcell/bin/outer/Boss.js",
+		"/Users/xiaye/project/youcell/bin/outer/Portal.js",
+		"/Users/xiaye/project/youcell/bin/outer/Por",
+		"/Users/xiaye/project/youcell/lib/cocos2d/platform/jsloader.js",
+		"/Users/xiaye/project/youcell/bin/inner/monster/VirusCluster.js",
+		"/Users/xiaye/project/youcell/bin/ui/editer/PanelRole.js",
+		"/Users/xiaye/project/youcell/bin/inner/monster/Virus.js",
+		"/Users/xiaye/project/youcell/bin/levels/FreeWorld.js",
+		"/Users/xiaye/project/youcell/bin/dna/genes.js",
+		"/Users/xiaye/project/youcell/bin/ui/BuildingCreateMenu.js",
+		"/Users/xiaye/project/youcell/bin/Charactar.js",
+		"/Users/xiaye/project/youcell/bin/dna/DNA.js",
+		"/Users/xiaye/project/youcell/bin/Chara",
+		"/Users/xiaye/project/youcell/bin/settings.js",
+		"/Users/xiaye/project/youcell/bin/outer/PhysicalEntity.js",
+		"/Users/xiaye/project/youcell/lib/cocos2d/sprite_nodes/CCSprite.js",
+		"/Users/xiaye/project/youcell/lib/cocos2d/base_nodes/CCNode.js",
+		"/Users/xiaye/project/youcell/bin/dna/Gene.js",
+		"/Users/xiaye/project/youcell/bin/dna/GeneBuildingUpgrader.js",
+		"/Users/xiaye/project/youcell/bin/GameScene.js",
+		"/Users/xiaye/project/youcell/bin/ui/editer/PropsList.js",
+		"/private/var/root/Library/Application Support/Sublime Text 2/Packages/Default/Default (OSX).sublime-keymap",
+		"/private/var/root/Library/Application Support/Sublime Text 2/Packages/User/Default (OSX).sublime-keymap",
+		"/Users/xiaye/project/youcell/bin/inner/building/up/TowerBombing.js",
+		"/Users/xiaye/project/youcell/bin/inner/building/up/TowerFirepower.js",
+		"/Users/xiaye/project/youcell/bin/inner/building/up/TowerRetardment.js",
+		"/Users/xiaye/project/youcell/bin/outer/AminoAcid.js",
+		"/Users/xiaye/project/youcell/bin/inner/building/Tower.js",
+		"/Users/xiaye/project/youcell/bin/inner/ProteinFormulas.js",
+		"/Users/xiaye/project/youcell/bin/ui/dashboard/Dashboard.js",
+		"/Users/xiaye/project/youcell/bin/ui/editer/WorldEditer.js",
+		"/Users/xiaye/project/youcell/bin/inner/building/BuildingLayer.js",
+		"/Users/xiaye/project/youcell/bin/inner/building/ProteinFactory.js",
+		"/Users/xiaye/project/youcell/bin/inner/monster/FlopAminoAcid.js",
+		"/Users/xiaye/project/oc.release/extensions/coresystem/0.2/class/auth/PurviewPermission.php",
+		"/Users/xiaye/project/youcell/bin/util/functions.js",
+		"/Users/xiaye/project/youcell/bin/util/node.funcs.js",
+		"/Users/xiaye/project/oc.release/extensions/coresystem/0.2/class/mvc/controller/Controller.php",
+		"/Users/xiaye/project/oc.release/extensions/coresystem/0.2/class/auth/PurviewQuery.php",
+		"/Users/xiaye/project/oc.release/framework/0.8.0.0/class/mvc/controller/Controller.php",
+		"/Users/xiaye/project/youcell/bin/inner/building/Building.js",
+		"/Users/xiaye/project/youcell/bin/outer/PlayerLayer.js",
+		"/Users/xiaye/project/youcell/bin/ui/editer/WorldEditerLayer.js",
+		"/Users/xiaye/project/youcell/bin/ui/UI.js",
+		"/Users/xiaye/project/youcell/bin/GameLayer.js",
+		"/Users/xiaye/project/youcell/bin/ui/editer/PanelPinup.js",
+		"/Users/xiaye/project/youcell/bin/outer/Camera.js",
+		"/Users/xiaye/project/youcell/bin/levels/c1/l1.js",
+		"/Users/xiaye/project/youcell/bin/outer/pinups/Pinup.js",
+		"/Users/xiaye/project/youcell/bin/outer/RandomRolesLayer.js",
+		"/Users/xiaye/project/youcell/bin/outer/pinups/LayerGround.js",
+		"/Users/xiaye/project/youcell/jquery.json.js",
+		"/Users/xiaye/project/oc.release/extensions/water/public/js/datagrid.js",
+		"/Users/xiaye/project/youcell/users.js",
+		"/Users/xiaye/project/youcell/bin/outer/Stain.js",
+		"/Users/xiaye/project/youcell/jquery.js",
 		"/Users/xiaye/project/oc.release/extensions/airticket/0.2/class/MakeOrder.php",
 		"/Users/xiaye/project/oc.release/extensions/airticket/0.2/template/AirTicketForm.html",
 		"/Users/xiaye/project/oc.release/extensions/airticket/0.2/class/AirTicketQuery.php",
@@ -254,61 +369,29 @@
 		"/Users/xiaye/project/oc.release/services/at.oc.local/setting/extensions/airticket/user/querylog/items.php",
 		"/Users/xiaye/project/oc.release/services/at.oc.local/setting/extensions/airticket/user/querylog/2012-09-09/1/items.php",
 		"/Users/xiaye/project/oc.release/services/at.oc.local/setting/extensions/airticket/contact/items.php",
-		"/Users/xiaye/project/youcell/bin/levels/c1/l1.js",
-		"/Users/xiaye/project/youcell/bin/levels/LevelSelector.js",
 		"/Users/xiaye/project/youcell/bin/levels/c1/tutorial.js",
 		"/Users/xiaye/project/youcell/bin/levels/c1/L1.js",
-		"/Users/xiaye/project/youcell/jquery.json.js",
-		"/Users/xiaye/project/youcell/bin/ui/editer/WorldEditer.js",
 		"/Users/xiaye/project/youcell/bin/util/Instance.js",
-		"/Users/xiaye/project/youcell/bin/ui/editer/WorldEditerLayer.js",
 		"/Users/xiaye/project/oc.release/extensions/openoa/0.1/class/Attendance/Punch.php",
-		"/Users/xiaye/project/youcell/bin/outer/pinups/LayerGround.js",
-		"/Users/xiaye/project/youcell/bin/outer/Cell.js",
-		"/Users/xiaye/project/youcell/bin/GameLayer.js",
-		"/Users/xiaye/project/youcell/bin/ui/UI.js",
 		"/Users/xiaye/project/youcell/bin/ui/UILayer.js",
 		"/Users/xiaye/project/youcell/bin/util/declareClassName.js",
 		"/Users/xiaye/project/youcell/bin/actions/DynamicMove.js",
 		"/Users/xiaye/project/youcell/bin/actions/Timer.js",
 		"/Users/xiaye/project/youcell/bin/Cocos2dPatchs.js",
 		"/Users/xiaye/project/youcell/bin/Demo.js",
-		"/Users/xiaye/project/youcell/bin/dna/DNA.js",
-		"/Users/xiaye/project/youcell/bin/dna/Gene.js",
-		"/Users/xiaye/project/youcell/bin/dna/GeneBuildingUpgrader.js",
-		"/Users/xiaye/project/youcell/bin/inner/building/Building.js",
-		"/Users/xiaye/project/youcell/bin/inner/building/BuildingLayer.js",
 		"/Users/xiaye/project/youcell/bin/inner/building/Bullet.js",
 		"/Users/xiaye/project/youcell/bin/inner/building/Recycle.js",
-		"/Users/xiaye/project/youcell/bin/inner/building/Tower.js",
-		"/Users/xiaye/project/youcell/bin/inner/building/up/TowerBombing.js",
-		"/Users/xiaye/project/youcell/bin/inner/building/up/TowerFirepower.js",
-		"/Users/xiaye/project/youcell/bin/inner/building/up/TowerRetardment.js",
 		"/Users/xiaye/project/youcell/bin/inner/building/up/UpgraderBase.js",
-		"/Users/xiaye/project/youcell/bin/inner/Cell.js",
 		"/Users/xiaye/project/youcell/bin/inner/Hexgon.js",
 		"/Users/xiaye/project/youcell/bin/inner/HexgonAxes.js",
 		"/Users/xiaye/project/youcell/bin/inner/HexgonAxesPathMap.js",
-		"/Users/xiaye/project/youcell/bin/inner/monster/FlopAminoAcid.js",
 		"/Users/xiaye/project/youcell/bin/inner/monster/Mitochondria.js",
-		"/Users/xiaye/project/youcell/bin/inner/monster/Virus.js",
-		"/Users/xiaye/project/youcell/bin/inner/monster/VirusCluster.js",
 		"/Users/xiaye/project/youcell/bin/inner/monster/VirusLayer.js",
-		"/Users/xiaye/project/youcell/bin/inner/ProteinFormulas.js",
 		"/Users/xiaye/project/youcell/bin/inner/ProteinPool.js",
-		"/Users/xiaye/project/youcell/bin/levels/FreeWorld.js",
-		"/Users/xiaye/project/youcell/bin/outer/AminoAcid.js",
-		"/Users/xiaye/project/youcell/bin/outer/Boss.js",
 		"/Users/xiaye/project/youcell/bin/outer/BossCompass.js",
 		"/Users/xiaye/project/youcell/bin/LayerBackground.js",
-		"/Users/xiaye/project/youcell/bin/outer/PlayerLayer.js",
-		"/Users/xiaye/project/youcell/bin/outer/RandomRolesLayer.js",
-		"/Users/xiaye/project/youcell/bin/outer/VirusCluster.js",
-		"/Users/xiaye/project/youcell/bin/settings.js",
 		"/Users/xiaye/project/youcell/bin/test.js",
-		"/Users/xiaye/project/youcell/bin/ui/dashboard/Dashboard.js",
 		"/Users/xiaye/project/youcell/bin/ui/DlgRewardGene.js",
-		"/Users/xiaye/project/youcell/bin/util/node.funcs.js",
 		"/Users/xiaye/project/youcell/bin/util/ObjectPool.js",
 		"/Users/xiaye/project/youcell/bin/inner/InnerLayer.js",
 		"/Users/xiaye/project/youcell/bin/inner/CellInnerMap.js",
@@ -319,13 +402,10 @@
 		"/Users/xiaye/project/youcell/bin/ui/editer/ObjectEditer.js",
 		"/Users/xiaye/project/youcell/style.css",
 		"/Users/xiaye/project/youcell/bin/outer/ContactListener.js",
-		"/Users/xiaye/project/youcell/bin/ui/BuildingCreateMenu.js",
-		"/Users/xiaye/project/youcell/bin/inner/building/ProteinFactory.js",
 		"/Users/xiaye/project/youcell/bin/outer/LifeEntity.js",
 		"/private/var/root/Library/Application Support/Sublime Text 2/Packages/Default/Preferences.sublime-settings",
 		"/private/var/root/Library/Application Support/Sublime Text 2/Packages/User/Preferences.sublime-settings",
-		"/Users/xiaye/project/youcell/jquery-1.7.1.js",
-		"/private/var/root/Library/Application Support/Sublime Text 2/Packages/Default/Default (OSX).sublime-keymap"
+		"/Users/xiaye/project/youcell/jquery-1.7.1.js"
 	],
 	"find":
 	{
@@ -336,6 +416,7 @@
 		"height": 93.0,
 		"where_history":
 		[
+			"<open files>",
 			"/Users/xiaye/project/youcell/bin/util/functions.js",
 			"/Users/xiaye/project/youcell/bin/util/function.js",
 			"/Users/xiaye/project/youcell/cocos2d.js",
@@ -352,6 +433,39 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"_initB2Body",
+			"sel-stain-bodyType",
+			"type",
+			"yc.Charactar.dna",
+			"ins(yc.dna.DNA)",
+			"virusPrototype",
+			"ctrl+m",
+			"ctrl+b",
+			"ctrl+m",
+			"control+m",
+			"control+M",
+			"autoWakeup",
+			"cost()",
+			"}\n",
+			";\n",
+			"rotationTarget",
+			";\n",
+			"multiple=true ",
+			"float",
+			"hpRate",
+			"releasing",
+			"\n	, enterCell: function(stay){\n		\n		//log(['virus cluster enter cell on: ',stay]) ;\n		\n		this.removeFromParentAndCleanup() ;\n		var layer  = ins(yc.inner.monster.VirusLayer) ;\n		layer.addChild(this) ;\n	   \n		\n		this.stay = stay ;\n		this.setPosition(cc.p(stay.center[0],stay.center[1])) ;\n\n		this.release() ; // 立即执行第一次\n\n		if(this.num>0)\n		{\n			this.actRelease = yc.actions.Timer.create(yc.settings.inner.virus.defaultReleaseDt,this.num,this,this.release) ; \n			this.runAction(this.actRelease) ;\n		}\n	}\n\n	, release: function(){\n		\n		//log(['release virus on ',this.stay]) ;\n		\n		var virus = this._parent.createVirusSprite() ;\n		virus.init(this.virusPrototype) ;\n		\n		var shakeRange = yc.settings.inner.hexgonSideLength/4 ;\n		var shakeX = shakeRange - shakeRange*2*Math.random() ;\n		var shakeY = shakeRange - shakeRange*2*Math.random() ;\n		//log(['shake',shakeX,shakeY]) ;\n		virus.setPosition(cc.p(this.stay.center[0]+shakeX,this.stay.center[1]+shakeY)) ;\n\n		virus.run() ;\n		\n		this.num -- ;\n		\n		if(this.num<=0)\n		{\n			this.releaseOver() ;\n		}\n	}\n	\n	, releaseOver: function(){\n		this.releasing = false ;\n		if(this.actRelease)\n		{\n			this.stopAction(this.actRelease) ;\n			this.actRelease = null ;\n		}\n		ins(yc.inner.monster.VirusLayer).removeChild(this) ;\n		yc.op.ins(yc.inner.monster.VirusCluster).free(this) ;\n	}\n	\n	, onExit: function(){\n		if(this.releasing)\n		{\n			this.releaseOver() ;\n		}\n	}",
+			"_polygonShapeScript",
+			"lineOutRect",
+			"button",
+			"gui",
+			"Create my map\nCreate my",
+			"Create my map\nCreate ",
+			"ipt-pinup-img-url",
+			";\n",
+			"loginWithTestUser",
+			"    ",
+			"position",
 			"log",
 			"draw",
 			"draw:",
@@ -407,6 +521,8 @@
 		"regex": false,
 		"replace_history":
 		[
+			"yc.charactar.dna",
+			"yc.Charactar.dna",
 			"	",
 			"loadOptions",
 			"	",
@@ -417,8 +533,8 @@
 			" = function(sel,opts,each)\n = function(sel,opts,each)\nyc.ui.editer.WorldEditer._loadOptions"
 		],
 		"reverse": false,
-		"show_context": true,
-		"use_buffer2": true,
+		"show_context": false,
+		"use_buffer2": false,
 		"whole_word": false,
 		"wrap": true
 	},
@@ -430,45 +546,44 @@
 			[
 				{
 					"buffer": 0,
-					"file": "index.html",
+					"file": "bin/outer/Portal.js",
 					"settings":
 					{
-						"buffer_size": 13777,
+						"buffer_size": 637,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								10325,
-								10325
+								331,
+								331
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/HTML/HTML.tmLanguage",
-							"translate_tabs_to_spaces": false
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 3022.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "bin/ui/editer/PanelPinup.js",
+					"file": "bin/GameScene.js",
 					"settings":
 					{
-						"buffer_size": 3744,
+						"buffer_size": 13357,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3447,
-								3447
+								1525,
+								1510
 							]
 						],
 						"settings":
@@ -477,25 +592,25 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 1639.0,
+						"translation.y": 488.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 2,
-					"file": "bin/outer/pinups/Pinup.js",
+					"file": "bin/outer/PhysicalEntity.js",
 					"settings":
 					{
-						"buffer_size": 2139,
+						"buffer_size": 10104,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								648,
-								648
+								2510,
+								2510
 							]
 						],
 						"settings":
@@ -504,25 +619,25 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 2082.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 3,
-					"file": "bin/GameScene.js",
+					"file": "bin/outer/Stain.js",
 					"settings":
 					{
-						"buffer_size": 12670,
+						"buffer_size": 5593,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								743,
-								754
+								2852,
+								2863
 							]
 						],
 						"settings":
@@ -531,25 +646,25 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 347.0,
+						"translation.y": 1010.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 4,
-					"file": "bin/outer/pinups/LayerGround.js",
+					"file": "bin/outer/Cell.js",
 					"settings":
 					{
-						"buffer_size": 582,
+						"buffer_size": 5628,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								564,
-								564
+								3458,
+								3458
 							]
 						],
 						"settings":
@@ -558,25 +673,25 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 1937.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 5,
-					"file": "bin/outer/Camera.js",
+					"file": "bin/outer/VirusCluster.js",
 					"settings":
 					{
-						"buffer_size": 2398,
+						"buffer_size": 4086,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1757,
-								1757
+								3718,
+								3718
 							]
 						],
 						"settings":
@@ -585,25 +700,25 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 835.0,
+						"translation.y": 2420.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 6,
-					"file": "bin/settings.js",
+					"file": "bin/ui/editer/PanelRole.js",
 					"settings":
 					{
-						"buffer_size": 2807,
+						"buffer_size": 7371,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1648,
-								1648
+								3969,
+								3969
 							]
 						],
 						"settings":
@@ -612,7 +727,34 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 1249.0,
+						"translation.y": 2533.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "bin/inner/monster/VirusCluster.js",
+					"settings":
+					{
+						"buffer_size": 2336,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1474,
+								1474
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 599.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -653,7 +795,7 @@
 	"menu_visible": true,
 	"replace":
 	{
-		"height": 0.0
+		"height": 64.0
 	},
 	"save_all_on_build": true,
 	"select_file":
@@ -662,8 +804,192 @@
 		"selected_items":
 		[
 			[
+				"vir",
+				"youcell/bin/inner/monster/VirusCluster.js"
+			],
+			[
+				"role",
+				"youcell/bin/ui/editer/PanelRole.js"
+			],
+			[
+				"level",
+				"youcell/bin/levels/LevelSelector.js"
+			],
+			[
+				"",
+				"youcell/bin/outer/Portal.js"
+			],
+			[
+				"in",
+				"youcell/index.html"
+			],
+			[
+				"cell",
+				"youcell/bin/outer/Cell.js"
+			],
+			[
+				"ind",
+				"youcell/index.html"
+			],
+			[
+				"phy",
+				"youcell/bin/outer/PhysicalEntity.js"
+			],
+			[
+				"co",
+				"youcell/cocos2d.js"
+			],
+			[
 				"game",
 				"youcell/bin/GameScene.js"
+			],
+			[
+				"coco",
+				"youcell/cocos2d.js"
+			],
+			[
+				"free",
+				"youcell/bin/levels/FreeWorld.js"
+			],
+			[
+				"setting",
+				"youcell/bin/settings.js"
+			],
+			[
+				"spriter",
+				"youcell/lib/cocos2d/sprite_nodes/CCSprite.js"
+			],
+			[
+				"m",
+				"youcell/main.js"
+			],
+			[
+				"cocos",
+				"youcell/cocos2d.js"
+			],
+			[
+				"boss",
+				"youcell/bin/outer/Boss.js"
+			],
+			[
+				"props",
+				"youcell/bin/ui/editer/PropsList.js"
+			],
+			[
+				"fre",
+				"youcell/bin/levels/FreeWorld.js"
+			],
+			[
+				"i",
+				"youcell/index.html"
+			],
+			[
+				"pro",
+				"youcell/bin/ui/editer/PanelRole.js"
+			],
+			[
+				"virus",
+				"youcell/bin/outer/VirusCluster.js"
+			],
+			[
+				"worl",
+				"youcell/bin/ui/editer/WorldEditer.js"
+			],
+			[
+				"pf",
+				"youcell/bin/inner/ProteinFormulas.js"
+			],
+			[
+				"settings",
+				"youcell/bin/settings.js"
+			],
+			[
+				"pp",
+				"oc.release/extensions/coresystem/0.2/class/auth/PurviewPermission.php"
+			],
+			[
+				"vi",
+				"youcell/bin/inner/monster/Virus.js"
+			],
+			[
+				"controller",
+				"oc.release/extensions/coresystem/0.2/class/mvc/controller/Controller.php"
+			],
+			[
+				"function",
+				"youcell/bin/util/functions.js"
+			],
+			[
+				"controll",
+				"oc.release/extensions/coresystem/0.2/class/mvc/controller/Controller.php"
+			],
+			[
+				"viru",
+				"youcell/bin/inner/monster/VirusCluster.js"
+			],
+			[
+				"propsl",
+				"youcell/bin/ui/editer/PropsList.js"
+			],
+			[
+				"virust",
+				"youcell/bin/outer/VirusCluster.js"
+			],
+			[
+				"gam",
+				"youcell/bin/GameScene.js"
+			],
+			[
+				"camera.js",
+				"youcell/bin/outer/Camera.js"
+			],
+			[
+				"cam",
+				"youcell/bin/outer/Camera.js"
+			],
+			[
+				"canva",
+				"youcell/bin/util/canvas.js"
+			],
+			[
+				"fun",
+				"youcell/bin/util/functions.js"
+			],
+			[
+				"camera",
+				"youcell/bin/outer/Camera.js"
+			],
+			[
+				"ca",
+				"youcell/bin/util/canvas.js"
+			],
+			[
+				"panel",
+				"youcell/bin/ui/editer/PanelRole.js"
+			],
+			[
+				"pane",
+				"youcell/bin/ui/editer/PanelRole.js"
+			],
+			[
+				"pan",
+				"youcell/bin/ui/editer/PanelPinup.js"
+			],
+			[
+				"index",
+				"youcell/index.html"
+			],
+			[
+				"can",
+				"youcell/bin/util/canvas.js"
+			],
+			[
+				"amin",
+				"youcell/bin/outer/AminoAcid.js"
+			],
+			[
+				"p",
+				"youcell/bin/ui/editer/PanelPinup.js"
 			],
 			[
 				"pinup",
@@ -671,14 +997,6 @@
 			],
 			[
 				"pin",
-				"youcell/bin/ui/editer/PanelPinup.js"
-			],
-			[
-				"phy",
-				"youcell/bin/outer/PhysicalEntity.js"
-			],
-			[
-				"panel",
 				"youcell/bin/ui/editer/PanelPinup.js"
 			],
 			[
@@ -698,24 +1016,12 @@
 				"bin/outer/PhysicalEntity.js"
 			],
 			[
-				"pro",
-				"bin/inner/ProteinPool.js"
-			],
-			[
 				"amino",
 				"bin/inner/AminoAcidPool.js"
 			],
 			[
-				"cell",
-				"bin/inner/Cell.js"
-			],
-			[
 				"sett",
 				"bin/settings.js"
-			],
-			[
-				"p",
-				"bin/outer/PhysicalEntity.js"
 			],
 			[
 				"fu",
@@ -732,18 +1038,6 @@
 			[
 				"sta",
 				"bin/outer/Stain.js"
-			],
-			[
-				"boss",
-				"bin/outer/Boss.js"
-			],
-			[
-				"vi",
-				"bin/inner/monster/VirusCluster.js"
-			],
-			[
-				"vir",
-				"bin/outer/VirusCluster.js"
 			],
 			[
 				"player",
