@@ -56,16 +56,13 @@
 	
 	
 	
-	<div id="debug-output" style="float:right;position: absolute;width:400px">
+	<div id="debug-output" style="position: absolute;width:200px;right:300px;">
 		<div id="player-status"></div>
 	</div>
 	
-	<div id='menu-inner-layer-zoom' style="float:right;position: absolute;">
+	<div id='menu-inner-layer-zoom' style="float:right;position: absolute;display:none;">
 		<button title="回到主菜单" onclick=" if(!confirm('确定要放弃当前游戏，退回到主菜单吗？')) return ; cc.Director.getInstance().replaceScene( ins(yc.levels.LevelSelector) )">主菜单</button>
 	</div>
-	
-		
-	
 	
 	<!-- 建造菜单 -->
 	<div id="bulding-create-menu" class="bulding-menu" style="display:none;position:absolute ;">

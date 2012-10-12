@@ -29,6 +29,20 @@ var YouCellGame = cc.Application.extend({
             , {type:"image", src:"res/virus24.png"}
             , {type:"image", src:"res/boss-a-48.png"}
             , {type:"image", src:"res/boss-a-24.png"}
+
+            , {type:"image", src:"res/bg300x200.png"}
+            , {type:"image", src:"res/bg200x300.png"}
+            , {type:"image", src:"res/btn-pause.png"}
+            , {type:"image", src:"res/btn-pause-1.png"} 
+            , {type:"image", src:"res/btn-back.png"}
+            , {type:"image", src:"res/btn-back-1.png"}
+            , {type:"image", src:"res/btn-sound-on.png"}
+            , {type:"image", src:"res/btn-sound-off.png"}
+            , {type:"image", src:"res/btn-no.png"}
+            , {type:"image", src:"res/btn-no-1.png"}
+            , {type:"image", src:"res/btn-yes.png"}
+            , {type:"image", src:"res/btn-yes-1.png"}
+
             , {type:"image", src:"res/mitochondria.png"}
             
             , {type:"image", src:"res/null-pinup.png"}

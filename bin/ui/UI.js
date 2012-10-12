@@ -1,7 +1,7 @@
 yc.ui.UI = function(){
 	
 	$('#menu-inner-layer-zoom').css('left',$(window).width()-$('#menu-inner-layer-zoom').width()-10) ;
-	$('#debug-output').css('left',$(window).width()-$('#debug-output').width()-10) ;
+	// $('#debug-output').css('left',$(window).width()-$('#debug-output').width()-10) ;
 	
 	// 注册事件 ------------------------
 	
