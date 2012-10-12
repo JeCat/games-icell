@@ -190,6 +190,9 @@ yc.outer.VirusCluster = yc.outer.PhysicalEntity.extend({
 			}) ;
 
 			cc.Director.getInstance().getRunningScene().layerRoles.addChild(portal) ;
+
+			// 开启动画
+			portal.open() ;
 		}
 	}
 	  

@@ -176,6 +176,7 @@ yc.ui.editer.PanelRole = function(editor){
 					, killdown:[]
 					, spriter: "res/virus24.png"
 					, size: yc.settings.outer.virus.defaultSize
+					, unlockLevel: null //'c1.l1'
 				} ]
 			} ;
 			for(var i=0; i<10; i++)

@@ -93,6 +93,12 @@ yc.outer.Camera.transformSprite = function(context){
 	this.transformY = -transform.y ;
 	context.translate( this.transformX, this.transformY );
 	//context.restore() ;
+
+	if (this._rotation != 0)
+	    context.rotate(this._rotationRadians);
+
+	if ((this._scaleX != 1) || (this._scaleY != 1))
+	    context.scale(this._scaleX, this._scaleY);
 }
 
 yc.outer.Camera.worldPosX2ScreenPosX = function(x){
