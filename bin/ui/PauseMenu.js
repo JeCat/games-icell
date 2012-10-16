@@ -12,8 +12,15 @@ yc.ui.PauseMenu = cc.Layer.extend({
 	        null,
 	        this,
 	        function (sender){
-	        	if(!confirm('确定要放弃当前游戏，退回到主菜单吗？')) return ; 
-	        	cc.Director.getInstance().replaceScene( ins(yc.levels.LevelSelector) );
+	        	var msgBox = new ( yc.ui.MsgBox.extend({
+	        		YesBtnCallBack : function(){
+		        		cc.Director.getInstance().replaceScene( ins(yc.levels.LevelSelector) );
+		        		this.removeFromParentAndCleanup(true);
+		        	}
+	        	}) );
+
+	        	msgBox.setText('确定要放弃当前游戏，退回到主菜单吗？');
+				scene.layerUi.addChild(msgBox) ;
 	        }
 	    );
 
