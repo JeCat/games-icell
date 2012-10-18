@@ -10,9 +10,8 @@ yc.ui.UILayer = cc.Layer.extend({
 		this.pauseMenu = ins(yc.ui.PauseMenu) ;
 		this.addChild(this.pauseMenu) ;
 
-		// 层：msgBox
-		// this.msgBox = ins(yc.ui.MsgBox) ;
-		// this.addChild(this.msgBox) ;
+		// 
+
 	}
 	, draw: function(ctx){
 		this._super() ;

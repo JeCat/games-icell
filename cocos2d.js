@@ -60,6 +60,7 @@ var TAG_SPRITE_MANAGER = 1;
 			, 'bin/ui/DlgRewardGene.js'
 			, 'bin/ui/UILayer.js'
 			, 'bin/ui/dashboard/Dashboard.js'
+			, 'bin/ui/dashboard/Star.js'
 
 			, 'bin/ui/editer/WorldEditer.js'
 			, 'bin/ui/editer/WorldEditerLayer.js'
