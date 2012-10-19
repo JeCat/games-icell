@@ -56,16 +56,13 @@
 	
 	
 	
-	<div id="debug-output" style="float:right;position: absolute;width:400px">
+	<div id="debug-output" style="position: absolute;width:200px;right:300px;">
 		<div id="player-status"></div>
 	</div>
 	
-	<div id='menu-inner-layer-zoom' style="float:right;position: absolute;">
+	<div id='menu-inner-layer-zoom' style="float:right;position: absolute;display:none;">
 		<button title="回到主菜单" onclick=" if(!confirm('确定要放弃当前游戏，退回到主菜单吗？')) return ; cc.Director.getInstance().replaceScene( ins(yc.levels.LevelSelector) )">主菜单</button>
 	</div>
-	
-		
-	
 	
 	<!-- 建造菜单 -->
 	<div id="bulding-create-menu" class="bulding-menu" style="display:none;position:absolute ;">
@@ -456,7 +453,35 @@
 
 			<!-- 细胞 -->
 			<div id="panel-cell">
-				
+				<div>
+					<div>氨基酸</div>
+					数量：
+					<input value="10" />
+					颜色：
+					<select>
+						<option value='red'>red</option>
+						<option value='yellow'>yellow</option>
+						<option value='blue'>blue</option>
+						<option value='all'>全部</option>
+					</select>
+					<a href='#' onclick="ins(yc.ui.editer.WorldEditer).increaseAminoAcid(this);return false;">增加</a>
+				</div>
+				<div>
+					<div>蛋白质</div>
+					数量：
+					<input value="10" />
+					颜色：
+					<select>
+						<option value='red'>red</option>
+						<option value='yellow'>yellow</option>
+						<option value='blue'>blue</option>
+						<option value='orange'>orange</option>
+						<option value='green'>green</option>
+						<option value='violet'>violet</option>
+						<option value='all'>全部</option>
+					</select>
+					<a href='#' onclick="ins(yc.ui.editer.WorldEditer).increaseProtein(this);return false;">增加</a>
+				</div>
 			</div>
 			
 		</div>
@@ -527,7 +552,7 @@
 
 		<div id="mapListDiv">
 			<div id="mapListDiv_title">
-				<a id="mapListDiv_newMapBtn" href="#"  onclick="$('#mapListDiv').dialog('close');yc.levels.LevelSelector.enterLevel(yc.levels.creater)">Create my map</a>
+				<a id="mapListDiv_newMapBtn" href="#"  onclick="$('#mapListDiv').dialog('close');yc.levels.LevelSelector.enterLevel(yc.levels.creater);return false;">Create my map</a>
 				<h2>map list</h2>
 			</div>
 			<div id="mapListDiv_list">

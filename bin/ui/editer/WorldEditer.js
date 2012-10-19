@@ -28,9 +28,12 @@ yc.ui.editer.WorldEditer = function(){
 
 		// 辅助层
 		cc.Director.getInstance().getRunningScene().addChild( this.layer ) ;
+		
+		// 解锁全部 genes
+		this.unlockGenes();
 	}
 
-	this.close = function(){
+	this.close = function() {
 
 		// 关闭窗口
 		this.ui.hide() ;
@@ -46,12 +49,29 @@ yc.ui.editer.WorldEditer = function(){
 		cc.Director.getInstance().getRunningScene().layerPlayer.dontMoving = false ;	// 恢复鼠标控制玩家
 
 		this.layer.removeFromParentAndCleanup() ;
+		
+		// 恢复 genes
+		this.relockGenes();
 	}
 	
 	this.message = function(msg){
 		this.ui.find('#worldediter-message').html(msg) ;
 	}
 	
+	// genes
+	this.unlockGenes = function() {
+		this._restoreGenes = yc.charactar.dna.genes;
+		
+		var i , j;
+		for( j=0 ; j<100 ; ++j ){
+			for( i in yc.dna.genes){
+				yc.charactar.dna.obtainGene(yc.dna.genes[i]) ;
+			}
+		}
+	}
+	this.relockGenes = function() {
+		yc.charactar.dna.genes = this._restoreGenes;
+	}
 
 
 	// 角色 -----------
@@ -86,6 +106,58 @@ yc.ui.editer.WorldEditer = function(){
 	// 平衡
 	this.refreshSettings = function(){
 		new yc.ui.editer.ObjectEditer(yc.settings,$('#ul-settings')) ;
+	}
+	
+	
+	function getSelectCollor(o){
+		var parent = jQuery(o).parent();
+		var select = parent.find('select');
+		
+		var c = select.val();
+		if( 'all' == c ){
+			var options = select.get(0).options ;
+			var arrOptions = [];
+			var i;
+			for(i=0;i<options.length;++i){
+				if( 'all' != options[i].value ){
+					arrOptions[i] = options[i].value;
+				}
+			}
+			return arrOptions;
+		}
+		return c;
+	}
+	function getIncreaseNum(o){
+		var parent = jQuery(o).parent();
+		var input = parent.find('input');
+		var c = input.val();
+		return parseInt(c);
+	}
+	this.increaseAminoAcid = function(o){
+		var color = getSelectCollor(o);
+		var num = getIncreaseNum(o);
+		
+		if( 'object' == typeof color ){
+			var i;
+			for(i in color){
+				ins(yc.inner.AminoAcidPool).increase(color[i],num);
+			}
+		}else{
+			ins(yc.inner.AminoAcidPool).increase(color,num);
+		}
+	}
+	this.increaseProtein = function(o){
+		var color = getSelectCollor(o);
+		var num = getIncreaseNum(o);
+		
+		if( 'object' == typeof color ){
+			var i;
+			for(i in color){
+				ins(yc.inner.ProteinPool).increase(color[i],num);
+			}
+		}else{
+			ins(yc.inner.ProteinPool).increase(color,num);
+		}
 	}
 
 
@@ -270,6 +342,3 @@ $('body , canvas').keydown(function(event){
 
 
 yc.ui.editer.WorldEditer.singleton = true ;
-
-
-
