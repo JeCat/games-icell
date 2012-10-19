@@ -269,3 +269,44 @@ yc.inner.Cell.prototype.revive = function(){
 //	ins(yc.outer.Cell).jump(0,0) ;
 }
 
+
+/**
+ * 导出为 json
+ */
+yc.inner.Cell.prototype.exportScript = function(){
+	var script = {};
+	
+	var i;
+	
+	script.map = [] ;
+	
+	var m = {
+		type: this.nucleus.type,
+		x: this.nucleus.x,
+		y: this.nucleus.y
+	};
+	script.map.push(m);
+	
+	for( i in this.membranes ){
+		var m = {
+			type : this.membranes[i].type,
+			x: this.membranes[i].x,
+			y: this.membranes[i].y
+		};
+		script.map.push(m);
+	}
+	
+	for( i in this.cytoplasms ){
+		if( this.cytoplasms[i].building ){
+			var m = {
+				type: this.cytoplasms[i].type,
+				x: this.cytoplasms[i].x,
+				y: this.cytoplasms[i].y,
+				className: this.cytoplasms[i].building.constructor.className,
+			};
+			script.map.push(m);
+		}
+	}
+	
+	return script;
+}
