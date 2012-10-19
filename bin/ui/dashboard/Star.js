@@ -67,7 +67,6 @@ var Star = cc.Sprite.extend({
 
         ins(yc.inner.building.ProteinFactory).singleComposite( this.getFormula() );
 
-
         if(!this.bAutoMode){
             this.setTexture(this._arrTextures[0]);
         }
@@ -93,6 +92,7 @@ var Star = cc.Sprite.extend({
             this.setTexture(this._arrTextures[0]);
             this.bAutoMode = false;
         }
+        ins(yc.inner.ProteinFormulas).toggle( this.getFormula().name );
     }
     
     , setClickable : function(bAble){
@@ -109,7 +109,6 @@ var Star = cc.Sprite.extend({
         this.nTime = Date.parse(new Date())/1000 ;
         this.interval = setInterval(function(){
             var howLongPress = Date.parse(new Date())/1000 - target.nTime;
-            console.log(howLongPress);
             if( howLongPress > 1){
                 target.toglleAutoMode();
                 clearInterval(target.interval);

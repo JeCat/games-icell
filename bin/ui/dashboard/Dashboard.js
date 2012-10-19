@@ -78,7 +78,7 @@ yc.ui.dashboard.Dashboard = cc.Layer.extend({
 		var formulas = ins(yc.inner.ProteinFormulas).mapFormulas ;
 		for(var name in formulas)
 		{
-			var star = Star.starWithTexture("res/btn-composition.png" , "res/btn-composition-selected.png" , "res/btn-composition-light.png");
+			var star = Star.starWithTexture("res/star.png" , "res/star-light.png" , "res/star-light.png");
 			star.setFormula(formulas[name]);
 			this.proteinsStars[name] = star ;
 
