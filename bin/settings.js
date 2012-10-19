@@ -270,7 +270,42 @@ yc.settings = {
 	}
 	
 	, dbg: true
+
+
+
+	// 内置 章节和关卡
+	, buildin_chapter_levels:{
+
+
+		// 第一章
+		'c1' : {
+			title: "马桶"
+
+			// 关卡地图
+			, levelsMapImg: "res/map1.jpg"
+
+			, levels: {
+				'c1.l1': {
+					// 在关卡地图上的位置
+					x: 100
+					, y: 100
+					, title: null		// (可选)
+				}
+
+				, 'c1.l2': {
+					// 在关卡地图上的位置
+					x: 200
+					, y: 200
+					, title: null
+				}
+			}
+		}
+	}
 } 
+
+
+
+
 
 
 
