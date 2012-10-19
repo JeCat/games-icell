@@ -63,12 +63,12 @@ yc.inner.building.ProteinFactory = yc.inner.building.Building.extend({
 			// 检查氨基酸
 			if(!this.checkingMaterials(formula))
 			{
-				formula.ui.find('.formula-msg').text('原料不足').show() ;
+				// formula.ui.find('.formula-msg').text('原料不足').show() ;
 				continue ;
 			}
 			else
 			{
-				formula.ui.find('.formula-msg').text('暂停').hide() ;
+				// formula.ui.find('.formula-msg').text('暂停').hide() ;
 			}
 				
 			this.working_formula = formula ;
@@ -88,11 +88,11 @@ yc.inner.building.ProteinFactory = yc.inner.building.Building.extend({
 						  //1000 * (this.working_formula.total / this.composition_efficient) / 10) ;
 	   
 		this.composition_progress = 0 ;
-		this.working_formula.ui.find('.protein-composite-progress').show().progressbar({value:0}) ;
+		// this.working_formula.ui.find('.protein-composite-progress').show().progressbar({value:0}) ;
 		this.working_formula.status = 'compositing' ;
 		
 		// 禁用暂停按钮
-		this.working_formula.ui.find('.protein-formula-togglebtn').attr('disabled',true) ;
+		// this.working_formula.ui.find('.protein-formula-togglebtn').attr('disabled',true) ;
 			
 		// 消耗氨基酸
 		for(var key in formula.materials)
@@ -103,7 +103,7 @@ yc.inner.building.ProteinFactory = yc.inner.building.Building.extend({
 		var func = function(){
 			factory.composition_progress+= 10000 ;			
 		  //factory.composition_progress+= 10 ;			
-			factory.working_formula.ui.find('.protein-composite-progress').show().progressbar({value:factory.composition_progress}) ;
+			// factory.working_formula.ui.find('.protein-composite-progress').show().progressbar({value:factory.composition_progress}) ;
 			
 			// 
 			if( factory.composition_progress<100 )
@@ -121,7 +121,7 @@ yc.inner.building.ProteinFactory = yc.inner.building.Building.extend({
 				ins(yc.inner.ProteinPool).increase(factory.working_formula.name,1) ;
 				
 				// 恢复暂停按钮
-				factory.working_formula.ui.find('.protein-formula-togglebtn').attr('disabled',false) ;
+				// factory.working_formula.ui.find('.protein-formula-togglebtn').attr('disabled',false) ;
 		
 				// next
 				factory.startComposite() ;
@@ -140,12 +140,12 @@ yc.inner.building.ProteinFactory = yc.inner.building.Building.extend({
 		// 检查氨基酸
 		if(!this.checkingMaterials(formula))
 		{
-			formula.ui.find('.formula-msg').text('原料不足').show() ;
+			// formula.ui.find('.formula-msg').text('原料不足').show() ;
 			return;
 		}
 		else
 		{
-			formula.ui.find('.formula-msg').text('暂停').hide() ;
+			// formula.ui.find('.formula-msg').text('暂停').hide() ;
 		}
 
 		// 消耗氨基酸

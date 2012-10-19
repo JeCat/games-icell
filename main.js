@@ -24,6 +24,7 @@ var YouCellGame = cc.Application.extend({
             , {type:"image", src:"res/CloseSelected.png"}
             
             , {type:"image", src:"res/btn-composition.png"}
+            , {type:"image", src:"res/btn-composition-light.png"}
             , {type:"image", src:"res/btn-composition-selected.png"}
             , {type:"image", src:"res/pin_map.png"}
             , {type:"image", src:"res/virus24.png"}

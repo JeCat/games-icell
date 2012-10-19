@@ -1,19 +1,25 @@
 
 
-function moremoney()
+function moremoney(AminoAcid , Protein)
 {
+	if(!$.isNumeric(AminoAcid)){
+		AminoAcid = 10;
+	}
+	if(!$.isNumeric(Protein)){
+		Protein = 500;
+	}
 	//  氨基酸池
 	ins(yc.inner.AminoAcidPool)
-		.increase('red',10)
-		.increase('yellow',10)
-		.increase('blue',10) ;
+		.increase('red',AminoAcid)
+		.increase('yellow',AminoAcid)
+		.increase('blue',AminoAcid) ;
 	//  蛋白质
-	ins(yc.inner.ProteinPool).increase('red',500) ;
-	ins(yc.inner.ProteinPool).increase('yellow',500) ;
-	ins(yc.inner.ProteinPool).increase('blue',500) ;
-	ins(yc.inner.ProteinPool).increase('orange',500) ;
-	ins(yc.inner.ProteinPool).increase('green',500) ;
-	ins(yc.inner.ProteinPool).increase('violet',500) ;
+	ins(yc.inner.ProteinPool).increase('red',Protein) ;
+	ins(yc.inner.ProteinPool).increase('yellow',Protein) ;
+	ins(yc.inner.ProteinPool).increase('blue',Protein) ;
+	ins(yc.inner.ProteinPool).increase('orange',Protein) ;
+	ins(yc.inner.ProteinPool).increase('green',Protein) ;
+	ins(yc.inner.ProteinPool).increase('violet',Protein) ;
 }
 
 function newVirusCluster(){

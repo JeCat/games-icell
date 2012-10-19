@@ -43,6 +43,9 @@ yc.inner.monster.VirusCluster = cc.Sprite.extend({
 	}
 
 	, release: function(){
+		if(!this._script.viruses){
+			return;
+		}
 
 		if( this.releaseIndex>=this._script.viruses.length )
 		{

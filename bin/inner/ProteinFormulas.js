@@ -44,42 +44,44 @@ yc.inner.ProteinFormulas = function(){
 		}
 		
 		// update ui
-		var ui = $('#protein-composition-formula-template')
-						.clone()
-						.appendTo('#protein-formulas-outer')
-						.attr('id','protein-formula-'+formula.name)
-						.show() ;
+		// var ui = $('#protein-composition-formula-template')
+		// 				.clone()
+		// 				.appendTo('#protein-formulas-outer')
+		// 				.attr('id','protein-formula-'+formula.name)
+		// 				.show() ;
 		
-		formula.ui = ui ;
-		ui.data('formula',formula) ;
+		// formula.ui = ui ;
+		// ui.data('formula',formula) ;
+
+
 		//ui.find('.formula-name').text(formula.name).css({color: formula.color}) ;
 		
 		// 显示公式
-		formula.detail = '<span style="color:'+formula.color+'">♫</span> = ' ;
-		var i = 0 ;
-		for(var key in formula.materials)
-		{
-			if(i++)
-			{
-				formula.detail+= ' + ' ;
-			}
-			formula.detail+= '<span style="color:'+key+'">♪ '+formula.materials[key]+'</span>' ;
-		}
-		ui.find('.formula-display').html(formula.detail) ;
+		// formula.detail = '<span style="color:'+formula.color+'">♫</span> = ' ;
+		// var i = 0 ;
+		// for(var key in formula.materials)
+		// {
+		// 	if(i++)
+		// 	{
+		// 		formula.detail+= ' + ' ;
+		// 	}
+		// 	formula.detail+= '<span style="color:'+key+'">♪ '+formula.materials[key]+'</span>' ;
+		// }
+		// ui.find('.formula-display').html(formula.detail) ;
 		
 		// 维护链表
 		if( !this.first )
 		{
 			this.first = formula ;
-			this.first.ui.attr('first','first') ;
+			this.first.first = 'first';
 			this.last = formula ;
 		}
 		
 		this.last.next = formula ;
-		this.last.ui.removeAttr('last') ;
+		this.last.last = null;
 		
 		this.last = formula ;
-		formula.ui.attr('last','last') ;
+		formula.last = 'last' ;
 		formula.next = this.first ;
 		
 		
@@ -104,14 +106,14 @@ yc.inner.ProteinFormulas = function(){
 		else if(this.mapFormulas[name].status=='pause')
 		{
 			this.mapFormulas[name].status = 'waiting' ;
-			this.mapFormulas[name].ui.find('.protein-formula-togglebtn').text('暂停') ;
-			this.mapFormulas[name].ui.find('.formula-msg').text('').hide() ;
+			// this.mapFormulas[name].ui.find('.protein-formula-togglebtn').text('暂停') ;
+			// this.mapFormulas[name].ui.find('.formula-msg').text('').hide() ;
 		}
 		else if(this.mapFormulas[name].status=='waiting')
 		{
 			this.mapFormulas[name].status = 'pause' ;
-			this.mapFormulas[name].ui.find('.protein-formula-togglebtn').text('自动') ;
-			this.mapFormulas[name].ui.find('.formula-msg').text('暂停').show() ;
+			// this.mapFormulas[name].ui.find('.protein-formula-togglebtn').text('自动') ;
+			// this.mapFormulas[name].ui.find('.formula-msg').text('暂停').show() ;
 		}
 	}
 	

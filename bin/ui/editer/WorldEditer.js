@@ -262,9 +262,22 @@ $('body , canvas').keydown(function(event){
 		case 55:
 		case 56:
 		case 57:
+			if(!event.ctrlKey){
+				return;
+			}
 			var index = event.keyCode - 48;
-			$("#lst-stain-points option").get(index).click();
-			$("#btn-stain-position").click();
+			var option = $("#lst-stain-points option").get(index);
+			if(option){
+				option.click();
+				$("#btn-stain-position").click();
+			}else{
+				return;
+			}
+
+			break;
+			
+		default : 
+			// do nothing 
 	}
 });
 
