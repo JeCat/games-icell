@@ -329,6 +329,9 @@ yc.GameScene = cc.Scene.extend({
 		script.pinups.foreground = this.layerFg._script ;	// 导出 前景层 上的贴图
 		script.pinups.background = this.layerBg._script ;	// 导出 背景层 上的贴图
 		script.pinups.perspective = this.layerPg._script ;	// 导出 远景层 上的贴图
+		
+		// cell
+		script.cell = ins(yc.inner.Cell).exportScript();
 
 
 		return script ;
