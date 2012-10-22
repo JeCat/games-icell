@@ -1,22 +1,44 @@
 yc.levels.LevelSelector = cc.Scene.extend({
+	menuLogin : null
+	, menuLevelSelect : null
+	, actionShow : null
 	
-	ctor: function(){}
+	, ctor: function(){}
 
 	, onEnter: function(){
-		
-		$('#ui-levels-selector').show()
-			.css('left',$(window).width()/2-$('#ui-levels-selector').width()/2) 
-			.css('top',$(window).height()/4-$('#ui-levels-selector').height()/2) 
 
-        var item1 = cc.MenuItemFont.create("Test pushScene", this, this.onPushScene);
-        var item2 = cc.MenuItemFont.create("Test pushScene w/transition", this, this.onPushSceneTran);
-        var item3 = cc.MenuItemFont.create("Quit", this, function () {
-            alert("quit");
+		var itemWeibo = cc.MenuItemFont.create("weibo", this, function(){
+			window.open('/service/sina_user/login.php');
+        });
+        var itemTest = cc.MenuItemFont.create("TEST", this, function(){
+        	loginCallback("0#test");
+        	this.menuLevelSelect.setVisible(true);
+        	this.menuLevelSelect.runAction(cc.Sequence.create(this.actionShow));
+        	this.menuLogin.runAction(cc.Sequence.create(this.actionShow.reverse()));
         });
 
-        var menu = cc.Menu.create(item1, item2, item3);
-        menu.alignItemsVertically();
-        this.addChild(menu);
+        this.menuLogin = cc.Menu.create(itemWeibo, itemTest);
+        this.menuLogin.alignItemsVertically();
+        this.addChild(this.menuLogin);
+
+
+        var itemStory = cc.MenuItemFont.create("故事模式", this, function(){
+        	// $('#ui-levels-selector-menu,#ui-buildin-levels-menu').slideToggle();
+        });
+        var itemSearch = cc.MenuItemFont.create("探索模式", this, function(){
+        	mapList();
+        });
+        var itemRand = cc.MenuItemFont.create("随机关卡", this, function(){
+			cc.Director.getInstance().replaceScene( new yc.levels.FreeWorld );
+        });
+
+        this.menuLevelSelect = cc.Menu.create(itemStory, itemSearch , itemRand);
+        this.menuLevelSelect.setVisible(false);
+        this.menuLevelSelect.alignItemsVertically();
+        this.addChild(this.menuLevelSelect);
+
+        this.actionShow = cc.FadeIn.create(1);
+        // this.menuLevelSelect.runAction(cc.Sequence.create(actionShow, actionShow.reverse()));
 
 		this._super() ;
 
@@ -52,6 +74,7 @@ yc.levels.LevelSelector = cc.Scene.extend({
 
 		this._super() ;
 	}
+
 	
 }) ;
 
