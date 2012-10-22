@@ -23,7 +23,7 @@ yc.levels.LevelSelector = cc.Scene.extend({
 
 
         var itemStory = cc.MenuItemFont.create("故事模式", this, function(){
-        	// $('#ui-levels-selector-menu,#ui-buildin-levels-menu').slideToggle();
+        	cc.Director.getInstance().replaceScene( new yc.levels.StorySelector ) ;
         });
         var itemSearch = cc.MenuItemFont.create("探索模式", this, function(){
         	mapList();

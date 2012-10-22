@@ -43,6 +43,7 @@ var TAG_SPRITE_MANAGER = 1;
 			, 'bin/Cocos2dPatchs.js'
 			, 'bin/GameScene.js'   
 			, 'bin/GameLayer.js'
+
 			
 			, 'bin/util/ObjectPool.js'
 			, 'bin/util/functions.js'
@@ -126,9 +127,10 @@ var TAG_SPRITE_MANAGER = 1;
 			
 			
 			, 'bin/levels/FreeWorld.js'
+			, 'bin/levels/StorySelector.js' 
 			, 'bin/levels/LevelSelector.js'
-            , 'bin/levels/c1/tutorial.js'
-			, 'bin/levels/c1/l1.js'
+   //          , 'bin/levels/c1/tutorial.js'
+			// , 'bin/levels/c1/l1.js'
 			
 			
 			, 'bin/Charactar.js'
