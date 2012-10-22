@@ -198,14 +198,11 @@ yc.levels.creater = {
 function mapList(){
 	var mapListDiv = $("#mapListDiv");
 	$('#mapListDiv_list').html('');
-	$.ajax({
-		type:'POST',
-		url: "http://icell.jecat.cn/service/map.php",
-		dataType : 'json',
-		data: {
-			'act':'list'
-		},
-		success: function(json){
+
+	$.getJSON(
+		"http://icell.jecat.cn/service/map.php?format=json&jsoncallback=?"
+		, {'act':'list'} 
+		, function(json){
 
 			var userInfo = unEncryptUserInfo(icell_userInfo);
 
@@ -225,8 +222,7 @@ function mapList(){
 				$('#mapListDiv_list').append(li);
 			});
 		}
-	});
-
+	);
 
 	mapListDiv.dialog({
 		title: 'map list'

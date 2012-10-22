@@ -7,8 +7,19 @@ yc.levels.LevelSelector = cc.Scene.extend({
 		$('#ui-levels-selector').show()
 			.css('left',$(window).width()/2-$('#ui-levels-selector').width()/2) 
 			.css('top',$(window).height()/4-$('#ui-levels-selector').height()/2) 
-			
+
+        var item1 = cc.MenuItemFont.create("Test pushScene", this, this.onPushScene);
+        var item2 = cc.MenuItemFont.create("Test pushScene w/transition", this, this.onPushSceneTran);
+        var item3 = cc.MenuItemFont.create("Quit", this, function () {
+            alert("quit");
+        });
+
+        var menu = cc.Menu.create(item1, item2, item3);
+        menu.alignItemsVertically();
+        this.addChild(menu);
+
 		this._super() ;
+
 
 		if( location!==undefined && yc.levels.LevelSelector.autoLoadByUrl )
 		{
@@ -28,6 +39,7 @@ yc.levels.LevelSelector = cc.Scene.extend({
 			if( 'cl' in url.anchorParams )
 			{
 				// todo by kongyuan ...
+				// what fuck ... --by kongyuan
 			}
 
 			// 只自动加载一次
