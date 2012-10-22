@@ -404,6 +404,12 @@ yc.GameScene = cc.Scene.extend({
 				this.layerFg.initWithScript(script.pinups.foreground) ;
 			}
 		}
+		
+		// cell
+		if( 'cell' in script ){
+			var innerCell = new yc.inner.Cell ;
+			innerCell.initWithScript(script.cell);
+		}
 	}
 	
 	// 关卡脚本的标准格式：

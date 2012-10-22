@@ -310,3 +310,31 @@ yc.inner.Cell.prototype.exportScript = function(){
 	
 	return script;
 }
+
+/**
+ * 从 json 导入
+ */
+yc.inner.Cell.prototype.initWithScript = function( script ){
+	var i;
+	var menu = ins(yc.ui.BuildingCreateMenu) ;
+	for( i in script.map ){
+		var m = script.map[i] ;
+		switch(m.type){
+			case 'cytoplasm':
+				var item = null ;
+				switch( m.className ){
+					case 'yc.inner.building.TowerShooter':
+						item = menu.items.shooter;
+						break;
+					case 'yc.inner.building.ProteinFactory':
+						item = menu.hideItems.factory;
+						break;
+					default:
+						log( 'unknow className:',m.className );
+						break;
+				}
+				menu.createBuilding( this.aAxes.hexgon(m.x,m.y), item ) ;
+				break;
+		}
+	}
+}
