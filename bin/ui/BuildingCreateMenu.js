@@ -99,6 +99,25 @@ yc.ui.BuildingCreateMenu = function(){
 				return ins(yc.inner.Cell).grown < yc.charactar.dna.genes.grow.superimposing ;
 			}
 		}
+		
+		, eye: {
+			title: '眼睛'
+			, description: '一双美丽的大眼睛'
+			, hexgonTypes: ['membrane']
+			, cost: function(){
+				return {
+					red: 1
+					, yellow: 1
+					, blue: 1
+				}
+			}
+			, buildingClass: yc.inner.organ.Eye
+			, isUnlock: function(){
+				return yc.charactar.dna.genes['eye']!==undefined ;
+			}
+			, isBlock: false
+			, layer: 'OrganLayer'
+		}
 	} ;
 
 
@@ -229,9 +248,12 @@ yc.ui.BuildingCreateMenu = function(){
 			return ;
 		}
 		
-		// 检查路径 ------
-		var oriBlock = hexgon.block ;
-		hexgon.block = true ;
+		if( item.isBlock ){
+			// 检查路径 ------
+			var oriBlock = hexgon.block ;
+			hexgon.block = true ;
+		}
+		
 		// 重新计算路径
 		var cell = ins(yc.inner.InnerLayer).cell ;
 		var map = cell.researchPath() ;
@@ -260,9 +282,15 @@ yc.ui.BuildingCreateMenu = function(){
 			log(item.title + " has no avalid class") ;
 			return ;
 		}
-		var building = inner.buildings.createBuilding(item.buildingClass,hexgon.x,hexgon.y) ;
-		building.info = item ;
-		building.cost = item.cost() ;
+		
+		var building = null ;
+		if( 'OrganLayer' == item.layer ){
+			building = ins(yc.inner.organ.OrganLayer).createBuilding(item,hexgon);
+		}else{
+			building = inner.buildings.createBuilding(item.buildingClass,hexgon.x,hexgon.y) ;
+			building.info = item ;
+			building.cost = item.cost() ;
+		}
 		
 		return building ;
 	}

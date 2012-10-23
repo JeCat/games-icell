@@ -9,6 +9,10 @@ yc.outer.Cell = yc.outer.PhysicalEntity.extend({
 		this.layerInner = ins(yc.inner.InnerLayer) ;
 		this.addChild(this.layerInner) ;
 		
+		// 层：器官
+		this.layerOrgan = ins(yc.inner.organ.OrganLayer);
+		this.addChild( this.layerOrgan );
+		
 		// 细胞外壳 -------
 		var cell = this ;
 		this.shell = new cc.Sprite() ;

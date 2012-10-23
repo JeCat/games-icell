@@ -11,6 +11,7 @@ yc.inner = {} ;
 yc.inner.building = {} ;
 yc.inner.building.up = {} ;
 yc.inner.monster = {} ;
+yc.inner.organ= {};
 yc.dna = {} ;
 yc.actions = {} ;
 yc.levels = {} ;
@@ -105,6 +106,10 @@ var TAG_SPRITE_MANAGER = 1;
 			, 'bin/inner/building/up/TowerFirepower.js'
 			, 'bin/inner/building/up/TowerBombing.js'
 			, 'bin/inner/building/up/TowerRetardment.js'
+			
+			, 'bin/inner/organ/OrganLayer.js'
+			, 'bin/inner/organ/Organ.js'
+			, 'bin/inner/organ/Eye.js'
 
 			, 'bin/inner/monster/Mitochondria.js'
 			, 'bin/inner/monster/FlopAminoAcid.js'
