@@ -44,11 +44,6 @@ var BuildingBtn = cc.Sprite.extend({
         return true;
     }
     ,onTouchMoved:function (touch, event) {
-        cc.Assert(this._state == BUILDINGBTN_STATE_GRABBED, "BuildingBtn - Unexpected state!");
-
-        var touchPoint = touch.getLocation();
-
-        this.setPosition(cc.p(touchPoint.x, touchPoint.y));
     }
     ,onTouchEnded:function (touch, event) {
         cc.Assert(this._state == BUILDINGBTN_STATE_GRABBED, "BuildingBtn - Unexpected state!");

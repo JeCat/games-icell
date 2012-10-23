@@ -25,6 +25,9 @@ yc.outer.PlayerLayer = cc.Layer.extend({
 		
 		this.followPoint = false ;
 		this.dontMoving = false ;
+
+		//细胞头部是否面向光标
+		this.setNeedFaceToPoint(true) ;
 	}
 
 	, onTouchesBegan: function(touches, event){
@@ -39,13 +42,17 @@ yc.outer.PlayerLayer = cc.Layer.extend({
 	, onTouchesMoved: function(touches, event){
 		
 		var wsize = cc.Director.getInstance().getWinSize() ;
-		this.cell.rotationTarget = yc.util.radianBetweenPoints(wsize.width/2,wsize.height/2,touches[0]._point.x,touches[0]._point.y) ;
+		var radianBetweenPoints = yc.util.radianBetweenPoints(wsize.width/2,wsize.height/2,touches[0]._point.x,touches[0]._point.y) ;
+
+		if(this.getNeedFaceToPoint()){
+			this.cell.rotationTarget = radianBetweenPoints;
+		}
 
 		if(!this.dontMoving)
 		{
 			if(this.followPoint)
 			{
-				this.cell.angle = this.cell.rotationTarget ;
+				this.cell.angle = radianBetweenPoints;
 				this.cell.updateVelocity() ;
 			}
 		}
@@ -142,6 +149,12 @@ yc.outer.PlayerLayer = cc.Layer.extend({
 			this.cell.run(4) ;
 			this.cell.updateVelocity() ;
 		}
+	}
+	, setNeedFaceToPoint : function(bNeed){
+		this.bNeedFaceToPoint = Boolean(bNeed);
+	}
+	, getNeedFaceToPoint : function(){
+		return Boolean( this.bNeedFaceToPoint );
 	}
 	
 	, transform: yc.cocos2d.patchs.Node.transform

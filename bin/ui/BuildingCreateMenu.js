@@ -138,10 +138,9 @@ yc.ui.BuildingCreateMenu = function(){
 				continue ;
 			}
 			
-			var itemUi = $('#bulding-create-template').clone()
-							.appendTo('#bulding-create-items')
-							.attr('id','')
-							.show() ;
+			var itemUi = BuildingBtn.starWithTexture("res/btn-back.png") ;
+
+
 			itemUi.find('.title').html(item.title) ;
 			itemUi.find('.description').html(item.description) ;
 			itemUi.find('.cost').html( '费用：'+yc.ui.costHtml(item.cost()) ) ;

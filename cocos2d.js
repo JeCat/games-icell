@@ -54,6 +54,7 @@ var TAG_SPRITE_MANAGER = 1;
 			, 'bin/util/DbgPannel.js'
 			
 			, 'bin/ui/UI.js'
+			, 'bin/ui/BuildingBtn.js'
 			, 'bin/ui/BuildingCreateMenu.js'
 			, 'bin/ui/BuildingUpgradeMenu.js'
 			, 'bin/ui/PauseMenu.js'
