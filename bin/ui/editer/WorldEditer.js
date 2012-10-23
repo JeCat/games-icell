@@ -230,7 +230,7 @@ function worldList(){
 
 				//world owner ?
 				if(b['uid'] == userInfo['uid'] && b['service'] == userInfo['service']){
-					li.find('.worldListDiv_list_span').after('<a class="worldListDiv_list_a" href="#" onclick="editWorld('+b['wid']+');return false;">edit</a>');
+					li.find('.worldListDiv_list_span').after('<a class="worldListDiv_list_a" href="#" onclick="initWorld('+b['wid']+' , true);return false;">edit</a>');
 				}
 
 				$('#worldListDiv_list').append(li);
@@ -246,7 +246,7 @@ function worldList(){
 
 }
 
-function initWorld(wid){
+function initWorld(wid , edit){
 	$.getJSON(
 		"http://icell.jecat.cn/service/world.php?format=json&jsoncallback=?"
 		, {
