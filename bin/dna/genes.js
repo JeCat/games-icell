@@ -32,6 +32,13 @@ yc.dna.genes = {
 		, title: '[解锁]生长'
 		, description: '解锁：允许细胞扩充新的格子'
 	})
+	
+	// 器官
+	, 'eye': new yc.dna.Gene({
+		name: 'eye'
+		, title: '[解锁]眼睛'
+		, description: '解锁：允许建造眼睛'
+	})
 
 	// 升级
 	, 'tower:firepower': new yc.dna.GeneBuildingUpgrader({
