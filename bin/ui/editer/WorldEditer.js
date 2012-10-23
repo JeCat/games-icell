@@ -211,7 +211,7 @@ function mapList(){
 				var li = $("<div class='mapListDiv_list_li'>"
 							+ "<a href='#' onclick='initMap("+b['mid']+");return false;' class='mapListDiv_list_a'>"+b['mapname']+"</a><br/>"
 							+ "<span class='mapListDiv_list_span'>"+b['createTime']+"</span><br/>"
-							+ "<img class='mapListDiv_thumb' src='"+b['thumbName']+"'/>"
+							+ "<img class='mapListDiv_thumb' src='http://icell.jecat.cn/thumb/"+b['thumbName']+"'/>"
 						+ "</div>");
 
 				//map owner ?
@@ -233,15 +233,13 @@ function mapList(){
 }
 
 function initMap(mid){
-	$.ajax({
-		type:'POST',
-		url: "http://icell.jecat.cn/service/map.php",
-		dataType : 'json',
-		data: {
+	$.getJSON(
+		"http://icell.jecat.cn/service/map.php?format=json&jsoncallback=?"
+		, {
 			'act':'data'
 			, 'mid':mid
-		},
-		success: function(json){
+		}
+		, function(json){
 
 			cc.Director.getInstance().replaceScene(new (yc.GameScene.extend({
 				onEnter: function(){
@@ -253,7 +251,7 @@ function initMap(mid){
 
 			$("#mapListDiv").dialog("close");
 		}
-	});
+	);
 }
 
 function editMap(mid){
