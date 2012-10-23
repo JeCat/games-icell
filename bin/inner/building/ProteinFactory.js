@@ -33,11 +33,6 @@ yc.inner.building.ProteinFactory = yc.inner.building.Building.extend({
 	
 	, startComposite: function(){
 		
-		if(this.bStop)
-		{
-			return ;
-		}
-		
 		var factory = this ;
 		
 		
@@ -51,11 +46,10 @@ yc.inner.building.ProteinFactory = yc.inner.building.Building.extend({
 		this.working_formula = null ;
 		
 		do{
-			
 			var formula = formula.next ;
 			
 			// 检查状态
-			if(formula.status!='waiting')
+			if(formula.status!='compositing')
 			{
 				continue ;
 			}
@@ -84,12 +78,12 @@ yc.inner.building.ProteinFactory = yc.inner.building.Building.extend({
 		
 		
 		// 开始合成过程
-		var freq = Math.round( 1 * (this.working_formula.total / this.composition_efficient) / 10) ;
-						  //1000 * (this.working_formula.total / this.composition_efficient) / 10) ;
+		// var freq = Math.round( 1 * (this.working_formula.total / this.composition_efficient) / 10) ;
+		var freq = Math.round( 1000 * (this.working_formula.total / this.composition_efficient) / 10) ;
 	   
 		this.composition_progress = 0 ;
 		// this.working_formula.ui.find('.protein-composite-progress').show().progressbar({value:0}) ;
-		this.working_formula.status = 'compositing' ;
+		// this.working_formula.status = 'compositing' ;
 		
 		// 禁用暂停按钮
 		// this.working_formula.ui.find('.protein-formula-togglebtn').attr('disabled',true) ;
@@ -101,8 +95,8 @@ yc.inner.building.ProteinFactory = yc.inner.building.Building.extend({
 		}
 			
 		var func = function(){
-			factory.composition_progress+= 10000 ;			
-		  //factory.composition_progress+= 10 ;			
+			// factory.composition_progress+= 10000 ;			
+		  	factory.composition_progress+= 10 ;			
 			// factory.working_formula.ui.find('.protein-composite-progress').show().progressbar({value:factory.composition_progress}) ;
 			
 			// 
@@ -114,8 +108,8 @@ yc.inner.building.ProteinFactory = yc.inner.building.Building.extend({
 			// 完成
 			else
 			{
-				factory.working_formula.status = 'waiting' ;
-				factory.working_formula.ui.find('.protein-composite-progress').hide() ;
+				// factory.working_formula.status = 'pause' ;
+				// factory.working_formula.ui.find('.protein-composite-progress').hide() ;
 				
 				// 增加蛋白质池中的存数
 				ins(yc.inner.ProteinPool).increase(factory.working_formula.name,1) ;
@@ -124,7 +118,9 @@ yc.inner.building.ProteinFactory = yc.inner.building.Building.extend({
 				// factory.working_formula.ui.find('.protein-formula-togglebtn').attr('disabled',false) ;
 		
 				// next
-				factory.startComposite() ;
+				if(factory.working_formula.status == 'compositing'){
+					factory.startComposite() ;
+				}
 				/*setTimeout(function(){
 					
 					// next

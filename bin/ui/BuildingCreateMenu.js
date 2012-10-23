@@ -126,7 +126,6 @@ yc.ui.BuildingCreateMenu = function(){
 	})
 
 	this.show = function(hexgon){
-
 		var inner = ins(yc.inner.InnerLayer) ;
 		
 		this.ui.find('#bulding-create-items').html("") ;
@@ -265,6 +264,8 @@ yc.ui.BuildingCreateMenu = function(){
 		var building = inner.buildings.createBuilding(item.buildingClass,hexgon.x,hexgon.y) ;
 		building.info = item ;
 		building.cost = item.cost() ;
+		
+		return building ;
 	}
 }
 

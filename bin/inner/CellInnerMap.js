@@ -121,7 +121,7 @@ yc.inner.CellInnerMap = cc.Layer.extend({
 		ctx.restore() ;
 	}
 	
-	, _touchHexgon: function(touches){
+	, _touchHexgon: function(touches , bTouchMove){
 
 		if(touches.length<1){ return null ; }
 		
@@ -142,7 +142,9 @@ yc.inner.CellInnerMap = cc.Layer.extend({
 		if( hexgon && hexgon.type!==null )
 		{
 			this.selcted_hexgon = hexgon ;
-			this.selcted_hexgon.selected = true ;
+			if(!bTouchMove){
+				this.selcted_hexgon.selected = true ;
+			}
 		}
 		
 		return this.selcted_hexgon ;
@@ -161,7 +163,7 @@ yc.inner.CellInnerMap = cc.Layer.extend({
 	}
 	
 	, onTouchesMoved: function(touches, event){
-		return (!this.touching && this._touchHexgon(touches))? false: undefined ;
+		return (!this.touching && this._touchHexgon(touches , true))? false: undefined ;
 	}
 	
 	, onTouchesEnded:function (touches, event) {
@@ -190,5 +192,4 @@ yc.inner.CellInnerMap = cc.Layer.extend({
 	}
 	
 	, transform: cc.Sprite.prototype.transform
-});  
-
+});

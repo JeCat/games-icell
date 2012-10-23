@@ -101,20 +101,28 @@ yc.inner.ProteinFormulas = function(){
 	{
 		if(this.mapFormulas[name].status=='compositing')
 		{
-			return ;
-		}
-		else if(this.mapFormulas[name].status=='pause')
+			this.mapFormulas[name].status = 'pause'
+		}else if(this.mapFormulas[name].status=='pause')
 		{
-			this.mapFormulas[name].status = 'waiting' ;
-			// this.mapFormulas[name].ui.find('.protein-formula-togglebtn').text('暂停') ;
-			// this.mapFormulas[name].ui.find('.formula-msg').text('').hide() ;
+			this.mapFormulas[name].status = 'compositing' ;
 		}
-		else if(this.mapFormulas[name].status=='waiting')
-		{
-			this.mapFormulas[name].status = 'pause' ;
-			// this.mapFormulas[name].ui.find('.protein-formula-togglebtn').text('自动') ;
-			// this.mapFormulas[name].ui.find('.formula-msg').text('暂停').show() ;
-		}
+
+		// if(this.mapFormulas[name].status=='compositing')
+		// {
+		// 	return ;
+		// }
+		// else if(this.mapFormulas[name].status=='pause')
+		// {
+		// 	this.mapFormulas[name].status = 'waiting' ;
+		// 	// this.mapFormulas[name].ui.find('.protein-formula-togglebtn').text('暂停') ;
+		// 	// this.mapFormulas[name].ui.find('.formula-msg').text('').hide() ;
+		// }
+		// else if(this.mapFormulas[name].status=='waiting')
+		// {
+		// 	this.mapFormulas[name].status = 'pause' ;
+		// 	// this.mapFormulas[name].ui.find('.protein-formula-togglebtn').text('自动') ;
+		// 	// this.mapFormulas[name].ui.find('.formula-msg').text('暂停').show() ;
+		// }
 	}
 	
 	

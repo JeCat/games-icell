@@ -1,25 +1,44 @@
 yc.levels.LevelSelector = cc.Scene.extend({
-	
-	ctor: function(){
-		this._super() ;
-	}
+	menuLogin : null
+	, menuLevelSelect : null
+	, actionShow : null
 
 	, onEnter: function(){
-		
-		$('#ui-levels-selector').show()
-			.css('left',$(window).width()/2-$('#ui-levels-selector').width()/2) 
-			.css('top',$(window).height()/4-$('#ui-levels-selector').height()/2) 
-			
+
+		var itemWeibo = cc.MenuItemFont.create("weibo", this, function(){
+			window.open('/service/sina_user/login.php');
+        });
+        var itemTest = cc.MenuItemFont.create("TEST", this, function(){
+        	loginCallback("0#test");
+        	this.menuLevelSelect.setVisible(true);
+        	this.menuLevelSelect.runAction(cc.Sequence.create(this.actionShow));
+        	this.menuLogin.runAction(cc.Sequence.create(this.actionShow.reverse()));
+        });
+
+        this.menuLogin = cc.Menu.create(itemWeibo, itemTest);
+        this.menuLogin.alignItemsVertically();
+        this.addChild(this.menuLogin);
+
+
+        var itemStory = cc.MenuItemFont.create("故事模式", this, function(){
+        	cc.Director.getInstance().replaceScene( new yc.levels.StorySelector ) ;
+        });
+        var itemSearch = cc.MenuItemFont.create("探索模式", this, function(){
+        	mapList();
+        });
+        var itemRand = cc.MenuItemFont.create("随机关卡", this, function(){
+			cc.Director.getInstance().replaceScene( new yc.levels.FreeWorld );
+        });
+
+        this.menuLevelSelect = cc.Menu.create(itemStory, itemSearch , itemRand);
+        this.menuLevelSelect.setVisible(false);
+        this.menuLevelSelect.alignItemsVertically();
+        this.addChild(this.menuLevelSelect);
+
+        this.actionShow = cc.FadeIn.create(1);
+        // this.menuLevelSelect.runAction(cc.Sequence.create(actionShow, actionShow.reverse()));
+
 		this._super() ;
-
-            var size = cc.Director.getInstance().getWinSize();
-
-            this.sprite = cc.Sprite.create("res/null-pinup.png");
-            this.sprite.setAnchorPoint(cc.p(0.5, 0.5));
-            this.sprite.setPosition(cc.p(size.width / 2, size.height / 2));
-
-            this.addChild(this.sprite, 0);
-
 
 		if( location!==undefined && yc.levels.LevelSelector.autoLoadByUrl )
 		{
@@ -39,6 +58,7 @@ yc.levels.LevelSelector = cc.Scene.extend({
 			if( 'cl' in url.anchorParams )
 			{
 				// todo by kongyuan ...
+				// what fuck ... --by kongyuan
 			}
 
 			// 只自动加载一次
@@ -51,6 +71,7 @@ yc.levels.LevelSelector = cc.Scene.extend({
 
 		this._super() ;
 	}
+
 	
 }) ;
 
