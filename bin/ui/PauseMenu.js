@@ -36,14 +36,11 @@ yc.ui.PauseMenu = cc.Layer.extend({
 
 	    goBackToMainMenuItem.setPosition(cc.p( 20 , 20 ));
 	    soundMenuItem.setPosition(cc.p( 60 , 20 ));
-	    var attachedMenu = cc.Menu.create(goBackToMainMenuItem,soundMenuItem);
+	    this.attachedMenu = cc.Menu.create(goBackToMainMenuItem,soundMenuItem);
 
-	    var screenSize = cc.Director.getInstance().getWinSize();
-	    attachedMenu.setPosition(cc.p(screenSize.width - 120, screenSize.height - 40));
 
-	    this.addChild(attachedMenu);
-	    attachedMenu.setVisible(false);
-	    this.attachedMenu = attachedMenu;
+	    this.addChild(this.attachedMenu);
+	    this.attachedMenu.setVisible(false);
 
 		var mainMenuItem = cc.MenuItemImage.create(
 	        "res/btn-pause.png",
@@ -64,17 +61,33 @@ yc.ui.PauseMenu = cc.Layer.extend({
 
 	    mainMenuItem.setPosition(cc.p( 20 , 20 ));
 
-	    var menu = cc.Menu.create(mainMenuItem);
+	    this.mainMenu = cc.Menu.create(mainMenuItem);
 
-	    menu.setPosition(cc.p(screenSize.width - 40, screenSize.height - 40));
+	    this.addChild(this.mainMenu);
 
-	    this.addChild(menu);
-	    this.mainMenu = menu;
+	    var screenSize = cc.Director.getInstance().getWinSize();
+	    this.onResize(screenSize.width, screenSize.height);
+
 	}
 	, showMenus : function(){
 		this.attachedMenu.setVisible(true);
 	}
 	, hideMenus : function(){
 		this.attachedMenu.setVisible(false);
+	}
+
+	, onEnter : function(){
+		yc.event.register( ins(yc.outer.Camera), "resize", this.onResize, this ) ;
+		this._super() ;
+	}
+
+	, onExit : function(){
+		yc.event.unregister( ins(yc.outer.Camera), "resize", this.onResize ) ;
+		this._super() ;
+	}
+
+	, onResize : function(w,h){
+	    this.attachedMenu.setPosition(cc.p(w - 120, h - 40));
+	    this.mainMenu.setPosition(cc.p(w - 40, h - 40));
 	}
 }) ;

@@ -34,17 +34,16 @@ yc.ui.dashboard.Dashboard = cc.Layer.extend({
 		this._super() ;
 
 		var dashboard = this ;
-		var screenSize = cc.Director.getInstance().getWinSize();
-		this.starsPosition = [ 100 , screenSize.height - 120 ];
+		
 		
 		// HP 状态
-		var HP = cc.LabelTTF.create('HP 10/10','',16,new cc.Size(0,16),cc.TEXT_ALIGNMENT_LEFT,cc.VERTICAL_TEXT_ALIGNMENT_BOTTOM) ;
-		HP.setColor(new cc.Color3B(0,255,0)) ;
-		this.addChild(HP) ;
-		HP.setPosition(cc.p(40 , screenSize.height - 10));
+		dashboard.HP = cc.LabelTTF.create('HP 10/10','',16,new cc.Size(0,16),cc.TEXT_ALIGNMENT_LEFT,cc.VERTICAL_TEXT_ALIGNMENT_BOTTOM) ;
+		dashboard.HP.setColor(new cc.Color3B(0,255,0)) ;
+		this.addChild(dashboard.HP) ;
+		
 
 		$(window).bind('yc.inner.Cell::onAfterChange',null,function(e,o,val,hp){
-			HP.setString('HP '+hp+'/'+o.hpMax) ;
+			dashboard.HP.setString('HP '+hp+'/'+o.hpMax) ;
 		}) ;
 
 		/*     合成面板 start    */
@@ -123,17 +122,53 @@ yc.ui.dashboard.Dashboard = cc.Layer.extend({
 		
 		// HP 状态
 		$(window).bind('yc.inner.Cell::onAfterChange',null,function(e,o,val,hp){
-			dashboard.labelHp.setString('HP '+hp+'/'+o.hpMax) ;
+			// dashboard.labelHp.setString('HP '+hp+'/'+o.hpMax) ;
+			dashboard.HP.setString('HP '+hp+'/'+o.hpMax) ;
 			// dashboard.layout() ;
 		}) ;
-		
-		
+
+
+		var screenSize = cc.Director.getInstance().getWinSize();
+		this.onResize(screenSize.width, screenSize.height);
+	}
+
+	, onEnter : function(){
+		yc.event.register( ins(yc.outer.Camera), "resize", this.onResize, this ) ;
+		this._super() ;
+	}
+
+	, onExit : function(){
+		yc.event.unregister( ins(yc.outer.Camera), "resize", this.onResize ) ;
+		this._super() ;
 	}
 
 	, _createLabel: function(word,color){
 		var label = cc.LabelTTF.create(word,'',16,new cc.Size(0,16),cc.TEXT_ALIGNMENT_LEFT,cc.VERTICAL_TEXT_ALIGNMENT_BOTTOM) ;
 		label.setColor(color) ;
 		return label ;
+	}
+
+	, onResize : function(w,h){
+
+		this.starsPosition = [ 100 , h - 120 ];
+
+		this.HP.setPosition(cc.p(40 , h - 10));
+
+		for(var i =0 ; i< this.aminoAcidsStars.length ; i++){
+        	this.aminoAcidsStars[i].setPosition( 
+        		this.starsPosition[0] + this.aminoAcidsPositions[i][0]  
+        		, this.starsPosition[1] + this.aminoAcidsPositions[i][1]
+        	);
+        }
+
+        for(var name in this.proteinsStars){
+        	var star = this.proteinsStars[name];
+        	star.setPosition( 
+        		this.starsPosition[0] + this.proteinsPositions[name][0]  
+        		, this.starsPosition[1] + this.proteinsPositions[name][1]
+        	);
+        }
+        
 	}
 }) ;
 
