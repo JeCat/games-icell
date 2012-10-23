@@ -10,10 +10,11 @@ yc.levels.LevelSelector = cc.Scene.extend({
 		this.addChild(this.h1);
 		this.addChild(this.h2);
 
-		var itemWeibo = cc.MenuItemFont.create("weibo", this, function(){
+		var itemWeibo = cc.MenuItemImage.create( 'res/weibo_login.png' ,'res/weibo_login.png', this , function(){
 			window.open('/service/sina_user/login.php');
         });
-        itemWeibo.setFontSize(24);
+        itemWeibo.setScale(0.5);
+
         var itemTest = cc.MenuItemFont.create("test", this, function(){
         	loginCallback("0#test");
         	this.menuLevelSelect.setVisible(true);

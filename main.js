@@ -49,6 +49,8 @@ var ICellGame = cc.Application.extend({
 
 			, {type:"image", src:"res/mitochondria.png"}
 			
+			, {type:"image", src:'res/weibo_login.png'}
+			
 			, {type:"image", src:"res/null-pinup.png"}
 			, {type:"image", src:"res/null.png"}
 		]);
