@@ -126,7 +126,6 @@ yc.ui.BuildingCreateMenu = function(){
 	})
 
 	this.show = function(hexgon){
-
 		var inner = ins(yc.inner.InnerLayer) ;
 		
 		this.ui.find('#bulding-create-items').html("") ;
