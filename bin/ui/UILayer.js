@@ -10,7 +10,7 @@ yc.ui.UILayer = cc.Layer.extend({
 		this.pauseMenu = ins(yc.ui.PauseMenu) ;
 		this.addChild(this.pauseMenu) ;
 
-		// 
+		//
 
 	}
 	, draw: function(ctx){

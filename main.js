@@ -41,6 +41,12 @@ var ICellGame = cc.Application.extend({
 			, {type:"image", src:"res/btn-yes.png"}
 			, {type:"image", src:"res/btn-yes-1.png"}
 
+			, {type:"image", src:"res/building/cannon.png"}
+			, {type:"image", src:"res/building/jetter.png"}
+			, {type:"image", src:"res/building/recycle.png"}
+			, {type:"image", src:"res/building/shooter.png"}
+			, {type:"image", src:"res/building/slower.png"}
+
 			, {type:"image", src:"res/mitochondria.png"}
 			
 			, {type:"image", src:"res/null-pinup.png"}

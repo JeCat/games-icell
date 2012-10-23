@@ -1,14 +1,14 @@
 yc.inner.ProteinFormulas = function(){
 	
 	this.formulaNum = 0 ;
-	this.mapFormulas = {} ;
+	this.worldFormulas = {} ;
 	
 	this.first = null ;
 	this.last = null ;
 	
 	this.addNewFormula = function(formula)
 	{
-		if(typeof(this.mapFormulas[formula.name])!='undefined')
+		if(typeof(this.worldFormulas[formula.name])!='undefined')
 		{
 			return ;
 		}
@@ -88,7 +88,7 @@ yc.inner.ProteinFormulas = function(){
 		this.formulaNum ++ ;
 		
 		
-		this.mapFormulas[formula.name] = formula ;
+		this.worldFormulas[formula.name] = formula ;
 		
 		
 		// 触发事件
@@ -99,29 +99,29 @@ yc.inner.ProteinFormulas = function(){
 	
 	this.toggle = function(name)
 	{
-		if(this.mapFormulas[name].status=='compositing')
+		if(this.worldFormulas[name].status=='compositing')
 		{
-			this.mapFormulas[name].status = 'pause'
-		}else if(this.mapFormulas[name].status=='pause')
+			this.worldFormulas[name].status = 'pause'
+		}else if(this.worldFormulas[name].status=='pause')
 		{
-			this.mapFormulas[name].status = 'compositing' ;
+			this.worldFormulas[name].status = 'compositing' ;
 		}
 
-		// if(this.mapFormulas[name].status=='compositing')
+		// if(this.worldFormulas[name].status=='compositing')
 		// {
 		// 	return ;
 		// }
-		// else if(this.mapFormulas[name].status=='pause')
+		// else if(this.worldFormulas[name].status=='pause')
 		// {
-		// 	this.mapFormulas[name].status = 'waiting' ;
-		// 	// this.mapFormulas[name].ui.find('.protein-formula-togglebtn').text('暂停') ;
-		// 	// this.mapFormulas[name].ui.find('.formula-msg').text('').hide() ;
+		// 	this.worldFormulas[name].status = 'waiting' ;
+		// 	// this.worldFormulas[name].ui.find('.protein-formula-togglebtn').text('暂停') ;
+		// 	// this.worldFormulas[name].ui.find('.formula-msg').text('').hide() ;
 		// }
-		// else if(this.mapFormulas[name].status=='waiting')
+		// else if(this.worldFormulas[name].status=='waiting')
 		// {
-		// 	this.mapFormulas[name].status = 'pause' ;
-		// 	// this.mapFormulas[name].ui.find('.protein-formula-togglebtn').text('自动') ;
-		// 	// this.mapFormulas[name].ui.find('.formula-msg').text('暂停').show() ;
+		// 	this.worldFormulas[name].status = 'pause' ;
+		// 	// this.worldFormulas[name].ui.find('.protein-formula-togglebtn').text('自动') ;
+		// 	// this.worldFormulas[name].ui.find('.formula-msg').text('暂停').show() ;
 		// }
 	}
 	

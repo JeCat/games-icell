@@ -202,12 +202,12 @@ yc.levels.creater = {
 	}
 };
 
-function mapList(){
-	var mapListDiv = $("#mapListDiv");
-	$('#mapListDiv_list').html('');
+function worldList(){
+	var worldListDiv = $("#worldListDiv");
+	$('#worldListDiv_list').html('');
 
 	$.getJSON(
-		"http://icell.jecat.cn/service/map.php?format=json&jsoncallback=?"
+		"http://icell.jecat.cn/service/world.php?format=json&jsoncallback=?"
 		, {'act':'list'} 
 		, function(json){
 
@@ -215,36 +215,36 @@ function mapList(){
 
 			$.each( json , function(v,b){
 
-				var li = $("<div class='mapListDiv_list_li'>"
-							+ "<a href='#' onclick='initMap("+b['mid']+");return false;' class='mapListDiv_list_a'>"+b['mapname']+"</a><br/>"
-							+ "<span class='mapListDiv_list_span'>"+b['createTime']+"</span><br/>"
-							+ "<img class='mapListDiv_thumb' src='http://icell.jecat.cn/thumb/"+b['thumbName']+"'/>"
+				var li = $("<div class='worldListDiv_list_li'>"
+							+ "<a href='#' onclick='initWorld("+b['wid']+");return false;' class='worldListDiv_list_a'>"+b['worldname']+"</a><br/>"
+							+ "<span class='worldListDiv_list_span'>"+b['createTime']+"</span><br/>"
+							+ "<img class='worldListDiv_thumb' src='http://icell.jecat.cn/thumb/"+b['thumbName']+"'/>"
 						+ "</div>");
 
-				//map owner ?
+				//world owner ?
 				if(b['uid'] == userInfo['uid'] && b['service'] == userInfo['service']){
-					li.find('.mapListDiv_list_span').after('<a class="mapListDiv_list_a" href="#" onclick="editMap('+b['mid']+');return false;">edit</a>');
+					li.find('.worldListDiv_list_span').after('<a class="worldListDiv_list_a" href="#" onclick="editWorld('+b['wid']+');return false;">edit</a>');
 				}
 
-				$('#mapListDiv_list').append(li);
+				$('#worldListDiv_list').append(li);
 			});
 		}
 	);
 
-	mapListDiv.dialog({
-		title: 'map list'
+	worldListDiv.dialog({
+		title: 'world list'
 		, width:800
 		, height:500
 	});
 
 }
 
-function initMap(mid){
+function initWorld(wid){
 	$.getJSON(
-		"http://icell.jecat.cn/service/map.php?format=json&jsoncallback=?"
+		"http://icell.jecat.cn/service/world.php?format=json&jsoncallback=?"
 		, {
 			'act':'data'
-			, 'mid':mid
+			, 'wid':wid
 		}
 		, function(json){
 
@@ -256,13 +256,13 @@ function initMap(mid){
 				}
 			})));
 
-			$("#mapListDiv").dialog("close");
+			$("#worldListDiv").dialog("close");
 		}
 	);
 }
 
-function editMap(mid){
-	initMap(mid);
+function editWorld(wid){
+	initWorld(wid);
 	ins(yc.ui.editer.WorldEditer).open() ;
 }
 
@@ -284,9 +284,9 @@ function saveWorldToServer(){
 		return;
 	}
 
-	var mapName = prompt('please input map name');
-	if(!mapName){
-		$('#saveWorldMsg').html('<span id="aSaveWorldMsg">You must tell us what the map name is , save failed!</span>');
+	var worldName = prompt('please input world name');
+	if(!worldName){
+		$('#saveWorldMsg').html('<span id="aSaveWorldMsg">You must tell us what the world name is , save failed!</span>');
 		setTimeout(function(){
 			$("#aSaveWorldMsg").remove();
 		}
@@ -296,13 +296,13 @@ function saveWorldToServer(){
 
 	$.ajax({
 		type:'POST',
-		url: "http://icell.jecat.cn/service/map.php",
+		url: "http://icell.jecat.cn/service/world.php",
 		dataType : 'json',
 		data: {
 			'act':'save'
-			, 'mapInfo':worldInfo+"|^_^|"+screenshot
+			, 'worldInfo':worldInfo+"|^_^|"+screenshot
 			, 'userInfo' : icell_userInfo
-			, 'mapName' : mapName
+			, 'worldName' : worldName
 		},
 		beforeSent: function(){
 			$('#saveWorldMsg').html('<span id="aSaveWorldMsg">saving...</span>');

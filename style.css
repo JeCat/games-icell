@@ -168,22 +168,22 @@ body{
     display: none;
 }
 
-#mapListDiv{
+#worldListDiv{
     display: none;
     position: relative;
 }
 
-#mapListDiv .mapListDiv_thumb{
+#worldListDiv .worldListDiv_thumb{
     width:160px;
     height:90px;
 }
 
-#mapListDiv_title h2{
+#worldListDiv_title h2{
     display: block;
     width:500px;
 }
 
-#mapListDiv_newMapBtn{
+#worldListDiv_newMapBtn{
     display:block;
     float:right;
 }

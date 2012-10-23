@@ -74,7 +74,7 @@ yc.ui.dashboard.Dashboard = cc.Layer.extend({
         //  蛋白质
 
         // 根据关卡中已有的公式创建label
-		var formulas = ins(yc.inner.ProteinFormulas).mapFormulas ;
+		var formulas = ins(yc.inner.ProteinFormulas).worldFormulas ;
 		for(var name in formulas)
 		{
 			var star = Star.starWithTexture("res/star.png" , "res/star-light.png" , "res/star-light.png");
@@ -227,7 +227,7 @@ yc.ui.dashboard.Dashboard = cc.Layer.extend({
 	   
 		
 // 		// 根据关卡中已有的公式创建label
-// 		var formulas = ins(yc.inner.ProteinFormulas).mapFormulas ;
+// 		var formulas = ins(yc.inner.ProteinFormulas).worldFormulas ;
 // 		for(var name in formulas)
 // 		{
 // 			var fml = formulas[name] ;

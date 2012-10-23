@@ -24,7 +24,7 @@ yc.levels.LevelSelector = cc.Scene.extend({
         	cc.Director.getInstance().replaceScene( new yc.levels.StorySelector ) ;
         });
         var itemSearch = cc.MenuItemFont.create("探索模式", this, function(){
-        	mapList();
+        	worldList();
         });
         var itemRand = cc.MenuItemFont.create("随机关卡", this, function(){
 			cc.Director.getInstance().replaceScene( new yc.levels.FreeWorld );
