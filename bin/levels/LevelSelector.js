@@ -2,8 +2,6 @@ yc.levels.LevelSelector = cc.Scene.extend({
 	menuLogin : null
 	, menuLevelSelect : null
 	, actionShow : null
-	
-	, ctor: function(){}
 
 	, onEnter: function(){
 
@@ -41,7 +39,6 @@ yc.levels.LevelSelector = cc.Scene.extend({
         // this.menuLevelSelect.runAction(cc.Sequence.create(actionShow, actionShow.reverse()));
 
 		this._super() ;
-
 
 		if( location!==undefined && yc.levels.LevelSelector.autoLoadByUrl )
 		{

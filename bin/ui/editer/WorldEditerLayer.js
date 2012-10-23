@@ -4,14 +4,12 @@ yc.ui.editer.WorldEditerLayer = cc.Layer.extend({
 	
 	ctor: function(){
 		this._super() ;
-		this.setTouchEnabled(true);
-		
-		
+
 		this.worldMinX = null ;
 		this.worldMaxX = null ;
 		this.worldMinY = null ;
 		this.worldMaxY = null ;
-		
+
 		this.touchCallback = null ;
 		this.touchBeginCallback = null ;
 		this.touchMovedCallback = null ;
@@ -21,6 +19,24 @@ yc.ui.editer.WorldEditerLayer = cc.Layer.extend({
 
 		this._ptDragging = null ;
 		this._dragingScale = 1 ;
+
+
+		// 点击事件
+		this.setTouchEnabled(true);
+	}
+
+	, onEnter: function(){
+
+		this._super() ;
+
+        // resize
+		var ws = cc.Director.getInstance().getWinSize() ;
+		this.onResize(ws.width,ws.height) ;
+
+		yc.event.register( ins(yc.outer.Camera), "resize", this.onResize, this ) ;
+	}
+	, onExit: function(){
+		yc.event.unregister( ins(yc.outer.Camera), "resize", this.onResize ) ;
 	}
 
 	, _screenToWorld: function(touches) {
@@ -34,21 +50,18 @@ yc.ui.editer.WorldEditerLayer = cc.Layer.extend({
 			touches[i]._point.wy = cam.y + p[1] ;
 		}
 	}
-	
-	, onTouchesBegan: function(touches, event){
 
+	, onTouchesBegan: function(touches, event){
 		if( this.touchBeginCallback )
 		{
 			this._screenToWorld(touches) ;
 
 			return this.touchBeginCallback(touches,event) ;
 		}
-
 		if(!this.touchCallback)
 		{
 			this._ptDragging = touches[0]._point ;
 		}
-
 	}
 	, onTouchesMoved: function(touches, event) {
  
@@ -56,7 +69,6 @@ yc.ui.editer.WorldEditerLayer = cc.Layer.extend({
 		{
 			this._screenToWorld(touches) ;
 		}
-
 			
 		if( this.touchMovedCallback )
 		{
@@ -74,7 +86,6 @@ yc.ui.editer.WorldEditerLayer = cc.Layer.extend({
 			var x = cam.x - (touches[0]._point.x-this._ptDragging.x)*this._dragingScale / ins(yc.GameLayer).getScale() ;
 			var y = cam.y - (touches[0]._point.y-this._ptDragging.y)*this._dragingScale / ins(yc.GameLayer).getScale() ;
 
-
 			// log([this._ptDragging.x,this._ptDragging.y,' > ',touches[0]._point.x,touches[0]._point.y, '; scale:', this._dragingScale, '; from' ,cam.x,cam.y, ' > move to ', x,y])
 
 			cam.moveByFocus(x,y) ;
@@ -82,6 +93,7 @@ yc.ui.editer.WorldEditerLayer = cc.Layer.extend({
 			this._ptDragging = touches[0]._point ;
 		}
 	}
+
 	, onTouchesEnded:function (touches, event) {
 		if( this.touchCallback )
 		{
@@ -110,8 +122,6 @@ yc.ui.editer.WorldEditerLayer = cc.Layer.extend({
 		yc.util.drawLine([-cam.offsetX,0],[cam.offsetX,0],ctx,c) ;
 		yc.util.drawLine([0,-cam.offsetY],[0,cam.offsetY],ctx,c) ;
 
-
-
 		yc.util.text(ctx, "x:"+cam.x.toFixed(1)+", y:"+cam.y.toFixed(1) ,-30,25, "rgb(191,219,129)") ;
 
 		if(this.touchCallback)
@@ -124,6 +134,8 @@ yc.ui.editer.WorldEditerLayer = cc.Layer.extend({
 			yc.util.drawLine([0,10],[0,1],ctx,'white') ;
 			yc.util.drawLine([0,-10],[0,-1],ctx,'white') ;
 		}
+
+		//yc.util.drawCircle(ctx,0,0,300,300,"red","red")
 	}
 	
 
@@ -151,6 +163,10 @@ yc.ui.editer.WorldEditerLayer = cc.Layer.extend({
 
 			return callback(pressPt,touches[0]._point) ;
 		}
+	}
+
+	, onResize: function (w,h){
+		this.setPosition( cc.p( w/2, h/2 ) ) ;
 	}
 
 }) ;

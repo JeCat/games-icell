@@ -11,16 +11,19 @@
 	<script src="jquery.json.js"></script>
 	<script src="cocos2d.js"></script>
 	<script src="users.js"></script>
+	<style>
+	</style>
 </head>
 <body>
 
 	
 	
-	<div style="position:absolute;">
-		<canvas id="debugCanvas" style="display:none" width="2000" height="1000"></canvas>
+	<div style="position:absolute;left:400px">
+		<canvas id="debugCanvas" style="border:1px solid #EDEDED;display:none" width="400" height="300"></canvas>
 	</div>
 	<div id="stage" style="position:absolute;">
-		<canvas id="gameCanvas" width="800" height="450"></canvas>
+		<div id="editor-panel-space" style="float:left;width:0px;background-color:#efefef"></div>
+		<canvas id="gameCanvas" style="float:left" width="800" height="450"></canvas>
 	</div>
 	
 	<!-- 蛋白质合成工厂 -->
@@ -128,7 +131,7 @@
 	</div>
 	
 	<!-- 关卡编辑器 -->
-	<div id='dlg-world-editer' style='display:none;font-size:12px;position:fixed;top:0px;left:40px'>
+	<div id='world-editer' style='display:none;font-size:12px;'>
 	
 		<div id='worldediter-message'></div>
 		
@@ -281,7 +284,7 @@
 					y:<input id='ipt-pinup-scale-y' style='width:30px' value='' format="float" />
 					<br />
 
-					Img Url<input id='ipt-pinup-img-url' style='width:180px' value='' />
+					Img Url<input id='ipt-pinup-img-url' style='width:150px' value='' />
 					<br />
 
 					<label>
@@ -292,14 +295,14 @@
 					高<input id="ipt-pinup-tile-height" style="width:40px" format="int" value="100" />
 					<br />
 
-					文本<input id='ipt-pinup-text' style='width:200px' value='' /><br />
-					文本样式<input id='ipt-pinup-text-style' style='width:170px' value='' /><br />
+					文本<input id='ipt-pinup-text' style='width:170px' value='' /><br />
+					文本样式<input id='ipt-pinup-text-style' style='width:150px' value='' /><br />
 					文本颜色<input id='ipt-pinup-text-color' style='width:70px' value='' /><br />
 
 					<label style="margin-right:20px">
 						<input id="ipt-pinup-mosey" type="checkbox" />“漫步”
 					</label>
-					速度(point/sec)<input id="ipt-pinup-mosey-speed" value="10" format="float" style="width:40px" />
+					速度(point/sec)<input id="ipt-pinup-mosey-speed" value="10" format="float" style="width:30px" />
 
 					<br />
 					视差：<input id="ipt-pinup-parallax" value="1" format="float" />
@@ -409,7 +412,7 @@
 					
 							<div style="float:left;margin-left:6px">
 
-								精灵: <input id='ipt-virus-spriter' style='width:120px' value='' />
+								精灵: <input id='ipt-virus-spriter' style='width:105px' value='' />
 								<br />
 
 								掉落:
@@ -418,7 +421,7 @@
 									<option value="yellow" style="color:yellow">yellow</option>
 									<option value="blue" style="color:blue">blue</option>
 								</select>
-								<input id='ipt-virus-flop-num' style='width:40px' value='0' format="int" />
+								<input id='ipt-virus-flop-num' style='width:30px' value='0' format="int" />
 								<br />
 
 								HP: <input id='ipt-virus-hp' style='width:30px' value='' format="int" />

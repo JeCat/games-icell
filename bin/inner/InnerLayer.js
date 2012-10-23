@@ -78,7 +78,7 @@ yc.inner.InnerLayer = cc.Sprite.extend({
 //		
 //	}
 	
-	, transform: yc.cocos2d.patchs.Node.transform
+	//, transform: yc.cocos2d.patchs.Node.transform
 	
 
 	, draw: function(ctx){

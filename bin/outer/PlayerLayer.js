@@ -157,5 +157,5 @@ yc.outer.PlayerLayer = cc.Layer.extend({
 		return Boolean( this.bNeedFaceToPoint );
 	}
 	
-	, transform: yc.cocos2d.patchs.Node.transform
+	//, transform: yc.cocos2d.patchs.Node.transform
 });
