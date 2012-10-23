@@ -73,6 +73,12 @@ yc.util.arr.remove = function(arr,ele){
 	return false ;
 }
 
+yc.util.arr.merge = function(arr1,arr2){
+	for(var i=0;i<arr2.length;i++)
+	{
+		arr1.push(arr2[i]) ;
+	}
+}
 
 
 /**

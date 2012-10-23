@@ -45,7 +45,10 @@ yc.GameLayer = cc.Layer.extend({
 			document.addEventListener('DOMMouseScroll',this.onScrollFunc,false); 
 		}//W3C 
 		window.onmousewheel=document.onmousewheel = this.onScrollFunc;//IE/Opera/Chrome 
-		
+
+
+		// resize 事件
+		yc.event.register(ins(yc.outer.Camera),"resize",this.onResize,this) ;
 	}
 
 	, onExit: function(){
@@ -54,6 +57,13 @@ yc.GameLayer = cc.Layer.extend({
 			document.removeEventListener('DOMMouseScroll',this.onScrollFunc); 
 		}//W3C 
 		window.onmousewheel=document.onmousewheel = null ;//IE/Opera/Chrome
+
+		// 移除resize事件
+		yc.event.unregister( ins(yc.outer.Camera), "resize", this.onResize ) ;
+	}
+
+	, onResize: function(w,h){
+		this.setPosition(cc.p(w/2,h/2)) ;
 	}
 	
 	, setScale: function(scalex,scaley){

@@ -16,11 +16,12 @@
 
 	
 	
-	<div style="position:absolute;">
-		<canvas id="debugCanvas" style="display:none" width="2000" height="1000"></canvas>
+	<div style="position:absolute;left:400px">
+		<canvas id="debugCanvas" style="border:1px solid #EDEDED;display:none" width="400" height="300"></canvas>
 	</div>
 	<div id="stage" style="position:absolute;">
-		<canvas id="gameCanvas" width="800" height="450"></canvas>
+		<div id="editor-panel-space" style="float:left;width:0px;background-color:#efefef"></div>
+		<canvas id="gameCanvas" style="float:left" width="800" height="450"></canvas>
 	</div>
 	
 	<!-- 蛋白质合成工厂 -->
@@ -128,7 +129,7 @@
 	</div>
 	
 	<!-- 关卡编辑器 -->
-	<div id='dlg-world-editer' style='display:none;font-size:12px;position:fixed;top:0px;left:40px'>
+	<div id='world-editer' style='display:none;font-size:12px;'>
 	
 		<div id='worldediter-message'></div>
 		

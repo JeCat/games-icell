@@ -16,6 +16,7 @@ yc.GameScene = cc.Scene.extend({
 	}
 
 	, onEnter:function () {
+
 		
 		this._super();
 		
@@ -77,7 +78,6 @@ yc.GameScene = cc.Scene.extend({
 		
 		// 全局变量
 		scene = this ;
-
 	}
 
 	, _initWorld: function(){
@@ -192,7 +192,6 @@ yc.GameScene = cc.Scene.extend({
 	// 	return [x,y] ;
 	// }
 	
-	
 	, onTouchesBegan: function(touches, event){
 		log('onTouchesBegan') ;
 	}
@@ -201,7 +200,7 @@ yc.GameScene = cc.Scene.extend({
 	, onTouchesEnded:function (touches, event) {
 	}
 	
-	, transform: yc.cocos2d.patchs.Node.transform
+	//, transform: yc.cocos2d.patchs.Node.transform
 	
 	, randomCreateEntities: function(entityClass,num,layer){
 

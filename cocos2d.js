@@ -1,10 +1,3 @@
-
-function log(message){
-	console.log.apply(console,arguments) ;
-}
-
-
-
 // package
 
 var yc = {} ;
@@ -43,6 +36,7 @@ var TAG_SPRITE_MANAGER = 1;
 			, 'bin/Cocos2dPatchs.js'
 			, 'bin/GameScene.js'   
 			, 'bin/GameLayer.js'
+			, 'bin/event.js'
 			
 			, 'bin/util/ObjectPool.js'
 			, 'bin/util/functions.js'
@@ -51,6 +45,7 @@ var TAG_SPRITE_MANAGER = 1;
 			, 'bin/util/Instance.js'
 			, 'bin/util/SmoothEdger.js'
 			, 'bin/util/DbgPannel.js'
+			, 'bin/util/debug.js'
 			
 			, 'bin/ui/UI.js'
 			, 'bin/ui/BuildingCreateMenu.js'

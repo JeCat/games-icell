@@ -144,5 +144,5 @@ yc.outer.PlayerLayer = cc.Layer.extend({
 		}
 	}
 	
-	, transform: yc.cocos2d.patchs.Node.transform
+	//, transform: yc.cocos2d.patchs.Node.transform
 });

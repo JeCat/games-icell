@@ -1,8 +1,6 @@
 yc.ui.editer.WorldEditer = function(){
 
-	this.ui = $('#dlg-world-editer')
-				.height($(window).height())
-				.show() ;
+	this.ui = $('#world-editer').appendTo("#editor-panel-space") ;
 	$('#tabs-world-editer').tabs() ;
 	
 	this.stain = new yc.ui.editer.PanelStain(this) ;
@@ -31,6 +29,11 @@ yc.ui.editer.WorldEditer = function(){
 		
 		// 解锁全部 genes
 		this.unlockGenes();
+
+		// 打开ui
+		this.ui.show() ;
+		$("#editor-panel-space").width(300) ;
+		ICellGame.instance.resize() ;
 	}
 
 	this.close = function() {
@@ -52,6 +55,10 @@ yc.ui.editer.WorldEditer = function(){
 		
 		// 恢复 genes
 		this.relockGenes();
+
+		// 关闭ui
+		$("#editor-panel-space").width(0) ;
+		ICellGame.instance.resize() ;
 	}
 	
 	this.message = function(msg){

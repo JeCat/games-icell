@@ -4,6 +4,8 @@
  */
 yc.util.drawRect = function(lftTop,rgtBtm,ctx,strokeStyle,fillStyle){
 		
+	ctx.save() ;
+	ctx.beginPath() ;
 	
 	if( typeof(strokeStyle)!='undefined' && strokeStyle )
 	{
@@ -23,13 +25,11 @@ yc.util.drawRect = function(lftTop,rgtBtm,ctx,strokeStyle,fillStyle){
 		fillStyle = null ;
 	}
 	
-	ctx.beginPath() ;
 	ctx.moveTo(lftTop[0],-lftTop[1]) ;
 	ctx.lineTo(rgtBtm[0],-lftTop[1]) ;
 	ctx.lineTo(rgtBtm[0],-rgtBtm[1]) ;
 	ctx.lineTo(lftTop[0],-rgtBtm[1]) ;
 	ctx.lineTo(lftTop[0],-lftTop[1]) ;
-	ctx.closePath() ;
 	
 	if(fillStyle)
 	{
@@ -39,6 +39,9 @@ yc.util.drawRect = function(lftTop,rgtBtm,ctx,strokeStyle,fillStyle){
 	{
 		ctx.stroke() ;
 	}
+
+	ctx.closePath() ;
+	ctx.restore() ;
 }
 
 /**

@@ -1,17 +1,25 @@
 yc.outer.Camera = function()
 {
 	var canvas = $('#gameCanvas')[0] ;
-	this.width = canvas.width ;
-	this.height = canvas.height ;
-	
+
 	this.focusX = 0 ;
 	this.focusY = 0 ;
 	this.x = 0 ;
 	this.y = 0 ;
-	
-	// 偏移
-	this.offsetX = Math.ceil(this.width/2) ;
-	this.offsetY = Math.ceil(this.height/2) ;
+
+	this.update = function(){
+		this.width = canvas.width ;
+		this.height = canvas.height ;
+		
+		// 偏移
+		this.offsetX = Math.ceil(this.width/2) ;
+		this.offsetY = Math.ceil(this.height/2) ;
+
+		// 触发事件
+		yc.event.trigger(this,"resize",[this.width,this.height]) ;
+	}
+
+	this.update() ;
 	
 //	// 偏移
 //	this.offsetX = 0 ;
@@ -88,11 +96,9 @@ yc.outer.Camera.transformSprite = function(context){
 
 	var transform = yc.outer.Camera.transformPosition(this) ;
 
-	//context.save() ;
 	this.transformX = transform.x ;
 	this.transformY = -transform.y ;
 	context.translate( this.transformX, this.transformY );
-	//context.restore() ;
 
 	if (this._rotation != 0)
 	    context.rotate(this._rotationRadians);

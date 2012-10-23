@@ -1,6 +1,8 @@
 yc.levels.LevelSelector = cc.Scene.extend({
 	
-	ctor: function(){}
+	ctor: function(){
+		this._super() ;
+	}
 
 	, onEnter: function(){
 		
@@ -9,6 +11,15 @@ yc.levels.LevelSelector = cc.Scene.extend({
 			.css('top',$(window).height()/4-$('#ui-levels-selector').height()/2) 
 			
 		this._super() ;
+
+            var size = cc.Director.getInstance().getWinSize();
+
+            this.sprite = cc.Sprite.create("res/null-pinup.png");
+            this.sprite.setAnchorPoint(cc.p(0.5, 0.5));
+            this.sprite.setPosition(cc.p(size.width / 2, size.height / 2));
+
+            this.addChild(this.sprite, 0);
+
 
 		if( location!==undefined && yc.levels.LevelSelector.autoLoadByUrl )
 		{
