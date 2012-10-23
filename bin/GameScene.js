@@ -407,7 +407,8 @@ yc.GameScene = cc.Scene.extend({
 		
 		// cell
 		if( 'cell' in script ){
-			var innerCell = new yc.inner.Cell ;
+			var innerCell = yc.util.ins(yc.inner.InnerLayer).cell ;
+			innerCell.destory() ;
 			innerCell.initWithScript(script.cell);
 		}
 	}
