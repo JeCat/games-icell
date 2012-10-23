@@ -445,6 +445,4 @@ yc.ui.editer.PanelStain = function(editer){
 		this.selectedStain.b2Body.SetAngularVelocity(0) ;
 	}
 
-
-	this.refreshStains() ;
 }

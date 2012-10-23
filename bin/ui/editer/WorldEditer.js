@@ -30,6 +30,13 @@ yc.ui.editer.WorldEditer = function(){
 		// 解锁全部 genes
 		this.unlockGenes();
 
+		// 刷新一下内容
+		this.refreshRoles() ;
+		this.refreshSettings() ;
+		this.role.refreshAminoAcids() ;
+		this.stain.refreshStains() ;
+		this.pinup.refreshPinups() ;
+
 		// 打开ui
 		this.ui.show() ;
 		$("#editor-panel-space").width(400) ;
@@ -253,17 +260,17 @@ function initWorld(wid){
 					this._super() ;
 
 					this.initWithScript(json);
+
+					if(edit)
+					{
+						ins(yc.ui.editer.WorldEditer).open() ;
+					}
 				}
 			})));
 
 			$("#worldListDiv").dialog("close");
 		}
 	);
-}
-
-function editWorld(wid){
-	initWorld(wid);
-	ins(yc.ui.editer.WorldEditer).open() ;
 }
 
 function saveWorldToServer(){
