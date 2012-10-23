@@ -132,7 +132,7 @@ yc.inner.Cell.prototype.newborn = function()
 
 //新玩家 初始化新细胞的建筑
 yc.inner.Cell.prototype.newbornBuildings = function(){
- // 初始化一个 炮塔 和 蛋白质工厂
+	// 初始化一个 炮塔 和 蛋白质工厂
 	var menu = ins(yc.ui.BuildingCreateMenu) ;
 	menu.createBuilding( this.aAxes.hexgon(0,-1), menu.items.shooter ) ;
 	menu.createBuilding( this.aAxes.hexgon(1,-1), menu.hideItems.factory ) ;
@@ -269,6 +269,18 @@ yc.inner.Cell.prototype.revive = function(){
 //	ins(yc.outer.Cell).jump(0,0) ;
 }
 
+/**
+ * 回收
+ */
+yc.inner.Cell.prototype.destory = function(){
+	for(var i=0;i<this.cytoplasms.length;i++)
+	{
+		if( this.cytoplasms[i].building )
+		{
+			this.cytoplasms[i].building.demolish() ;
+		}
+	}
+}
 
 /**
  * 导出为 json
@@ -276,7 +288,7 @@ yc.inner.Cell.prototype.revive = function(){
 yc.inner.Cell.prototype.exportScript = function(){
 	var script = {};
 	
-	var i;
+	var i,j;
 	
 	script.map = [] ;
 	
@@ -297,15 +309,24 @@ yc.inner.Cell.prototype.exportScript = function(){
 	}
 	
 	for( i in this.cytoplasms ){
-		if( this.cytoplasms[i].building ){
-			var m = {
-				type: this.cytoplasms[i].type,
-				x: this.cytoplasms[i].x,
-				y: this.cytoplasms[i].y,
-				className: this.cytoplasms[i].building.constructor.className,
-			};
-			script.map.push(m);
+		var m = {
+			type: this.cytoplasms[i].type,
+			x: this.cytoplasms[i].x,
+			y: this.cytoplasms[i].y
 		}
+		if( this.cytoplasms[i].building ){
+			m['className'] = this.cytoplasms[i].building.constructor.className ;
+			var upgraders = this.cytoplasms[i].building._upgraders;
+			
+			m['upgraders'] = [];
+			for( j in upgraders ){
+				m['upgraders'].push({
+					'name':j,
+					'lv':upgraders[j].lv
+				});
+			}
+		}
+		script.map.push(m);
 	}
 	
 	return script;
@@ -315,26 +336,48 @@ yc.inner.Cell.prototype.exportScript = function(){
  * 从 json 导入
  */
 yc.inner.Cell.prototype.initWithScript = function( script ){
-	var i;
+	var i,j,k;
 	var menu = ins(yc.ui.BuildingCreateMenu) ;
 	for( i in script.map ){
 		var m = script.map[i] ;
 		switch(m.type){
-			case 'cytoplasm':
-				var item = null ;
-				switch( m.className ){
-					case 'yc.inner.building.TowerShooter':
-						item = menu.items.shooter;
-						break;
-					case 'yc.inner.building.ProteinFactory':
-						item = menu.hideItems.factory;
-						break;
-					default:
-						log( 'unknow className:',m.className );
-						break;
-				}
-				menu.createBuilding( this.aAxes.hexgon(m.x,m.y), item ) ;
+		case 'cytoplasm':
+			var item = null ;
+			switch( m.className ){
+			case 'yc.inner.building.TowerShooter':
+				item = menu.items.shooter;
 				break;
+			case 'yc.inner.building.ProteinFactory':
+				item = menu.hideItems.factory;
+				break;
+			case undefined:
+				break;
+			default:
+				log( 'unknow className:',m.className );
+				break;
+			}
+			if( item ){
+				var building = menu.createBuilding( this.aAxes.hexgon(m.x,m.y), item ) ;
+				
+				var buildingClass = building.constructor ;
+				for(var j=0;j<buildingClass.upgraders.length;j++)
+				{
+					var upgraderClass = buildingClass.upgraders[j] ;
+					var upgrader = building.upgrader(upgraderClass) ;
+				}
+				
+				for( j in m.upgraders ){
+					var u = m.upgraders[j];
+					for(k=1;k<u.lv;++k){
+						building._upgraders[ u.name ].upgrade( building );
+					}
+				}
+			}
+			break;
+		case 'nucleus':
+			this.nucleus = this.aAxes.hexgon( m.x, m.y ) ;
+			this.nucleus.type = m.type ;
+			break;
 		}
 	}
 }

@@ -264,6 +264,8 @@ yc.ui.BuildingCreateMenu = function(){
 		var building = inner.buildings.createBuilding(item.buildingClass,hexgon.x,hexgon.y) ;
 		building.info = item ;
 		building.cost = item.cost() ;
+		
+		return building ;
 	}
 }
 
