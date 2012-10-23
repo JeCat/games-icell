@@ -62,6 +62,8 @@ yc.ui.editer.PanelPinup = function(editor){
 			}
 		}
 
+		var scene = cc.Director.getInstance().getRunningScene() ;
+
 		$('#lst-pinup-foreground').html('').propslst('load',[scene.layerFg.getChildren(),eachfunc]) ;
 		$('#lst-pinup-background').html('').propslst('load',[scene.layerBg.getChildren(),eachfunc]) ;
 		$('#lst-pinup-perspective').html('').propslst('load',[scene.layerPg.getChildren(),eachfunc]) ;
@@ -117,6 +119,4 @@ yc.ui.editer.PanelPinup = function(editor){
 		this.refreshPinups() ;
 	}
 
-
-	this.refreshPinups() ;
 }

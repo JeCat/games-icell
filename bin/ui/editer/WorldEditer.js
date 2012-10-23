@@ -30,6 +30,13 @@ yc.ui.editer.WorldEditer = function(){
 		// 解锁全部 genes
 		this.unlockGenes();
 
+		// 刷新一下内容
+		this.refreshRoles() ;
+		this.refreshSettings() ;
+		this.role.refreshAminoAcids() ;
+		this.stain.refreshStains() ;
+		this.pinup.refreshPinups() ;
+
 		// 打开ui
 		this.ui.show() ;
 		$("#editor-panel-space").width(400) ;
@@ -167,9 +174,6 @@ yc.ui.editer.WorldEditer = function(){
 		}
 	}
 
-
-	this.refreshRoles() ;
-	this.refreshSettings() ;
 }
 
 
@@ -223,7 +227,7 @@ function mapList(){
 
 				//map owner ?
 				if(b['uid'] == userInfo['uid'] && b['service'] == userInfo['service']){
-					li.find('.mapListDiv_list_span').after('<a class="mapListDiv_list_a" href="#" onclick="editMap('+b['mid']+');return false;">edit</a>');
+					li.find('.mapListDiv_list_span').after('<a class="mapListDiv_list_a" href="#" onclick="initMap('+b['mid']+',true);return false;">edit</a>');
 				}
 
 				$('#mapListDiv_list').append(li);
@@ -239,7 +243,7 @@ function mapList(){
 
 }
 
-function initMap(mid){
+function initMap(mid,edit){
 	$.getJSON(
 		"http://icell.jecat.cn/service/map.php?format=json&jsoncallback=?"
 		, {
@@ -253,17 +257,17 @@ function initMap(mid){
 					this._super() ;
 
 					this.initWithScript(json);
+
+					if(edit)
+					{
+						ins(yc.ui.editer.WorldEditer).open() ;
+					}
 				}
 			})));
 
 			$("#mapListDiv").dialog("close");
 		}
 	);
-}
-
-function editMap(mid){
-	initMap(mid);
-	ins(yc.ui.editer.WorldEditer).open() ;
 }
 
 function saveWorldToServer(){

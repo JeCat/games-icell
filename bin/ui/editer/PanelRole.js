@@ -309,5 +309,4 @@ yc.ui.editer.PanelRole = function(editor){
 		panel.refreshVirusQueue() ;
 	}
 
-	this.refreshAminoAcids() ;
 }
