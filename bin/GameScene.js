@@ -313,13 +313,15 @@ yc.GameScene = cc.Scene.extend({
 		var roles = this.layerRoles.getChildren() ;
 		for(var i=0;i<roles.length;i++)
 		{
-			switch(roles[i].constructor.className)
+			switch(roles[i].constructor)
 			{
-				case 'yc.outer.AminoAcid' :
+				case yc.outer.AminoAcid :
 					script.aminoacids.push( roles[i].exportScript() ) ;
+					break ;
 
-				case 'yc.outer.VirusCluster' :
+				case yc.outer.VirusCluster :
 					script.virusclusters.push( roles[i].exportScript() ) ;
+					break ;
 			}
 		}
 
