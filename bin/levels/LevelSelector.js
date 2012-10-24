@@ -2,18 +2,26 @@ yc.levels.LevelSelector = cc.Scene.extend({
 	menuLogin : null
 	, menuLevelSelect : null
 	, actionShow : null
-
 	, onEnter: function(){
 
-		var itemWeibo = cc.MenuItemFont.create("weibo", this, function(){
+		this.h1 = cc.LabelTTF.create('I, Cell',  'Times New Roman', 32, cc.size(132,32), cc.TEXT_ALIGNMENT_CENTER);
+		this.h2 = cc.LabelTTF.create('You are a cell under someone`s microscope ……',  'Times New Roman', 16, cc.size(416,16), cc.TEXT_ALIGNMENT_CENTER);
+
+		this.addChild(this.h1);
+		this.addChild(this.h2);
+
+		var itemWeibo = cc.MenuItemImage.create( 'res/weibo_login.png' ,'res/weibo_login.png', this , function(){
 			window.open('/service/sina_user/login.php');
         });
-        var itemTest = cc.MenuItemFont.create("TEST", this, function(){
+        itemWeibo.setScale(0.5);
+
+        var itemTest = cc.MenuItemFont.create("test", this, function(){
         	loginCallback("0#test");
         	this.menuLevelSelect.setVisible(true);
         	this.menuLevelSelect.runAction(cc.Sequence.create(this.actionShow));
         	this.menuLogin.runAction(cc.Sequence.create(this.actionShow.reverse()));
         });
+        itemTest.setFontSize(24);
 
         this.menuLogin = cc.Menu.create(itemWeibo, itemTest);
         this.menuLogin.alignItemsVertically();
@@ -23,20 +31,28 @@ yc.levels.LevelSelector = cc.Scene.extend({
         var itemStory = cc.MenuItemFont.create("故事模式", this, function(){
         	cc.Director.getInstance().replaceScene( new yc.levels.StorySelector ) ;
         });
+        itemStory.setFontSize(20);
         var itemSearch = cc.MenuItemFont.create("探索模式", this, function(){
         	worldList();
         });
+        itemSearch.setFontSize(20);
         var itemRand = cc.MenuItemFont.create("随机关卡", this, function(){
 			cc.Director.getInstance().replaceScene( new yc.levels.FreeWorld );
         });
+        itemRand.setFontSize(20);
 
         this.menuLevelSelect = cc.Menu.create(itemStory, itemSearch , itemRand);
-        this.menuLevelSelect.setVisible(false);
         this.menuLevelSelect.alignItemsVertically();
+        this.menuLevelSelect.setVisible(false);
         this.addChild(this.menuLevelSelect);
 
         this.actionShow = cc.FadeIn.create(1);
         // this.menuLevelSelect.runAction(cc.Sequence.create(actionShow, actionShow.reverse()));
+
+		yc.event.register( ins(yc.outer.Camera), "resize", this.onResize, this ) ;
+
+		var screenSize = cc.Director.getInstance().getWinSize();
+	    this.onResize(screenSize.width, screenSize.height);
 
 		this._super() ;
 
@@ -66,13 +82,17 @@ yc.levels.LevelSelector = cc.Scene.extend({
 		}
 	}
 
-	, onExit: function(){
-		$('#ui-levels-selector').hide() ;
-
+	, onExit : function(){
+		yc.event.unregister( ins(yc.outer.Camera), "resize", this.onResize ) ;
 		this._super() ;
 	}
 
-	
+	, onResize : function(w,h){
+	    this.h1.setPosition(cc.p(w / 2, h /2 + 100 ));
+	    this.h2.setPosition(cc.p(w / 2, h /2 + 70 ));
+	    this.menuLogin.setPosition(cc.p(w / 2, h /2 ));
+	    this.menuLevelSelect.setPosition(cc.p(w / 2, h /2 ));
+	}
 }) ;
 
 
