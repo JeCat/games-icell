@@ -14,7 +14,7 @@ yc.inner.ProteinFormulas = function(){
 		}
 		
 		// 触发事件
-		$(window).trigger('yc.inner.ProteinFormulas::onBeforeAppend',[this,formula]) ;
+		// $(window).trigger('yc.inner.ProteinFormulas::onBeforeAppend',[this,formula]) ;
 
 		formula.color = 'rgb('+formula.rgb[0]+','+formula.rgb[1]+','+formula.rgb[2]+')' ;
 		var to16 = function(i)
@@ -92,7 +92,7 @@ yc.inner.ProteinFormulas = function(){
 		
 		
 		// 触发事件
-		$(window).trigger('yc.inner.ProteinFormulas::onAfterAppend',[this,formula]) ;
+		// $(window).trigger('yc.inner.ProteinFormulas::onAfterAppend',[this,formula]) ;
 		
 		return this ;
 	}

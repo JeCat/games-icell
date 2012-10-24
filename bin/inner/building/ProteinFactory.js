@@ -6,6 +6,12 @@ yc.inner.building.ProteinFactory = yc.inner.building.Building.extend({
 	
 	// 合成效率，每秒合成 5 个氨基酸
 	, composition_efficient: 5
+
+	, ctor: function(){
+		this._super() ;
+
+		this.timeout = null ;
+	}
 	
 	, draw: function(ctx){
 		if(!this.hexgon)
@@ -33,6 +39,12 @@ yc.inner.building.ProteinFactory = yc.inner.building.Building.extend({
 	
 	, startComposite: function(){
 		
+		// 停止
+		if( this.bStop )
+		{
+			return ;
+		}
+
 		var factory = this ;
 		
 		
@@ -95,6 +107,13 @@ yc.inner.building.ProteinFactory = yc.inner.building.Building.extend({
 		}
 			
 		var func = function(){
+
+			// 停止
+			if( factory.bStop )
+			{
+				return ;
+			}
+
 			// factory.composition_progress+= 10000 ;			
 		  	factory.composition_progress+= 10 ;			
 			// factory.working_formula.ui.find('.protein-composite-progress').show().progressbar({value:factory.composition_progress}) ;

@@ -34,6 +34,7 @@ yc.ui.editer.WorldEditer = function(){
 		this.refreshRoles() ;
 		this.refreshSettings() ;
 		this.role.refreshAminoAcids() ;
+		this.role.refreshVirusCluster() ;
 		this.stain.refreshStains() ;
 		this.pinup.refreshPinups() ;
 

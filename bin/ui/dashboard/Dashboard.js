@@ -103,17 +103,17 @@ yc.ui.dashboard.Dashboard = cc.Layer.extend({
 		// 注册事件
 		// --------
 		// 氨基酸数量数量
-		$(window).bind('yc.inner.AminoAcidPool::onAfterChange',null,function(e,pool,type,num){
-			dashboard.labelAminoAcids[type].setString('♪ '+pool[type]) ;
-			// dashboard.layout() ;
-		}) ;
+		// $(window).bind('yc.inner.AminoAcidPool::onAfterChange',null,function(e,pool,type,num){
+		// 	dashboard.labelAminoAcids[type].setString('♪ '+pool[type]) ;
+		// 	// dashboard.layout() ;
+		// }) ;
 		
-		// 新增蛋白质类型
-		$(window).bind('yc.inner.ProteinFormulas::onAfterAppend',null,function(e,o,formula){
-			dashboard.labelProteins[formula.name] = dashboard._createLabel("♫ 0",new cc.Color3B(formula.rgb[0],formula.rgb[1],formula.rgb[2])) ;
-			dashboard._createSeparator(10) ;
-			// dashboard.layout() ;
-		}) ;
+		// // 新增蛋白质类型
+		// $(window).bind('yc.inner.ProteinFormulas::onAfterAppend',null,function(e,o,formula){
+		// 	dashboard.labelProteins[formula.name] = dashboard._createLabel("♫ 0",new cc.Color3B(formula.rgb[0],formula.rgb[1],formula.rgb[2])) ;
+		// 	dashboard._createSeparator(10) ;
+		// 	// dashboard.layout() ;
+		// }) ;
 		
 		// 蛋白质数量变化
 		$(window).bind('yc.inner.ProteinPool::onAfterChange',null,function(e,pool,name,total,num){

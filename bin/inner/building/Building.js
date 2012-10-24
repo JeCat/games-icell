@@ -83,6 +83,7 @@ yc.inner.building.Building = cc.Sprite.extend({
 	}
 	
 	, onExit: function(){
+		log(this.constructor.className+" onExit") ;
 		this.stop() ;
 	}
 }) ;
