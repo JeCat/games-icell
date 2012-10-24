@@ -1,6 +1,6 @@
 yc.ui.BuildingCreateMenu = function(){
 	
-	this.ui = null; //$('#bulding-create-menu') ;
+	this.ui = $('#bulding-create-menu') ;
 	var menu = this ;
 	
 	this.items = {
@@ -8,7 +8,6 @@ yc.ui.BuildingCreateMenu = function(){
 		shooter: {
 			title: '防御塔(射击)'
 			, description: '用于攻击进入细胞内的病毒'
-			, texture : "res/building/shooter.png"
 			, hexgonTypes: ['cytoplasm']
 			, cost: function(){
 				return yc.settings.building.Shooter.cost ;
@@ -22,7 +21,6 @@ yc.ui.BuildingCreateMenu = function(){
 		, cannon: {
 			title: '防御塔(火炮)'
 			, description: '大范围攻击进入细胞内的病毒'
-			, texture : "res/building/cannon.png"
 			, hexgonTypes: ['cytoplasm']
 			, cost: function(){
 				return yc.settings.building.Cannon.cost ;
@@ -36,7 +34,6 @@ yc.ui.BuildingCreateMenu = function(){
 		, jetter: {
 			title: '防御塔(喷射)'
 			, description: '向进入细胞体内的病毒喷射酸性物质，接触到的病毒都将受到伤害'
-			, texture : "res/building/jetter.png"
 			, hexgonTypes: ['cytoplasm']
 			, cost: function(){
 				return yc.settings.building.Jetter.cost ;
@@ -50,7 +47,6 @@ yc.ui.BuildingCreateMenu = function(){
 		, slower: {
 			title: '防御塔(减速)'
 			, description: '用于攻击进入细胞内的病毒，同时使病毒的移动减慢'
-			, texture : "res/building/slower.png"
 			, hexgonTypes: ['cytoplasm']
 			, cost: function(){
 				return yc.settings.building.Slower.cost ;
@@ -64,7 +60,6 @@ yc.ui.BuildingCreateMenu = function(){
 		, recycle: {
 			title: '回收站'
 			, description: '在细胞内释放出线粒体，线粒体会主动搜集病毒在细胞内被杀死时掉落的氨基酸'
-			, texture : "res/building/recycle.png"
 			, hexgonTypes: ['cytoplasm']
 			, cost: function(){
 				return {
@@ -104,25 +99,6 @@ yc.ui.BuildingCreateMenu = function(){
 				return ins(yc.inner.Cell).grown < yc.charactar.dna.genes.grow.superimposing ;
 			}
 		}
-		
-		, eye: {
-			title: '眼睛'
-			, description: '一双美丽的大眼睛'
-			, hexgonTypes: ['membrane']
-			, cost: function(){
-				return {
-					red: 1
-					, yellow: 1
-					, blue: 1
-				}
-			}
-			, buildingClass: yc.inner.organ.Eye
-			, isUnlock: function(){
-				return yc.charactar.dna.genes['eye']!==undefined ;
-			}
-			, isBlock: false
-			, layer: 'OrganLayer'
-		}
 	} ;
 
 
@@ -145,14 +121,14 @@ yc.ui.BuildingCreateMenu = function(){
 		}
 	}
 
-	// this.ui.find('.btn-close').click(function(){
-	// 	menu.close() ;
-	// })
+	this.ui.find('.btn-close').click(function(){
+		menu.close() ;
+	})
 
 	this.show = function(hexgon){
 		var inner = ins(yc.inner.InnerLayer) ;
 		
-		// this.ui.find('#bulding-create-items').html("") ;
+		this.ui.find('#bulding-create-items').html("") ;
 		var itemNums = 0 ;
 		for(var n in this.items )
 		{
@@ -162,63 +138,61 @@ yc.ui.BuildingCreateMenu = function(){
 				continue ;
 			}
 			
-			var itemUi = BuildingBtn.buildingBtnWithTexture(item.texture) ;
-			this.addChild( this.itemUi );
-
-
-
-
-			// itemUi.find('.title').html(item.title) ;
-			// itemUi.find('.description').html(item.description) ;
-			// itemUi.find('.cost').html( '费用：'+yc.ui.costHtml(item.cost()) ) ;
-			// itemUi.find('.create')
-			// 	.data('item',item)
-			// 	.click(function(){
+			var itemUi = $('#bulding-create-template').clone()
+							.appendTo('#bulding-create-items')
+							.attr('id','')
+							.show() ;
+			itemUi.find('.title').html(item.title) ;
+			itemUi.find('.description').html(item.description) ;
+			itemUi.find('.cost').html( '费用：'+yc.ui.costHtml(item.cost()) ) ;
+			itemUi.find('.create')
+				.data('item',item)
+				.click(function(){
 					
-			// 		var item = $(this).data('item') ;
+					var item = $(this).data('item') ;
 					
-			// 		// 检查蛋白质
-			// 		var cost = item.cost() ;
-			// 		if( !yc.ui.checkCost(cost) )
-			// 		{
-			// 			alert("缺少材料") ;
+					// 检查蛋白质
+					var cost = item.cost() ;
+					if( !yc.ui.checkCost(cost) )
+					{
+						alert("缺少材料") ;
 						
-			// 			// 关闭
-			// 			menu.close() ;
-			// 			return ;
-			// 		}
+						// 关闭
+						menu.close() ;
+						return ;
+					}
 					
-			// 		// 建造
-			// 		if( typeof(item.buildingClass)!='undefined' )
-			// 		{
-			// 			menu.createBuilding(hexgon,item) ;
-			// 		}
-			// 		if( typeof(item.constructFunc)!='undefined' )
-			// 		{
-			// 			item.constructFunc(hexgon) ;
-			// 		}
+					// 建造
+					if( typeof(item.buildingClass)!='undefined' )
+					{
+						menu.createBuilding(hexgon,item) ;
+					}
+					if( typeof(item.constructFunc)!='undefined' )
+					{
+						item.constructFunc(hexgon) ;
+					}
 					
-			// 		// 消耗蛋白质
-			// 		var pool = ins(yc.inner.ProteinPool) ;
-			// 		for(var protein in cost)
-			// 		{
-			// 			pool.increase( protein, -cost[protein] ) ;
-			// 		}
+					// 消耗蛋白质
+					var pool = ins(yc.inner.ProteinPool) ;
+					for(var protein in cost)
+					{
+						pool.increase( protein, -cost[protein] ) ;
+					}
 					
-			// 		// 关闭
-			// 		menu.close() ;
-			// 	}) ;
+					// 关闭
+					menu.close() ;
+				}) ;
 			
-			// if(!item.isUnlock())
-			// {
-			// 	itemUi.find('.create').attr('disabled',true) ;
-			// 	itemUi.find('.message').html('尚未解锁') ;
-			// }
-			// if(!yc.ui.checkCost(item.cost()))
-			// {
-			// 	itemUi.find('.create').attr('disabled',true) ;
-			// 	itemUi.find('.message').html('缺少材料') ;
-			// }
+			if(!item.isUnlock())
+			{
+				itemUi.find('.create').attr('disabled',true) ;
+				itemUi.find('.message').html('尚未解锁') ;
+			}
+			if(!yc.ui.checkCost(item.cost()))
+			{
+				itemUi.find('.create').attr('disabled',true) ;
+				itemUi.find('.message').html('缺少材料') ;
+			}
 			
 			itemNums ++ ;
 		}
@@ -228,12 +202,12 @@ yc.ui.BuildingCreateMenu = function(){
 			return ;
 		}
 		
-		// this.ui.css({
-		// 		left: window.event.clientX-this.ui.width()-100
-		// 		, top: ($(window).height()-this.ui.height())/2
-		// 	})
-		// 	.show()
-		// 	[0].focus() ;
+		this.ui.css({
+				left: window.event.clientX-this.ui.width()-100
+				, top: ($(window).height()-this.ui.height())/2
+			})
+			.show()
+			[0].focus() ;
 	}
 	
 	this.close = function(){
@@ -256,20 +230,17 @@ yc.ui.BuildingCreateMenu = function(){
 			return ;
 		}
 		
-		if( item.isBlock ){
-			// 检查路径 ------
-			var oriBlock = hexgon.block ;
-			hexgon.block = true ;
-		}
-		
+		// 检查路径 ------
+		var oriBlock = hexgon.block ;
+		hexgon.block = true ;
 		// 重新计算路径
 		var cell = ins(yc.inner.InnerLayer).cell ;
-		var map = cell.researchPath() ;
+		var world = cell.researchPath() ;
 		
 		// 检查所有细胞膜格子，必须保证病毒从任何一个细胞膜格子进入时，都能够到达细胞核
 		for(var i=0;i<cell.membranes.length;i++)
 		{
-			if( !map.pos(cell.membranes[i].x,cell.membranes[i].y).way )
+			if( !world.pos(cell.membranes[i].x,cell.membranes[i].y).way )
 			{
 				hexgon.block = oriBlock ;
 				
@@ -290,15 +261,9 @@ yc.ui.BuildingCreateMenu = function(){
 			log(item.title + " has no avalid class") ;
 			return ;
 		}
-		
-		var building = null ;
-		if( 'OrganLayer' == item.layer ){
-			building = ins(yc.inner.organ.OrganLayer).createBuilding(item,hexgon);
-		}else{
-			building = inner.buildings.createBuilding(item.buildingClass,hexgon.x,hexgon.y) ;
-			building.info = item ;
-			building.cost = item.cost() ;
-		}
+		var building = inner.buildings.createBuilding(item.buildingClass,hexgon.x,hexgon.y) ;
+		building.info = item ;
+		building.cost = item.cost() ;
 		
 		return building ;
 	}
@@ -310,7 +275,7 @@ yc.ui.costHtml = function(cost){
 	var idx = 0 ;
 	for(var proteinName in cost)
 	{
-		var proteinFormula = ins(yc.inner.ProteinFormulas).mapFormulas[proteinName] ;
+		var proteinFormula = ins(yc.inner.ProteinFormulas).worldFormulas[proteinName] ;
 		if(proteinFormula===undefined)
 		{
 			log("mission protein "+proteinName+"'s formula.") ;
