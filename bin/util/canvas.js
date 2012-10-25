@@ -200,6 +200,33 @@ yc.util.tileImage = function(ctx,imgurl,x,y,w,h){
 }
 
 /**
+ * 用图像平铺一个多边形区域
+ */
+yc.util.tilePolygon = function(ctx,points,imgurl){
+
+	var texture = yc.util.ccShareTexture(imgurl) ;
+	if (texture instanceof HTMLImageElement)
+	{
+		ctx.save() ;
+		ctx.beginPath() ;
+		
+		var last = points[points.length-1] ;
+		ctx.moveTo(last[0], -last[1]) ;
+		for(var p=0;p<points.length;p++)
+		{
+			ctx.lineTo(points[p][0], -points[p][1]) ;
+		}
+		
+		var pp = ctx.createPattern(texture, 'repeat');
+		ctx.fillStyle = pp ;
+		ctx.fill() ;
+
+		ctx.closePath() ;
+		ctx.restore() ;
+	}
+}
+
+/**
  * 描绘文本
  */
 yc.util.text = function(ctx,text,x,y,style,font){

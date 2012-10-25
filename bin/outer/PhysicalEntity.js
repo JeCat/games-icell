@@ -408,7 +408,7 @@ yc.outer.PhysicalEntity = cc.Sprite.extend({
 				ctx.globalCompositeOperation = "source-over" ;
 
 				// 多边形
-				if(shape.type=='polygon')
+				if( shape.type=='polygon' && shape.borderColor )
 				{
 					var borderStyle = 'rgba('+shape.borderColor ;
 					if(shape.borderColor.match(/\,/g).length<3)
@@ -444,7 +444,7 @@ yc.outer.PhysicalEntity = cc.Sprite.extend({
 				{
 					if(shape.tile)
 					{
-						//yc.util.tileImage(ctx,shape.img,shape.tileLft,shape.tileTop,shape.tileRgt,shape.tileBtm) ;
+						yc.util.tilePolygon(ctx,shape.points,shape.img,shape) ;
 					}
 					else
 					{
