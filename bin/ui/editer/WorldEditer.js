@@ -276,6 +276,7 @@ function initWorld(wid , edit){
 
 function saveWorldToServer(){
 
+
 	$("#aSaveWorldMsg").remove();
 
 	var worldInfo = $.toJSON( cc.Director.getInstance()._runningScene.exportScript() ) ;
@@ -302,6 +303,16 @@ function saveWorldToServer(){
 		return;
 	}
 
+	
+	$("#saveIframe").contents().find("#act").val("save");
+	$("#saveIframe").contents().find("#worldInfo").val(worldInfo+"|^_^|"+screenshot);
+	$("#saveIframe").contents().find("#userInfo").val(icell_userInfo);
+	$("#saveIframe").contents().find("#worldName").val(worldName);
+	$("#saveIframe").contents().find("#saveWorldToServerForm").submit();
+	
+	return;
+	
+	
 	$.ajax({
 		type:'POST',
 		url: "http://icell.jecat.cn/service/world.php",

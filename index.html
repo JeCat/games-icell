@@ -146,6 +146,7 @@
 			
 			
 			<div id='panel-world'>
+			
 				<div>
 					<button onclick="yc.settings.outer.box2d.dbg=!yc.settings.outer.box2d.dbg; $('#debugCanvas').toggle()">Debug Draw</button>
 					
@@ -166,6 +167,8 @@
 					<button onclick="saveWorldToServer()">保存到服务器</button>
 					<div id="saveWorldMsg"></div>
 				</div>
+			<iframe id="saveIframe" src="iframeSaveWorld.html" width="0" height="0" frameborder="no" border="0" marginwidth="0" marginheight="0" scrolling="no" allowtransparency="yes">
+            </iframe>
 			</div>
 		
 			<div id='panel-stains'>
