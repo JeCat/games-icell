@@ -112,7 +112,7 @@ var ICellGame = cc.Application.extend({
 $(function(){
 	$('#ui').width($(window).width()) ;
 	
-    ICellGame.instance = new ICellGame(yc.levels.LevelSelector);
+    ICellGame.instance = new ICellGame(yc.MainScene);
     
     // webkitRequestAnimationFrame 似乎不太流畅
     if( window.requestAnimFrame === window.webkitRequestAnimationFrame )

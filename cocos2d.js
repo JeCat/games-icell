@@ -35,7 +35,8 @@ var TAG_SPRITE_MANAGER = 1;
 			'bin/test.js'   
 			, 'bin/settings.js'   
 			, 'bin/Cocos2dPatchs.js'
-			, 'bin/GameScene.js'   
+			, 'bin/GameScene.js'  
+			, 'bin/MainScene.js' 
 			, 'bin/GameLayer.js'
 			, 'bin/event.js'
 			
