@@ -129,7 +129,6 @@ var TAG_SPRITE_MANAGER = 1;
 			
 			, 'bin/levels/FreeWorld.js'
 			, 'bin/levels/StorySelector.js' 
-			, 'bin/levels/LevelSelector.js'
    //          , 'bin/levels/c1/tutorial.js'
 			// , 'bin/levels/c1/l1.js'
 			
