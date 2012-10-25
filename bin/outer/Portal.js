@@ -12,7 +12,7 @@ yc.outer.Portal = yc.outer.PhysicalEntity.extend({
 		var level = eval('yc.levels.'+this._script.level) ;
 		if(level)
 		{
-			yc.levels.LevelSelector.enterLevel(level) ;
+			yc.MainScene.enterLevel(level) ;
 		}
 	}
 
