@@ -33,7 +33,7 @@ var TAG_SPRITE_MANAGER = 1;
 		engineDir:'lib/cocos2d/',
 		appFiles:[
 			'bin/test.js'   
-			, 'bin/settings.js'   
+			, 'bin/settings.js'
 			, 'bin/Cocos2dPatchs.js'
 			, 'bin/GameScene.js'  
 			, 'bin/MainScene.js' 
@@ -129,8 +129,8 @@ var TAG_SPRITE_MANAGER = 1;
 			
 			, 'bin/levels/FreeWorld.js'
 			, 'bin/levels/StorySelector.js' 
-   //          , 'bin/levels/c1/tutorial.js'
-			// , 'bin/levels/c1/l1.js'
+            , 'bin/levels/c1/tutorial.js'
+			, 'bin/levels/c1/l1.js'
 			
 			
 			, 'bin/Charactar.js'
