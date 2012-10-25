@@ -237,7 +237,7 @@ yc.inner.Cell.prototype.die = function(){
 	alert('you are die !') ;
 	
 	// 回到关卡选择菜单
-	cc.Director.getInstance().replaceScene( new yc.levels.LevelSelector ) ;
+	cc.Director.getInstance().replaceScene( new yc.MainScene ) ;
 	
 //	// 清空资源
 //	ins(yc.inner.AminoAcidPool).clear() ;

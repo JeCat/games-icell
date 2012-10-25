@@ -64,7 +64,7 @@
 	</div>
 	
 	<div id='menu-inner-layer-zoom' style="float:right;position: absolute;display:none;">
-		<button title="回到主菜单" onclick=" if(!confirm('确定要放弃当前游戏，退回到主菜单吗？')) return ; cc.Director.getInstance().replaceScene( ins(yc.levels.LevelSelector) )">主菜单</button>
+		<button title="回到主菜单" onclick=" if(!confirm('确定要放弃当前游戏，退回到主菜单吗？')) return ; cc.Director.getInstance().replaceScene( ins(yc.MainScene) )">主菜单</button>
 	</div>
 	
 	<!-- 建造菜单 -->
@@ -146,7 +146,6 @@
 			
 			
 			<div id='panel-world'>
-			
 				<div>
 					<button onclick="yc.settings.outer.box2d.dbg=!yc.settings.outer.box2d.dbg; $('#debugCanvas').toggle()">Debug Draw</button>
 					
@@ -542,10 +541,10 @@
 		<div id="ui-buildin-levels-menu" style="display:none">
 			<ul>
 				<li>
-					<button onclick="yc.levels.LevelSelector.enterLevel(yc.levels.c1.tutorial)">教学关卡</button>
+					<button onclick="yc.MainScene.enterLevel(yc.levels.c1.tutorial)">教学关卡</button>
 				</li>
 				<li>
-					<button onclick="yc.levels.LevelSelector.enterLevel(yc.levels.c1.l1)">Lv 1</button>
+					<button onclick="yc.MainScene.enterLevel(yc.levels.c1.l1)">Lv 1</button>
 				</li>
 				<li>
 					<button disabled>Lv 2</button>
