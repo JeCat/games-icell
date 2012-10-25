@@ -1,4 +1,4 @@
-yc.levels.LevelSelector = cc.Scene.extend({
+yc.MainScene = cc.Scene.extend({
 	menuLogin : null
 	, menuLevelSelect : null
 	, actionShow : null
