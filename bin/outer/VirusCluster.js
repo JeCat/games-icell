@@ -195,6 +195,21 @@ yc.outer.VirusCluster = yc.outer.PhysicalEntity.extend({
 			portal.open() ;
 		}
 	}
+	, hit: function(injure){
+		var i;
+		for(i=this._script.viruses.length-1;i>=0;--i){
+			var viruse = this._script.viruses[i];
+			viruse.hp -= injure ;
+			if( viruse.hp <= 0 ){
+				this._script.viruses.splice(i,1);
+				this.failViruses ++ ;
+			}
+		}
+		if( this._script.viruses.length <= 0){
+			this.destroy() ;
+			this.finish();
+		}
+	}
 	  
 }) ;
 

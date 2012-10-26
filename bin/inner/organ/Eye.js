@@ -1,8 +1,7 @@
 yc.inner.organ.Eye = yc.inner.organ.Organ.extend({
 	ctor: function(){
 		this._super() ;
-		this.range = 10
-		this.hexgon = null
+		this.range = 10 ;
 	}
 	, draw: function(ctx){
 		ctx.fillStyle = "rgba(255,0,0,1)" ;

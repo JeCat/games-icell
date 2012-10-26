@@ -13,7 +13,6 @@ yc.inner.building.BuildingLayer = cc.Layer.extend({
 		var building = new buildingClass ;
 		
 		this.addChild(building) ;
-		building.setVisible(false) ;
 		building.idx = this.assigned++ ;
 		
 		building.put(hexgon) ;
