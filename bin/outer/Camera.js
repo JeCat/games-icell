@@ -56,6 +56,25 @@ yc.outer.Camera = function()
 	
 	this.moveByFocus = function(x,y)
 	{
+		var scale = ins(yc.GameLayer).getScale() ;
+		
+		var halfWidth = this.width / 2 / scale;
+		var rightBorder = scene.rgt +10;
+		var leftBorder = scene.lft -10;
+		if (x - halfWidth < leftBorder ){
+			x = leftBorder + halfWidth ;
+		}else if( x + halfWidth > rightBorder ){
+			x = rightBorder - halfWidth ;
+		}
+		
+		var halfHeight = this.height/ 2 /scale ;
+		var topBorder = scene.top + 10;
+		var bottomBorder = scene.btm - 10;
+		if( y + halfHeight > topBorder ){
+			y = topBorder - halfHeight ;
+		}else if( y - halfHeight < bottomBorder ){
+			y = bottomBorder + halfHeight ;
+		}
 		this.x = this.focusX = x ;
 		this.y = this.focusY = y ;
 
