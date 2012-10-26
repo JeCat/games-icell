@@ -3,10 +3,10 @@ yc.GameScene = cc.Scene.extend({
 	
 	ctor: function(){
 		// 场景的世界边界， null 表示不限
-		// this.lft = null ;
-		// this.rgt = null ;
-		// this.btm = null ;
-		// this.top = null ;
+		this.lft = -1000 ;
+		this.rgt = 1000 ;
+		this.btm = -1000 ;
+		this.top = 1000 ;
 		// this.b2BodyLft = null ;
 		// this.b2BodyRgt = null ;
 		// this.b2BodyBtm = null ;
@@ -78,6 +78,10 @@ yc.GameScene = cc.Scene.extend({
 		
 		// 全局变量
 		scene = this ;
+		
+		
+		// border
+		this._drawBorder();
 	}
 
 	, _initWorld: function(){
@@ -92,7 +96,7 @@ yc.GameScene = cc.Scene.extend({
 		this.world.removingBodies = [] ;
 		
 		// 世界边界墙
-		// this._createWalls() ;
+		this._createWalls() ;
 		
 		
 
@@ -109,66 +113,107 @@ yc.GameScene = cc.Scene.extend({
 		// 捆绑到物理世界实例
 		this.world.SetDebugDraw(debugDraw) ;
 	}
-	// , _createWalls: function(){
+	, _createWalls: function(){
+		if( this.rgt===null || this.lft===null || this.top===null || this.btm===null )
+		{
+			console.log( 'create walls null return');
+			return ;
+		}
 		
-	// 	if( this.rgt===null || this.lft===null || this.top===null || this.btm===null )
-	// 	{
-	// 		return ;
-	// 	}
+		if( this.rgt<this.lft )
+		{
+			throw new Error("world boundary rgt:"+this.rgt+" < lft"+this.btm) ;
+		}
+		if( this.top<this.btm )
+		{
+			throw new Error("world boundary top:"+this.top+" < btm:"+this.btm) ;
+		}
 		
-	// 	if( this.rgt<this.lft )
-	// 	{
-	// 		throw new Error("world boundary rgt:"+this.rgt+" < lft"+this.btm) ;
-	// 	}
-	// 	if( this.top<this.btm )
-	// 	{
-	// 		throw new Error("world boundary top:"+this.top+" < btm:"+this.btm) ;
-	// 	}
-		
-	// 	// 边界墙 ---------------
-	// 	var fixDef = new b2FixtureDef;
-	// 	fixDef.density = 1.0;
-	// 	fixDef.friction = 0.5;
-	// 	fixDef.restitution = 0.2;
+		// 边界墙 ---------------
+		var fixDef = new b2FixtureDef;
+		fixDef.density = 1.0;
+		fixDef.friction = 0.5;
+		fixDef.restitution = 0.2;
 
-	// 	var bodyDef = new b2BodyDef;
-	// 	var w = this.rgt-this.lft, h = this.top-this.btm ;
+		var bodyDef = new b2BodyDef;
+		var w = this.rgt-this.lft, h = this.top-this.btm ;
 
-	// 	//create ground
-	// 	bodyDef.type = b2Body.b2_staticBody;
-	// 	fixDef.shape = new b2PolygonShape;
-	// 	fixDef.shape.SetAsBox(w/2/PTM_RATIO, 2);  // 墙要厚一点
+		//create ground
+		bodyDef.type = b2Body.b2_staticBody;
+		fixDef.shape = new b2PolygonShape;
+		fixDef.shape.SetAsBox(w/2/PTM_RATIO, 2);  // 墙要厚一点
 		
-	// 	// top
-	// 	bodyDef.position.Set((this.lft+(w/2))/PTM_RATIO, this.top/PTM_RATIO+2);
-	// 	this._buildWall(fixDef,bodyDef,'b2BodyTop') ;
+		// top
+		bodyDef.position.Set((this.lft+(w/2))/PTM_RATIO, this.top/PTM_RATIO+2);
+		this._buildWall(fixDef,bodyDef,'b2BodyTop') ;
 		
-	// 	// bottom
-	// 	bodyDef.position.Set((this.lft+(w/2))/PTM_RATIO, this.btm/PTM_RATIO-2);
-	// 	this._buildWall(fixDef,bodyDef,'b2BodyBtm') ;
+		// bottom
+		bodyDef.position.Set((this.lft+(w/2))/PTM_RATIO, this.btm/PTM_RATIO-2);
+		this._buildWall(fixDef,bodyDef,'b2BodyBtm') ;
 
-	// 	fixDef.shape.SetAsBox(2,h/2/PTM_RATIO);
-	// 	// left
-	// 	bodyDef.position.Set(this.lft/PTM_RATIO-2,(this.btm+(h/2))/PTM_RATIO);
-	// 	this._buildWall(fixDef,bodyDef,'b2BodyLft') ;
+		fixDef.shape.SetAsBox(2,h/2/PTM_RATIO);
+		// left
+		bodyDef.position.Set(this.lft/PTM_RATIO-2,(this.btm+(h/2))/PTM_RATIO);
+		this._buildWall(fixDef,bodyDef,'b2BodyLft') ;
 		
-	// 	// right
-	// 	bodyDef.position.Set(this.rgt/PTM_RATIO+2,(this.btm+(h/2))/PTM_RATIO);
-	// 	this._buildWall(fixDef,bodyDef,'b2BodyRgt') ;
-	// }
+		// right
+		bodyDef.position.Set(this.rgt/PTM_RATIO+2,(this.btm+(h/2))/PTM_RATIO);
+		this._buildWall(fixDef,bodyDef,'b2BodyRgt') ;
+		
+		
+	}
+		
+		
+
+	, _buildWall: function(fixDef,bodyDef,wall){
+		if( this[wall] )
+		{
+		}
+		else
+		{
+			this[wall] = this.world.CreateBody(bodyDef) ;
+			this[wall].CreateFixture(fixDef) ;
+		}
+	}
 	
-
-	// , _buildWall: function(fixDef,bodyDef,wall){
-	// 	if( this[wall] )
-	// 	{
-	// 	}
-	// 	else
-	// 	{
-	// 		this[wall] = this.world.CreateBody(bodyDef) ;
-	// 		this[wall].CreateFixture(fixDef) ;
-	// 	}
-	// }
-	
+	, _drawBorder: function(){
+		if( this.rgt===null || this.lft===null || this.top===null || this.btm===null )
+		{
+			return ;
+		}
+		var border = cc.Sprite.extend({
+			x: 0
+			, y: 0
+			, draw: function(ctx){
+				this._super(ctx);
+				
+				ctx.strokeStyle = "rgba(0,0,255,1)" ;
+				ctx.fillStyle = "rgba(0,0,255,1)" ;
+				ctx.beginPath() ;
+				
+				ctx.moveTo(
+					scene.lft
+					, scene.top
+				);
+				ctx.lineTo(
+					scene.lft
+					,scene.btm
+				);
+				ctx.lineTo(
+					scene.rgt
+					,scene.btm
+				);
+				ctx.lineTo(
+					scene.rgt
+					,scene.top
+				);
+				ctx.closePath() ;
+				ctx.stroke() ;
+			}
+			, transform: yc.outer.Camera.transformSprite
+		});
+		this.layerGame.addChild( new border);
+	}
 	, _initZoomer: function(){
 	}
 
@@ -249,13 +294,13 @@ yc.GameScene = cc.Scene.extend({
 		// 世界 -------
 		var script = {
 			world: {
-				// // 世界的边界（null表示不设限制）
-				// boundary: {
-				// 	lft: this.lft
-				// 	, rgt: this.rgt
-				// 	, top: this.top
-				// 	, btm: this.btm
-				// }
+				// 世界的边界（null表示不设限制）
+				boundary: {
+					lft: this.lft
+					, rgt: this.rgt
+					, top: this.top
+					, btm: this.btm
+				}
 			}
 		} ;
 
@@ -344,19 +389,19 @@ yc.GameScene = cc.Scene.extend({
 	, initWithScript: function(script){
 		
 		// selection world -----------
-		// if( 'world' in script && 'boundary' in script.world )
-		// {
-		// 	this.lft = this.rgt = this.top = this.btm = null ;
-		// 	for(var wall in script.world.boundary)
-		// 	{
-		// 		this[wall] = script.world.boundary[wall] ;
-		// 	}
-		// 	this._createWalls() ;
+		if( 'world' in script && 'boundary' in script.world )
+		{
+			this.lft = this.rgt = this.top = this.btm = null ;
+			for(var wall in script.world.boundary)
+			{
+				this[wall] = script.world.boundary[wall] ;
+			}
+			this._createWalls() ;
 
 		// 	this.layerGlassSlide.setContentSize(cc.size(this.rgt-this.lft,this.top-this.btm)) ;
 		// 	this.layerGlassSlide.x = this.lft ;
 		// 	this.layerGlassSlide.y = this.btm ;
-		// }
+		}
 		
 		
 		// selection aminoacids, virusclusters, stains -----------
@@ -417,13 +462,13 @@ yc.GameScene = cc.Scene.extend({
 	// 关卡脚本的标准格式：
 	, scriptDemo: {
 		world: {
-			// // 世界的边界（null表示不设限制）
-			// boundary: {
-			// 	lft: null
-			// 	, rgt: null
-			// 	, top: null
-			// 	, btm: null
-			// }
+			// 世界的边界（null表示不设限制）
+			boundary: {
+				lft: -3000
+				, rgt: 3000
+				, top: -3000
+				, btm: 3000
+			}
 		}
 	
 		// 玩家的初始属性
