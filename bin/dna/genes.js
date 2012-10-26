@@ -10,27 +10,47 @@ yc.dna.genes = {
 		name: 'tower(shooter)'
 		, title: '[解锁]防御塔(射击)'
 		, description: '解锁：允许建造防御塔(射击)'
+		, icon: {
+			file: "res/dna-icons-32.png"
+			, rect: [240,32,33,33]
+		}
 	})
 	, 'tower(cannon)': new yc.dna.Gene({
 		name: 'tower(cannon)'
 		, title: '[解锁]防御塔(火炮)'
 		, description: '解锁：允许建造防御塔(火炮)'
+		, icon: {
+			file: "res/dna-icons-32.png"
+			, rect: [267,163,33,33]
+		}
 	})
 	, 'tower(slower)': new yc.dna.Gene({
 		name: 'tower(slower)'
 		, title: '[解锁]防御塔(减速)'
 		, description: '解锁：允许建造防御塔(减速)'
+		, icon: {
+			file: "res/dna-icons-32.png"
+			, rect: [68,130,33,33]
+		}
 	})
 	, 'recycle': new yc.dna.Gene({
 		name: 'recycle'
 		, title: '[解锁]回收站'
 		, description: '解锁：允许建造回收站'
+		, icon: {
+			file: "res/dna-icons-32.png"
+			, rect: [240,32,32,33]
+		}
 	})
 	
 	, 'grow': new yc.dna.Gene({
 		name: 'grow'
 		, title: '[解锁]生长'
 		, description: '解锁：允许细胞扩充新的格子'
+		, icon: {
+			file: "res/dna-icons-32.png"
+			, rect: [240,32,32,33]
+		}
 	})
 	
 	// 器官
@@ -38,6 +58,10 @@ yc.dna.genes = {
 		name: 'eye'
 		, title: '[解锁]眼睛'
 		, description: '解锁：允许建造眼睛'
+		, icon: {
+			file: "res/dna-icons-32.png"
+			, rect: [240,32,32,33]
+		}
 	})
 
 	// 升级
@@ -46,18 +70,30 @@ yc.dna.genes = {
 		, title: '[升级]防御塔：火力'
 		, description: '解锁：能够将“防御塔：火力”升级到更高等级'
 		, upgrader: yc.inner.building.up.TowerFierpower
+		, icon: {
+			file: "res/dna-icons-32.png"
+			, rect: [240,32,32,33]
+		}
 	})
 	, 'tower:bombing': new yc.dna.GeneBuildingUpgrader({
 		name: 'tower:bombing'
 		, title: '[升级]防御塔：轰炸'
 		, description: '解锁：能够将“防御塔：轰炸”升级到更高等级'
 		, upgrader: yc.inner.building.up.TowerBombing
+		, icon: {
+			file: "res/dna-icons-32.png"
+			, rect: [240,32,32,33]
+		}
 	})
 	, 'tower:retardment': new yc.dna.GeneBuildingUpgrader({
 		name: 'tower:retardment'
 		, title: '[升级]防御塔：减速'
 		, description: '解锁：能够将“防御塔：减速”效果升级到更高等级'
 		, upgrader: yc.inner.building.up.TowerRetardment
+		, icon: {
+			file: "res/dna-icons-32.png"
+			, rect: [240,32,32,33]
+		}
 	})
 	// , 'effct': new yc.dna.Gene({
 	// 	name: 'effct'

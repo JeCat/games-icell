@@ -14,7 +14,7 @@ yc.ui.PauseMenu = cc.Layer.extend({
 	        function (sender){
 	        	var msgBox = new ( yc.ui.MsgBox.extend({
 	        		YesBtnCallBack : function(){
-		        		cc.Director.getInstance().replaceScene( ins(yc.levels.LevelSelector) );
+		        		cc.Director.getInstance().replaceScene( ins(yc.MainScene) );
 		        		this.removeFromParentAndCleanup(true);
 		        	}
 	        	}) );

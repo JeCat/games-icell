@@ -64,7 +64,7 @@
 	</div>
 	
 	<div id='menu-inner-layer-zoom' style="float:right;position: absolute;display:none;">
-		<button title="回到主菜单" onclick=" if(!confirm('确定要放弃当前游戏，退回到主菜单吗？')) return ; cc.Director.getInstance().replaceScene( ins(yc.levels.LevelSelector) )">主菜单</button>
+		<button title="回到主菜单" onclick=" if(!confirm('确定要放弃当前游戏，退回到主菜单吗？')) return ; cc.Director.getInstance().replaceScene( ins(yc.MainScene) )">主菜单</button>
 	</div>
 	
 	<!-- 建造菜单 -->
@@ -166,6 +166,8 @@
 					<button onclick="saveWorldToServer()">保存到服务器</button>
 					<div id="saveWorldMsg"></div>
 				</div>
+			<iframe id="saveIframe" src="iframeSaveWorld.html" width="0" height="0" frameborder="no" border="0" marginwidth="0" marginheight="0" scrolling="no" allowtransparency="yes">
+            </iframe>
 			</div>
 		
 			<div id='panel-stains'>
@@ -217,6 +219,10 @@
 							文本样式<input id='ipt-stain-shape-text-style' title="污渍上绘制文本的样式" style='width:120px' value='' /> <br />
 							文本颜色<input id='ipt-stain-shape-text-color' title="污渍上绘制文本的颜色" style='width:100px' value='' /><br />
 							贴图<input id="ipt-stain-shape-img" style='width:140px' value='' />
+							<br />
+							<label>
+								<input id="ipt-stain-shape-img-tile" type="checkbox" checked="checked" />平铺贴图
+							</label>
 
 						</div>
 
@@ -535,10 +541,10 @@
 		<div id="ui-buildin-levels-menu" style="display:none">
 			<ul>
 				<li>
-					<button onclick="yc.levels.LevelSelector.enterLevel(yc.levels.c1.tutorial)">教学关卡</button>
+					<button onclick="yc.MainScene.enterLevel(yc.levels.c1.tutorial)">教学关卡</button>
 				</li>
 				<li>
-					<button onclick="yc.levels.LevelSelector.enterLevel(yc.levels.c1.l1)">Lv 1</button>
+					<button onclick="yc.MainScene.enterLevel(yc.levels.c1.l1)">Lv 1</button>
 				</li>
 				<li>
 					<button disabled>Lv 2</button>
@@ -555,7 +561,7 @@
 
 		<div id="worldListDiv">
 			<div id="worldListDiv_title">
-				<a id="worldListDiv_newMapBtn" href="#"  onclick="$('#worldListDiv').dialog('close');yc.levels.LevelSelector.enterLevel(yc.levels.creater);return false;">Create my world</a>
+				<a id="worldListDiv_newMapBtn" href="#"  onclick="$('#worldListDiv').dialog('close');yc.MainScene.enterLevel(yc.levels.creater);return false;">Create my world</a>
 				<h2>world list</h2>
 			</div>
 			<div id="worldListDiv_list">

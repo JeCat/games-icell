@@ -53,6 +53,13 @@ var ICellGame = cc.Application.extend({
 			
 			, {type:"image", src:"res/null-pinup.png"}
 			, {type:"image", src:"res/null.png"}
+
+			, {type:"image", src:"res/map-c1.png"}
+			, {type:"image", src:"res/level-flag-normal.png"}
+			, {type:"image", src:"res/level-flag-flash.png"}
+			, {type:"image", src:"res/dna-icons-16.png"}
+			, {type:"image", src:"res/dna-icons-32.png"}
+			
 		]);
 	},
 	applicationDidFinishLaunching:function () {
@@ -112,7 +119,7 @@ var ICellGame = cc.Application.extend({
 $(function(){
 	$('#ui').width($(window).width()) ;
 	
-    ICellGame.instance = new ICellGame(yc.levels.LevelSelector);
+    ICellGame.instance = new ICellGame(yc.MainScene);
     
     // webkitRequestAnimationFrame 似乎不太流畅
     if( window.requestAnimFrame === window.webkitRequestAnimationFrame )

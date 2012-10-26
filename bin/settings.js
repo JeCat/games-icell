@@ -282,28 +282,76 @@ yc.settings = {
 			title: "马桶"
 
 			// 关卡地图
-			, levelsMapImg: "res/map1.jpg"
+			, levelsMapImg: "res/map-c1.png"
 
 			, levels: {
 				'c1.l1': {
 					// 在关卡地图上的位置
-					x: 100
-					, y: 100
+					x: 233
+					, y: 280
 					, title: null		// (可选)
+					, script: "yc.levels.c1.l1"
 				}
 
 				, 'c1.l2': {
 					// 在关卡地图上的位置
-					x: 200
-					, y: 200
+					x: 362
+					, y: 381
 					, title: null
+					, script: "yc.levels.c1.l1"
+				}
+
+				, 'c1.l3': {
+					// 在关卡地图上的位置
+					x: 520
+					, y: 504
+					, title: null
+					, script: "yc.levels.c1.l1"
+				}
+
+				, 'c1.l4': {
+					// 在关卡地图上的位置
+					x: 568
+					, y: 373
+					, title: null
+					, script: "yc.levels.c1.l1"
+				}
+
+				, 'c1.l5': {
+					// 在关卡地图上的位置
+					x: 352
+					, y: 668
+					, title: null
+					, script: "yc.levels.c1.l1"
+				}
+
+				, 'c1.l6': {
+					// 在关卡地图上的位置
+					x: 355
+					, y: 812
+					, title: null
+					, script: "yc.levels.c1.l1"
+				}
+
+				, 'c1.l7': {
+					// 在关卡地图上的位置
+					x: 261
+					, y: 972
+					, title: null
+					, script: "yc.levels.c1.l1"
+				}
+
+				, 'c1.l8': {
+					// 在关卡地图上的位置
+					x: 559
+					, y: 907
+					, title: null
+					, script: "yc.levels.c1.l1"
 				}
 			}
 		}
 	}
 } 
-
-
 
 
 

@@ -1,4 +1,4 @@
-yc.levels.LevelSelector = cc.Scene.extend({
+yc.MainScene = cc.Scene.extend({
 	menuLogin : null
 	, menuLevelSelect : null
 	, actionShow : null
@@ -56,7 +56,7 @@ yc.levels.LevelSelector = cc.Scene.extend({
 
 		this._super() ;
 
-		if( location!==undefined && yc.levels.LevelSelector.autoLoadByUrl )
+		if( location!==undefined && yc.MainScene.autoLoadByUrl )
 		{
 			var url = parseUrl(location.toString()) ;
 
@@ -66,7 +66,7 @@ yc.levels.LevelSelector = cc.Scene.extend({
 				var level = eval('yc.levels.'+url.anchorParams.l) ;
 				if( level!==undefined && level )
 				{
-					yc.levels.LevelSelector.enterLevel(level) ;
+					yc.MainScene.enterLevel(level) ;
 				}
 			}
 
@@ -78,7 +78,7 @@ yc.levels.LevelSelector = cc.Scene.extend({
 			}
 
 			// 只自动加载一次
-			yc.levels.LevelSelector.autoLoadByUrl = false ;
+			yc.MainScene.autoLoadByUrl = false ;
 		}
 	}
 
@@ -98,7 +98,7 @@ yc.levels.LevelSelector = cc.Scene.extend({
 
 
 
-yc.levels.LevelSelector.enterLevel = function(levelScript){
+yc.MainScene.enterLevel = function(levelScript){
 		
 	cc.Director.getInstance().replaceScene(new (yc.GameScene.extend({
 		onEnter: function(){
@@ -123,5 +123,5 @@ yc.levels.LevelSelector.enterLevel = function(levelScript){
 	})));
 }
 
-yc.levels.LevelSelector.singleton = true ;
-yc.levels.LevelSelector.autoLoadByUrl = true ;
+yc.MainScene.singleton = true ;
+yc.MainScene.autoLoadByUrl = true ;

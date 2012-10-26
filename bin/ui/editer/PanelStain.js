@@ -52,6 +52,8 @@ yc.ui.editer.PanelStain = function(editer){
 		panel.selectedStainShape.textColor = $('#ipt-stain-shape-text-color').val();
 		panel.selectedStainShape.text = $('#ipt-stain-shape-text').val();
 		panel.selectedStainShape.img = $('#ipt-stain-shape-img').val();
+		panel.selectedStainShape.tile = $('#ipt-stain-shape-img-tile').attr("checked")? true: false ;
+
 	}
 	this.ui.find('#ipt-stain-shape-color').change(onChangeShape) ;
 	this.ui.find('#ipt-stain-shape-border-color').change(onChangeShape) ;
@@ -59,6 +61,7 @@ yc.ui.editer.PanelStain = function(editer){
 	this.ui.find('#ipt-stain-shape-text-color').change(onChangeShape) ;
 	this.ui.find('#ipt-stain-shape-text').change(onChangeShape) ;
 	this.ui.find('#ipt-stain-shape-img').change(onChangeShape) ;
+	this.ui.find('#ipt-stain-shape-img-tile').change(onChangeShape) ;
 
 	// 修改多边形顶点位置
 	var onChangePointPosition = function(){
@@ -143,6 +146,8 @@ yc.ui.editer.PanelStain = function(editer){
 					panel.ui.find('#ipt-stain-shape-text-style').val(shape.textStyle) ;
 					panel.ui.find('#ipt-stain-shape-text-color').val(shape.textColor) ;
 					panel.ui.find('#ipt-stain-shape-text').val(shape.text) ;
+					panel.ui.find('#ipt-stain-shape-img').val(shape.img) ;
+					panel.ui.find('#ipt-stain-shape-img-tile').val( shape.tile ) ;
 
 					panel.ui.find('#ipt-stain-point-x').val('') ;
 					panel.ui.find('#ipt-stain-point-y').val('') ;
@@ -324,12 +329,14 @@ yc.ui.editer.PanelStain = function(editer){
 			, friction: 1					// 摩擦力
 			, restitution: 1				// 弹性
 			, color: "150,150,150"			// 颜色
-			, borderColor: "80,80,80"		// 边界颜色
+			, borderColor: "80,80,80,0"		// 边界颜色
 			// 多边形的顶点
 			, points: [ [lft,top], [lft,btn], [rgt,btn], [rgt,top] ]
 			, text: null
 			, textStyle: "normal 16px san-serif"
 			, textColor: "0,0,0,1"
+			, img: "res/Static_poly.png"
+			, tile: true
 		} ;
 	}
 
