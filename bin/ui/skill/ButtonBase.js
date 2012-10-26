@@ -2,26 +2,28 @@ var STAR_STATE_GRABBED = 0;
 var STAR_STATE_UNGRABBED = 1;
 
 yc.ui.skill.ButtonBase = cc.Sprite.extend({
-	boxWidth: 20
-	, boxHeight: 20
+	boxWidth: 50
+	, boxHeight: 50
 	, _state : STAR_STATE_UNGRABBED
 	, ctor: function(){
-		var _skill = null;
-		this.setSkill=function(s){
-			_skill = s;
+		var _skillList = [] ;
+		this.addSkill=function(s){
+			_skillList.push( s );
 		}
-		this.skill = function(){
-			return _skill;
+		this.skillList = function(){
+			return _skillList;
 		}
 	},
 	draw: function(ctx){
 		this._super();
 		
-		var radius = 10;
+		var radius = 25;
 		ctx.fillStyle = "rgba(0,255,0,1)" ;
 		ctx.beginPath() ;
-		ctx.moveTo(radius,0) ;
-		ctx.arc(0,0, radius, 0, Math.PI*2 , false) ;
+		ctx.moveTo(0,0) ;
+		ctx.lineTo(radius,0) ;
+		ctx.arc(0,0, radius, 0, Math.PI*2 * this.getCoolDownPercent(), false) ;
+		ctx.lineTo(0,0) ;
 		ctx.closePath();
 		ctx.fill() ;
 	},
@@ -59,7 +61,28 @@ yc.ui.skill.ButtonBase = cc.Sprite.extend({
 		}
 	}
 	,onclick:function(){
-		this.skill().start();
+		var i,skill;
+		var skillList = this.skillList() ;
+		for( i in skillList ){
+			skill = skillList[i];
+			if( skill.canStart() ){
+				skill.start();
+				break;
+			}
+		}
+	}
+	,getCoolDownPercent:function(){
+		var i,skill;
+		var skillList = this.skillList() ;
+		var coolingTime = skillList[0].coolingTime() ;
+		var minLeftCoolingTime = coolingTime ;
+		for( i in skillList ){
+			skill = skillList[i];
+			if( skill.leftCoolingTime() < minLeftCoolingTime ){
+				minLeftCoolingTime = skill.leftCoolingTime() ;
+			}
+		}
+		return 1.0 - 1.0*minLeftCoolingTime / coolingTime ;
 	}
 	
 });

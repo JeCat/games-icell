@@ -1,5 +1,6 @@
 yc.ui.skill.SkillBar = cc.Layer.extend({
 	marginLeft: 50
+	, buttons : {}
 	, ctor: function(){
 		var _skillButtonList = [] ;
 		this.addButton = function(btn){
@@ -12,10 +13,15 @@ yc.ui.skill.SkillBar = cc.Layer.extend({
 	}
 	, createButtonForSkill: function(skill){
 		var name = skill.name();
-		console.log(name);
-		var button = new yc.ui.skill.ButtonBase;
-		button.setSkill( skill );
-		this.addButton( button );
+		var button ;
+		if( this.buttons[name] != undefined ){
+			button = this.buttons[name];
+		}else{
+			button = new yc.ui.skill.ButtonBase;
+			this.addButton( button );
+			this.buttons[name] = button ;
+		}
+		button.addSkill( skill );
 		return button;
 	}
 });

@@ -1,6 +1,8 @@
 yc.inner.skill.ShootVirusCluster = yc.inner.skill.SkillBase.extend({
 	ctor : function(){
 		this._super();
+		
+		this.setCoolingTime( 10 );// 冷却时间设为10秒
 	}
 	, start: function(){
 		var bullet = yc.op.ins(yc.inner.skill.Bullet).ob();
@@ -23,9 +25,10 @@ yc.inner.skill.ShootVirusCluster = yc.inner.skill.SkillBase.extend({
 			target = cc.p(-100,-100);
 		}
 		
-		console.log( target );
 		bullet.setTargetPosition( target ) ;
 		bullet.run() ;
+		
+		this._super();
 	}
 	, findClosestVirusCluster: function(from){
 		var i;
