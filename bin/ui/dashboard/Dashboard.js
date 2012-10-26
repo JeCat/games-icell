@@ -34,12 +34,16 @@ yc.ui.dashboard.Dashboard = cc.Layer.extend({
 		this._super() ;
 
 		var dashboard = this ;
+
+
+		var screenSize = cc.Director.getInstance().getWinSize();
+		this.onResize(screenSize.width, screenSize.height);
 		
 		
 		// HP 状态
 		dashboard.HP = cc.LabelTTF.create('HP 10/10','',16,new cc.Size(0,16),cc.TEXT_ALIGNMENT_LEFT,cc.VERTICAL_TEXT_ALIGNMENT_BOTTOM) ;
 		dashboard.HP.setColor(new cc.Color3B(0,255,0)) ;
-		this.addChild(dashboard.HP) ;
+		dashboard.addChild(dashboard.HP) ;
 		
 
 		$(window).bind('yc.inner.Cell::onAfterChange',null,function(e,o,val,hp){
@@ -49,27 +53,27 @@ yc.ui.dashboard.Dashboard = cc.Layer.extend({
 		/*     合成面板 start    */
 
 		//  氨基酸
-		this.aminoAcidsStars.push( Star.starWithTexture("res/btn-back.png" , "res/btn-back-1.png" , "res/btn-back.png") );
-        this.aminoAcidsStars.push( Star.starWithTexture("res/btn-back.png" , "res/btn-back-1.png" , "res/btn-back.png") );
-        this.aminoAcidsStars.push( Star.starWithTexture("res/btn-back.png" , "res/btn-back-1.png" , "res/btn-back.png") );
-        this.aminoAcidsStars[0].setClickable(false);
-        this.aminoAcidsStars[1].setClickable(false);
-        this.aminoAcidsStars[2].setClickable(false);
+		dashboard.aminoAcidsStars[0] = Star.starWithTexture("res/btn-back.png" , "res/btn-back-1.png" , "res/btn-back.png") ;
+        dashboard.aminoAcidsStars[1] = Star.starWithTexture("res/btn-back.png" , "res/btn-back-1.png" , "res/btn-back.png") ;
+        dashboard.aminoAcidsStars[2] = Star.starWithTexture("res/btn-back.png" , "res/btn-back-1.png" , "res/btn-back.png") ;
+        dashboard.aminoAcidsStars[0].setClickable(false);
+        dashboard.aminoAcidsStars[1].setClickable(false);
+        dashboard.aminoAcidsStars[2].setClickable(false);
 
-        for(var i =0 ; i< this.aminoAcidsStars.length ; i++){
-        	this.aminoAcidsStars[i].setScale( this.starsScale , this.starsScale );
-        	this.aminoAcidsStars[i].setPosition( 
-        		this.starsPosition[0] + this.aminoAcidsPositions[i][0]  
-        		, this.starsPosition[1] + this.aminoAcidsPositions[i][1]
+        for(var i =0 ; i< dashboard.aminoAcidsStars.length ; i++){
+        	dashboard.aminoAcidsStars[i].setScale( dashboard.starsScale , dashboard.starsScale );
+        	dashboard.aminoAcidsStars[i].setPosition( 
+        		dashboard.starsPosition[0] + dashboard.aminoAcidsPositions[i][0]  
+        		, dashboard.starsPosition[1] + dashboard.aminoAcidsPositions[i][1]
         	);
-        	this.addChild(this.aminoAcidsStars[i]);
+        	dashboard.addChild(dashboard.aminoAcidsStars[i]);
         }
-        this.labelAminoAcids.red = this._createLabel("♪ 0",new cc.Color3B(255,0,0)) ;
-		this.labelAminoAcids.yellow = this._createLabel("♪ 0",new cc.Color3B(255,255,0)) ;
-		this.labelAminoAcids.blue = this._createLabel("♪ 0",new cc.Color3B(0,0,255)) ;
-        this.aminoAcidsStars[0].addChild(this.labelAminoAcids.red);
-        this.aminoAcidsStars[1].addChild(this.labelAminoAcids.yellow);
-        this.aminoAcidsStars[2].addChild(this.labelAminoAcids.blue);
+        dashboard.labelAminoAcids.red = dashboard._createLabel("♪ 0",new cc.Color3B(255,0,0)) ;
+		dashboard.labelAminoAcids.yellow = dashboard._createLabel("♪ 0",new cc.Color3B(255,255,0)) ;
+		dashboard.labelAminoAcids.blue = dashboard._createLabel("♪ 0",new cc.Color3B(0,0,255)) ;
+        dashboard.aminoAcidsStars[0].addChild(dashboard.labelAminoAcids.red);
+        dashboard.aminoAcidsStars[1].addChild(dashboard.labelAminoAcids.yellow);
+        dashboard.aminoAcidsStars[2].addChild(dashboard.labelAminoAcids.blue);
 
         //  蛋白质
 
@@ -79,20 +83,20 @@ yc.ui.dashboard.Dashboard = cc.Layer.extend({
 		{
 			var star = Star.starWithTexture("res/star.png" , "res/star-light.png" , "res/star-light.png");
 			star.setFormula(formulas[name]);
-			this.proteinsStars[name] = star ;
+			dashboard.proteinsStars[name] = star ;
 
-        	star.setScale( this.starsScale , this.starsScale );
+        	star.setScale( dashboard.starsScale , dashboard.starsScale );
         	star.setPosition( 
-        		this.starsPosition[0] + this.proteinsPositions[name][0]  
-        		, this.starsPosition[1] + this.proteinsPositions[name][1]
+        		dashboard.starsPosition[0] + dashboard.proteinsPositions[name][0]  
+        		, dashboard.starsPosition[1] + dashboard.proteinsPositions[name][1]
         	);
-        	this.addChild( star );
+        	dashboard.addChild( star );
 
 			var fml = formulas[name] ;
 
-			var label = this._createLabel("♫ 0",new cc.Color3B(fml.rgb[0],fml.rgb[1],fml.rgb[2])) ;
+			var label = dashboard._createLabel("♫ 0",new cc.Color3B(fml.rgb[0],fml.rgb[1],fml.rgb[2])) ;
 
-			this.labelProteins[name] = label;
+			dashboard.labelProteins[name] = label;
 
 			star.addChild(label);
 		}
@@ -128,8 +132,7 @@ yc.ui.dashboard.Dashboard = cc.Layer.extend({
 		}) ;
 
 
-		var screenSize = cc.Director.getInstance().getWinSize();
-		this.onResize(screenSize.width, screenSize.height);
+		
 	}
 
 	, onEnter : function(){
@@ -149,23 +152,29 @@ yc.ui.dashboard.Dashboard = cc.Layer.extend({
 	}
 
 	, onResize : function(w,h){
+		var dash = this;
+		dash.starsPosition = [ 100 , h - 120 ];
 
-		this.starsPosition = [ 100 , h - 120 ];
+		if(dash.HP){
+			dash.HP.setPosition(cc.p(40 , h - 10));
+		}
 
-		this.HP.setPosition(cc.p(40 , h - 10));
+		if(dash.aminoAcidsStars.length === 0){
+			return;
+		}
 
-		for(var i =0 ; i< this.aminoAcidsStars.length ; i++){
-        	this.aminoAcidsStars[i].setPosition( 
-        		this.starsPosition[0] + this.aminoAcidsPositions[i][0]  
-        		, this.starsPosition[1] + this.aminoAcidsPositions[i][1]
+		for(var i =0 ; i< dash.aminoAcidsStars.length ; i++){
+        	dash.aminoAcidsStars[i].setPosition( 
+        		dash.starsPosition[0] + dash.aminoAcidsPositions[i][0]  
+        		, dash.starsPosition[1] + dash.aminoAcidsPositions[i][1]
         	);
         }
 
-        for(var name in this.proteinsStars){
-        	var star = this.proteinsStars[name];
+        for(var name in dash.proteinsStars){
+        	var star = dash.proteinsStars[name];
         	star.setPosition( 
-        		this.starsPosition[0] + this.proteinsPositions[name][0]  
-        		, this.starsPosition[1] + this.proteinsPositions[name][1]
+        		dash.starsPosition[0] + dash.proteinsPositions[name][0]  
+        		, dash.starsPosition[1] + dash.proteinsPositions[name][1]
         	);
         }
         
