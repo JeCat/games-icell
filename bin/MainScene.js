@@ -2,7 +2,8 @@ yc.MainScene = cc.Scene.extend({
 	menuLogin : null
 	, menuLevelSelect : null
 	, actionShow : null
-	, onEnter: function(){
+	, ctor: function(){
+		this._super() ;
 
 		this.h1 = cc.LabelTTF.create('I, Cell',  'Times New Roman', 32, cc.size(132,32), cc.TEXT_ALIGNMENT_CENTER);
 		this.h2 = cc.LabelTTF.create('You are a cell under someone`s microscope ……',  'Times New Roman', 16, cc.size(416,16), cc.TEXT_ALIGNMENT_CENTER);
@@ -49,6 +50,9 @@ yc.MainScene = cc.Scene.extend({
         this.actionShow = cc.FadeIn.create(1);
         // this.menuLevelSelect.runAction(cc.Sequence.create(actionShow, actionShow.reverse()));
 
+		
+	}
+	, onEnter: function(){
 		yc.event.register( ins(yc.outer.Camera), "resize", this.onResize, this ) ;
 
 		var screenSize = cc.Director.getInstance().getWinSize();

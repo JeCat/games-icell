@@ -1,6 +1,5 @@
 yc.inner.organ.OrganLayer = cc.Sprite.extend({
 	ctor: function(){
-		
 		this._super() ;
 		this.setScale(1/yc.settings.inner.zoom) ;
 	}
@@ -23,8 +22,6 @@ yc.inner.organ.OrganLayer = cc.Sprite.extend({
 		building.idx = this.assigned++ ;
 		
 		hexgon.building = building ;
-		hexgon.block = item.isBlock ;
-		
 		building.hexgon = hexgon ;
 		building.setPosition(cc.p(hexgon.center[0],hexgon.center[1])) ;
 		

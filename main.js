@@ -60,6 +60,8 @@ var ICellGame = cc.Application.extend({
 			, {type:"image", src:"res/dna-icons-16.png"}
 			, {type:"image", src:"res/dna-icons-32.png"}
 			
+			, {type:"image", src:"res/organ/Tower.png"}
+			
 		]);
 	},
 	applicationDidFinishLaunching:function () {

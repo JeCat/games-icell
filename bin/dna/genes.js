@@ -63,6 +63,11 @@ yc.dna.genes = {
 			, rect: [240,32,32,33]
 		}
 	})
+	, 'oshooter': new yc.dna.Gene({
+		name: 'oshooter'
+		, title: '[解锁]攻击塔'
+		, description: '解锁：允许建造攻击塔'
+	})
 
 	// 升级
 	, 'tower:firepower': new yc.dna.GeneBuildingUpgrader({

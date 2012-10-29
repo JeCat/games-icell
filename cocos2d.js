@@ -5,6 +5,7 @@ yc.util = {} ;
 yc.ui = {} ;
 yc.ui.dashboard = {} ;
 yc.ui.editer = {} ;
+yc.ui.skill = {} ;
 yc.outer = {} ;
 yc.outer.pinups = {} ;
 yc.inner = {} ;
@@ -12,6 +13,7 @@ yc.inner.building = {} ;
 yc.inner.building.up = {} ;
 yc.inner.monster = {} ;
 yc.inner.organ= {};
+yc.inner.skill= {};
 yc.dna = {} ;
 yc.actions = {} ;
 yc.levels = {} ;
@@ -68,6 +70,9 @@ var TAG_SPRITE_MANAGER = 1;
 			, 'bin/ui/editer/PanelRole.js'
 			, 'bin/ui/editer/PropsList.js'
 			
+			, 'bin/ui/skill/SkillBar.js'
+			, 'bin/ui/skill/ButtonBase.js'
+			
 			, 'bin/outer/Camera.js'
 			, 'bin/outer/LifeEntity.js'
 			, 'bin/outer/PhysicalEntity.js'
@@ -111,6 +116,11 @@ var TAG_SPRITE_MANAGER = 1;
 			, 'bin/inner/organ/OrganLayer.js'
 			, 'bin/inner/organ/Organ.js'
 			, 'bin/inner/organ/Eye.js'
+			, 'bin/inner/organ/Tower.js'
+			
+			, 'bin/inner/skill/SkillBase.js'
+			, 'bin/inner/skill/ShootVirusCluster.js'
+			, 'bin/inner/skill/Bullet.js'
 
 			, 'bin/inner/monster/Mitochondria.js'
 			, 'bin/inner/monster/FlopAminoAcid.js'

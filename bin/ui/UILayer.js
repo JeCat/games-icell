@@ -10,7 +10,9 @@ yc.ui.UILayer = cc.Layer.extend({
 		this.pauseMenu = ins(yc.ui.PauseMenu) ;
 		this.addChild(this.pauseMenu) ;
 
-		//
+		// 层：技能栏
+		this.skillBar = new yc.ui.skill.SkillBar ;
+		this.addChild(this.skillBar);
 
 	}
 	, draw: function(ctx){

@@ -35,10 +35,8 @@ yc.ui.dashboard.Dashboard = cc.Layer.extend({
 
 		var dashboard = this ;
 
-
 		var screenSize = cc.Director.getInstance().getWinSize();
 		this.onResize(screenSize.width, screenSize.height);
-		
 		
 		// HP 状态
 		dashboard.HP = cc.LabelTTF.create('HP 10/10','',16,new cc.Size(0,16),cc.TEXT_ALIGNMENT_LEFT,cc.VERTICAL_TEXT_ALIGNMENT_BOTTOM) ;
@@ -137,6 +135,10 @@ yc.ui.dashboard.Dashboard = cc.Layer.extend({
 
 	, onEnter : function(){
 		yc.event.register( ins(yc.outer.Camera), "resize", this.onResize, this ) ;
+		
+		var screenSize = cc.Director.getInstance().getWinSize();
+		this.onResize(screenSize.width, screenSize.height);
+
 		this._super() ;
 	}
 
