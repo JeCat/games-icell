@@ -67,6 +67,9 @@ yc.GameLayer = cc.Layer.extend({
 	}
 	
 	, setScale: function(scalex,scaley){
+		if( scalex < 0.3 || scaley < 0.3 ){
+			return false;
+		}
 
 		// 高于 显示内部视图的缩放比例
 		if( yc.settings.inner.displayZoom<scalex && yc.settings.inner.displayZoom>this.getScale() )

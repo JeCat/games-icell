@@ -40,9 +40,15 @@ yc.outer.PlayerLayer = cc.Layer.extend({
 	}
 	
 	, onTouchesMoved: function(touches, event){
+		var cellPos = this.cell;
+		var touchPos = yc.outer.Camera.screenPos2WorldPos (touches[0]._point) ;
 		
-		var wsize = cc.Director.getInstance().getWinSize() ;
-		var radianBetweenPoints = yc.util.radianBetweenPoints(wsize.width/2,wsize.height/2,touches[0]._point.x,touches[0]._point.y) ;
+		var radianBetweenPoints = yc.util.radianBetweenPoints(
+			cellPos.x
+			, cellPos.y
+			,touchPos.x
+			,touchPos.y
+		) ;
 
 		if(this.getNeedFaceToPoint()){
 			this.cell.rotationTarget = radianBetweenPoints;
