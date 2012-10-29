@@ -30,6 +30,10 @@ yc.inner.building.Building = cc.Sprite.extend({
 		// 调整建筑的旋转（补偿细胞旋转）
 		ctx.rotate( this.getRotation() ) ;
 
+		this._super(ctx) ;
+		return;
+		
+		
 		ctx.fillStyle = "rgb(150,150,200)" ;
 	
 		ctx.beginPath() ;

@@ -20,6 +20,7 @@ yc.inner.building.ProteinFactory = yc.inner.building.Building.extend({
 		}
 
 		this._super(ctx) ;
+		return;
 		
 		ctx.fillStyle = 'yellow' ;
 		ctx.font="normal san-serif";

@@ -12,6 +12,9 @@ yc.settings = {
 
 		// 细胞在放大时，外壳的透明度
 		, shellOpacityLow: 30
+		
+		// 细胞在放大时，外部器官的透明度
+		, organOpacityLow: 100
 
 		// 显示倍数 （弃用）
 		, cellInnerZoom: 1

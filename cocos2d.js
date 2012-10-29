@@ -87,6 +87,7 @@ var TAG_SPRITE_MANAGER = 1;
 			, 'bin/outer/Portal.js'
 			, 'bin/outer/RandomRolesLayer.js'
 			, 'bin/outer/ContactListener.js'
+			, 'bin/outer/Bottles.js'
 
 			, 'bin/outer/pinups/LayerGround.js'
 			, 'bin/outer/pinups/Pinup.js'
@@ -105,7 +106,7 @@ var TAG_SPRITE_MANAGER = 1;
 			, 'bin/inner/building/Bullet.js'
 			, 'bin/inner/building/ProteinFactory.js'
 			, 'bin/inner/building/Recycle.js'
-			
+
 			, 'bin/inner/building/up/UpgraderBase.js'
 			, 'bin/inner/building/up/TowerFirepower.js'
 			, 'bin/inner/building/up/TowerBombing.js'
@@ -115,10 +116,12 @@ var TAG_SPRITE_MANAGER = 1;
 			, 'bin/inner/organ/Organ.js'
 			, 'bin/inner/organ/Eye.js'
 			, 'bin/inner/organ/Tower.js'
+			, 'bin/inner/organ/Bottles.js'
 			
 			, 'bin/inner/skill/SkillBase.js'
 			, 'bin/inner/skill/ShootVirusCluster.js'
 			, 'bin/inner/skill/Bullet.js'
+			, 'bin/inner/skill/Bottles.js'
 
 			, 'bin/inner/monster/Mitochondria.js'
 			, 'bin/inner/monster/FlopAminoAcid.js'

@@ -162,7 +162,7 @@ yc.ui.editer.PanelRole = function(editor){
 		editor.layer.touchCallback = function(touches,event){
 
 			editer.layer.touchCallback = null ;
-
+			
 			var script = {
 				virusclusters: [ {
 					x: touches[0]._point.wx

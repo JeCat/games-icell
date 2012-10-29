@@ -56,6 +56,8 @@ yc.inner.building.Tower = yc.inner.building.Building.extend({
 		
 
 		this._super(ctx) ;
+		return;
+		
 		
 		ctx.fillStyle = this.color ;
 		ctx.font="normal san-serif";
@@ -125,6 +127,8 @@ yc.inner.building.TowerShooter = yc.inner.building.Tower.extend({
 	ctor: function(){
 		this._super() ;
 		this.color = 'yellow' ;
+		this.initWithFile("res/tower_yellow.png");
+		
 		yc.util.cloneObject(this,yc.settings.building.Shooter.base) ;
 	}
 }) ;
@@ -141,6 +145,7 @@ yc.inner.building.TowerCannon = yc.inner.building.Tower.extend({
 	ctor: function(){
 		this._super() ;
 		this.color = 'red' ;
+		this.initWithFile("res/aminoAcid_yellow.png");
 		yc.util.cloneObject(this,yc.settings.building.Cannon.base) ;
 	}
 }) ;
@@ -156,6 +161,7 @@ yc.inner.building.TowerSlower = yc.inner.building.Tower.extend({
 	ctor: function(){
 		this._super() ;
 		this.color = 'blue' ;
+		this.initWithFile("res/aminoAcid_yellow.png");
 		yc.util.cloneObject(this,yc.settings.building.Slower.base) ;
 	}
 }) ;

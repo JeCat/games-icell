@@ -144,11 +144,11 @@ yc.GameScene = cc.Scene.extend({
 		fixDef.shape.SetAsBox(w/2/PTM_RATIO, 2);  // 墙要厚一点
 		
 		// top
-		bodyDef.position.Set((this.lft+(w/2))/PTM_RATIO, this.top/PTM_RATIO+2);
+		bodyDef.position.Set( (this.lft+(w/2))/PTM_RATIO, this.btm/PTM_RATIO-2);
 		this._buildWall(fixDef,bodyDef,'b2BodyTop') ;
 		
 		// bottom
-		bodyDef.position.Set((this.lft+(w/2))/PTM_RATIO, this.btm/PTM_RATIO-2);
+		bodyDef.position.Set((this.lft+(w/2))/PTM_RATIO, this.top/PTM_RATIO+2);
 		this._buildWall(fixDef,bodyDef,'b2BodyBtm') ;
 
 		fixDef.shape.SetAsBox(2,h/2/PTM_RATIO);
@@ -193,19 +193,19 @@ yc.GameScene = cc.Scene.extend({
 				
 				ctx.moveTo(
 					scene.lft
-					, scene.top
+					, -scene.top
 				);
 				ctx.lineTo(
 					scene.lft
-					,scene.btm
+					,-scene.btm
 				);
 				ctx.lineTo(
 					scene.rgt
-					,scene.btm
+					,-scene.btm
 				);
 				ctx.lineTo(
 					scene.rgt
-					,scene.top
+					,-scene.top
 				);
 				ctx.closePath() ;
 				ctx.stroke() ;

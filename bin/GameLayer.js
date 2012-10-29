@@ -51,6 +51,9 @@ yc.GameLayer = cc.Layer.extend({
 			}
 			this.actFadeCellOuter = cc.FadeTo.create(0.5,yc.settings.camera.shellOpacityLow) ;
 			this._parent.layerPlayer.cell.shell.runAction(this.actFadeCellOuter) ;
+			
+			// 外部器官半透明
+			ins( yc.inner.organ.OrganLayer ).setOpacity( yc.settings.camera.organOpacityLow );
 		}
 
 		// 低于 显示内部视图的缩放比例
@@ -72,6 +75,9 @@ yc.GameLayer = cc.Layer.extend({
 			}
 			this.actFadeCellOuter = cc.FadeIn.create(0.5) ;
 			this._parent.layerPlayer.cell.shell.runAction(this.actFadeCellOuter) ;
+			
+			// 显示外部器官
+			ins( yc.inner.organ.OrganLayer ).setOpacity( 255 );
 		}
 		
 			
