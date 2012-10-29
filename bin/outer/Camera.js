@@ -191,22 +191,21 @@ yc.outer.Camera.transformSprite = function(context){
 	    context.scale(this._scaleX, this._scaleY);
 }
 
-yc.outer.Camera.worldPosX2ScreenPosX = function(x){
+yc.outer.Camera.worldPos2ScreenPos = function( p ){
 	var camera = ins(yc.outer.Camera) ;
-	return camera.offsetX - (camera.x - x) ;
+	var scale = ins(yc.GameLayer).getScale() ;
+	return {
+		x: camera.offsetX - (camera.x - p.x) * scale ,
+		y: camera.offsetY - (camera.y - p.y) * scale 
+	};
 }
-yc.outer.Camera.worldPosY2ScreenPosY = function(y){
+yc.outer.Camera.screenPos2WorldPos = function(p){
 	var camera = ins(yc.outer.Camera) ;
-	return camera.offsetY - (camera.y - y) ;
-}
-
-yc.outer.Camera.screenPosX2WorldPosX = function(x){
-	var camera = ins(yc.outer.Camera) ;
-	return camera.x + (x - camera.offsetX) ;
-}
-yc.outer.Camera.screenPosY2WorldPosY = function(y){
-	var camera = ins(yc.outer.Camera) ;
-	return camera.y + (y - camera.offsetY) ;
+	var scale = ins(yc.GameLayer).getScale() ;
+	return {
+		x: camera.x + (p.x - camera.offsetX) / scale ,
+		y: camera.y + (p.y - camera.offsetY) / scale 
+	};
 }
 
 yc.outer.Camera.singleton = true ;
