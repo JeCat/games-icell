@@ -5,9 +5,8 @@ yc.inner.InnerLayer = cc.Sprite.extend({
 		this._super() ;
 
 		this.setAnchorPoint(cc.p(0.5,0.5)) ;
-		this.setOpacity(0) ;
 
-		this.setScale(1/yc.settings.inner.zoom) ;
+		this.setScale(1/yc.settings.camera.cellInnerZoom) ;
 
 		// 细胞
 		this.cell = ins(yc.inner.Cell) ;

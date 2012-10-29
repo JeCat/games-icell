@@ -13,6 +13,7 @@ var ICellGame = cc.Application.extend({
 			cc.LoaderScene.getInstance().draw();
 		};
 		cc.Loader.getInstance().onload = function () {
+			log("onload") ;
 			cc.AppController.shareAppController().didFinishLaunchingWithOptions();
 		};
 		cc.Loader.getInstance().preload([

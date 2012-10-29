@@ -1,0 +1,3 @@
+yc.level.ResourcePreloader = function(){
+	
+}

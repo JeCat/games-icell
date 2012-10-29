@@ -8,14 +8,15 @@ yc.outer.Cell = yc.outer.PhysicalEntity.extend({
 		// 细胞内部视图
 		this.layerInner = ins(yc.inner.InnerLayer) ;
 		this.addChild(this.layerInner) ;
-		
+
 		// 层：器官
 		this.layerOrgan = ins(yc.inner.organ.OrganLayer);
 		this.addChild( this.layerOrgan );
-		
+
 		// 细胞外壳 -------
 		var cell = this ;
 		this.shell = new cc.Sprite() ;
+		this.shell.setOpacity( yc.settings.camera.shellOpacityLow ) ;
 		this.shell.draw = function(ctx){
 
 			ctx.globalAlpha = this.getOpacity()/255 ;
@@ -42,7 +43,7 @@ yc.outer.Cell = yc.outer.PhysicalEntity.extend({
 		this.shapes = [] ;
 		this.boundaryLines = [] ;
 
-		var scale = 1/yc.settings.inner.zoom ;
+		var scale = 1/yc.settings.camera.cellInnerZoom ;
 		var transPoint = function(pt){
 			return [(pt[0])*scale, (pt[1])*scale]
 		}
