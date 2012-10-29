@@ -11,8 +11,8 @@ yc.GameLayer = cc.Layer.extend({
 		yc.event.register(ins(yc.outer.Camera),"resize",this.onResize,this) ;
 
 		// 初始动画：缩放
-		//this.actScale = cc.ScaleBy.create(1,yc.settings.camera.firstZoom) ;
-		//this.runAction(layer.actScale) ;
+		this.actScale = cc.ScaleBy.create(1,yc.settings.camera.firstZoom) ;
+		this.runAction(this.actScale) ;
 	}
 
 	, onExit: function(){
@@ -31,9 +31,6 @@ yc.GameLayer = cc.Layer.extend({
 	}
 	
 	, setScale: function(scalex,scaley){
-		if( scalex < 0.3 || scaley < 0.3 ){
-			return false;
-		}
 
 		// 高于 显示内部视图的缩放比例
 		if( yc.settings.camera.switchZoom<scalex && yc.settings.camera.switchZoom>this.getScale() )
