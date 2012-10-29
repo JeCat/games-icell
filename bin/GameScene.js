@@ -3,10 +3,10 @@ yc.GameScene = cc.Scene.extend({
 	
 	ctor: function(){
 		// 场景的世界边界， null 表示不限
-		this.lft = -1000 ;
-		this.rgt = 1000 ;
-		this.btm = -1000 ;
-		this.top = 1000 ;
+		this.lft = -50000 ;
+		this.rgt = 50000 ;
+		this.btm = -50000 ;
+		this.top = 50000 ;
 		// this.b2BodyLft = null ;
 		// this.b2BodyRgt = null ;
 		// this.b2BodyBtm = null ;
@@ -380,6 +380,10 @@ yc.GameScene = cc.Scene.extend({
 		script.cell = ins(yc.inner.Cell).exportScript();
 
 
+		// 资源加载
+		// todo
+
+
 		return script ;
 	}
 	
@@ -457,6 +461,35 @@ yc.GameScene = cc.Scene.extend({
 			innerCell.destory() ;
 			innerCell.initWithScript(script.cell);
 		}
+	}
+
+	, test: function(){
+
+		var spriteFrameCache = cc.SpriteFrameCache.getInstance();
+
+        spriteFrameCache.addSpriteFrames("res/bandit.plist","res/bandit.png");
+
+        //
+        // Animation using Sprite BatchNode
+        //
+        this._sprite1 = new cc.Sprite();
+        this._sprite1.setPosition(cc.p(300,300)) ;
+
+        var spritebatch = cc.SpriteBatchNode.create("res/bandit.png");
+        spritebatch.addChild(this._sprite1);
+        this.addChild(spritebatch);
+
+        var animFrames = [];
+        var str = "";
+        var frame;
+        for (var i = 1; i <= 8; i++) {
+            str = "bandit_" + i + ".png";
+            frame = spriteFrameCache.getSpriteFrame(str);
+            animFrames.push(frame);
+        }
+
+        var animation = cc.Animation.create(animFrames, 0.15);
+        this._sprite1.runAction(cc.RepeatForever.create(cc.Animate.create(animation)));
 	}
 	
 	// 关卡脚本的标准格式：
@@ -661,5 +694,10 @@ yc.GameScene = cc.Scene.extend({
 			]
 		}
 
+		// 资源加载
+		, res: [
+		    {type:"plist", src:"res/animations/bandit.plist"}
+		    , {type:"image", src:"res/animations/bandit.png"}
+		]
 	}
 });

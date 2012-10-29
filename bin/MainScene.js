@@ -30,7 +30,7 @@ yc.MainScene = cc.Scene.extend({
 
 
         var itemStory = cc.MenuItemFont.create("故事模式", this, function(){
-        	cc.Director.getInstance().replaceScene( new yc.levels.StorySelector ) ;
+        	cc.Director.getInstance().replaceScene( new yc.levels.LevelSelector ) ;
         });
         itemStory.setFontSize(20);
         var itemSearch = cc.MenuItemFont.create("探索模式", this, function(){
@@ -70,7 +70,7 @@ yc.MainScene = cc.Scene.extend({
 				var level = eval('yc.levels.'+url.anchorParams.l) ;
 				if( level!==undefined && level )
 				{
-					yc.MainScene.enterLevel(level) ;
+					yc.levels.LevelSelector.enterLevel(level) ;
 				}
 			}
 
@@ -84,6 +84,7 @@ yc.MainScene = cc.Scene.extend({
 			// 只自动加载一次
 			yc.MainScene.autoLoadByUrl = false ;
 		}
+
 	}
 
 	, onExit : function(){
@@ -102,30 +103,6 @@ yc.MainScene = cc.Scene.extend({
 
 
 
-yc.MainScene.enterLevel = function(levelScript){
-		
-	cc.Director.getInstance().replaceScene(new (yc.GameScene.extend({
-		onEnter: function(){
-			this._super() ;
-
-			// 加载关卡脚本
-			this.initWithScript(levelScript) ;
-
-			// 
-			if('onEnter' in levelScript)
-			{
-				levelScript.onEnter.apply(this) ;
-			}
-		}
-
-		, onExit: function(){
-			if('onExit' in levelScript)
-			{
-				levelScript.onExit.apply(this) ;
-			}
-		}
-	})));
-}
 
 yc.MainScene.singleton = true ;
 yc.MainScene.autoLoadByUrl = true ;

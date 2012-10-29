@@ -1,9 +1,31 @@
 yc.settings = {
-		
+	
+
+
+	camera: {
+
+		// 切换内外场景的倍数
+		switchZoom: 0.3
+
+		// 初始显示倍数
+		, firstZoom: 0.2
+
+		// 细胞在放大时，外壳的透明度
+		, shellOpacityLow: 30
+
+		// 显示倍数 （弃用）
+		, cellInnerZoom: 1
+
+		// 默认的最大、最小缩放比例
+		, defautlMaxZoom: 1
+		, defautlMinZoom: 0.1
+
+	}
+
 	// 内部场景 ------------------------------
-	inner: {
+	, inner: {
 		// 六边形边长
-		hexgonSideLength: 15
+		hexgonSideLength: 30
 		// 六边形格子的最大层数
 		, cellMaxLevels: 5
 		// 六边形格子层数的游戏初始值
@@ -12,13 +34,8 @@ yc.settings = {
 		// 六边形格子 总共层数： 1(细胞核) + 2*(细胞膜) + 实际空间
 		, totalHexgonLevels: 13
 		
-		, width: 600
-		, height: 676
-		
 		// 当放大倍数大于 zoom 时，显示细胞内部
-		, displayZoom: 2
-		
-		, zoom: 5
+		// , displayZoom: 2	
 		
 		// 细胞核
 		, nucleus: {
@@ -34,6 +51,7 @@ yc.settings = {
 			// 病毒群释放病毒的默认间隔时间(sec)
 			defaultReleaseDt: 1.5
 		}
+
 	}
 
 
@@ -53,11 +71,11 @@ yc.settings = {
 		// 病毒群
 		, virus:{
 			dbgInfo: false
-			, defaultVigilanceRange: 200	// 默认警视范围
+			, defaultVigilanceRange: 2000	// 默认警视范围
 			, turnRate: 0.04				// 转向灵活度
-			, moseySpeed: 2					// 漫步速度
-			, normalSpeed: 5				// 正常速度 (追击速度)
-			, defaultSize: 6				// 默认尺寸（半径）
+			, moseySpeed: 10				// 漫步速度
+			, normalSpeed: 15				// 正常速度 (追击速度)
+			, defaultSize: 100				// 默认尺寸（半径）
 			, density: 0.2 					// 物理密度（决定物体的物理质量，影响物体的冲撞力）
 		}
 		
@@ -87,11 +105,11 @@ yc.settings = {
 		, player: {
 			// 正常减速
 			// 当玩家停止移动后，每帧递减值
-			normalSpeedDown: 0.5
+			normalSpeedDown: 50
 
 				
-			, defaultAccel: 0.3			// 默认加速度
-			, defaultMaxSpeed: 5		// 默认最大速度
+			, defaultAccel: 0.5			// 默认加速度
+			, defaultMaxSpeed: 15		// 默认最大速度
 		}
 		
 		, box2d: {
@@ -107,6 +125,8 @@ yc.settings = {
 		}
 		
 	}
+
+	
 	
 	, player: {
 		// 免伤害
@@ -268,6 +288,7 @@ yc.settings = {
 			, rgb: [255,0,255]
 		}
 	}
+
 	
 	, dbg: true
 

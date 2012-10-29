@@ -11,7 +11,7 @@ yc.inner.CellInnerMap = cc.Layer.extend({
 		this._super() ;
 		
 		this.setAnchorPoint(cc.p(0,0)) ;
-		this.setContentSize(yc.settings.inner.width,yc.settings.inner.height) ;
+		//this.setContentSize(yc.settings.inner.width,yc.settings.inner.height) ;
 		//this.initWithColor(new cc.Color4B(255,255,255,50),yc.settings.inner.width,yc.settings.inner.height) ;
 		
 

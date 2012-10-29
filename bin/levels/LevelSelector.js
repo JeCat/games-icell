@@ -1,4 +1,4 @@
-yc.levels.StorySelector = cc.Scene.extend({
+yc.levels.LevelSelector = cc.Scene.extend({
 	ctor: function(){
 		this._super() ;
 	}
@@ -9,18 +9,76 @@ yc.levels.StorySelector = cc.Scene.extend({
 		// 章节
 		this.setting = yc.settings.buildin_chapter_levels["c1"] ;
 
-		this.layerMap = new yc.levels.StorySelector.MapLayer(this.setting) ;
+		this.layerMap = new yc.levels.LevelSelector.MapLayer(this.setting) ;
 		this.addChild(this.layerMap) ;
 	}
 
 	, onExit: function(){
 		this._super() ;
 	}
-
 	
 }) ;
 
-yc.levels.StorySelector.MapLayer = cc.Layer.extend({
+
+
+yc.levels.LevelSelector.enterLevel = function(levelScript){
+		
+	var level = new (yc.GameScene.extend({
+		onEnter: function(){
+			this._super() ;
+
+			// 加载关卡脚本
+			this.initWithScript(levelScript) ;
+
+			// 
+			if('onEnter' in levelScript)
+			{
+				levelScript.onEnter.apply(this) ;
+			}
+		}
+
+		, onExit: function(){
+			if('onExit' in levelScript)
+			{
+				levelScript.onExit.apply(this) ;
+			}
+		}
+	})) ;
+
+	// 预加载
+	if( ('res' in levelScript) && levelScript.res.length>0 )
+	{
+		//cc.LoaderScene._instance = new yc.levels.ResourceLoadingScene() ;
+
+		var loader = cc.Loader.getInstance() ;
+
+		loader.onload = function(){
+			// 资源加载完毕，切换场景
+			cc.Director.getInstance().replaceScene(level);
+		}
+		loader.onloading = function(){
+			// nothing todo ……
+		}
+
+		// 切换道资源loading 场景
+		cc.Director.getInstance().replaceScene(new yc.levels.ResourceLoadingScene(loader) );
+
+		// 加载资源
+		loader.loadedResourceCount = 0 ;
+		loader.preload(levelScript.res) ;
+		loader.resourceCount = levelScript.res.length ;
+	}
+
+	// 
+	else
+	{
+		// 直接切换场景，不需要等待 资源加载完成 
+		cc.Director.getInstance().replaceScene(level);
+	}
+}
+
+
+yc.levels.LevelSelector.MapLayer = cc.Layer.extend({
 	
 	ctor: function(setting){
 		this._super() ;
@@ -40,7 +98,7 @@ yc.levels.StorySelector.MapLayer = cc.Layer.extend({
 		// 关卡
 		for( var k in this.setting.levels)
 		{
-			var level = new yc.levels.StorySelector.MapLayer.Level(this.setting.levels[k]) ;
+			var level = new yc.levels.LevelSelector.MapLayer.Level(this.setting.levels[k]) ;
 			this.addChild(level) ;
 		}
 
@@ -100,7 +158,7 @@ yc.levels.StorySelector.MapLayer = cc.Layer.extend({
 }) ;
 
 
-yc.levels.StorySelector.MapLayer.Level = cc.Sprite.extend({
+yc.levels.LevelSelector.MapLayer.Level = cc.Sprite.extend({
 	ctor: function(setting){
 
 		this._super() ;
@@ -110,7 +168,7 @@ yc.levels.StorySelector.MapLayer.Level = cc.Sprite.extend({
 		this.setPosition(cc.p(setting.x,setting.y)) ;
 
 		// 旗帜
-		this.flag = new yc.levels.StorySelector.MapLayer.LevelFlag( eval(this.setting.script) ) ;
+		this.flag = new yc.levels.LevelSelector.MapLayer.LevelFlag( eval(this.setting.script) ) ;
 		this.addChild(this.flag) ;
 
 		// 关卡奖励
@@ -162,7 +220,7 @@ yc.levels.StorySelector.MapLayer.Level = cc.Sprite.extend({
 	}
 })
 
-yc.levels.StorySelector.MapLayer.LevelFlag = cc.Sprite.extend({
+yc.levels.LevelSelector.MapLayer.LevelFlag = cc.Sprite.extend({
 
 	ctor: function(level){
 
@@ -200,12 +258,13 @@ yc.levels.StorySelector.MapLayer.LevelFlag = cc.Sprite.extend({
 
 		return true ;
     }
+    , onTouchMoved:function(touch, event) {}
     , onTouchEnded:function (touch, event) {
 		this.initWithFile("res/level-flag-normal.png") ;
 		this.setAnchorPoint(cc.p(0.5,0.23)) ;
 
 		// 前往对应关卡
-		yc.MainScene.enterLevel( eval(this.level) ) ;
+		yc.levels.LevelSelector.enterLevel( eval(this.level) ) ;
     }
 
     , draw: function(ctx){
@@ -214,3 +273,4 @@ yc.levels.StorySelector.MapLayer.LevelFlag = cc.Sprite.extend({
     }
 
 })
+

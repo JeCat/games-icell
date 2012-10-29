@@ -1,6 +1,7 @@
 yc.outer.Camera = function()
 {
 	var canvas = $('#gameCanvas')[0] ;
+	var camera = this ;
 
 	this.focusX = 0 ;
 	this.focusY = 0 ;
@@ -100,6 +101,70 @@ yc.outer.Camera = function()
 //	this.offsetFocus = function(){
 //		return [this.focusX-this.offsetX,this.focusY-this.offsetY] ;
 //	}
+
+	// --------------------------
+	// for zooming
+	this.maxZoom = yc.settings.camera.defautlMaxZoom ;
+	this.minZoom = yc.settings.camera.defautlMinZoom ;
+
+	onScrollFunc = function(e){
+
+		var scene = cc.Director.getInstance().getRunningScene() ;
+		if( !('layerGame' in scene) )
+		{
+			log(scene.constructor.className) ;
+			return ;
+		}
+		var layer = scene.layerGame ;
+
+
+		e=e || window.event; 
+		 
+		if(e.wheelDelta){//IE/Opera/Chrome 
+			var value=e.wheelDelta; 
+		}else if(e.detail){//Firefox 
+			var value=e.detail; 
+		}
+		
+		if(layer.actScale)
+		{
+			layer.stopAction(layer.actScale)
+		}
+		var scale = 1+value/120*0.3 ;
+		if(navigator.platform.indexOf('Mac') !== -1)
+			scale = 1-value/120*0.3 ;
+
+		// 一次缩放的速度，不超过3倍
+		if(scale<0.33)
+		{
+			scale = 0.33 ;
+		}
+		else if(scale>3)
+		{
+			scale = 3 ;
+		}
+
+		var oriScale = layer.getScale() ;
+		var newScale = scale * oriScale ;
+		if( newScale<camera.minZoom )
+		{
+			scale = camera.minZoom/oriScale ;
+		}
+		else if( newScale>camera.maxZoom )
+		{
+			scale = camera.maxZoom/oriScale ;
+		}
+
+		layer.actScale = cc.ScaleBy.create(0.3,scale) ;
+		layer.runAction(layer.actScale) ;
+	}
+
+	/*注册事件*/ 
+	if( document && document.addEventListener )
+	{ 
+		document.addEventListener('DOMMouseScroll',onScrollFunc,false); 
+	}//W3C 
+	window.onmousewheel=document.onmousewheel = onScrollFunc;//IE/Opera/Chrome 
 }
 
 yc.outer.Camera.transformPosition = function(entity){
@@ -126,22 +191,21 @@ yc.outer.Camera.transformSprite = function(context){
 	    context.scale(this._scaleX, this._scaleY);
 }
 
-yc.outer.Camera.worldPosX2ScreenPosX = function(x){
+yc.outer.Camera.worldPos2ScreenPos = function( p ){
 	var camera = ins(yc.outer.Camera) ;
-	return camera.offsetX - (camera.x - x) ;
+	var scale = ins(yc.GameLayer).getScale() ;
+	return {
+		x: camera.offsetX - (camera.x - p.x) * scale ,
+		y: camera.offsetY - (camera.y - p.y) * scale 
+	};
 }
-yc.outer.Camera.worldPosY2ScreenPosY = function(y){
+yc.outer.Camera.screenPos2WorldPos = function(p){
 	var camera = ins(yc.outer.Camera) ;
-	return camera.offsetY - (camera.y - y) ;
-}
-
-yc.outer.Camera.screenPosX2WorldPosX = function(x){
-	var camera = ins(yc.outer.Camera) ;
-	return camera.x + (x - camera.offsetX) ;
-}
-yc.outer.Camera.screenPosY2WorldPosY = function(y){
-	var camera = ins(yc.outer.Camera) ;
-	return camera.y + (y - camera.offsetY) ;
+	var scale = ins(yc.GameLayer).getScale() ;
+	return {
+		x: camera.x + (p.x - camera.offsetX) / scale ,
+		y: camera.y + (p.y - camera.offsetY) / scale 
+	};
 }
 
 yc.outer.Camera.singleton = true ;
