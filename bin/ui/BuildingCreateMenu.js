@@ -322,14 +322,38 @@ yc.ui.BuildingCreateMenu = function(){
 			return ;
 		}
 		
-		var building = null ;
-		if( 'OrganLayer' == item.layer ){
-			building = ins(yc.inner.organ.OrganLayer).createBuilding(item,hexgon);
-		}else{
-			building = inner.buildings.createBuilding(item.buildingClass,hexgon.x,hexgon.y) ;
-			building.info = item ;
-			building.cost = item.cost() ;
+		// new buildingClass
+		var building = new item.buildingClass ;
+		
+		// info and cost
+		building.info = item ;
+		building.cost = item.cost() ;
+		
+		// is blocking
+		if( item.isBlocking ){
+			building._isBlocking = item.isBlocking ;
 		}
+		
+		// 决定 building 放在哪个 layer 上
+		var bLayer = null;
+		if( 'OrganLayer' == item.layer ){
+			bLayer = ins(yc.inner.organ.OrganLayer); 
+		}else{
+			bLayer = inner.buildings ;
+		}
+		
+		// 分配 idx
+		building.idx = bLayer.assigned++ ;
+		
+		// 添加
+		bLayer.addChild( building );
+		
+		// hexgon
+		hexgon.building = building ;
+		building.hexgon = hexgon ;
+		
+		// position
+		building.setPosition(cc.p(hexgon.center[0],hexgon.center[1])) ;
 		
 		if( true == item.hasSkill ){
 			// 技能
