@@ -68,6 +68,11 @@ yc.dna.genes = {
 		, title: '[解锁]攻击塔'
 		, description: '解锁：允许建造攻击塔'
 	})
+	, 'bottles': new yc.dna.Gene({
+		name: 'bottles'
+		, title: '[解锁]漂流瓶'
+		, description: '解锁：朋友无处不在'
+	})
 
 	// 升级
 	, 'tower:firepower': new yc.dna.GeneBuildingUpgrader({

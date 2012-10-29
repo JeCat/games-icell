@@ -136,6 +136,24 @@ yc.ui.BuildingCreateMenu = function(){
 			, isBlock: false
 			, layer: 'OrganLayer'
 		}
+		, bottles: {
+			title: '漂流瓶'
+			, description: '朋友无处不在'
+			, hexgonTypes: ['cytoplasm']
+			, cost: function(){
+				return {
+					red: 1
+					, yellow: 1
+					, blue: 1
+				}
+			}
+			, buildingClass: yc.inner.organ.Bottles
+			, isUnlock: function(){
+				return yc.charactar.dna.genes['bottles']!==undefined ;
+			}
+			, isBlock: false
+			, layer: 'OrganLayer'
+		}
 	} ;
 
 
