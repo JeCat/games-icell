@@ -39,14 +39,12 @@ yc.inner.skill.ShootVirusCluster = yc.inner.skill.SkillBase.extend({
 		for(i in virusClusterList){
 			var virusCluster = virusClusterList[i];
 			var vPos = cc.p( virusCluster.x , virusCluster.y );
-			console.log( from );
 			var dist = yc.util.pointsDis(
 				from.x,
 				from.y,
 				vPos.x,
 				vPos.y
 			);
-			console.log( dist );
 			if( dist < minDist ){
 				minDist = dist ;
 				minV = virusCluster ;

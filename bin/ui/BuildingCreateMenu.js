@@ -117,6 +117,7 @@ yc.ui.BuildingCreateMenu = function(){
 			}
 			, isBlock: false
 			, layer: 'OrganLayer'
+			, hasSkill: true
 		}
 		, oshooter: {
 			title: '攻击塔'
@@ -135,6 +136,7 @@ yc.ui.BuildingCreateMenu = function(){
 			}
 			, isBlock: false
 			, layer: 'OrganLayer'
+			, hasSkill: true
 		}
 		, bottles: {
 			title: '漂流瓶'
@@ -152,7 +154,7 @@ yc.ui.BuildingCreateMenu = function(){
 				return yc.charactar.dna.genes['bottles']!==undefined ;
 			}
 			, isBlock: false
-			, layer: 'OrganLayer'
+			, hasSkill: true
 		}
 	} ;
 
@@ -323,7 +325,13 @@ yc.ui.BuildingCreateMenu = function(){
 		var building = null ;
 		if( 'OrganLayer' == item.layer ){
 			building = ins(yc.inner.organ.OrganLayer).createBuilding(item,hexgon);
-			
+		}else{
+			building = inner.buildings.createBuilding(item.buildingClass,hexgon.x,hexgon.y) ;
+			building.info = item ;
+			building.cost = item.cost() ;
+		}
+		
+		if( true == item.hasSkill ){
 			// 技能
 			var skillBar = ins(yc.ui.UILayer).skillBar;
 			var i;
@@ -332,12 +340,7 @@ yc.ui.BuildingCreateMenu = function(){
 				var skill = _skillList[i];
 				var skillButton = skillBar.createButtonForSkill( skill );
 			}
-		}else{
-			building = inner.buildings.createBuilding(item.buildingClass,hexgon.x,hexgon.y) ;
-			building.info = item ;
-			building.cost = item.cost() ;
 		}
-		
 		return building ;
 	}
 }
