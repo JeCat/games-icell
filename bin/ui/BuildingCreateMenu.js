@@ -151,7 +151,7 @@ yc.ui.BuildingCreateMenu = function(){
 			}
 			, buildingClass: yc.inner.organ.Bottles
 			, isUnlock: function(){
-				return yc.charactar.dna.genes['bottles']!==undefined ;
+				return ins(yc.user.Character).dna.genes['bottles']!==undefined ;
 			}
 			, isBlock: false
 			, hasSkill: true

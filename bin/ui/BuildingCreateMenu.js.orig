@@ -14,7 +14,7 @@ yc.ui.BuildingCreateMenu = function(){
 			}
 			, buildingClass: yc.inner.building.TowerShooter
 			, isUnlock: function(){
-				return yc.charactar.dna.genes['tower(shooter)']!==undefined ;
+				return ins(yc.user.Character).dna.genes['tower(shooter)']!==undefined ;
 			}
 		}
 	
@@ -27,7 +27,7 @@ yc.ui.BuildingCreateMenu = function(){
 			}
 			, buildingClass: yc.inner.building.TowerCannon
 			, isUnlock: function(){
-				return yc.charactar.dna.genes['tower(cannon)']!==undefined ;
+				return ins(yc.user.Character).dna.genes['tower(cannon)']!==undefined ;
 			}
 		}
 
@@ -40,7 +40,7 @@ yc.ui.BuildingCreateMenu = function(){
 			}
 			, buildingClass: yc.inner.building.TowerJetter
 			, isUnlock: function(){
-				return yc.charactar.dna.genes['tower(jetter)']!==undefined ;
+				return ins(yc.user.Character).dna.genes['tower(jetter)']!==undefined ;
 			}
 		}
 
@@ -53,7 +53,7 @@ yc.ui.BuildingCreateMenu = function(){
 			}
 			, buildingClass: yc.inner.building.TowerSlower
 			, isUnlock: function(){
-				return yc.charactar.dna.genes['tower(slower)']!==undefined ; ;
+				return ins(yc.user.Character).dna.genes['tower(slower)']!==undefined ; ;
 			}
 		}
 
@@ -70,7 +70,7 @@ yc.ui.BuildingCreateMenu = function(){
 			}
 			, buildingClass: yc.inner.building.Recycle
 			, isUnlock: function(){
-				return yc.charactar.dna.genes['recycle']!==undefined ;
+				return ins(yc.user.Character).dna.genes['recycle']!==undefined ;
 			}
 		}
 		
@@ -92,11 +92,11 @@ yc.ui.BuildingCreateMenu = function(){
 				menu.close() ;
 			}
 			, isUnlock: function(){
-				if( typeof(yc.charactar.dna.genes.grow)=='undefined' )
+				if( typeof(ins(yc.user.Character).dna.genes.grow)=='undefined' )
 				{
 					return false ;
 				}
-				return ins(yc.inner.Cell).grown < yc.charactar.dna.genes.grow.superimposing ;
+				return ins(yc.inner.Cell).grown < ins(yc.user.Character).dna.genes.grow.superimposing ;
 			}
 		}
 		
@@ -113,7 +113,7 @@ yc.ui.BuildingCreateMenu = function(){
 			}
 			, buildingClass: yc.inner.organ.Eye
 			, isUnlock: function(){
-				return yc.charactar.dna.genes['eye']!==undefined ;
+				return ins(yc.user.Character).dna.genes['eye']!==undefined ;
 			}
 			, isBlock: false
 			, layer: 'OrganLayer'
@@ -132,7 +132,7 @@ yc.ui.BuildingCreateMenu = function(){
 			}
 			, buildingClass: yc.inner.organ.Tower
 			, isUnlock: function(){
-				return yc.charactar.dna.genes['oshooter']!==undefined ;
+				return ins(yc.user.Character).dna.genes['oshooter']!==undefined ;
 			}
 			, isBlock: false
 			, layer: 'OrganLayer'
@@ -151,7 +151,7 @@ yc.ui.BuildingCreateMenu = function(){
 			}
 			, buildingClass: yc.inner.organ.Bottles
 			, isUnlock: function(){
-				return yc.charactar.dna.genes['bottles']!==undefined ;
+				return ins(yc.user.Character).dna.genes['bottles']!==undefined ;
 			}
 			, isBlock: false
 <<<<<<< Updated upstream
