@@ -62,7 +62,10 @@ yc.outer.Camera = function()
 		var halfWidth = this.width / 2 / scale;
 		var rightBorder = scene.rgt +10;
 		var leftBorder = scene.lft -10;
-		if (x - halfWidth < leftBorder ){
+		var halfGameSceneWidth = ( scene.rgt - scene.lft ) / 2 ;
+		if( halfWidth > halfGameSceneWidth ){
+			x = ( leftBorder + rightBorder ) / 2 ;
+		}else if (x - halfWidth < leftBorder ){
 			x = leftBorder + halfWidth ;
 		}else if( x + halfWidth > rightBorder ){
 			x = rightBorder - halfWidth ;
@@ -71,7 +74,10 @@ yc.outer.Camera = function()
 		var halfHeight = this.height/ 2 /scale ;
 		var topBorder = scene.top + 10;
 		var bottomBorder = scene.btm - 10;
-		if( y + halfHeight > topBorder ){
+		var halfGameSceneHeight = ( scene.top - scene.btm ) / 2 ;
+		if( halfHeight > halfGameSceneHeight ){
+			y = ( topBorder + bottomBorder ) / 2 ;
+		}else if( y + halfHeight > topBorder ){
 			y = topBorder - halfHeight ;
 		}else if( y - halfHeight < bottomBorder ){
 			y = bottomBorder + halfHeight ;
