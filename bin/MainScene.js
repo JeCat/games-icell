@@ -3,6 +3,11 @@ yc.MainScene = cc.Scene.extend({
 	, menuLevelSelect : null
 	, actionShow : null
 	, ctor: function(){
+
+		// 载入当前玩家角色信息 (应该有角色选择UI)
+		yc.user.Character.loadCurrent() ;
+
+		
 		this._super() ;
 
 		this.h1 = cc.LabelTTF.create('I, Cell',  'Times New Roman', 32, cc.size(132,32), cc.TEXT_ALIGNMENT_CENTER);

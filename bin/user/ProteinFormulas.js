@@ -1,4 +1,4 @@
-yc.inner.ProteinFormulas = function(){
+yc.user.ProteinFormulas = function(){
 	
 	this.formulaNum = 0 ;
 	this.worldFormulas = {} ;
@@ -14,7 +14,7 @@ yc.inner.ProteinFormulas = function(){
 		}
 		
 		// 触发事件
-		// $(window).trigger('yc.inner.ProteinFormulas::onBeforeAppend',[this,formula]) ;
+		// $(window).trigger('yc.user.ProteinFormulas::onBeforeAppend',[this,formula]) ;
 
 		formula.color = 'rgb('+formula.rgb[0]+','+formula.rgb[1]+','+formula.rgb[2]+')' ;
 		var to16 = function(i)
@@ -92,7 +92,7 @@ yc.inner.ProteinFormulas = function(){
 		
 		
 		// 触发事件
-		// $(window).trigger('yc.inner.ProteinFormulas::onAfterAppend',[this,formula]) ;
+		// $(window).trigger('yc.user.ProteinFormulas::onAfterAppend',[this,formula]) ;
 		
 		return this ;
 	}
@@ -134,15 +134,15 @@ yc.inner.ProteinFormulas = function(){
 }
 
 // 由物理三原色 转换为屏幕三原色
-yc.inner.ProteinFormulas.transColor = function(tricolor){
+yc.user.ProteinFormulas.transColor = function(tricolor){
 	red = typeof(tricolor.red)=='undefined'? 0: tricolor.red ;
 	red+= green = typeof(tricolor.yellow)=='undefined'? 0: tricolor.yellow ;
 	blue = typeof(tricolor.blue)=='undefined'? 0: tricolor.blue ;
 	return {red:red,green:green,blue:blue} ;
 }
 
-yc.inner.ProteinFormulas.proteinColor = function(materials){
-	materials = yc.inner.ProteinFormulas.transColor(materials) ;
+yc.user.ProteinFormulas.proteinColor = function(materials){
+	materials = yc.user.ProteinFormulas.transColor(materials) ;
 	var max = Math.max(materials.red,materials.green,materials.blue);
 	
 	return {

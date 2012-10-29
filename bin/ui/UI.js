@@ -6,15 +6,15 @@ yc.ui.UI = function(){
 	// 注册事件 ------------------------
 	
 	// 氨基酸池数量变化
-	$(window).bind('yc.inner.AminoAcidPool::onAfterChange',null,function(e,pool,type,num){
+	$(window).bind('yc.user.AminoAcidPool::onAfterChange',null,function(e,pool,type,num){
 		$('.aminoacid-num-'+type).text( '♪ '+pool[type] ) ;
 	}) ;
 	
 	// 蛋白质池
-	$(window).bind('yc.inner.ProteinFormulas::onAfterAppend',null,function(e,o,formula){
+	$(window).bind('yc.user.ProteinFormulas::onAfterAppend',null,function(e,o,formula){
 		$('#protein-pool-dashboard').append("<div class='protein-num protein-num-"+formula.name+"' style='color:"+formula.color+"'>♫ 0</div>") ;
 	}) ;
-	$(window).bind('yc.inner.ProteinPool::onAfterChange',null,function(e,pool,name,total,num){
+	$(window).bind('yc.user.ProteinPool::onAfterChange',null,function(e,pool,name,total,num){
 		$('.protein-num-'+name).text( '♫ '+total ) ;
 	}) ;
 	

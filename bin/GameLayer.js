@@ -35,7 +35,7 @@ yc.GameLayer = cc.Layer.extend({
 		// 高于 显示内部视图的缩放比例
 		if( yc.settings.camera.switchZoom<scalex && yc.settings.camera.switchZoom>this.getScale() )
 		{
-			log('显示') ;
+			// log('显示') ;
 			// 显示内部视图
 			if(this.actFadeCellInner)
 			{
@@ -56,7 +56,7 @@ yc.GameLayer = cc.Layer.extend({
 		// 低于 显示内部视图的缩放比例
 		else if( yc.settings.camera.switchZoom>scalex && yc.settings.camera.switchZoom<this.getScale() )
 		{
-			log('消失') ;
+			// log('消失') ;
 			// 内部视图消失
 			if(this.actFadeCellInner)
 			{

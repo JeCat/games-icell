@@ -19,7 +19,7 @@ yc.inner.Cell = function()
 	this.cytoplasmLevels = yc.settings.inner.cellInitialLevels ;
 	
 	// 氨基酸池
-	this.poolAminoAcids = ins(yc.inner.AminoAcidPool) ;
+	this.poolAminoAcids = ins(yc.user.Character).aminoacids ;
 	
 	this.grown = 0 ;
 	
@@ -207,7 +207,7 @@ yc.inner.Cell.prototype.getHurt = function(){
 	}
 	
 	// 偷走蛋白质
-	var pool = ins(yc.inner.ProteinPool) ;
+	var pool = ins(yc.user.Character).proteins ;
 	if(pool.total>0)
 	{
 		var proteins = [] ;
@@ -240,8 +240,8 @@ yc.inner.Cell.prototype.die = function(){
 	cc.Director.getInstance().replaceScene( new yc.MainScene ) ;
 	
 //	// 清空资源
-//	ins(yc.inner.AminoAcidPool).clear() ;
-//	ins(yc.inner.ProteinPool).clear() ;
+//	ins(yc.user.Character).aminoacids.clear() ;
+//	ins(yc.user.Character).proteins.clear() ;
 //	
 //	// 回收所有建筑
 //	for(var i=0;i<this.cytoplasms.length;i++)

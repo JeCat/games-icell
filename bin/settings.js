@@ -18,14 +18,14 @@ yc.settings = {
 
 		// 默认的最大、最小缩放比例
 		, defautlMaxZoom: 1
-		, defautlMinZoom: 0.1
+		, defautlMinZoom: 0.08
 
 	}
 
 	// 内部场景 ------------------------------
 	, inner: {
 		// 六边形边长
-		hexgonSideLength: 30
+		hexgonSideLength: 45
 		// 六边形格子的最大层数
 		, cellMaxLevels: 5
 		// 六边形格子层数的游戏初始值

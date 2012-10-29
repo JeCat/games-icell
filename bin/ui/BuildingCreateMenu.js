@@ -14,7 +14,7 @@ yc.ui.BuildingCreateMenu = function(){
 			}
 			, buildingClass: yc.inner.building.TowerShooter
 			, isUnlock: function(){
-				return yc.charactar.dna.genes['tower(shooter)']!==undefined ;
+				return ins(yc.user.Character).dna.genes['tower(shooter)']!==undefined ;
 			}
 		}
 	
@@ -27,7 +27,7 @@ yc.ui.BuildingCreateMenu = function(){
 			}
 			, buildingClass: yc.inner.building.TowerCannon
 			, isUnlock: function(){
-				return yc.charactar.dna.genes['tower(cannon)']!==undefined ;
+				return ins(yc.user.Character).dna.genes['tower(cannon)']!==undefined ;
 			}
 		}
 
@@ -40,7 +40,7 @@ yc.ui.BuildingCreateMenu = function(){
 			}
 			, buildingClass: yc.inner.building.TowerJetter
 			, isUnlock: function(){
-				return yc.charactar.dna.genes['tower(jetter)']!==undefined ;
+				return ins(yc.user.Character).dna.genes['tower(jetter)']!==undefined ;
 			}
 		}
 
@@ -53,7 +53,7 @@ yc.ui.BuildingCreateMenu = function(){
 			}
 			, buildingClass: yc.inner.building.TowerSlower
 			, isUnlock: function(){
-				return yc.charactar.dna.genes['tower(slower)']!==undefined ; ;
+				return ins(yc.user.Character).dna.genes['tower(slower)']!==undefined ; ;
 			}
 		}
 
@@ -70,7 +70,7 @@ yc.ui.BuildingCreateMenu = function(){
 			}
 			, buildingClass: yc.inner.building.Recycle
 			, isUnlock: function(){
-				return yc.charactar.dna.genes['recycle']!==undefined ;
+				return ins(yc.user.Character).dna.genes['recycle']!==undefined ;
 			}
 		}
 		
@@ -92,11 +92,11 @@ yc.ui.BuildingCreateMenu = function(){
 				menu.close() ;
 			}
 			, isUnlock: function(){
-				if( typeof(yc.charactar.dna.genes.grow)=='undefined' )
+				if( typeof(ins(yc.user.Character).dna.genes.grow)=='undefined' )
 				{
 					return false ;
 				}
-				return ins(yc.inner.Cell).grown < yc.charactar.dna.genes.grow.superimposing ;
+				return ins(yc.inner.Cell).grown < ins(yc.user.Character).dna.genes.grow.superimposing ;
 			}
 		}
 		
@@ -113,7 +113,7 @@ yc.ui.BuildingCreateMenu = function(){
 			}
 			, buildingClass: yc.inner.organ.Eye
 			, isUnlock: function(){
-				return yc.charactar.dna.genes['eye']!==undefined ;
+				return ins(yc.user.Character).dna.genes['eye']!==undefined ;
 			}
 			, isBlock: false
 			, layer: 'OrganLayer'
@@ -131,7 +131,7 @@ yc.ui.BuildingCreateMenu = function(){
 			}
 			, buildingClass: yc.inner.organ.Tower
 			, isUnlock: function(){
-				return yc.charactar.dna.genes['oshooter']!==undefined ;
+				return ins(yc.user.Character).dna.genes['oshooter']!==undefined ;
 			}
 			, isBlock: false
 			, layer: 'OrganLayer'
@@ -210,7 +210,7 @@ yc.ui.BuildingCreateMenu = function(){
 					}
 					
 					// 消耗蛋白质
-					var pool = ins(yc.inner.ProteinPool) ;
+					var pool = ins(yc.user.Character).proteins ;
 					for(var protein in cost)
 					{
 						pool.increase( protein, -cost[protein] ) ;
@@ -330,7 +330,7 @@ yc.ui.costHtml = function(cost){
 	var idx = 0 ;
 	for(var proteinName in cost)
 	{
-		var proteinFormula = ins(yc.inner.ProteinFormulas).worldFormulas[proteinName] ;
+		var proteinFormula = ins(yc.user.ProteinFormulas).worldFormulas[proteinName] ;
 		if(proteinFormula===undefined)
 		{
 			log("mission protein "+proteinName+"'s formula.") ;
@@ -347,7 +347,7 @@ yc.ui.costHtml = function(cost){
 }
 yc.ui.checkCost = function(cost){
 
-	var pool = ins(yc.inner.ProteinPool) ;
+	var pool = ins(yc.user.Character).proteins ;
 	for(var protein in cost)
 	{
 		if( pool.num(protein) < cost[protein] )

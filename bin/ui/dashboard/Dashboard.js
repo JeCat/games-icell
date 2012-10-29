@@ -76,7 +76,7 @@ yc.ui.dashboard.Dashboard = cc.Layer.extend({
         //  蛋白质
 
         // 根据关卡中已有的公式创建label
-		var formulas = ins(yc.inner.ProteinFormulas).worldFormulas ;
+		var formulas = ins(yc.user.ProteinFormulas).worldFormulas ;
 		for(var name in formulas)
 		{
 			var star = Star.starWithTexture("res/star.png" , "res/star-light.png" , "res/star-light.png");
@@ -105,20 +105,20 @@ yc.ui.dashboard.Dashboard = cc.Layer.extend({
 		// 注册事件
 		// --------
 		// 氨基酸数量数量
-		// $(window).bind('yc.inner.AminoAcidPool::onAfterChange',null,function(e,pool,type,num){
+		// $(window).bind('yc.user.AminoAcidPool::onAfterChange',null,function(e,pool,type,num){
 		// 	dashboard.labelAminoAcids[type].setString('♪ '+pool[type]) ;
 		// 	// dashboard.layout() ;
 		// }) ;
 		
 		// // 新增蛋白质类型
-		// $(window).bind('yc.inner.ProteinFormulas::onAfterAppend',null,function(e,o,formula){
+		// $(window).bind('yc.user.ProteinFormulas::onAfterAppend',null,function(e,o,formula){
 		// 	dashboard.labelProteins[formula.name] = dashboard._createLabel("♫ 0",new cc.Color3B(formula.rgb[0],formula.rgb[1],formula.rgb[2])) ;
 		// 	dashboard._createSeparator(10) ;
 		// 	// dashboard.layout() ;
 		// }) ;
 		
 		// 蛋白质数量变化
-		$(window).bind('yc.inner.ProteinPool::onAfterChange',null,function(e,pool,name,total,num){
+		$(window).bind('yc.user.ProteinPool::onAfterChange',null,function(e,pool,name,total,num){
 			dashboard.labelProteins[name].setString('♫ '+total) ;
 		}) ;
 		
@@ -238,7 +238,7 @@ yc.ui.dashboard.Dashboard = cc.Layer.extend({
 	   
 		
 // 		// 根据关卡中已有的公式创建label
-// 		var formulas = ins(yc.inner.ProteinFormulas).worldFormulas ;
+// 		var formulas = ins(yc.user.ProteinFormulas).worldFormulas ;
 // 		for(var name in formulas)
 // 		{
 // 			var fml = formulas[name] ;
@@ -253,20 +253,20 @@ yc.ui.dashboard.Dashboard = cc.Layer.extend({
 // 		// 注册事件
 // 		// --------
 // 		// 氨基酸数量数量
-// 		$(window).bind('yc.inner.AminoAcidPool::onAfterChange',null,function(e,pool,type,num){
+// 		$(window).bind('yc.user.AminoAcidPool::onAfterChange',null,function(e,pool,type,num){
 // 			dashboard.labelAminoAcids[type].setString('♪ '+pool[type]) ;
 // 			dashboard.layout() ;
 // 		}) ;
 		
 // 		// 新增蛋白质类型
-// 		$(window).bind('yc.inner.ProteinFormulas::onAfterAppend',null,function(e,o,formula){
+// 		$(window).bind('yc.user.ProteinFormulas::onAfterAppend',null,function(e,o,formula){
 // 			dashboard.labelProteins[formula.name] = dashboard._createLabel("♫ 0",new cc.Color3B(formula.rgb[0],formula.rgb[1],formula.rgb[2])) ;
 // 			dashboard._createSeparator(10) ;
 // 			dashboard.layout() ;
 // 		}) ;
 		
 // 		// 蛋白质数量变化
-// 		$(window).bind('yc.inner.ProteinPool::onAfterChange',null,function(e,pool,name,total,num){
+// 		$(window).bind('yc.user.ProteinPool::onAfterChange',null,function(e,pool,name,total,num){
 // 			dashboard.labelProteins[name].setString('♫ '+total) ;
 // 		}) ;
 		

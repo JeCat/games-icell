@@ -18,6 +18,7 @@ yc.dna = {} ;
 yc.actions = {} ;
 yc.levels = {} ;
 yc.levels.c1 = {} ;
+yc.user = {} ;
 
 
 var PTM_RATIO = 32;
@@ -37,8 +38,8 @@ var TAG_SPRITE_MANAGER = 1;
 			'bin/test.js'   
 			, 'bin/settings.js'
 			, 'bin/Cocos2dPatchs.js'
-			, 'bin/GameScene.js'  
-			, 'bin/MainScene.js' 
+			, 'bin/GameScene.js'
+			, 'bin/MainScene.js'
 			, 'bin/GameLayer.js'
 			, 'bin/event.js'
 			
@@ -90,8 +91,6 @@ var TAG_SPRITE_MANAGER = 1;
 			, 'bin/outer/pinups/LayerGround.js'
 			, 'bin/outer/pinups/Pinup.js'
 			
-			, 'bin/inner/AminoAcidPool.js'
-			, 'bin/inner/ProteinPool.js'
 			, 'bin/inner/InnerLayer.js'
 			, 'bin/inner/CellInnerMap.js'
 			, 'bin/inner/Hexgon.js'
@@ -99,7 +98,6 @@ var TAG_SPRITE_MANAGER = 1;
 			, 'bin/inner/HexgonAxes.js'
 			, 'bin/inner/HexgonAxesPathMap.js'
 			, 'bin/inner/Cell.js'
-			, 'bin/inner/ProteinFormulas.js'
 			
 			, 'bin/inner/building/BuildingLayer.js'
 			, 'bin/inner/building/Building.js'
@@ -144,7 +142,10 @@ var TAG_SPRITE_MANAGER = 1;
 			, 'bin/levels/ResourceLoadingScene.js'
 			
 			
-			, 'bin/Charactar.js'
+			, 'bin/user/ProteinFormulas.js'
+			, 'bin/user/AminoAcidPool.js'
+			, 'bin/user/ProteinPool.js'
+			, 'bin/user/Character.js'
 			
 			, 'bin/util/declareClassName.js'
 		 
