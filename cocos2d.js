@@ -73,6 +73,7 @@ var TAG_SPRITE_MANAGER = 1;
 			
 			, 'bin/ui/skill/SkillBar.js'
 			, 'bin/ui/skill/ButtonBase.js'
+			, 'bin/ui/skill/OutsideShooterButton.js'
 			
 			, 'bin/outer/Camera.js'
 			, 'bin/outer/LifeEntity.js'
@@ -119,7 +120,7 @@ var TAG_SPRITE_MANAGER = 1;
 			, 'bin/inner/organ/Bottles.js'
 			
 			, 'bin/inner/skill/SkillBase.js'
-			, 'bin/inner/skill/ShootVirusCluster.js'
+			, 'bin/inner/skill/OutsideShooter.js'
 			, 'bin/inner/skill/Bullet.js'
 			, 'bin/inner/skill/Bottles.js'
 
