@@ -21,7 +21,7 @@ var BuildingBtn = cc.Sprite.extend({
         return true;
     },
     onEnter:function () {
-        cc.Director.getInstance().getTouchDispatcher().addTargetedDelegate(this, 0, true);
+        cc.Director.getInstance().getTouchDispatcher().addTargetedDelegate(this, 0, false);
         this._super();
     },
     onExit:function () {

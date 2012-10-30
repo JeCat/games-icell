@@ -190,6 +190,23 @@ yc.ui.BuildingCreateMenu = function(){
 	this.show = function(hexgon){
 		var inner = ins(yc.inner.InnerLayer) ;
 
+		var arrPositions = [
+			[0,100]
+			, [-50,87]
+			, [-87,50]
+			, [-100,0]
+			, [-87,-50]
+			, [-50,-87]
+			, [0,-100]
+			, [50,-87]
+			, [87,-50]
+			, [100,0]
+			, [87,50]
+			, [50,87]
+		];
+
+		console.log('create menu');
+
 		this.buildMenu = new cc.Layer();
 		scene.layerUi.addChild(this.buildMenu);
 		// this.buildMenu.setPosition(cc.p(0,0));
@@ -197,11 +214,10 @@ yc.ui.BuildingCreateMenu = function(){
 		// this.buildMenu.setAnchorPoint(cc.p(hexgon.center[0],hexgon.center[1]));
 		// this.buildMenu.setPosition(cc.p(hexgon.center[0],hexgon.center[1]));
 
-		var position = yc.util.windowToClient( ins(yc.outer.Cell) , hexgon.center[0],hexgon.center[1]);
+		var position = yc.util.clientToWindow( ins(yc.outer.Cell) , hexgon.center[0],hexgon.center[1]);
 
 		this.buildMenuCenter = [position[0] , position[1]];
 		
-		var itemNums = 0 ;
 		for(var n in this.items )
 		{
 			var item = this.items[n] ;
@@ -211,71 +227,29 @@ yc.ui.BuildingCreateMenu = function(){
 			}
 
 			var itemUi = BuildingBtn.buildingBtnWithTexture(item.texture) ;
-			itemUi.setScale(0.4,0.4);
+			itemUi.setScale(0.3,0.3);
 			var screenSize = cc.Director.getInstance().getWinSize();
-			itemUi.setPosition(cc.p(screenSize.width/2,screenSize.height/2));
+			var position = arrPositions.shift();
+			itemUi.setPosition(cc.p( this.buildMenuCenter[0] + position[0], this.buildMenuCenter[1]  + position[1] ));
 			this.buildMenu.addChild( itemUi );
-			// 	.click(function(){
-					
-			// 		var item = $(this).data('item') ;
-					
-			// 		// 检查蛋白质
-			// 		var cost = item.cost() ;
-			// 		if( !yc.ui.checkCost(cost) )
-			// 		{
-			// 			alert("缺少材料") ;
-						
-			// 			// 关闭
-			// 			menu.close() ;
-			// 			return ;
-			// 		}
-					
-			// 		// 建造
-			// 		if( typeof(item.buildingClass)!='undefined' )
-			// 		{
-			// 			menu.createBuilding(hexgon,item) ;
-			// 		}
-			// 		if( typeof(item.constructFunc)!='undefined' )
-			// 		{
-			// 			item.constructFunc(hexgon) ;
-			// 		}
-					
-			// 		// 消耗蛋白质
-			// 		var pool = ins(yc.user.Character).proteins ;
-			// 		for(var protein in cost)
-			// 		{
-			// 			pool.increase( protein, -cost[protein] ) ;
-			// 		}
-					
-			// 		// 关闭
-			// 		menu.close() ;
-			// 	}) ;
-			
-			// if(!item.isUnlock())
-			// {
-			// 	itemUi.find('.create').attr('disabled',true) ;
-			// 	itemUi.find('.message').html('尚未解锁') ;
-			// }
-			// if(!yc.ui.checkCost(item.cost()))
-			// {
-			// 	itemUi.find('.create').attr('disabled',true) ;
-			// 	itemUi.find('.message').html('缺少材料') ;
-			// }
-			
-			itemNums ++ ;
 		}
-		
-		if(!itemNums)
-		{
-			return ;
-		}
-		
-		// this.ui.css({
-		// 		left: window.event.clientX-this.ui.width()-100
-		// 		, top: ($(window).height()-this.ui.height())/2
-		// 	})
-		// 	.show()
-		// 	[0].focus() ;
+
+		var buildingCreateMenu = this;
+
+		var closeBtn = cc.MenuItemImage.create(
+	        "res/btn-no.png",
+	        "res/btn-no-1.png",
+	        null,
+	        this,
+	        function (){
+	        	buildingCreateMenu.buildMenu.setVisible(false);
+	        	buildingCreateMenu.buildMenu.removeFromParent();
+	        	window.event.cancelBubble = true;   //stop event go through
+	        }
+	    );
+	    var closeMenu = cc.Menu.create(closeBtn);
+	    closeMenu.setPosition(this.buildMenuCenter[0]  , this.buildMenuCenter[1] );
+	    this.buildMenu.addChild(closeMenu);
 	}
 	
 	this.close = function(){
@@ -413,3 +387,54 @@ yc.ui.checkCost = function(cost){
 	}
 	return true ;
 }
+
+
+
+
+
+// 	.click(function(){
+					
+			// 		var item = $(this).data('item') ;
+					
+			// 		// 检查蛋白质
+			// 		var cost = item.cost() ;
+			// 		if( !yc.ui.checkCost(cost) )
+			// 		{
+			// 			alert("缺少材料") ;
+						
+			// 			// 关闭
+			// 			menu.close() ;
+			// 			return ;
+			// 		}
+					
+			// 		// 建造
+			// 		if( typeof(item.buildingClass)!='undefined' )
+			// 		{
+			// 			menu.createBuilding(hexgon,item) ;
+			// 		}
+			// 		if( typeof(item.constructFunc)!='undefined' )
+			// 		{
+			// 			item.constructFunc(hexgon) ;
+			// 		}
+					
+			// 		// 消耗蛋白质
+			// 		var pool = ins(yc.user.Character).proteins ;
+			// 		for(var protein in cost)
+			// 		{
+			// 			pool.increase( protein, -cost[protein] ) ;
+			// 		}
+					
+			// 		// 关闭
+			// 		menu.close() ;
+			// 	}) ;
+			
+			// if(!item.isUnlock())
+			// {
+			// 	itemUi.find('.create').attr('disabled',true) ;
+			// 	itemUi.find('.message').html('尚未解锁') ;
+			// }
+			// if(!yc.ui.checkCost(item.cost()))
+			// {
+			// 	itemUi.find('.create').attr('disabled',true) ;
+			// 	itemUi.find('.message').html('缺少材料') ;
+			// }
