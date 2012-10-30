@@ -12,7 +12,10 @@
 			else if( typeof(pkg[n])=='function' )
 			{
 				// 定义 className
-				pkg[n].className = prefix + n ;
+				if( !('className' in pkg[n]) )
+				{
+					pkg[n].className = prefix + n ;
+				}
 				
 			}
 		}

@@ -10,30 +10,38 @@ yc.inner.building.up.UpgraderBase = function(){
 		return false ;
 	}
 	
-	this.upgrade = function(building){
+	this.upgrade = function(building,checking){
 		
-		// 检查是否解锁
-		if(!this.isUnlock())
+		if(checking===undefined)
 		{
-			return false ;
+			checking = true ;
 		}
-		
-		// 检查资源
-		var cost = this.cost() ;
-		var pool = ins(yc.user.Character).proteins ;
-		for(var protein in cost)
+
+		if(checking)
 		{
-			if( pool.num(protein) < cost[protein] )
+			// 检查是否解锁
+			if(!this.isUnlock())
 			{
-				alert('缺少蛋白质：'+protein) ;
-				return ;
+				return false ;
 			}
-		}
-		
-		// 消耗资源
-		for(var protein in cost)
-		{
-			pool.increase(protein,-cost[protein]) ;
+			
+			// 检查资源
+			var cost = this.cost() ;
+			var pool = ins(yc.user.Character).proteins ;
+			for(var protein in cost)
+			{
+				if( pool.num(protein) < cost[protein] )
+				{
+					alert('缺少蛋白质：'+protein) ;
+					return ;
+				}
+			}
+			
+			// 消耗资源
+			for(var protein in cost)
+			{
+				pool.increase(protein,-cost[protein]) ;
+			}
 		}
 		
 		// 开始升级

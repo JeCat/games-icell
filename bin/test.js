@@ -106,3 +106,8 @@ function moregene(name){
 	log(yc.dna.genes,ins(yc.user.Character).dna)
 }
 
+function savecell(){
+	ins(yc.user.Character).cell = ins(yc.inner.Cell).exportScript() ;
+	ins(yc.user.Character).save() ;
+}
+

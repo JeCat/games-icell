@@ -317,60 +317,13 @@ yc.inner.Cell.prototype.exportScript = function() {
 
 
 	return script ;
-	//////////////////////
-
-
-	var script = {};
-	
-	var i,j;
-	
-	script.map = [] ;
-	
-	var m = {
-		type: this.nucleus.type,
-		x: this.nucleus.x,
-		y: this.nucleus.y
-	};
-	script.map.push(m);
-	
-	for( i in this.membranes ){
-		var m = {
-			type : this.membranes[i].type,
-			x: this.membranes[i].x,
-			y: this.membranes[i].y
-		};
-		script.map.push(m);
-	}
-	
-	for( i in this.cytoplasms ){
-		var m = {
-			type: this.cytoplasms[i].type,
-			x: this.cytoplasms[i].x,
-			y: this.cytoplasms[i].y
-		}
-		if( this.cytoplasms[i].building ){
-			m['className'] = this.cytoplasms[i].building.constructor.className ;
-			var upgraders = this.cytoplasms[i].building._upgraders;
-			
-			m['upgraders'] = [];
-			for( j in upgraders ){
-				m['upgraders'].push({
-					'name':j,
-					'lv':upgraders[j].lv
-				});
-			}
-		}
-		script.map.push(m);
-	}
-	
-	return script;
 }
 
 /**
  * 从 json 导入
  */
 yc.inner.Cell.prototype.initWithScript = function( script ){
-log(script) ;
+
 	this.aAxes = new HexgonAxes( yc.settings.inner.hexgonSideLength, yc.inner.CellHexgon ) ;
 	this.grown = 0 ;
 
@@ -386,60 +339,23 @@ log(script) ;
 	
 	// 建筑
 	for(var i=0;i<script.buildings.length;i++){
+		var building = new (eval(script.buildings[i].className)) ;
+		building.putOn(script.buildings[i].x,script.buildings[i].y) ;
 
-		//script.buildings[i]. ;
-
+		// 升级
+		var upgraders = script.buildings[i].upgraders ;
+		for(var name in upgraders)
+		{
+			for(var u=0;u<upgraders[name];u++)
+			{
+				building.upgrader( eval(name) )
+							.upgrade(building,false) ;
+			}
+		}
 	}
 
 	this.grown = 0 ;
 
 
 	return ;
-
-
-
-	var i,j,k;
-	var menu = ins(yc.ui.BuildingCreateMenu) ;
-	for( i in script.map ){
-		var m = script.map[i] ;
-		switch(m.type){
-		case 'cytoplasm':
-			var item = null ;
-			switch( m.className ){
-			case 'yc.inner.building.TowerShooter':
-				item = menu.items.shooter;
-				break;
-			case 'yc.inner.building.ProteinFactory':
-				item = menu.hideItems.factory;
-				break;
-			case undefined:
-				break;
-			default:
-				log( 'unknow className:',m.className );
-				break;
-			}
-			if( item ){
-				var building = menu.createBuilding( this.aAxes.hexgon(m.x,m.y), item ) ;
-				
-				var buildingClass = building.constructor ;
-				for(var j=0;j<buildingClass.upgraders.length;j++)
-				{
-					var upgraderClass = buildingClass.upgraders[j] ;
-					var upgrader = building.upgrader(upgraderClass) ;
-				}
-				
-				for( j in m.upgraders ){
-					var u = m.upgraders[j];
-					for(k=1;k<u.lv;++k){
-						building._upgraders[ u.name ].upgrade( building );
-					}
-				}
-			}
-			break;
-		case 'nucleus':
-			this.nucleus = this.aAxes.hexgon( m.x, m.y ) ;
-			this.nucleus.type = m.type ;
-			break;
-		}
-	}
 }
