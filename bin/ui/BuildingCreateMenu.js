@@ -144,9 +144,9 @@ yc.ui.BuildingCreateMenu = function(){
 			, hexgonTypes: ['cytoplasm']
 			, cost: function(){
 				return {
-					red: 1
-					, yellow: 1
-					, blue: 1
+					red: 0
+					, yellow: 0
+					, blue: 0
 				}
 			}
 			, buildingClass: yc.inner.organ.Bottles

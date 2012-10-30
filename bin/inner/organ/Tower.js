@@ -12,4 +12,4 @@ yc.inner.organ.Tower = yc.inner.organ.Organ.extend({
 		var texture = yc.util.ccShareTexture('res/organ/Tower.png') ;
 		ctx.drawImage(texture,-17,-17) ;
 	}
-});
+});e

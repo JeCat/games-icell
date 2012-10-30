@@ -6,6 +6,6 @@ yc.inner.organ.Bottles = yc.inner.organ.Organ.extend({
 			new yc.inner.skill.Bottles
 		);
 		
-		this.initWithFile('res/organ/Bullet.png');
+		this.initWithFile('res/organ/MoShuiPing.png');
 	}
 });
