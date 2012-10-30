@@ -1,9 +1,9 @@
-function HexgonAxes(sideLen,dbgCanvas)
+function HexgonAxes(sideLen,hexgonClass,dbgCanvas)
 {
 	this.sideLen = sideLen ;
 
 	this._dbgCanvas = typeof(dbgCanvas)=='undefined'? null: dbgCanvas ;
-	this._hexgonClass = function(){} ;
+	this._hexgonClass = hexgonClass || function(){} ;
 	
 	this.mapHexgons = {} ;
 }

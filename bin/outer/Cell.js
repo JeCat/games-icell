@@ -281,5 +281,4 @@ yc.outer.Cell = yc.outer.PhysicalEntity.extend({
 			}
 		}
 	}
-	
 });

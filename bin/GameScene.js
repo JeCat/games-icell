@@ -311,12 +311,12 @@ yc.GameScene = cc.Scene.extend({
 			x: outerCell.x
 			, y: outerCell.y
 
-			, cell: {
+			/* , cell: {
 				nucleus: {
 					x: innerCell.nucleus.x
 					, y: innerCell.nucleus.y
 				}
-			}
+			}*/
 		}
 
 		script.player.cytoplasms = [] ;
@@ -377,7 +377,7 @@ yc.GameScene = cc.Scene.extend({
 		script.pinups.perspective = this.layerPg._script ;	// 导出 远景层 上的贴图
 		
 		// cell
-		script.cell = ins(yc.inner.Cell).exportScript();
+		// script.cell = ins(yc.inner.Cell).exportScript();
 
 
 		// 资源加载
@@ -456,11 +456,11 @@ yc.GameScene = cc.Scene.extend({
 		}
 		
 		// cell
-		if( 'cell' in script ){
-			var innerCell = yc.util.ins(yc.inner.InnerLayer).cell ;
-			innerCell.destory() ;
-			innerCell.initWithScript(script.cell);
-		}
+		// if( 'cell' in script ){
+		// 	var innerCell = yc.util.ins(yc.inner.InnerLayer).cell ;
+		// 	innerCell.destory() ;
+		// 	innerCell.initWithScript(script.cell);
+		// }
 	}
 
 	, test: function(){
