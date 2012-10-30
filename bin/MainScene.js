@@ -27,10 +27,11 @@ yc.MainScene = cc.Scene.extend({
 
         var itemTest = cc.MenuItemFont.create("test", this, function(){
         	loginCallback("0#test");
-        	// this.menuLevelSelect.runAction(cc.Sequence.create(this.actionShow));
-        	// this.menuLogin.runAction(cc.Sequence.create(this.actionHide));
         	this.menuLevelSelect.setVisible(true);
-        	this.menuLogin.setVisible(false);
+        	this.menuLevelSelect.runAction(cc.Sequence.create(this.actionShow));
+        	this.menuLogin.runAction(cc.Sequence.create(this.actionHide));
+        	// this.menuLevelSelect.setVisible(true);
+        	// this.menuLogin.setVisible(false);
         });
         itemTest.setFontSize(24);
 
@@ -97,9 +98,6 @@ yc.MainScene = cc.Scene.extend({
 
 	, onExit : function(){
 		yc.event.unregister( ins(yc.outer.Camera), "resize", this.onResize ) ;
-
-		this.menuLogin.removeFromParent();
-		this.menuLevelSelect.removeFromParent();
 
 		this._super() ;
 	}
