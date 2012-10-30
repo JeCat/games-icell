@@ -8,6 +8,7 @@ yc.ui.BuildingCreateMenu = function(){
 		shooter: {
 			title: '防御塔(射击)'
 			, description: '用于攻击进入细胞内的病毒'
+			, texture : "res/building/shooter.png"
 			, hexgonTypes: ['cytoplasm']
 			, cost: function(){
 				return yc.settings.building.Shooter.cost ;
@@ -21,6 +22,7 @@ yc.ui.BuildingCreateMenu = function(){
 		, cannon: {
 			title: '防御塔(火炮)'
 			, description: '大范围攻击进入细胞内的病毒'
+			, texture : "res/building/cannon.png"
 			, hexgonTypes: ['cytoplasm']
 			, cost: function(){
 				return yc.settings.building.Cannon.cost ;
@@ -34,6 +36,7 @@ yc.ui.BuildingCreateMenu = function(){
 		, jetter: {
 			title: '防御塔(喷射)'
 			, description: '向进入细胞体内的病毒喷射酸性物质，接触到的病毒都将受到伤害'
+			, texture : "res/building/jetter.png"
 			, hexgonTypes: ['cytoplasm']
 			, cost: function(){
 				return yc.settings.building.Jetter.cost ;
@@ -47,6 +50,7 @@ yc.ui.BuildingCreateMenu = function(){
 		, slower: {
 			title: '防御塔(减速)'
 			, description: '用于攻击进入细胞内的病毒，同时使病毒的移动减慢'
+			, texture : "res/building/slower.png"
 			, hexgonTypes: ['cytoplasm']
 			, cost: function(){
 				return yc.settings.building.Slower.cost ;
@@ -60,6 +64,7 @@ yc.ui.BuildingCreateMenu = function(){
 		, recycle: {
 			title: '回收站'
 			, description: '在细胞内释放出线粒体，线粒体会主动搜集病毒在细胞内被杀死时掉落的氨基酸'
+			, texture : "res/building/recycle.png"
 			, hexgonTypes: ['cytoplasm']
 			, cost: function(){
 				return {
@@ -77,6 +82,7 @@ yc.ui.BuildingCreateMenu = function(){
 		, grow: {
 			title: '生长'
 			, description: '扩张为细胞内部区域'
+			, texture : "res/building/recycle.png"
 			, hexgonTypes: ['membrane']
 			, cost: function(){
 				
@@ -103,6 +109,7 @@ yc.ui.BuildingCreateMenu = function(){
 		, eye: {
 			title: '眼睛'
 			, description: '一双美丽的大眼睛'
+			, texture : "res/building/recycle.png"
 			, hexgonTypes: ['membrane']
 			, cost: function(){
 				return {
@@ -122,6 +129,7 @@ yc.ui.BuildingCreateMenu = function(){
 		, oshooter: {
 			title: '攻击塔'
 			, description: '攻击细胞外部的病毒群'
+			, texture : "res/building/recycle.png"
 			, hexgonTypes: ['membrane']
 			, cost: function(){
 				return {
@@ -141,6 +149,7 @@ yc.ui.BuildingCreateMenu = function(){
 		, bottles: {
 			title: '漂流瓶'
 			, description: '朋友无处不在'
+			, texture : "res/building/recycle.png"
 			, hexgonTypes: ['cytoplasm']
 			, cost: function(){
 				return {
@@ -178,14 +187,20 @@ yc.ui.BuildingCreateMenu = function(){
 		}
 	}
 
-	this.ui.find('.btn-close').click(function(){
-		menu.close() ;
-	})
-
 	this.show = function(hexgon){
 		var inner = ins(yc.inner.InnerLayer) ;
+
+		this.buildMenu = new cc.Layer();
+		scene.layerUi.addChild(this.buildMenu);
+		// this.buildMenu.setPosition(cc.p(0,0));
+		// this.buildMenu.setContentSize(new cc.Size(200,200));
+		// this.buildMenu.setAnchorPoint(cc.p(hexgon.center[0],hexgon.center[1]));
+		// this.buildMenu.setPosition(cc.p(hexgon.center[0],hexgon.center[1]));
+
+		var position = yc.util.windowToClient( ins(yc.outer.Cell) , hexgon.center[0],hexgon.center[1]);
+
+		this.buildMenuCenter = [position[0] , position[1]];
 		
-		this.ui.find('#bulding-create-items').html("") ;
 		var itemNums = 0 ;
 		for(var n in this.items )
 		{
@@ -194,62 +209,58 @@ yc.ui.BuildingCreateMenu = function(){
 			{
 				continue ;
 			}
-			
-			var itemUi = $('#bulding-create-template').clone()
-							.appendTo('#bulding-create-items')
-							.attr('id','')
-							.show() ;
-			itemUi.find('.title').html(item.title) ;
-			itemUi.find('.description').html(item.description) ;
-			itemUi.find('.cost').html( '费用：'+yc.ui.costHtml(item.cost()) ) ;
-			itemUi.find('.create')
-				.data('item',item)
-				.click(function(){
+
+			var itemUi = BuildingBtn.buildingBtnWithTexture(item.texture) ;
+			itemUi.setScale(0.4,0.4);
+			var screenSize = cc.Director.getInstance().getWinSize();
+			itemUi.setPosition(cc.p(screenSize.width/2,screenSize.height/2));
+			this.buildMenu.addChild( itemUi );
+			// 	.click(function(){
 					
-					var item = $(this).data('item') ;
+			// 		var item = $(this).data('item') ;
 					
-					// 检查蛋白质
-					var cost = item.cost() ;
-					if( !yc.ui.checkCost(cost) )
-					{
-						alert("缺少材料") ;
+			// 		// 检查蛋白质
+			// 		var cost = item.cost() ;
+			// 		if( !yc.ui.checkCost(cost) )
+			// 		{
+			// 			alert("缺少材料") ;
 						
-						// 关闭
-						menu.close() ;
-						return ;
-					}
+			// 			// 关闭
+			// 			menu.close() ;
+			// 			return ;
+			// 		}
 					
-					// 建造
-					if( typeof(item.buildingClass)!='undefined' )
-					{
-						menu.createBuilding(hexgon,item) ;
-					}
-					if( typeof(item.constructFunc)!='undefined' )
-					{
-						item.constructFunc(hexgon) ;
-					}
+			// 		// 建造
+			// 		if( typeof(item.buildingClass)!='undefined' )
+			// 		{
+			// 			menu.createBuilding(hexgon,item) ;
+			// 		}
+			// 		if( typeof(item.constructFunc)!='undefined' )
+			// 		{
+			// 			item.constructFunc(hexgon) ;
+			// 		}
 					
-					// 消耗蛋白质
-					var pool = ins(yc.user.Character).proteins ;
-					for(var protein in cost)
-					{
-						pool.increase( protein, -cost[protein] ) ;
-					}
+			// 		// 消耗蛋白质
+			// 		var pool = ins(yc.user.Character).proteins ;
+			// 		for(var protein in cost)
+			// 		{
+			// 			pool.increase( protein, -cost[protein] ) ;
+			// 		}
 					
-					// 关闭
-					menu.close() ;
-				}) ;
+			// 		// 关闭
+			// 		menu.close() ;
+			// 	}) ;
 			
-			if(!item.isUnlock())
-			{
-				itemUi.find('.create').attr('disabled',true) ;
-				itemUi.find('.message').html('尚未解锁') ;
-			}
-			if(!yc.ui.checkCost(item.cost()))
-			{
-				itemUi.find('.create').attr('disabled',true) ;
-				itemUi.find('.message').html('缺少材料') ;
-			}
+			// if(!item.isUnlock())
+			// {
+			// 	itemUi.find('.create').attr('disabled',true) ;
+			// 	itemUi.find('.message').html('尚未解锁') ;
+			// }
+			// if(!yc.ui.checkCost(item.cost()))
+			// {
+			// 	itemUi.find('.create').attr('disabled',true) ;
+			// 	itemUi.find('.message').html('缺少材料') ;
+			// }
 			
 			itemNums ++ ;
 		}
@@ -259,12 +270,12 @@ yc.ui.BuildingCreateMenu = function(){
 			return ;
 		}
 		
-		this.ui.css({
-				left: window.event.clientX-this.ui.width()-100
-				, top: ($(window).height()-this.ui.height())/2
-			})
-			.show()
-			[0].focus() ;
+		// this.ui.css({
+		// 		left: window.event.clientX-this.ui.width()-100
+		// 		, top: ($(window).height()-this.ui.height())/2
+		// 	})
+		// 	.show()
+		// 	[0].focus() ;
 	}
 	
 	this.close = function(){
