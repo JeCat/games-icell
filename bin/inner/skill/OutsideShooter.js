@@ -15,7 +15,8 @@ yc.inner.skill.OutsideShooter = yc.inner.skill.SkillBase.extend({
 		bullet.setInjureRadius( 30 );
 		
 		// from
-		bullet.setFromPosition( this.building().getPosition() );
+		var cell = this.building()._parent._parent;
+		bullet.setFromPosition( cc.p(cell.x,cell.y) );
 		
 		// target
 		var cvc = this.findClosestVirusCluster(bullet.fromPosition()) ;
