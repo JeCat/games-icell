@@ -1,8 +1,9 @@
-yc.inner.skill.ShootVirusCluster = yc.inner.skill.SkillBase.extend({
+yc.inner.skill.OutsideShooter = yc.inner.skill.SkillBase.extend({
 	ctor : function(){
 		this._super();
 		
-		this.setCoolingTime( 10 );// 冷却时间设为10秒
+		this.setName( 'OutsideShooter' );
+		this.setCoolingTime( 5 );// 冷却时间
 	}
 	, start: function(){
 		var bullet = yc.op.ins(yc.inner.skill.Bullet).ob();

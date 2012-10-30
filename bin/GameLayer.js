@@ -6,6 +6,7 @@ yc.GameLayer = cc.Layer.extend({
 		
 		this.actFadeCellOuter = null ;
 		this.actFadeCellInner = null ;
+		this.actFadeCellOrgan = null ;
 		
 		// resize 事件
 		yc.event.register(ins(yc.outer.Camera),"resize",this.onResize,this) ;
@@ -35,7 +36,7 @@ yc.GameLayer = cc.Layer.extend({
 		// 高于 显示内部视图的缩放比例
 		if( yc.settings.camera.switchZoom<scalex && yc.settings.camera.switchZoom>this.getScale() )
 		{
-			log('显示') ;
+			// log('显示') ;
 			// 显示内部视图
 			if(this.actFadeCellInner)
 			{
@@ -51,12 +52,19 @@ yc.GameLayer = cc.Layer.extend({
 			}
 			this.actFadeCellOuter = cc.FadeTo.create(0.5,yc.settings.camera.shellOpacityLow) ;
 			this._parent.layerPlayer.cell.shell.runAction(this.actFadeCellOuter) ;
+			
+			// 外部器官半透明
+			if( this.actFadeCellOrgan ){
+				this._parent.layerPlayer.cell.layerOrgan.stopAction( this.actFadeCellOrgan );
+			}
+			this.actFadeCellOrgan = cc.FadeTo.create(0.5,yc.settings.camera.organOpacityLow);
+			this._parent.layerPlayer.cell.layerOrgan.runAction( this.actFadeCellOrgan );
 		}
 
 		// 低于 显示内部视图的缩放比例
 		else if( yc.settings.camera.switchZoom>scalex && yc.settings.camera.switchZoom<this.getScale() )
 		{
-			log('消失') ;
+			// log('消失') ;
 			// 内部视图消失
 			if(this.actFadeCellInner)
 			{
@@ -72,6 +80,13 @@ yc.GameLayer = cc.Layer.extend({
 			}
 			this.actFadeCellOuter = cc.FadeIn.create(0.5) ;
 			this._parent.layerPlayer.cell.shell.runAction(this.actFadeCellOuter) ;
+			
+			// 显示外部器官
+			if( this.actFadeCellOrgan ){
+				this._parent.layerPlayer.cell.layerOrgan.stopAction( this.actFadeCellOrgan );
+			}
+			this.actFadeCellOrgan = cc.FadeIn.create(0.5);
+			this._parent.layerPlayer.cell.layerOrgan.runAction( this.actFadeCellOrgan );
 		}
 		
 			

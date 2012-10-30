@@ -121,7 +121,7 @@ yc.inner.monster.Mitochondria = cc.Sprite.extend({
 							worker.removeChild(aminoacid) ;
 
 							// 回收氨基酸
-							ins(yc.inner.AminoAcidPool).increase(aminoacid.type,aminoacid.num) ;
+							ins(yc.user.Character).aminoacids.increase(aminoacid.type,aminoacid.num) ;
 							aminoacid.destroy() ;
 							
 							// 进入漫步状态

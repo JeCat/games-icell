@@ -190,7 +190,7 @@ yc.ui.editer.PanelRole = function(editor){
 					, hp: 10
 					, offsetx: Math.round( (shakeRange - shakeRange*2*Math.random())*100 ) / 100
 					, offsety: Math.round( (shakeRange - shakeRange*2*Math.random())*100 ) / 100
-					, flop: yc.inner.AminoAcidPool.types[ 0|(Math.random()*(yc.inner.AminoAcidPool.types.length)) ]
+					, flop: yc.user.AminoAcidPool.types[ 0|(Math.random()*(yc.user.AminoAcidPool.types.length)) ]
 					, flopNum: 0|Math.random()*11
 				} ) ;
 			}

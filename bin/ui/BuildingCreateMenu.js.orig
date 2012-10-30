@@ -154,7 +154,10 @@ yc.ui.BuildingCreateMenu = function(){
 				return ins(yc.user.Character).dna.genes['bottles']!==undefined ;
 			}
 			, isBlock: false
+<<<<<<< Updated upstream
 			, hasSkill: true
+=======
+>>>>>>> Stashed changes
 		}
 	} ;
 
@@ -230,7 +233,7 @@ yc.ui.BuildingCreateMenu = function(){
 					}
 					
 					// 消耗蛋白质
-					var pool = ins(yc.user.Character).proteins ;
+					var pool = ins(yc.inner.ProteinPool) ;
 					for(var protein in cost)
 					{
 						pool.increase( protein, -cost[protein] ) ;
@@ -322,38 +325,14 @@ yc.ui.BuildingCreateMenu = function(){
 			return ;
 		}
 		
-		// new buildingClass
-		var building = new item.buildingClass ;
-		
-		// info and cost
-		building.info = item ;
-		building.cost = item.cost() ;
-		
-		// is blocking
-		if( item.isBlocking ){
-			building._isBlocking = item.isBlocking ;
-		}
-		
-		// 决定 building 放在哪个 layer 上
-		var bLayer = null;
+		var building = null ;
 		if( 'OrganLayer' == item.layer ){
-			bLayer = ins(yc.inner.organ.OrganLayer); 
+			building = ins(yc.inner.organ.OrganLayer).createBuilding(item,hexgon);
 		}else{
-			bLayer = inner.buildings ;
+			building = inner.buildings.createBuilding(item.buildingClass,hexgon.x,hexgon.y) ;
+			building.info = item ;
+			building.cost = item.cost() ;
 		}
-		
-		// 分配 idx
-		building.idx = bLayer.assigned++ ;
-		
-		// 添加
-		bLayer.addChild( building );
-		
-		// hexgon
-		hexgon.building = building ;
-		building.hexgon = hexgon ;
-		
-		// position
-		building.setPosition(cc.p(hexgon.center[0],hexgon.center[1])) ;
 		
 		if( true == item.hasSkill ){
 			// 技能
@@ -375,7 +354,7 @@ yc.ui.costHtml = function(cost){
 	var idx = 0 ;
 	for(var proteinName in cost)
 	{
-		var proteinFormula = ins(yc.user.ProteinFormulas).worldFormulas[proteinName] ;
+		var proteinFormula = ins(yc.inner.ProteinFormulas).worldFormulas[proteinName] ;
 		if(proteinFormula===undefined)
 		{
 			log("mission protein "+proteinName+"'s formula.") ;
@@ -392,7 +371,7 @@ yc.ui.costHtml = function(cost){
 }
 yc.ui.checkCost = function(cost){
 
-	var pool = ins(yc.user.Character).proteins ;
+	var pool = ins(yc.inner.ProteinPool) ;
 	for(var protein in cost)
 	{
 		if( pool.num(protein) < cost[protein] )

@@ -1,4 +1,4 @@
-yc.inner.AminoAcidPool = function ()
+yc.user.AminoAcidPool = function ()
 {	
 	this.red = 0 ;
 	this.yellow = 0 ;
@@ -7,12 +7,12 @@ yc.inner.AminoAcidPool = function ()
 	this.increase = function(type,num){
 		
 		// 触发事件
-		$(window).trigger('yc.inner.AminoAcidPool::onBeforeChange',[this,type,num]) ;
+		$(window).trigger('yc.user.AminoAcidPool::onBeforeChange',[this,type,num]) ;
 		
 		this[type]+= num ;
 		
 		// 触发事件
-		$(window).trigger('yc.inner.AminoAcidPool::onAfterChange',[this,type,num]) ;
+		$(window).trigger('yc.user.AminoAcidPool::onAfterChange',[this,type,num]) ;
 		
 		return this ;
 	}
@@ -24,5 +24,5 @@ yc.inner.AminoAcidPool = function ()
 	}
 	
 }
-yc.inner.AminoAcidPool.types = ['red','yellow','blue'] ;
+yc.user.AminoAcidPool.types = ['red','yellow','blue'] ;
 

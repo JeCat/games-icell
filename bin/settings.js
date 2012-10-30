@@ -12,20 +12,23 @@ yc.settings = {
 
 		// 细胞在放大时，外壳的透明度
 		, shellOpacityLow: 30
+		
+		// 细胞在放大时，外部器官的透明度
+		, organOpacityLow: 100
 
 		// 显示倍数 （弃用）
 		, cellInnerZoom: 1
 
 		// 默认的最大、最小缩放比例
 		, defautlMaxZoom: 1
-		, defautlMinZoom: 0.1
+		, defautlMinZoom: 0.08
 
 	}
 
 	// 内部场景 ------------------------------
 	, inner: {
 		// 六边形边长
-		hexgonSideLength: 30
+		hexgonSideLength: 45
 		// 六边形格子的最大层数
 		, cellMaxLevels: 5
 		// 六边形格子层数的游戏初始值

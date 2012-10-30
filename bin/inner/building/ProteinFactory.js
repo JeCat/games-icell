@@ -49,7 +49,7 @@ yc.inner.building.ProteinFactory = yc.inner.building.Building.extend({
 		var factory = this ;
 		
 		
-		var loopStart = this.working_formula? this.working_formula: ins(yc.inner.ProteinFormulas).last ;
+		var loopStart = this.working_formula? this.working_formula: ins(yc.user.ProteinFormulas).last ;
 		if(!loopStart)
 		{
 			return ;
@@ -104,7 +104,7 @@ yc.inner.building.ProteinFactory = yc.inner.building.Building.extend({
 		// 消耗氨基酸
 		for(var key in formula.materials)
 		{
-			ins(yc.inner.AminoAcidPool).increase(key,-formula.materials[key]) ;
+			ins(yc.user.Character).aminoacids.increase(key,-formula.materials[key]) ;
 		}
 			
 		var func = function(){
@@ -132,7 +132,7 @@ yc.inner.building.ProteinFactory = yc.inner.building.Building.extend({
 				// factory.working_formula.ui.find('.protein-composite-progress').hide() ;
 				
 				// 增加蛋白质池中的存数
-				ins(yc.inner.ProteinPool).increase(factory.working_formula.name,1) ;
+				ins(yc.user.Character).proteins.increase(factory.working_formula.name,1) ;
 				
 				// 恢复暂停按钮
 				// factory.working_formula.ui.find('.protein-formula-togglebtn').attr('disabled',false) ;
@@ -167,17 +167,17 @@ yc.inner.building.ProteinFactory = yc.inner.building.Building.extend({
 		// 消耗氨基酸
 		for(var key in formula.materials)
 		{
-			ins(yc.inner.AminoAcidPool).increase(key,-formula.materials[key]) ;
+			ins(yc.user.Character).aminoacids.increase(key,-formula.materials[key]) ;
 		}
 
 		// 增加蛋白质池中的存数
-		ins(yc.inner.ProteinPool).increase(formula.name,1) ;
+		ins(yc.user.Character).proteins.increase(formula.name,1) ;
 	}
 
 	, checkingMaterials : function(formula){
 		for(var key in formula.materials)
 		{
-			if(ins(yc.inner.AminoAcidPool)[key] < formula.materials[key])
+			if(ins(yc.user.Character).aminoacids[key] < formula.materials[key])
 			{
 				return false ;
 			}

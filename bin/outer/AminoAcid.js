@@ -16,7 +16,7 @@ yc.outer.AminoAcid = yc.outer.PhysicalEntity.extend({
 
 			, num: Math.round(Math.random()*20)
 			 // red, blue, yellow
-			, type: yc.inner.AminoAcidPool.types[ 0|(Math.random()*(yc.inner.AminoAcidPool.types.length)) ]
+			, type: yc.user.AminoAcidPool.types[ 0|(Math.random()*(yc.user.AminoAcidPool.types.length)) ]
 		}) ;
 	}
 	
@@ -74,7 +74,7 @@ yc.outer.AminoAcid = yc.outer.PhysicalEntity.extend({
 	}
 	
 	, catchMe: function(){
-		ins(yc.inner.AminoAcidPool).increase(this.type,this.num) ;
+		ins(yc.user.Character).aminoacids.increase(this.type,this.num) ;
 		
 		this.destroy() ;
 	}

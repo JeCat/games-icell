@@ -24,7 +24,7 @@ yc.ui.BuildingUpgradeMenu = function(){
 		menu.building.demolish() ;
 		
 		// 回收资源
-		var pool = ins(yc.inner.ProteinPool) ;
+		var pool = ins(yc.user.Character).proteins ;
 		for(var p in menu.costRecovering)
 		{
 			pool.increase(p,+menu.costRecovering[p]) ;

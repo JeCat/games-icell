@@ -20,7 +20,7 @@ yc.inner.building.up.UpgraderBase = function(){
 		
 		// 检查资源
 		var cost = this.cost() ;
-		var pool = ins(yc.inner.ProteinPool) ;
+		var pool = ins(yc.user.Character).proteins ;
 		for(var protein in cost)
 		{
 			if( pool.num(protein) < cost[protein] )

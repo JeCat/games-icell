@@ -3,23 +3,23 @@
 function moremoney(AminoAcid , Protein)
 {
 	if(!$.isNumeric(AminoAcid)){
-		AminoAcid = 10;
+		AminoAcid = 100;
 	}
 	if(!$.isNumeric(Protein)){
 		Protein = 500;
 	}
 	//  氨基酸池
-	ins(yc.inner.AminoAcidPool)
-		.increase('red',AminoAcid)
-		.increase('yellow',AminoAcid)
-		.increase('blue',AminoAcid) ;
+	ins(yc.user.Character).aminoacids.increase('red',AminoAcid)
+	ins(yc.user.Character).aminoacids.increase('yellow',AminoAcid)
+	ins(yc.user.Character).aminoacids.increase('blue',AminoAcid)
+
 	//  蛋白质
-	ins(yc.inner.ProteinPool).increase('red',Protein) ;
-	ins(yc.inner.ProteinPool).increase('yellow',Protein) ;
-	ins(yc.inner.ProteinPool).increase('blue',Protein) ;
-	ins(yc.inner.ProteinPool).increase('orange',Protein) ;
-	ins(yc.inner.ProteinPool).increase('green',Protein) ;
-	ins(yc.inner.ProteinPool).increase('violet',Protein) ;
+	ins(yc.user.Character).proteins.increase('red',Protein) ;
+	ins(yc.user.Character).proteins.increase('yellow',Protein) ;
+	ins(yc.user.Character).proteins.increase('blue',Protein) ;
+	ins(yc.user.Character).proteins.increase('orange',Protein) ;
+	ins(yc.user.Character).proteins.increase('green',Protein) ;
+	ins(yc.user.Character).proteins.increase('violet',Protein) ;
 }
 
 function newVirusCluster(){

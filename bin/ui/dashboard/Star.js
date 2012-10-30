@@ -92,7 +92,7 @@ var Star = cc.Sprite.extend({
             this.setTexture(this._arrTextures[0]);
             this.bAutoMode = false;
         }
-        ins(yc.inner.ProteinFormulas).toggle( this.getFormula().name );
+        ins(yc.user.ProteinFormulas).toggle( this.getFormula().name );
     }
     
     , setClickable : function(bAble){

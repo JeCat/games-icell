@@ -330,14 +330,14 @@ yc.GameScene = cc.Scene.extend({
 			script.player.membranes.push({x:innerCell.membranes[i].x,y:innerCell.membranes[i].y}) ;
 		}
 		// 氨基酸池
-		var pool = ins(yc.inner.AminoAcidPool) ;
+		var pool = ins(yc.user.Character).aminoacids ;
 		script.player.aminoacidpool = {
 			red: pool.red
 			, yellow: pool.yellow
 			, blue: pool.blue
 		} ;
 		// 蛋白质池
-		pool = ins(yc.inner.ProteinPool) ;
+		pool = ins(yc.user.Character).proteins ;
 		script.player.proteinpool = {} ;
 		for(var name in  pool.mapProteins)
 		{

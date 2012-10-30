@@ -18,6 +18,7 @@ yc.dna = {} ;
 yc.actions = {} ;
 yc.levels = {} ;
 yc.levels.c1 = {} ;
+yc.user = {} ;
 
 
 var PTM_RATIO = 32;
@@ -37,8 +38,8 @@ var TAG_SPRITE_MANAGER = 1;
 			'bin/test.js'   
 			, 'bin/settings.js'
 			, 'bin/Cocos2dPatchs.js'
-			, 'bin/GameScene.js'  
-			, 'bin/MainScene.js' 
+			, 'bin/GameScene.js'
+			, 'bin/MainScene.js'
 			, 'bin/GameLayer.js'
 			, 'bin/event.js'
 			
@@ -72,6 +73,7 @@ var TAG_SPRITE_MANAGER = 1;
 			
 			, 'bin/ui/skill/SkillBar.js'
 			, 'bin/ui/skill/ButtonBase.js'
+			, 'bin/ui/skill/OutsideShooterButton.js'
 			
 			, 'bin/outer/Camera.js'
 			, 'bin/outer/LifeEntity.js'
@@ -86,12 +88,11 @@ var TAG_SPRITE_MANAGER = 1;
 			, 'bin/outer/Portal.js'
 			, 'bin/outer/RandomRolesLayer.js'
 			, 'bin/outer/ContactListener.js'
+			, 'bin/outer/Bottles.js'
 
 			, 'bin/outer/pinups/LayerGround.js'
 			, 'bin/outer/pinups/Pinup.js'
 			
-			, 'bin/inner/AminoAcidPool.js'
-			, 'bin/inner/ProteinPool.js'
 			, 'bin/inner/InnerLayer.js'
 			, 'bin/inner/CellInnerMap.js'
 			, 'bin/inner/Hexgon.js'
@@ -99,7 +100,6 @@ var TAG_SPRITE_MANAGER = 1;
 			, 'bin/inner/HexgonAxes.js'
 			, 'bin/inner/HexgonAxesPathMap.js'
 			, 'bin/inner/Cell.js'
-			, 'bin/inner/ProteinFormulas.js'
 			
 			, 'bin/inner/building/BuildingLayer.js'
 			, 'bin/inner/building/Building.js'
@@ -107,7 +107,7 @@ var TAG_SPRITE_MANAGER = 1;
 			, 'bin/inner/building/Bullet.js'
 			, 'bin/inner/building/ProteinFactory.js'
 			, 'bin/inner/building/Recycle.js'
-			
+
 			, 'bin/inner/building/up/UpgraderBase.js'
 			, 'bin/inner/building/up/TowerFirepower.js'
 			, 'bin/inner/building/up/TowerBombing.js'
@@ -117,10 +117,12 @@ var TAG_SPRITE_MANAGER = 1;
 			, 'bin/inner/organ/Organ.js'
 			, 'bin/inner/organ/Eye.js'
 			, 'bin/inner/organ/Tower.js'
+			, 'bin/inner/organ/Bottles.js'
 			
 			, 'bin/inner/skill/SkillBase.js'
-			, 'bin/inner/skill/ShootVirusCluster.js'
+			, 'bin/inner/skill/OutsideShooter.js'
 			, 'bin/inner/skill/Bullet.js'
+			, 'bin/inner/skill/Bottles.js'
 
 			, 'bin/inner/monster/Mitochondria.js'
 			, 'bin/inner/monster/FlopAminoAcid.js'
@@ -144,7 +146,10 @@ var TAG_SPRITE_MANAGER = 1;
 			, 'bin/levels/ResourceLoadingScene.js'
 			
 			
-			, 'bin/Charactar.js'
+			, 'bin/user/ProteinFormulas.js'
+			, 'bin/user/AminoAcidPool.js'
+			, 'bin/user/ProteinPool.js'
+			, 'bin/user/Character.js'
 			
 			, 'bin/util/declareClassName.js'
 		 

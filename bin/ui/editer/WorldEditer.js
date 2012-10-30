@@ -75,17 +75,17 @@ yc.ui.editer.WorldEditer = function(){
 	
 	// genes
 	this.unlockGenes = function() {
-		this._restoreGenes = yc.charactar.dna.genes;
+		this._restoreGenes = ins(yc.user.Character).dna.genes;
 		
 		var i , j;
 		for( j=0 ; j<100 ; ++j ){
 			for( i in yc.dna.genes){
-				yc.charactar.dna.obtainGene(yc.dna.genes[i]) ;
+				ins(yc.user.Character).dna.obtainGene(yc.dna.genes[i]) ;
 			}
 		}
 	}
 	this.relockGenes = function() {
-		yc.charactar.dna.genes = this._restoreGenes;
+		ins(yc.user.Character).dna.genes = this._restoreGenes;
 	}
 
 
@@ -155,10 +155,10 @@ yc.ui.editer.WorldEditer = function(){
 		if( 'object' == typeof color ){
 			var i;
 			for(i in color){
-				ins(yc.inner.AminoAcidPool).increase(color[i],num);
+				ins(yc.user.Character).aminoacids.increase(color[i],num);
 			}
 		}else{
-			ins(yc.inner.AminoAcidPool).increase(color,num);
+			ins(yc.user.Character).aminoacids.increase(color,num);
 		}
 	}
 	this.increaseProtein = function(o){
@@ -168,10 +168,10 @@ yc.ui.editer.WorldEditer = function(){
 		if( 'object' == typeof color ){
 			var i;
 			for(i in color){
-				ins(yc.inner.ProteinPool).increase(color[i],num);
+				ins(yc.user.Character).proteins.increase(color[i],num);
 			}
 		}else{
-			ins(yc.inner.ProteinPool).increase(color,num);
+			ins(yc.user.Character).proteins.increase(color,num);
 		}
 	}
 
