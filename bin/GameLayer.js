@@ -6,6 +6,7 @@ yc.GameLayer = cc.Layer.extend({
 		
 		this.actFadeCellOuter = null ;
 		this.actFadeCellInner = null ;
+		this.actFadeCellOrgan = null ;
 		
 		// resize 事件
 		yc.event.register(ins(yc.outer.Camera),"resize",this.onResize,this) ;
@@ -53,7 +54,11 @@ yc.GameLayer = cc.Layer.extend({
 			this._parent.layerPlayer.cell.shell.runAction(this.actFadeCellOuter) ;
 			
 			// 外部器官半透明
-			ins( yc.inner.organ.OrganLayer ).setOpacity( yc.settings.camera.organOpacityLow );
+			if( this.actFadeCellOrgan ){
+				this._parent.layerPlayer.cell.layerOrgan.stopAction( this.actFadeCellOrgan );
+			}
+			this.actFadeCellOrgan = cc.FadeTo.create(0.5,yc.settings.camera.organOpacityLow);
+			this._parent.layerPlayer.cell.layerOrgan.runAction( this.actFadeCellOrgan );
 		}
 
 		// 低于 显示内部视图的缩放比例
@@ -77,7 +82,11 @@ yc.GameLayer = cc.Layer.extend({
 			this._parent.layerPlayer.cell.shell.runAction(this.actFadeCellOuter) ;
 			
 			// 显示外部器官
-			ins( yc.inner.organ.OrganLayer ).setOpacity( 255 );
+			if( this.actFadeCellOrgan ){
+				this._parent.layerPlayer.cell.layerOrgan.stopAction( this.actFadeCellOrgan );
+			}
+			this.actFadeCellOrgan = cc.FadeIn.create(0.5);
+			this._parent.layerPlayer.cell.layerOrgan.runAction( this.actFadeCellOrgan );
 		}
 		
 			

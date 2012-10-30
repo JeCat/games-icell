@@ -2,6 +2,7 @@ yc.MainScene = cc.Scene.extend({
 	menuLogin : null
 	, menuLevelSelect : null
 	, actionShow : null
+	, actionHide : null
 	, ctor: function(){
 
 		// 载入当前玩家角色信息 (应该有角色选择UI)
@@ -16,6 +17,9 @@ yc.MainScene = cc.Scene.extend({
 		this.addChild(this.h1);
 		this.addChild(this.h2);
 
+		this.actionShow = cc.FadeIn.create(0.8);
+		this.actionHide = cc.FadeOut.create(0.8);
+
 		var itemWeibo = cc.MenuItemImage.create( 'res/weibo_login.png' ,'res/weibo_login.png', this , function(){
 			window.open('/service/sina_user/login.php');
         });
@@ -25,7 +29,9 @@ yc.MainScene = cc.Scene.extend({
         	loginCallback("0#test");
         	this.menuLevelSelect.setVisible(true);
         	this.menuLevelSelect.runAction(cc.Sequence.create(this.actionShow));
-        	this.menuLogin.runAction(cc.Sequence.create(this.actionShow.reverse()));
+        	this.menuLogin.runAction(cc.Sequence.create(this.actionHide));
+        	// this.menuLevelSelect.setVisible(true);
+        	// this.menuLogin.setVisible(false);
         });
         itemTest.setFontSize(24);
 
@@ -49,15 +55,13 @@ yc.MainScene = cc.Scene.extend({
 
         this.menuLevelSelect = cc.Menu.create(itemStory, itemSearch , itemRand);
         this.menuLevelSelect.alignItemsVertically();
-        this.menuLevelSelect.setVisible(false);
+        
         this.addChild(this.menuLevelSelect);
+		this.menuLevelSelect.setVisible(false);
 
-        this.actionShow = cc.FadeIn.create(1);
-        // this.menuLevelSelect.runAction(cc.Sequence.create(actionShow, actionShow.reverse()));
-
-		
 	}
 	, onEnter: function(){
+
 		yc.event.register( ins(yc.outer.Camera), "resize", this.onResize, this ) ;
 
 		var screenSize = cc.Director.getInstance().getWinSize();
@@ -83,7 +87,7 @@ yc.MainScene = cc.Scene.extend({
 			if( 'cl' in url.anchorParams )
 			{
 				// todo by kongyuan ...
-				// what fuck ... --by kongyuan
+				// what fuck ... -_-!! --by kongyuan
 			}
 
 			// 只自动加载一次
@@ -94,6 +98,7 @@ yc.MainScene = cc.Scene.extend({
 
 	, onExit : function(){
 		yc.event.unregister( ins(yc.outer.Camera), "resize", this.onResize ) ;
+
 		this._super() ;
 	}
 
@@ -104,10 +109,6 @@ yc.MainScene = cc.Scene.extend({
 	    this.menuLevelSelect.setPosition(cc.p(w / 2, h /2 ));
 	}
 }) ;
-
-
-
-
 
 yc.MainScene.singleton = true ;
 yc.MainScene.autoLoadByUrl = true ;

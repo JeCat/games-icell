@@ -17,7 +17,14 @@ yc.ui.skill.SkillBar = cc.Layer.extend({
 		if( this.buttons[name] != undefined ){
 			button = this.buttons[name];
 		}else{
-			button = new yc.ui.skill.ButtonBase;
+			switch(name){
+			case 'OutsideShooter':
+				button = new yc.ui.skill.OutsideShooterButton;
+				break;
+			default:
+				button = new yc.ui.skill.ButtonBase;
+				break;
+			}
 			this.addButton( button );
 			this.buttons[name] = button ;
 		}

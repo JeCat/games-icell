@@ -3,7 +3,7 @@ yc.inner.organ.Tower = yc.inner.organ.Organ.extend({
 		this._super() ;
 		
 		this.addSkill(
-			new yc.inner.skill.ShootVirusCluster
+			new yc.inner.skill.OutsideShooter
 		);
 		
 		this.initWithFile('res/organ/Tower.png');
