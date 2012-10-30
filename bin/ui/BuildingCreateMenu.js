@@ -188,68 +188,70 @@ yc.ui.BuildingCreateMenu = function(){
 	}
 
 	this.show = function(hexgon){
+		var buildingCreateMenu = this;
 		var inner = ins(yc.inner.InnerLayer) ;
 
-		var arrPositions = [
-			[0,100]
-			, [-50,87]
-			, [-87,50]
-			, [-100,0]
-			, [-87,-50]
-			, [-50,-87]
-			, [0,-100]
-			, [50,-87]
-			, [87,-50]
-			, [100,0]
-			, [87,50]
-			, [50,87]
-		];
+		if(!this.buildMenu){
+			var arrPositions = [
+				[0,100]
+				, [-50,87]
+				, [-87,50]
+				, [-100,0]
+				, [-87,-50]
+				, [-50,-87]
+				, [0,-100]
+				, [50,-87]
+				, [87,-50]
+				, [100,0]
+				, [87,50]
+				, [50,87]
+			];
 
-		console.log('create menu');
+			console.log('create menu');
 
-		this.buildMenu = new cc.Layer();
-		scene.layerUi.addChild(this.buildMenu);
-		// this.buildMenu.setPosition(cc.p(0,0));
-		// this.buildMenu.setContentSize(new cc.Size(200,200));
-		// this.buildMenu.setAnchorPoint(cc.p(hexgon.center[0],hexgon.center[1]));
-		// this.buildMenu.setPosition(cc.p(hexgon.center[0],hexgon.center[1]));
+			this.buildMenu = new cc.Layer();
+			scene.layerUi.addChild(this.buildMenu);
+			// this.buildMenu.setPosition(cc.p(0,0));
+			// this.buildMenu.setContentSize(new cc.Size(200,200));
+			// this.buildMenu.setAnchorPoint(cc.p(hexgon.center[0],hexgon.center[1]));
+			// this.buildMenu.setPosition(cc.p(hexgon.center[0],hexgon.center[1]));
 
-		var position = yc.util.clientToWindow( ins(yc.outer.Cell) , hexgon.center[0],hexgon.center[1]);
+			var position = yc.util.clientToWindow( ins(yc.outer.Cell) , hexgon.center[0],hexgon.center[1]);
 
-		this.buildMenuCenter = [position[0] , position[1]];
-		
-		for(var n in this.items )
-		{
-			var item = this.items[n] ;
-			if(yc.util.arr.search(item.hexgonTypes,hexgon.type)===false)
+			this.buildMenuCenter = [position[0] , position[1]];
+			
+			for(var n in this.items )
 			{
-				continue ;
+				var item = this.items[n] ;
+				if(yc.util.arr.search(item.hexgonTypes,hexgon.type)===false)
+				{
+					continue ;
+				}
+
+				var itemUi = BuildingBtn.buildingBtnWithTexture(item.texture) ;
+				itemUi.setScale(0.3,0.3);
+				var screenSize = cc.Director.getInstance().getWinSize();
+				var position = arrPositions.shift();
+				itemUi.setPosition(cc.p( this.buildMenuCenter[0] + position[0], this.buildMenuCenter[1]  + position[1] ));
+				this.buildMenu.addChild( itemUi );
 			}
 
-			var itemUi = BuildingBtn.buildingBtnWithTexture(item.texture) ;
-			itemUi.setScale(0.3,0.3);
-			var screenSize = cc.Director.getInstance().getWinSize();
-			var position = arrPositions.shift();
-			itemUi.setPosition(cc.p( this.buildMenuCenter[0] + position[0], this.buildMenuCenter[1]  + position[1] ));
-			this.buildMenu.addChild( itemUi );
+			var closeBtn = cc.MenuItemImage.create(
+		        "res/btn-no.png",
+		        "res/btn-no-1.png",
+		        null,
+		        this,
+		        function (){
+		        	buildingCreateMenu.buildMenu.setVisible(false);
+		        	buildingCreateMenu.buildMenu.removeFromParent();
+		        	buildingCreateMenu.buildMenu = null;
+		        	window.event.cancelBubble = true;   //stop event go through
+		        }
+		    );
+		    var closeMenu = cc.Menu.create(closeBtn);
+		    closeMenu.setPosition(this.buildMenuCenter[0]  , this.buildMenuCenter[1] );
+		    this.buildMenu.addChild(closeMenu);
 		}
-
-		var buildingCreateMenu = this;
-
-		var closeBtn = cc.MenuItemImage.create(
-	        "res/btn-no.png",
-	        "res/btn-no-1.png",
-	        null,
-	        this,
-	        function (){
-	        	buildingCreateMenu.buildMenu.setVisible(false);
-	        	buildingCreateMenu.buildMenu.removeFromParent();
-	        	window.event.cancelBubble = true;   //stop event go through
-	        }
-	    );
-	    var closeMenu = cc.Menu.create(closeBtn);
-	    closeMenu.setPosition(this.buildMenuCenter[0]  , this.buildMenuCenter[1] );
-	    this.buildMenu.addChild(closeMenu);
 	}
 	
 	this.close = function(){
