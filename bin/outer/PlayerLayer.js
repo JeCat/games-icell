@@ -12,7 +12,8 @@ yc.outer.PlayerLayer = cc.Layer.extend({
 		outerCell = this.cell = ins(yc.outer.Cell) ;
 
 		// 初始化细胞内部
-		this.cell.layerInner.cell.newborn() ;
+		this.cell.layerInner.cell.initWithScript( ins(yc.user.Character).cell ) ;
+		// this.cell.layerInner.cell.newborn() ;
 
 		// 初始化细胞外壳
 		this.cell.init() ;

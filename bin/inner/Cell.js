@@ -3,9 +3,8 @@ yc.inner.Cell = function()
 	this.hpMax = 10 ;
 	this.hp = this.hpMax ;
 	
-	this.aAxes = new HexgonAxes( yc.settings.inner.hexgonSideLength ) ;
-	this.aAxes._hexgonClass = yc.inner.CellHexgon ;
-	
+	this.aAxes = new HexgonAxes( yc.settings.inner.hexgonSideLength, yc.inner.CellHexgon ) ;
+
 	axes = this.aAxes ;
 	cell = this ;
 			
@@ -17,9 +16,6 @@ yc.inner.Cell = function()
 	this.cytoplasms = [] ;
 	// 细胞质格子的厚度
 	this.cytoplasmLevels = yc.settings.inner.cellInitialLevels ;
-	
-	// 氨基酸池
-	this.poolAminoAcids = ins(yc.user.Character).aminoacids ;
 	
 	this.grown = 0 ;
 	
@@ -144,7 +140,7 @@ yc.inner.Cell.prototype.newbornBuildings = function(){
  */
 yc.inner.Cell.prototype.grow = function(x,y){
 	var hexgon = this.aAxes.hexgon(x,y) ;
-	if( !hexgon || hexgon.type!='membrane' )
+	if( !hexgon /*|| hexgon.type!='membrane'*/ )
 	{
 		return ;
 	}
@@ -285,7 +281,45 @@ yc.inner.Cell.prototype.destory = function(){
 /**
  * 导出为 json
  */
-yc.inner.Cell.prototype.exportScript = function(){
+yc.inner.Cell.prototype.exportScript = function() {
+
+	var script = {
+		nucleus: [ this.nucleus.x, this.nucleus.y ]
+		, cytoplasms: []
+		, membranes: []
+		, buildings: []
+	}
+
+	var cell = this ;
+	(function (type){
+		for(var i=0; i<cell[type].length; i++)
+		{
+			// 坐标
+			script[type].push([
+				cell[type][i].x
+				, cell[type][i].y
+			]) ;
+
+			// 建筑
+			if( cell[type][i].building )
+			{
+				var building = cell[type][i].building.exportScript() ;
+				building.x = cell[type][i].x ;
+				building.y = cell[type][i].y ;
+				script.buildings.push( building ) ;
+			}
+		}
+
+		return arguments.callee  ;
+	})
+	("cytoplasms")		// 细胞质
+	("membranes") ;		// 细胞膜
+
+
+	return script ;
+	//////////////////////
+
+
 	var script = {};
 	
 	var i,j;
@@ -336,6 +370,34 @@ yc.inner.Cell.prototype.exportScript = function(){
  * 从 json 导入
  */
 yc.inner.Cell.prototype.initWithScript = function( script ){
+log(script) ;
+	this.aAxes = new HexgonAxes( yc.settings.inner.hexgonSideLength, yc.inner.CellHexgon ) ;
+	this.grown = 0 ;
+
+	// 格子：细胞核
+	this.nucleus = this.aAxes.hexgon( script.nucleus[0], script.nucleus[1] ) ;
+	this.nucleus.type = "nucleus" ;
+
+	// 细胞质
+	for(var i=0;i<script.cytoplasms.length;i++){
+		script.cytoplasms[i] ;
+		this.grow( script.cytoplasms[i][0], script.cytoplasms[i][1] ) ;
+	}
+	
+	// 建筑
+	for(var i=0;i<script.buildings.length;i++){
+
+		//script.buildings[i]. ;
+
+	}
+
+	this.grown = 0 ;
+
+
+	return ;
+
+
+
 	var i,j,k;
 	var menu = ins(yc.ui.BuildingCreateMenu) ;
 	for( i in script.map ){
