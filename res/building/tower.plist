@@ -7,132 +7,249 @@
             <key>artillery_lvl4_tesla_0049.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{2,102},{96,106}}</string>
+                <string>{{346,110},{114,110}}</string>
                 <key>offset</key>
-                <string>{8,3}</string>
+                <string>{-1,0}</string>
                 <key>rotated</key>
-                <true/>
+                <false/>
                 <key>sourceColorRect</key>
-                <string>{{26,0},{96,106}}</string>
+                <string>{{8,1},{114,110}}</string>
                 <key>sourceSize</key>
                 <string>{132,112}</string>
             </dict>
             <key>artillery_lvl4_tesla_0051.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{110,100},{96,106}}</string>
+                <string>{{230,110},{114,110}}</string>
                 <key>offset</key>
-                <string>{9,3}</string>
+                <string>{0,0}</string>
                 <key>rotated</key>
-                <true/>
+                <false/>
                 <key>sourceColorRect</key>
-                <string>{{27,0},{96,106}}</string>
+                <string>{{9,1},{114,110}}</string>
                 <key>sourceSize</key>
                 <string>{132,112}</string>
             </dict>
             <key>artillery_lvl4_tesla_0053.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{110,2},{96,106}}</string>
+                <string>{{114,110},{114,110}}</string>
                 <key>offset</key>
-                <string>{9,3}</string>
+                <string>{0,0}</string>
                 <key>rotated</key>
-                <true/>
+                <false/>
                 <key>sourceColorRect</key>
-                <string>{{27,0},{96,106}}</string>
+                <string>{{9,1},{114,110}}</string>
                 <key>sourceSize</key>
                 <string>{132,112}</string>
             </dict>
             <key>artillery_lvl4_tesla_0055.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{2,200},{96,104}}</string>
+                <string>{{2,342},{114,110}}</string>
                 <key>offset</key>
-                <string>{9,3}</string>
+                <string>{0,1}</string>
                 <key>rotated</key>
                 <true/>
                 <key>sourceColorRect</key>
-                <string>{{27,1},{96,104}}</string>
+                <string>{{9,0},{114,110}}</string>
                 <key>sourceSize</key>
                 <string>{132,112}</string>
             </dict>
             <key>artillery_lvl4_tesla_0056.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{110,198},{96,104}}</string>
+                <string>{{2,226},{114,110}}</string>
                 <key>offset</key>
-                <string>{9,3}</string>
+                <string>{0,1}</string>
                 <key>rotated</key>
                 <true/>
                 <key>sourceColorRect</key>
-                <string>{{27,1},{96,104}}</string>
+                <string>{{9,0},{114,110}}</string>
                 <key>sourceSize</key>
                 <string>{132,112}</string>
             </dict>
             <key>artillery_lvl4_tesla_0057.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{2,2},{98,106}}</string>
+                <string>{{2,110},{114,110}}</string>
                 <key>offset</key>
-                <string>{8,3}</string>
+                <string>{0,0}</string>
                 <key>rotated</key>
                 <true/>
                 <key>sourceColorRect</key>
-                <string>{{25,0},{98,106}}</string>
+                <string>{{9,1},{114,110}}</string>
                 <key>sourceSize</key>
                 <string>{132,112}</string>
             </dict>
             <key>artillery_lvl4_tesla_0059.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{102,398},{98,102}}</string>
+                <string>{{356,2},{116,106}}</string>
                 <key>offset</key>
-                <string>{8,3}</string>
+                <string>{-1,0}</string>
                 <key>rotated</key>
                 <false/>
                 <key>sourceColorRect</key>
-                <string>{{25,2},{98,102}}</string>
+                <string>{{7,3},{116,106}}</string>
                 <key>sourceSize</key>
                 <string>{132,112}</string>
             </dict>
             <key>artillery_lvl4_tesla_0061.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{2,398},{98,102}}</string>
+                <string>{{238,2},{116,106}}</string>
                 <key>offset</key>
-                <string>{8,3}</string>
+                <string>{-1,0}</string>
                 <key>rotated</key>
                 <false/>
                 <key>sourceColorRect</key>
-                <string>{{25,2},{98,102}}</string>
+                <string>{{7,3},{116,106}}</string>
                 <key>sourceSize</key>
                 <string>{132,112}</string>
             </dict>
             <key>artillery_lvl4_tesla_0063.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{2,298},{98,102}}</string>
+                <string>{{120,2},{116,106}}</string>
                 <key>offset</key>
-                <string>{8,3}</string>
+                <string>{-1,0}</string>
                 <key>rotated</key>
-                <true/>
+                <false/>
                 <key>sourceColorRect</key>
-                <string>{{25,2},{98,102}}</string>
+                <string>{{7,3},{116,106}}</string>
                 <key>sourceSize</key>
                 <string>{132,112}</string>
             </dict>
             <key>artillery_lvl4_tesla_0065.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{108,296},{98,102}}</string>
+                <string>{{2,2},{116,106}}</string>
                 <key>offset</key>
-                <string>{8,3}</string>
+                <string>{-1,0}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{7,3},{116,106}}</string>
+                <key>sourceSize</key>
+                <string>{132,112}</string>
+            </dict>
+            <key>explosion_air_0001.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{474,2},{28,24}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{38,40},{28,24}}</string>
+                <key>sourceSize</key>
+                <string>{104,104}</string>
+            </dict>
+            <key>explosion_air_0002.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{2,458},{60,44}}</string>
+                <key>offset</key>
+                <string>{-1,0}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{21,30},{60,44}}</string>
+                <key>sourceSize</key>
+                <string>{104,104}</string>
+            </dict>
+            <key>explosion_air_0003.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{202,434},{76,62}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
                 <key>rotated</key>
                 <true/>
                 <key>sourceColorRect</key>
-                <string>{{25,2},{98,102}}</string>
+                <string>{{14,21},{76,62}}</string>
                 <key>sourceSize</key>
-                <string>{132,112}</string>
+                <string>{104,104}</string>
+            </dict>
+            <key>explosion_air_0005.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{114,434},{86,76}}</string>
+                <key>offset</key>
+                <string>{0,1}</string>
+                <key>rotated</key>
+                <false/>
+                <key>sourceColorRect</key>
+                <string>{{9,13},{86,76}}</string>
+                <key>sourceSize</key>
+                <string>{104,104}</string>
+            </dict>
+            <key>explosion_air_0009.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{114,328},{104,92}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <true/>
+                <key>sourceColorRect</key>
+                <string>{{0,6},{104,92}}</string>
+                <key>sourceSize</key>
+                <string>{104,104}</string>
+            </dict>
+            <key>explosion_air_0011.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{114,222},{104,92}}</string>
+                <key>offset</key>
+                <string>{0,1}</string>
+                <key>rotated</key>
+                <true/>
+                <key>sourceColorRect</key>
+                <string>{{0,5},{104,92}}</string>
+                <key>sourceSize</key>
+                <string>{104,104}</string>
+            </dict>
+            <key>explosion_air_0013.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{208,222},{102,90}}</string>
+                <key>offset</key>
+                <string>{0,0}</string>
+                <key>rotated</key>
+                <true/>
+                <key>sourceColorRect</key>
+                <string>{{1,7},{102,90}}</string>
+                <key>sourceSize</key>
+                <string>{104,104}</string>
+            </dict>
+            <key>explosion_air_0015.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{208,326},{100,66}}</string>
+                <key>offset</key>
+                <string>{0,1}</string>
+                <key>rotated</key>
+                <true/>
+                <key>sourceColorRect</key>
+                <string>{{2,18},{100,66}}</string>
+                <key>sourceSize</key>
+                <string>{104,104}</string>
+            </dict>
+            <key>explosion_air_0017.png</key>
+            <dict>
+                <key>frame</key>
+                <string>{{266,428},{64,54}}</string>
+                <key>offset</key>
+                <string>{0,1}</string>
+                <key>rotated</key>
+                <true/>
+                <key>sourceColorRect</key>
+                <string>{{20,24},{64,54}}</string>
+                <key>sourceSize</key>
+                <string>{104,104}</string>
             </dict>
         </dict>
         <key>metadata</key>
@@ -140,13 +257,13 @@
             <key>format</key>
             <integer>2</integer>
             <key>realTextureFileName</key>
-            <string>TowerShooter.png</string>
+            <string>tower.png</string>
             <key>size</key>
-            <string>{256,512}</string>
+            <string>{512,512}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:d26c06a5fa35111dc0af80f4879d4f72$</string>
+            <string>$TexturePacker:SmartUpdate:7c358c522490942026dbac1042406fde$</string>
             <key>textureFileName</key>
-            <string>TowerShooter.png</string>
+            <string>tower.png</string>
         </dict>
     </dict>
 </plist>
