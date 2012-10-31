@@ -113,10 +113,30 @@ yc.GameScene = cc.Scene.extend({
 		// 捆绑到物理世界实例
 		this.world.SetDebugDraw(debugDraw) ;
 	}
+	, reCreateWalls: function(){
+		this._clearWalls() ;
+		this._createWalls() ;
+	}
+	, _clearWalls: function(){
+		var b2BodyNameList = ['b2BodyTop','b2BodyBtm','b2BodyLft','b2BodyRgt'];
+		var i;
+		for( i in b2BodyNameList ){
+			var n = b2BodyNameList[i];
+			
+			var fixture = this[n].GetFixtureList() ;
+			do{
+				var nextFixture = fixture.GetNext() ;
+				this[n].DestroyFixture(fixture) ;
+			} while(fixture=nextFixture) ;
+			
+			this[n].GetWorld().removingBodies.push(this[n]) ;
+			
+			this[n] = null ;
+		}
+	}
 	, _createWalls: function(){
 		if( this.rgt===null || this.lft===null || this.top===null || this.btm===null )
 		{
-			console.log( 'create walls null return');
 			return ;
 		}
 		

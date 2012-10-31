@@ -42,6 +42,9 @@ yc.ui.editer.WorldEditer = function(){
 		this.ui.show() ;
 		$("#editor-panel-space").width(400) ;
 		ICellGame.instance.resize() ;
+		
+		// 世界边界
+		this.loadSceneBorder() ;
 	}
 
 	this.close = function() {
@@ -173,6 +176,23 @@ yc.ui.editer.WorldEditer = function(){
 		}else{
 			ins(yc.user.Character).proteins.increase(color,num);
 		}
+	}
+	
+	var _sceneBorderNameList = ['top','btm','lft','rgt'];
+	this.loadSceneBorder = function(){
+		var i,name;
+		for( i in _sceneBorderNameList ){
+			name = _sceneBorderNameList[i] ;
+			jQuery('#scene_'+name).val( scene[name] );
+		}
+	}
+	this.setSceneBorder = function(){
+		var i,name;
+		for( i in _sceneBorderNameList ){
+			name = _sceneBorderNameList[i] ;
+			scene[name] = parseInt( jQuery('#scene_'+name).val() );
+		}
+		scene.reCreateWalls() ;
 	}
 
 
