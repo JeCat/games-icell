@@ -62,6 +62,12 @@ var ICellGame = cc.Application.extend({
 			, {type:"image", src:"res/dna-icons-32.png"}
 			
 			, {type:"image", src:"res/organ/Tower.png"}
+
+
+			, {type:"plist", src:"res/building/factory.plist"}
+			, {type:"image", src:"res/building/factory.png"}
+			, {type:"plist", src:"res/building/tower.plist"}
+			, {type:"image", src:"res/building/tower.png"}
 			
 		]);
 	},

@@ -11,20 +11,32 @@ yc.inner.building.ProteinFactory = yc.inner.building.Building.extend({
 		this._super() ;
 
 		this.timeout = null ;
-	}
-	
-	, draw: function(ctx){
-		if(!this.hexgon)
-		{
-			return ;
-		}
 
-		this._super(ctx) ;
-		
-		ctx.fillStyle = 'yellow' ;
-		ctx.font="normal san-serif";
-		ctx.fillText('♫',-6,+5) ;
+		// 创建动画
+		var spriteFrameCache = cc.SpriteFrameCache.getInstance();
+        spriteFrameCache.addSpriteFrames("res/building/factory.plist","res/building/factory.png") ;
+
+        this.initWithSpriteFrameName("artillery_lvl2_0001.png");
+
+        var animFrames = [];
+        var str = "";
+        var frame;
+        for (var i = 1; i <= 22; i++) {
+            str = "artillery_lvl2_00" + (i<10?'0':'') + i + ".png";
+            frame = spriteFrameCache.getSpriteFrame(str);
+            animFrames.push(frame);
+
+            // 矫正一下 图片位置
+            frame._offset.y = - (frame._originalSize.height - frame._rect.size.height)/2 ;
+            frame._offset.x = 0 ;
+        }
+
+        var animation = cc.Animation.create(animFrames, 0.1);
+        this.runAction(cc.RepeatForever.create(cc.Animate.create(animation)));
+
+       	this.setAnchorPoint(cc.p(0.5,0.4)) ;
 	}
+
 
 	, _put: yc.inner.building.Building.prototype.put
 	, put: function(hexgon){

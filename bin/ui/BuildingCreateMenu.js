@@ -100,6 +100,19 @@ yc.ui.BuildingCreateMenu = function(){
 				return ins(yc.inner.Cell).grown < ins(yc.user.Character).dna.genes.grow.superimposing ;
 			}
 		}
+
+		, factory: {
+			title: '蛋白质工程'
+			, description: '将氨基酸合成为蛋白质'
+			, hexgonTypes: ['cytoplasm']
+			, cost: function(){
+				return {}
+			}
+			, buildingClass: yc.inner.building.ProteinFactory
+			, isUnlock: function(){
+				return true ;
+			}
+		}
 		
 		, eye: {
 			title: '眼睛'

@@ -28,7 +28,7 @@ yc.settings = {
 	// 内部场景 ------------------------------
 	, inner: {
 		// 六边形边长
-		hexgonSideLength: 45
+		hexgonSideLength: 60
 		// 六边形格子的最大层数
 		, cellMaxLevels: 5
 		// 六边形格子层数的游戏初始值
