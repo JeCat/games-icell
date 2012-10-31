@@ -68,6 +68,8 @@ var ICellGame = cc.Application.extend({
 			, {type:"image", src:"res/building/factory.png"}
 			, {type:"plist", src:"res/building/tower.plist"}
 			, {type:"image", src:"res/building/tower.png"}
+			, {type:"plist", src:"res/role/virus.plist"}
+			, {type:"image", src:"res/role/virus.png"}
 			
 		]);
 	},

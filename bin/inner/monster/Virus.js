@@ -17,6 +17,34 @@ yc.inner.monster.Virus = cc.Sprite.extend({
 	, hurt: 1
 	
 	, spriter: 'res/virus16.png'
+
+	, ctor: function(){
+
+		// 创建动画
+		var spriteFrameCache = cc.SpriteFrameCache.getInstance();
+        spriteFrameCache.addSpriteFrames("res/role/virus.plist","res/role/virus.png") ;
+
+        this.initWithSpriteFrameName("golemHead_0001.png");
+
+        var animFrames = [];
+        var str = "";
+        var frame;
+        for (var i = 1; i <= 88; i++) {
+            str = "golemHead_00" + (i<10?'0':'') + i + ".png";
+            
+            if( !(frame = spriteFrameCache.getSpriteFrame(str)) )
+            {
+            	continue ;
+            }
+
+            animFrames.push(frame);
+        }
+
+        var animation = cc.Animation.create(animFrames, 0.1);
+        this.animationAction = cc.RepeatForever.create(cc.Animate.create(animation)) ;
+
+       	this.setAnchorPoint(cc.p(0.5,0.2)) ;
+	}
 	
 	, initWithScript: function(script){
 		//log('virus ('+this.__ObjectPoolId__+') init') ;
@@ -30,6 +58,7 @@ yc.inner.monster.Virus = cc.Sprite.extend({
 		this.hpFull = script.hp ;
 		this.hurt = 1 ;
 
+
 		// this.attack = yc.inner.monster.Virus.script.attack ;
 		// this.bekill = yc.inner.monster.Virus.script.bekill ;
 
@@ -41,7 +70,7 @@ yc.inner.monster.Virus = cc.Sprite.extend({
 	}
 
 	, init: function(){
-		this.initWithFile(this.spriter) ;
+		// this.initWithFile(this.spriter) ;
    
 		this.hpRate = 1 ;
 		this.hp = this.hpFull ;
@@ -51,6 +80,9 @@ yc.inner.monster.Virus = cc.Sprite.extend({
 		this.runningTarget = null ;
 		this.actRunning = null ;
 		this.cluster = null ;
+
+		// 开始动画
+		this.runAction(this.animationAction) ;
 	}
 	
 	, run: function() {
@@ -189,6 +221,9 @@ yc.inner.monster.Virus = cc.Sprite.extend({
 		this.stopRun() ;
 		this.stopAllActions() ;
 		ins(yc.inner.monster.VirusLayer).removeVirusSprite(this) ;
+
+		// 停止动画
+		this.stopAction(this.animationAction) ;
 	}
 	
 	, onExit: function(){
