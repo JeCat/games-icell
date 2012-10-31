@@ -1,6 +1,6 @@
 yc.ui.BuildingCreateMenu = function(){
 	
-	this.ui = $('#bulding-create-menu') ;
+	this.ui = null ;
 	var menu = this ;
 	
 	this.items = {
@@ -129,7 +129,7 @@ yc.ui.BuildingCreateMenu = function(){
 		, oshooter: {
 			title: '攻击塔'
 			, description: '攻击细胞外部的病毒群'
-			, texture : "res/building/recycle.png"
+			, texture : "res/building/oshooter.png"
 			, hexgonTypes: ['membrane']
 			, cost: function(){
 				return {
@@ -149,7 +149,7 @@ yc.ui.BuildingCreateMenu = function(){
 		, bottles: {
 			title: '漂流瓶'
 			, description: '朋友无处不在'
-			, texture : "res/building/recycle.png"
+			, texture : "res/building/8.png"
 			, hexgonTypes: ['cytoplasm']
 			, cost: function(){
 				return {
@@ -191,7 +191,12 @@ yc.ui.BuildingCreateMenu = function(){
 		var buildingCreateMenu = this;
 		var inner = ins(yc.inner.InnerLayer) ;
 
-		if(!this.buildMenu){
+		if(hexgon.type === 'nucleus'){
+			return;
+		}
+		// cc.MoveTo.create(2, cc.p(s.width - 40, s.height - 40));
+
+		if(!this.ui){
 			var arrPositions = [
 				[0,100]
 				, [-50,87]
@@ -209,31 +214,36 @@ yc.ui.BuildingCreateMenu = function(){
 
 			console.log('create menu');
 
-			this.buildMenu = new cc.Layer();
-			scene.layerUi.addChild(this.buildMenu);
-			// this.buildMenu.setPosition(cc.p(0,0));
-			// this.buildMenu.setContentSize(new cc.Size(200,200));
-			// this.buildMenu.setAnchorPoint(cc.p(hexgon.center[0],hexgon.center[1]));
-			// this.buildMenu.setPosition(cc.p(hexgon.center[0],hexgon.center[1]));
+			this.ui = new cc.Layer();
+			scene.layerUi.addChild(this.ui);
+			// this.ui.setPosition(cc.p(0,0));
+			// this.ui.setContentSize(new cc.Size(200,200));
+			// this.ui.setAnchorPoint(cc.p(hexgon.center[0],hexgon.center[1]));
+			// this.ui.setPosition(cc.p(hexgon.center[0],hexgon.center[1]));
 
-			var position = yc.util.clientToWindow( ins(yc.outer.Cell) , hexgon.center[0],hexgon.center[1]);
+			var centerPosition = yc.util.clientToWindow( ins(yc.outer.Cell) , hexgon.center[0],hexgon.center[1]);
 
-			this.buildMenuCenter = [position[0] , position[1]];
+			this.uiCenter = [centerPosition[0] , centerPosition[1]];
 			
-			for(var n in this.items )
+			// var screenSize = cc.Director.getInstance().getWinSize();
+
+			for(var buildingName in this.items )
 			{
-				var item = this.items[n] ;
+				var item = this.items[buildingName] ;
 				if(yc.util.arr.search(item.hexgonTypes,hexgon.type)===false)
 				{
 					continue ;
 				}
 
 				var itemUi = BuildingBtn.buildingBtnWithTexture(item.texture) ;
-				itemUi.setScale(0.3,0.3);
-				var screenSize = cc.Director.getInstance().getWinSize();
 				var position = arrPositions.shift();
-				itemUi.setPosition(cc.p( this.buildMenuCenter[0] + position[0], this.buildMenuCenter[1]  + position[1] ));
-				this.buildMenu.addChild( itemUi );
+				itemUi.isBuildingBtn =  true;
+				itemUi.buildingName = buildingName;
+				// itemUi.setScale(0.3,0.3);
+				itemUi.toPosition = cc.p( this.uiCenter[0] + position[0], this.uiCenter[1]  + position[1] );
+				itemUi.setPosition(cc.p( this.uiCenter[0] + position[0], this.uiCenter[1]  + position[1] ));
+				// itemUi.setContentSize(new cc.Size(10,10));
+				this.ui.addChild( itemUi );
 			}
 
 			var closeBtn = cc.MenuItemImage.create(
@@ -242,15 +252,24 @@ yc.ui.BuildingCreateMenu = function(){
 		        null,
 		        this,
 		        function (){
-		        	buildingCreateMenu.buildMenu.setVisible(false);
-		        	buildingCreateMenu.buildMenu.removeFromParent();
-		        	buildingCreateMenu.buildMenu = null;
+		        	buildingCreateMenu.ui.removeFromParent(true);
+		        	buildingCreateMenu.ui = null;
 		        	window.event.cancelBubble = true;   //stop event go through
 		        }
 		    );
 		    var closeMenu = cc.Menu.create(closeBtn);
-		    closeMenu.setPosition(this.buildMenuCenter[0]  , this.buildMenuCenter[1] );
-		    this.buildMenu.addChild(closeMenu);
+		    closeMenu.setPosition(this.uiCenter[0]  , this.uiCenter[1] );
+		    this.ui.addChild(closeMenu);
+
+		    // for(var buildingBtn in ){
+
+		    // }
+
+
+
+			// itemUi.setPosition(cc.p( this.uiCenter[0] + position[0], this.uiCenter[1]  + position[1] ));
+		 //    cc.MoveTo.create(2, cc.p(s.width - 40, s.height - 40));
+
 		}
 	}
 	
@@ -261,7 +280,8 @@ yc.ui.BuildingCreateMenu = function(){
 			inner.map.selcted_hexgon.selected = false ;
 			inner.map.selcted_hexgon = null ;
 		}
-		this.ui.hide() ;
+		this.ui.removeFromParent(true);
+    	this.ui = null;
 	}
 	
 	this.createBuilding = function(hexgon,item){
