@@ -294,7 +294,12 @@ function initWorld(wid , edit){
 				onEnter: function(){
 					this._super() ;
 
+					
 					this.initWithScript(json);
+
+					yc.GameScene._level = wid;
+					// 瓶子
+					yc.outer.Bottles.all(wid);
 
 					if(edit)
 					{
@@ -306,6 +311,7 @@ function initWorld(wid , edit){
 			$("#worldListDiv").dialog("close");
 		}
 	);
+
 }
 
 function saveWorldToServer(){

@@ -6,6 +6,7 @@ yc.ui = {} ;
 yc.ui.dashboard = {} ;
 yc.ui.editer = {} ;
 yc.ui.skill = {} ;
+yc.ui.font = {} ;
 yc.outer = {} ;
 yc.outer.pinups = {} ;
 yc.inner = {} ;
@@ -74,6 +75,9 @@ var TAG_SPRITE_MANAGER = 1;
 			, 'bin/ui/skill/SkillBar.js'
 			, 'bin/ui/skill/ButtonBase.js'
 			, 'bin/ui/skill/OutsideShooterButton.js'
+
+			, 'bin/ui/font/Font.js'
+			, 'bin/ui/font/Html5Font.js'
 			
 			, 'bin/outer/Camera.js'
 			, 'bin/outer/LifeEntity.js'
