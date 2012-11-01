@@ -24,6 +24,13 @@ yc.ui.editer.WorldEditer = function(){
 		ins(yc.outer.Cell)._followingCamera = null ; 									// 停止摄像机跟随
 		cc.Director.getInstance().getRunningScene().layerPlayer.dontMoving = true ;		// 停止鼠标控制玩家
 
+
+		ins(yc.outer.Camera).bBoundaryOverflow = true ; 	// 允许镜头溢出
+
+		// 缩放范围
+		ins(yc.outer.Camera).maxZoom = 3 ;
+		ins(yc.outer.Camera).minZoom = 0.02 ;
+
 		// 辅助层
 		cc.Director.getInstance().getRunningScene().addChild( this.layer ) ;
 		
@@ -62,6 +69,13 @@ yc.ui.editer.WorldEditer = function(){
 		ins(yc.outer.Cell)._followingCamera = ins(yc.outer.Camera) ; 					// 恢复摄像机跟随
 		cc.Director.getInstance().getRunningScene().layerPlayer.dontMoving = false ;	// 恢复鼠标控制玩家
 
+		ins(yc.outer.Camera).bBoundaryOverflow = false ; 	// 禁止镜头溢出
+
+		// 缩放范围
+		ins(yc.outer.Camera).maxZoom = yc.settings.camera.defautlMaxZoom ;
+		ins(yc.outer.Camera).minZoom = yc.settings.camera.defautlMinZoom ;
+
+		// 辅助层
 		this.layer.removeFromParent() ;
 		
 		// 恢复 genes
