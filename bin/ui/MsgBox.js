@@ -65,9 +65,9 @@ yc.ui.MsgBox = cc.Layer.extend({
 		this.setVisible(false);
 	}
 	, YesBtnCallBack : function(){
-		this.removeFromParentAndCleanup(true);
+		this.removeFromParent(true);
 	}
 	, NoBtnCallBack : function(){
-		this.removeFromParentAndCleanup(true);
+		this.removeFromParent(true);
 	}
 }) ;

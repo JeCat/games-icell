@@ -57,7 +57,7 @@ yc.inner.monster.FlopAminoAcid = cc.Sprite.extend({
 	}
 
 	, destroy: function(){
-		this.removeFromParentAndCleanup() ;
+		this.removeFromParent() ;
 		yc.op.ins(yc.inner.monster.FlopAminoAcid).free(this) ;
 	}
 	

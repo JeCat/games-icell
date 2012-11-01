@@ -111,28 +111,9 @@ yc.inner.building.Bullet.Flame = cc.Sprite.extend({
 	
 	ctor: function(){
 
-		// 创建动画
-		var spriteFrameCache = cc.SpriteFrameCache.getInstance();
-        spriteFrameCache.addSpriteFrames("res/building/tower.plist","res/building/tower.png") ;
-
+		// 执行动画
         this.initWithSpriteFrameName("explosion_air_0001.png");
-
-        var animFrames = [];
-        var str = "";
-        var frame;
-        for (var i = 1; i <= 17; i++) {
-            str = "explosion_air_00" + (i<10?'0':'') + i + ".png";
-            
-            if( !(frame = spriteFrameCache.getSpriteFrame(str)) )
-            {
-            	continue ;
-            }
-
-            animFrames.push(frame);
-        }
-
-        var animation = cc.Animation.create(animFrames, 0.1);
-        this.animationAction = cc.Animate.create(animation) ;
+        this.animationAction = yc.animations.createAction("towers.shooter.bulletflame") ;
 	}
 
 	, init: function(range,bullet){

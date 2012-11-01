@@ -13,8 +13,11 @@ var ICellGame = cc.Application.extend({
 			cc.LoaderScene.getInstance().draw();
 		};
 		cc.Loader.getInstance().onload = function () {
-			log("onload") ;
+			log("resources loaded") ;
 			cc.AppController.shareAppController().didFinishLaunchingWithOptions();
+
+			// 资源加载完成，初始化动画列表
+			yc.animations.initBuildinAnimations() ;
 		};
 		cc.Loader.getInstance().preload([
 			{type:"image", src:"res/HelloWorld.png"}

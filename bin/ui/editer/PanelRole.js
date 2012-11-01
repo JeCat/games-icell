@@ -121,7 +121,7 @@ yc.ui.editer.PanelRole = function(editor){
 			alert("请选择需要移除的氨基酸") ;
 			return ;
 		}
-		role.removeFromParentAndCleanup() ;
+		role.removeFromParent() ;
 
 		// 刷新氨基酸列表
 		this.refreshAminoAcids() ;
@@ -210,7 +210,7 @@ yc.ui.editer.PanelRole = function(editor){
 		var viruscluster = $(opt).data('object') ;
 
 		// 删除对象
-		viruscluster.removeFromParentAndCleanup() ;
+		viruscluster.removeFromParent() ;
 
 		this.refreshVirusCluster() ;
 	}

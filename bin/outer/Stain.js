@@ -122,7 +122,7 @@ yc.outer.Stain = yc.outer.PhysicalEntity.extend({
 
 	}
 	
-	, removeFromParentAndCleanup: function(){
+	, removeFromParent: function(){
 		this._super() ;
 		yc.util.arr.remove(yc.outer.Stain.pool,this);
 	}
