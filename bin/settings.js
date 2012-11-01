@@ -8,7 +8,7 @@ yc.settings = {
 		switchZoom: 0.3
 
 		// 初始显示倍数
-		, firstZoom: 0.2
+		, firstZoom: 0.4
 
 		// 细胞在放大时，外壳的透明度
 		, shellOpacityLow: 30
