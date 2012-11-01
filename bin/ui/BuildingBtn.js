@@ -21,7 +21,7 @@ var BuildingBtn = cc.Sprite.extend({
         return true;
     },
     onEnter:function () {
-        cc.Director.getInstance().getTouchDispatcher().addTargetedDelegate(this, 0, false);
+        cc.Director.getInstance().getTouchDispatcher().addTargetedDelegate(this, 0, true);
         this._super();
     },
     onExit:function () {
@@ -38,8 +38,10 @@ var BuildingBtn = cc.Sprite.extend({
     }
     ,onTouchBegan:function (touch, event) {
         if (this._state != BUILDINGBTN_STATE_UNGRABBED) return false;
-        if (!this.containsTouchLocation(touch)) return false;
-
+        if (!this.containsTouchLocation(touch)){
+            ins(yc.ui.BuildingCreateMenu).close();
+            return false;
+        }
         this._state = BUILDINGBTN_STATE_GRABBED;
         return true;
     }

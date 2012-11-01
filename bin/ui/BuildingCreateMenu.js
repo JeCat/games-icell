@@ -296,8 +296,10 @@ yc.ui.BuildingCreateMenu = function(){
 			inner.map.selcted_hexgon.selected = false ;
 			inner.map.selcted_hexgon = null ;
 		}
-		this.ui.removeFromParent(true);
-    	this.ui = null;
+		if(this.ui){
+			this.ui.removeFromParent(true);
+    		this.ui = null;
+		}
 	}
 	
 	this.createBuilding = function(hexgon,item){
