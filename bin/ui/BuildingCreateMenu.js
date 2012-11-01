@@ -238,7 +238,8 @@ yc.ui.BuildingCreateMenu = function(){
 				var itemUi = BuildingBtn.buildingBtnWithTexture(item.texture) ;
 				var position = arrPositions.shift();
 				itemUi.isBuildingBtn =  true;
-				itemUi.buildingName = buildingName;
+				itemUi.building = item;
+				itemUi.hexgon = hexgon;
 				// itemUi.setScale(0.3,0.3);
 				itemUi.toPosition = cc.p( this.uiCenter[0] + position[0], this.uiCenter[1]  + position[1] );
 				itemUi.setPosition(cc.p( this.uiCenter[0] + position[0], this.uiCenter[1]  + position[1] ));

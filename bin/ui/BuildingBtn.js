@@ -50,7 +50,11 @@ var BuildingBtn = cc.Sprite.extend({
         cc.Assert(this._state == BUILDINGBTN_STATE_GRABBED, "BuildingBtn - Unexpected state!");
         this._state = BUILDINGBTN_STATE_UNGRABBED;
 
-        console.log( this.buildingName + ' building btn touch end');
+        console.log( this.building.title + ' building btn touch end');
+
+        var BuildingCreateMenu = ins(yc.ui.BuildingCreateMenu);
+        BuildingCreateMenu.createBuilding(this.hexgon , this.building );
+
         // window.event.cancelBubble = true;   //stop event go through
     }
     , touchDelegateRetain:function () {
