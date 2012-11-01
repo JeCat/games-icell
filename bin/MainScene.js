@@ -30,8 +30,6 @@ yc.MainScene = cc.Scene.extend({
         	this.menuLevelSelect.setVisible(true);
         	this.menuLevelSelect.runAction(cc.Sequence.create(this.actionShow));
         	this.menuLogin.runAction(cc.Sequence.create(this.actionHide));
-        	// this.menuLevelSelect.setVisible(true);
-        	// this.menuLogin.setVisible(false);
         });
         itemTest.setFontSize(24);
 

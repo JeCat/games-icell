@@ -33,33 +33,8 @@ yc.inner.building.Tower = yc.inner.building.Building.extend({
 		this.color = 'red' ;
 
 
-
-		// 创建动画
-		var spriteFrameCache = cc.SpriteFrameCache.getInstance();
-        spriteFrameCache.addSpriteFrames("res/building/tower.plist","res/building/tower.png") ;
-
-        this.initWithSpriteFrameName("artillery_lvl4_tesla_0049.png");
-
-        var animFrames = [];
-        var str = "";
-        var frame;
-        for (var i = 49; i <= 65; i++) {
-            str = "artillery_lvl4_tesla_00" + (i<10?'0':'') + i + ".png";
-            
-            if( !(frame = spriteFrameCache.getSpriteFrame(str)) )
-            {
-            	continue ;
-            }
-
-            animFrames.push(frame);
-
-            // 矫正一下 图片位置
-            frame._offset.y = - (frame._originalSize.height - frame._rect.size.height)/2 ;
-            frame._offset.x = 0 ;
-        }
-
-        var animation = cc.Animation.create(animFrames, 0.1);
-        this.runAction(cc.RepeatForever.create(cc.Animate.create(animation)));
+		// 开始动画
+        this.runAction(cc.RepeatForever.create( yc.animations.createAction('towers.shooter') ));
 
        	this.setAnchorPoint(cc.p(0.5,0.2)) ;
 	}

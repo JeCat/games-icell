@@ -14,14 +14,14 @@ var BuildingBtn = cc.Sprite.extend({
         }
         if (aTexture instanceof cc.Texture2D) {
             var s = aTexture.getContentSize();
-            this._rect = cc.rect(0, 0, s.width, s.height);
+            this._rect = cc.rect(0, 0, s.width , s.height);
         } else if ((aTexture instanceof HTMLImageElement) || (aTexture instanceof HTMLCanvasElement)) {
             this._rect = cc.rect(0, 0, aTexture.width, aTexture.height);
         }
         return true;
     },
     onEnter:function () {
-        cc.Director.getInstance().getTouchDispatcher().addTargetedDelegate(this, 0, true);
+        cc.Director.getInstance().getTouchDispatcher().addTargetedDelegate(this, 0, false);
         this._super();
     },
     onExit:function () {
@@ -46,8 +46,16 @@ var BuildingBtn = cc.Sprite.extend({
     ,onTouchMoved:function (touch, event) {
     }
     ,onTouchEnded:function (touch, event) {
+       
         cc.Assert(this._state == BUILDINGBTN_STATE_GRABBED, "BuildingBtn - Unexpected state!");
         this._state = BUILDINGBTN_STATE_UNGRABBED;
+
+        console.log( this.building.title + ' building btn touch end');
+
+        var BuildingCreateMenu = ins(yc.ui.BuildingCreateMenu);
+        BuildingCreateMenu.createBuilding(this.hexgon , this.building );
+
+        // window.event.cancelBubble = true;   //stop event go through
     }
     , touchDelegateRetain:function () {
     }
@@ -93,7 +101,7 @@ var BuildingBtn = cc.Sprite.extend({
     }
 });
 
-BuildingBtn.buildingBtnWithTexture = function (sImgName) {
+BuildingBtn.buildingBtnWithTexture = function (sImgName ) {
     var buildingBtn = new BuildingBtn();
     var aTexture = buildingBtn.performPNG(sImgName)
     if ( aTexture ){

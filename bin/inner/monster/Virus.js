@@ -21,27 +21,10 @@ yc.inner.monster.Virus = cc.Sprite.extend({
 	, ctor: function(){
 
 		// 创建动画
-		var spriteFrameCache = cc.SpriteFrameCache.getInstance();
-        spriteFrameCache.addSpriteFrames("res/role/virus.plist","res/role/virus.png") ;
+        this.initWithSpriteFrameName("golemHead_0001.png") ; //第一帧
+		this.animationAction = cc.RepeatForever.create( yc.animations.createAction("role.virus_a") ) ;
 
-        this.initWithSpriteFrameName("golemHead_0001.png");
 
-        var animFrames = [];
-        var str = "";
-        var frame;
-        for (var i = 1; i <= 88; i++) {
-            str = "golemHead_00" + (i<10?'0':'') + i + ".png";
-            
-            if( !(frame = spriteFrameCache.getSpriteFrame(str)) )
-            {
-            	continue ;
-            }
-
-            animFrames.push(frame);
-        }
-
-        var animation = cc.Animation.create(animFrames, 0.1);
-        this.animationAction = cc.RepeatForever.create(cc.Animate.create(animation)) ;
 
        	this.setAnchorPoint(cc.p(0.5,0.2)) ;
 	}

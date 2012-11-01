@@ -167,7 +167,7 @@ yc.inner.monster.Mitochondria = cc.Sprite.extend({
 			this.catched.destroy() ;
 		}
 		
-		this.removeFromParentAndCleanup() ;
+		this.removeFromParent() ;
 		this.stopAction(this.actMosey);
 		this.stopAction(this.actWorking);
 	}

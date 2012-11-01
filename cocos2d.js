@@ -143,7 +143,7 @@ var TAG_SPRITE_MANAGER = 1;
 			
 			
 			, 'bin/levels/FreeWorld.js'
-			, 'bin/levels/LevelSelector.js' 
+			, 'bin/levels/LevelSelector.js'
             , 'bin/levels/c1/tutorial.js'
 			, 'bin/levels/c1/l1.js'
 			, 'bin/levels/ResourceLoadingScene.js'
@@ -155,8 +155,9 @@ var TAG_SPRITE_MANAGER = 1;
 			, 'bin/user/Character.js'
 			
 			, 'bin/util/declareClassName.js'
-		 
+		
 			, 'bin/dna/genes.js'
+			, 'bin/animations.js'
 		]
 	};
 	window.addEventListener('DOMContentLoaded', function () {

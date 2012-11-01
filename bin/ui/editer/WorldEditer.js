@@ -62,7 +62,7 @@ yc.ui.editer.WorldEditer = function(){
 		ins(yc.outer.Cell)._followingCamera = ins(yc.outer.Camera) ; 					// 恢复摄像机跟随
 		cc.Director.getInstance().getRunningScene().layerPlayer.dontMoving = false ;	// 恢复鼠标控制玩家
 
-		this.layer.removeFromParentAndCleanup() ;
+		this.layer.removeFromParent() ;
 		
 		// 恢复 genes
 		this.relockGenes();
