@@ -157,18 +157,12 @@ yc.ui.BuildingCreateMenu = function(){
 			, description: '朋友无处不在'
 			, hexgonTypes: ['cytoplasm']
 			, cost: function(){
-				return {
-					red: 0
-					, yellow: 0
-					, blue: 0
-				}
+				return {}
 			}
 			, buildingClass: yc.inner.organ.Bottles
 			, isUnlock: function(){
-				return ins(yc.user.Character).dna.genes['bottles']!==undefined ;
+				return true ;
 			}
-			, isBlock: false
-			, hasSkill: true
 		}
 	} ;
 

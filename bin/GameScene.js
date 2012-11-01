@@ -311,6 +311,10 @@ yc.GameScene = cc.Scene.extend({
 	 */
 	, exportScript: function(){
 
+		var level = 0;
+		if(yc.GameScene._level){
+			level = yc.GameScene._level;
+		}
 		// 世界 -------
 		var script = {
 			world: {
@@ -321,7 +325,8 @@ yc.GameScene = cc.Scene.extend({
 					, top: this.top
 					, btm: this.btm
 				}
-			}
+			},
+			id:level,
 		} ;
 
 		// 玩家 -------

@@ -23,6 +23,8 @@ yc.levels.LevelSelector = cc.Scene.extend({
 
 yc.levels.LevelSelector.enterLevel = function(levelScript){
 		
+	yc.GameScene._level = levelScript.id;
+	
 	var level = new (yc.GameScene.extend({
 		onEnter: function(){
 			this._super() ;
@@ -75,6 +77,10 @@ yc.levels.LevelSelector.enterLevel = function(levelScript){
 		// 直接切换场景，不需要等待 资源加载完成 
 		cc.Director.getInstance().replaceScene(level);
 	}
+	
+
+	// 瓶子
+	yc.outer.Bottles.all(levelScript.id);
 }
 
 
