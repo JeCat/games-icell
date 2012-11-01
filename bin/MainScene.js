@@ -6,7 +6,7 @@ yc.MainScene = cc.Scene.extend({
 	, ctor: function(){
 
 		// 载入当前玩家角色信息 (应该有角色选择UI)
-		yc.user.Character.loadCurrent() ;
+		yc.user.Character.loadCurrent('_me') ;
 
 		
 		this._super() ;

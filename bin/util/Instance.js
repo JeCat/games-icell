@@ -8,14 +8,8 @@ var ins = yc.util.ins = function(className)
 		return null ;
 	}
 	
-	var scene = cc.Director.getInstance()._runningScene ;
-	if(!scene)
-	{
-		return ;
-	}
-
 	// 单件对象
-	if( 'singleton' in className && className.singleton )
+	if( 'singleton' in className && className.singleton!==undefined && className.singleton )
 	{
 		if( !('_singletonInstance' in className) || !className._singletonInstance )
 		{
@@ -27,6 +21,12 @@ var ins = yc.util.ins = function(className)
 	// 当前场景中唯一
 	else
 	{
+		var scene = cc.Director.getInstance()._runningScene ;
+		if(!scene)
+		{
+			return ;
+		}
+
 		if( typeof(scene._instances)=='undefined' )
 		{
 			scene._instances = {} ;

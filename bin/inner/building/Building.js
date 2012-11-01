@@ -6,19 +6,48 @@ yc.inner.building.Building = cc.Sprite.extend({
 		this.hexgon = null
 		this.cost = {} ;
 		this.bStop = false ;
+		this.bBlock = true ;
+		this.layer = "inner" ;
+
+		this.skills = [] ;
 	} 
 
+	, addSkill: function(skillObj){
+		skillObj.setBuilding( this );
+		this.skills.push(skillObj);
+	}
+
 	, put: function(hexgon){
+
+		// 决定 building 放在哪个 layer 上
+		if( 'shell' == this.layer ){
+			var bLayer = ins(yc.inner.organ.OrganLayer); 
+		}else{
+			var bLayer = ins(yc.inner.InnerLayer).buildings ;
+		}
+		
+		// 分配 idx
+		this.idx = bLayer.assigned ++ ;
+		
+		// 添加
+		bLayer.addChild(this) ;
+
 		hexgon.building = this ;
-		hexgon.block = true ;
+		hexgon.block = this.bBlock ;
 		this.hexgon = hexgon ;
 		this.setPosition(cc.p(hexgon.center[0],hexgon.center[1])) ;
 		this.setVisible(true) ;
-		
-		return yc.inner.building.Building ;
+
+		// 处理技能 -----------------
+		var skillBar = ins(yc.ui.UILayer).skillBar ;
+
+		for( var i=0;i<this.skills.length;i++){
+			var skill = this.skills[i];
+			skillBar.createButtonForSkill( skill );
+		}
 	}
 	, putOn: function(x,y){
-		return this.put(ins(yc.inner.InnerLayer).cell.aAxes.hexgon(x,y)) ;
+		return this.put( ins(yc.inner.InnerLayer).cell.aAxes.hexgon(x,y) ) ;
 	}
 	
 	, draw: function(ctx){
@@ -90,4 +119,35 @@ yc.inner.building.Building = cc.Sprite.extend({
 		log(this.constructor.className+" onExit") ;
 		this.stop() ;
 	}
+
+	, exportScript: function(){
+		var script = {
+			className: this.constructor.className
+			, upgraders: {}
+		}		
+
+		// 升级
+		for( var name in this._upgraders )
+		{
+			script.upgraders[name] = this._upgraders[name].lv ;
+		}
+
+		return script ;
+	}
+
+	, initWithScript: function(script){
+
+		// 升级
+		for( var name in script.upgraders )
+		{
+			var upgrader = this.upgrader(eval(name)) ;
+
+			// 执行升级
+			for(var i=0;i<script.upgraders[name];i++)
+			{
+				upgrader.upgrade(this) ;
+			}
+		}
+	}
+
 }) ;

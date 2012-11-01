@@ -109,36 +109,72 @@ yc.inner.building.Bullet.create = function(){
 
 yc.inner.building.Bullet.Flame = cc.Sprite.extend({
 	
-	init: function(range,bullet){
+	ctor: function(){
+
+		// 创建动画
+		var spriteFrameCache = cc.SpriteFrameCache.getInstance();
+        spriteFrameCache.addSpriteFrames("res/building/tower.plist","res/building/tower.png") ;
+
+        this.initWithSpriteFrameName("explosion_air_0001.png");
+
+        var animFrames = [];
+        var str = "";
+        var frame;
+        for (var i = 1; i <= 17; i++) {
+            str = "explosion_air_00" + (i<10?'0':'') + i + ".png";
+            
+            if( !(frame = spriteFrameCache.getSpriteFrame(str)) )
+            {
+            	continue ;
+            }
+
+            animFrames.push(frame);
+        }
+
+        var animation = cc.Animation.create(animFrames, 0.1);
+        this.animationAction = cc.Animate.create(animation) ;
+	}
+
+	, init: function(range,bullet){
+		
 		this.range = range ;
 		bullet._parent.addChild(this) ;
 		var p = bullet.getPosition() ;
 		this.setPosition(cc.p(p.x,p.y)) ;
 		
 
-		this.setScale(0.1) ;
+		// 目前使用贴图比较大，使用一半的尺寸
+		this.setScale(0.5) ;
+		// this.setScale(0.1) ;
 		
+		// var seq = cc.Sequence.create([
+		// 	cc.Spawn.create(
+		// 			cc.ScaleTo.create(0.15, 1, 1)
+		// 			, cc.FadeOut.create(0.15)
+		// 	)
+		// 	, cc.CallFunc.create(this,this.free)
+		// ]) ;
+		// this.runAction(seq) ;
+
+
 		var seq = cc.Sequence.create([
-			cc.Spawn.create(
-					cc.ScaleTo.create(0.15, 1, 1)
-					, cc.FadeOut.create(0.15)
-			)
+			this.animationAction
 			, cc.CallFunc.create(this,this.free)
 		]) ;
 		this.runAction(seq) ;
 	}
-	, draw: function(ctx){
+	// , draw: function(ctx){
 
-		ctx.globalAlpha = this._opacity/255;
-		ctx.fillStyle = "rgba(255,255,255,0.5)" ;
+	// 	ctx.globalAlpha = this._opacity/255;
+	// 	ctx.fillStyle = "rgba(255,255,255,0.5)" ;
 	
-		ctx.beginPath() ;
-		ctx.moveTo(0+this.range,0) ;
-		ctx.arc(0,0, this.range, 0, Math.PI*2 , false) ;
-		ctx.closePath() ;
+	// 	ctx.beginPath() ;
+	// 	ctx.moveTo(0+this.range,0) ;
+	// 	ctx.arc(0,0, this.range, 0, Math.PI*2 , false) ;
+	// 	ctx.closePath() ;
 		
-		ctx.fill() ;
-	}
+	// 	ctx.fill() ;
+	// }
 	, free: function(){
 		this.removeFromParentAndCleanup() ;
 		yc.util.ObjectPool.ins(yc.inner.building.Bullet.Flame).free(this) ;

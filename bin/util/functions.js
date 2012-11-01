@@ -234,3 +234,21 @@ yc.util.cloneObject = function (newObj,srcObj){
 		}
 	}
 }
+
+yc.util.saveData = function(name,data){
+	if( localStorage!==undefined )
+	{
+		localStorage.setItem( name, $.toJSON(data) ) ;
+	}
+}
+yc.util.loadData = function(name,data){
+	if( localStorage!==undefined )
+	{
+		var data = localStorage.getItem(name) ;
+		if(data===null)
+		{
+			return null ;
+		}
+		return $.evalJSON( data ) ;
+	}
+}

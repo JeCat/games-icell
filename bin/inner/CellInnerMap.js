@@ -74,6 +74,11 @@ yc.inner.CellInnerMap = cc.Layer.extend({
 			fillStyle = null ;
 		}
 		
+		if( !('points' in hexgon) )
+		{
+			log(1) ;
+			return ;
+		}
 		ctx.moveTo(hexgon.points.F[0],-hexgon.points.F[1]) ;
 		
 		for(var pName in hexgon.points)

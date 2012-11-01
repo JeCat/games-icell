@@ -98,11 +98,25 @@ yc.ui.BuildingCreateMenu = function(){
 				menu.close() ;
 			}
 			, isUnlock: function(){
+				log(ins(yc.user.Character).dna.genes.grow)
 				if( typeof(ins(yc.user.Character).dna.genes.grow)=='undefined' )
 				{
 					return false ;
 				}
 				return ins(yc.inner.Cell).grown < ins(yc.user.Character).dna.genes.grow.superimposing ;
+			}
+		}
+
+		, factory: {
+			title: '蛋白质工程'
+			, description: '将氨基酸合成为蛋白质'
+			, hexgonTypes: ['cytoplasm']
+			, cost: function(){
+				return {}
+			}
+			, buildingClass: yc.inner.building.ProteinFactory
+			, isUnlock: function(){
+				return true ;
 			}
 		}
 		
@@ -153,9 +167,9 @@ yc.ui.BuildingCreateMenu = function(){
 			, hexgonTypes: ['cytoplasm']
 			, cost: function(){
 				return {
-					red: 1
-					, yellow: 1
-					, blue: 1
+					red: 0
+					, yellow: 0
+					, blue: 0
 				}
 			}
 			, buildingClass: yc.inner.organ.Bottles
@@ -185,7 +199,7 @@ yc.ui.BuildingCreateMenu = function(){
 				return true ;
 			}
 		}
-	}
+	};
 
 	this.show = function(hexgon){
 		var buildingCreateMenu = this;
@@ -287,8 +301,6 @@ yc.ui.BuildingCreateMenu = function(){
 	
 	this.createBuilding = function(hexgon,item){
 		
-		var inner = ins(yc.inner.InnerLayer) ;
-		
 		// 已经有建筑了
 		if(hexgon.building)
 		{
@@ -332,47 +344,9 @@ yc.ui.BuildingCreateMenu = function(){
 		
 		// new buildingClass
 		var building = new item.buildingClass ;
+
+		building.putOn(hexgon.x,hexgon.y) ;
 		
-		// info and cost
-		building.info = item ;
-		building.cost = item.cost() ;
-		
-		// is blocking
-		if( item.isBlocking ){
-			building._isBlocking = item.isBlocking ;
-		}
-		
-		// 决定 building 放在哪个 layer 上
-		var bLayer = null;
-		if( 'OrganLayer' == item.layer ){
-			bLayer = ins(yc.inner.organ.OrganLayer); 
-		}else{
-			bLayer = inner.buildings ;
-		}
-		
-		// 分配 idx
-		building.idx = bLayer.assigned++ ;
-		
-		// 添加
-		bLayer.addChild( building );
-		
-		// hexgon
-		hexgon.building = building ;
-		building.hexgon = hexgon ;
-		
-		// position
-		building.setPosition(cc.p(hexgon.center[0],hexgon.center[1])) ;
-		
-		if( true == item.hasSkill ){
-			// 技能
-			var skillBar = ins(yc.ui.UILayer).skillBar;
-			var i;
-			var _skillList = building.skillList();
-			for( i in _skillList ){
-				var skill = _skillList[i];
-				var skillButton = skillBar.createButtonForSkill( skill );
-			}
-		}
 		return building ;
 	}
 }
@@ -410,54 +384,3 @@ yc.ui.checkCost = function(cost){
 	}
 	return true ;
 }
-
-
-
-
-
-// 	.click(function(){
-					
-			// 		var item = $(this).data('item') ;
-					
-			// 		// 检查蛋白质
-			// 		var cost = item.cost() ;
-			// 		if( !yc.ui.checkCost(cost) )
-			// 		{
-			// 			alert("缺少材料") ;
-						
-			// 			// 关闭
-			// 			menu.close() ;
-			// 			return ;
-			// 		}
-					
-			// 		// 建造
-			// 		if( typeof(item.buildingClass)!='undefined' )
-			// 		{
-			// 			menu.createBuilding(hexgon,item) ;
-			// 		}
-			// 		if( typeof(item.constructFunc)!='undefined' )
-			// 		{
-			// 			item.constructFunc(hexgon) ;
-			// 		}
-					
-			// 		// 消耗蛋白质
-			// 		var pool = ins(yc.user.Character).proteins ;
-			// 		for(var protein in cost)
-			// 		{
-			// 			pool.increase( protein, -cost[protein] ) ;
-			// 		}
-					
-			// 		// 关闭
-			// 		menu.close() ;
-			// 	}) ;
-			
-			// if(!item.isUnlock())
-			// {
-			// 	itemUi.find('.create').attr('disabled',true) ;
-			// 	itemUi.find('.message').html('尚未解锁') ;
-			// }
-			// if(!yc.ui.checkCost(item.cost()))
-			// {
-			// 	itemUi.find('.create').attr('disabled',true) ;
-			// 	itemUi.find('.message').html('缺少材料') ;
-			// }

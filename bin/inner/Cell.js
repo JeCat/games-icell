@@ -3,9 +3,8 @@ yc.inner.Cell = function()
 	this.hpMax = 10 ;
 	this.hp = this.hpMax ;
 	
-	this.aAxes = new HexgonAxes( yc.settings.inner.hexgonSideLength ) ;
-	this.aAxes._hexgonClass = yc.inner.CellHexgon ;
-	
+	this.aAxes = new HexgonAxes( yc.settings.inner.hexgonSideLength, yc.inner.CellHexgon ) ;
+
 	axes = this.aAxes ;
 	cell = this ;
 			
@@ -17,9 +16,6 @@ yc.inner.Cell = function()
 	this.cytoplasms = [] ;
 	// 细胞质格子的厚度
 	this.cytoplasmLevels = yc.settings.inner.cellInitialLevels ;
-	
-	// 氨基酸池
-	this.poolAminoAcids = ins(yc.user.Character).aminoacids ;
 	
 	this.grown = 0 ;
 	
@@ -144,7 +140,7 @@ yc.inner.Cell.prototype.newbornBuildings = function(){
  */
 yc.inner.Cell.prototype.grow = function(x,y){
 	var hexgon = this.aAxes.hexgon(x,y) ;
-	if( !hexgon || hexgon.type!='membrane' )
+	if( !hexgon /*|| hexgon.type!='membrane'*/ )
 	{
 		return ;
 	}
@@ -285,99 +281,81 @@ yc.inner.Cell.prototype.destory = function(){
 /**
  * 导出为 json
  */
-yc.inner.Cell.prototype.exportScript = function(){
-	var script = {};
-	
-	var i,j;
-	
-	script.map = [] ;
-	
-	var m = {
-		type: this.nucleus.type,
-		x: this.nucleus.x,
-		y: this.nucleus.y
-	};
-	script.map.push(m);
-	
-	for( i in this.membranes ){
-		var m = {
-			type : this.membranes[i].type,
-			x: this.membranes[i].x,
-			y: this.membranes[i].y
-		};
-		script.map.push(m);
+yc.inner.Cell.prototype.exportScript = function() {
+
+	var script = {
+		nucleus: [ this.nucleus.x, this.nucleus.y ]
+		, cytoplasms: []
+		, membranes: []
+		, buildings: []
 	}
-	
-	for( i in this.cytoplasms ){
-		var m = {
-			type: this.cytoplasms[i].type,
-			x: this.cytoplasms[i].x,
-			y: this.cytoplasms[i].y
-		}
-		if( this.cytoplasms[i].building ){
-			m['className'] = this.cytoplasms[i].building.constructor.className ;
-			var upgraders = this.cytoplasms[i].building._upgraders;
-			
-			m['upgraders'] = [];
-			for( j in upgraders ){
-				m['upgraders'].push({
-					'name':j,
-					'lv':upgraders[j].lv
-				});
+
+	var cell = this ;
+	(function (type){
+		for(var i=0; i<cell[type].length; i++)
+		{
+			// 坐标
+			script[type].push([
+				cell[type][i].x
+				, cell[type][i].y
+			]) ;
+
+			// 建筑
+			if( cell[type][i].building )
+			{
+				var building = cell[type][i].building.exportScript() ;
+				building.x = cell[type][i].x ;
+				building.y = cell[type][i].y ;
+				script.buildings.push( building ) ;
 			}
 		}
-		script.map.push(m);
-	}
-	
-	return script;
+
+		return arguments.callee  ;
+	})
+	("cytoplasms")		// 细胞质
+	("membranes") ;		// 细胞膜
+
+
+	return script ;
 }
 
 /**
  * 从 json 导入
  */
 yc.inner.Cell.prototype.initWithScript = function( script ){
-	var i,j,k;
-	var menu = ins(yc.ui.BuildingCreateMenu) ;
-	for( i in script.map ){
-		var m = script.map[i] ;
-		switch(m.type){
-		case 'cytoplasm':
-			var item = null ;
-			switch( m.className ){
-			case 'yc.inner.building.TowerShooter':
-				item = menu.items.shooter;
-				break;
-			case 'yc.inner.building.ProteinFactory':
-				item = menu.hideItems.factory;
-				break;
-			case undefined:
-				break;
-			default:
-				log( 'unknow className:',m.className );
-				break;
+
+	this.aAxes = new HexgonAxes( yc.settings.inner.hexgonSideLength, yc.inner.CellHexgon ) ;
+	this.grown = 0 ;
+
+	// 格子：细胞核
+	this.nucleus = this.aAxes.hexgon( script.nucleus[0], script.nucleus[1] ) ;
+	this.nucleus.type = "nucleus" ;
+
+	// 细胞质
+	for(var i=0;i<script.cytoplasms.length;i++){
+		script.cytoplasms[i] ;
+		this.grow( script.cytoplasms[i][0], script.cytoplasms[i][1] ) ;
+	}
+	
+	// 建筑
+	for(var i=0;i<script.buildings.length;i++){
+		var building = new (eval(script.buildings[i].className)) ;
+		building.putOn(script.buildings[i].x,script.buildings[i].y) ;
+
+		// 升级
+		var upgraders = script.buildings[i].upgraders ;
+		for(var name in upgraders)
+		{
+			for(var u=0;u<upgraders[name];u++)
+			{
+				building.upgrader( eval(name) )
+							.upgrade(building,false) ;
 			}
-			if( item ){
-				var building = menu.createBuilding( this.aAxes.hexgon(m.x,m.y), item ) ;
-				
-				var buildingClass = building.constructor ;
-				for(var j=0;j<buildingClass.upgraders.length;j++)
-				{
-					var upgraderClass = buildingClass.upgraders[j] ;
-					var upgrader = building.upgrader(upgraderClass) ;
-				}
-				
-				for( j in m.upgraders ){
-					var u = m.upgraders[j];
-					for(k=1;k<u.lv;++k){
-						building._upgraders[ u.name ].upgrade( building );
-					}
-				}
-			}
-			break;
-		case 'nucleus':
-			this.nucleus = this.aAxes.hexgon( m.x, m.y ) ;
-			this.nucleus.type = m.type ;
-			break;
 		}
 	}
+
+	this.grown = 0 ;
+
+
+	return ;
 }

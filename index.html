@@ -161,6 +161,14 @@
 				<div>
 					<button onclick="cc.Director.getInstance()._runningScene.initWithScript(yc.GameScene.prototype.scriptDemo)">test</button>
 				</div>
+				<div>
+					<div>世界边界</div>
+					<div>下：<input value="-1000" id="scene_btm" /></div>
+					<div>上：<input value="1000" id="scene_top" /></div>
+					<div>左：<input value="-1000" id="scene_lft" /></div>
+					<div>右：<input value="1000" id="scene_rgt" /></div>
+					<button onclick="ins(yc.ui.editer.WorldEditer).setSceneBorder();return false;">应用</button>
+				</div>
 
 				<div>
 					<button onclick="saveWorldToServer()">保存到服务器</button>
