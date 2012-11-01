@@ -110,6 +110,7 @@ yc.ui.BuildingCreateMenu = function(){
 		, factory: {
 			title: '蛋白质工程'
 			, description: '将氨基酸合成为蛋白质'
+			, texture : "res/building/recycle.png"
 			, hexgonTypes: ['cytoplasm']
 			, cost: function(){
 				return {}
@@ -212,18 +213,18 @@ yc.ui.BuildingCreateMenu = function(){
 
 		if(!this.ui){
 			var arrPositions = [
-				[0,100]
-				, [-50,87]
-				, [-87,50]
-				, [-100,0]
-				, [-87,-50]
-				, [-50,-87]
-				, [0,-100]
-				, [50,-87]
-				, [87,-50]
-				, [100,0]
-				, [87,50]
-				, [50,87]
+				[0,150]
+				, [-75,129]
+				, [-129,75]
+				, [-150,0]
+				, [-129,-75]
+				, [-75,-129]
+				, [0,-150]
+				, [75,-129]
+				, [129,-75]
+				, [150,0]
+				, [129,75]
+				, [75,129]
 			];
 
 			console.log('create menu');
