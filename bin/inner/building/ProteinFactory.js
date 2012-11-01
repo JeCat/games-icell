@@ -12,27 +12,10 @@ yc.inner.building.ProteinFactory = yc.inner.building.Building.extend({
 
 		this.timeout = null ;
 
-		// 创建动画
-		var spriteFrameCache = cc.SpriteFrameCache.getInstance();
-        spriteFrameCache.addSpriteFrames("res/building/factory.plist","res/building/factory.png") ;
-
-        this.initWithSpriteFrameName("artillery_lvl2_0001.png");
-
-        var animFrames = [];
-        var str = "";
-        var frame;
-        for (var i = 1; i <= 22; i++) {
-            str = "artillery_lvl2_00" + (i<10?'0':'') + i + ".png";
-            frame = spriteFrameCache.getSpriteFrame(str);
-            animFrames.push(frame);
-
-            // 矫正一下 图片位置
-            frame._offset.y = - (frame._originalSize.height - frame._rect.size.height)/2 ;
-            frame._offset.x = 0 ;
-        }
-
-        var animation = cc.Animation.create(animFrames, 0.1);
-        this.runAction(cc.RepeatForever.create(cc.Animate.create(animation)));
+		// 执行动画
+        this.runAction(cc.RepeatForever.create(
+	       	yc.animations.createAction('towers.factory')
+        ));
 
        	this.setAnchorPoint(cc.p(0.5,0.4)) ;
 	}

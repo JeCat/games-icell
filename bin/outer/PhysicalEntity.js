@@ -499,7 +499,7 @@ yc.outer.PhysicalEntity = cc.Sprite.extend({
 	, destroy: function(){
 		
 		// 从场景中移除
-		this.removeFromParentAndCleanup() ;
+		this.removeFromParent() ;
 		
 		// 从物理世界中移除
 		if(this.b2Body)
