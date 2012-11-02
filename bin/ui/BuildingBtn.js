@@ -52,23 +52,8 @@ var BuildingBtn = cc.Sprite.extend({
         this._state = BUILDINGBTN_STATE_UNGRABBED;
 
         var BuildingCreateMenu = ins(yc.ui.BuildingCreateMenu);
-        if(this.yesMenu){
-            this.yesMenu.removeFromParent(true);
-        }
-        this.yesBtn = cc.MenuItemImage.create(
-            "res/btn-yes.png",
-            "res/btn-yes-1.png",
-            null,
-            this,
-            function (){
-                if(BuildingCreateMenu.createBuilding(that.hexgon , that.building )){
-                    BuildingCreateMenu.close();
-                }
-            }
-        );
-        this.yesMenu = cc.Menu.create(this.yesBtn);
-        this.yesMenu.setPosition(this.getPosition());
-        BuildingCreateMenu.ui.addChild(this.yesMenu);
+            
+        BuildingCreateMenu.showBuildingDes(this.hexgon , this.building , this.toPosition);
 
         console.log( this.building.title + ' building btn touch end');
         
@@ -126,16 +111,18 @@ var BuildingBtn = cc.Sprite.extend({
 
 BuildingBtn.buildingBtnWithTexture = function (sImgName1,sImgName2,sImgName3 ) {
     var buildingBtn = new BuildingBtn();
-    var aTexture1 = star.performPNG(sImgName1);
-    var aTexture2 = star.performPNG(sImgName2);
-    var aTexture3 = star.performPNG(sImgName3);
+    var aTexture1 = buildingBtn.performPNG(sImgName1);
+    var aTexture2 = buildingBtn.performPNG(sImgName2);
+    var aTexture3 = buildingBtn.performPNG(sImgName3);
     if ( aTexture1 && aTexture2 && aTexture3 ){
-        star.addTexture(aTexture1);
-        star.addTexture(aTexture2);
-        star.addTexture(aTexture3);
+        buildingBtn.addTexture(aTexture1);
+        buildingBtn.addTexture(aTexture2);
+        buildingBtn.addTexture(aTexture3);
     }else{
         return false;
     }
+
+    buildingBtn.initWithTexture(aTexture1);
 
     return buildingBtn;
 };

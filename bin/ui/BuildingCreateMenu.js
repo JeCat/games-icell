@@ -366,6 +366,49 @@ yc.ui.BuildingCreateMenu = function(){
 		
 		return building ;
 	}
+
+	this.showBuildingDes = function(hexgon , building , position){
+		var that = this;
+		if(this.yesMenu){
+            this.yesMenu.removeFromParent(true);
+            this.pp.removeFromParent(true);
+            this.pp.label.removeFromParent(true);
+        }
+        this.pp = cc.Sprite.create("res/organ/Msg.png");
+        this.pp.label = cc.Sprite.create();
+        this.pp.label.draw = function(ctx)
+        {
+            var font = ins(yc.ui.font.Font);
+            font.setWidth(140);
+            font.setHeight(75);
+            font.setTextIndent(0);
+            font.setTextAlign('left');
+            font.setLetterSpacing(4);
+            font.setLineHeight(18);
+            font.setText("[color=#F00;weight=bold;size=16;font=隶书]"+building.title +'[/]'+ 
+                "[color=#F00;size=14;font=隶书]"+building.description+'[/]');
+            font.draw(ctx);
+        }
+        this.pp.setPosition(position);
+        this.pp.label.setPosition(position);
+        that.ui.addChild(this.pp);
+        that.ui.addChild(this.pp.label);
+
+        this.yesBtn = cc.MenuItemImage.create(
+            "res/btn-yes.png",
+            "res/btn-yes-1.png",
+            null,
+            this,
+            function (){
+                if(that.createBuilding( hexgon , building )){
+                    that.close();
+                }
+            }
+        );
+        this.yesMenu = cc.Menu.create(this.yesBtn);
+        this.yesMenu.setPosition(position);
+        that.ui.addChild(this.yesMenu);
+	}
 }
 
 yc.ui.costHtml = function(cost){
