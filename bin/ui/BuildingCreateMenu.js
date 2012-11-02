@@ -9,6 +9,8 @@ yc.ui.BuildingCreateMenu = function(){
 			title: '防御塔(射击)'
 			, description: '用于攻击进入细胞内的病毒'
 			, texture : "res/building/shooter.png"
+			, texture_l : "res/building/shooter-l.png"
+			, texture_nm : "res/building/shooter-nm.png"
 			, hexgonTypes: ['cytoplasm']
 			, cost: function(){
 				return yc.settings.building.Shooter.cost ;
@@ -23,6 +25,8 @@ yc.ui.BuildingCreateMenu = function(){
 			title: '防御塔(火炮)'
 			, description: '大范围攻击进入细胞内的病毒'
 			, texture : "res/building/cannon.png"
+			, texture_l : "res/building/cannon-l.png"
+			, texture_nm : "res/building/cannon-nm.png"
 			, hexgonTypes: ['cytoplasm']
 			, cost: function(){
 				return yc.settings.building.Cannon.cost ;
@@ -37,6 +41,8 @@ yc.ui.BuildingCreateMenu = function(){
 			title: '防御塔(喷射)'
 			, description: '向进入细胞体内的病毒喷射酸性物质，接触到的病毒都将受到伤害'
 			, texture : "res/building/jetter.png"
+			, texture_l : "res/building/jetter-l.png"
+			, texture_nm : "res/building/jetter-nm.png"
 			, hexgonTypes: ['cytoplasm']
 			, cost: function(){
 				return yc.settings.building.Jetter.cost ;
@@ -51,6 +57,8 @@ yc.ui.BuildingCreateMenu = function(){
 			title: '防御塔(减速)'
 			, description: '用于攻击进入细胞内的病毒，同时使病毒的移动减慢'
 			, texture : "res/building/slower.png"
+			, texture_l : "res/building/slower-l.png"
+			, texture_nm : "res/building/slower-nm.png"
 			, hexgonTypes: ['cytoplasm']
 			, cost: function(){
 				return yc.settings.building.Slower.cost ;
@@ -65,6 +73,8 @@ yc.ui.BuildingCreateMenu = function(){
 			title: '回收站'
 			, description: '在细胞内释放出线粒体，线粒体会主动搜集病毒在细胞内被杀死时掉落的氨基酸'
 			, texture : "res/building/recycle.png"
+			, texture_l : "res/building/recycle-l.png"
+			, texture_nm : "res/building/recycle-nm.png"
 			, hexgonTypes: ['cytoplasm']
 			, cost: function(){
 				return {
@@ -83,6 +93,8 @@ yc.ui.BuildingCreateMenu = function(){
 			title: '生长'
 			, description: '扩张为细胞内部区域'
 			, texture : "res/building/recycle.png"
+			, texture_l : "res/building/recycle-l.png"
+			, texture_nm : "res/building/recycle-nm.png"
 			, hexgonTypes: ['membrane']
 			, cost: function(){
 				
@@ -111,6 +123,8 @@ yc.ui.BuildingCreateMenu = function(){
 			title: '蛋白质工程'
 			, description: '将氨基酸合成为蛋白质'
 			, texture : "res/building/recycle.png"
+			, texture_l : "res/building/recycle-l.png"
+			, texture_nm : "res/building/recycle-nm.png"
 			, hexgonTypes: ['cytoplasm']
 			, cost: function(){
 				return {}
@@ -125,6 +139,8 @@ yc.ui.BuildingCreateMenu = function(){
 			title: '眼睛'
 			, description: '一双美丽的大眼睛'
 			, texture : "res/building/recycle.png"
+			, texture_l: "res/building/recycle-l.png"
+			, texture_nm: "res/building/recycle-nm.png"
 			, hexgonTypes: ['membrane']
 			, cost: function(){
 				return {
@@ -145,6 +161,8 @@ yc.ui.BuildingCreateMenu = function(){
 			title: '攻击塔'
 			, description: '攻击细胞外部的病毒群'
 			, texture : "res/building/oshooter.png"
+			, texture_l : "res/building/oshooter-l.png"
+			, texture_nm : "res/building/oshooter-nm.png"
 			, hexgonTypes: ['membrane']
 			, cost: function(){
 				return {
@@ -165,6 +183,8 @@ yc.ui.BuildingCreateMenu = function(){
 			title: '漂流瓶'
 			, description: '朋友无处不在'
 			, texture : "res/building/8.png"
+			, texture_l : "res/building/8-l.png"
+			, texture_nm : "res/building/8-nm.png"
 			, hexgonTypes: ['cytoplasm']
 			, cost: function(){
 				return {
@@ -250,7 +270,7 @@ yc.ui.BuildingCreateMenu = function(){
 					continue ;
 				}
 
-				var itemUi = BuildingBtn.buildingBtnWithTexture(item.texture) ;
+				var itemUi = BuildingBtn.buildingBtnWithTexture(item.texture,item.texture_l,item.texture_nm) ;
 				var position = arrPositions.shift();
 				itemUi.isBuildingBtn =  true;
 				itemUi.building = item;

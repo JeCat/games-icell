@@ -39,7 +39,6 @@ var BuildingBtn = cc.Sprite.extend({
     ,onTouchBegan:function (touch, event) {
         if (this._state != BUILDINGBTN_STATE_UNGRABBED) return false;
         if (!this.containsTouchLocation(touch)){
-            ins(yc.ui.BuildingCreateMenu).close();
             return false;
         }
         this._state = BUILDINGBTN_STATE_GRABBED;
@@ -48,15 +47,31 @@ var BuildingBtn = cc.Sprite.extend({
     ,onTouchMoved:function (touch, event) {
     }
     ,onTouchEnded:function (touch, event) {
-       
+        var that = this;
         cc.Assert(this._state == BUILDINGBTN_STATE_GRABBED, "BuildingBtn - Unexpected state!");
         this._state = BUILDINGBTN_STATE_UNGRABBED;
 
-        console.log( this.building.title + ' building btn touch end');
-
         var BuildingCreateMenu = ins(yc.ui.BuildingCreateMenu);
-        BuildingCreateMenu.createBuilding(this.hexgon , this.building );
+        if(this.yesMenu){
+            this.yesMenu.removeFromParent(true);
+        }
+        this.yesBtn = cc.MenuItemImage.create(
+            "res/btn-yes.png",
+            "res/btn-yes-1.png",
+            null,
+            this,
+            function (){
+                if(BuildingCreateMenu.createBuilding(that.hexgon , that.building )){
+                    BuildingCreateMenu.close();
+                }
+            }
+        );
+        this.yesMenu = cc.Menu.create(this.yesBtn);
+        this.yesMenu.setPosition(this.getPosition());
+        BuildingCreateMenu.ui.addChild(this.yesMenu);
 
+        console.log( this.building.title + ' building btn touch end');
+        
         // window.event.cancelBubble = true;   //stop event go through
     }
     , touchDelegateRetain:function () {
@@ -101,15 +116,26 @@ var BuildingBtn = cc.Sprite.extend({
             cache.removeTexture(texture);
         return null;
     }
+    , addTexture : function(aTexture){
+        if(!this._arrTextures){
+            this._arrTextures = [];
+        }
+        this._arrTextures.push(aTexture);
+    }
 });
 
-BuildingBtn.buildingBtnWithTexture = function (sImgName ) {
+BuildingBtn.buildingBtnWithTexture = function (sImgName1,sImgName2,sImgName3 ) {
     var buildingBtn = new BuildingBtn();
-    var aTexture = buildingBtn.performPNG(sImgName)
-    if ( aTexture ){
-        buildingBtn.initWithTexture(aTexture);
+    var aTexture1 = star.performPNG(sImgName1);
+    var aTexture2 = star.performPNG(sImgName2);
+    var aTexture3 = star.performPNG(sImgName3);
+    if ( aTexture1 && aTexture2 && aTexture3 ){
+        star.addTexture(aTexture1);
+        star.addTexture(aTexture2);
+        star.addTexture(aTexture3);
     }else{
         return false;
     }
+
     return buildingBtn;
 };
