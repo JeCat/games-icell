@@ -7,10 +7,17 @@ yc.inner.skill.Bottles = yc.inner.skill.SkillBase.extend({
 		
 
 		var worldName = prompt('please input world name');
+		
 		if(!worldName){
 			alert("不能为空！")
 			return;
 		}
+		
+		if(yc.ui.font.Font.len(worldName) > 90){
+			alert("内容过长！")
+			return;
+		}
+		
 
 		var cellPosition = ins(yc.outer.Cell);
 		
@@ -22,7 +29,8 @@ yc.inner.skill.Bottles = yc.inner.skill.SkillBase.extend({
 				"act":"create",
 				"x":cellPosition.x,
 				"y":cellPosition.y,
-				"content":worldName
+				"content":worldName,
+				"level":yc.GameScene._level
 			},
 			dataType: 'jsonp',
 			success: function(json){
@@ -45,30 +53,4 @@ yc.inner.skill.Bottles = yc.inner.skill.SkillBase.extend({
 		this._super();
 	}
 	
-	, test : function(){
-		$.ajax({
-			type: "POST",
-			url: "http://icell.jecat.cn/service/bottles.php",
-			jsonp:'jsonp_callback',
-			data: {
-				"act":"getAll"
-			},
-			dataType: 'jsonp',
-			success: function(json){
-				
-				for(var i =0;i<json.length;i++){
-					
-					var bottles = new yc.outer.Bottles ;
-					bottles.id = json[i].id;
-					bottles.create();
-					bottles.x = json[i].x;
-					bottles.y = json[i].y;
-
-					var scene = cc.Director.getInstance().getRunningScene() ;
-					scene.layerRoles.addChild(bottles);
-					
-				}
-			}
-		}); 
-	}
 })
