@@ -8,7 +8,7 @@ yc.outer.Camera = function()
 	this.x = 0 ;
 	this.y = 0 ;
 
-	this.bBoundaryOverflow = true ;
+	this.bBoundaryOverflow = false ;
 
 	this.update = function(){
 		this.width = canvas.width ;
@@ -59,7 +59,7 @@ yc.outer.Camera = function()
 	
 	this.moveByFocus = function(x,y)
 	{
-		if( !this.bBoundaryOverflow )
+		if( !this.bBoundaryOverflow  )
 		{
 			var scale = ins(yc.GameLayer).getScale() ;
 			
@@ -87,7 +87,6 @@ yc.outer.Camera = function()
 				y = bottomBorder + halfHeight ;
 			}
 		}
-
 
 		this.x = this.focusX = x ;
 		this.y = this.focusY = y ;
@@ -189,19 +188,25 @@ yc.outer.Camera.transformPosition = function(entity){
 	} ;
 }
 
-yc.outer.Camera.transformSprite = function(context){
+yc.outer.Camera.transformSprite = function(ctx){
 
 	var transform = yc.outer.Camera.transformPosition(this) ;
 
 	this.transformX = transform.x ;
 	this.transformY = -transform.y ;
-	context.translate( this.transformX, this.transformY );
+	ctx.translate( this.transformX, this.transformY );
 
-	if (this._rotation != 0)
-	    context.rotate(this._rotationRadians);
+	// 透明度
+	ctx.globalAlpha = ctx.globalAlpha * (this.getOpacity()/255) ;
 
-	if ((this._scaleX != 1) || (this._scaleY != 1))
-	    context.scale(this._scaleX, this._scaleY);
+	// 角度
+	if (this.getRotation() != 0)
+	{
+		ctx.rotate(this._rotationRadians) ;
+	}
+
+	// 缩放
+	ctx.scale(this.getScaleX(),this.getScaleY()) ;
 }
 
 yc.outer.Camera.worldPos2ScreenPos = function( p ){

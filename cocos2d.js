@@ -160,6 +160,13 @@ var TAG_SPRITE_MANAGER = 1;
 			, 'bin/animations.js'
 		]
 	};
+
+	// 加后缀
+	for(var i=0;i<c.appFiles.length;i++)
+	{
+		c.appFiles[i]+= "?v=5" ;
+	}
+
 	window.addEventListener('DOMContentLoaded', function () {
 		//first load engine file if specified
 		var s = d.createElement('script');

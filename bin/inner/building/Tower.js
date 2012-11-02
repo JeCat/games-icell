@@ -42,6 +42,7 @@ yc.inner.building.Tower = yc.inner.building.Building.extend({
 	
 	
 	, draw: function(ctx){
+
 		if(!this.hexgon)
 		{
 			return ;
@@ -60,14 +61,9 @@ yc.inner.building.Tower = yc.inner.building.Building.extend({
 			ctx.fill() ;
 		}
 		
-
 		this._super(ctx) ;
+
 		return;
-		
-		
-		ctx.fillStyle = this.color ;
-		ctx.font="normal san-serif";
-		ctx.fillText('╭☆',-12,+4) ;
 	}
 	
 	, _put: yc.inner.building.Building.prototype.put

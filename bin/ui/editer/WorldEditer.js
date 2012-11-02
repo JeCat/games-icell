@@ -38,12 +38,7 @@ yc.ui.editer.WorldEditer = function(){
 		this.unlockGenes();
 
 		// 刷新一下内容
-		this.refreshRoles() ;
-		this.refreshSettings() ;
-		this.role.refreshAminoAcids() ;
-		this.role.refreshVirusCluster() ;
-		this.stain.refreshStains() ;
-		this.pinup.refreshPinups() ;
+		this.refresh() ;
 
 		// 打开ui
 		this.ui.show() ;
@@ -84,6 +79,15 @@ yc.ui.editer.WorldEditer = function(){
 		// 关闭ui
 		$("#editor-panel-space").width(0) ;
 		ICellGame.instance.resize() ;
+	}
+
+	this.refresh = function(){
+		this.refreshRoles() ;
+		this.refreshSettings() ;
+		this.role.refreshAminoAcids() ;
+		this.role.refreshVirusCluster() ;
+		this.stain.refreshStains() ;
+		this.pinup.refreshPinups() ;
 	}
 	
 	this.message = function(msg){
@@ -225,9 +229,15 @@ yc.ui.editer.WorldEditer.loadOptions = function(sel,opts,each)
 			.val(info.value)
 			.data('object',opts[i])
 			.data('info',info)
+			.attr('selected',info.selected)
 			.click(function(){
 				$(this).data('info').click($(this).data('object')) ;
 			}) ;
+
+		if( info.selected )
+		{
+			optUi[0].click() ;
+		}
 	}
 }
 

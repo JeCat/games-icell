@@ -91,6 +91,7 @@ yc.ui.editer.PanelStain = function(editer){
 			return {
 				text: '[id:'+stain.id+']'+stain.x.toFixed(1)+','+stain.y.toFixed(1)
 				, value: stain.id
+				, selected: panel.selectedStain===stain
 
 				// 选中污渍事件 -----
 				, click: function(stain){
@@ -130,6 +131,7 @@ yc.ui.editer.PanelStain = function(editer){
 			return {
 				text: '[S' + si + '] ' + shape.type
 				, value: si
+				, selected: panel.selectedStainShape===shape
 
 				// 选择形状事件 ----------------
 				, click: function(shape){
@@ -167,6 +169,7 @@ yc.ui.editer.PanelStain = function(editer){
 			return {
 				text: '[P'+pi+']'+point[0].toFixed(0)+','+point[1].toFixed(0)
 				, value: pi
+				, selected: panel.selectedStainPoint===point
 
 				// 选择顶点 ---------------
 				, click: function(point,pi){
@@ -209,16 +212,20 @@ yc.ui.editer.PanelStain = function(editer){
 
 
 			var cam = ins(yc.outer.Camera) ;
-			cc.Director.getInstance()._runningScene.initWithScript({
-				stains: [{
+			var stain = new yc.outer.Stain ;
+			stain.initWithScript({
 					x: center.x
 					, y: center.y
 					, linearDampingMultiple: 2		// 线速度阻尼倍数(相对质量)
 					, angularDampingMultiple: 4		// 角速度阻尼倍数(相对质量)
 					, bodyType: b2Body.b2_staticBody
 					, shapes:[ polygon ]
-				}]
-			}) ;
+				}) ;
+
+			cc.Director.getInstance().getRunningScene().layerStains.addChild(stain) ;
+
+			// 设为当前对象
+			panel.selectedStain = stain ;
 
 			// 刷新所有污渍列表
 			panel.refreshStains() ;
@@ -296,8 +303,12 @@ yc.ui.editer.PanelStain = function(editer){
 				, wy: releasePt.wy - panel.selectedStain.y
 			}
 
-			panel.selectedStain._script.shapes.push(panel._polygonShapeScript(releasePt,pressPt)) ;
+			var newShape = panel._polygonShapeScript(releasePt,pressPt) ;
+			panel.selectedStain._script.shapes.push(newShape) ;
 			panel.selectedStain.initWithScript(panel.selectedStain._script) ;
+
+			// 选中新创建的形状
+			panel.selectedStainShape = newShape ;
 
 			// 刷新顶点
 			panel.refreshStainShapes(panel.selectedStain) ;
@@ -318,10 +329,10 @@ yc.ui.editer.PanelStain = function(editer){
 		{
 			pt1.wy+= 1 ;
 		}
-		var lft = Math.min(pt1.wx,pt2.wx) ;
-		var rgt = Math.max(pt1.wx,pt2.wx) ;
-		var btn = Math.min(pt1.wy,pt2.wy) ;
-		var top = Math.max(pt1.wy,pt2.wy) ;
+		var lft = Math.round(Math.min(pt1.wx,pt2.wx)) ;
+		var rgt = Math.round(Math.max(pt1.wx,pt2.wx)) ;
+		var btn = Math.round(Math.min(pt1.wy,pt2.wy)) ;
+		var top =Math.round(Math.max(pt1.wy,pt2.wy)) ;
 
 		return {
 			type: 'polygon'					// 类型 circle, polygon
@@ -383,6 +394,9 @@ yc.ui.editer.PanelStain = function(editer){
 			var pt = yc.util.windowToClient(panel.selectedStain,touches[0]._point.x,touches[0]._point.y) ;
 			panel.selectedStainShape.points.push(pt) ;
 			panel.selectedStain.initWithScriptShapes(panel.selectedStain.shapes) ;
+
+			// 选中新创建的顶点
+			panel.selectedStainPoint = pt ;
 
 			// 刷新顶点
 			panel.refreshStainShapePoints(panel.selectedStainShape) ;

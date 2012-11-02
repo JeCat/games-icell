@@ -147,6 +147,8 @@
 			
 			<div id='panel-world'>
 				<div>
+					<button onclick="ins(yc.ui.editer.WorldEditer).refresh();">刷新</button>
+
 					<button onclick="yc.settings.outer.box2d.dbg=!yc.settings.outer.box2d.dbg; $('#debugCanvas').toggle()">Debug Draw</button>
 					
 					<label><input type="checkbox" onchange="yc.settings.player.nohurt=$(this).attr('checked')?true:false" checked />无敌</label>
@@ -163,17 +165,32 @@
 				</div>
 				<div>
 					<div>世界边界</div>
-					<div>下：<input value="-1000" id="scene_btm" /></div>
-					<div>上：<input value="1000" id="scene_top" /></div>
-					<div>左：<input value="-1000" id="scene_lft" /></div>
-					<div>右：<input value="1000" id="scene_rgt" /></div>
-					<button onclick="ins(yc.ui.editer.WorldEditer).setSceneBorder();return false;">应用</button>
+					<div>
+						左：<input value="-1000" id="scene_lft" />
+						上：<input value="1000" id="scene_top" />
+					</div>
+					<div>
+						右：<input value="1000" id="scene_rgt" />
+						下：<input value="-1000" id="scene_btm" />
+
+						<button onclick="ins(yc.ui.editer.WorldEditer).setSceneBorder();return false;">应用</button>
+					</div>
+					
+				</div>
+
+				<div>
+					<textarea id="txt-level-script" style="width:370px; height:200px"></textarea>
+					<br />
+
+					<button onclick="$('#txt-level-script').val( $.toJSON(cc.Director.getInstance().getRunningScene().exportScript()) )">导出脚本</button>
+					<button onclick="cc.Director.getInstance().getRunningScene().initWithScript( $.evalJSON($('#txt-level-script').val() ) )">导入脚本</button>
 				</div>
 
 				<div>
 					<button onclick="saveWorldToServer()">保存到服务器</button>
 					<div id="saveWorldMsg"></div>
 				</div>
+
 			<iframe id="saveIframe" src="iframeSaveWorld.html" width="0" height="0" frameborder="no" border="0" marginwidth="0" marginheight="0" scrolling="no" allowtransparency="yes">
             </iframe>
 			</div>
