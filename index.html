@@ -183,7 +183,7 @@
 					<br />
 
 					<button onclick="$('#txt-level-script').val( $.toJSON(cc.Director.getInstance().getRunningScene().exportScript()) )">导出脚本</button>
-					<button onclick="cc.Director.getInstance().getRunningScene().initWithScript( $.evalJSON($('#txt-level-script').val() ) )">导入脚本</button>
+					<button onclick="cc.Director.getInstance().getRunningScene().initWithScript( $.evalJSON($('#txt-level-script').val() ) ); ins(yc.ui.editer.WorldEditer).refresh();">导入脚本</button>
 				</div>
 
 				<div>

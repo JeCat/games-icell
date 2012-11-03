@@ -226,6 +226,7 @@ yc.ui.editer.PanelStain = function(editer){
 
 			// 设为当前对象
 			panel.selectedStain = stain ;
+			panel.selectedStainShape = stain.shapes[0] ;
 
 			// 刷新所有污渍列表
 			panel.refreshStains() ;

@@ -9,7 +9,7 @@ yc.ui.editer.WorldEditer = function(){
 	editer = this ;
 
 	// 辅助层
-	this.layer = new yc.ui.editer.WorldEditerLayer() ;
+	this.layer = new yc.ui.editer.WorldEditerLayer(this) ;
 
 	this.open = function(){
 		this.ui.show() ;

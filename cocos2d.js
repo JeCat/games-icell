@@ -164,7 +164,7 @@ var TAG_SPRITE_MANAGER = 1;
 	// 加后缀
 	for(var i=0;i<c.appFiles.length;i++)
 	{
-		c.appFiles[i]+= "?v=5" ;
+		c.appFiles[i]+= "?v=6" ;
 	}
 
 	window.addEventListener('DOMContentLoaded', function () {
