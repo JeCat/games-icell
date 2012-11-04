@@ -60,6 +60,7 @@ var ICellGame = cc.Application.extend({
 			, {type:"image", src:"res/building/recycle-nm.png"}
 			, {type:"image", src:"res/building/shooter-nm.png"}
 			, {type:"image", src:"res/building/slower-nm.png"}
+			, {type:"image", src:"res/building/dec_bg.png"}
 
 			, {type:"image", src:"res/mitochondria.png"}
 			

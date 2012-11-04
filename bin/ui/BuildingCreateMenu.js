@@ -374,7 +374,7 @@ yc.ui.BuildingCreateMenu = function(){
             this.pp.removeFromParent(true);
             this.pp.label.removeFromParent(true);
         }
-        this.pp = cc.Sprite.create("res/organ/Msg.png");
+        this.pp = cc.Sprite.create("res/building/dec_bg.png");
         this.pp.label = cc.Sprite.create();
         this.pp.label.draw = function(ctx)
         {
