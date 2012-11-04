@@ -9,6 +9,8 @@ yc.ui.BuildingCreateMenu = function(){
 			title: '防御塔(射击)'
 			, description: '用于攻击进入细胞内的病毒'
 			, texture : "res/building/shooter.png"
+			, texture_l : "res/building/shooter-l.png"
+			, texture_nm : "res/building/shooter-nm.png"
 			, hexgonTypes: ['cytoplasm']
 			, cost: function(){
 				return yc.settings.building.Shooter.cost ;
@@ -23,6 +25,8 @@ yc.ui.BuildingCreateMenu = function(){
 			title: '防御塔(火炮)'
 			, description: '大范围攻击进入细胞内的病毒'
 			, texture : "res/building/cannon.png"
+			, texture_l : "res/building/cannon-l.png"
+			, texture_nm : "res/building/cannon-nm.png"
 			, hexgonTypes: ['cytoplasm']
 			, cost: function(){
 				return yc.settings.building.Cannon.cost ;
@@ -37,6 +41,8 @@ yc.ui.BuildingCreateMenu = function(){
 			title: '防御塔(喷射)'
 			, description: '向进入细胞体内的病毒喷射酸性物质，接触到的病毒都将受到伤害'
 			, texture : "res/building/jetter.png"
+			, texture_l : "res/building/jetter-l.png"
+			, texture_nm : "res/building/jetter-nm.png"
 			, hexgonTypes: ['cytoplasm']
 			, cost: function(){
 				return yc.settings.building.Jetter.cost ;
@@ -51,6 +57,8 @@ yc.ui.BuildingCreateMenu = function(){
 			title: '防御塔(减速)'
 			, description: '用于攻击进入细胞内的病毒，同时使病毒的移动减慢'
 			, texture : "res/building/slower.png"
+			, texture_l : "res/building/slower-l.png"
+			, texture_nm : "res/building/slower-nm.png"
 			, hexgonTypes: ['cytoplasm']
 			, cost: function(){
 				return yc.settings.building.Slower.cost ;
@@ -65,6 +73,8 @@ yc.ui.BuildingCreateMenu = function(){
 			title: '回收站'
 			, description: '在细胞内释放出线粒体，线粒体会主动搜集病毒在细胞内被杀死时掉落的氨基酸'
 			, texture : "res/building/recycle.png"
+			, texture_l : "res/building/recycle-l.png"
+			, texture_nm : "res/building/recycle-nm.png"
 			, hexgonTypes: ['cytoplasm']
 			, cost: function(){
 				return {
@@ -83,6 +93,8 @@ yc.ui.BuildingCreateMenu = function(){
 			title: '生长'
 			, description: '扩张为细胞内部区域'
 			, texture : "res/building/recycle.png"
+			, texture_l : "res/building/recycle-l.png"
+			, texture_nm : "res/building/recycle-nm.png"
 			, hexgonTypes: ['membrane']
 			, cost: function(){
 				
@@ -111,6 +123,8 @@ yc.ui.BuildingCreateMenu = function(){
 			title: '蛋白质工程'
 			, description: '将氨基酸合成为蛋白质'
 			, texture : "res/building/recycle.png"
+			, texture_l : "res/building/recycle-l.png"
+			, texture_nm : "res/building/recycle-nm.png"
 			, hexgonTypes: ['cytoplasm']
 			, cost: function(){
 				return {}
@@ -125,6 +139,8 @@ yc.ui.BuildingCreateMenu = function(){
 			title: '眼睛'
 			, description: '一双美丽的大眼睛'
 			, texture : "res/building/recycle.png"
+			, texture_l: "res/building/recycle-l.png"
+			, texture_nm: "res/building/recycle-nm.png"
 			, hexgonTypes: ['membrane']
 			, cost: function(){
 				return {
@@ -145,6 +161,8 @@ yc.ui.BuildingCreateMenu = function(){
 			title: '攻击塔'
 			, description: '攻击细胞外部的病毒群'
 			, texture : "res/building/oshooter.png"
+			, texture_l : "res/building/oshooter-l.png"
+			, texture_nm : "res/building/oshooter-nm.png"
 			, hexgonTypes: ['membrane']
 			, cost: function(){
 				return {
@@ -165,6 +183,8 @@ yc.ui.BuildingCreateMenu = function(){
 			title: '漂流瓶'
 			, description: '朋友无处不在'
 			, texture : "res/building/8.png"
+			, texture_l : "res/building/8-l.png"
+			, texture_nm : "res/building/8-nm.png"
 			, hexgonTypes: ['cytoplasm']
 			, cost: function(){
 				return {}
@@ -244,7 +264,7 @@ yc.ui.BuildingCreateMenu = function(){
 					continue ;
 				}
 
-				var itemUi = BuildingBtn.buildingBtnWithTexture(item.texture) ;
+				var itemUi = BuildingBtn.buildingBtnWithTexture(item.texture,item.texture_l,item.texture_nm) ;
 				var position = arrPositions.shift();
 				itemUi.isBuildingBtn =  true;
 				itemUi.building = item;
@@ -290,8 +310,10 @@ yc.ui.BuildingCreateMenu = function(){
 			inner.map.selcted_hexgon.selected = false ;
 			inner.map.selcted_hexgon = null ;
 		}
-		this.ui.removeFromParent(true);
-    	this.ui = null;
+		if(this.ui){
+			this.ui.removeFromParent(true);
+    		this.ui = null;
+		}
 	}
 	
 	this.createBuilding = function(hexgon,item){
@@ -343,6 +365,49 @@ yc.ui.BuildingCreateMenu = function(){
 		building.putOn(hexgon.x,hexgon.y) ;
 		
 		return building ;
+	}
+
+	this.showBuildingDes = function(hexgon , building , position){
+		var that = this;
+		if(this.yesMenu){
+            this.yesMenu.removeFromParent(true);
+            this.pp.removeFromParent(true);
+        }
+        this.pp = cc.Sprite.create("res/building/dec_bg.png");
+        this.ui.label = cc.Sprite.create();
+        this.ui.label.draw = function(ctx)
+        {
+            var font = ins(yc.ui.font.Font);
+            font.setWidth(190);
+            font.setHeight(75);
+            font.setTextIndent(0);
+            font.setTextAlign('left');
+            font.setLetterSpacing(4);
+            font.setLineHeight(18);
+            font.setText("[color=#F00;weight=bold;size=16;font=隶书]"+building.title +'[/]'+ 
+                "[color=#F00;size=14;font=隶书]"+building.description+'[/]');
+            font.draw(ctx);
+        }
+        this.pp.setPosition( cc.p(this.uiCenter[0] - 320 , this.uiCenter[1]) ) ;
+        this.pp.setScale(0.4,0.4);
+        this.ui.label.setPosition( cc.p(this.uiCenter[0] - 420 , this.uiCenter[1] + 50) ) ;
+        that.ui.addChild(this.pp);
+        that.ui.addChild(this.ui.label);
+
+        this.yesBtn = cc.MenuItemImage.create(
+            "res/btn-yes.png",
+            "res/btn-yes-1.png",
+            null,
+            this,
+            function (){
+                if(that.createBuilding( hexgon , building )){
+                    that.close();
+                }
+            }
+        );
+        this.yesMenu = cc.Menu.create(this.yesBtn);
+        this.yesMenu.setPosition(position);
+        that.ui.addChild(this.yesMenu);
 	}
 }
 
