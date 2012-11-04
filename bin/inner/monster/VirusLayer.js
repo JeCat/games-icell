@@ -1,6 +1,9 @@
 yc.inner.monster.VirusLayer = cc.Layer.extend({  
 
-	arrVirus: []
+	ctor: function(){
+		this._super() ;
+		this.arrVirus = [] ;
+	}
 	
 	/**
 	 * 创建一个病毒sprite

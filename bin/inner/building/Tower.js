@@ -86,7 +86,7 @@ yc.inner.building.Tower = yc.inner.building.Building.extend({
 		
 		// 瞄准病毒
 		var myPos = this.getPosition() ;
-		var arrVirus = ins(yc.inner.InnerLayer).layerVirus.arrVirus ;
+		var arrVirus = ins(yc.inner.InnerLayer).layerVirus.getChildren() ;
 		for(var i=0;i<arrVirus.length;i++)
 		{
 			var virus = arrVirus[i]

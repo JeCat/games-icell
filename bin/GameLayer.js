@@ -17,12 +17,6 @@ yc.GameLayer = cc.Layer.extend({
 	}
 
 	, onExit: function(){
-		if( document && document.removeEventListener )
-		{ 
-			document.removeEventListener('DOMMouseScroll',this.onScrollFunc); 
-		}//W3C 
-		window.onmousewheel=document.onmousewheel = null ;//IE/Opera/Chrome
-
 		// 移除resize事件
 		yc.event.unregister( ins(yc.outer.Camera), "resize", this.onResize ) ;
 	}

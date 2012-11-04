@@ -124,7 +124,7 @@ yc.outer.Camera = function()
 		var scene = cc.Director.getInstance().getRunningScene() ;
 		if( !('layerGame' in scene) )
 		{
-			log(scene.constructor.className) ;
+			// log(scene.constructor.className) ;
 			return ;
 		}
 		var layer = scene.layerGame ;

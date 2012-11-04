@@ -84,6 +84,11 @@ yc.GameScene = cc.Scene.extend({
 		this._drawBorder();
 	}
 
+	, onExit: function(){
+		// 解除所有 child 对象的引用，并出发这些 child的 onExit
+		yc.util.dissolvedScene(this) ;
+	}
+
 	, _initWorld: function(){
 
 		var screenSize = cc.Director.getInstance().getWinSize();

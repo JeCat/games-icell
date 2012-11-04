@@ -162,9 +162,15 @@ var TAG_SPRITE_MANAGER = 1;
 	};
 
 	// 加后缀
-	for(var i=0;i<c.appFiles.length;i++)
+	var url = parseUrl(location.toString()) ;
+
+	// 自动加载内置关卡
+	if( 'qv' in url.anchorParams )
 	{
-		c.appFiles[i]+= "?v=6" ;
+		for(var i=0;i<c.appFiles.length;i++)
+		{
+			c.appFiles[i]+= "?qv="+url.anchorParams.qv ;
+		}
 	}
 
 	window.addEventListener('DOMContentLoaded', function () {
@@ -180,3 +186,34 @@ var TAG_SPRITE_MANAGER = 1;
 
 
 
+
+function parseUrl(url) {
+    var a =  document.createElement('a');
+    a.href = url;
+    var parseQuery = function(q){
+            var ret = {},
+                seg = q.replace(/^\?/,'').split('&'),
+                len = seg.length, i = 0, s;
+            for (;i<len;i++) {
+                if (!seg[i]) { continue; }
+                s = seg[i].split('=');
+                ret[s[0]] = s[1];
+            }
+            return ret;
+        }
+
+    return {
+        source: url,
+        protocol: a.protocol.replace(':',''),
+        host: a.hostname,
+        port: a.port,
+        query: a.search,
+        params: parseQuery(a.search),
+        file: (a.pathname.match(/\/([^\/?#]+)$/i) || [,''])[1],
+        hash: a.hash.replace('#',''),
+        anchorParams: parseQuery(a.hash.replace('#','')),
+        path: a.pathname.replace(/^([^\/])/,'/$1'),
+        relative: (a.href.match(/tps?:\/\/[^\/]+(.+)/) || [,''])[1],
+        segments: a.pathname.replace(/^\//,'').split('/')
+    };
+}

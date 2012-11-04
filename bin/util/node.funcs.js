@@ -153,3 +153,20 @@ yc.util.correctRotation = function(node){
 
 	return ajustR ;
 }
+
+
+yc.util.dissolvedScene = function(node){
+
+	var children = node.getChildren() ;
+	for(var i=children.length-1; i>=0; i--)
+	{
+		// 递归
+		if( !('singleton' in children[i].constructor) || children[i].constructor.singleton )
+		{
+			yc.util.dissolvedScene(children[i]) ;
+		}
+
+		// 解除 child 引用
+		node.removeChild(children[i]) ;
+	}
+}
