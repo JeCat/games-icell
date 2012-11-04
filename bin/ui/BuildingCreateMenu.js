@@ -281,11 +281,7 @@ yc.ui.BuildingCreateMenu = function(){
 		        "res/btn-no-1.png",
 		        null,
 		        this,
-		        function (){
-		        	buildingCreateMenu.ui.removeFromParent(true);
-		        	buildingCreateMenu.ui = null;
-		        	window.event.cancelBubble = true;   //stop event go through
-		        }
+		        this.close
 		    );
 		    var closeMenu = cc.Menu.create(closeBtn);
 		    closeMenu.setPosition(this.uiCenter[0]  , this.uiCenter[1] );
@@ -300,11 +296,16 @@ yc.ui.BuildingCreateMenu = function(){
 			// itemUi.setPosition(cc.p( this.uiCenter[0] + position[0], this.uiCenter[1]  + position[1] ));
 		 //    cc.MoveTo.create(2, cc.p(s.width - 40, s.height - 40));
 
+
+		 	ins(yc.outer.PlayerLayer).setNeedFaceToPoint(false) ;
 		}
+
 	}
 	
 	this.close = function(){
 		var inner = ins(yc.inner.InnerLayer) ;
+		ins(yc.outer.PlayerLayer).setNeedFaceToPoint(true) ;
+
 		if(inner.map.selcted_hexgon)
 		{
 			inner.map.selcted_hexgon.selected = false ;
@@ -367,7 +368,7 @@ yc.ui.BuildingCreateMenu = function(){
 		return building ;
 	}
 
-	this.showBuildingDes = function(hexgon , building , position){
+	this.showBuildingDes = function(hexgon , building , position , allowBuild){
 		var that = this;
 		if(this.yesMenu){
             this.yesMenu.removeFromParent(true);
@@ -394,20 +395,40 @@ yc.ui.BuildingCreateMenu = function(){
         that.ui.addChild(this.pp);
         that.ui.addChild(this.ui.label);
 
-        this.yesBtn = cc.MenuItemImage.create(
-            "res/btn-yes.png",
-            "res/btn-yes-1.png",
-            null,
-            this,
-            function (){
-                if(that.createBuilding( hexgon , building )){
-                    that.close();
-                }
-            }
-        );
-        this.yesMenu = cc.Menu.create(this.yesBtn);
-        this.yesMenu.setPosition(position);
-        that.ui.addChild(this.yesMenu);
+        if(allowBuild){
+        	this.yesBtn = cc.MenuItemImage.create(
+	            "res/btn-yes.png",
+	            "res/btn-yes-1.png",
+	            null,
+	            this,
+	            function (){
+	                if(that.createBuilding( hexgon , building )){
+	                    that.close();
+	                }
+	            }
+	        );
+	        this.yesMenu = cc.Menu.create(this.yesBtn);
+	        this.yesMenu.setPosition(position);
+	        that.ui.addChild(this.yesMenu);
+        }
+	}
+
+	this.onProteinsChanged = function(){
+		var children = this.ui.getChildren();
+		for(var btn in children){
+			if(children[btn]._rect){ //is btn?
+				if(children[btn].isLocked()){
+					continue;
+				}
+				if(this.checkCost(children[btn].building.cost)){
+					children[btn].setFaceType(0);
+					children[btn].setBuildable(true);
+				}else{
+					children[btn].setFaceType('nm');
+					children[btn].setBuildable(false);
+				}
+			}
+		}
 	}
 }
 

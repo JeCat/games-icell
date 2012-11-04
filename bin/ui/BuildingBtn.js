@@ -21,6 +21,21 @@ var BuildingBtn = cc.Sprite.extend({
         return true;
     },
     onEnter:function () {
+
+        // this.interval = setInterval(function(){
+        //     var howLongPress = Date.parse(new Date())/1000 - target.nTime;
+        //     if( howLongPress > 1){
+        //         target.toglleAutoMode();
+        //         clearInterval(target.interval);
+        //         target.nTime = 0 ;
+        //     }
+        // },300);
+
+        if(this.isLocked()){
+            this.setFaceType('l');
+            this.setBuildable(false);
+        }
+
         cc.Director.getInstance().getTouchDispatcher().addTargetedDelegate(this, 0, true);
         this._super();
     },
@@ -53,7 +68,7 @@ var BuildingBtn = cc.Sprite.extend({
 
         var BuildingCreateMenu = ins(yc.ui.BuildingCreateMenu);
             
-        BuildingCreateMenu.showBuildingDes(this.hexgon , this.building , this.toPosition);
+        BuildingCreateMenu.showBuildingDes(this.hexgon , this.building , this.toPosition , this.bBuildabel);
 
         console.log( this.building.title + ' building btn touch end');
         
@@ -107,6 +122,22 @@ var BuildingBtn = cc.Sprite.extend({
         }
         this._arrTextures.push(aTexture);
     }
+    //type : nm = noMoney ; l = lock ; other = normal
+    , setFaceType : function(type){
+        if(type==='nm'){
+            this.setTexture(this._arrTextures[2]);
+        }else if(type==='l'){
+            this.setTexture(this._arrTextures[1]);
+        }else{
+            this.setTexture(this._arrTextures[0]);
+        }
+    }
+    , setBuildable: function( bBuildabel ){
+        this.bBuildabel = bBuildabel ? true:false;
+    }
+    , isLocked : function(){
+        return false;
+    }
 });
 
 BuildingBtn.buildingBtnWithTexture = function (sImgName1,sImgName2,sImgName3 ) {
@@ -121,6 +152,8 @@ BuildingBtn.buildingBtnWithTexture = function (sImgName1,sImgName2,sImgName3 ) {
     }else{
         return false;
     }
+
+    buildingBtn.setBuildable(true);
 
     buildingBtn.initWithTexture(aTexture1);
 
