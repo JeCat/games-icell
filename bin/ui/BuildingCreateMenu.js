@@ -372,14 +372,13 @@ yc.ui.BuildingCreateMenu = function(){
 		if(this.yesMenu){
             this.yesMenu.removeFromParent(true);
             this.pp.removeFromParent(true);
-            this.pp.label.removeFromParent(true);
         }
         this.pp = cc.Sprite.create("res/building/dec_bg.png");
-        this.pp.label = cc.Sprite.create();
-        this.pp.label.draw = function(ctx)
+        this.ui.label = cc.Sprite.create();
+        this.ui.label.draw = function(ctx)
         {
             var font = ins(yc.ui.font.Font);
-            font.setWidth(140);
+            font.setWidth(190);
             font.setHeight(75);
             font.setTextIndent(0);
             font.setTextAlign('left');
@@ -389,10 +388,11 @@ yc.ui.BuildingCreateMenu = function(){
                 "[color=#F00;size=14;font=隶书]"+building.description+'[/]');
             font.draw(ctx);
         }
-        this.pp.setPosition(position);
-        this.pp.label.setPosition(position);
+        this.pp.setPosition( cc.p(this.uiCenter[0] - 320 , this.uiCenter[1]) ) ;
+        this.pp.setScale(0.4,0.4);
+        this.ui.label.setPosition( cc.p(this.uiCenter[0] - 420 , this.uiCenter[1] + 50) ) ;
         that.ui.addChild(this.pp);
-        that.ui.addChild(this.pp.label);
+        that.ui.addChild(this.ui.label);
 
         this.yesBtn = cc.MenuItemImage.create(
             "res/btn-yes.png",
