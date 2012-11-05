@@ -8,6 +8,8 @@ yc.outer.Camera = function()
 	this.x = 0 ;
 	this.y = 0 ;
 
+	this.bBoundaryOverflow = false ;
+
 	this.update = function(){
 		this.width = canvas.width ;
 		this.height = canvas.height ;
@@ -57,31 +59,35 @@ yc.outer.Camera = function()
 	
 	this.moveByFocus = function(x,y)
 	{
-		var scale = ins(yc.GameLayer).getScale() ;
-		
-		var halfWidth = this.width / 2 / scale;
-		var rightBorder = scene.rgt +10;
-		var leftBorder = scene.lft -10;
-		var halfGameSceneWidth = ( scene.rgt - scene.lft ) / 2 ;
-		if( halfWidth > halfGameSceneWidth ){
-			x = ( leftBorder + rightBorder ) / 2 ;
-		}else if (x - halfWidth < leftBorder ){
-			x = leftBorder + halfWidth ;
-		}else if( x + halfWidth > rightBorder ){
-			x = rightBorder - halfWidth ;
+		if( !this.bBoundaryOverflow  )
+		{
+			var scale = ins(yc.GameLayer).getScale() ;
+			
+			var halfWidth = this.width / 2 / scale;
+			var rightBorder = scene.rgt +10;
+			var leftBorder = scene.lft -10;
+			var halfGameSceneWidth = ( scene.rgt - scene.lft ) / 2 ;
+			if( halfWidth > halfGameSceneWidth ){
+				x = ( leftBorder + rightBorder ) / 2 ;
+			}else if (x - halfWidth < leftBorder ){
+				x = leftBorder + halfWidth ;
+			}else if( x + halfWidth > rightBorder ){
+				x = rightBorder - halfWidth ;
+			}
+			
+			var halfHeight = this.height/ 2 /scale ;
+			var topBorder = scene.top + 10;
+			var bottomBorder = scene.btm - 10;
+			var halfGameSceneHeight = ( scene.top - scene.btm ) / 2 ;
+			if( halfHeight > halfGameSceneHeight ){
+				y = ( topBorder + bottomBorder ) / 2 ;
+			}else if( y + halfHeight > topBorder ){
+				y = topBorder - halfHeight ;
+			}else if( y - halfHeight < bottomBorder ){
+				y = bottomBorder + halfHeight ;
+			}
 		}
-		
-		var halfHeight = this.height/ 2 /scale ;
-		var topBorder = scene.top + 10;
-		var bottomBorder = scene.btm - 10;
-		var halfGameSceneHeight = ( scene.top - scene.btm ) / 2 ;
-		if( halfHeight > halfGameSceneHeight ){
-			y = ( topBorder + bottomBorder ) / 2 ;
-		}else if( y + halfHeight > topBorder ){
-			y = topBorder - halfHeight ;
-		}else if( y - halfHeight < bottomBorder ){
-			y = bottomBorder + halfHeight ;
-		}
+
 		this.x = this.focusX = x ;
 		this.y = this.focusY = y ;
 
@@ -118,7 +124,7 @@ yc.outer.Camera = function()
 		var scene = cc.Director.getInstance().getRunningScene() ;
 		if( !('layerGame' in scene) )
 		{
-			log(scene.constructor.className) ;
+			// log(scene.constructor.className) ;
 			return ;
 		}
 		var layer = scene.layerGame ;
@@ -182,19 +188,25 @@ yc.outer.Camera.transformPosition = function(entity){
 	} ;
 }
 
-yc.outer.Camera.transformSprite = function(context){
+yc.outer.Camera.transformSprite = function(ctx){
 
 	var transform = yc.outer.Camera.transformPosition(this) ;
 
 	this.transformX = transform.x ;
 	this.transformY = -transform.y ;
-	context.translate( this.transformX, this.transformY );
+	ctx.translate( this.transformX, this.transformY );
 
-	if (this._rotation != 0)
-	    context.rotate(this._rotationRadians);
+	// 透明度
+	ctx.globalAlpha = ctx.globalAlpha * (this.getOpacity()/255) ;
 
-	if ((this._scaleX != 1) || (this._scaleY != 1))
-	    context.scale(this._scaleX, this._scaleY);
+	// 角度
+	if (this.getRotation() != 0)
+	{
+		ctx.rotate(this._rotationRadians) ;
+	}
+
+	// 缩放
+	ctx.scale(this.getScaleX(),this.getScaleY()) ;
 }
 
 yc.outer.Camera.worldPos2ScreenPos = function( p ){

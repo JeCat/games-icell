@@ -60,18 +60,6 @@ yc.inner.building.Building = cc.Sprite.extend({
 		ctx.rotate( this.getRotation() ) ;
 
 		this._super(ctx) ;
-		return;
-		
-		
-		ctx.fillStyle = "rgb(150,150,200)" ;
-	
-		ctx.beginPath() ;
-		ctx.moveTo(yc.settings.inner.hexgonSideLength-5,0) ;
-		ctx.arc(0,0, yc.settings.inner.hexgonSideLength-5, 0, Math.PI*2 , false) ;
-		ctx.closePath() ;
-		
-		ctx.fill() ;
-		ctx.stroke() ;
 	}
 	
 	/**

@@ -72,7 +72,8 @@ yc.util.windowToClient.debug = false ;
  * 将node内部的坐标x,y 转换成窗口坐标x,y
  * 计算node各级父窗口的锚点、缩放 和 旋转
  */
-yc.util.clientToWindow = function(node,x,y) {
+yc.util.clientToWindow = function(node,x,y,winNode) {
+
 
 	var parent = node.getParent() ;
 	if( !parent )
@@ -116,8 +117,16 @@ yc.util.clientToWindow = function(node,x,y) {
 	x+= p.x ;
 	y+= p.y ;
 
-	// 递归处理
-	return yc.util.clientToWindow(parent,x,y) ;
+
+	if( parent===winNode )
+	{
+		return [x,y] ;
+	}
+	else
+	{
+		// 递归处理
+		return yc.util.clientToWindow(parent,x,y,winNode) ;
+	}
 }
 yc.util.clientToWindow.debug = false ;
 
@@ -143,4 +152,21 @@ yc.util.correctRotation = function(node){
 	}
 
 	return ajustR ;
+}
+
+
+yc.util.dissolvedScene = function(node){
+
+	var children = node.getChildren() ;
+	for(var i=children.length-1; i>=0; i--)
+	{
+		// 递归
+		if( !('singleton' in children[i].constructor) || children[i].constructor.singleton )
+		{
+			yc.util.dissolvedScene(children[i]) ;
+		}
+
+		// 解除 child 引用
+		node.removeChild(children[i]) ;
+	}
 }

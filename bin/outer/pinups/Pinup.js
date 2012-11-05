@@ -9,14 +9,21 @@ yc.outer.pinups.Pinup = cc.Sprite.extend({
 		yc.outer.pinups.Pinup.pool[this.id] = this ;
 		this.velocity = [0,0,0] ;	// 0: x, 1: y, 2: angle
 		this.scheduleUpdate();
+
+		//this.__defineSetter__('_opacity',this.setOpacity) ;
 	}
 
+ 	// , setOpacity: function(v){
+ 	// 	this.__opacity = v ;
+ 	// }
+ 	// , getOpacity: function(){
+ 	// 	return this.__opacity ;
+ 	// }
+
 	, draw: function(ctx){
-		
-		ctx.globalAlpha = this.getOpacity()/255 ;
-		//log(this.getOpacity())
-		ctx.rotate(this.getRotation()) ;
-		ctx.scale(this.getScaleX(),this.getScaleY()) ;
+
+		// ctx.rotate(this.getRotation()) ;
+		// ctx.scale(this.getScaleX(),this.getScaleY()) ;
 
 		// 平铺
 		if(this._script.tile)
@@ -71,7 +78,13 @@ yc.outer.pinups.Pinup = cc.Sprite.extend({
 		this.setRotation(script.rotation) ;
 		this.setScale(script.scaleX,script.scaleY) ;
 		this.setAnchorPoint(cc.p(script.anchorX,script.anchorY)) ;
+	}
 
+	, initWithTexture: function(texture, rect, rotated){
+		this._super(texture, rect, rotated) ;
+
+		// 重新设置透明度（CCSprite::initWithTexture()会将透明度设置为 255）
+		this.setOpacity(parseInt(this._script.opacity)) ;
 	}
 
 	, update: function(dt){
@@ -94,6 +107,10 @@ yc.outer.pinups.Pinup = cc.Sprite.extend({
 	}
 
 	, transform: yc.outer.Camera.transformSprite
+	// , transform: function(ctx){
+	// 	yc.outer.Camera.transformSprite.apply(this,[ctx]) ;
+	// 	//ctx.scale(this.getScaleX(),this.getScaleY()) ; 
+	// }
 }) ;
 
 yc.outer.pinups.Pinup.insId = -1 ;

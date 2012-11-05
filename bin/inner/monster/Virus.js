@@ -199,7 +199,7 @@ yc.inner.monster.Virus = cc.Sprite.extend({
 	}
 	
 	, destroy: function(){
-		//log('virus ('+this.__ObjectPoolId__+') destroy') ;
+		log('virus ('+this.__ObjectPoolId__+') destroy') ;
 		this.alive = false ;
 		this.stopRun() ;
 		this.stopAllActions() ;

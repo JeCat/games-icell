@@ -2,7 +2,7 @@ yc.ui.editer.WorldEditerLayer = cc.Layer.extend({
 
 	
 	
-	ctor: function(){
+	ctor: function(editor){
 		this._super() ;
 
 		this.worldMinX = null ;
@@ -19,6 +19,8 @@ yc.ui.editer.WorldEditerLayer = cc.Layer.extend({
 
 		this._ptDragging = null ;
 		this._dragingScale = 1 ;
+
+		this.editor = editor ;
 
 
 		// 点击事件
@@ -124,8 +126,12 @@ yc.ui.editer.WorldEditerLayer = cc.Layer.extend({
 
 		yc.util.text(ctx, "x:"+cam.x.toFixed(1)+", y:"+cam.y.toFixed(1) ,-30,25, "rgb(191,219,129)") ;
 
+
+		// 光标
 		if(this.touchCallback)
 		{
+			ctx.save() ;
+
 			var wsize = cc.Director.getInstance().getWinSize() ;
 			ctx.translate( this.touchingX-wsize.width/2, wsize.height-this.touchingY-wsize.height/2 ) ;
 
@@ -133,9 +139,45 @@ yc.ui.editer.WorldEditerLayer = cc.Layer.extend({
 			yc.util.drawLine([10,0],[1,0],ctx,'white') ;
 			yc.util.drawLine([0,10],[0,1],ctx,'white') ;
 			yc.util.drawLine([0,-10],[0,-1],ctx,'white') ;
+
+			ctx.restore() ;
 		}
 
-		//yc.util.drawCircle(ctx,0,0,300,300,"red","red")
+		// 画选中的污渍 ---------
+		if( yc.settings.outer.stain.dbg && this.editor.stain.selectedStain )
+		{
+			ctx.save() ;
+
+			// 转换到屏幕左下角
+			var wsize = cc.Director.getInstance().getWinSize() ;
+			ctx.translate( -wsize.width/2, wsize.height/2 ) ;
+
+			// 转换到 game layer 坐标系
+			cc.Director.getInstance().getRunningScene().layerGame.transform(ctx) ;
+
+			// 转换到 stain 的坐标系
+			this.editor.stain.selectedStain.transform(ctx) ;
+
+			// 开始绘制污渍的形状
+			var shapes = this.editor.stain.selectedStain._script.shapes ;
+			for(var i=0;i<shapes.length;i++)
+			{
+				// 多边形
+				if( shapes[i].type=='polygon' )
+				{
+					var fillStyle = this.editor.stain.selectedStainShape===shapes[i]? "rgba(255,0,0,0.2)": null ;
+					yc.util.drawPolygon(shapes[i].points,ctx,"red",fillStyle,true) ;
+				}
+				// 圆
+				else if(shapes[i].type=='circle')
+				{
+					// todo ...
+				}
+
+			}
+
+			ctx.restore() ;
+		}
 	}
 	
 

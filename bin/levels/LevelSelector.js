@@ -40,6 +40,8 @@ yc.levels.LevelSelector.enterLevel = function(levelScript){
 		}
 
 		, onExit: function(){
+			this._super() ;
+
 			if('onExit' in levelScript)
 			{
 				levelScript.onExit.apply(this) ;

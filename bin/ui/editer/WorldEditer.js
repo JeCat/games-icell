@@ -9,7 +9,7 @@ yc.ui.editer.WorldEditer = function(){
 	editer = this ;
 
 	// 辅助层
-	this.layer = new yc.ui.editer.WorldEditerLayer() ;
+	this.layer = new yc.ui.editer.WorldEditerLayer(this) ;
 
 	this.open = function(){
 		this.ui.show() ;
@@ -24,6 +24,13 @@ yc.ui.editer.WorldEditer = function(){
 		ins(yc.outer.Cell)._followingCamera = null ; 									// 停止摄像机跟随
 		cc.Director.getInstance().getRunningScene().layerPlayer.dontMoving = true ;		// 停止鼠标控制玩家
 
+
+		ins(yc.outer.Camera).bBoundaryOverflow = true ; 	// 允许镜头溢出
+
+		// 缩放范围
+		ins(yc.outer.Camera).maxZoom = 3 ;
+		ins(yc.outer.Camera).minZoom = 0.02 ;
+
 		// 辅助层
 		cc.Director.getInstance().getRunningScene().addChild( this.layer ) ;
 		
@@ -31,12 +38,7 @@ yc.ui.editer.WorldEditer = function(){
 		this.unlockGenes();
 
 		// 刷新一下内容
-		this.refreshRoles() ;
-		this.refreshSettings() ;
-		this.role.refreshAminoAcids() ;
-		this.role.refreshVirusCluster() ;
-		this.stain.refreshStains() ;
-		this.pinup.refreshPinups() ;
+		this.refresh() ;
 
 		// 打开ui
 		this.ui.show() ;
@@ -62,6 +64,13 @@ yc.ui.editer.WorldEditer = function(){
 		ins(yc.outer.Cell)._followingCamera = ins(yc.outer.Camera) ; 					// 恢复摄像机跟随
 		cc.Director.getInstance().getRunningScene().layerPlayer.dontMoving = false ;	// 恢复鼠标控制玩家
 
+		ins(yc.outer.Camera).bBoundaryOverflow = false ; 	// 禁止镜头溢出
+
+		// 缩放范围
+		ins(yc.outer.Camera).maxZoom = yc.settings.camera.defautlMaxZoom ;
+		ins(yc.outer.Camera).minZoom = yc.settings.camera.defautlMinZoom ;
+
+		// 辅助层
 		this.layer.removeFromParent() ;
 		
 		// 恢复 genes
@@ -70,6 +79,15 @@ yc.ui.editer.WorldEditer = function(){
 		// 关闭ui
 		$("#editor-panel-space").width(0) ;
 		ICellGame.instance.resize() ;
+	}
+
+	this.refresh = function(){
+		this.refreshRoles() ;
+		this.refreshSettings() ;
+		this.role.refreshAminoAcids() ;
+		this.role.refreshVirusCluster() ;
+		this.stain.refreshStains() ;
+		this.pinup.refreshPinups() ;
 	}
 	
 	this.message = function(msg){
@@ -211,9 +229,15 @@ yc.ui.editer.WorldEditer.loadOptions = function(sel,opts,each)
 			.val(info.value)
 			.data('object',opts[i])
 			.data('info',info)
+			.attr('selected',info.selected)
 			.click(function(){
 				$(this).data('info').click($(this).data('object')) ;
 			}) ;
+
+		if( info.selected )
+		{
+			optUi[0].click() ;
+		}
 	}
 }
 

@@ -84,6 +84,11 @@ yc.GameScene = cc.Scene.extend({
 		this._drawBorder();
 	}
 
+	, onExit: function(){
+		// 解除所有 child 对象的引用，并出发这些 child的 onExit
+		yc.util.dissolvedScene(this) ;
+	}
+
 	, _initWorld: function(){
 
 		var screenSize = cc.Director.getInstance().getWinSize();
@@ -328,46 +333,6 @@ yc.GameScene = cc.Scene.extend({
 			},
 			id:level,
 		} ;
-
-		// 玩家 -------
-		var outerCell = ins(yc.outer.Cell) ;
-		var innerCell = ins(yc.inner.Cell) ;
-		script.player = {
-			x: outerCell.x
-			, y: outerCell.y
-
-			/* , cell: {
-				nucleus: {
-					x: innerCell.nucleus.x
-					, y: innerCell.nucleus.y
-				}
-			}*/
-		}
-
-		script.player.cytoplasms = [] ;
-		for(var i=0;i<innerCell.cytoplasms.length;i++)
-		{
-			script.player.cytoplasms.push({x:innerCell.cytoplasms[i].x,y:innerCell.cytoplasms[i].y}) ;
-		}
-		script.player.membranes = [] ;
-		for(var i=0;i<innerCell.membranes.length;i++)
-		{
-			script.player.membranes.push({x:innerCell.membranes[i].x,y:innerCell.membranes[i].y}) ;
-		}
-		// 氨基酸池
-		var pool = ins(yc.user.Character).aminoacids ;
-		script.player.aminoacidpool = {
-			red: pool.red
-			, yellow: pool.yellow
-			, blue: pool.blue
-		} ;
-		// 蛋白质池
-		pool = ins(yc.user.Character).proteins ;
-		script.player.proteinpool = {} ;
-		for(var name in  pool.mapProteins)
-		{
-			script.player.proteinpool[name] = pool.mapProteins[name] ;
-		}
 
 		// 污渍 ----------
 		script.stains = [] ;
