@@ -225,6 +225,10 @@ yc.ui.BuildingCreateMenu = function(){
 		// cc.MoveTo.create(2, cc.p(s.width - 40, s.height - 40));
 
 		if(!this.ui){
+
+			ins(yc.outer.PlayerLayer).setNeedFaceToPoint(false) ;
+
+
 			var arrPositions = [
 				[0,150]
 				, [-75,129]
@@ -269,8 +273,10 @@ yc.ui.BuildingCreateMenu = function(){
 				itemUi.building = item;
 				itemUi.hexgon = hexgon;
 				// itemUi.setScale(0.3,0.3);
-				itemUi.toPosition = cc.p( this.uiCenter[0] + position[0], this.uiCenter[1]  + position[1] );
-				itemUi.setPosition(cc.p( this.uiCenter[0] + position[0], this.uiCenter[1]  + position[1] ));
+				itemUi.toPosition = cc.p(  position[0], position[1] );
+				// itemUi.toPosition = cc.p( this.uiCenter[0] + position[0], this.uiCenter[1]  + position[1] );
+				// itemUi.setPosition(cc.p( this.uiCenter[0] + position[0], this.uiCenter[1]  + position[1] ));
+				itemUi.setPosition(cc.p(  position[0],  position[1] ));
 				// itemUi.setContentSize(new cc.Size(10,10));
 				this.ui.addChild( itemUi );
 			}
@@ -283,7 +289,7 @@ yc.ui.BuildingCreateMenu = function(){
 		        this.close
 		    );
 		    var closeMenu = cc.Menu.create(closeBtn);
-		    closeMenu.setPosition(this.uiCenter[0]  , this.uiCenter[1] );
+		    closeMenu.setPosition( cc.p( 0 , 0) );
 		    this.ui.addChild(closeMenu);
 
 		    // for(var buildingBtn in ){
@@ -295,15 +301,20 @@ yc.ui.BuildingCreateMenu = function(){
 			// itemUi.setPosition(cc.p( this.uiCenter[0] + position[0], this.uiCenter[1]  + position[1] ));
 		 //    cc.MoveTo.create(2, cc.p(s.width - 40, s.height - 40));
 
-		 	ins(yc.outer.PlayerLayer).setNeedFaceToPoint(false) ;
+		 	
 
 		 	this.onProteinsChanged();
+
+		 	// this.ui.setContentSize(new cc.Size(200,200));
+		 	// this.ui.ignoreAnchorPointForPosition(false);
+		 	this.ui.setPosition(cc.p( this.uiCenter[0] ,this.uiCenter[1]));
+		 	this.ui.setAnchorPoint( cc.p(0.5,0.5) );
+		 	this.ui.setRotation(20);
 		}
 	}
 	
 	this.close = function(){
 		var inner = ins(yc.inner.InnerLayer) ;
-		ins(yc.outer.PlayerLayer).setNeedFaceToPoint(true) ;
 
 		if(inner.map.selcted_hexgon)
 		{
@@ -318,6 +329,7 @@ yc.ui.BuildingCreateMenu = function(){
 		if(window.event.type === 'mouseup'){
 			window.event.cancelBubble = true;
 		}
+		ins(yc.outer.PlayerLayer).setNeedFaceToPoint(true) ;
 	}
 	
 	this.createBuilding = function(hexgon,item){
