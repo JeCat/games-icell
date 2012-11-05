@@ -7,6 +7,7 @@ yc.ui.dashboard = {} ;
 yc.ui.editer = {} ;
 yc.ui.skill = {} ;
 yc.ui.font = {} ;
+yc.ui.menu = {} ;
 yc.outer = {} ;
 yc.outer.pinups = {} ;
 yc.inner = {} ;
@@ -78,6 +79,8 @@ var TAG_SPRITE_MANAGER = 1;
 
 			, 'bin/ui/font/Font.js'
 			, 'bin/ui/font/Html5Font.js'
+			
+			, 'bin/ui/menu/Menu.js'
 			
 			, 'bin/outer/Camera.js'
 			, 'bin/outer/LifeEntity.js'
