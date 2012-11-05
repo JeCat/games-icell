@@ -295,12 +295,10 @@ yc.ui.BuildingCreateMenu = function(){
 			// itemUi.setPosition(cc.p( this.uiCenter[0] + position[0], this.uiCenter[1]  + position[1] ));
 		 //    cc.MoveTo.create(2, cc.p(s.width - 40, s.height - 40));
 
-
 		 	ins(yc.outer.PlayerLayer).setNeedFaceToPoint(false) ;
 
 		 	this.onProteinsChanged();
 		}
-
 	}
 	
 	this.close = function(){
@@ -391,7 +389,9 @@ yc.ui.BuildingCreateMenu = function(){
             font.setLetterSpacing(4);
             font.setLineHeight(18);
             font.setText("[color=#F00;weight=bold;size=16;font=隶书]"+building.title +'[/]'+ 
-                "[color=#F00;size=14;font=隶书]"+building.description+'[/]');
+                "[color=#F00;size=14;font=隶书]"+building.description+'[/]'+
+                yc.ui.costDec(building.cost())
+                );
             font.draw(ctx);
         }
         this.pp.setPosition( cc.p(this.uiCenter[0] - 320 , this.uiCenter[1]) ) ;
@@ -453,24 +453,23 @@ yc.ui.checkCost = function(cost){
 }
 
 
-// yc.ui.costHtml = function(cost){
-
-// 	var costHtml = '' ;
-// 	var idx = 0 ;
-// 	for(var proteinName in cost)
-// 	{
-// 		var proteinFormula = ins(yc.user.ProteinFormulas).worldFormulas[proteinName] ;
-// 		if(proteinFormula===undefined)
-// 		{
-// 			log("mission protein "+proteinName+"'s formula.") ;
-// 			continue ;
-// 		}
-// 		if(idx++)
-// 		{
-// 			costHtml+= ' + ' ;
-// 		}
-// 		costHtml+= '<span style="color:'+proteinFormula.colorHtml+'">♫ ' + cost[proteinName] + '</span> ' ;
-// 	}
+yc.ui.costDec = function(cost){
+	var costHtml = '' ;
+	var idx = 0 ;
+	for(var proteinName in cost)
+	{
+		var proteinFormula = ins(yc.user.ProteinFormulas).worldFormulas[proteinName] ;
+		if(proteinFormula===undefined)
+		{
+			log("mission protein "+proteinName+"'s formula.") ;
+			continue ;
+		}
+		if(idx++)
+		{
+			costHtml+= ' + ' ;
+		}
+		costHtml+= '[color:'+proteinFormula.colorHtml+']♫ ' + cost[proteinName] + '[/]' ;
+	}
 	
-// 	return costHtml ;
-// }
+	return costHtml ;
+}
