@@ -106,7 +106,7 @@ yc.ui.BuildingUpgradeMenu = function(){
 		{
 			this.costRecovering[p] = Math.round(building.cost[p]*0.7) ;
 		}
-		this.ui.find('#cost-recovering').html(yc.ui.costHtml(this.costRecovering)) ;
+		// this.ui.find('#cost-recovering').html(yc.ui.costHtml(this.costRecovering)) ;
 
 		
 		this.ui.css({

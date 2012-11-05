@@ -97,7 +97,6 @@ yc.ui.BuildingCreateMenu = function(){
 			, texture_nm : "res/building/recycle-nm.png"
 			, hexgonTypes: ['membrane']
 			, cost: function(){
-				
 				return {
 					red: 10 * (ins(yc.inner.Cell).grown+1)
 					, green: 10 * (ins(yc.inner.Cell).grown+1)
@@ -298,6 +297,8 @@ yc.ui.BuildingCreateMenu = function(){
 
 
 		 	ins(yc.outer.PlayerLayer).setNeedFaceToPoint(false) ;
+
+		 	this.onProteinsChanged();
 		}
 
 	}
@@ -314,6 +315,10 @@ yc.ui.BuildingCreateMenu = function(){
 		if(this.ui){
 			this.ui.removeFromParent(true);
     		this.ui = null;
+		}
+		// cancel event
+		if(window.event.type === 'mouseup'){
+			window.event.cancelBubble = true;
 		}
 	}
 	
@@ -414,13 +419,16 @@ yc.ui.BuildingCreateMenu = function(){
 	}
 
 	this.onProteinsChanged = function(){
+		if(!this.ui){
+			return;
+		}
 		var children = this.ui.getChildren();
 		for(var btn in children){
 			if(children[btn]._rect){ //is btn?
 				if(children[btn].isLocked()){
 					continue;
 				}
-				if(this.checkCost(children[btn].building.cost)){
+				if(yc.ui.checkCost(children[btn].building.cost())){
 					children[btn].setFaceType(0);
 					children[btn].setBuildable(true);
 				}else{
@@ -431,33 +439,11 @@ yc.ui.BuildingCreateMenu = function(){
 		}
 	}
 }
-
-yc.ui.costHtml = function(cost){
-
-	var costHtml = '' ;
-	var idx = 0 ;
-	for(var proteinName in cost)
-	{
-		var proteinFormula = ins(yc.user.ProteinFormulas).worldFormulas[proteinName] ;
-		if(proteinFormula===undefined)
-		{
-			log("mission protein "+proteinName+"'s formula.") ;
-			continue ;
-		}
-		if(idx++)
-		{
-			costHtml+= ' + ' ;
-		}
-		costHtml+= '<span style="color:'+proteinFormula.colorHtml+'">♫ ' + cost[proteinName] + '</span> ' ;
-	}
-	
-	return costHtml ;
-}
 yc.ui.checkCost = function(cost){
-
 	var pool = ins(yc.user.Character).proteins ;
 	for(var protein in cost)
 	{
+		// console.log(pool.num(protein) , cost[protein]);
 		if( pool.num(protein) < cost[protein] )
 		{
 			return false ;
@@ -465,3 +451,26 @@ yc.ui.checkCost = function(cost){
 	}
 	return true ;
 }
+
+
+// yc.ui.costHtml = function(cost){
+
+// 	var costHtml = '' ;
+// 	var idx = 0 ;
+// 	for(var proteinName in cost)
+// 	{
+// 		var proteinFormula = ins(yc.user.ProteinFormulas).worldFormulas[proteinName] ;
+// 		if(proteinFormula===undefined)
+// 		{
+// 			log("mission protein "+proteinName+"'s formula.") ;
+// 			continue ;
+// 		}
+// 		if(idx++)
+// 		{
+// 			costHtml+= ' + ' ;
+// 		}
+// 		costHtml+= '<span style="color:'+proteinFormula.colorHtml+'">♫ ' + cost[proteinName] + '</span> ' ;
+// 	}
+	
+// 	return costHtml ;
+// }
