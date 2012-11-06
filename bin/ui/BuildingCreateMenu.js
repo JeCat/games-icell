@@ -9,6 +9,8 @@ yc.ui.BuildingCreateMenu = function(){
 			title: '防御塔(射击)'
 			, description: '用于攻击进入细胞内的病毒'
 			, texture : "res/building/shooter.png"
+			, texture_l : "res/building/shooter-l.png"
+			, texture_nm : "res/building/shooter-nm.png"
 			, hexgonTypes: ['cytoplasm']
 			, cost: function(){
 				return yc.settings.building.Shooter.cost ;
@@ -23,6 +25,8 @@ yc.ui.BuildingCreateMenu = function(){
 			title: '防御塔(火炮)'
 			, description: '大范围攻击进入细胞内的病毒'
 			, texture : "res/building/cannon.png"
+			, texture_l : "res/building/cannon-l.png"
+			, texture_nm : "res/building/cannon-nm.png"
 			, hexgonTypes: ['cytoplasm']
 			, cost: function(){
 				return yc.settings.building.Cannon.cost ;
@@ -37,6 +41,8 @@ yc.ui.BuildingCreateMenu = function(){
 			title: '防御塔(喷射)'
 			, description: '向进入细胞体内的病毒喷射酸性物质，接触到的病毒都将受到伤害'
 			, texture : "res/building/jetter.png"
+			, texture_l : "res/building/jetter-l.png"
+			, texture_nm : "res/building/jetter-nm.png"
 			, hexgonTypes: ['cytoplasm']
 			, cost: function(){
 				return yc.settings.building.Jetter.cost ;
@@ -51,6 +57,8 @@ yc.ui.BuildingCreateMenu = function(){
 			title: '防御塔(减速)'
 			, description: '用于攻击进入细胞内的病毒，同时使病毒的移动减慢'
 			, texture : "res/building/slower.png"
+			, texture_l : "res/building/slower-l.png"
+			, texture_nm : "res/building/slower-nm.png"
 			, hexgonTypes: ['cytoplasm']
 			, cost: function(){
 				return yc.settings.building.Slower.cost ;
@@ -65,6 +73,8 @@ yc.ui.BuildingCreateMenu = function(){
 			title: '回收站'
 			, description: '在细胞内释放出线粒体，线粒体会主动搜集病毒在细胞内被杀死时掉落的氨基酸'
 			, texture : "res/building/recycle.png"
+			, texture_l : "res/building/recycle-l.png"
+			, texture_nm : "res/building/recycle-nm.png"
 			, hexgonTypes: ['cytoplasm']
 			, cost: function(){
 				return {
@@ -83,9 +93,10 @@ yc.ui.BuildingCreateMenu = function(){
 			title: '生长'
 			, description: '扩张为细胞内部区域'
 			, texture : "res/building/recycle.png"
+			, texture_l : "res/building/recycle-l.png"
+			, texture_nm : "res/building/recycle-nm.png"
 			, hexgonTypes: ['membrane']
 			, cost: function(){
-				
 				return {
 					red: 10 * (ins(yc.inner.Cell).grown+1)
 					, green: 10 * (ins(yc.inner.Cell).grown+1)
@@ -111,6 +122,8 @@ yc.ui.BuildingCreateMenu = function(){
 			title: '蛋白质工程'
 			, description: '将氨基酸合成为蛋白质'
 			, texture : "res/building/recycle.png"
+			, texture_l : "res/building/recycle-l.png"
+			, texture_nm : "res/building/recycle-nm.png"
 			, hexgonTypes: ['cytoplasm']
 			, cost: function(){
 				return {}
@@ -125,6 +138,8 @@ yc.ui.BuildingCreateMenu = function(){
 			title: '眼睛'
 			, description: '一双美丽的大眼睛'
 			, texture : "res/building/recycle.png"
+			, texture_l: "res/building/recycle-l.png"
+			, texture_nm: "res/building/recycle-nm.png"
 			, hexgonTypes: ['membrane']
 			, cost: function(){
 				return {
@@ -144,6 +159,8 @@ yc.ui.BuildingCreateMenu = function(){
 			title: '攻击塔'
 			, description: '攻击细胞外部的病毒群'
 			, texture : "res/building/oshooter.png"
+			, texture_l : "res/building/oshooter-l.png"
+			, texture_nm : "res/building/oshooter-nm.png"
 			, hexgonTypes: ['membrane']
 			, cost: function(){
 				return {
@@ -163,6 +180,8 @@ yc.ui.BuildingCreateMenu = function(){
 			title: '漂流瓶'
 			, description: '朋友无处不在'
 			, texture : "res/building/8.png"
+			, texture_l : "res/building/8-l.png"
+			, texture_nm : "res/building/8-nm.png"
 			, hexgonTypes: ['cytoplasm']
 			, cost: function(){
 				return {}
@@ -204,6 +223,10 @@ yc.ui.BuildingCreateMenu = function(){
 		// cc.MoveTo.create(2, cc.p(s.width - 40, s.height - 40));
 
 		if(!this.ui){
+
+			ins(yc.outer.PlayerLayer).setNeedFaceToPoint(false) ;
+
+
 			var arrPositions = [
 				[0,150]
 				, [-75,129]
@@ -242,14 +265,16 @@ yc.ui.BuildingCreateMenu = function(){
 					continue ;
 				}
 
-				var itemUi = BuildingBtn.buildingBtnWithTexture(item.texture) ;
+				var itemUi = BuildingBtn.buildingBtnWithTexture(item.texture,item.texture_l,item.texture_nm) ;
 				var position = arrPositions.shift();
 				itemUi.isBuildingBtn =  true;
 				itemUi.building = item;
 				itemUi.hexgon = hexgon;
 				// itemUi.setScale(0.3,0.3);
-				itemUi.toPosition = cc.p( this.uiCenter[0] + position[0], this.uiCenter[1]  + position[1] );
-				itemUi.setPosition(cc.p( this.uiCenter[0] + position[0], this.uiCenter[1]  + position[1] ));
+				itemUi.toPosition = cc.p(  position[0], position[1] );
+				// itemUi.toPosition = cc.p( this.uiCenter[0] + position[0], this.uiCenter[1]  + position[1] );
+				// itemUi.setPosition(cc.p( this.uiCenter[0] + position[0], this.uiCenter[1]  + position[1] ));
+				itemUi.setPosition(cc.p(  position[0],  position[1] ));
 				// itemUi.setContentSize(new cc.Size(10,10));
 				this.ui.addChild( itemUi );
 			}
@@ -259,14 +284,10 @@ yc.ui.BuildingCreateMenu = function(){
 		        "res/btn-no-1.png",
 		        null,
 		        this,
-		        function (){
-		        	buildingCreateMenu.ui.removeFromParent(true);
-		        	buildingCreateMenu.ui = null;
-		        	window.event.cancelBubble = true;   //stop event go through
-		        }
+		        this.close
 		    );
 		    var closeMenu = cc.Menu.create(closeBtn);
-		    closeMenu.setPosition(this.uiCenter[0]  , this.uiCenter[1] );
+		    closeMenu.setPosition( cc.p( 0 , 0) );
 		    this.ui.addChild(closeMenu);
 
 		    // for(var buildingBtn in ){
@@ -278,18 +299,33 @@ yc.ui.BuildingCreateMenu = function(){
 			// itemUi.setPosition(cc.p( this.uiCenter[0] + position[0], this.uiCenter[1]  + position[1] ));
 		 //    cc.MoveTo.create(2, cc.p(s.width - 40, s.height - 40));
 
+		 	
+
+		 	this.onProteinsChanged();
+
+		 	this.ui.setPosition(cc.p( this.uiCenter[0] ,this.uiCenter[1]));
+		 	this.ui.setAnchorPoint( cc.p(0.5,0.5) );
+		 	// this.ui.setRotation(20);
 		}
 	}
 	
 	this.close = function(){
 		var inner = ins(yc.inner.InnerLayer) ;
+
 		if(inner.map.selcted_hexgon)
 		{
 			inner.map.selcted_hexgon.selected = false ;
 			inner.map.selcted_hexgon = null ;
 		}
-		this.ui.removeFromParent(true);
-    	this.ui = null;
+		if(this.ui){
+			this.ui.removeFromParent(true);
+    		this.ui = null;
+		}
+		// cancel event
+		if(window.event.type === 'mouseup'){
+			window.event.cancelBubble = true;
+		}
+		ins(yc.outer.PlayerLayer).setNeedFaceToPoint(true) ;
 	}
 	
 	this.createBuilding = function(hexgon,item){
@@ -343,10 +379,98 @@ yc.ui.BuildingCreateMenu = function(){
 		
 		return building ;
 	}
+
+	this.showBuildingDes = function(hexgon , building , position , allowBuild){
+		var that = this;
+		if(this.yesMenu){
+            this.yesMenu.removeFromParent(true);
+            
+        }
+        if(this.pp){
+        	this.pp.removeFromParent(true);
+    	}
+
+        if(this.ui.label){
+            this.ui.label.removeFromParent(true);
+        }
+
+        this.pp = cc.Sprite.create("res/building/dec_bg.png");
+        this.ui.label = cc.Sprite.create();
+        this.ui.label.draw = function(ctx)
+        {
+            var font = ins(yc.ui.font.Font);
+            font.setWidth(190);
+            font.setHeight(75);
+            font.setTextIndent(0);
+            font.setTextAlign('left');
+            font.setLetterSpacing(4);
+            font.setLineHeight(18);
+            font.setText("[color=#F00;weight=bold;size=16;font=隶书]"+building.title +'[/]'+ 
+                "[color=#F00;size=14;font=隶书]"+building.description+'[/]'+
+                yc.ui.costDec(building.cost())
+                );
+            font.draw(ctx);
+        }
+        this.pp.setPosition( cc.p(-320 , 0) ) ;
+        this.pp.setScale(0.4,0.4);
+        this.ui.label.setPosition( cc.p(-420 , 50) ) ;
+        that.ui.addChild(this.pp);
+        that.ui.addChild(this.ui.label);
+
+        if(allowBuild){
+        	this.yesBtn = cc.MenuItemImage.create(
+	            "res/btn-yes.png",
+	            "res/btn-yes-1.png",
+	            null,
+	            this,
+	            function (){
+	                if(that.createBuilding( hexgon , building )){
+	                    that.close();
+	                }
+	            }
+	        );
+	        this.yesMenu = cc.Menu.create(this.yesBtn);
+	        this.yesMenu.setPosition(position);
+	        that.ui.addChild(this.yesMenu);
+        }
+	}
+
+	this.onProteinsChanged = function(){
+		if(!this.ui){
+			return;
+		}
+		var children = this.ui.getChildren();
+		for(var btn in children){
+			if(children[btn]._rect){ //is btn?
+				if(children[btn].isLocked()){
+					continue;
+				}
+				if(yc.ui.checkCost(children[btn].building.cost())){
+					children[btn].setFaceType(0);
+					children[btn].setBuildable(true);
+				}else{
+					children[btn].setFaceType('nm');
+					children[btn].setBuildable(false);
+				}
+			}
+		}
+	}
+}
+yc.ui.checkCost = function(cost){
+	var pool = ins(yc.user.Character).proteins ;
+	for(var protein in cost)
+	{
+		// console.log(pool.num(protein) , cost[protein]);
+		if( pool.num(protein) < cost[protein] )
+		{
+			return false ;
+		}
+	}
+	return true ;
 }
 
-yc.ui.costHtml = function(cost){
 
+yc.ui.costDec = function(cost){
 	var costHtml = '' ;
 	var idx = 0 ;
 	for(var proteinName in cost)
@@ -361,20 +485,8 @@ yc.ui.costHtml = function(cost){
 		{
 			costHtml+= ' + ' ;
 		}
-		costHtml+= '<span style="color:'+proteinFormula.colorHtml+'">♫ ' + cost[proteinName] + '</span> ' ;
+		costHtml+= '[color='+proteinFormula.colorHtml+']♫ ' + cost[proteinName] + '[/]' ;
 	}
 	
 	return costHtml ;
-}
-yc.ui.checkCost = function(cost){
-
-	var pool = ins(yc.user.Character).proteins ;
-	for(var protein in cost)
-	{
-		if( pool.num(protein) < cost[protein] )
-		{
-			return false ;
-		}
-	}
-	return true ;
 }

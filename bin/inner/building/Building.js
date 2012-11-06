@@ -41,9 +41,11 @@ yc.inner.building.Building = cc.Sprite.extend({
 		// 处理技能 -----------------
 		var skillBar = ins(yc.ui.UILayer).skillBar ;
 
-		for( var i=0;i<this.skills.length;i++){
-			var skill = this.skills[i];
-			skillBar.createButtonForSkill( skill );
+		if(this.skills){
+			for( var i=0;i<this.skills.length;i++){
+				var skill = this.skills[i];
+				skillBar.createButtonForSkill( skill );
+			}
 		}
 	}
 	, putOn: function(x,y){

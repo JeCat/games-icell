@@ -13,7 +13,6 @@ yc.outer.Bottles = cc.Sprite.extend({
 		 */
 		this.pz = cc.Sprite.create("res/organ/Bullet.png");
 		this.pz.setAnchorPoint(new cc.Point(0.5,0.5));
-		this.addChild(this.pz , 0);
 		
 		//随机倾斜
 		this.Rotation = Math.floor(Math.random()*30+1);
@@ -22,9 +21,15 @@ yc.outer.Bottles = cc.Sprite.extend({
 		}
 		this.pz.setRotation( this.Rotation);
 
+		//this.pz.setVisible(false);
+		this.addChild(this.pz , 0);
 		//慢慢出现
-        var action1 = cc.FadeIn.create(1.0);
-        this.pz.runAction(cc.Sequence.create(action1));
+        var action = cc.Sequence.create(
+        		//cc.Hide.create(),
+        		//cc.DelayTime.create(0.5),
+                cc.FadeIn.create(1.0)
+        );
+        this.pz.runAction(action);
 		//this.initWithCircle(5,this.x,this.y,yc.settings.outer.aminoacid.density) ;
         
         yc.outer.Bottles.list.push(this);

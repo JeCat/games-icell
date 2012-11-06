@@ -21,7 +21,12 @@ var BuildingBtn = cc.Sprite.extend({
         return true;
     },
     onEnter:function () {
-        cc.Director.getInstance().getTouchDispatcher().addTargetedDelegate(this, 0, false);
+        if(this.isLocked()){
+            this.setFaceType('l');
+            this.setBuildable(false);
+        }
+
+        cc.Director.getInstance().getTouchDispatcher().addTargetedDelegate(this, 0, true);
         this._super();
     },
     onExit:function () {
@@ -32,29 +37,31 @@ var BuildingBtn = cc.Sprite.extend({
         var getPoint = touch.getLocation();
         var myRect = this.rect();
 
-        myRect.origin.x += this.getPosition().x;
-        myRect.origin.y += this.getPosition().y;
+        myRect.origin.x += this.getParent().getPosition().x + this.getPosition().x;
+        myRect.origin.y += this.getParent().getPosition().y + this.getPosition().y;
         return cc.Rect.CCRectContainsPoint(myRect, getPoint);//this.convertTouchToNodeSpaceAR(touch));
     }
     ,onTouchBegan:function (touch, event) {
         if (this._state != BUILDINGBTN_STATE_UNGRABBED) return false;
-        if (!this.containsTouchLocation(touch)) return false;
-
+        if (!this.containsTouchLocation(touch)){
+            return false;
+        }
         this._state = BUILDINGBTN_STATE_GRABBED;
         return true;
     }
     ,onTouchMoved:function (touch, event) {
     }
     ,onTouchEnded:function (touch, event) {
-       
+        var that = this;
         cc.Assert(this._state == BUILDINGBTN_STATE_GRABBED, "BuildingBtn - Unexpected state!");
         this._state = BUILDINGBTN_STATE_UNGRABBED;
 
-        console.log( this.building.title + ' building btn touch end');
-
         var BuildingCreateMenu = ins(yc.ui.BuildingCreateMenu);
-        BuildingCreateMenu.createBuilding(this.hexgon , this.building );
+            
+        BuildingCreateMenu.showBuildingDes(this.hexgon , this.building , this.toPosition , this.bBuildabel);
 
+        console.log( this.building.title + ' building btn touch end');
+        
         // window.event.cancelBubble = true;   //stop event go through
     }
     , touchDelegateRetain:function () {
@@ -99,15 +106,46 @@ var BuildingBtn = cc.Sprite.extend({
             cache.removeTexture(texture);
         return null;
     }
+    , addTexture : function(aTexture){
+        if(!this._arrTextures){
+            this._arrTextures = [];
+        }
+        this._arrTextures.push(aTexture);
+    }
+    //type : nm = noMoney ; l = lock ; other = normal
+    , setFaceType : function(type){
+        if(type==='nm'){
+            this.setTexture(this._arrTextures[2]);
+        }else if(type==='l'){
+            this.setTexture(this._arrTextures[1]);
+        }else{
+            this.setTexture(this._arrTextures[0]);
+        }
+    }
+    , setBuildable: function( bBuildabel ){
+        this.bBuildabel = bBuildabel ? true:false;
+    }
+    , isLocked : function(){
+        return false;
+    }
 });
 
-BuildingBtn.buildingBtnWithTexture = function (sImgName ) {
+BuildingBtn.buildingBtnWithTexture = function (sImgName1,sImgName2,sImgName3 ) {
     var buildingBtn = new BuildingBtn();
-    var aTexture = buildingBtn.performPNG(sImgName)
-    if ( aTexture ){
-        buildingBtn.initWithTexture(aTexture);
+    var aTexture1 = buildingBtn.performPNG(sImgName1);
+    var aTexture2 = buildingBtn.performPNG(sImgName2);
+    var aTexture3 = buildingBtn.performPNG(sImgName3);
+    if ( aTexture1 && aTexture2 && aTexture3 ){
+        buildingBtn.addTexture(aTexture1);
+        buildingBtn.addTexture(aTexture2);
+        buildingBtn.addTexture(aTexture3);
     }else{
         return false;
     }
+
+    buildingBtn.setBuildable(true);
+
+    buildingBtn.initWithTexture(aTexture1);
+
     return buildingBtn;
 };
