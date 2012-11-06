@@ -137,7 +137,6 @@ yc.ui.BuildingCreateMenu = function(){
 			, isUnlock: function(){
 				return ins(yc.user.Character).dna.genes['eye']!==undefined ;
 			}
-			, isBlock: false
 			, layer: 'OrganLayer'
 			, hasSkill: true
 		}
@@ -157,7 +156,6 @@ yc.ui.BuildingCreateMenu = function(){
 			, isUnlock: function(){
 				return ins(yc.user.Character).dna.genes['oshooter']!==undefined ;
 			}
-			, isBlock: false
 			, layer: 'OrganLayer'
 			, hasSkill: true
 		}
@@ -302,34 +300,6 @@ yc.ui.BuildingCreateMenu = function(){
 			return ;
 		}
 		
-		if( item.isBlock ){
-			// 检查路径 ------
-			var oriBlock = hexgon.block ;
-			hexgon.block = true ;
-		}
-		
-		// 重新计算路径
-		var cell = ins(yc.inner.InnerLayer).cell ;
-		var world = cell.researchPath() ;
-		
-		// 检查所有细胞膜格子，必须保证病毒从任何一个细胞膜格子进入时，都能够到达细胞核
-		for(var i=0;i<cell.membranes.length;i++)
-		{
-			if( !world.pos(cell.membranes[i].x,cell.membranes[i].y).way )
-			{
-				hexgon.block = oriBlock ;
-				
-				// 重新计算，恢复路径
-				cell.researchPath() ;
-				
-				// 关闭
-				this.close() ;
-		
-				alert("无法在这里建造建筑") ;
-				return ;
-			}
-		}
-		
 		// create building ----
 		if(typeof(item.buildingClass)!='function')
 		{
@@ -339,7 +309,36 @@ yc.ui.BuildingCreateMenu = function(){
 		
 		// new buildingClass
 		var building = new item.buildingClass ;
+		
+		// 重新计算路径
+		if( building.isBlocking() )
+		{
+			var oriBlock = hexgon.block ;
+			hexgon.block = true ;
 
+			var cell = ins(yc.inner.InnerLayer).cell ;
+			var world = cell.researchPath() ;
+			
+			// 检查所有细胞膜格子，必须保证病毒从任何一个细胞膜格子进入时，都能够到达细胞核
+			for(var i=0;i<cell.membranes.length;i++)
+			{
+				if( !world.pos(cell.membranes[i].x,cell.membranes[i].y).way )
+				{
+					hexgon.block = oriBlock ;
+					
+					// 重新计算，恢复路径
+					cell.researchPath() ;
+					
+					// 关闭
+					this.close() ;
+			
+					alert("无法在这里建造建筑") ;
+					return ;
+				}
+			}
+		}
+
+		// 放置建筑
 		building.putOn(hexgon.x,hexgon.y) ;
 		
 		return building ;

@@ -129,7 +129,7 @@ yc.outer.VirusCluster = yc.outer.PhysicalEntity.extend({
 		var radian = yc.util.radianBetweenPoints(cell.x,cell.y,this.x,this.y) ;
 		
 		// 计算病毒群相对细胞的弧度
-		radian = radian - cell.angle ;
+		radian = radian - cell.direction ;
 		if(radian<0)
 		{
 			radian = 2*Math.PI + radian ;

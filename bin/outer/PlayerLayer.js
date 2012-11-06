@@ -59,7 +59,7 @@ yc.outer.PlayerLayer = cc.Layer.extend({
 		{
 			if(this.followPoint)
 			{
-				this.cell.angle = radianBetweenPoints;
+				this.cell.direction = radianBetweenPoints;
 				this.cell.updateVelocity() ;
 			}
 		}
@@ -152,7 +152,7 @@ yc.outer.PlayerLayer = cc.Layer.extend({
 		}
 		else
 		{
-			this.cell.angle = yc.util.radianBetweenPoints(0,0,this.hMoving,this.vMoving) ;
+			this.cell.direction = yc.util.radianBetweenPoints(0,0,this.hMoving,this.vMoving) ;
 			this.cell.run(4) ;
 			this.cell.updateVelocity() ;
 		}

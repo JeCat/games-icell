@@ -86,4 +86,40 @@ yc.GameLayer = cc.Layer.extend({
 			
 		this._super(scalex,scaley) ;
 	}
+
+	// , draw: function(ctx){
+
+	// 	var cell = ins(yc.outer.Cell) ;
+	// 	var speed = cell.getSpeed() ;
+	// 	var vector = {
+	// 		x: -speed.x
+	// 		, y: -speed.y
+	// 	}
+ 
+	// 	yc.util.drawLine([0,0],[vector.x*100,vector.y*100],ctx,"red",true) ;
+
+	// 	// 
+	// 	var innerVector = yc.util.ratateVector(vector,-cell.getRotation()) ;
+	// 	var a = [0,0] ;
+	// 	var b = [ innerVector.x*500, innerVector.y*500 ] ;
+
+
+	// 	for( var i=0;i<cell._points.length;i++ )
+	// 	{
+	// 		var c = cell._points[i] ;
+	// 		var d = (i<cell._points.length-1)? cell._points[i+1]: cell._points[0] ;
+
+	// 		var point = yc.util.segmentsIntr(a,b,c,d) ;
+	// 		if(!point)
+	// 		{
+	// 			continue ;
+	// 		}
+
+	// 		ctx.save() ;
+	// 		ctx.rotate(cell.getRotation()) ;
+	// 		yc.util.drawCircle(ctx,point[0],point[1],5,5,"red") ;
+	// 		ctx.restore() ;
+	// 	}
+
+	// }
 }) ;

@@ -6,8 +6,8 @@ yc.inner.building.Building = cc.Sprite.extend({
 		this.hexgon = null
 		this.cost = {} ;
 		this.bStop = false ;
-		this.bBlock = true ;
 		this.layer = "inner" ;
+		this.bBlock = true ;
 
 		this.skills = [] ;
 	} 
@@ -92,7 +92,7 @@ yc.inner.building.Building = cc.Sprite.extend({
 	}
 	
 	, isBlocking: function(){
-		return true ;
+		return this.bBlock ;
 	}
 	
 	, upgrader: function(upgraderClass){

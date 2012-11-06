@@ -7,7 +7,7 @@ yc.outer.PhysicalEntity = cc.Sprite.extend({
 	, power: 0
 
 	, accel: -0.1
-	, angle: 1
+	, direction: 1
 
 	, maxSpeed: 1
 	, speed: 1
@@ -123,13 +123,21 @@ yc.outer.PhysicalEntity = cc.Sprite.extend({
 		{
 			var p = this.b2Body.GetPosition() ;
 			this.setWorldPosition(p.x*PTM_RATIO,p.y*PTM_RATIO) ;
-			var r = (-this.b2Body.GetAngle())%(Math.PI*2) ;
+			var r = this.getAngle() ;
 			if(r<0)
 			{
 				r+= Math.PI*2 ;
 			}
 			this.setRotation( r ) ;
 		}
+	}
+
+	, getAngle: function (){
+		return  (-this.b2Body.GetAngle())%(Math.PI*2) ;
+	}
+
+	, getSpeed: function(){
+		return this.b2Body.GetLinearVelocity() ;
 	}
 	
 	, setWorldPosition: function(x,y){
@@ -199,8 +207,8 @@ yc.outer.PhysicalEntity = cc.Sprite.extend({
 		if( this.b2Body )
 		{
 			var v = this.b2Body.GetLinearVelocity() ;
-			v.x = this.speed * Math.sin(this.angle) ;
-			v.y = this.speed * Math.cos(this.angle) ;
+			v.x = this.speed * Math.sin(this.direction) ;
+			v.y = this.speed * Math.cos(this.direction) ;
 			this.b2Body.SetLinearVelocity(v) ;
 			this.b2Body.SetAwake(true) ;
 		}
@@ -210,33 +218,33 @@ yc.outer.PhysicalEntity = cc.Sprite.extend({
 
 		var rTarget = yc.util.radianBetweenPoints(this.x,this.y,targetX,targetY) ;
 		
-		if( this.angle > rTarget )
+		if( this.direction > rTarget )
 		{
-			//log(this.angle-rTarget>Math.PI?1: -1) ;
-			this.incAngle( this.angle-rTarget>Math.PI?1: -1 ) ;
+			//log(this.direction-rTarget>Math.PI?1: -1) ;
+			this.incAngle( this.direction-rTarget>Math.PI?1: -1 ) ;
 		}
 		else
 		{
-			//log(rTarget-this.angle>Math.PI?-1: 1)
-			this.incAngle( rTarget-this.angle>Math.PI?-1: 1 ) ;
+			//log(rTarget-this.direction>Math.PI?-1: 1)
+			this.incAngle( rTarget-this.direction>Math.PI?-1: 1 ) ;
 		}
 
 		// 如果角度较大，则降低速度
-		if( Math.abs(this.angle-rTarget) > yc.settings.outer.role.TSD_radian )
+		if( Math.abs(this.direction-rTarget) > yc.settings.outer.role.TSD_radian )
 		{
 			this.speed*= yc.settings.outer.role.TSD_rate ;
 		}
 	}
 	
 	, incAngle: function(sign) {
-		this.angle = this.angle + sign*this.turnRate ;
-		if(this.angle<0)
+		this.direction = this.direction + sign*this.turnRate ;
+		if(this.direction<0)
 		{
-			this.angle+= 2 * Math.PI ;
+			this.direction+= 2 * Math.PI ;
 		}
 		else
 		{
-			this.angle = this.angle % (2 * Math.PI);
+			this.direction = this.direction % (2 * Math.PI);
 		}
 		
 		// 改变线速度
@@ -474,13 +482,16 @@ yc.outer.PhysicalEntity = cc.Sprite.extend({
 		}
 		
 		// 画方向
+		ctx.save() ;
+		ctx.rotate(-this.getRotation()) ;
 		ctx.beginPath() ;
 		ctx.strokeStyle='green' ; 
-		var speed = this.b2Body.GetLinearVelocity() ;
+		var speed = this.getSpeed() ;
 		ctx.moveTo(0,0) ;
-		ctx.lineTo(speed.x*PTM_RATIO/2,-speed.y*PTM_RATIO/2) ;
+		ctx.lineTo(speed.x*PTM_RATIO,-speed.y*PTM_RATIO) ;
 		ctx.stroke() ;
 		ctx.closePath() ;
+		ctx.restore() ;
 	}
 
 	, b2bodyFixture: function(idx){
