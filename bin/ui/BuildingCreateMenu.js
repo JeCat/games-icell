@@ -305,11 +305,9 @@ yc.ui.BuildingCreateMenu = function(){
 
 		 	this.onProteinsChanged();
 
-		 	// this.ui.setContentSize(new cc.Size(200,200));
-		 	// this.ui.ignoreAnchorPointForPosition(false);
 		 	this.ui.setPosition(cc.p( this.uiCenter[0] ,this.uiCenter[1]));
 		 	this.ui.setAnchorPoint( cc.p(0.5,0.5) );
-		 	this.ui.setRotation(20);
+		 	// this.ui.setRotation(20);
 		}
 	}
 	
@@ -387,8 +385,16 @@ yc.ui.BuildingCreateMenu = function(){
 		var that = this;
 		if(this.yesMenu){
             this.yesMenu.removeFromParent(true);
-            this.pp.removeFromParent(true);
+            
         }
+        if(this.pp){
+        	this.pp.removeFromParent(true);
+    	}
+
+        if(this.ui.label){
+            this.ui.label.removeFromParent(true);
+        }
+
         this.pp = cc.Sprite.create("res/building/dec_bg.png");
         this.ui.label = cc.Sprite.create();
         this.ui.label.draw = function(ctx)
@@ -406,9 +412,9 @@ yc.ui.BuildingCreateMenu = function(){
                 );
             font.draw(ctx);
         }
-        this.pp.setPosition( cc.p(this.uiCenter[0] - 320 , this.uiCenter[1]) ) ;
+        this.pp.setPosition( cc.p(-320 , 0) ) ;
         this.pp.setScale(0.4,0.4);
-        this.ui.label.setPosition( cc.p(this.uiCenter[0] - 420 , this.uiCenter[1] + 50) ) ;
+        this.ui.label.setPosition( cc.p(-420 , 50) ) ;
         that.ui.addChild(this.pp);
         that.ui.addChild(this.ui.label);
 
@@ -480,7 +486,7 @@ yc.ui.costDec = function(cost){
 		{
 			costHtml+= ' + ' ;
 		}
-		costHtml+= '[color:'+proteinFormula.colorHtml+']♫ ' + cost[proteinName] + '[/]' ;
+		costHtml+= '[color='+proteinFormula.colorHtml+']♫ ' + cost[proteinName] + '[/]' ;
 	}
 	
 	return costHtml ;

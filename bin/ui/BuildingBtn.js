@@ -21,16 +21,6 @@ var BuildingBtn = cc.Sprite.extend({
         return true;
     },
     onEnter:function () {
-
-        // this.interval = setInterval(function(){
-        //     var howLongPress = Date.parse(new Date())/1000 - target.nTime;
-        //     if( howLongPress > 1){
-        //         target.toglleAutoMode();
-        //         clearInterval(target.interval);
-        //         target.nTime = 0 ;
-        //     }
-        // },300);
-
         if(this.isLocked()){
             this.setFaceType('l');
             this.setBuildable(false);
@@ -47,8 +37,8 @@ var BuildingBtn = cc.Sprite.extend({
         var getPoint = touch.getLocation();
         var myRect = this.rect();
 
-        myRect.origin.x += this.getPosition().x;
-        myRect.origin.y += this.getPosition().y;
+        myRect.origin.x += this.getParent().getPosition().x + this.getPosition().x;
+        myRect.origin.y += this.getParent().getPosition().y + this.getPosition().y;
         return cc.Rect.CCRectContainsPoint(myRect, getPoint);//this.convertTouchToNodeSpaceAR(touch));
     }
     ,onTouchBegan:function (touch, event) {
