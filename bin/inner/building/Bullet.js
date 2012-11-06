@@ -157,7 +157,7 @@ yc.inner.building.Bullet.Flame = cc.Sprite.extend({
 	// 	ctx.fill() ;
 	// }
 	, free: function(){
-		this.removeFromParentAndCleanup() ;
+		this.removeFromParent(true) ;
 		yc.util.ObjectPool.ins(yc.inner.building.Bullet.Flame).free(this) ;
 	}
 });

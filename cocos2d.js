@@ -86,6 +86,7 @@ var TAG_SPRITE_MANAGER = 1;
 			, 'bin/outer/LifeEntity.js'
 			, 'bin/outer/PhysicalEntity.js'
 			, 'bin/outer/Cell.js'
+			, 'bin/outer/Footprint.js'
 			, 'bin/outer/PlayerLayer.js'
 			, 'bin/outer/AminoAcid.js'
 			, 'bin/outer/Stain.js'
@@ -171,9 +172,10 @@ var TAG_SPRITE_MANAGER = 1;
 	// 自动加载内置关卡
 	if( 'qv' in url.anchorParams )
 	{
+		var qv = url.anchorParams.qv=="random"? Math.random().toString(): url.anchorParams.qv ;
 		for(var i=0;i<c.appFiles.length;i++)
 		{
-			c.appFiles[i]+= "?qv="+url.anchorParams.qv ;
+			c.appFiles[i]+= "?qv="+qv ;
 		}
 	}
 

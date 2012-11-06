@@ -152,7 +152,6 @@ yc.ui.BuildingCreateMenu = function(){
 			, isUnlock: function(){
 				return ins(yc.user.Character).dna.genes['eye']!==undefined ;
 			}
-			, isBlock: false
 			, layer: 'OrganLayer'
 			, hasSkill: true
 		}
@@ -174,7 +173,6 @@ yc.ui.BuildingCreateMenu = function(){
 			, isUnlock: function(){
 				return ins(yc.user.Character).dna.genes['oshooter']!==undefined ;
 			}
-			, isBlock: false
 			, layer: 'OrganLayer'
 			, hasSkill: true
 		}
@@ -225,6 +223,10 @@ yc.ui.BuildingCreateMenu = function(){
 		// cc.MoveTo.create(2, cc.p(s.width - 40, s.height - 40));
 
 		if(!this.ui){
+
+			ins(yc.outer.PlayerLayer).setNeedFaceToPoint(false) ;
+
+
 			var arrPositions = [
 				[0,150]
 				, [-75,129]
@@ -269,8 +271,10 @@ yc.ui.BuildingCreateMenu = function(){
 				itemUi.building = item;
 				itemUi.hexgon = hexgon;
 				// itemUi.setScale(0.3,0.3);
-				itemUi.toPosition = cc.p( this.uiCenter[0] + position[0], this.uiCenter[1]  + position[1] );
-				itemUi.setPosition(cc.p( this.uiCenter[0] + position[0], this.uiCenter[1]  + position[1] ));
+				itemUi.toPosition = cc.p(  position[0], position[1] );
+				// itemUi.toPosition = cc.p( this.uiCenter[0] + position[0], this.uiCenter[1]  + position[1] );
+				// itemUi.setPosition(cc.p( this.uiCenter[0] + position[0], this.uiCenter[1]  + position[1] ));
+				itemUi.setPosition(cc.p(  position[0],  position[1] ));
 				// itemUi.setContentSize(new cc.Size(10,10));
 				this.ui.addChild( itemUi );
 			}
@@ -283,7 +287,7 @@ yc.ui.BuildingCreateMenu = function(){
 		        this.close
 		    );
 		    var closeMenu = cc.Menu.create(closeBtn);
-		    closeMenu.setPosition(this.uiCenter[0]  , this.uiCenter[1] );
+		    closeMenu.setPosition( cc.p( 0 , 0) );
 		    this.ui.addChild(closeMenu);
 
 		    // for(var buildingBtn in ){
@@ -295,17 +299,18 @@ yc.ui.BuildingCreateMenu = function(){
 			// itemUi.setPosition(cc.p( this.uiCenter[0] + position[0], this.uiCenter[1]  + position[1] ));
 		 //    cc.MoveTo.create(2, cc.p(s.width - 40, s.height - 40));
 
-
-		 	ins(yc.outer.PlayerLayer).setNeedFaceToPoint(false) ;
+		 	
 
 		 	this.onProteinsChanged();
-		}
 
+		 	this.ui.setPosition(cc.p( this.uiCenter[0] ,this.uiCenter[1]));
+		 	this.ui.setAnchorPoint( cc.p(0.5,0.5) );
+		 	// this.ui.setRotation(20);
+		}
 	}
 	
 	this.close = function(){
 		var inner = ins(yc.inner.InnerLayer) ;
-		ins(yc.outer.PlayerLayer).setNeedFaceToPoint(true) ;
 
 		if(inner.map.selcted_hexgon)
 		{
@@ -320,6 +325,7 @@ yc.ui.BuildingCreateMenu = function(){
 		if(window.event.type === 'mouseup'){
 			window.event.cancelBubble = true;
 		}
+		ins(yc.outer.PlayerLayer).setNeedFaceToPoint(true) ;
 	}
 	
 	this.createBuilding = function(hexgon,item){
@@ -328,34 +334,6 @@ yc.ui.BuildingCreateMenu = function(){
 		if(hexgon.building)
 		{
 			return ;
-		}
-		
-		if( item.isBlock ){
-			// 检查路径 ------
-			var oriBlock = hexgon.block ;
-			hexgon.block = true ;
-		}
-		
-		// 重新计算路径
-		var cell = ins(yc.inner.InnerLayer).cell ;
-		var world = cell.researchPath() ;
-		
-		// 检查所有细胞膜格子，必须保证病毒从任何一个细胞膜格子进入时，都能够到达细胞核
-		for(var i=0;i<cell.membranes.length;i++)
-		{
-			if( !world.pos(cell.membranes[i].x,cell.membranes[i].y).way )
-			{
-				hexgon.block = oriBlock ;
-				
-				// 重新计算，恢复路径
-				cell.researchPath() ;
-				
-				// 关闭
-				this.close() ;
-		
-				alert("无法在这里建造建筑") ;
-				return ;
-			}
 		}
 		
 		// create building ----
@@ -367,7 +345,36 @@ yc.ui.BuildingCreateMenu = function(){
 		
 		// new buildingClass
 		var building = new item.buildingClass ;
+		
+		// 重新计算路径
+		if( building.isBlocking() )
+		{
+			var oriBlock = hexgon.block ;
+			hexgon.block = true ;
 
+			var cell = ins(yc.inner.InnerLayer).cell ;
+			var world = cell.researchPath() ;
+			
+			// 检查所有细胞膜格子，必须保证病毒从任何一个细胞膜格子进入时，都能够到达细胞核
+			for(var i=0;i<cell.membranes.length;i++)
+			{
+				if( !world.pos(cell.membranes[i].x,cell.membranes[i].y).way )
+				{
+					hexgon.block = oriBlock ;
+					
+					// 重新计算，恢复路径
+					cell.researchPath() ;
+					
+					// 关闭
+					this.close() ;
+			
+					alert("无法在这里建造建筑") ;
+					return ;
+				}
+			}
+		}
+
+		// 放置建筑
 		building.putOn(hexgon.x,hexgon.y) ;
 		
 		return building ;
@@ -377,8 +384,16 @@ yc.ui.BuildingCreateMenu = function(){
 		var that = this;
 		if(this.yesMenu){
             this.yesMenu.removeFromParent(true);
-            this.pp.removeFromParent(true);
+            
         }
+        if(this.pp){
+        	this.pp.removeFromParent(true);
+    	}
+
+        if(this.ui.label){
+            this.ui.label.removeFromParent(true);
+        }
+
         this.pp = cc.Sprite.create("res/building/dec_bg.png");
         this.ui.label = cc.Sprite.create();
         this.ui.label.draw = function(ctx)
@@ -391,12 +406,14 @@ yc.ui.BuildingCreateMenu = function(){
             font.setLetterSpacing(4);
             font.setLineHeight(18);
             font.setText("[color=#F00;weight=bold;size=16;font=隶书]"+building.title +'[/]'+ 
-                "[color=#F00;size=14;font=隶书]"+building.description+'[/]');
+                "[color=#F00;size=14;font=隶书]"+building.description+'[/]'+
+                yc.ui.costDec(building.cost())
+                );
             font.draw(ctx);
         }
-        this.pp.setPosition( cc.p(this.uiCenter[0] - 320 , this.uiCenter[1]) ) ;
+        this.pp.setPosition( cc.p(-320 , 0) ) ;
         this.pp.setScale(0.4,0.4);
-        this.ui.label.setPosition( cc.p(this.uiCenter[0] - 420 , this.uiCenter[1] + 50) ) ;
+        this.ui.label.setPosition( cc.p(-420 , 50) ) ;
         that.ui.addChild(this.pp);
         that.ui.addChild(this.ui.label);
 
@@ -453,24 +470,23 @@ yc.ui.checkCost = function(cost){
 }
 
 
-// yc.ui.costHtml = function(cost){
-
-// 	var costHtml = '' ;
-// 	var idx = 0 ;
-// 	for(var proteinName in cost)
-// 	{
-// 		var proteinFormula = ins(yc.user.ProteinFormulas).worldFormulas[proteinName] ;
-// 		if(proteinFormula===undefined)
-// 		{
-// 			log("mission protein "+proteinName+"'s formula.") ;
-// 			continue ;
-// 		}
-// 		if(idx++)
-// 		{
-// 			costHtml+= ' + ' ;
-// 		}
-// 		costHtml+= '<span style="color:'+proteinFormula.colorHtml+'">♫ ' + cost[proteinName] + '</span> ' ;
-// 	}
+yc.ui.costDec = function(cost){
+	var costHtml = '' ;
+	var idx = 0 ;
+	for(var proteinName in cost)
+	{
+		var proteinFormula = ins(yc.user.ProteinFormulas).worldFormulas[proteinName] ;
+		if(proteinFormula===undefined)
+		{
+			log("mission protein "+proteinName+"'s formula.") ;
+			continue ;
+		}
+		if(idx++)
+		{
+			costHtml+= ' + ' ;
+		}
+		costHtml+= '[color='+proteinFormula.colorHtml+']♫ ' + cost[proteinName] + '[/]' ;
+	}
 	
-// 	return costHtml ;
-// }
+	return costHtml ;
+}

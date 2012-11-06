@@ -28,6 +28,70 @@ yc.outer.Cell = yc.outer.PhysicalEntity.extend({
 
 
 		this._bWatching = true ;
+
+		// action 移动留下“脚印”
+		this.actFootprint = yc.actions.Timer.create (0.1,-1,this,function(){
+			var speed = this.getSpeed() ;
+			if( speed.x==0 && speed.y==0 )
+			{
+				return ;
+			}
+
+			var vector = {
+				x: -speed.x
+				, y: -speed.y
+			}
+
+			// 
+			var innerVector = yc.util.ratateVector(vector,-this.getRotation()) ;
+			var a = [0,0] ;
+			var b = [ innerVector.x*500, innerVector.y*500 ] ;
+
+			// 
+			var longest = null
+			var longestDis = 0 ;
+
+			for( var i=0;i<this._points.length;i++ )
+			{
+				var c = this._points[i] ;
+				var d = (i<this._points.length-1)? this._points[i+1]: this._points[0] ;
+
+				var point = yc.util.segmentsIntr(a,b,c,d) ;
+				if(!point)
+				{
+					continue ;
+				}
+
+				// 最远边界
+				var dis = yc.util.pointsDis(0,0,point[0],point[1]) ;
+				if( !longest || dis>longestDis )
+				{
+					longest = point ;
+					longestDis = dis ;
+				}
+			}
+
+			// 创建脚印
+			if( longest )
+			{
+				// 旋转
+				var vector = {x:longest[0],y:longest[1]} ;
+				vector = yc.util.ratateVector(vector,this.getRotation()) ;
+
+				var fp = yc.util.ObjectPool.ins(yc.outer.Footprint).ob() ;
+				fp.init(this.x+vector.x,this.y+vector.y) ;
+				ins(yc.outer.PlayerLayer).addChild(fp,-100) ;
+			}
+		}) ;
+	}
+
+	, onEnter: function(){
+		this._super() ;
+		this.runAction(this.actFootprint) ;
+	}
+	, onExit: function(){
+		this._super() ;
+		this.stopAction(this.actFootprint) ;
 	}
 
 	, draw: function(ctx){
@@ -134,7 +198,7 @@ yc.outer.Cell = yc.outer.PhysicalEntity.extend({
 //		
 //		// ctx.rotate(radian);					// 移动方向
 //		// ctx.rotate(this.getRotation());		// 物体旋转方向
-//		ctx.rotate(this.angle);					// 受力方向
+//		ctx.rotate(this.direction);					// 受力方向
 //		
 //		ctx.arc(0,0, this.size, 0, 2*Math.PI, false);
 //		
@@ -179,43 +243,46 @@ yc.outer.Cell = yc.outer.PhysicalEntity.extend({
 	, update: function(dt){
 		this._super(dt) ;
 
+		// 加速
+		this.accelerating() ;
+
 		ins(yc.util.DbgPannel).output['player'] = this.x.toFixed(1)+', '+this.y.toFixed(1) ;
 	}
 	
-	, visit: function(ctx){
+	// , visit: function(ctx){
 		
-		this._super(ctx) ;
+	// 	this._super(ctx) ;
 
-		// 加速
-		this.accelerating() ;
+	// 	// 加速
+	// 	this.accelerating() ;
 		
-		return ;
+	// 	return ;
 		
 		
 		
-		// 转向
-		if(this._turn)
-		{
-			this.incAngle( this._turn=='right'? 1: -1 ) ;
-		}
+	// 	// 转向
+	// 	if(this._turn)
+	// 	{
+	// 		this.incAngle( this._turn=='right'? 1: -1 ) ;
+	// 	}
 		
-		// 遇到污渍减速
-		yc.outer.Stain.downSpeed(this) ;
+	// 	// 遇到污渍减速
+	// 	yc.outer.Stain.downSpeed(this) ;
 		
-		// 加速
-		this.accelerating() ;
+	// 	// 加速
+	// 	this.accelerating() ;
 		
-		// 移动
-		if(this.speed)
-		{
-			this.moving() ;
+	// 	// 移动
+	// 	if(this.speed)
+	// 	{
+	// 		this.moving() ;
 			
-			// 移动摄像机
-			ins(yc.outer.Camera).moveByFocus(this.x,this.y) ;
-		}
+	// 		// 移动摄像机
+	// 		ins(yc.outer.Camera).moveByFocus(this.x,this.y) ;
+	// 	}
 		
-		return this._super() ;
-	}
+	// 	return this._super() ;
+	// }
 	
 	, jump: function(x,y){
 		
@@ -240,7 +307,7 @@ yc.outer.Cell = yc.outer.PhysicalEntity.extend({
 
 		if(typeof(radian)!='undefined')
 		{
-			this.angle = radian%(2*Math.PI) ;
+			this.direction = radian%(2*Math.PI) ;
 		}
 		
 		this.speed = speed ;
