@@ -2,23 +2,29 @@ yc.ui.menu.Menu = cc.Layer.extend(
 {
 	items : null,
 	title : null,
+	titleHeight : 155,
 	buttons : [],
 	BtnCallBack: function(sender){
 		var idx = sender.getZOrder();
         this.items[idx].action();
+        this.setVisible(false) ;
 	},
-	ctor: function( title , items){
-
-		this._super() ;
+	setTitle : function( title){
+		this.title = title;
+	},
+	setTitleHeight : function( titleHeight){
+		this.titleHeight = titleHeight;
+	},
+	setItems : function( items){
+		this.items = items;
+	},
+	run: function(){
 
 		var screenSize = cc.Director.getInstance().getWinSize();
 		
-		this.items = items;
-		this.title = title;
-		
 		//button height
 		var buttonHeight = 150;
-		var titleHeight = 155;
+		var titleHeight = this.titleHeight;
 
 		var midX = screenSize.width / 2;
 		var midY = screenSize.height / 2;
@@ -73,13 +79,14 @@ yc.ui.menu.Menu = cc.Layer.extend(
 
 
 	    //text
+	    var title = this.title;
 	    var fontSprinte = cc.Sprite.create();
 	    fontSprinte.draw = function(ctx){
 		    var font = ins(yc.ui.font.Font);
 	    	font.setWidth(650);
 	    	font.setHeight(titleHeight);
 	    	font.setTextIndent(0);
-	    	font.setTextAlign('left');
+	    	font.setTextAlign('center');
 	    	font.setLetterSpacing(4);
 	    	font.setLineHeight(40);
 	    	font.setText("[color=#FFF;weight=bold;size=40;font=隶书]" + title + "[/]");
@@ -107,14 +114,14 @@ yc.ui.menu.Menu = cc.Layer.extend(
 	    this.addChild(kuang);
         //this.addChild(dot);
 
+		var scene = cc.Director.getInstance().getRunningScene() ;
+		scene.layerUi.addChild(this);
 	    
-	}
-	, setItems : function(item){
-		this.items = item;
+		return true;
 	}
 }) ;
 
-yc.ui.menu.Menu.start = function(){
+yc.ui.menu.Menu.test = function(){
 	
 	var items = [
 	 {
@@ -134,8 +141,9 @@ yc.ui.menu.Menu.start = function(){
 				}
 			 }]
 
-	var menu = new yc.ui.menu.Menu("哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈老板哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈老板哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈", items);
-
-	var scene = cc.Director.getInstance().getRunningScene() ;
-	scene.layerUi.addChild(menu);
+	var menu = ins( yc.ui.menu.Menu );
+	menu.setTitle("ddddddddddddd");
+	//menu.setTitleHeight(50);
+	menu.setItems(items);
+	menu.run();
 }

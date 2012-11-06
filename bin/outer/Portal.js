@@ -5,7 +5,7 @@ yc.outer.Portal = yc.outer.PhysicalEntity.extend({
 
 		this.setWorldPosition(script.x,script.y) ;
 
-		this.initWithCircle(10,script.x,script.y,1,b2Body.b2_staticBody) ;
+		this.initWithCircle(20,script.x,script.y,1,b2Body.b2_staticBody) ;
 	}
 
 	, touchingCell: function(){
@@ -18,8 +18,11 @@ yc.outer.Portal = yc.outer.PhysicalEntity.extend({
 
 	, draw: function(ctx){
 		
-		this._super(ctx) ;
 
+		this.initWithFile('res/victory.png');
+
+		this._super(ctx,true) ;
+		/*
 		log(this.getScale()) ;
 
 		ctx.globalAlpha = this._opacity/255 ;
@@ -28,6 +31,7 @@ yc.outer.Portal = yc.outer.PhysicalEntity.extend({
 		yc.util.drawCircle(ctx,0,0,8,8,"rgba(0,0,0,0.5)") ;
 		yc.util.drawCircle(ctx,0,0,6,6,"rgba(0,0,0,0.4)") ;
 		yc.util.drawCircle(ctx,0,0,4,4,"rgba(0,0,0,0.3)") ;
+		*/
 	}
 
 	, open: function(){

@@ -176,7 +176,44 @@ yc.outer.VirusCluster = yc.outer.PhysicalEntity.extend({
 
 			// 掉落 dna
 			// todo ...
+			
+			var dna = this._script.dna;
+			if( typeof(dna) == "object"){
 
+	        	var items = [];
+	        	var _script = this._script;
+
+				for(var i =0;i<dna.length;i++){
+					var action = function(){
+						var uc = ins(yc.user.Character);
+						uc.dna.obtainGene(yc.dna.genes[this.id]);
+						
+						if( typeof(uc.levels[yc.GameScene._level]) != "object"){
+							uc.levels[yc.GameScene._level] = {unlock:true , gene:this.id};
+						}else{
+							uc.levels[yc.GameScene._level].unlock = true;
+							uc.levels[yc.GameScene._level].gene = this.id;
+						}
+
+						if( typeof(uc.levels[_script.unlockLevel]) != "object"){
+							uc.levels[_script.unlockLevel] = {unlock:true , gene:null};
+						}else{
+							uc.levels[_script.unlockLevel].unlock = true;
+							uc.levels[_script.unlockLevel].gene = null;
+						}
+						uc.save();
+					}
+					
+					var title = yc.dna.genes[dna[i]].title;
+					items.push({title:title,action:action,id:dna[i]});
+				}
+				
+				var menu = ins( yc.ui.menu.Menu );
+				menu.setTitle("选择DNA");
+				menu.setTitleHeight(40);
+				menu.setItems(items);
+				menu.run();
+			}
 		}
 
 		// 解锁关卡，启动传送门

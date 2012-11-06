@@ -313,7 +313,7 @@ yc.settings = {
 					// 在关卡地图上的位置
 					x: 233
 					, y: 280
-					, title: null		// (可选)
+					, title: "c1.l1"		// (可选)
 					, script: "yc.levels.c1.l1"
 				}
 
@@ -321,8 +321,8 @@ yc.settings = {
 					// 在关卡地图上的位置
 					x: 362
 					, y: 381
-					, title: null
-					, script: "yc.levels.c1.l1"
+					, title: "c1.l2"
+					, script: "yc.levels.c1.l2"
 				}
 
 				, 'c1.l3': {

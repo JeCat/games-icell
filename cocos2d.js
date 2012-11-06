@@ -149,6 +149,7 @@ var TAG_SPRITE_MANAGER = 1;
 			, 'bin/levels/LevelSelector.js'
             , 'bin/levels/c1/tutorial.js'
 			, 'bin/levels/c1/l1.js'
+			, 'bin/levels/c1/l2.js'
 			, 'bin/levels/ResourceLoadingScene.js'
 			
 			

@@ -216,11 +216,16 @@ yc.levels.LevelSelector.MapLayer.Level = cc.Sprite.extend({
 
 			var gene = yc.dna.genes[ genes[i] ] ;
 
-			var geneIcon = new cc.Sprite() ;
-			geneIcon.initWithFile("res/dna-icons-32.png",cc.rect.apply(this,gene.icon.rect)) ;
-			geneIcon.setPosition(cc.p(posx,60)) ;
-			geneIcon.setAnchorPoint(cc.p(0,0)) ;
-			this.addChild(geneIcon) ;
+			if(typeof(gene.icon) == "object"){
+				var geneIcon = new cc.Sprite() ;
+				geneIcon.initWithFile("res/dna-icons-32.png",cc.rect.apply(this,gene.icon.rect)) ;
+				geneIcon.setPosition(cc.p(posx,60)) ;
+				geneIcon.setAnchorPoint(cc.p(0,0)) ;
+				this.addChild(geneIcon) ;
+			}else{
+				log("缺少dna 图片");
+			}
+			
 
 			posx+= 32 + 4 ;
 		}

@@ -23,6 +23,7 @@ var ICellGame = cc.Application.extend({
 			{type:"image", src:"res/HelloWorld.png"}
 			, {type:"image", src:"res/CloseNormal.png"}
 			, {type:"image", src:"res/CloseSelected.png"}
+			, {type:"image", src:"res/victory.png"}
 			
 			, {type:"image", src:"res/btn-composition.png"}
 			, {type:"image", src:"res/btn-composition-light.png"}

@@ -5,7 +5,7 @@ yc.user.Character = function(name){
 	this.dna = new yc.dna.DNA() ;
 	this.aminoacids = new yc.user.AminoAcidPool ;
 	this.proteins = new yc.user.ProteinPool ;
-	this.levels = [] ;
+	this.levels = {} ;
 	this.cell = {} ;
 
 	// 玩家完成场景，保存玩家状态
