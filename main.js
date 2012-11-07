@@ -128,7 +128,7 @@ var ICellGame = cc.Application.extend({
 
 		$("#editor-panel-space").height($(window).height()) ;
 
-		cc.canvas.width = $(window).width() - $("#editor-panel-space").width() ;
+		cc.canvas.width = $(window).width() - $("#editor-panel-space").width() - 2 ;
 		cc.canvas.height = $(window).height() ;
 
 		$("#Cocos2dGameContainer")

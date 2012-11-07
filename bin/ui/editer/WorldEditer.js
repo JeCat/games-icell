@@ -42,7 +42,7 @@ yc.ui.editer.WorldEditer = function(){
 
 		// 打开ui
 		this.ui.show() ;
-		$("#editor-panel-space").width(400) ;
+		$("#editor-panel-space").width(420) ;
 		ICellGame.instance.resize() ;
 		
 		// 世界边界
@@ -88,6 +88,14 @@ yc.ui.editer.WorldEditer = function(){
 		this.role.refreshVirusCluster() ;
 		this.stain.refreshStains() ;
 		this.pinup.refreshPinups() ;
+
+		// 刷新动画
+		$("select.animations-list").each(function(){
+			for(var name in yc.animations.frames)
+			{
+				$(this).append("<option value=\""+name+"\">"+name+"</option>") ;
+			}
+		}) ;
 	}
 	
 	this.message = function(msg){
