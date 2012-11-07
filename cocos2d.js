@@ -115,6 +115,7 @@ var TAG_SPRITE_MANAGER = 1;
 			, 'bin/inner/building/Bullet.js'
 			, 'bin/inner/building/ProteinFactory.js'
 			, 'bin/inner/building/Recycle.js'
+			, 'bin/inner/building/PlastosomePower.js'
 
 			, 'bin/inner/building/up/UpgraderBase.js'
 			, 'bin/inner/building/up/TowerFirepower.js'
