@@ -25,12 +25,14 @@ yc.MainScene = cc.Scene.extend({
         });
         itemWeibo.setScale(0.5);
 
-        var itemTest = cc.MenuItemFont.create("test", this, function(){
+        var that = this;
+
+        var itemTest = cc.MenuItemFont.create("test", function(){
         	loginCallback("0#test");
-        	this.menuLevelSelect.setVisible(true);
-        	this.menuLevelSelect.runAction(cc.Sequence.create(this.actionShow));
-        	this.menuLogin.runAction(cc.Sequence.create(this.actionHide));
-        });
+        	that.menuLevelSelect.setVisible(true);
+        	that.menuLevelSelect.runAction(cc.Sequence.create(that.actionShow));
+        	that.menuLogin.runAction(cc.Sequence.create(that.actionHide));
+        }, this);
         itemTest.setFontSize(24);
 
         this.menuLogin = cc.Menu.create(itemWeibo, itemTest);
@@ -38,17 +40,17 @@ yc.MainScene = cc.Scene.extend({
         this.addChild(this.menuLogin);
 
 
-        var itemStory = cc.MenuItemFont.create("故事模式", this, function(){
+        var itemStory = cc.MenuItemFont.create("故事模式", function(){
         	cc.Director.getInstance().replaceScene( new yc.levels.LevelSelector ) ;
-        });
+        }, this);
         itemStory.setFontSize(20);
-        var itemSearch = cc.MenuItemFont.create("探索模式", this, function(){
+        var itemSearch = cc.MenuItemFont.create("探索模式", function(){
         	worldList();
-        });
+        }, this);
         itemSearch.setFontSize(20);
-        var itemRand = cc.MenuItemFont.create("随机关卡", this, function(){
+        var itemRand = cc.MenuItemFont.create("随机关卡", function(){
 			cc.Director.getInstance().replaceScene( new yc.levels.FreeWorld );
-        });
+        }, this);
         itemRand.setFontSize(20);
 
         this.menuLevelSelect = cc.Menu.create(itemStory, itemSearch , itemRand);

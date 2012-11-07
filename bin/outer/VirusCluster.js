@@ -14,6 +14,8 @@ yc.outer.VirusCluster = yc.outer.PhysicalEntity.extend({
 
 		this.failViruses = 0 ;
 		this.successViruses = 0 ;
+
+		this.animationAction = null ;
 	}
 		
 	, initRandom: function(range){
@@ -44,10 +46,12 @@ yc.outer.VirusCluster = yc.outer.PhysicalEntity.extend({
 		this.failViruses = 0 ;
 		this.successViruses = 0 ;
 
-		if(this.spriter)
+		// 执行动画
+		if(this.animationAction)
 		{
-			this.initWithFile(this.spriter) ;
+			this.runAction(this.animationAction) ;
 		}
+
 		
 		this.initWithCircle(this.size,this.x,this.y,yc.settings.outer.virus.density) ;
 	}
@@ -60,8 +64,21 @@ yc.outer.VirusCluster = yc.outer.PhysicalEntity.extend({
 		this.moseySpeed = script.moseySpeed ;				// 漫步速度
 		this.normalSpeed = script.normalSpeed ;				// 正常速度
 		this.vigilanceRange = script.vigilanceRange ;		// 警视范围
-		this.spriter = script.spriter ;
+		// this.spriter = script.spriter ;
 		this.size = script.size ;
+
+		// 创建动画
+		if( script.spriter && (script.spriter in yc.animations.frames) )
+		{
+			if(this.animationAction)
+			{
+				this.stopAction(this.animationAction) ;
+			}
+
+			//第一帧
+			this.initWithSpriteFrame( yc.animations.frames[script.spriter].getFrames()[0].getSpriteFrame() ) ;
+			this.animationAction = cc.RepeatForever.create( yc.animations.createAction(script.spriter) ) ;
+		}
 
 		this.initWithPosition(script.x,script.y) ;
 		this.init() ;

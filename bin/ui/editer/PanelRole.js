@@ -23,7 +23,7 @@ yc.ui.editer.PanelRole = function(editor){
 		exchanges: {
 			x: 'ipt-viruscluster-x'
 			, y: 'ipt-viruscluster-y'
-			, spriter: 'ipt-viruscluster-spriter'
+			, spriter: 'sel-viruscluster-spriter'
 			, turnRate: 'ipt-viruscluster-turnRate'
 			, moseySpeed: 'ipt-viruscluster-moseySpeed'
 			, normalSpeed: 'ipt-viruscluster-normalSpeed'
@@ -174,7 +174,7 @@ yc.ui.editer.PanelRole = function(editor){
 					, viruses: []
 					, boss: false 					// 是否是一个boss
 					, killdown:[]
-					, spriter: "res/virus24.png"
+					, spriter: "role.virus_a"
 					, size: yc.settings.outer.virus.defaultSize
 					, unlockLevel: null //'c1.l1'
 				} ]
