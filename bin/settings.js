@@ -111,8 +111,8 @@ yc.settings = {
 			normalSpeedDown: 50
 
 				
-			, defaultAccel: 0.5			// 默认加速度
-			, defaultMaxSpeed: 15		// 默认最大速度
+			, defaultAccel: 0.5			// 默认加速度\
+			, basePower: 250
 		}
 		
 		, box2d: {

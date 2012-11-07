@@ -11,6 +11,7 @@ yc.outer.PhysicalEntity = cc.Sprite.extend({
 
 	, maxSpeed: 1
 	, speed: 1
+	, power: 10
 	
 	, homeX: null
 	, homeY: null
@@ -258,6 +259,8 @@ yc.outer.PhysicalEntity = cc.Sprite.extend({
 		
 		if(accel)
 		{
+			this.maxSpeed = this.power / this.b2Body.GetMass() ;
+
 			var maxSpeed = this.maxSpeed*(1-this.runDamping) ;
 			
 			if (this.speed > maxSpeed)
@@ -506,7 +509,7 @@ yc.outer.PhysicalEntity = cc.Sprite.extend({
 		}
 		return fixture ;
 	}
-	
+
 	, destroy: function(){
 		
 		// 从场景中移除
@@ -518,6 +521,10 @@ yc.outer.PhysicalEntity = cc.Sprite.extend({
 			this._destoryBody() ;
 		}
 	}
-	
+
+	, updateSpeed: function(){
+		this.maxSpeed = this.power / this.b2Body.GetMass() ;
+	}
+
 	, transform: yc.outer.Camera.transformSprite
 }) ;
