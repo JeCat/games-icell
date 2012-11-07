@@ -20,9 +20,9 @@ yc.MainScene = cc.Scene.extend({
 		this.actionShow = cc.FadeIn.create(0.8);
 		this.actionHide = cc.FadeOut.create(0.8);
 
-		var itemWeibo = cc.MenuItemImage.create( 'res/weibo_login.png' ,'res/weibo_login.png', this , function(){
+		var itemWeibo = cc.MenuItemImage.create( 'res/weibo_login.png' ,'res/weibo_login.png' , function(){
 			window.open('/service/sina_user/login.php');
-        });
+        }, this);
         itemWeibo.setScale(0.5);
 
         var that = this;

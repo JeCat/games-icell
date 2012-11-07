@@ -10,7 +10,6 @@ yc.ui.PauseMenu = cc.Layer.extend({
 	        "res/btn-back.png",
 	        "res/btn-back-1.png",
 	        null,
-	        this,
 	        function (sender){
 	        	var msgBox = new ( yc.ui.MsgBox.extend({
 	        		YesBtnCallBack : function(){
@@ -22,14 +21,13 @@ yc.ui.PauseMenu = cc.Layer.extend({
 
 	        	msgBox.setText('确定要放弃当前游戏，退回到关卡选择吗？');
 				scene.layerUi.addChild(msgBox) ;
-	        }
+	        },this
 	    );
 
 		var goBackToMain = cc.MenuItemImage.create(
 	        "res/btn-main.png",
 	        "res/btn-main-1.png",
 	        null,
-	        this,
 	        function (sender){
 	        	var msgBox = new ( yc.ui.MsgBox.extend({
 	        		YesBtnCallBack : function(){
@@ -41,25 +39,22 @@ yc.ui.PauseMenu = cc.Layer.extend({
 
 	        	msgBox.setText('确定要放弃当前游戏，退回到主菜单吗？');
 				scene.layerUi.addChild(msgBox) ;
-	        }
+	        },this
 	    );
 
 	    var soundMenuItem = cc.MenuItemImage.create(
 	        "res/btn-sound-on.png",
 	        "res/btn-sound-off.png",
 	        null,
-	        this,
 	        function (sender){
 	        	
-	        }
+	        },this
 	    );
 
 	    goBackToMainMenuItem.setPosition(cc.p( 20 , 20 ));
 	    goBackToMain.setPosition(cc.p( 60 , 20 ));
 	    soundMenuItem.setPosition(cc.p( 100 , 20 ));
 	    this.attachedMenu = cc.Menu.create(goBackToMainMenuItem,goBackToMain,soundMenuItem);
-
-
 
 	    this.addChild(this.attachedMenu);
 	    this.attachedMenu.setVisible(false);
@@ -68,7 +63,6 @@ yc.ui.PauseMenu = cc.Layer.extend({
 	        "res/btn-pause.png",
 	        "res/btn-pause-1.png",
 	        null,
-	        this,
 	        function (sender){
 	        	var director = cc.Director.getInstance();
 		        if(director.isPaused()){
@@ -78,7 +72,7 @@ yc.ui.PauseMenu = cc.Layer.extend({
 		        	this.showMenus();		//注意游戏暂停
 		            director.pause();		//注意游戏暂停
 		        }
-	        }
+	        },this
 	    );
 
 	    mainMenuItem.setPosition(cc.p( 20 , 20 ));

@@ -21,15 +21,15 @@ yc.ui.MsgBox = cc.Layer.extend({
 	        "res/btn-yes.png",
 	        "res/btn-yes-1.png",
 	        null,
-	        this,
 	        this.YesBtnCallBack
+	        ,this
 	    );
 	    this.noBtn = cc.MenuItemImage.create(
 	        "res/btn-no.png",
 	        "res/btn-no-1.png",
 	        null,
-	        this,
 	        this.NoBtnCallBack
+	        ,this
 	    );
 
 	    this.yesBtn.setPosition(cc.p( 20 , 0 ));

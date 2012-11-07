@@ -283,8 +283,8 @@ yc.ui.BuildingCreateMenu = function(){
 		        "res/btn-no.png",
 		        "res/btn-no-1.png",
 		        null,
-		        this,
-		        this.close
+		        this.close,
+		        this
 		    );
 		    var closeMenu = cc.Menu.create(closeBtn);
 		    closeMenu.setPosition( cc.p( 0 , 0) );
@@ -422,12 +422,12 @@ yc.ui.BuildingCreateMenu = function(){
 	            "res/btn-yes.png",
 	            "res/btn-yes-1.png",
 	            null,
-	            this,
 	            function (){
 	                if(that.createBuilding( hexgon , building )){
 	                    that.close();
 	                }
-	            }
+	            },
+	            this
 	        );
 	        this.yesMenu = cc.Menu.create(this.yesBtn);
 	        this.yesMenu.setPosition(position);

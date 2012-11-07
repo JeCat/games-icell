@@ -40,8 +40,8 @@ yc.ui.menu.Menu = cc.Layer.extend(
 			var button = cc.MenuItemImage.create(
 		        "res/menu/btn.png",
 		        "res/menu/btn2.png",
-		        this,
-		        this.BtnCallBack
+		        this.BtnCallBack,
+		        this
 		    );
 			button.setPosition(cc.p(0 , buttonY));
 			this.buttons.push(button);
