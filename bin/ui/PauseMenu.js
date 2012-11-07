@@ -20,6 +20,25 @@ yc.ui.PauseMenu = cc.Layer.extend({
 		        	}
 	        	}) );
 
+	        	msgBox.setText('确定要放弃当前游戏，退回到关卡选择吗？');
+				scene.layerUi.addChild(msgBox) ;
+	        }
+	    );
+
+		var goBackToMain = cc.MenuItemImage.create(
+	        "res/btn-main.png",
+	        "res/btn-main-1.png",
+	        null,
+	        this,
+	        function (sender){
+	        	var msgBox = new ( yc.ui.MsgBox.extend({
+	        		YesBtnCallBack : function(){
+		        		cc.Director.getInstance().replaceScene( ins(yc.MainScene) );
+		        		cc.Director.getInstance().resume()
+		        		this.removeFromParent(true);
+		        	}
+	        	}) );
+
 	        	msgBox.setText('确定要放弃当前游戏，退回到主菜单吗？');
 				scene.layerUi.addChild(msgBox) ;
 	        }
@@ -36,8 +55,10 @@ yc.ui.PauseMenu = cc.Layer.extend({
 	    );
 
 	    goBackToMainMenuItem.setPosition(cc.p( 20 , 20 ));
-	    soundMenuItem.setPosition(cc.p( 60 , 20 ));
-	    this.attachedMenu = cc.Menu.create(goBackToMainMenuItem,soundMenuItem);
+	    goBackToMain.setPosition(cc.p( 60 , 20 ));
+	    soundMenuItem.setPosition(cc.p( 100 , 20 ));
+	    this.attachedMenu = cc.Menu.create(goBackToMainMenuItem,goBackToMain,soundMenuItem);
+
 
 
 	    this.addChild(this.attachedMenu);
@@ -88,7 +109,7 @@ yc.ui.PauseMenu = cc.Layer.extend({
 	}
 
 	, onResize : function(w,h){
-	    this.attachedMenu.setPosition(cc.p(w - 120, h - 40));
+	    this.attachedMenu.setPosition(cc.p(w - 160, h - 40));
 	    this.mainMenu.setPosition(cc.p(w - 40, h - 40));
 	}
 }) ;
