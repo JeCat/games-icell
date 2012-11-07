@@ -5,7 +5,7 @@ yc.outer.Footprint = cc.Sprite.extend({
 		this.setOpacity(0.25) ;
 		this.actDisappear = cc.Sequence.create([
 			cc.FadeOut.create(0.5)
- 			, cc.CallFunc.create(this,this.free)
+ 			, cc.CallFunc.create(this.free,this)
  		]) ;
 	}
 

@@ -140,7 +140,7 @@ yc.inner.building.Bullet.Flame = cc.Sprite.extend({
 
 		var seq = cc.Sequence.create([
 			this.animationAction
-			, cc.CallFunc.create(this,this.free)
+			, cc.CallFunc.create(this.free,this)
 		]) ;
 		this.runAction(seq) ;
 	}
