@@ -255,6 +255,11 @@ yc.ui.BuildingCreateMenu = function(){
 			for(var buildingName in this.items )
 			{
 				var item = this.items[buildingName] ;
+
+				if(!item.isUnlock()){
+					continue;
+				}
+
 				if(yc.util.arr.search(item.hexgonTypes,hexgon.type)===false)
 				{
 					continue ;
