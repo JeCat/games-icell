@@ -6,12 +6,17 @@ yc.animations.createAction = function(name){
 	return cc.Animate.create( yc.animations.frames[name] ) ;
 }
 
+yc.animations.firstFrame = function(spriteName){
+	return yc.animations.frames[spriteName].getFrames()[0].getSpriteFrame() ;
+
+}
+
 yc.animations.initBuildinAnimations = function (){
 
 	/**
 	 * 加载帧序列
 	 */
-	function __loadAnimation(name,plist,png,frameNameTemp,idxStart,idxEnd,callback){
+	function __loadAnimation(name,plist,png,frameNameTemp,idxStart,idxEnd,callback,framerate){
 		
 		var spriteFrameCache = cc.SpriteFrameCache.getInstance();
 		spriteFrameCache.addSpriteFrames(plist,png) ;
@@ -27,14 +32,14 @@ yc.animations.initBuildinAnimations = function (){
 				continue ;
 			}
 
-			if(callback!==undefined){
+			if(callback!==undefined && callback){
 				callback(frame) ;
 			}
 
 			animFrames.push(frame);
 		}
 
-		yc.animations.frames[name] = cc.Animation.create( animFrames, 0.1 ) ;
+		yc.animations.frames[name] = cc.Animation.create( animFrames, framerate||0.1 ) ;
 	}
 
 	// 防御塔：射击 ----------------------------------
@@ -73,6 +78,7 @@ yc.animations.initBuildinAnimations = function (){
 
 	// 病毒动画 ----------------------------------
 	__loadAnimation(
+
 			'role.virus_a'
 			, "res/role/virus.plist"
 			, "res/role/virus.png"
@@ -80,7 +86,7 @@ yc.animations.initBuildinAnimations = function (){
 			, 1, 88) ;
 	
 	__loadAnimation(
-			'towers.factory_molino'
+			'building.molino'
 			, "res/building/build.plist"
 			, "res/building/build.png"
 			, "molino_big_00%idx%.png"		// 帧名称模板
@@ -346,4 +352,30 @@ yc.animations.initBuildinAnimations = function (){
 			    frame._offset.y = - (frame._originalSize.height - frame._rect.size.height)/2 ;
 			    frame._offset.x = 0 ;
 			  }*/);
+
+	// 烟雾
+	__loadAnimation(
+			'tower.smoke_a'
+			, "res/smoke.plist"
+			, "res/smoke.png"
+			, "decal_smoke_hitground_00%idx%.png"
+			, 1, 11) ;
+	__loadAnimation(
+			'tower.smoke_b'
+			, "res/smoke.plist"
+			, "res/smoke.png"
+			, "explosion_shrapnel_00%idx%.png"
+			, 1, 20) ;
+	__loadAnimation(
+			'tower.smoke_c'
+			, "res/smoke.plist"
+			, "res/smoke.png"
+			, "fx_rifle_smoke_00%idx%.png"
+			, 1, 10) ;
+	__loadAnimation(
+			'tower.smoke_d'
+			, "res/smoke.plist"
+			, "res/smoke.png"
+			, "fx_smoke_hitground_00%idx%.png"
+			, 1, 13 ) ;
 }

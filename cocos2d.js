@@ -116,13 +116,13 @@ var TAG_SPRITE_MANAGER = 1;
 			, 'bin/inner/building/ProteinFactory.js'
 			, 'bin/inner/building/Recycle.js'
 			, 'bin/inner/building/PlastosomePower.js'
+			, 'bin/inner/building/Rocket.js'
 
 			, 'bin/inner/building/up/UpgraderBase.js'
 			, 'bin/inner/building/up/TowerFirepower.js'
 			, 'bin/inner/building/up/TowerBombing.js'
 			, 'bin/inner/building/up/TowerRetardment.js'
-			
-			, 'bin/inner/organ/OrganLayer.js'
+
 			, 'bin/inner/organ/Organ.js'
 			, 'bin/inner/organ/Eye.js'
 			, 'bin/inner/organ/Tower.js'

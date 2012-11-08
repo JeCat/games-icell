@@ -207,6 +207,22 @@ yc.ui.BuildingCreateMenu = function(){
 				return true ;
 			}
 		}
+
+		, rocket: {
+			title: '火箭推进器'
+			, description: '短时间内让细胞的移动速度加倍'
+			, texture : "res/building/8.png"
+			, texture_l : "res/building/8-l.png"
+			, texture_nm : "res/building/8-nm.png"
+			, hexgonTypes: ['cytoplasm']
+			, cost: function(){
+				return {}
+			}
+			, buildingClass: yc.inner.building.Rocket
+			, isUnlock: function(){
+				return true ;
+			}
+		}
 	} ;
 
 

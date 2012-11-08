@@ -106,6 +106,10 @@ yc.outer.PlayerLayer = cc.Layer.extend({
 				var prop = 'vMoving' ;
 				var v = -1 ;
 				break;
+
+			// 其他按键 跳过 updateCellMoving()
+			default:
+				return ;
 		}
 
 		if( this[prop]==v )
@@ -142,6 +146,10 @@ yc.outer.PlayerLayer = cc.Layer.extend({
 			case 40 :
 				this.vMoving = -1 ;
 				break;
+
+			// 其他按键 跳过 updateCellMoving()
+			default:
+				return ;
 		}
 
 		this.updateCellMoving() ;
