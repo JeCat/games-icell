@@ -13,9 +13,21 @@ yc.ui.PauseMenu = cc.Layer.extend({
 	        function (sender){
 	        	var msgBox = new ( yc.ui.MsgBox.extend({
 	        		YesBtnCallBack : function(){
-		        		cc.Director.getInstance().replaceScene( ins(yc.levels.LevelSelector) );
+	        			
+	        			var level = yc.GameScene._level;
+	        			var patrn=/^[0-9]*$/;  
+	        			if (patrn.exec(level)) 
+        				{
+	        				$("#editor-panel-space").hide() ;
+			        		cc.Director.getInstance().replaceScene( new cc.Scene() );
+			        		worldList();
+        				}else{
+        					cc.Director.getInstance().replaceScene( ins(yc.levels.LevelSelector) );
+        				}
+	        	
 		        		cc.Director.getInstance().resume()
 		        		this.removeFromParent(true);
+		        		
 		        	}
 	        	}) );
 
@@ -31,8 +43,16 @@ yc.ui.PauseMenu = cc.Layer.extend({
 	        function (sender){
 	        	var msgBox = new ( yc.ui.MsgBox.extend({
 	        		YesBtnCallBack : function(){
-		        		cc.Director.getInstance().replaceScene( ins(yc.MainScene) );
-		        		cc.Director.getInstance().resume()
+		        		
+	        			var level = yc.GameScene._level;
+	        			var patrn=/^[0-9]*$/;  
+	        			if (patrn.exec(level)) 
+        				{
+	        				$("#editor-panel-space").width(0) ;
+	        				$("#editor-panel-space").hide() ;
+        				}
+	        			cc.Director.getInstance().replaceScene( ins(yc.MainScene) );
+		        		cc.Director.getInstance().resume();
 		        		this.removeFromParent(true);
 		        	}
 	        	}) );
