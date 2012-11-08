@@ -502,4 +502,137 @@ yc.animations.initBuildinAnimations = function (){
 			    frame._offset.y = - (frame._originalSize.height - frame._rect.size.height)/2 ;
 			    frame._offset.x = 0 ;
 			  }*/);
+	
+	//Boss
+	__loadAnimation(
+			'role.boss_veznan_right'
+			, "res/role/boss.plist"
+			, "res/role/boss.png"
+			, "boss_veznan_0%idx%.png"		// 帧名称模板
+			, 244, 269								// 帧名称中的下标的数值范围
+			/*
+			, function(frame){					// 处理每帧的回调函数（可选）
+			    // 矫正一下 图片位置，统一下边界对齐
+			    frame._offset.y = - (frame._originalSize.height - frame._rect.size.height)/2 ;
+			    frame._offset.x = 0 ;
+			  }*/);
+	
+	__loadAnimation(
+			'role.boss_veznan_front'
+			, "res/role/boss.plist"
+			, "res/role/boss.png"
+			, "boss_veznan_0%idx%.png"		// 帧名称模板
+			, 271, 293								// 帧名称中的下标的数值范围
+			/*
+			, function(frame){					// 处理每帧的回调函数（可选）
+			    // 矫正一下 图片位置，统一下边界对齐
+			    frame._offset.y = - (frame._originalSize.height - frame._rect.size.height)/2 ;
+			    frame._offset.x = 0 ;
+			  }*/);
+	
+	__loadAnimation(
+			'role.bossJuggernaut_right'
+			, "res/role/boss.plist"
+			, "res/role/boss.png"
+			, "bossJuggernaut_00%idx%.png"		// 帧名称模板
+			, 1, 23								// 帧名称中的下标的数值范围
+			/*
+			, function(frame){					// 处理每帧的回调函数（可选）
+			    // 矫正一下 图片位置，统一下边界对齐
+			    frame._offset.y = - (frame._originalSize.height - frame._rect.size.height)/2 ;
+			    frame._offset.x = 0 ;
+			  }*/);
+	
+	__loadAnimation(
+			'role.bossRotten_right'
+			, "res/role/boss.plist"
+			, "res/role/boss.png"
+			, "BossRotten_00%idx%.png"		// 帧名称模板
+			, 5, 15								// 帧名称中的下标的数值范围
+			/*
+			, function(frame){					// 处理每帧的回调函数（可选）
+			    // 矫正一下 图片位置，统一下边界对齐
+			    frame._offset.y = - (frame._originalSize.height - frame._rect.size.height)/2 ;
+			    frame._offset.x = 0 ;
+			  }*/);
+	
+	__loadAnimation(
+			'role.bossRotten_front'
+			, "res/role/boss.plist"
+			, "res/role/boss.png"
+			, "BossRotten_00%idx%.png"		// 帧名称模板
+			, 17, 31								// 帧名称中的下标的数值范围
+			/*
+			, function(frame){					// 处理每帧的回调函数（可选）
+			    // 矫正一下 图片位置，统一下边界对齐
+			    frame._offset.y = - (frame._originalSize.height - frame._rect.size.height)/2 ;
+			    frame._offset.x = 0 ;
+			  }*/);
+	
+	__loadAnimation(
+			'role.bossforest_troll_right'
+			, "res/role/boss.plist"
+			, "res/role/boss.png"
+			, "forest_troll_00%idx%.png"		// 帧名称模板
+			, 1, 25								// 帧名称中的下标的数值范围
+			/*
+			, function(frame){					// 处理每帧的回调函数（可选）
+			    // 矫正一下 图片位置，统一下边界对齐
+			    frame._offset.y = - (frame._originalSize.height - frame._rect.size.height)/2 ;
+			    frame._offset.x = 0 ;
+			  }*/);
+	
+	__loadAnimation(
+			'role.bossforest_troll_front'
+			, "res/role/boss.plist"
+			, "res/role/boss.png"
+			, "forest_troll_00%idx%.png"		// 帧名称模板
+			, 50, 72								// 帧名称中的下标的数值范围
+			/*
+			, function(frame){					// 处理每帧的回调函数（可选）
+			    // 矫正一下 图片位置，统一下边界对齐
+			    frame._offset.y = - (frame._originalSize.height - frame._rect.size.height)/2 ;
+			    frame._offset.x = 0 ;
+			  }*/);
+	
+	
+	__loadAnimation(
+			'role.bosssasquash_right'
+			, "res/role/boss.plist"
+			, "res/role/boss.png"
+			, "sasquash_00%idx%.png"		// 帧名称模板
+			, 1, 27								// 帧名称中的下标的数值范围
+			/*
+			, function(frame){					// 处理每帧的回调函数（可选）
+			    // 矫正一下 图片位置，统一下边界对齐
+			    frame._offset.y = - (frame._originalSize.height - frame._rect.size.height)/2 ;
+			    frame._offset.x = 0 ;
+			  }*/);
+	
+	__loadAnimation(
+			'role.bossyeti_right'
+			, "res/role/boss.plist"
+			, "res/role/boss.png"
+			, "yeti_00%idx%.png"		// 帧名称模板
+			, 1, 25								// 帧名称中的下标的数值范围
+			/*
+			, function(frame){					// 处理每帧的回调函数（可选）
+			    // 矫正一下 图片位置，统一下边界对齐
+			    frame._offset.y = - (frame._originalSize.height - frame._rect.size.height)/2 ;
+			    frame._offset.x = 0 ;
+			  }*/);
+	
+	
+	__loadAnimation(
+			'role.bossyeti_front'
+			, "res/role/boss.plist"
+			, "res/role/boss.png"
+			, "yeti_00%idx%.png"		// 帧名称模板
+			, 50, 72								// 帧名称中的下标的数值范围
+			/*
+			, function(frame){					// 处理每帧的回调函数（可选）
+			    // 矫正一下 图片位置，统一下边界对齐
+			    frame._offset.y = - (frame._originalSize.height - frame._rect.size.height)/2 ;
+			    frame._offset.x = 0 ;
+			  }*/);
 }
