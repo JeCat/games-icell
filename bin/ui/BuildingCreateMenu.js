@@ -227,20 +227,20 @@ yc.ui.BuildingCreateMenu = function(){
 			ins(yc.outer.PlayerLayer).setNeedFaceToPoint(false) ;
 
 
-			var arrPositions = [
-				[0,150]
-				, [-75,129]
-				, [-129,75]
-				, [-150,0]
-				, [-129,-75]
-				, [-75,-129]
-				, [0,-150]
-				, [75,-129]
-				, [129,-75]
-				, [150,0]
-				, [129,75]
-				, [75,129]
-			];
+			// var arrPositions = [
+			// 	[0,150]
+			// 	, [-75,129]
+			// 	, [-129,75]
+			// 	, [-150,0]
+			// 	, [-129,-75]
+			// 	, [-75,-129]
+			// 	, [0,-150]
+			// 	, [75,-129]
+			// 	, [129,-75]
+			// 	, [150,0]
+			// 	, [129,75]
+			// 	, [75,129]
+			// ];
 
 			console.log('create menu');
 
@@ -266,18 +266,34 @@ yc.ui.BuildingCreateMenu = function(){
 				}
 
 				var itemUi = BuildingBtn.buildingBtnWithTexture(item.texture,item.texture_l,item.texture_nm) ;
-				var position = arrPositions.shift();
+				
 				itemUi.isBuildingBtn =  true;
 				itemUi.building = item;
 				itemUi.hexgon = hexgon;
 				// itemUi.setScale(0.3,0.3);
-				itemUi.toPosition = cc.p(  position[0], position[1] );
+				// itemUi.toPosition = cc.p(  position[0], position[1] );
 				// itemUi.toPosition = cc.p( this.uiCenter[0] + position[0], this.uiCenter[1]  + position[1] );
 				// itemUi.setPosition(cc.p( this.uiCenter[0] + position[0], this.uiCenter[1]  + position[1] ));
-				itemUi.setPosition(cc.p(  position[0],  position[1] ));
+				// itemUi.setPosition(cc.p(  position[0],  position[1] ));
 				// itemUi.setContentSize(new cc.Size(10,10));
 				this.ui.addChild( itemUi );
 			}
+
+			var childrenCount = this.ui.getChildrenCount();
+			if(childrenCount === 0 ){
+				return;
+			}
+			var perBuildingRadian = Math.PI * 2 / childrenCount;
+			var children = this.ui.getChildren();
+			var radius = childrenCount * 16 ;
+
+			for(var buildingBtnIndex in children){
+				var x = Math.sin(perBuildingRadian*buildingBtnIndex)*radius;
+				var y = Math.cos(perBuildingRadian*buildingBtnIndex)*radius;
+
+				children[buildingBtnIndex].toPosition = cc.p( x , y );
+				children[buildingBtnIndex].setPosition( cc.p( x , y ) );
+		    }
 
 			var closeBtn = cc.MenuItemImage.create(
 		        "res/btn-no.png",
@@ -290,16 +306,8 @@ yc.ui.BuildingCreateMenu = function(){
 		    closeMenu.setPosition( cc.p( 0 , 0) );
 		    this.ui.addChild(closeMenu);
 
-		    // for(var buildingBtn in ){
-
-		    // }
-
-
-
 			// itemUi.setPosition(cc.p( this.uiCenter[0] + position[0], this.uiCenter[1]  + position[1] ));
 		 //    cc.MoveTo.create(2, cc.p(s.width - 40, s.height - 40));
-
-		 	
 
 		 	this.onProteinsChanged();
 
