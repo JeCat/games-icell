@@ -297,17 +297,23 @@ yc.ui.BuildingCreateMenu = function(){
 			var perBuildingRadian = Math.PI * 2 / childrenCount;
 			var children = this.ui.getChildren();
 			var radius = childrenCount * 16 ;
+			var actDelay = 0.02;
 
 		 	for(var buildingBtnIndex in children){
 		 		if(!children[buildingBtnIndex]._rect){
 		 			continue;
 		 		}
 
-		 		var x = Math.sin(perBuildingRadian*buildingBtnIndex)*radius;
+		 		children[buildingBtnIndex].setRotation(260);
+
+	 			var x = Math.sin(perBuildingRadian*buildingBtnIndex)*radius;
 				var y = Math.cos(perBuildingRadian*buildingBtnIndex)*radius;
 
-		 		var moveAct = cc.MoveTo.create(0.1, cc.p( x , y ));
-				children[buildingBtnIndex].runAction(moveAct);
+		 		this.actDisappear = cc.Sequence.create([
+					cc.DelayTime.create(buildingBtnIndex * actDelay)
+		 			, cc.Spawn.create( cc.MoveTo.create(0.2, cc.p( x , y )), cc.RotateBy.create(0.2, 100))
+		 		]) ;
+		 		children[buildingBtnIndex].runAction(this.actDisappear);
 		    }
 		}
 	}
