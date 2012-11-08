@@ -19,7 +19,7 @@ yc.outer.Portal = yc.outer.PhysicalEntity.extend({
 	, draw: function(ctx){
 		
 
-		this.initWithFile('res/victory.png');
+		this.initWithFile('res/Goal.png');
 
 		this._super(ctx,true) ;
 		/*
@@ -41,6 +41,7 @@ yc.outer.Portal = yc.outer.PhysicalEntity.extend({
 		var seq = cc.Spawn.create(
 				cc.ScaleTo.create(0.3, 1, 1)
 				, cc.FadeIn.create(0.3)
+				, cc.RepeatForever.create(cc.RotateBy.create(2, 360))
 		)
 
 		this.runAction(seq) ;

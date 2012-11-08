@@ -5,7 +5,9 @@ yc.ui.skill.ButtonBase = cc.Sprite.extend({
 	boxWidth: 50
 	, boxHeight: 50
 	, _state : STAR_STATE_UNGRABBED
-	, ctor: function(){
+	, title : null
+	, keyCode : null
+	, ctor: function(obj){
 		var _skillList = [] ;
 		this.addSkill=function(s){
 			_skillList.push( s );
@@ -13,12 +15,20 @@ yc.ui.skill.ButtonBase = cc.Sprite.extend({
 		this.skillList = function(){
 			return _skillList;
 		}
+		if(obj.keyCode){
+			this.keyCode = obj.keyCode;
+		}
+		if(obj.title){
+			this.title = obj.title;
+		}
 	},
 	draw: function(ctx){
+		
+		
 		this._super();
 		
 		var radius = 25;
-		ctx.fillStyle = "rgba(0,255,0,1)" ;
+		ctx.fillStyle = "#372c23" ;
 		ctx.beginPath() ;
 		ctx.moveTo(0,0) ;
 		ctx.lineTo(radius,0) ;
@@ -26,12 +36,28 @@ yc.ui.skill.ButtonBase = cc.Sprite.extend({
 		ctx.lineTo(0,0) ;
 		ctx.closePath();
 		ctx.fill() ;
+
+		var radius = 20;
+		ctx.fillStyle = "#513f2f" ;
+		ctx.beginPath() ;
+		ctx.moveTo(0,0) ;
+		ctx.lineTo(radius,0) ;
+		ctx.arc(0,0, radius, 0, Math.PI*2 * this.getCoolDownPercent(), false) ;
+		ctx.lineTo(0,0) ;
+		ctx.closePath();
+		ctx.fill() ;
+		
+		ctx.fillStyle = "#d1bfaf";  
+		ctx.font = "bold 40px Arial";  
+		ctx.textBaseline = "top";  
+		ctx.fillText(this.title, -10, -22);  
 	},
 	rect:function () {
 		return cc.rect(-this.boxWidth / 2, -this.boxHeight / 2, this.boxWidth, this.boxHeight);
 	},
 	onEnter:function () {
 		cc.Director.getInstance().getTouchDispatcher().addTargetedDelegate(this, 0, true);
+		cc.Director.getInstance().getKeyboardDispatcher().addDelegate(this);
 		this._super();
 	},
 	onExit:function () {
@@ -70,6 +96,14 @@ yc.ui.skill.ButtonBase = cc.Sprite.extend({
 				break;
 			}
 		}
+	}
+	,onKeyUp:function (key) {
+		if(key == this.keyCode){
+			this.onclick();
+		}
+	}
+	,onKeyDown:function (key) {
+		
 	}
 	,getCoolDownPercent:function(){
 		var i,skill;

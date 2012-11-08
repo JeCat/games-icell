@@ -18,11 +18,24 @@ yc.ui.skill.SkillBar = cc.Layer.extend({
 			button = this.buttons[name];
 		}else{
 			switch(name){
-			case 'OutsideShooter':
+			case 'xxxxxxxxxxx'://OutsideShooter
 				button = new yc.ui.skill.OutsideShooterButton;
 				break;
 			default:
-				button = new yc.ui.skill.ButtonBase;
+				
+				var title = 1;
+				var key = 49;
+				for(var attr in this.buttons)
+				{
+					title++;
+					key++;
+				}
+				
+				var obj = {
+					title:title,
+					keyCode:key
+				};
+				button = new yc.ui.skill.ButtonBase(obj);
 				break;
 			}
 			this.addButton( button );

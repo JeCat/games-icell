@@ -194,6 +194,10 @@ yc.outer.VirusCluster = yc.outer.PhysicalEntity.extend({
 			// 掉落 dna
 			// todo ...
 			
+			//save user
+			ins(yc.user.Character).cell = ins(yc.inner.Cell).exportScript() ;
+			ins(yc.user.Character).save() ;
+			
 			var dna = this._script.dna;
 			if( typeof(dna) == "object"){
 

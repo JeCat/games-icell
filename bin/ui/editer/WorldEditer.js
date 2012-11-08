@@ -42,6 +42,7 @@ yc.ui.editer.WorldEditer = function(){
 
 		// 打开ui
 		this.ui.show() ;
+		$("#editor-panel-space").show();
 		$("#editor-panel-space").width(420) ;
 		ICellGame.instance.resize() ;
 		
