@@ -58,7 +58,7 @@ var BuildingBtn = cc.Sprite.extend({
 
         var BuildingCreateMenu = ins(yc.ui.BuildingCreateMenu);
             
-        BuildingCreateMenu.showBuildingDes(this.hexgon , this.building , this.toPosition , this.bBuildabel);
+        BuildingCreateMenu.showBuildingDes(this.hexgon , this.building , this.getPosition() , this.bBuildabel);
 
         console.log( this.building.title + ' building btn touch end');
         
