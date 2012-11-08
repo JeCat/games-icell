@@ -236,36 +236,15 @@ yc.ui.BuildingCreateMenu = function(){
 		if(hexgon.type === 'nucleus'){
 			return;
 		}
-		// cc.MoveTo.create(2, cc.p(s.width - 40, s.height - 40));
 
 		if(!this.ui){
 
 			ins(yc.outer.PlayerLayer).setNeedFaceToPoint(false) ;
 
-
-			var arrPositions = [
-				[0,150]
-				, [-75,129]
-				, [-129,75]
-				, [-150,0]
-				, [-129,-75]
-				, [-75,-129]
-				, [0,-150]
-				, [75,-129]
-				, [129,-75]
-				, [150,0]
-				, [129,75]
-				, [75,129]
-			];
-
-			console.log('create menu');
+			// console.log('create menu');
 
 			this.ui = new cc.Layer();
 			scene.layerUi.addChild(this.ui);
-			// this.ui.setPosition(cc.p(0,0));
-			// this.ui.setContentSize(new cc.Size(200,200));
-			// this.ui.setAnchorPoint(cc.p(hexgon.center[0],hexgon.center[1]));
-			// this.ui.setPosition(cc.p(hexgon.center[0],hexgon.center[1]));
 
 			var centerPosition = yc.util.clientToWindow( ins(yc.outer.Cell) , hexgon.center[0],hexgon.center[1]);
 
@@ -276,22 +255,21 @@ yc.ui.BuildingCreateMenu = function(){
 			for(var buildingName in this.items )
 			{
 				var item = this.items[buildingName] ;
+
+				if(!item.isUnlock()){
+					continue;
+				}
+
 				if(yc.util.arr.search(item.hexgonTypes,hexgon.type)===false)
 				{
 					continue ;
 				}
 
 				var itemUi = BuildingBtn.buildingBtnWithTexture(item.texture,item.texture_l,item.texture_nm) ;
-				var position = arrPositions.shift();
+				
 				itemUi.isBuildingBtn =  true;
 				itemUi.building = item;
 				itemUi.hexgon = hexgon;
-				// itemUi.setScale(0.3,0.3);
-				itemUi.toPosition = cc.p(  position[0], position[1] );
-				// itemUi.toPosition = cc.p( this.uiCenter[0] + position[0], this.uiCenter[1]  + position[1] );
-				// itemUi.setPosition(cc.p( this.uiCenter[0] + position[0], this.uiCenter[1]  + position[1] ));
-				itemUi.setPosition(cc.p(  position[0],  position[1] ));
-				// itemUi.setContentSize(new cc.Size(10,10));
 				this.ui.addChild( itemUi );
 			}
 
@@ -306,22 +284,31 @@ yc.ui.BuildingCreateMenu = function(){
 		    closeMenu.setPosition( cc.p( 0 , 0) );
 		    this.ui.addChild(closeMenu);
 
-		    // for(var buildingBtn in ){
-
-		    // }
-
-
-
-			// itemUi.setPosition(cc.p( this.uiCenter[0] + position[0], this.uiCenter[1]  + position[1] ));
-		 //    cc.MoveTo.create(2, cc.p(s.width - 40, s.height - 40));
-
-		 	
-
 		 	this.onProteinsChanged();
 
 		 	this.ui.setPosition(cc.p( this.uiCenter[0] ,this.uiCenter[1]));
 		 	this.ui.setAnchorPoint( cc.p(0.5,0.5) );
 		 	// this.ui.setRotation(20);
+
+		 	var childrenCount = this.ui.getChildrenCount() - 1;
+			if(childrenCount === 0 ){
+				return;
+			}
+			var perBuildingRadian = Math.PI * 2 / childrenCount;
+			var children = this.ui.getChildren();
+			var radius = childrenCount * 16 ;
+
+		 	for(var buildingBtnIndex in children){
+		 		if(!children[buildingBtnIndex]._rect){
+		 			continue;
+		 		}
+
+		 		var x = Math.sin(perBuildingRadian*buildingBtnIndex)*radius;
+				var y = Math.cos(perBuildingRadian*buildingBtnIndex)*radius;
+
+		 		var moveAct = cc.MoveTo.create(0.1, cc.p( x , y ));
+				children[buildingBtnIndex].runAction(moveAct);
+		    }
 		}
 	}
 	
