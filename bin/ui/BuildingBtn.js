@@ -44,6 +44,7 @@ var BuildingBtn = cc.Sprite.extend({
     ,onTouchBegan:function (touch, event) {
         if (this._state != BUILDINGBTN_STATE_UNGRABBED) return false;
         if (!this.containsTouchLocation(touch)){
+            ins(yc.ui.BuildingCreateMenu).close();
             return false;
         }
         this._state = BUILDINGBTN_STATE_GRABBED;

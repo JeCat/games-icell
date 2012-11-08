@@ -298,29 +298,29 @@ yc.ui.BuildingCreateMenu = function(){
 			var perBuildingRadian = Math.PI * 2 / childrenCount;
 			var children = this.ui.getChildren();
 			var radius = childrenCount * 16 ;
-			var actDelay = 0.02;
+			var actDelay = 0.01;
 
 		 	for(var buildingBtnIndex in children){
 		 		if(!children[buildingBtnIndex]._rect){
 		 			continue;
 		 		}
 
-		 		children[buildingBtnIndex].setRotation(260);
-
 	 			var x = Math.sin(perBuildingRadian*buildingBtnIndex)*radius;
 				var y = Math.cos(perBuildingRadian*buildingBtnIndex)*radius;
 
-		 		this.actDisappear = cc.Sequence.create([
+		 		actDisappear = cc.Sequence.create([
 					cc.DelayTime.create(buildingBtnIndex * actDelay)
-		 			, cc.Spawn.create( cc.MoveTo.create(0.2, cc.p( x , y )), cc.RotateBy.create(0.2, 100))
+		 			, cc.Spawn.create( cc.MoveTo.create(0.09, cc.p( x , y )), cc.RotateBy.create(0.11, 360))
 		 		]) ;
-		 		children[buildingBtnIndex].runAction(this.actDisappear);
+		 		children[buildingBtnIndex].actDisappear = actDisappear ;
+		 		children[buildingBtnIndex].runAction(actDisappear);
 		    }
 		}
 	}
 	
 	this.close = function(){
 		var inner = ins(yc.inner.InnerLayer) ;
+		var that = this;
 
 		if(inner.map.selcted_hexgon)
 		{
@@ -328,8 +328,33 @@ yc.ui.BuildingCreateMenu = function(){
 			inner.map.selcted_hexgon = null ;
 		}
 		if(this.ui){
-			this.ui.removeFromParent(true);
-    		this.ui = null;
+			if(this.ui.label){
+				this.ui.pp.removeFromParent(true);
+				this.ui.label.removeFromParent(true);
+			}
+			var children = this.ui.getChildren();
+			for(var buildingBtnIndex in children){
+				if(!children[buildingBtnIndex]._rect){
+					continue;
+				}
+				children[buildingBtnIndex].runAction(
+
+					this.actDisappear = cc.Sequence.create([
+						cc.Spawn.create( 
+							cc.MoveTo.create(0.09, cc.p( 0,0 ))
+							, cc.RotateBy.create(0.11, 360)
+						)
+						, cc.CallFunc.create(
+							function(){
+								if(this.ui){
+									this.ui.removeFromParent(true);
+	    							this.ui = null;
+								}
+							},that
+						)
+					])
+				);
+			}
 		}
 		// cancel event
 		if(window.event.type === 'mouseup'){
@@ -396,15 +421,15 @@ yc.ui.BuildingCreateMenu = function(){
             this.yesMenu.removeFromParent(true);
             
         }
-        if(this.pp){
-        	this.pp.removeFromParent(true);
+        if(this.ui.pp){
+        	this.ui.pp.removeFromParent(true);
     	}
 
         if(this.ui.label){
             this.ui.label.removeFromParent(true);
         }
 
-        this.pp = cc.Sprite.create("res/building/dec_bg.png");
+        this.ui.pp = cc.Sprite.create("res/building/dec_bg.png");
         this.ui.label = cc.Sprite.create();
         this.ui.label.draw = function(ctx)
         {
@@ -421,10 +446,10 @@ yc.ui.BuildingCreateMenu = function(){
                 );
             font.draw(ctx);
         }
-        this.pp.setPosition( cc.p(-320 , 0) ) ;
-        this.pp.setScale(0.4,0.4);
+        this.ui.pp.setPosition( cc.p(-320 , 0) ) ;
+        this.ui.pp.setScale(0.4,0.4);
         this.ui.label.setPosition( cc.p(-420 , 50) ) ;
-        that.ui.addChild(this.pp);
+        that.ui.addChild(this.ui.pp);
         that.ui.addChild(this.ui.label);
 
         if(allowBuild){
