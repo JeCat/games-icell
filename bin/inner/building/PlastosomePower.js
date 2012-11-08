@@ -16,7 +16,7 @@ yc.inner.building.PlastosomePower = yc.inner.building.Building.extend({
 		
 		this._super(hexgon)
 		
-		yc.event.register( ins(yc.outer.Cell), "calculatePower", this.calculatePower, this )
+		yc.event.register( ins(yc.outer.Cell), "calculatePower", this.calculatePower, this ) ;
 		ins(yc.outer.Cell).calculatePower() ;
 	}
 

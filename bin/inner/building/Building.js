@@ -21,7 +21,7 @@ yc.inner.building.Building = cc.Sprite.extend({
 
 		// 决定 building 放在哪个 layer 上
 		if( 'shell' == this.layer ){
-			var bLayer = ins(yc.inner.organ.OrganLayer); 
+			var bLayer = ins(yc.outer.Cell).shell; 
 		}else{
 			var bLayer = ins(yc.inner.InnerLayer).buildings ;
 		}
@@ -138,6 +138,18 @@ yc.inner.building.Building = cc.Sprite.extend({
 				upgrader.upgrade(this) ;
 			}
 		}
+	}
+
+	// 获得建筑在世界中对应的坐标位置
+	, worldAxes: function(){
+		var cell = ins(yc.outer.Cell) ;
+		var mypos = yc.util.clientToWindow( ins(yc.inner.InnerLayer).buildings, this.hexgon.center[0], this.hexgon.center[1] ) ;
+		var cellpos = yc.util.clientToWindow( cell, 0, 0 ) ;
+
+		return [ 
+			cell.x + (mypos[0] - cellpos[0])
+			, cell.y + (mypos[1] - cellpos[1])
+		] ;
 	}
 
 }) ;
