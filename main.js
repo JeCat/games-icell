@@ -101,7 +101,8 @@ var ICellGame = cc.Application.extend({
 			, {type:"image", src:"res/role/role.png"}
 			, {type:"plist", src:"res/smoke.plist"}
 			, {type:"image", src:"res/smoke.png"}
-
+			, {type:"plist", src:"res/role/boss.plist"}
+			, {type:"image", src:"res/role/boss.png"}
 			
 		]);
 	},
