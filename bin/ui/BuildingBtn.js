@@ -44,6 +44,7 @@ var BuildingBtn = cc.Sprite.extend({
     ,onTouchBegan:function (touch, event) {
         if (this._state != BUILDINGBTN_STATE_UNGRABBED) return false;
         if (!this.containsTouchLocation(touch)){
+            ins(yc.ui.BuildingCreateMenu).close();
             return false;
         }
         this._state = BUILDINGBTN_STATE_GRABBED;
@@ -58,7 +59,7 @@ var BuildingBtn = cc.Sprite.extend({
 
         var BuildingCreateMenu = ins(yc.ui.BuildingCreateMenu);
             
-        BuildingCreateMenu.showBuildingDes(this.hexgon , this.building , this.toPosition , this.bBuildabel);
+        BuildingCreateMenu.showBuildingDes(this.hexgon , this.building , this.getPosition() , this.bBuildabel);
 
         console.log( this.building.title + ' building btn touch end');
         

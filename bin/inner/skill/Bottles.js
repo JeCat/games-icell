@@ -2,11 +2,13 @@ yc.inner.skill.Bottles = yc.inner.skill.SkillBase.extend({
 	ctor : function(){
 		this._super();
 		
+		this.setName( 'Bottles' );
+		
 	}
 	, start: function(){
 		
 
-		var worldName = prompt('please input world name');
+		var worldName = prompt('留下您的心情!');
 		
 		if(!worldName){
 			alert("不能为空！")

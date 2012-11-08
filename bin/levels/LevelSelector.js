@@ -11,6 +11,47 @@ yc.levels.LevelSelector = cc.Scene.extend({
 
 		this.layerMap = new yc.levels.LevelSelector.MapLayer(this.setting) ;
 		this.addChild(this.layerMap) ;
+		
+		
+		//返回
+		var layerUi = cc.Layer.extend({
+			ctor: function(){
+				this._super() ;
+
+				var button = cc.MenuItemImage.create(
+			        "res/btn-back.png",
+			        "res/btn-back-1.png",
+			        function(){
+			        	cc.Director.getInstance().replaceScene( ins(yc.MainScene) );
+		        		cc.Director.getInstance().resume()
+		        		this.removeFromParent(true);
+			        },
+			        this
+			    );
+
+			    this.menu = cc.Menu.create(button);
+				this.addChild(this.menu);
+
+			    var screenSize = cc.Director.getInstance().getWinSize();
+			    this.onResize(screenSize.width, screenSize.height);
+			}
+			, onEnter : function(){
+				yc.event.register( ins(yc.outer.Camera), "resize", this.onResize, this ) ;
+				this._super() ;
+			}
+	
+			, onExit : function(){
+				yc.event.unregister( ins(yc.outer.Camera), "resize", this.onResize ) ;
+				this._super() ;
+			}
+			, onResize : function(w,h){
+			    this.menu.setPosition(cc.p(w - 20, h - 20));
+			}
+			, draw: function(ctx){
+				this._super() ;
+			}
+		}) ;
+		this.addChild(new layerUi) ;
 	}
 
 	, onExit: function(){

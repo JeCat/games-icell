@@ -230,42 +230,22 @@ yc.ui.BuildingCreateMenu = function(){
 	};
 
 	this.show = function(hexgon){
-		var buildingCreateMenu = this;
+		var that = this;
 		var inner = ins(yc.inner.InnerLayer) ;
 
 		if(hexgon.type === 'nucleus'){
 			return;
 		}
-		// cc.MoveTo.create(2, cc.p(s.width - 40, s.height - 40));
 
 		if(!this.ui){
 
 			ins(yc.outer.PlayerLayer).setNeedFaceToPoint(false) ;
 
-
-			var arrPositions = [
-				[0,150]
-				, [-75,129]
-				, [-129,75]
-				, [-150,0]
-				, [-129,-75]
-				, [-75,-129]
-				, [0,-150]
-				, [75,-129]
-				, [129,-75]
-				, [150,0]
-				, [129,75]
-				, [75,129]
-			];
-
-			console.log('create menu');
+			// console.log('create menu' , hexgon);
 
 			this.ui = new cc.Layer();
+			this.ui.hexgon = hexgon;
 			scene.layerUi.addChild(this.ui);
-			// this.ui.setPosition(cc.p(0,0));
-			// this.ui.setContentSize(new cc.Size(200,200));
-			// this.ui.setAnchorPoint(cc.p(hexgon.center[0],hexgon.center[1]));
-			// this.ui.setPosition(cc.p(hexgon.center[0],hexgon.center[1]));
 
 			var centerPosition = yc.util.clientToWindow( ins(yc.outer.Cell) , hexgon.center[0],hexgon.center[1]);
 
@@ -276,22 +256,21 @@ yc.ui.BuildingCreateMenu = function(){
 			for(var buildingName in this.items )
 			{
 				var item = this.items[buildingName] ;
+
+				if(!item.isUnlock()){
+					continue;
+				}
+
 				if(yc.util.arr.search(item.hexgonTypes,hexgon.type)===false)
 				{
 					continue ;
 				}
 
 				var itemUi = BuildingBtn.buildingBtnWithTexture(item.texture,item.texture_l,item.texture_nm) ;
-				var position = arrPositions.shift();
+				
 				itemUi.isBuildingBtn =  true;
 				itemUi.building = item;
 				itemUi.hexgon = hexgon;
-				// itemUi.setScale(0.3,0.3);
-				itemUi.toPosition = cc.p(  position[0], position[1] );
-				// itemUi.toPosition = cc.p( this.uiCenter[0] + position[0], this.uiCenter[1]  + position[1] );
-				// itemUi.setPosition(cc.p( this.uiCenter[0] + position[0], this.uiCenter[1]  + position[1] ));
-				itemUi.setPosition(cc.p(  position[0],  position[1] ));
-				// itemUi.setContentSize(new cc.Size(10,10));
 				this.ui.addChild( itemUi );
 			}
 
@@ -306,27 +285,43 @@ yc.ui.BuildingCreateMenu = function(){
 		    closeMenu.setPosition( cc.p( 0 , 0) );
 		    this.ui.addChild(closeMenu);
 
-		    // for(var buildingBtn in ){
-
-		    // }
-
-
-
-			// itemUi.setPosition(cc.p( this.uiCenter[0] + position[0], this.uiCenter[1]  + position[1] ));
-		 //    cc.MoveTo.create(2, cc.p(s.width - 40, s.height - 40));
-
-		 	
-
 		 	this.onProteinsChanged();
 
 		 	this.ui.setPosition(cc.p( this.uiCenter[0] ,this.uiCenter[1]));
 		 	this.ui.setAnchorPoint( cc.p(0.5,0.5) );
 		 	// this.ui.setRotation(20);
+
+		 	var childrenCount = this.ui.getChildrenCount() - 1;
+			if(childrenCount === 0 ){
+				that.close();
+				return;
+			}
+			var perBuildingRadian = Math.PI * 2 / childrenCount;
+			var children = this.ui.getChildren();
+			var radius = childrenCount * 16 ;
+			var actDelay = 0.01;
+
+		 	for(var buildingBtnIndex in children){
+		 		if(!children[buildingBtnIndex]._rect){
+		 			continue;
+		 		}
+
+	 			var x = Math.sin(perBuildingRadian*buildingBtnIndex)*radius;
+				var y = Math.cos(perBuildingRadian*buildingBtnIndex)*radius;
+
+		 		actDisappear = cc.Sequence.create([
+					cc.DelayTime.create(buildingBtnIndex * actDelay)
+		 			, cc.Spawn.create( cc.MoveTo.create(0.09, cc.p( x , y )), cc.RotateBy.create(0.11, 360))
+		 		]) ;
+		 		children[buildingBtnIndex].actDisappear = actDisappear ;
+		 		children[buildingBtnIndex].runAction(actDisappear);
+		    }
 		}
 	}
 	
 	this.close = function(){
 		var inner = ins(yc.inner.InnerLayer) ;
+		var that = this;
 
 		if(inner.map.selcted_hexgon)
 		{
@@ -334,8 +329,45 @@ yc.ui.BuildingCreateMenu = function(){
 			inner.map.selcted_hexgon = null ;
 		}
 		if(this.ui){
-			this.ui.removeFromParent(true);
-    		this.ui = null;
+			if(this.ui.label){
+				this.ui.pp.removeFromParent(true);
+				this.ui.label.removeFromParent(true);
+			}
+			var childrenCount = this.ui.getChildrenCount() - 1;
+			if(childrenCount == 0){
+				if(this.ui){
+					this.ui.removeFromParent(true);
+					this.ui = null;
+				}
+				// cancel event
+				if(window.event.type === 'mouseup'){
+					window.event.cancelBubble = true;
+				}
+				ins(yc.outer.PlayerLayer).setNeedFaceToPoint(true) ;
+				return;
+			}
+			var children = this.ui.getChildren();
+
+			for(var buildingBtnIndex in children){
+				if(!children[buildingBtnIndex]._rect){
+					continue;
+				}
+				children[buildingBtnIndex].runAction(
+
+					this.actDisappear = cc.Sequence.create([
+						cc.Spawn.create( 
+							cc.MoveTo.create(0.09, cc.p( 0,0 ))
+							, cc.RotateBy.create(0.11, 360)
+						)
+						, cc.CallFunc.create(function(){
+							if(this.ui){
+								this.ui.removeFromParent(true);
+								this.ui = null;
+							}
+						},that)
+					])
+				);
+			}
 		}
 		// cancel event
 		if(window.event.type === 'mouseup'){
@@ -343,7 +375,7 @@ yc.ui.BuildingCreateMenu = function(){
 		}
 		ins(yc.outer.PlayerLayer).setNeedFaceToPoint(true) ;
 	}
-	
+
 	this.createBuilding = function(hexgon,item){
 		
 		// 已经有建筑了
@@ -402,15 +434,15 @@ yc.ui.BuildingCreateMenu = function(){
             this.yesMenu.removeFromParent(true);
             
         }
-        if(this.pp){
-        	this.pp.removeFromParent(true);
+        if(this.ui.pp){
+        	this.ui.pp.removeFromParent(true);
     	}
 
         if(this.ui.label){
             this.ui.label.removeFromParent(true);
         }
 
-        this.pp = cc.Sprite.create("res/building/dec_bg.png");
+        this.ui.pp = cc.Sprite.create("res/building/dec_bg.png");
         this.ui.label = cc.Sprite.create();
         this.ui.label.draw = function(ctx)
         {
@@ -427,10 +459,10 @@ yc.ui.BuildingCreateMenu = function(){
                 );
             font.draw(ctx);
         }
-        this.pp.setPosition( cc.p(-320 , 0) ) ;
-        this.pp.setScale(0.4,0.4);
+        this.ui.pp.setPosition( cc.p(-320 , 0) ) ;
+        this.ui.pp.setScale(0.4,0.4);
         this.ui.label.setPosition( cc.p(-420 , 50) ) ;
-        that.ui.addChild(this.pp);
+        that.ui.addChild(this.ui.pp);
         that.ui.addChild(this.ui.label);
 
         if(allowBuild){
