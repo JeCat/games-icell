@@ -241,9 +241,10 @@ yc.ui.BuildingCreateMenu = function(){
 
 			ins(yc.outer.PlayerLayer).setNeedFaceToPoint(false) ;
 
-			// console.log('create menu');
+			// console.log('create menu' , hexgon);
 
 			this.ui = new cc.Layer();
+			this.ui.hexgon = hexgon;
 			scene.layerUi.addChild(this.ui);
 
 			var centerPosition = yc.util.clientToWindow( ins(yc.outer.Cell) , hexgon.center[0],hexgon.center[1]);
@@ -332,7 +333,21 @@ yc.ui.BuildingCreateMenu = function(){
 				this.ui.pp.removeFromParent(true);
 				this.ui.label.removeFromParent(true);
 			}
+			var childrenCount = this.ui.getChildrenCount() - 1;
+			if(childrenCount == 0){
+				if(this.ui){
+					this.ui.removeFromParent(true);
+					this.ui = null;
+				}
+				// cancel event
+				if(window.event.type === 'mouseup'){
+					window.event.cancelBubble = true;
+				}
+				ins(yc.outer.PlayerLayer).setNeedFaceToPoint(true) ;
+				return;
+			}
 			var children = this.ui.getChildren();
+
 			for(var buildingBtnIndex in children){
 				if(!children[buildingBtnIndex]._rect){
 					continue;
@@ -344,14 +359,12 @@ yc.ui.BuildingCreateMenu = function(){
 							cc.MoveTo.create(0.09, cc.p( 0,0 ))
 							, cc.RotateBy.create(0.11, 360)
 						)
-						, cc.CallFunc.create(
-							function(){
-								if(this.ui){
-									this.ui.removeFromParent(true);
-	    							this.ui = null;
-								}
-							},that
-						)
+						, cc.CallFunc.create(function(){
+							if(this.ui){
+								this.ui.removeFromParent(true);
+								this.ui = null;
+							}
+						},that)
 					])
 				);
 			}
@@ -362,7 +375,7 @@ yc.ui.BuildingCreateMenu = function(){
 		}
 		ins(yc.outer.PlayerLayer).setNeedFaceToPoint(true) ;
 	}
-	
+
 	this.createBuilding = function(hexgon,item){
 		
 		// 已经有建筑了
