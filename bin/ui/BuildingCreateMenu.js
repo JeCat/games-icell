@@ -230,7 +230,7 @@ yc.ui.BuildingCreateMenu = function(){
 	};
 
 	this.show = function(hexgon){
-		var buildingCreateMenu = this;
+		var that = this;
 		var inner = ins(yc.inner.InnerLayer) ;
 
 		if(hexgon.type === 'nucleus'){
@@ -292,6 +292,7 @@ yc.ui.BuildingCreateMenu = function(){
 
 		 	var childrenCount = this.ui.getChildrenCount() - 1;
 			if(childrenCount === 0 ){
+				that.close();
 				return;
 			}
 			var perBuildingRadian = Math.PI * 2 / childrenCount;
