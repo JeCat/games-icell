@@ -2,7 +2,7 @@ yc.outer.Cell = yc.outer.PhysicalEntity.extend({
 
 	ctor: function(){
 		this._super() ;
-		this.maxSpeed = yc.settings.outer.player.defaultMaxSpeed ;
+		this.power = yc.settings.outer.player.basePower ;
 		this.rotationTarget = 0 ;
 
 		// 细胞内部视图
@@ -30,59 +30,7 @@ yc.outer.Cell = yc.outer.PhysicalEntity.extend({
 		this._bWatching = true ;
 
 		// action 移动留下“脚印”
-		this.actFootprint = yc.actions.Timer.create (0.1,-1,this,function(){
-			var speed = this.getSpeed() ;
-			if( speed.x==0 && speed.y==0 )
-			{
-				return ;
-			}
-
-			var vector = {
-				x: -speed.x
-				, y: -speed.y
-			}
-
-			// 
-			var innerVector = yc.util.ratateVector(vector,-this.getRotation()) ;
-			var a = [0,0] ;
-			var b = [ innerVector.x*500, innerVector.y*500 ] ;
-
-			// 
-			var longest = null
-			var longestDis = 0 ;
-
-			for( var i=0;i<this._points.length;i++ )
-			{
-				var c = this._points[i] ;
-				var d = (i<this._points.length-1)? this._points[i+1]: this._points[0] ;
-
-				var point = yc.util.segmentsIntr(a,b,c,d) ;
-				if(!point)
-				{
-					continue ;
-				}
-
-				// 最远边界
-				var dis = yc.util.pointsDis(0,0,point[0],point[1]) ;
-				if( !longest || dis>longestDis )
-				{
-					longest = point ;
-					longestDis = dis ;
-				}
-			}
-
-			// 创建脚印
-			if( longest )
-			{
-				// 旋转
-				var vector = {x:longest[0],y:longest[1]} ;
-				vector = yc.util.ratateVector(vector,this.getRotation()) ;
-
-				var fp = yc.util.ObjectPool.ins(yc.outer.Footprint).ob() ;
-				fp.init(this.x+vector.x,this.y+vector.y) ;
-				ins(yc.outer.PlayerLayer).addChild(fp,-100) ;
-			}
-		}) ;
+		this.actFootprint = yc.actions.Timer.create (0.1,-1,this,this.onFootprinter) ;
 	}
 
 	, onEnter: function(){
@@ -248,6 +196,12 @@ yc.outer.Cell = yc.outer.PhysicalEntity.extend({
 
 		ins(yc.util.DbgPannel).output['player'] = this.x.toFixed(1)+', '+this.y.toFixed(1) ;
 	}
+
+	, calculatePower: function(){
+
+		this.power = yc.settings.outer.player.basePower ;
+		yc.event.trigger(this,"calculatePower",[this]) ;
+	}
 	
 	// , visit: function(ctx){
 		
@@ -283,6 +237,59 @@ yc.outer.Cell = yc.outer.PhysicalEntity.extend({
 		
 	// 	return this._super() ;
 	// }
+	, onFootprinter: function(){
+		var speed = this.getSpeed() ;
+		if( speed.x==0 && speed.y==0 )
+		{
+			return ;
+		}
+
+		var vector = {
+			x: -speed.x
+			, y: -speed.y
+		}
+
+		// 
+		var innerVector = yc.util.ratateVector(vector,-this.getRotation()) ;
+		var a = [0,0] ;
+		var b = [ innerVector.x*500, innerVector.y*500 ] ;
+
+		// 
+		var longest = null
+		var longestDis = 0 ;
+
+		for( var i=0;i<this._points.length;i++ )
+		{
+			var c = this._points[i] ;
+			var d = (i<this._points.length-1)? this._points[i+1]: this._points[0] ;
+
+			var point = yc.util.segmentsIntr(a,b,c,d) ;
+			if(!point)
+			{
+				continue ;
+			}
+
+			// 最远边界
+			var dis = yc.util.pointsDis(0,0,point[0],point[1]) ;
+			if( !longest || dis>longestDis )
+			{
+				longest = point ;
+				longestDis = dis ;
+			}
+		}
+
+		// 创建脚印
+		if( longest )
+		{
+			// 旋转
+			var vector = {x:longest[0],y:longest[1]} ;
+			vector = yc.util.ratateVector(vector,this.getRotation()) ;
+
+			var fp = yc.util.ObjectPool.ins(yc.outer.Footprint).ob() ;
+			fp.init(this.x+vector.x,this.y+vector.y) ;
+			ins(yc.outer.PlayerLayer).addChild(fp,-100) ;
+		}
+	}
 	
 	, jump: function(x,y){
 		

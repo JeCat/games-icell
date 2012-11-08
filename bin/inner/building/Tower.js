@@ -34,6 +34,7 @@ yc.inner.building.Tower = yc.inner.building.Building.extend({
 
 
 		// 开始动画
+        this.initWithSpriteFrameName("artillery_lvl4_tesla_0049.png") ; //第一帧
         this.runAction(cc.RepeatForever.create( yc.animations.createAction('towers.shooter') ));
 
        	this.setAnchorPoint(cc.p(0.5,0.2)) ;

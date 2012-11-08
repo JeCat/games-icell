@@ -191,6 +191,22 @@ yc.ui.BuildingCreateMenu = function(){
 				return true ;
 			}
 		}
+
+		, power: {
+			title: '线粒体：动力'
+			, description: '增加细胞的移动速度'
+			, texture : "res/building/8.png"
+			, texture_l : "res/building/8-l.png"
+			, texture_nm : "res/building/8-nm.png"
+			, hexgonTypes: ['cytoplasm']
+			, cost: function(){
+				return {}
+			}
+			, buildingClass: yc.inner.building.PlastosomePower
+			, isUnlock: function(){
+				return true ;
+			}
+		}
 	} ;
 
 

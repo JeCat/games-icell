@@ -15,6 +15,9 @@ yc.outer.PlayerLayer = cc.Layer.extend({
 		this.cell.layerInner.cell.initWithScript( ins(yc.user.Character).cell ) ;
 		// this.cell.layerInner.cell.newborn() ;
 
+		// 初始化动力
+		this.cell.calculatePower() ;
+
 		// 初始化细胞外壳
 		this.cell.init() ;
 		this.cell._followingCamera = ins(yc.outer.Camera) ; // 摄像机跟随
