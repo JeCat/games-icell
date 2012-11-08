@@ -329,8 +329,8 @@ yc.settings = {
 					// 在关卡地图上的位置
 					x: 520
 					, y: 504
-					, title: null
-					, script: "yc.levels.c1.l1"
+					, title: "c1.l3"
+					, script: "yc.levels.c1.l3"
 				}
 
 				, 'c1.l4': {

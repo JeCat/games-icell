@@ -248,6 +248,10 @@ yc.levels.LevelSelector.MapLayer.Level = cc.Sprite.extend({
 		var totalWith = genes.length*16 + 4 * (genes.length-1) ;
 		var posx = -totalWith/2 ;
 
+		var ucLevels = ins(yc.user.Character).levels;
+		var levelsID = script.id;
+		
+		
 		for(var i=0; i<genes.length; i++){
 
 			if( !(genes[i] in yc.dna.genes) )
@@ -258,8 +262,16 @@ yc.levels.LevelSelector.MapLayer.Level = cc.Sprite.extend({
 			var gene = yc.dna.genes[ genes[i] ] ;
 
 			if(typeof(gene.icon) == "object"){
+				
 				var geneIcon = new cc.Sprite() ;
-				geneIcon.initWithFile("res/dna-icons-32.png",cc.rect.apply(this,gene.icon.rect)) ;
+				
+				var iconType = gene.icon.grayRect;
+				if( typeof(ucLevels[levelsID]) == "object" && ucLevels[levelsID].gene == gene.name)
+				{
+					iconType = gene.icon.rect ;
+				}
+				geneIcon.initWithFile("res/dna-icons-32.png",cc.rect.apply(this,iconType)) ;
+				
 				geneIcon.setPosition(cc.p(posx,60)) ;
 				geneIcon.setAnchorPoint(cc.p(0,0)) ;
 				this.addChild(geneIcon) ;
@@ -270,7 +282,6 @@ yc.levels.LevelSelector.MapLayer.Level = cc.Sprite.extend({
 
 			posx+= 32 + 4 ;
 		}
-		
 	}
 })
 
@@ -294,6 +305,15 @@ yc.levels.LevelSelector.MapLayer.LevelFlag = cc.Sprite.extend({
 
 
     , onTouchBegan:function (touch, event) {
+    	
+
+		var ucLevels = ins(yc.user.Character).levels;
+		var levelsID = this.level.id;
+    	if( typeof(ucLevels[levelsID]) != "object" || ucLevels[levelsID].unlock != true)
+		{
+    		return false ;
+		}
+    	
     	var p = yc.util.windowToClient(this,touch._point.x,touch._point.y) ;
     	//log(p)
 

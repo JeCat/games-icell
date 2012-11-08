@@ -13,6 +13,7 @@ yc.dna.genes = {
 		, icon: {
 			file: "res/dna-icons-32.png"
 			, rect: [240,32,33,33]
+			, grayRect: [68,65,33,33]
 		}
 	})
 	, 'tower(cannon)': new yc.dna.Gene({
@@ -22,6 +23,7 @@ yc.dna.genes = {
 		, icon: {
 			file: "res/dna-icons-32.png"
 			, rect: [267,163,33,33]
+			, grayRect: [68,65,33,33]
 		}
 	})
 	, 'tower(slower)': new yc.dna.Gene({
@@ -31,6 +33,7 @@ yc.dna.genes = {
 		, icon: {
 			file: "res/dna-icons-32.png"
 			, rect: [68,130,33,33]
+			, grayRect: [68,65,33,33]
 		}
 	})
 	, 'recycle': new yc.dna.Gene({
@@ -40,6 +43,7 @@ yc.dna.genes = {
 		, icon: {
 			file: "res/dna-icons-32.png"
 			, rect: [240,32,32,33]
+			, grayRect: [68,65,33,33]
 		}
 	})
 	
@@ -50,6 +54,7 @@ yc.dna.genes = {
 		, icon: {
 			file: "res/dna-icons-32.png"
 			, rect: [240,32,32,33]
+			, grayRect: [68,65,33,33]
 		}
 	})
 	
@@ -61,17 +66,28 @@ yc.dna.genes = {
 		, icon: {
 			file: "res/dna-icons-32.png"
 			, rect: [240,32,32,33]
+			, grayRect: [68,65,33,33]
 		}
 	})
 	, 'oshooter': new yc.dna.Gene({
 		name: 'oshooter'
 		, title: '[解锁]攻击塔'
 		, description: '解锁：允许建造攻击塔'
+		, icon: {
+			file: "res/dna-icons-32.png"
+			, rect: [68,130,33,33]
+			, grayRect: [68,65,33,33]
+		}
 	})
 	, 'bottles': new yc.dna.Gene({
 		name: 'bottles'
 		, title: '[解锁]漂流瓶'
 		, description: '解锁：朋友无处不在'
+		, icon: {
+			file: "res/dna-icons-32.png"
+			, rect: [68,130,33,33]
+			, grayRect: [68,65,33,33]
+		}
 	})
 
 	// 升级
@@ -83,6 +99,7 @@ yc.dna.genes = {
 		, icon: {
 			file: "res/dna-icons-32.png"
 			, rect: [240,32,32,33]
+			, grayRect: [68,65,33,33]
 		}
 	})
 	, 'tower:bombing': new yc.dna.GeneBuildingUpgrader({
@@ -93,6 +110,7 @@ yc.dna.genes = {
 		, icon: {
 			file: "res/dna-icons-32.png"
 			, rect: [240,32,32,33]
+			, grayRect: [68,65,33,33]
 		}
 	})
 	, 'tower:retardment': new yc.dna.GeneBuildingUpgrader({
@@ -103,6 +121,7 @@ yc.dna.genes = {
 		, icon: {
 			file: "res/dna-icons-32.png"
 			, rect: [240,32,32,33]
+			, grayRect: [68,65,33,33]
 		}
 	})
 	// , 'effct': new yc.dna.Gene({
