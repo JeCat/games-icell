@@ -236,36 +236,15 @@ yc.ui.BuildingCreateMenu = function(){
 		if(hexgon.type === 'nucleus'){
 			return;
 		}
-		// cc.MoveTo.create(2, cc.p(s.width - 40, s.height - 40));
 
 		if(!this.ui){
 
 			ins(yc.outer.PlayerLayer).setNeedFaceToPoint(false) ;
 
-
-			// var arrPositions = [
-			// 	[0,150]
-			// 	, [-75,129]
-			// 	, [-129,75]
-			// 	, [-150,0]
-			// 	, [-129,-75]
-			// 	, [-75,-129]
-			// 	, [0,-150]
-			// 	, [75,-129]
-			// 	, [129,-75]
-			// 	, [150,0]
-			// 	, [129,75]
-			// 	, [75,129]
-			// ];
-
-			console.log('create menu');
+			// console.log('create menu');
 
 			this.ui = new cc.Layer();
 			scene.layerUi.addChild(this.ui);
-			// this.ui.setPosition(cc.p(0,0));
-			// this.ui.setContentSize(new cc.Size(200,200));
-			// this.ui.setAnchorPoint(cc.p(hexgon.center[0],hexgon.center[1]));
-			// this.ui.setPosition(cc.p(hexgon.center[0],hexgon.center[1]));
 
 			var centerPosition = yc.util.clientToWindow( ins(yc.outer.Cell) , hexgon.center[0],hexgon.center[1]);
 
@@ -325,7 +304,6 @@ yc.ui.BuildingCreateMenu = function(){
 		 		var moveAct = cc.MoveTo.create(0.1, cc.p( x , y ));
 				children[buildingBtnIndex].runAction(moveAct);
 		    }
-
 		}
 	}
 	
