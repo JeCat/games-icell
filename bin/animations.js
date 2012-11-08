@@ -6,12 +6,17 @@ yc.animations.createAction = function(name){
 	return cc.Animate.create( yc.animations.frames[name] ) ;
 }
 
+yc.animations.firstFrame = function(spriteName){
+	return yc.animations.frames[spriteName].getFrames()[0].getSpriteFrame() ;
+
+}
+
 yc.animations.initBuildinAnimations = function (){
 
 	/**
 	 * 加载帧序列
 	 */
-	function __loadAnimation(name,plist,png,frameNameTemp,idxStart,idxEnd,callback){
+	function __loadAnimation(name,plist,png,frameNameTemp,idxStart,idxEnd,callback,framerate){
 		
 		var spriteFrameCache = cc.SpriteFrameCache.getInstance();
 		spriteFrameCache.addSpriteFrames(plist,png) ;
@@ -27,14 +32,14 @@ yc.animations.initBuildinAnimations = function (){
 				continue ;
 			}
 
-			if(callback!==undefined){
+			if(callback!==undefined && callback){
 				callback(frame) ;
 			}
 
 			animFrames.push(frame);
 		}
 
-		yc.animations.frames[name] = cc.Animation.create( animFrames, 0.1 ) ;
+		yc.animations.frames[name] = cc.Animation.create( animFrames, framerate||0.1 ) ;
 	}
 
 	// 防御塔：射击 ----------------------------------
@@ -73,6 +78,7 @@ yc.animations.initBuildinAnimations = function (){
 
 	// 病毒动画 ----------------------------------
 	__loadAnimation(
+
 			'role.virus_a'
 			, "res/role/virus.plist"
 			, "res/role/virus.png"
@@ -80,7 +86,7 @@ yc.animations.initBuildinAnimations = function (){
 			, 1, 88) ;
 	
 	__loadAnimation(
-			'towers.factory_molino'
+			'building.molino'
 			, "res/building/build.plist"
 			, "res/building/build.png"
 			, "molino_big_00%idx%.png"		// 帧名称模板
@@ -103,24 +109,6 @@ yc.animations.initBuildinAnimations = function (){
 			    frame._offset.y = - (frame._originalSize.height - frame._rect.size.height)/2 ;
 			    frame._offset.x = 0 ;
 			 });
-	
-	//建筑物升级动画
-	/*
-	__loadAnimation(
-			'towers.factory_archer_tower'
-			, "res/building/build.plist"
-			, "res/building/build.png"
-			, "archer_tower_00%idx%.png"		// 帧名称模板
-			, 1, 5								// 帧名称中的下标的数值范围
-			
-			, function(frame){					// 处理每帧的回调函数（可选）
-			    // 矫正一下 图片位置，统一下边界对齐
-			    frame._offset.y = - (frame._originalSize.height - frame._rect.size.height)/2 ;
-			    frame._offset.x = 0 ;
-			}
-				
-	) ;
-	*/
 	
 	__loadAnimation(
 			'towers.factory_artillery_lvl1'
@@ -242,26 +230,70 @@ yc.animations.initBuildinAnimations = function (){
 			    frame._offset.x = 0 ;
 			});
 	
-	//病毒
 	__loadAnimation(
-			'role.demonEvil'
-			, "res/role/role.plist"
-			, "res/role/role.png"
-			, "demonEvil_00%idx%.png"		// 帧名称模板
-			, 1, 65								// 帧名称中的下标的数值范围
-			/*
+			'towers.elfTower'
+			, "res/building/build.plist"
+			, "res/building/build.png"
+			, "elfTower_00%idx%.png"		// 帧名称模板
+			, 1, 4								// 帧名称中的下标的数值范围
+			/*, function(frame){					// 处理每帧的回调函数（可选）
+			    // 矫正一下 图片位置，统一下边界对齐
+			    frame._offset.y = - (frame._originalSize.height - frame._rect.size.height)/2 ;
+			    frame._offset.x = 0 ;
+			}*/);
+	
+	__loadAnimation(
+			'towers.mage_lvl1'
+			, "res/building/build.plist"
+			, "res/building/build.png"
+			, "mage_lvl1_00%idx%.png"		// 帧名称模板
+			, 1, 11								// 帧名称中的下标的数值范围
 			, function(frame){					// 处理每帧的回调函数（可选）
 			    // 矫正一下 图片位置，统一下边界对齐
 			    frame._offset.y = - (frame._originalSize.height - frame._rect.size.height)/2 ;
 			    frame._offset.x = 0 ;
-			  }*/);
-	
+			});
 	__loadAnimation(
-			'role.demonFlying'
+			'towers.mage_lvl2'
+			, "res/building/build.plist"
+			, "res/building/build.png"
+			, "mage_lvl2_00%idx%.png"		// 帧名称模板
+			, 1, 11								// 帧名称中的下标的数值范围
+			, function(frame){					// 处理每帧的回调函数（可选）
+			    // 矫正一下 图片位置，统一下边界对齐
+			    frame._offset.y = - (frame._originalSize.height - frame._rect.size.height)/2 ;
+			    frame._offset.x = 0 ;
+			});
+	__loadAnimation(
+			'towers.mage_lvl3'
+			, "res/building/build.plist"
+			, "res/building/build.png"
+			, "mage_lvl3_00%idx%.png"		// 帧名称模板
+			, 1, 11								// 帧名称中的下标的数值范围
+			, function(frame){					// 处理每帧的回调函数（可选）
+			    // 矫正一下 图片位置，统一下边界对齐
+			    frame._offset.y = - (frame._originalSize.height - frame._rect.size.height)/2 ;
+			    frame._offset.x = 0 ;
+			});
+	__loadAnimation(
+			'towers.sorcerer_tower'
+			, "res/building/build.plist"
+			, "res/building/build.png"
+			, "sorcerer_tower_00%idx%.png"		// 帧名称模板
+			, 1, 11								// 帧名称中的下标的数值范围
+			, function(frame){					// 处理每帧的回调函数（可选）
+			    // 矫正一下 图片位置，统一下边界对齐
+			    frame._offset.y = - (frame._originalSize.height - frame._rect.size.height)/2 ;
+			    frame._offset.x = 0 ;
+			});
+	
+	//病毒
+	__loadAnimation(
+			'role.demonFlying_right'
 			, "res/role/role.plist"
 			, "res/role/role.png"
 			, "demonFlying_00%idx%.png"		// 帧名称模板
-			, 1, 42								// 帧名称中的下标的数值范围
+			, 1, 14								// 帧名称中的下标的数值范围
 			/*
 			, function(frame){					// 处理每帧的回调函数（可选）
 			    // 矫正一下 图片位置，统一下边界对齐
@@ -270,11 +302,11 @@ yc.animations.initBuildinAnimations = function (){
 			  }*/);
 	
 	__loadAnimation(
-			'role.demonMage'
+			'role.demonFlying_front'
 			, "res/role/role.plist"
 			, "res/role/role.png"
-			, "demonMage_00%idx%.png"		// 帧名称模板
-			, 1, 67								// 帧名称中的下标的数值范围
+			, "demonFlying_00%idx%.png"		// 帧名称模板
+			, 29, 42								// 帧名称中的下标的数值范围
 			/*
 			, function(frame){					// 处理每帧的回调函数（可选）
 			    // 矫正一下 图片位置，统一下边界对齐
@@ -283,11 +315,11 @@ yc.animations.initBuildinAnimations = function (){
 			  }*/);
 	
 	__loadAnimation(
-			'role.demonWolf'
+			'role.demonWolf_right'
 			, "res/role/role.plist"
 			, "res/role/role.png"
 			, "demonWolf_00%idx%.png"		// 帧名称模板
-			, 1, 44								// 帧名称中的下标的数值范围
+			, 1, 10								// 帧名称中的下标的数值范围
 			/*
 			, function(frame){					// 处理每帧的回调函数（可选）
 			    // 矫正一下 图片位置，统一下边界对齐
@@ -296,11 +328,24 @@ yc.animations.initBuildinAnimations = function (){
 			  }*/);
 	
 	__loadAnimation(
-			'role.gargoyle'
+			'role.demonWolf_front'
+			, "res/role/role.plist"
+			, "res/role/role.png"
+			, "demonWolf_00%idx%.png"		// 帧名称模板
+			, 21, 29								// 帧名称中的下标的数值范围
+			/*
+			, function(frame){					// 处理每帧的回调函数（可选）
+			    // 矫正一下 图片位置，统一下边界对齐
+			    frame._offset.y = - (frame._originalSize.height - frame._rect.size.height)/2 ;
+			    frame._offset.x = 0 ;
+			  }*/);
+	
+	__loadAnimation(
+			'role.gargoyle_right'
 			, "res/role/role.plist"
 			, "res/role/role.png"
 			, "gargoyle_00%idx%.png"		// 帧名称模板
-			, 1, 41								// 帧名称中的下标的数值范围
+			, 1, 13								// 帧名称中的下标的数值范围
 			/*
 			, function(frame){					// 处理每帧的回调函数（可选）
 			    // 矫正一下 图片位置，统一下边界对齐
@@ -309,11 +354,24 @@ yc.animations.initBuildinAnimations = function (){
 			  }*/);
 	
 	__loadAnimation(
-			'role.rotten_spider'
+			'role.gargoyle_front'
+			, "res/role/role.plist"
+			, "res/role/role.png"
+			, "gargoyle_00%idx%.png"		// 帧名称模板
+			, 29, 41 								// 帧名称中的下标的数值范围
+			/*
+			, function(frame){					// 处理每帧的回调函数（可选）
+			    // 矫正一下 图片位置，统一下边界对齐
+			    frame._offset.y = - (frame._originalSize.height - frame._rect.size.height)/2 ;
+			    frame._offset.x = 0 ;
+			  }*/);
+	
+	__loadAnimation(
+			'role.rotten_spider_right'
 			, "res/role/role.plist"
 			, "res/role/role.png"
 			, "rotten_spider_00%idx%.png"		// 帧名称模板
-			, 1, 56								// 帧名称中的下标的数值范围
+			, 1, 13								// 帧名称中的下标的数值范围
 			/*
 			, function(frame){					// 处理每帧的回调函数（可选）
 			    // 矫正一下 图片位置，统一下边界对齐
@@ -322,11 +380,11 @@ yc.animations.initBuildinAnimations = function (){
 			  }*/);
 	
 	__loadAnimation(
-			'role.skeleton'
+			'role.rotten_spider_front'
 			, "res/role/role.plist"
 			, "res/role/role.png"
-			, "skeleton_00%idx%.png"		// 帧名称模板
-			, 1, 47								// 帧名称中的下标的数值范围
+			, "rotten_spider_00%idx%.png"		// 帧名称模板
+			, 27, 39								// 帧名称中的下标的数值范围
 			/*
 			, function(frame){					// 处理每帧的回调函数（可选）
 			    // 矫正一下 图片位置，统一下边界对齐
@@ -335,15 +393,145 @@ yc.animations.initBuildinAnimations = function (){
 			  }*/);
 	
 	__loadAnimation(
-			'role.skeleton_warrior'
+			'role.rotten_thing_right'
 			, "res/role/role.plist"
 			, "res/role/role.png"
-			, "skeleton_warrior_00%idx%.png"		// 帧名称模板
-			, 1, 47								// 帧名称中的下标的数值范围
+			, "rotten_thing_00%idx%.png"		// 帧名称模板
+			, 1, 24								// 帧名称中的下标的数值范围
 			/*
 			, function(frame){					// 处理每帧的回调函数（可选）
 			    // 矫正一下 图片位置，统一下边界对齐
 			    frame._offset.y = - (frame._originalSize.height - frame._rect.size.height)/2 ;
 			    frame._offset.x = 0 ;
 			  }*/);
+	
+	__loadAnimation(
+			'role.rotten_thing_front'
+			, "res/role/role.plist"
+			, "res/role/role.png"
+			, "rotten_thing_00%idx%.png"		// 帧名称模板
+			, 49, 71 								// 帧名称中的下标的数值范围
+			/*
+			, function(frame){					// 处理每帧的回调函数（可选）
+			    // 矫正一下 图片位置，统一下边界对齐
+			    frame._offset.y = - (frame._originalSize.height - frame._rect.size.height)/2 ;
+			    frame._offset.x = 0 ;
+			  }*/);
+	
+	__loadAnimation(
+			'role.sheep_flying_right'
+			, "res/role/role.plist"
+			, "res/role/role.png"
+			, "sheep_flying_00%idx%.png"		// 帧名称模板
+			, 1, 10								// 帧名称中的下标的数值范围
+			/*
+			, function(frame){					// 处理每帧的回调函数（可选）
+			    // 矫正一下 图片位置，统一下边界对齐
+			    frame._offset.y = - (frame._originalSize.height - frame._rect.size.height)/2 ;
+			    frame._offset.x = 0 ;
+			  }*/);
+	
+	__loadAnimation(
+			'role.spider_small_right'
+			, "res/role/role.plist"
+			, "res/role/role.png"
+			, "spider_small_00%idx%.png"		// 帧名称模板
+			, 1, 9								// 帧名称中的下标的数值范围
+			/*
+			, function(frame){					// 处理每帧的回调函数（可选）
+			    // 矫正一下 图片位置，统一下边界对齐
+			    frame._offset.y = - (frame._originalSize.height - frame._rect.size.height)/2 ;
+			    frame._offset.x = 0 ;
+			  }*/);
+	
+	__loadAnimation(
+			'role.spider_small_front'
+			, "res/role/role.plist"
+			, "res/role/role.png"
+			, "spider_small_00%idx%.png"		// 帧名称模板
+			, 19, 27								// 帧名称中的下标的数值范围
+			/*
+			, function(frame){					// 处理每帧的回调函数（可选）
+			    // 矫正一下 图片位置，统一下边界对齐
+			    frame._offset.y = - (frame._originalSize.height - frame._rect.size.height)/2 ;
+			    frame._offset.x = 0 ;
+			  }*/);
+	
+	__loadAnimation(
+			'role.winterwolf_right'
+			, "res/role/role.plist"
+			, "res/role/role.png"
+			, "winterwolf_00%idx%.png"		// 帧名称模板
+			, 1, 10								// 帧名称中的下标的数值范围
+			/*
+			, function(frame){					// 处理每帧的回调函数（可选）
+			    // 矫正一下 图片位置，统一下边界对齐
+			    frame._offset.y = - (frame._originalSize.height - frame._rect.size.height)/2 ;
+			    frame._offset.x = 0 ;
+			  }*/);
+	
+	__loadAnimation(
+			'role.winterwolf_front'
+			, "res/role/role.plist"
+			, "res/role/role.png"
+			, "winterwolf_00%idx%.png"		// 帧名称模板
+			, 21, 29								// 帧名称中的下标的数值范围
+			/*
+			, function(frame){					// 处理每帧的回调函数（可选）
+			    // 矫正一下 图片位置，统一下边界对齐
+			    frame._offset.y = - (frame._originalSize.height - frame._rect.size.height)/2 ;
+			    frame._offset.x = 0 ;
+			  }*/);
+	
+	__loadAnimation(
+			'role.worg_right'
+			, "res/role/role.plist"
+			, "res/role/role.png"
+			, "worg_00%idx%.png"		// 帧名称模板
+			, 1, 10								// 帧名称中的下标的数值范围
+			/*
+			, function(frame){					// 处理每帧的回调函数（可选）
+			    // 矫正一下 图片位置，统一下边界对齐
+			    frame._offset.y = - (frame._originalSize.height - frame._rect.size.height)/2 ;
+			    frame._offset.x = 0 ;
+			  }*/);
+	
+	__loadAnimation(
+			'role.worg_front'
+			, "res/role/role.plist"
+			, "res/role/role.png"
+			, "worg_00%idx%.png"		// 帧名称模板
+			, 21, 29								// 帧名称中的下标的数值范围
+			/*
+			, function(frame){					// 处理每帧的回调函数（可选）
+			    // 矫正一下 图片位置，统一下边界对齐
+			    frame._offset.y = - (frame._originalSize.height - frame._rect.size.height)/2 ;
+			    frame._offset.x = 0 ;
+			  }*/);
+
+	// 烟雾
+	__loadAnimation(
+			'tower.smoke_a'
+			, "res/smoke.plist"
+			, "res/smoke.png"
+			, "decal_smoke_hitground_00%idx%.png"
+			, 1, 11) ;
+	__loadAnimation(
+			'tower.smoke_b'
+			, "res/smoke.plist"
+			, "res/smoke.png"
+			, "explosion_shrapnel_00%idx%.png"
+			, 1, 20) ;
+	__loadAnimation(
+			'tower.smoke_c'
+			, "res/smoke.plist"
+			, "res/smoke.png"
+			, "fx_rifle_smoke_00%idx%.png"
+			, 1, 10) ;
+	__loadAnimation(
+			'tower.smoke_d'
+			, "res/smoke.plist"
+			, "res/smoke.png"
+			, "fx_smoke_hitground_00%idx%.png"
+			, 1, 13 ) ;
 }

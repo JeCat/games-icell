@@ -49,10 +49,10 @@ yc.GameLayer = cc.Layer.extend({
 			
 			// 外部器官半透明
 			if( this.actFadeCellOrgan ){
-				this._parent.layerPlayer.cell.layerOrgan.stopAction( this.actFadeCellOrgan );
+				this._parent.layerPlayer.cell.shell.stopAction( this.actFadeCellOrgan );
 			}
 			this.actFadeCellOrgan = cc.FadeTo.create(0.5,yc.settings.camera.organOpacityLow);
-			this._parent.layerPlayer.cell.layerOrgan.runAction( this.actFadeCellOrgan );
+			this._parent.layerPlayer.cell.shell.runAction( this.actFadeCellOrgan );
 		}
 
 		// 低于 显示内部视图的缩放比例
@@ -77,10 +77,10 @@ yc.GameLayer = cc.Layer.extend({
 			
 			// 显示外部器官
 			if( this.actFadeCellOrgan ){
-				this._parent.layerPlayer.cell.layerOrgan.stopAction( this.actFadeCellOrgan );
+				this._parent.layerPlayer.cell.shell.stopAction( this.actFadeCellOrgan );
 			}
 			this.actFadeCellOrgan = cc.FadeIn.create(0.5);
-			this._parent.layerPlayer.cell.layerOrgan.runAction( this.actFadeCellOrgan );
+			this._parent.layerPlayer.cell.shell.runAction( this.actFadeCellOrgan );
 		}
 		
 			

@@ -207,6 +207,22 @@ yc.ui.BuildingCreateMenu = function(){
 				return true ;
 			}
 		}
+
+		, rocket: {
+			title: '火箭推进器'
+			, description: '短时间内让细胞的移动速度加倍'
+			, texture : "res/building/8.png"
+			, texture_l : "res/building/8-l.png"
+			, texture_nm : "res/building/8-nm.png"
+			, hexgonTypes: ['cytoplasm']
+			, cost: function(){
+				return {}
+			}
+			, buildingClass: yc.inner.building.Rocket
+			, isUnlock: function(){
+				return true ;
+			}
+		}
 	} ;
 
 
@@ -230,7 +246,7 @@ yc.ui.BuildingCreateMenu = function(){
 	};
 
 	this.show = function(hexgon){
-		var buildingCreateMenu = this;
+		var that = this;
 		var inner = ins(yc.inner.InnerLayer) ;
 
 		if(hexgon.type === 'nucleus'){
@@ -241,9 +257,10 @@ yc.ui.BuildingCreateMenu = function(){
 
 			ins(yc.outer.PlayerLayer).setNeedFaceToPoint(false) ;
 
-			// console.log('create menu');
+			// console.log('create menu' , hexgon);
 
 			this.ui = new cc.Layer();
+			this.ui.hexgon = hexgon;
 			scene.layerUi.addChild(this.ui);
 
 			var centerPosition = yc.util.clientToWindow( ins(yc.outer.Cell) , hexgon.center[0],hexgon.center[1]);
@@ -292,28 +309,35 @@ yc.ui.BuildingCreateMenu = function(){
 
 		 	var childrenCount = this.ui.getChildrenCount() - 1;
 			if(childrenCount === 0 ){
+				that.close();
 				return;
 			}
 			var perBuildingRadian = Math.PI * 2 / childrenCount;
 			var children = this.ui.getChildren();
 			var radius = childrenCount * 16 ;
+			var actDelay = 0.01;
 
 		 	for(var buildingBtnIndex in children){
 		 		if(!children[buildingBtnIndex]._rect){
 		 			continue;
 		 		}
 
-		 		var x = Math.sin(perBuildingRadian*buildingBtnIndex)*radius;
+	 			var x = Math.sin(perBuildingRadian*buildingBtnIndex)*radius;
 				var y = Math.cos(perBuildingRadian*buildingBtnIndex)*radius;
 
-		 		var moveAct = cc.MoveTo.create(0.1, cc.p( x , y ));
-				children[buildingBtnIndex].runAction(moveAct);
+		 		actDisappear = cc.Sequence.create([
+					cc.DelayTime.create(buildingBtnIndex * actDelay)
+		 			, cc.Spawn.create( cc.MoveTo.create(0.09, cc.p( x , y )), cc.RotateBy.create(0.11, 360))
+		 		]) ;
+		 		children[buildingBtnIndex].actDisappear = actDisappear ;
+		 		children[buildingBtnIndex].runAction(actDisappear);
 		    }
 		}
 	}
 	
 	this.close = function(){
 		var inner = ins(yc.inner.InnerLayer) ;
+		var that = this;
 
 		if(inner.map.selcted_hexgon)
 		{
@@ -321,8 +345,45 @@ yc.ui.BuildingCreateMenu = function(){
 			inner.map.selcted_hexgon = null ;
 		}
 		if(this.ui){
-			this.ui.removeFromParent(true);
-    		this.ui = null;
+			if(this.ui.label){
+				this.ui.pp.removeFromParent(true);
+				this.ui.label.removeFromParent(true);
+			}
+			var childrenCount = this.ui.getChildrenCount() - 1;
+			if(childrenCount == 0){
+				if(this.ui){
+					this.ui.removeFromParent(true);
+					this.ui = null;
+				}
+				// cancel event
+				if(window.event.type === 'mouseup'){
+					window.event.cancelBubble = true;
+				}
+				ins(yc.outer.PlayerLayer).setNeedFaceToPoint(true) ;
+				return;
+			}
+			var children = this.ui.getChildren();
+
+			for(var buildingBtnIndex in children){
+				if(!children[buildingBtnIndex]._rect){
+					continue;
+				}
+				children[buildingBtnIndex].runAction(
+
+					this.actDisappear = cc.Sequence.create([
+						cc.Spawn.create( 
+							cc.MoveTo.create(0.09, cc.p( 0,0 ))
+							, cc.RotateBy.create(0.11, 360)
+						)
+						, cc.CallFunc.create(function(){
+							if(this.ui){
+								this.ui.removeFromParent(true);
+								this.ui = null;
+							}
+						},that)
+					])
+				);
+			}
 		}
 		// cancel event
 		if(window.event.type === 'mouseup'){
@@ -330,7 +391,7 @@ yc.ui.BuildingCreateMenu = function(){
 		}
 		ins(yc.outer.PlayerLayer).setNeedFaceToPoint(true) ;
 	}
-	
+
 	this.createBuilding = function(hexgon,item){
 		
 		// 已经有建筑了
@@ -389,15 +450,15 @@ yc.ui.BuildingCreateMenu = function(){
             this.yesMenu.removeFromParent(true);
             
         }
-        if(this.pp){
-        	this.pp.removeFromParent(true);
+        if(this.ui.pp){
+        	this.ui.pp.removeFromParent(true);
     	}
 
         if(this.ui.label){
             this.ui.label.removeFromParent(true);
         }
 
-        this.pp = cc.Sprite.create("res/building/dec_bg.png");
+        this.ui.pp = cc.Sprite.create("res/building/dec_bg.png");
         this.ui.label = cc.Sprite.create();
         this.ui.label.draw = function(ctx)
         {
@@ -414,10 +475,10 @@ yc.ui.BuildingCreateMenu = function(){
                 );
             font.draw(ctx);
         }
-        this.pp.setPosition( cc.p(-320 , 0) ) ;
-        this.pp.setScale(0.4,0.4);
+        this.ui.pp.setPosition( cc.p(-320 , 0) ) ;
+        this.ui.pp.setScale(0.4,0.4);
         this.ui.label.setPosition( cc.p(-420 , 50) ) ;
-        that.ui.addChild(this.pp);
+        that.ui.addChild(this.ui.pp);
         that.ui.addChild(this.ui.label);
 
         if(allowBuild){

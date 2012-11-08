@@ -92,7 +92,7 @@ yc.ui.skill.ButtonBase = cc.Sprite.extend({
 		for( i in skillList ){
 			skill = skillList[i];
 			if( skill.canStart() ){
-				skill.start();
+				skill.start.apply(skill.target) ;
 				break;
 			}
 		}

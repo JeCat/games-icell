@@ -5,6 +5,7 @@ yc.inner.skill.SkillBase = cc.Node.extend({
 		var _coolingTime = 30;// 冷却时间，单位是秒
 		var _building = null;
 		var _lastHappenTime = 0 ;
+		this.target = this ;
 		
 		this.name=function(){
 			return _name;
