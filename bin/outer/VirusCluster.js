@@ -186,45 +186,56 @@ yc.outer.VirusCluster = yc.outer.PhysicalEntity.extend({
 			return ;
 		}
 
-		// 完全击杀！
-		if( this.successViruses==0 )
-		{
-			log('perfect') ;
+		var dna = this._script.dna;
+		if( typeof(dna) == "object"){
 
-			// 掉落 dna
-			// todo ...
-			
 			//save user
 			ins(yc.user.Character).cell = ins(yc.inner.Cell).exportScript() ;
 			ins(yc.user.Character).save() ;
 			
-			var dna = this._script.dna;
-			if( typeof(dna) == "object"){
+        	var uc = ins(yc.user.Character);
+        	
+        	if( typeof(uc.levels[yc.GameScene._level]) != "object"){
+        		uc.levels[yc.GameScene._level] = {};
+        	}
+        	uc.levels[yc.GameScene._level].star = 1;
+        	
+			
+			
+			
+			// 完全击杀！
+			if( this.successViruses==0 )
+			{
+				log('perfect') ;
+				// 掉落 dna
+				// todo ...
+				
 
+	        	uc.levels[yc.GameScene._level].star = 2;
+	        	
+				if( ins(yc.inner.Cell).virusArrived == 0){
+					uc.levels[yc.GameScene._level].star = 3;
+				};
+				
+				
 	        	var items = [];
 	        	var _script = this._script;
-
+	
 				for(var i =0;i<dna.length;i++){
 					var action = function(){
-						var uc = ins(yc.user.Character);
+						
 						uc.dna.obtainGene(yc.dna.genes[this.id]);
 						
-						if( typeof(uc.levels[yc.GameScene._level]) != "object"){
-							uc.levels[yc.GameScene._level] = {unlock:true , gene:this.id};
-						}else{
-							uc.levels[yc.GameScene._level].unlock = true;
-							uc.levels[yc.GameScene._level].gene = this.id;
-						}
-
+						uc.levels[yc.GameScene._level].unlock = true;
+						uc.levels[yc.GameScene._level].gene = this.id;
+	
 						if( typeof(uc.levels[_script.unlockLevel]) != "object"){
-							uc.levels[_script.unlockLevel] = {unlock:true , gene:null};
+							uc.levels[_script.unlockLevel] = {unlock:true};
 						}else{
 							uc.levels[_script.unlockLevel].unlock = true;
-							uc.levels[_script.unlockLevel].gene = null;
 						}
 						uc.save();
 					}
-					
 					var title = yc.dna.genes[dna[i]].title;
 					items.push({title:title,action:action,id:dna[i]});
 				}
@@ -234,6 +245,7 @@ yc.outer.VirusCluster = yc.outer.PhysicalEntity.extend({
 				menu.setTitleHeight(40);
 				menu.setItems(items);
 				menu.run();
+
 			}
 		}
 

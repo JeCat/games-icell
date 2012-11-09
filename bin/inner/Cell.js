@@ -2,6 +2,7 @@ yc.inner.Cell = function()
 {
 	this.hpMax = 10 ;
 	this.hp = this.hpMax ;
+	this.virusArrived = 0 ;
 	
 	this.aAxes = new HexgonAxes( yc.settings.inner.hexgonSideLength, yc.inner.CellHexgon ) ;
 
@@ -201,6 +202,9 @@ yc.inner.Cell.prototype.getHurt = function(){
 	{
 		return ;
 	}
+	
+	// 受伤数量
+	this.virusArrived ++;
 	
 	// 偷走蛋白质
 	var pool = ins(yc.user.Character).proteins ;
