@@ -282,9 +282,9 @@ yc.ui.BuildingCreateMenu = function(){
 					continue ;
 				}
 
-				var itemUi = BuildingBtn.buildingBtnWithTexture(item.texture,item.texture_l,item.texture_nm) ;
+				var itemUi = CreateBuildingBtn.buildingBtnWithTexture(item.texture,item.texture_l,item.texture_nm) ;
 				
-				itemUi.isBuildingBtn =  true;
+				itemUi.isCreateBuildingBtn =  true;
 				itemUi.building = item;
 				itemUi.hexgon = hexgon;
 				this.ui.addChild( itemUi );
