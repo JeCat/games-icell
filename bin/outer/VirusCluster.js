@@ -189,19 +189,17 @@ yc.outer.VirusCluster = yc.outer.PhysicalEntity.extend({
 		var dna = this._script.dna;
 		if( typeof(dna) == "object"){
 
-			//save user
+			// save user
 			ins(yc.user.Character).cell = ins(yc.inner.Cell).exportScript() ;
 			ins(yc.user.Character).save() ;
 			
+			// star
         	var uc = ins(yc.user.Character);
-        	
         	if( typeof(uc.levels[yc.GameScene._level]) != "object"){
         		uc.levels[yc.GameScene._level] = {};
         	}
         	uc.levels[yc.GameScene._level].star = 1;
         	
-			
-			
 			
 			// 完全击杀！
 			if( this.successViruses==0 )
@@ -209,7 +207,6 @@ yc.outer.VirusCluster = yc.outer.PhysicalEntity.extend({
 				log('perfect') ;
 				// 掉落 dna
 				// todo ...
-				
 
 	        	uc.levels[yc.GameScene._level].star = 2;
 	        	
