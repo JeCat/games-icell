@@ -327,3 +327,86 @@ yc.ui.BuildingUpgradeMenu = function(){
 
 
 yc.ui.BuildingUpgradeMenu.className = 'yc.ui.BuildingUpgradeMenu' ;
+
+
+
+
+
+
+
+
+// yc.ui.BuildingUpgradeMenu = function(){
+// 	this.show = function(building){
+		
+// 		this.building = building ;
+// 		var buildingClass = building.constructor ;
+		
+		
+// 		if(buildingClass.upgraders.length)
+// 		{
+// 			$('#bulding-upgraders-outer').html('') ;
+// 			for(var u=0;u<buildingClass.upgraders.length;u++)
+// 			{
+// 				var upgraderClass = buildingClass.upgraders[u] ;
+// 				var upgrader = building.upgrader(upgraderClass) ;
+				
+// 				var upgraderUi = $('#bulding-upgrader-template')
+// 						.clone()
+// 						.appendTo('#bulding-upgraders-outer')
+// 						.attr({id:''})
+// 						.show() ;
+						
+// 				var v = upgraderUi.find('.title') ;
+				
+// 				upgraderUi.find('.newLv').html('Lv '+(upgrader.lv+1)) ;
+// 				upgraderUi.find('.title').html(upgrader.title) ;
+// 				upgraderUi.find('.description').html(upgrader.description) ;
+				
+// 				// 升级效果
+// 				var detail = upgrader.upgradeDetail(building) ;
+// 				var detailHtml = '效果' ;
+// 				for(var property in detail)
+// 				{
+// 					detailHtml+= '<div>' +property +':'+ building[property].toFixed(1) + ' -> ' + (building[property]+detail[property]).toFixed(1) + '</div>' ;
+// 				}
+// 				upgraderUi.find('.detail').html(detailHtml) ;
+				
+// 				// 升级费用
+// 				var cost = upgrader.cost() ;
+// 				upgraderUi.find('.cost').html( '费用：'+yc.ui.costHtml(cost) ) ;
+				
+// 				// 升级按钮
+// 				upgraderUi.find('.upgrade')
+// 					.attr('disabled',!upgrader.isUnlock())  // 是否解锁
+// 					.data('upgrader',upgrader)
+// 					.data('cost',cost)
+// 					.click(function(){
+// 						// 关闭菜单
+// 						menu.ui.hide() ;
+						
+// 						// 执行升级
+// 						$(this).data('upgrader').upgrade(building) ;
+						
+// 						// 建筑附加值
+// 						var cost = $(this).data('cost') ;
+// 						for(var p in cost)
+// 						{
+// 							building.cost[p] = (p in building.cost? building.cost[p]: 0) + cost[p] ;
+// 						}
+// 					}) ;
+// 			}
+// 		}
+// 		else
+// 		{
+// 			$('#bulding-upgraders-outer').html('没有可用升级') ;
+// 		}
+		
+// 		//拆除回收
+// 		this.costRecovering = {} ;
+// 		for(var p in building.cost)
+// 		{
+// 			this.costRecovering[p] = Math.round(building.cost[p]*0.7) ;
+// 		}
+// 		// this.ui.find('#cost-recovering').html(yc.ui.costHtml(this.costRecovering)) ;
+
+// 	}
