@@ -4,6 +4,9 @@ yc.inner.building.up.TowerFierpower = function(){
 	yc.inner.building.up.UpgraderBase.apply(this) ;
 
 	this.title = '防御塔：火力' ;
+	this.texture = "res/building/oshooter.png";
+	this.texture_l = "res/building/oshooter-l.png";
+	this.texture_nm = "res/building/oshooter-nm.png";
 	this.description = '增加防御塔对单一目标的攻击力' ;
 	this.icon = '' ;
 	

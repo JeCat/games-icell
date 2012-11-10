@@ -1,16 +1,17 @@
-var BUILDINGBTN_STATE_GRABBED = 0;
-var BUILDINGBTN_STATE_UNGRABBED = 1;
+var UPGRADEBUILDINGBTN_STATE_GRABBED = 0;
+var UPGRADEBUILDINGBTN_STATE_UNGRABBED = 1;
 
-var BuildingBtn = cc.Sprite.extend({
-    _state:BUILDINGBTN_STATE_UNGRABBED,
+var UpgradeBuildingBtn = cc.Sprite.extend({
+    _state:UPGRADEBUILDINGBTN_STATE_UNGRABBED,
     _rect:null,
+    type:"UpgradeBuildingBtn",
 
     rect:function () {
         return cc.rect(-this._rect.size.width / 2, -this._rect.size.height / 2, this._rect.size.width, this._rect.size.height);
     },
     initWithTexture:function (aTexture) {
         if (this._super(aTexture)) {
-            this._state = BUILDINGBTN_STATE_UNGRABBED;
+            this._state = UPGRADEBUILDINGBTN_STATE_UNGRABBED;
         }
         if (aTexture instanceof cc.Texture2D) {
             var s = aTexture.getContentSize();
@@ -21,11 +22,6 @@ var BuildingBtn = cc.Sprite.extend({
         return true;
     },
     onEnter:function () {
-        if(this.isLocked()){
-            this.setFaceType('l');
-            this.setBuildable(false);
-        }
-
         cc.Director.getInstance().getTouchDispatcher().addTargetedDelegate(this, 0, true);
         this._super();
     },
@@ -42,28 +38,26 @@ var BuildingBtn = cc.Sprite.extend({
         return cc.Rect.CCRectContainsPoint(myRect, getPoint);//this.convertTouchToNodeSpaceAR(touch));
     }
     ,onTouchBegan:function (touch, event) {
-        if (this._state != BUILDINGBTN_STATE_UNGRABBED) return false;
+        if (this._state != UPGRADEBUILDINGBTN_STATE_UNGRABBED) return false;
         if (!this.containsTouchLocation(touch)){
-            ins(yc.ui.BuildingCreateMenu).close();
+            ins(yc.ui.BuildingUpgradeMenu).touchMiss(touch);
             return false;
         }
-        this._state = BUILDINGBTN_STATE_GRABBED;
+        this._state = UPGRADEBUILDINGBTN_STATE_GRABBED;
         return true;
     }
     ,onTouchMoved:function (touch, event) {
     }
     ,onTouchEnded:function (touch, event) {
         var that = this;
-        cc.Assert(this._state == BUILDINGBTN_STATE_GRABBED, "BuildingBtn - Unexpected state!");
-        this._state = BUILDINGBTN_STATE_UNGRABBED;
+        cc.Assert(this._state == UPGRADEBUILDINGBTN_STATE_GRABBED, "UpgradeBuildingBtn - Unexpected state!");
+        this._state = UPGRADEBUILDINGBTN_STATE_UNGRABBED;
 
-        var BuildingCreateMenu = ins(yc.ui.BuildingCreateMenu);
+        var BuildingUpgradeMenu = ins(yc.ui.BuildingUpgradeMenu);
             
-        BuildingCreateMenu.showBuildingDes(this.hexgon , this.building , this.getPosition() , this.bBuildabel);
+        BuildingUpgradeMenu.showBuildingDes(this.hexgon , this.building ,this.upgrader, this.getPosition() , this.bBuildable , this) ;
 
-        console.log( this.building.title + ' building btn touch end');
-        
-        // window.event.cancelBubble = true;   //stop event go through
+        console.log( this.upgrader.title + ' building btn touch end');
     }
     , touchDelegateRetain:function () {
     }
@@ -113,7 +107,6 @@ var BuildingBtn = cc.Sprite.extend({
         }
         this._arrTextures.push(aTexture);
     }
-    //type : nm = noMoney ; l = lock ; other = normal
     , setFaceType : function(type){
         if(type==='nm'){
             this.setTexture(this._arrTextures[2]);
@@ -123,16 +116,13 @@ var BuildingBtn = cc.Sprite.extend({
             this.setTexture(this._arrTextures[0]);
         }
     }
-    , setBuildable: function( bBuildabel ){
-        this.bBuildabel = bBuildabel ? true:false;
-    }
-    , isLocked : function(){
-        return false;
+    , setBuildable: function( bBuildable ){
+        this.bBuildable = bBuildable ? true:false;
     }
 });
 
-BuildingBtn.buildingBtnWithTexture = function (sImgName1,sImgName2,sImgName3 ) {
-    var buildingBtn = new BuildingBtn();
+UpgradeBuildingBtn.buildingBtnWithTexture = function (sImgName1,sImgName2,sImgName3 ) {
+    var buildingBtn = new UpgradeBuildingBtn();
     var aTexture1 = buildingBtn.performPNG(sImgName1);
     var aTexture2 = buildingBtn.performPNG(sImgName2);
     var aTexture3 = buildingBtn.performPNG(sImgName3);
