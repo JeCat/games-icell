@@ -4,6 +4,7 @@ var CREATEBUILDINGBTN_STATE_UNGRABBED = 1;
 var CreateBuildingBtn = cc.Sprite.extend({
     _state:CREATEBUILDINGBTN_STATE_UNGRABBED,
     _rect:null,
+    type:"CreateBuildingBtn",
 
     rect:function () {
         return cc.rect(-this._rect.size.width / 2, -this._rect.size.height / 2, this._rect.size.width, this._rect.size.height);
@@ -44,7 +45,7 @@ var CreateBuildingBtn = cc.Sprite.extend({
     ,onTouchBegan:function (touch, event) {
         if (this._state != CREATEBUILDINGBTN_STATE_UNGRABBED) return false;
         if (!this.containsTouchLocation(touch)){
-            ins(yc.ui.BuildingCreateMenu).close();
+            ins(yc.ui.BuildingCreateMenu).touchMiss(touch);
             return false;
         }
         this._state = CREATEBUILDINGBTN_STATE_GRABBED;

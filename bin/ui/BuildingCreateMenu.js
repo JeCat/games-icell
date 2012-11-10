@@ -519,6 +519,28 @@ yc.ui.BuildingCreateMenu = function(){
 			}
 		}
 	}
+	this.touchMiss = function(touch){
+		if( !this.touchMissCount){
+			this.touchMissCount = {};
+		}
+		var key = touch._point.x+":"+touch._point.y;
+		if(this.touchMissCount[key]){
+			this.touchMissCount[key]++;
+		}else{
+			this.touchMissCount[key] = 1;
+		}
+
+		var childrenCount = 0;
+		var children = this.ui.getChildren();
+		for(var item in children){
+			if(children[item].type && children[item].type=="CreateBuildingBtn"){
+				childrenCount++;
+			}
+		}
+		if(this.touchMissCount[key] >= childrenCount ){
+			this.close();
+		}
+	}
 }
 yc.ui.checkCost = function(cost){
 	var pool = ins(yc.user.Character).proteins ;

@@ -4,6 +4,7 @@ var UPGRADEBUILDINGBTN_STATE_UNGRABBED = 1;
 var UpgradeBuildingBtn = cc.Sprite.extend({
     _state:UPGRADEBUILDINGBTN_STATE_UNGRABBED,
     _rect:null,
+    type:"UpgradeBuildingBtn",
 
     rect:function () {
         return cc.rect(-this._rect.size.width / 2, -this._rect.size.height / 2, this._rect.size.width, this._rect.size.height);
@@ -39,7 +40,7 @@ var UpgradeBuildingBtn = cc.Sprite.extend({
     ,onTouchBegan:function (touch, event) {
         if (this._state != UPGRADEBUILDINGBTN_STATE_UNGRABBED) return false;
         if (!this.containsTouchLocation(touch)){
-            ins(yc.ui.BuildingUpgradeMenu).close();
+            ins(yc.ui.BuildingUpgradeMenu).touchMiss(touch);
             return false;
         }
         this._state = UPGRADEBUILDINGBTN_STATE_GRABBED;
