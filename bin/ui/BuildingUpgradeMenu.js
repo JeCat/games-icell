@@ -11,7 +11,7 @@ yc.ui.BuildingUpgradeMenu = function(){
 		this.building = hexgon.building ;
 		var buildingClass = this.building.constructor ;
 		
-		if(!buildingClass.upgraders.length)
+		if(!buildingClass.upgraders)
 		{
 			return;
 		}
@@ -30,13 +30,6 @@ yc.ui.BuildingUpgradeMenu = function(){
 			for(var u=0;u<buildingClass.upgraders.length;u++)
 			{
 				var item = new buildingClass.upgraders[u] ;
-
-				// if(yc.util.arr.search(item.hexgonTypes,hexgon.type)===false)
-				// {
-				// 	continue ;
-				// }
-
-				console.log( item);
 
 				var itemUi = UpgradeBuildingBtn.buildingBtnWithTexture(item.texture,item.texture_l,item.texture_nm) ;
 				
@@ -70,7 +63,7 @@ yc.ui.BuildingUpgradeMenu = function(){
 			}
 			var perBuildingRadian = Math.PI * 2 / childrenCount;
 			var children = this.ui.getChildren();
-			var radius = childrenCount * 16 ;
+			var radius = childrenCount * 50 / childrenCount ;
 			var actDelay = 0.01;
 
 		 	for(var buildingBtnIndex in children){
@@ -146,6 +139,63 @@ yc.ui.BuildingUpgradeMenu = function(){
 		// 	.show()
 		// 	[0].focus() ;
 	}
+
+	this.showBuildingDes = function(hexgon , building , position , allowBuild){
+		var that = this;
+		if(this.yesMenu){
+            this.yesMenu.removeFromParent(true);
+            
+        }
+        if(this.ui.pp){
+        	this.ui.pp.removeFromParent(true);
+    	}
+
+        if(this.ui.label){
+            this.ui.label.removeFromParent(true);
+        }
+
+        this.ui.pp = cc.Sprite.create("res/building/dec_bg.png");
+        this.ui.label = cc.Sprite.create();
+        this.ui.label.draw = function(ctx)
+        {
+            var font = ins(yc.ui.font.Font);
+            font.setWidth(190);
+            font.setHeight(75);
+            font.setTextIndent(0);
+            font.setTextAlign('left');
+            font.setLetterSpacing(4);
+            font.setLineHeight(18);
+            font.setText("[color=#F00;weight=bold;size=16;font=隶书]"+building.title +'[/]'+ 
+                "[color=#F00;size=14;font=隶书]"+building.description+'[/]'+
+                yc.ui.costDec(building.cost())
+                );
+            font.draw(ctx);
+        }
+        this.ui.pp.setPosition( cc.p(-320 , 0) ) ;
+        this.ui.pp.setScale(0.4,0.4);
+        this.ui.label.setPosition( cc.p(-420 , 50) ) ;
+        that.ui.addChild(this.ui.pp);
+        that.ui.addChild(this.ui.label);
+
+        if(allowBuild){
+        	this.yesBtn = cc.MenuItemImage.create(
+	            "res/btn-yes.png",
+	            "res/btn-yes-1.png",
+	            null,
+	            function (){
+	                if(that.createBuilding( hexgon , building )){
+	                    that.close();
+	                }
+	            },
+	            this
+	        );
+	        this.yesMenu = cc.Menu.create(this.yesBtn);
+	        this.yesMenu.setPosition(position);
+	        that.ui.addChild(this.yesMenu);
+        }
+	}
+
+
 
 	this.close = function(){
 		var inner = ins(yc.inner.InnerLayer) ;
