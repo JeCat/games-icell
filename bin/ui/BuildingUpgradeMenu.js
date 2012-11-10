@@ -5,6 +5,17 @@ yc.ui.BuildingUpgradeMenu = function(){
 	
 	this.building = null ;
 	this.costRecovering = {} ;
+
+	this.removeBuildingUpgrader = {
+		texture:"res/building/shooter.png"
+		, texture_l :  "res/building/shooter-l.png"
+		, texture_nm :  "res/building/shooter-nm.png"
+		, title : '回收器官'
+		, description : '回收器官换取部分资源'
+		, cost : function(){
+			return '';
+		}
+	};
 	
 	this.show = function( hexgon ){
 		this.hexgon = hexgon;
@@ -29,15 +40,32 @@ yc.ui.BuildingUpgradeMenu = function(){
 
 			for(var u=0;u<buildingClass.upgraders.length;u++)
 			{
-				var item = new buildingClass.upgraders[u] ;
+				var upgraderClass = buildingClass.upgraders[u] ;
+				var upgrader = this.building.upgrader(upgraderClass) ;
 
-				var itemUi = UpgradeBuildingBtn.buildingBtnWithTexture(item.texture,item.texture_l,item.texture_nm) ;
+				var itemUi = UpgradeBuildingBtn.buildingBtnWithTexture(
+					upgrader.texture
+					,upgrader.texture_l
+					,upgrader.texture_nm
+				) ;
 				
-				itemUi.isUpgradeBuildingBtn =  true;
-				itemUi.building = item;
+				itemUi.upgraderClass = upgraderClass;
+				itemUi.building = this.building;
+				itemUi.upgrader = upgrader;
 				itemUi.hexgon = hexgon;
 				this.ui.addChild( itemUi );
 			}
+
+			var removeBuilding = UpgradeBuildingBtn.buildingBtnWithTexture(
+				this.removeBuildingUpgrader.texture
+				,this.removeBuildingUpgrader.texture_l
+				,this.removeBuildingUpgrader.texture_nm
+			) ;
+			removeBuilding.building = this.building;
+			removeBuilding.upgrader = this.removeBuildingUpgrader;
+			removeBuilding.hexgon = hexgon;
+			removeBuilding.isRemoveBuilding = true;
+			this.ui.addChild( removeBuilding );
 
 			var closeBtn = cc.MenuItemImage.create(
 		        "res/btn-no.png",
@@ -83,36 +111,7 @@ yc.ui.BuildingUpgradeMenu = function(){
 		    }
 		}
 
-
-		// var upgraderClass = buildingClass.upgraders[u] ;
-		// 		var upgrader = building.upgrader(upgraderClass) ;
 				
-		// 		// 升级效果
-		// 		var detail = upgrader.upgradeDetail(building) ;
-		// 		var detailHtml = '效果: ' ;
-		// 		for(var property in detail)
-		// 		{
-		// 			detailHtml+= '<div>' +property +':'+ building[property].toFixed(1) + ' -> ' + 
-		// 			(building[property]+detail[property]).toFixed(1) + '</div>' ;
-		// 		}
-		// 		upgraderUi.find('.detail').html(detailHtml) ;
-				
-		// 		// 升级费用
-		// 		var cost = upgrader.cost() ;
-		// 		// upgraderUi.find('.cost').html( '费用：'+yc.ui.costHtml(cost) ) ;
-				
-		// 		// 升级按钮
-		// 		upgraderUi.find('.upgrade')
-		// 			.attr('disabled',!upgrader.isUnlock())  // 是否解锁
-		// 			.data('upgrader',upgrader)
-		// 			.data('cost',cost)
-		// 			.click(function(){
-		// 				// 关闭菜单
-		// 				that.ui.hide() ;
-						
-		// 				// 执行升级
-		// 				$(this).data('upgrader').upgrade(building) ;
-						
 		// 				// 建筑附加值
 		// 				var cost = $(this).data('cost') ;
 		// 				for(var p in cost)
@@ -121,7 +120,6 @@ yc.ui.BuildingUpgradeMenu = function(){
 		// 				}
 		// 			}) ;
 		
-			// $('#bulding-upgraders-outer').html('没有可用升级') ;
 		
 		//拆除回收
 		// this.costRecovering = {} ;
@@ -131,16 +129,9 @@ yc.ui.BuildingUpgradeMenu = function(){
 		// }
 
 		// this.ui.find('#cost-recovering').html(yc.ui.costHtml(this.costRecovering)) ;
-
-		// this.ui.css({
-		// 		left: window.event.clientX-this.ui.width()-100
-		// 		, top: ($(window).height()-this.ui.height())/2
-		// 	})
-		// 	.show()
-		// 	[0].focus() ;
 	}
 
-	this.showBuildingDes = function(hexgon , building , position , allowBuild){
+	this.showBuildingDes = function(hexgon , building , upgrader , position , allowBuild , target){
 		var that = this;
 		if(this.yesMenu){
             this.yesMenu.removeFromParent(true);
@@ -154,21 +145,51 @@ yc.ui.BuildingUpgradeMenu = function(){
             this.ui.label.removeFromParent(true);
         }
 
+        if(target.isRemoveBuilding){
+        	var detailHtml = '';
+        }else{
+			var detail = upgrader.upgradeDetail(building) ;
+	        var detailHtml = '效果:' ;
+	        for(var property in detail)
+			{
+				detailHtml+= property +':'+ building[property].toFixed(1) + ' -> ' + 
+				(building[property]+detail[property]).toFixed(1);
+			}
+        }
+
         this.ui.pp = cc.Sprite.create("res/building/dec_bg.png");
         this.ui.label = cc.Sprite.create();
         this.ui.label.draw = function(ctx)
         {
             var font = ins(yc.ui.font.Font);
             font.setWidth(190);
-            font.setHeight(75);
+            font.setHeight(185);
             font.setTextIndent(0);
             font.setTextAlign('left');
             font.setLetterSpacing(4);
             font.setLineHeight(18);
-            font.setText("[color=#F00;weight=bold;size=16;font=隶书]"+building.title +'[/]'+ 
-                "[color=#F00;size=14;font=隶书]"+building.description+'[/]'+
-                yc.ui.costDec(building.cost())
-                );
+
+            var costText = ""; 
+            if(target.isRemoveBuilding){
+	        	
+	        }else{
+	        	costText = yc.ui.costDec(upgrader.cost());
+	        }
+
+	        var lv = ""; 
+            if(target.isRemoveBuilding){
+	        	
+	        }else{
+	        	lv = "[color=#F00;size=14;]Lv "+ (upgrader.lv+1) + "[/]";
+	        }
+
+            var dec = "[color=#F00;weight=bold;size=16;font=隶书]"+upgrader.title +'[/]'
+            	+lv
+                +"[color=#F00;size=14;font=隶书]"+upgrader.description+'[/]'
+                +"[color=#F00;size=14;font=隶书]"+detailHtml+'[/]'
+                +costText;
+
+            font.setText( dec );
             font.draw(ctx);
         }
         this.ui.pp.setPosition( cc.p(-320 , 0) ) ;
@@ -183,9 +204,13 @@ yc.ui.BuildingUpgradeMenu = function(){
 	            "res/btn-yes-1.png",
 	            null,
 	            function (){
-	                if(that.createBuilding( hexgon , building )){
-	                    that.close();
-	                }
+	            	// upgrader.isUnlock()
+	            	if(target.isRemoveBuilding){
+						that.removeBuilding();
+			        }else{
+		        	 	upgrader.upgrade(that.building);
+			        }
+			        that.close();
 	            },
 	            this
 	        );
@@ -194,7 +219,6 @@ yc.ui.BuildingUpgradeMenu = function(){
 	        that.ui.addChild(this.yesMenu);
         }
 	}
-
 
 
 	this.close = function(){
@@ -289,7 +313,11 @@ yc.ui.BuildingUpgradeMenu = function(){
 				// if(children[btn].isLocked()){
 				// 	continue;
 				// }
-				if(yc.ui.checkCost(children[btn].building.cost())){
+
+				if(children[btn].isRemoveBuilding){
+					continue;
+				}
+				if(yc.ui.checkCost(children[btn].upgrader.cost())){
 					children[btn].setFaceType(0);
 					children[btn].setBuildable(true);
 				}else{
@@ -336,6 +364,8 @@ yc.ui.BuildingUpgradeMenu.className = 'yc.ui.BuildingUpgradeMenu' ;
 
 
 // yc.ui.BuildingUpgradeMenu = function(){
+
+
 // 	this.show = function(building){
 		
 // 		this.building = building ;

@@ -55,9 +55,9 @@ var UpgradeBuildingBtn = cc.Sprite.extend({
 
         var BuildingUpgradeMenu = ins(yc.ui.BuildingUpgradeMenu);
             
-        BuildingUpgradeMenu.showBuildingDes(this.hexgon , this.building , this.getPosition() , this.bBuildabel);
+        BuildingUpgradeMenu.showBuildingDes(this.hexgon , this.building ,this.upgrader, this.getPosition() , this.bBuildable , this) ;
 
-        console.log( this.building.title + ' building btn touch end');
+        console.log( this.upgrader.title + ' building btn touch end');
     }
     , touchDelegateRetain:function () {
     }
@@ -116,8 +116,8 @@ var UpgradeBuildingBtn = cc.Sprite.extend({
             this.setTexture(this._arrTextures[0]);
         }
     }
-    , setBuildable: function( bBuildabel ){
-        this.bBuildabel = bBuildabel ? true:false;
+    , setBuildable: function( bBuildable ){
+        this.bBuildable = bBuildable ? true:false;
     }
 });
 

@@ -60,7 +60,7 @@ var CreateBuildingBtn = cc.Sprite.extend({
 
         var BuildingCreateMenu = ins(yc.ui.BuildingCreateMenu);
             
-        BuildingCreateMenu.showBuildingDes(this.hexgon , this.building , this.getPosition() , this.bBuildabel);
+        BuildingCreateMenu.showBuildingDes(this.hexgon , this.building , this.getPosition() , this.bBuildable);
 
         console.log( this.building.title + ' building btn touch end');
         
@@ -124,8 +124,8 @@ var CreateBuildingBtn = cc.Sprite.extend({
             this.setTexture(this._arrTextures[0]);
         }
     }
-    , setBuildable: function( bBuildabel ){
-        this.bBuildabel = bBuildabel ? true:false;
+    , setBuildable: function( bBuildable ){
+        this.bBuildable = bBuildable ? true:false;
     }
     , isLocked : function(){
         return false;
