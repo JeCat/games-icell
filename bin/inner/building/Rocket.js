@@ -30,12 +30,12 @@ yc.inner.building.Rocket = yc.inner.building.Building.extend({
 		yc.event.register( ins(yc.outer.Cell), "calculatePower", this.calculatePower, this ) ;
 
 		// 技能
-		var skill = new yc.inner.skill.SkillBase ;
-		skill.setCoolingTime(5) ;
-		skill.setName( 'rocket' );
-		this.addSkill(skill) ;
-		skill.start = this.fire ;
-		skill.target = this ;
+		this.skill = new yc.inner.skill.SkillBase ;
+		this.skill.setCoolingTime(5) ;
+		this.skill.setName( 'rocket' );
+		this.addSkill(this.skill) ;
+		this.skill.start = this.fire ;
+		this.skill.target = this ;
 
 		// 
 		this._super(hexgon) ;
@@ -63,6 +63,7 @@ yc.inner.building.Rocket = yc.inner.building.Building.extend({
 				ins(yc.outer.Cell).calculatePower() ;
 			}) 
 		) ;
+		this.skill.fillCoolingTime();
 
 	}
 

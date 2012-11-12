@@ -133,6 +133,7 @@ var TAG_SPRITE_MANAGER = 1;
 			, 'bin/inner/skill/OutsideShooter.js'
 			, 'bin/inner/skill/Bullet.js'
 			, 'bin/inner/skill/Bottles.js'
+			//, 'bin/inner/skill/Rocket.js'
 
 			, 'bin/inner/monster/Mitochondria.js'
 			, 'bin/inner/monster/FlopAminoAcid.js'
