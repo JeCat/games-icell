@@ -346,16 +346,18 @@ yc.inner.Cell.prototype.initWithScript = function( script ){
 		var building = new (eval(script.buildings[i].className)) ;
 		building.putOn(script.buildings[i].x,script.buildings[i].y) ;
 
+		building.initWithScript(script.buildings[i]) ;
+
 		// 升级
-		var upgraders = script.buildings[i].upgraders ;
-		for(var name in upgraders)
-		{
-			for(var u=0;u<upgraders[name];u++)
-			{
-				building.upgrader( eval(name) )
-							.upgrade(building,false) ;
-			}
-		}
+		// var upgraders = script.buildings[i].upgraders ;
+		// for(var name in upgraders)
+		// {
+		// 	for(var u=0;u<upgraders[name];u++)
+		// 	{
+		// 		building.upgrader( eval(name) )
+		// 					.upgrade(building,false) ;
+		// 	}
+		// }
 	}
 
 	this.grown = 0 ;

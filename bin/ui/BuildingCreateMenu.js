@@ -119,7 +119,7 @@ yc.ui.BuildingCreateMenu = function(){
 		}
 
 		, factory: {
-			title: '蛋白质工程'
+			title: '蛋白质工厂'
 			, description: '将氨基酸合成为蛋白质'
 			, texture : "res/building/recycle.png"
 			, texture_l : "res/building/recycle-l.png"
@@ -409,6 +409,7 @@ yc.ui.BuildingCreateMenu = function(){
 		
 		// new buildingClass
 		var building = new item.buildingClass ;
+		building.cost = item.cost();
 		
 		// 重新计算路径
 		if( building.isBlocking() )

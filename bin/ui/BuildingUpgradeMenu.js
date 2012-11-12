@@ -3,8 +3,8 @@ yc.ui.BuildingUpgradeMenu = function(){
 	this.ui = null ;    
 	var that = this ;
 	
-	this.building = null ;
-	this.costRecovering = {} ;
+	// this.building = null ;
+	// this.costRecovering = {} ;
 
 	this.removeBuildingUpgrader = {
 		texture:"res/building/shooter.png"
@@ -12,14 +12,21 @@ yc.ui.BuildingUpgradeMenu = function(){
 		, texture_nm :  "res/building/shooter-nm.png"
 		, title : '回收器官'
 		, description : '回收器官换取部分资源'
-		, cost : function(){
-			return '';
-		}
+		// , cost : function(){
+		// 	return '';
+		// }
 	};
 	
 	this.show = function( hexgon ){
 		this.hexgon = hexgon;
-		this.building = hexgon.building ;
+
+		this.building = hexgon.building;
+
+		if(!this.hexgon.finalCost){
+			this.hexgon.finalCost = {};
+			yc.util.cloneObject( this.hexgon.finalCost , this.building.cost);
+		}
+
 		var buildingClass = this.building.constructor ;
 		
 		if(!buildingClass.upgraders)
@@ -110,25 +117,6 @@ yc.ui.BuildingUpgradeMenu = function(){
 		 		children[buildingBtnIndex].runAction(actDisappear);
 		    }
 		}
-
-				
-		// 				// 建筑附加值
-		// 				var cost = $(this).data('cost') ;
-		// 				for(var p in cost)
-		// 				{
-		// 					building.cost[p] = (p in building.cost? building.cost[p]: 0) + cost[p] ;
-		// 				}
-		// 			}) ;
-		
-		
-		//拆除回收
-		// this.costRecovering = {} ;
-		// for(var p in building.cost)
-		// {
-		// 	this.costRecovering[p] = Math.round(building.cost[p]*0.7) ;
-		// }
-
-		// this.ui.find('#cost-recovering').html(yc.ui.costHtml(this.costRecovering)) ;
 	}
 
 	this.showBuildingDes = function(hexgon , building , upgrader , position , allowBuild , target){
@@ -159,6 +147,9 @@ yc.ui.BuildingUpgradeMenu = function(){
 
         this.ui.pp = cc.Sprite.create("res/building/dec_bg.png");
         this.ui.label = cc.Sprite.create();
+
+        // console.log(building);
+
         this.ui.label.draw = function(ctx)
         {
             var font = ins(yc.ui.font.Font);
@@ -171,14 +162,23 @@ yc.ui.BuildingUpgradeMenu = function(){
 
             var costText = ""; 
             if(target.isRemoveBuilding){
-	        	
+	        	costText = '可回收:';
+
+    			//拆除回收
+				that.costRecovering = {} ;
+
+				for(var p in that.hexgon.finalCost)
+				{
+					that.costRecovering[p] = Math.round(that.hexgon.finalCost[p]*0.7) ;
+				}
+				costText+=yc.ui.costDec(that.costRecovering);
 	        }else{
 	        	costText = yc.ui.costDec(upgrader.cost());
 	        }
 
 	        var lv = ""; 
             if(target.isRemoveBuilding){
-	        	
+
 	        }else{
 	        	lv = "[color=#F00;size=14;]Lv "+ (upgrader.lv+1) + "[/]";
 	        }
@@ -209,6 +209,13 @@ yc.ui.BuildingUpgradeMenu = function(){
 						that.removeBuilding();
 			        }else{
 		        	 	upgrader.upgrade(that.building);
+
+						//	 建筑附加价值
+						var cost = upgrader.cost();
+						for(var p in cost)
+						{
+							that.hexgon.finalCost[p] = (p in that.hexgon.finalCost? that.hexgon.finalCost[p]: 0) + cost[p] ;
+						}
 			        }
 			        that.close();
 	            },
@@ -240,6 +247,7 @@ yc.ui.BuildingUpgradeMenu = function(){
 				if(this.ui){
 					this.ui.removeFromParent(true);
 					this.ui = null;
+					this.costRecovering = {};
 				}
 				// cancel event
 				if(window.event.type === 'mouseup'){
@@ -265,6 +273,7 @@ yc.ui.BuildingUpgradeMenu = function(){
 							if(this.ui){
 								this.ui.removeFromParent(true);
 								this.ui = null;
+								this.costRecovering = {};
 							}
 						},that)
 					])
@@ -297,7 +306,6 @@ yc.ui.BuildingUpgradeMenu = function(){
 		{
 			pool.increase(p,+that.costRecovering[p]) ;
 		}
-		
 		// 重新计算路径
 		var cell = ins(yc.inner.InnerLayer).cell ;
 		var map = cell.researchPath() ;
@@ -352,6 +360,9 @@ yc.ui.BuildingUpgradeMenu = function(){
 	}
 	
 }
+
+
+
 
 
 yc.ui.BuildingUpgradeMenu.className = 'yc.ui.BuildingUpgradeMenu' ;

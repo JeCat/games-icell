@@ -114,6 +114,7 @@ yc.inner.building.Building = cc.Sprite.extend({
 		var script = {
 			className: this.constructor.className
 			, upgraders: {}
+			, cost : this.cost
 		}		
 
 		// 升级
@@ -127,6 +128,7 @@ yc.inner.building.Building = cc.Sprite.extend({
 
 	, initWithScript: function(script){
 
+		this.cost = script.cost;
 		// 升级
 		for( var name in script.upgraders )
 		{
