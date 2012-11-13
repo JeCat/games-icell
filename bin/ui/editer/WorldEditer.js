@@ -276,7 +276,7 @@ function worldList(){
 
 			$.each( json , function(v,b){
 
-				var li = $("<div class='worldListDiv_list_li'>"
+				var li = $("<div class='worldListDiv_list_li' style='float: left;width: 170px;height: 140px;margin:3px;padding:2px;border:1px gray solid;'>"
 							+ "<a href='#' onclick='initWorld("+b['wid']+");return false;' class='worldListDiv_list_a'>"+b['worldname']+"</a><br/>"
 							+ "<span class='worldListDiv_list_span'>"+b['createTime']+"</span><br/>"
 							+ "<img class='worldListDiv_thumb' src='http://icell.jecat.cn/thumb/"+b['thumbName']+"'/>"
