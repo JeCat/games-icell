@@ -143,12 +143,10 @@ yc.inner.building.Building = cc.Sprite.extend({
 	// 获得建筑在世界中对应的坐标位置
 	, worldAxes: function(){
 		var cell = ins(yc.outer.Cell) ;
-		var mypos = yc.util.clientToWindow( ins(yc.inner.InnerLayer).buildings, this.hexgon.center[0], this.hexgon.center[1] ) ;
-		var cellpos = yc.util.clientToWindow( cell, 0, 0 ) ;
-
+		var mypos = yc.util.clientToWindow( ins(yc.inner.InnerLayer).buildings, this.hexgon.center[0], this.hexgon.center[1], ins(yc.outer.PlayerLayer) ) ;
 		return [ 
-			cell.x + (mypos[0] - cellpos[0])
-			, cell.y + (mypos[1] - cellpos[1])
+			cell.x + mypos[0]
+			, cell.y + mypos[1]
 		] ;
 	}
 

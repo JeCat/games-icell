@@ -37,21 +37,21 @@ yc.ui.BuildingCreateMenu = function(){
 			}
 		}
 
-		, jetter: {
-			title: '防御塔(喷射)'
-			, description: '向进入细胞体内的病毒喷射酸性物质，接触到的病毒都将受到伤害'
-			, texture : "res/building/jetter.png"
-			, texture_l : "res/building/jetter-l.png"
-			, texture_nm : "res/building/jetter-nm.png"
-			, hexgonTypes: ['cytoplasm']
-			, cost: function(){
-				return yc.settings.building.Jetter.cost ;
-			}
-			, buildingClass: yc.inner.building.TowerJetter
-			, isUnlock: function(){
-				return ins(yc.user.Character).dna.genes['tower(jetter)']!==undefined ;
-			}
-		}
+		// , jetter: {
+		// 	title: '防御塔(喷射)'
+		// 	, description: '向进入细胞体内的病毒喷射酸性物质，接触到的病毒都将受到伤害'
+		// 	, texture : "res/building/jetter.png"
+		// 	, texture_l : "res/building/jetter-l.png"
+		// 	, texture_nm : "res/building/jetter-nm.png"
+		// 	, hexgonTypes: ['cytoplasm']
+		// 	, cost: function(){
+		// 		return yc.settings.building.Jetter.cost ;
+		// 	}
+		// 	, buildingClass: yc.inner.building.TowerJetter
+		// 	, isUnlock: function(){
+		// 		return ins(yc.user.Character).dna.genes['tower(jetter)']!==undefined ;
+		// 	}
+		// }
 
 		, slower: {
 			title: '防御塔(减速)'
@@ -118,21 +118,21 @@ yc.ui.BuildingCreateMenu = function(){
 			}
 		}
 
-		, factory: {
-			title: '蛋白质工程'
-			, description: '将氨基酸合成为蛋白质'
-			, texture : "res/building/recycle.png"
-			, texture_l : "res/building/recycle-l.png"
-			, texture_nm : "res/building/recycle-nm.png"
-			, hexgonTypes: ['cytoplasm']
-			, cost: function(){
-				return {}
-			}
-			, buildingClass: yc.inner.building.ProteinFactory
-			, isUnlock: function(){
-				return true ;
-			}
-		}
+		// , factory: {
+		// 	title: '蛋白质工程'
+		// 	, description: '将氨基酸合成为蛋白质'
+		// 	, texture : "res/building/recycle.png"
+		// 	, texture_l : "res/building/recycle-l.png"
+		// 	, texture_nm : "res/building/recycle-nm.png"
+		// 	, hexgonTypes: ['cytoplasm']
+		// 	, cost: function(){
+		// 		return {}
+		// 	}
+		// 	, buildingClass: yc.inner.building.ProteinFactory
+		// 	, isUnlock: function(){
+		// 		return true ;
+		// 	}
+		// }
 		
 		, eye: {
 			title: '眼睛'
@@ -156,7 +156,7 @@ yc.ui.BuildingCreateMenu = function(){
 			, hasSkill: true
 		}
 		, oshooter: {
-			title: '攻击塔'
+			title: '导弹'
 			, description: '攻击细胞外部的病毒群'
 			, texture : "res/building/oshooter.png"
 			, texture_l : "res/building/oshooter-l.png"
