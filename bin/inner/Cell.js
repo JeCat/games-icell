@@ -2,6 +2,7 @@ yc.inner.Cell = function()
 {
 	this.hpMax = 10 ;
 	this.hp = this.hpMax ;
+	this.virusArrived = 0 ;
 	
 	this.aAxes = new HexgonAxes( yc.settings.inner.hexgonSideLength, yc.inner.CellHexgon ) ;
 
@@ -202,6 +203,9 @@ yc.inner.Cell.prototype.getHurt = function(){
 		return ;
 	}
 	
+	// 受伤数量
+	this.virusArrived ++;
+	
 	// 偷走蛋白质
 	var pool = ins(yc.user.Character).proteins ;
 	if(pool.total>0)
@@ -342,16 +346,18 @@ yc.inner.Cell.prototype.initWithScript = function( script ){
 		var building = new (eval(script.buildings[i].className)) ;
 		building.putOn(script.buildings[i].x,script.buildings[i].y) ;
 
+		building.initWithScript(script.buildings[i]) ;
+
 		// 升级
-		var upgraders = script.buildings[i].upgraders ;
-		for(var name in upgraders)
-		{
-			for(var u=0;u<upgraders[name];u++)
-			{
-				building.upgrader( eval(name) )
-							.upgrade(building,false) ;
-			}
-		}
+		// var upgraders = script.buildings[i].upgraders ;
+		// for(var name in upgraders)
+		// {
+		// 	for(var u=0;u<upgraders[name];u++)
+		// 	{
+		// 		building.upgrader( eval(name) )
+		// 					.upgrade(building,false) ;
+		// 	}
+		// }
 	}
 
 	this.grown = 0 ;

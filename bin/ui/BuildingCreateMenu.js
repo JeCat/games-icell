@@ -119,7 +119,7 @@ yc.ui.BuildingCreateMenu = function(){
 		}
 
 		// , factory: {
-		// 	title: '蛋白质工程'
+		// 	title: '蛋白质工厂'
 		// 	, description: '将氨基酸合成为蛋白质'
 		// 	, texture : "res/building/recycle.png"
 		// 	, texture_l : "res/building/recycle-l.png"
@@ -282,9 +282,9 @@ yc.ui.BuildingCreateMenu = function(){
 					continue ;
 				}
 
-				var itemUi = BuildingBtn.buildingBtnWithTexture(item.texture,item.texture_l,item.texture_nm) ;
+				var itemUi = CreateBuildingBtn.buildingBtnWithTexture(item.texture,item.texture_l,item.texture_nm) ;
 				
-				itemUi.isBuildingBtn =  true;
+				itemUi.isCreateBuildingBtn =  true;
 				itemUi.building = item;
 				itemUi.hexgon = hexgon;
 				this.ui.addChild( itemUi );
@@ -409,6 +409,7 @@ yc.ui.BuildingCreateMenu = function(){
 		
 		// new buildingClass
 		var building = new item.buildingClass ;
+		building.cost = item.cost();
 		
 		// 重新计算路径
 		if( building.isBlocking() )
@@ -517,6 +518,28 @@ yc.ui.BuildingCreateMenu = function(){
 					children[btn].setBuildable(false);
 				}
 			}
+		}
+	}
+	this.touchMiss = function(touch){
+		if( !this.touchMissCount){
+			this.touchMissCount = {};
+		}
+		var key = touch._point.x+":"+touch._point.y;
+		if(this.touchMissCount[key]){
+			this.touchMissCount[key]++;
+		}else{
+			this.touchMissCount[key] = 1;
+		}
+
+		var childrenCount = 0;
+		var children = this.ui.getChildren();
+		for(var item in children){
+			if(children[item].type && children[item].type=="CreateBuildingBtn"){
+				childrenCount++;
+			}
+		}
+		if(this.touchMissCount[key] >= childrenCount ){
+			this.close();
 		}
 	}
 }

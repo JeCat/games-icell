@@ -1,6 +1,7 @@
 
 var ins = yc.util.ins = function(className)
 {   
+	
 	var name = typeof(className.className)=='undefined'? className.name: className.className ;
 	
 	if( !name || typeof(name)=='undefined' )
@@ -13,6 +14,10 @@ var ins = yc.util.ins = function(className)
 	{
 		if( !('_singletonInstance' in className) || !className._singletonInstance )
 		{
+			if(className === yc.user.Character){
+				console.log(1);
+			}
+	
 			className._singletonInstance = new className ;
 		}
 		return className._singletonInstance ;

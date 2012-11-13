@@ -55,7 +55,8 @@ var TAG_SPRITE_MANAGER = 1;
 			, 'bin/util/debug.js'
 			
 			, 'bin/ui/UI.js'
-			, 'bin/ui/BuildingBtn.js'
+			, 'bin/ui/CreateBuildingBtn.js'
+			, 'bin/ui/UpgradeBuildingBtn.js'
 			, 'bin/ui/BuildingCreateMenu.js'
 			, 'bin/ui/BuildingUpgradeMenu.js'
 			, 'bin/ui/PauseMenu.js'
@@ -132,6 +133,7 @@ var TAG_SPRITE_MANAGER = 1;
 			, 'bin/inner/skill/OutsideShooter.js'
 			, 'bin/inner/skill/Bullet.js'
 			, 'bin/inner/skill/Bottles.js'
+			//, 'bin/inner/skill/Rocket.js'
 
 			, 'bin/inner/monster/Mitochondria.js'
 			, 'bin/inner/monster/FlopAminoAcid.js'

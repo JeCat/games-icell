@@ -86,7 +86,27 @@ yc.user.Character.loadCurrent = function(name){
 					, gene: null	// 获得的基因
 				}
 			}
-			, cell: {"nucleus":[0,0],"cytoplasms":[[1,0],[1,-1],[0,-1],[-1,-1],[-1,0],[0,1]],"membranes":[[1,1],[2,1],[2,0],[1,-2],[2,-1],[0,-2],[-1,-2],[-2,0],[-2,-1],[-1,1],[-2,1],[0,2]],"buildings":[{"className":"yc.inner.building.TowerShooter","upgraders":{},"x":1,"y":-1},{"className":"yc.inner.building.ProteinFactory","upgraders":{},"x":0,"y":1}]}
+			, cell: {
+				"nucleus":[0,0]
+				,"cytoplasms":[[1,0],[1,-1],[0,-1],[-1,-1],[-1,0],[0,1]]
+				,"membranes":[[1,1],[2,1],[2,0],[1,-2],[2,-1],[0,-2],[-1,-2],[-2,0],[-2,-1],[-1,1],[-2,1],[0,2]]
+				,"buildings":[
+					{
+						"className":"yc.inner.building.TowerShooter"
+						,"upgraders":{}
+						,'cost':yc.settings.building.Shooter.cost
+						,"x":1
+						,"y":-1
+					}
+					,{
+						"className":"yc.inner.building.ProteinFactory"
+						,"upgraders":{}
+						,'cost':{}
+						,"x":0
+						,"y":1
+					}
+				]
+			}
 			, proteins: {
 				red: 0
 				, yellow: 0

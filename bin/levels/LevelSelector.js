@@ -222,8 +222,31 @@ yc.levels.LevelSelector.MapLayer.Level = cc.Sprite.extend({
 
 		// 关卡奖励
 		this._createGeneIcons() ;
+		
+		// star
+		this._createStarIcons();
 	}
 
+	, _createStarIcons: function(){
+
+		var script = eval(this.setting.script) ;
+		var ucLevels = ins(yc.user.Character).levels;
+		var levelsID = script.id;
+		
+		if( typeof(ucLevels[levelsID]) == "object" && ucLevels[levelsID].star != undefined)
+		{
+			var posx = -((ucLevels[levelsID].star-1) * 34)/2  ;
+			for(var i=0; i<ucLevels[levelsID].star; i++){
+	
+					var geneIcon = new cc.Sprite() ;
+					geneIcon.initWithFile("res/star2.png") ;
+					
+					geneIcon.setPosition(cc.p(posx,60)) ;
+					this.addChild(geneIcon) ;
+					posx+= 34  ;
+			}
+		}
+	}
 	, _createGeneIcons: function(){
 
 		var genes = [] ;
@@ -272,7 +295,7 @@ yc.levels.LevelSelector.MapLayer.Level = cc.Sprite.extend({
 				}
 				geneIcon.initWithFile("res/dna-icons-32.png",cc.rect.apply(this,iconType)) ;
 				
-				geneIcon.setPosition(cc.p(posx,60)) ;
+				geneIcon.setPosition(cc.p(posx,-50)) ;
 				geneIcon.setAnchorPoint(cc.p(0,0)) ;
 				this.addChild(geneIcon) ;
 			}else{

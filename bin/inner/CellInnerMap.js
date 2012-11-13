@@ -180,7 +180,7 @@ yc.inner.CellInnerMap = cc.Layer.extend({
 			// 升级
 			if(this.selcted_hexgon.building)
 			{
-				ins(yc.ui.BuildingUpgradeMenu).show(this.selcted_hexgon.building) ;
+				ins(yc.ui.BuildingUpgradeMenu).show(this.selcted_hexgon) ;
 			}
 			// 新建
 			else
