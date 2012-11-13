@@ -306,6 +306,8 @@ yc.ui.BuildingUpgradeMenu = function(){
 		// 重新计算路径
 		var cell = ins(yc.inner.InnerLayer).cell ;
 		var map = cell.researchPath() ;
+
+		this.hexgon.finalCost = {};
 	} ;
 
 	this.onProteinsChanged = function(){
