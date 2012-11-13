@@ -28,11 +28,6 @@ yc.ui.BuildingUpgradeMenu = function(){
 		}
 
 		var buildingClass = this.building.constructor ;
-		
-		if(!buildingClass.upgraders)
-		{
-			return;
-		}
 		if(!this.ui){
 
 			ins(yc.outer.PlayerLayer).setNeedFaceToPoint(false) ;
@@ -45,22 +40,24 @@ yc.ui.BuildingUpgradeMenu = function(){
 
 			this.uiCenter = [centerPosition[0] , centerPosition[1]];
 
-			for(var u=0;u<buildingClass.upgraders.length;u++)
-			{
-				var upgraderClass = buildingClass.upgraders[u] ;
-				var upgrader = this.building.upgrader(upgraderClass) ;
+			if(buildingClass.upgraders){
+				for(var u=0;u<buildingClass.upgraders.length;u++)
+				{
+					var upgraderClass = buildingClass.upgraders[u] ;
+					var upgrader = this.building.upgrader(upgraderClass) ;
 
-				var itemUi = UpgradeBuildingBtn.buildingBtnWithTexture(
-					upgrader.texture
-					,upgrader.texture_l
-					,upgrader.texture_nm
-				) ;
-				
-				itemUi.upgraderClass = upgraderClass;
-				itemUi.building = this.building;
-				itemUi.upgrader = upgrader;
-				itemUi.hexgon = hexgon;
-				this.ui.addChild( itemUi );
+					var itemUi = UpgradeBuildingBtn.buildingBtnWithTexture(
+						upgrader.texture
+						,upgrader.texture_l
+						,upgrader.texture_nm
+					) ;
+					
+					itemUi.upgraderClass = upgraderClass;
+					itemUi.building = this.building;
+					itemUi.upgrader = upgrader;
+					itemUi.hexgon = hexgon;
+					this.ui.addChild( itemUi );
+				}
 			}
 
 			var removeBuilding = UpgradeBuildingBtn.buildingBtnWithTexture(
