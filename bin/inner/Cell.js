@@ -360,8 +360,5 @@ yc.inner.Cell.prototype.initWithScript = function( script ){
 		// }
 	}
 
-	this.grown = 0 ;
-
-
 	return ;
 }
