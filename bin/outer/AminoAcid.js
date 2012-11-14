@@ -21,7 +21,7 @@ yc.outer.AminoAcid = yc.outer.PhysicalEntity.extend({
 	}
 	
 	, init: function(){
-		this.size = 3 + Math.round(this.num/4) ;
+		this.size = 18 + Math.round(this.num/4) ;
 		var colors = {red:'255,0,0',blue:'0,0,255',yellow:'255,255,0'}
 		this.color = 'rgb(' + colors[this.type] + ')' ;
 
