@@ -72,7 +72,7 @@ yc.ui.skill.ButtonBase = cc.Sprite.extend({
 		skill.setPosition( cc.p( 34,28) );
 		this.addChild(skill);
 		
-		this.cd = cc.LayerColor.create(cc.c4(0, 0, 0, 200), 32 ,32);  
+		this.cd = cc.LayerColor.create(cc.c4(0, 0, 0, 100), 32 ,32);  
 		this.cd.setAnchorPoint(new cc.Point(0,0));
 		this.cd.setPosition(cc.p(18, 12));
         //this.cd.setVisible(false);
