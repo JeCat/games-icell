@@ -16,7 +16,7 @@ yc.ui.dashboard.Dashboard = cc.Layer.extend({
 		, [ -26 , -15 ]
 	]
 	, proteinsPositions : {       			//  蛋白质  显示的位置偏移
-		red : [ 0 , 80 ]					//  red          
+		red : [ 0 , 80 ]					//  red
 		, orange : [ 69 , 40 ]				//orange 
 		, yellow : [ 69 , -40 ]				//yellow
 		, green : [ 0 , -80 ]				//green 
@@ -99,8 +99,6 @@ yc.ui.dashboard.Dashboard = cc.Layer.extend({
 			star.addChild(label);
 		}
 		/*     合成面板 end    */
-
-
 
 		// 注册事件
 		// --------

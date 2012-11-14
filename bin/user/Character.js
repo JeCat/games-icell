@@ -116,9 +116,9 @@ yc.user.Character.loadCurrent = function(name){
 				, orange: 0
 			}
 			, aminoacids: {
-				red: 10
-				, yellow: 10
-				, blue: 10
+				red: 0
+				, yellow: 0
+				, blue: 0
 			}
 		} ;
 	}

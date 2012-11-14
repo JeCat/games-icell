@@ -197,6 +197,7 @@ yc.outer.PhysicalEntity = cc.Sprite.extend({
 		
 		// 移动
 		this.updateVelocity() ;
+
 	}
 	
 	, turnRandom: function(){
