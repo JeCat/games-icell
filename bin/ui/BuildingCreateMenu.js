@@ -103,10 +103,16 @@ yc.ui.BuildingCreateMenu = function(){
 					, violet: 10 * (ins(yc.inner.Cell).grown+1)
 				}
 			}
-			, constructFunc: function(hexgon){
-				ins(yc.inner.Cell).grow(hexgon.x,hexgon.y) ;
-				ins(yc.outer.Cell).init() ;
-				menu.close() ;
+			, buildingClass: function(){
+				this.title = '生长',
+				this.putOn = function(hexgonX,hexgonY){
+					ins(yc.inner.Cell).grow(hexgonX,hexgonY) ;
+					ins(yc.outer.Cell).init() ;
+					menu.close() ;
+				},
+				this.isBlocking = function(){
+					return false;
+				}
 			}
 			, isUnlock: function(){
 				log(ins(yc.user.Character).dna.genes.grow)
@@ -114,7 +120,7 @@ yc.ui.BuildingCreateMenu = function(){
 				{
 					return false ;
 				}
-				return ins(yc.inner.Cell).grown < ins(yc.user.Character).dna.genes.grow.superimposing ;
+				return ins(yc.inner.Cell).grown < ins(yc.user.Character).dna.genes.grow.superimposing +6 ;
 			}
 		}
 

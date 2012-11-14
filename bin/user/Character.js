@@ -33,7 +33,7 @@ yc.user.Character = function(name){
 		// dna
 		for( var name in this.dna.genes )
 		{
-			data.dna.push(name) ;
+			data.dna.push({name:name,superimposing:this.dna.genes[name].superimposing}) ;
 		}
 
 		// 关卡信息
@@ -51,9 +51,11 @@ yc.user.Character = function(name){
 		// dna
 		for( var i=0;i<data.dna.length;i++)
 		{
-			this.dna.obtainGene( yc.dna.genes[ data.dna[i] ] ) ;
+			for( var ii=0;ii<data.dna[i].superimposing;ii++)
+			{
+				this.dna.obtainGene( yc.dna.genes[ data.dna[i].name ] ) ;
+			}
 		}
-
 		this.cell = data.cell ;
 
 		this.levels = data.levels ;

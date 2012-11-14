@@ -7,55 +7,83 @@ yc.ui.skill.ButtonBase = cc.Sprite.extend({
 	, _state : STAR_STATE_UNGRABBED
 	, title : null
 	, keyCode : null
-	, ctor: function(obj){
+	, icon : null
+	, ctor: function(icon){
 		var _skillList = [] ;
 		this.addSkill=function(s){
 			_skillList.push( s );
 		}
+		this.removeSkill=function(s){
+			
+			for(var i=0; i<_skillList.length; i++)
+			{
+				if(s.num == _skillList[i].num){
+					_skillList.splice(i,1);
+				}
+			}
+			
+			if( _skillList.length < 1){
+				this.setVisible(false);
+			}
+			
+		}
 		this.skillList = function(){
 			return _skillList;
 		}
-		if(obj.keyCode){
-			this.keyCode = obj.keyCode;
+
+
+		this.initWithFile("res/skill.png");
+		
+
+	},
+	setTitle: function(title){
+		if(title){
+			this.title = title;
 		}
-		if(obj.title){
-			this.title = obj.title;
+	},
+	setIcon: function(icon){
+		if(icon){
+			this.icon = icon;
+		}
+	},
+	setKeyCode: function(keyCode){
+		if(keyCode){
+			this.keyCode = keyCode;
 		}
 	},
 	draw: function(ctx){
 		
-		
-		this._super();
-		
-		var radius = 25;
-		ctx.fillStyle = "#372c23" ;
-		ctx.beginPath() ;
-		ctx.moveTo(0,0) ;
-		ctx.lineTo(radius,0) ;
-		ctx.arc(0,0, radius, 0, Math.PI*2 * this.getCoolDownPercent(), false) ;
-		ctx.lineTo(0,0) ;
-		ctx.closePath();
-		ctx.fill() ;
+			this._super() ;
 
-		var radius = 20;
-		ctx.fillStyle = "#513f2f" ;
-		ctx.beginPath() ;
-		ctx.moveTo(0,0) ;
-		ctx.lineTo(radius,0) ;
-		ctx.arc(0,0, radius, 0, Math.PI*2 * this.getCoolDownPercent(), false) ;
-		ctx.lineTo(0,0) ;
-		ctx.closePath();
-		ctx.fill() ;
+			var h = this.getCoolDownPercent();
+			if ( h != 1)
+			{
+				h = 1-h;
+				this.cd.setScale(1,h);
+			}
 		
-		ctx.fillStyle = "#d1bfaf";  
-		ctx.font = "bold 40px Arial";  
-		ctx.textBaseline = "top";  
-		ctx.fillText(this.title, -10, -22);  
 	},
 	rect:function () {
 		return cc.rect(-this.boxWidth / 2, -this.boxHeight / 2, this.boxWidth, this.boxHeight);
 	},
 	onEnter:function () {
+
+		var skill = cc.Sprite.create(this.icon);
+		skill.setPosition( cc.p( 34,28) );
+		this.addChild(skill);
+		
+		this.cd = cc.LayerColor.create(cc.c4(0, 0, 0, 200), 32 ,32);  
+		this.cd.setAnchorPoint(new cc.Point(0,0));
+		this.cd.setPosition(cc.p(18, 12));
+        //this.cd.setVisible(false);
+		this.cd.setScale(1,0.000001);
+        this.addChild(this.cd);  
+        
+        
+        var title = cc.LabelTTF.create(this.title, "Arial", 12);
+        title.setPosition(cc.p(18, 42));
+        this.addChild(title);  
+		
 		cc.Director.getInstance().getTouchDispatcher().addTargetedDelegate(this, 0, true);
 		cc.Director.getInstance().getKeyboardDispatcher().addDelegate(this);
 		this._super();
@@ -92,10 +120,38 @@ yc.ui.skill.ButtonBase = cc.Sprite.extend({
 		for( i in skillList ){
 			skill = skillList[i];
 			if( skill.canStart() ){
-				skill.start.apply(skill.target) ;
+				if(skill.start.apply(skill.target) != false){
+					
+					
+
+				}
+		        
+				/*
+				var thisb = this;
+				var skill = cc.Sprite.create();
+				skill.draw = function(ctx){
+
+					var radius = 16;
+					ctx.fillStyle = "#513f2f" ;
+					ctx.beginPath() ;
+					ctx.moveTo(0,0) ;
+					ctx.lineTo(radius,0) ;
+					ctx.arc(0,0, radius, 0, Math.PI*2 * thisb.getCoolDownPercent(), false) ;
+					ctx.lineTo(0,0) ;
+					ctx.closePath();
+					ctx.fill() ;
+					
+					if(thisb.getCoolDownPercent() == 1){
+						//this.setVisible(false);
+					}
+				}
+				skill.setPosition( cc.p( 34,28 ) );
+				thisb.addChild(skill);*/
+				
 				break;
 			}
 		}
+		
 	}
 	,onKeyUp:function (key) {
 		if(key == this.keyCode){
