@@ -84,7 +84,7 @@ yc.animations.initBuildinAnimations = function (){
 			, "res/role/virus.png"
 			, "golemHead_00%idx%.png"
 			, 1, 88) ;
-	
+
 	__loadAnimation(
 			'building.molino'
 			, "res/building/build.plist"

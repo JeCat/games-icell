@@ -76,7 +76,10 @@ yc.outer.VirusCluster = yc.outer.PhysicalEntity.extend({
 			}
 
 			//第一帧
-			this.initWithSpriteFrame( yc.animations.frames[script.spriter].getFrames()[0].getSpriteFrame() ) ;
+			var firstFrame=yc.animations.frames[script.spriter].getFrames()[0].getSpriteFrame();
+			// firstFrame.setScale(1.5,1.5);
+
+			this.initWithSpriteFrame( firstFrame ) ;
 			this.animationAction = cc.RepeatForever.create( yc.animations.createAction(script.spriter) ) ;
 		}
 
