@@ -113,6 +113,9 @@ yc.ui.editer.PanelPinup = function(editor){
 			alert("请选择需要移除的贴图") ;
 			return ;
 		}
+
+		pinup.getParent().removeBg(pinup);
+
 		pinup.removeFromParent() ;
 
 		// 刷新贴图列表

@@ -26,4 +26,12 @@ yc.outer.pinups.LayerGround = cc.Layer.extend({
 		}
 	}
 
+	, removeBg : function(bg){
+		for(var pi=0;pi<this._script.length;pi++){
+			if(this._script[pi] === bg._script){
+				this._script.splice(pi);
+				break;
+			}
+		}
+	}
 }) ;
