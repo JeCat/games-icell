@@ -320,7 +320,7 @@ yc.ui.BuildingCreateMenu = function(){
 			}
 			var perBuildingRadian = Math.PI * 2 / childrenCount;
 			var children = this.ui.getChildren();
-			var radius = childrenCount * 16 ;
+			var radius = childrenCount * 50 / childrenCount ;
 			var actDelay = 0.01;
 
 		 	for(var buildingBtnIndex in children){
