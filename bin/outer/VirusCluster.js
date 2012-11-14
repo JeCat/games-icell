@@ -54,6 +54,8 @@ yc.outer.VirusCluster = yc.outer.PhysicalEntity.extend({
 
 		
 		this.initWithCircle(this.size,this.x,this.y,yc.settings.outer.virus.density) ;
+
+		this.setScale(2,2);
 	}
 
 	, initWithScript: function(script){
