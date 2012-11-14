@@ -14,7 +14,23 @@ yc.inner.building.Building = cc.Sprite.extend({
 
 	, addSkill: function(skillObj){
 		skillObj.setBuilding( this );
+		skillObj.num = Math.random();
 		this.skills.push(skillObj);
+	}
+	
+	, removeSkill: function(){
+		
+		if(this.skills){
+
+			// 处理技能 -----------------
+			var skillBar = ins(yc.ui.UILayer).skillBar ;
+			
+			for( var i=0;i<this.skills.length;i++){
+				var skill = this.skills[i];
+				skillBar.removeButtonForSkill( skill );
+			}
+			this.skills = [] ;
+		}
 	}
 
 	, put: function(hexgon){
@@ -68,6 +84,10 @@ yc.inner.building.Building = cc.Sprite.extend({
 	 * 拆除
 	 */
 	, demolish: function(){
+		
+		// remove skill
+		this.removeSkill();
+		
 		this.hexgon.building = null ;
 		this.hexgon.block = false ;
 		this.hexgon = null ;

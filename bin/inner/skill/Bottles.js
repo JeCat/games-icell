@@ -3,6 +3,7 @@ yc.inner.skill.Bottles = yc.inner.skill.SkillBase.extend({
 		this._super();
 		
 		this.setName( 'Bottles' );
+		this.setIcon( 'res/star2.png' );
 		
 	}
 	, start: function(){
@@ -12,12 +13,12 @@ yc.inner.skill.Bottles = yc.inner.skill.SkillBase.extend({
 		
 		if(!worldName){
 			alert("不能为空！")
-			return;
+			return false;
 		}
 		
 		if(yc.ui.font.Font.len(worldName) > 90){
 			alert("内容过长！")
-			return;
+			return false;
 		}
 		
 

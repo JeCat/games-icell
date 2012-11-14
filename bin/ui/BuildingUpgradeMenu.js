@@ -287,6 +287,7 @@ yc.ui.BuildingUpgradeMenu = function(){
 	// 拆除处理
 	this.removeBuilding = function(){
 		
+		
 		that.close() ;
 		
 		// if(!confirm('确定要拆除建筑：'+that.building.info.title+'？'))

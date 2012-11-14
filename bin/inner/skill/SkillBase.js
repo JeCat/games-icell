@@ -1,6 +1,7 @@
 yc.inner.skill.SkillBase = cc.Node.extend({
 	ctor: function(){
 		var _name = 'noname';
+		var _icon = 'noname';
 		var _title = '无标题';
 		var _coolingTime = 30;// 冷却时间，单位是秒
 		var _building = null;
@@ -12,6 +13,12 @@ yc.inner.skill.SkillBase = cc.Node.extend({
 		}
 		this.setName=function(n){
 			_name = n;
+		}
+		this.icon=function(){
+			return this._icon;
+		}
+		this.setIcon=function(n){
+			this._icon = n;
 		}
 		this.setBuilding = function(b){
 			_building = b;
