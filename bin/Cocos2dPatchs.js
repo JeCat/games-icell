@@ -225,7 +225,10 @@ yc.cocos2d.patchs.TouchDispatcher.touches = function (touches, event, index) {
 	}
 }
 
-cc.TouchDispatcher.prototype.touches = yc.cocos2d.patchs.TouchDispatcher.touches ;
+if(cc.TouchDispatcher)
+{
+	cc.TouchDispatcher.prototype.touches = yc.cocos2d.patchs.TouchDispatcher.touches ;
+}
 
 
 
@@ -325,3 +328,16 @@ cc.Sprite.prototype.draw = function (ctx) {
 
     //CC_PROFILER_STOP_CATEGORY(kCCProfilerCategorySprite, "CCSprite - draw");
 } 
+
+
+// 统一 cocos2d-x jsbinding 和 cocos2d-html 的参数顺序
+cc.MenuItemFont.createEx = function(text,fn,obj){
+	if( g_architecture=='html5' )
+	{
+		return cc.MenuItemFont.create(text,fn,obj) ;
+	}
+	else
+	{
+		return cc.MenuItemFont.create(text,obj,fn) ;
+	}
+}

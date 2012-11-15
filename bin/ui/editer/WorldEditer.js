@@ -397,40 +397,43 @@ function saveWorldToServer(){
 }
 
 //快捷键
-$('body , canvas').keydown(function(event){
-	switch(event.keyCode) {
-		case 107:
-		case 187:
-			ins(yc.ui.editer.WorldEditer).stain.createStainPoint();
-			break;
-		case 48:
-		case 49:
-		case 50:
-		case 51:
-		case 52:
-		case 53:
-		case 54:
-		case 55:
-		case 56:
-		case 57:
-			if(!event.ctrlKey){
-				return;
-			}
-			var index = event.keyCode - 48;
-			var option = $("#lst-stain-points option").get(index);
-			if(option){
-				option.click();
-				$("#btn-stain-position").click();
-			}else{
-				return;
-			}
+if(g_architecture=='html5')
+{
+	$('body , canvas').keydown(function(event){
+		switch(event.keyCode) {
+			case 107:
+			case 187:
+				ins(yc.ui.editer.WorldEditer).stain.createStainPoint();
+				break;
+			case 48:
+			case 49:
+			case 50:
+			case 51:
+			case 52:
+			case 53:
+			case 54:
+			case 55:
+			case 56:
+			case 57:
+				if(!event.ctrlKey){
+					return;
+				}
+				var index = event.keyCode - 48;
+				var option = $("#lst-stain-points option").get(index);
+				if(option){
+					option.click();
+					$("#btn-stain-position").click();
+				}else{
+					return;
+				}
 
-			break;
-			
-		default : 
-			// do nothing 
-	}
-});
+				break;
+				
+			default : 
+				// do nothing 
+		}
+	});
+}
 
 
 yc.ui.editer.WorldEditer.singleton = true ;
