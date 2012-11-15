@@ -17,7 +17,8 @@ yc.ui.BuildingCreateMenu = function(){
 			}
 			, buildingClass: yc.inner.building.TowerShooter
 			, isUnlock: function(){
-				return ins(yc.user.Character).dna.genes['tower(shooter)']!==undefined ;
+				return true;
+				// return ins(yc.user.Character).dna.genes['tower(shooter)']!==undefined ;
 			}
 		}
 	

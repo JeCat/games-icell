@@ -106,6 +106,13 @@ function moregene(name){
 	log(yc.dna.genes,ins(yc.user.Character).dna)
 }
 
+function unlockAll(){
+	for(var name in yc.dna.genes){
+		ins(yc.user.Character).dna.obtainGene( yc.dna.genes[name] ) ;
+	}
+	log('unlock all towers');
+}
+
 function savecell(){
 	ins(yc.user.Character).cell = ins(yc.inner.Cell).exportScript() ;
 	ins(yc.user.Character).save() ;

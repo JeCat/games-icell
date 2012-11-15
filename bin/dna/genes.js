@@ -16,7 +16,7 @@ yc.dna.genes = {
 			, grayRect: [68,65,33,33]
 		}
 	})
-	, 'tower(cannon)': new yc.dna.Gene({
+	,'tower(cannon)': new yc.dna.Gene({
 		name: 'tower(cannon)'
 		, title: '[解锁]防御塔(火炮)'
 		, description: '解锁：允许建造防御塔(火炮)'
