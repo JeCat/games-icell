@@ -21,14 +21,11 @@ yc.outer.PhysicalEntity = cc.Sprite.extend({
 	, runDamping: 0
 	
 	, ctor: function(){
+		this._super() ;
 		this.b2Body = null ;
 		this.scheduleUpdate();
 
 		this._followingCamera = null ;
-	}
-
-	, init: function(){
-		// abstract method
 	}
 
 	, initWithPosition: function(x,y){
@@ -392,7 +389,7 @@ yc.outer.PhysicalEntity = cc.Sprite.extend({
 		}
 	}
 	
-	, _color: function(style,opacity){
+	, _usecolor: function(style,opacity){
 
 		var ret = 'rgba('+style ;
 		if(style.match(/\,/g).length<3)
@@ -429,7 +426,7 @@ yc.outer.PhysicalEntity = cc.Sprite.extend({
 					}
 					borderStyle+= ')' ;
 
-					yc.util.drawPolygon(shape.points,ctx,this._color(shape.borderColor,shape.density),this._color(shape.color,shape.density),true) ;
+					yc.util.drawPolygon(shape.points,ctx,this._usecolor(shape.borderColor,shape.density),this._usecolor(shape.color,shape.density),true) ;
 				}
 				// 圆
 				else if(shape.type=='circle')
@@ -529,3 +526,4 @@ yc.outer.PhysicalEntity = cc.Sprite.extend({
 
 	, transform: yc.outer.Camera.transformSprite
 }) ;
+
