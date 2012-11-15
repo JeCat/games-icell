@@ -1,4 +1,4 @@
-yc.inner.CellInnerMap = cc.Sprite.extend({  
+yc.inner.CellInnerMap = cc.Layer.extend({  
 
 	__w: 300
 	, __h: -200
@@ -15,7 +15,7 @@ yc.inner.CellInnerMap = cc.Sprite.extend({
 		//this.initWithColor(new cc.Color4B(255,255,255,50),yc.settings.inner.width,yc.settings.inner.height) ;
 		
 
-		//this.setTouchEnabled(true);
+		this.setTouchEnabled(true);
 		this.touching = false ;
 		this.selcted_hexgon = null ;
 	}

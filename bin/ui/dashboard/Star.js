@@ -10,18 +10,15 @@ var Star = cc.Sprite.extend({
         return cc.rect(-this._rect.size.width / 2, -this._rect.size.height / 2, this._rect.size.width, this._rect.size.height);
     },
     initWithTexture:function (aTexture) {
-here() ;
         if (this._super(aTexture)) {
             this._state = STAR_STATE_UNGRABBED;
         }
-here() ;
         if (aTexture instanceof cc.Texture2D) {
             var s = aTexture.getContentSize();
             this._rect = cc.rect(0, 0, s.width, s.height);
         } else if ((aTexture instanceof HTMLImageElement) || (aTexture instanceof HTMLCanvasElement)) {
             this._rect = cc.rect(0, 0, aTexture.width, aTexture.height);
         }
-here() ;
         return true;
     },
     addTexture : function(aTexture){
@@ -124,22 +121,18 @@ here() ;
     , touchDelegateRelease:function () {
     }
     ,performPNG : function (filename) {
-        //var now = cc.timeval();
-here() ;
+        var now = cc.timeval();
         var texture;
         var cache = cc.TextureCache.getInstance();
-here() ;
+
         cc.Texture2D.setDefaultAlphaPixelFormat(cc.TEXTURE_2D_PIXEL_FORMAT_RGBA8888);
-here() ;
         var now = cc.Time.gettimeofdayCocos2d();
-here() ;
         texture = cache.addImage(filename);
-here() ;
         if (texture)
             return texture;
         else
             cache.removeTexture(texture);
-here() ;
+
         cc.Texture2D.setDefaultAlphaPixelFormat(cc.TEXTURE_2D_PIXEL_FORMAT_RGBA4444);
         var now = cc.Time.gettimeofdayCocos2d();
         texture = cache.addImage(filename);
@@ -147,7 +140,7 @@ here() ;
             return texture;
         else
             cache.removeTexture(texture);
-here() ;
+
         cc.Texture2D.setDefaultAlphaPixelFormat(cc.TEXTURE_2D_PIXEL_FORMAT_RGB5A1);
         var now = cc.Time.gettimeofdayCocos2d();
         texture = cache.addImage(filename);
@@ -155,7 +148,7 @@ here() ;
             return texture;
         else
             cache.removeTexture(texture);
-here() ;
+
         cc.Texture2D.setDefaultAlphaPixelFormat(cc.TEXTURE_2D_PIXEL_FORMAT_RGB565);
         var now = cc.Time.gettimeofdayCocos2d();
         texture = cache.addImage(filename);
@@ -163,23 +156,17 @@ here() ;
             return texture;
         else
             cache.removeTexture(texture);
-here() ;
         return null;
     }
 });
 
 Star.starWithTexture = function (sImgName1, sImgName2 , sImgName3) {
-here() ;
     var star = new Star();
-here() ;
     star.setClickable(true);
-here() ;
     star.nTime = 0;
     var aTexture1 = star.performPNG(sImgName1);
-here() ;
     var aTexture2 = star.performPNG(sImgName2);
     var aTexture3 = star.performPNG(sImgName3);
-here() ;
     if ( aTexture1 && aTexture2 && aTexture3 ){
         star.addTexture(aTexture1);
         star.addTexture(aTexture2);
@@ -187,7 +174,6 @@ here() ;
     }else{
         return false;
     }
-here() ;
 
     star.initWithTexture(aTexture1);
     return star;

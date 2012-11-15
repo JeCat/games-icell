@@ -1,7 +1,7 @@
 yc.inner.InnerLayer = cc.Sprite.extend({
 	
 	ctor: function(){
-
+		
 		this._super() ;
 
 		this.setAnchorPoint(cc.p(0.5,0.5)) ;
@@ -10,20 +10,17 @@ yc.inner.InnerLayer = cc.Sprite.extend({
 
 		// 细胞
 		this.cell = ins(yc.inner.Cell) ;
-
+		
 		// 层：细胞地图
 		this.map = ins(yc.inner.CellInnerMap) ;
-
+		this.addChild(this.map) ;
+		
 		// 层：建筑
 		this.buildings = new yc.inner.building.BuildingLayer() ;
-
+		this.addChild(this.buildings) ;
+		
 		// 层：病毒
 		this.layerVirus = ins(yc.inner.monster.VirusLayer) ;
-	}
-
-	, onEnter: function(){
-		this.addChild(this.map) ;
-		this.addChild(this.buildings) ;
 		this.addChild(this.layerVirus) ;
 	}
 	
