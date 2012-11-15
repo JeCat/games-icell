@@ -91,6 +91,11 @@ yc.ui.font.Html5Font.prototype = {
 		this.chars.length = 0;
 		
 		this._format(this.text).forEach(function(n) { // 解析字符串, 所有的字符画在canvas上, 保存进this.chars数组
+			if(n.char === '╗'){  //╗是换行符
+				this.chars.push("<br/>");
+				return;
+			}
+
 			var width, height;
 			n.color = n.color || this.color;
 			n.weight = n.weight || this.fontWeight;
@@ -117,6 +122,7 @@ yc.ui.font.Html5Font.prototype = {
 		
 		ctx.restore();
 		this._toImage();
+
 	},
 	_toImage : function() { // 转化成包含整句话的canvas
 		var canvas, ctx, currentWidth, currentLine = 1;
@@ -127,10 +133,18 @@ yc.ui.font.Html5Font.prototype = {
 		currentWidth = this._getStartX(this.chars, true);
 
 		this.chars.forEach(function(n, i) {
-			if (currentWidth + n.w > this.width) { // 换行时候验证是否末行, 实现textAlign
+
+			if (currentWidth + n.w > this.width ) { // 换行时候验证是否末行, 实现textAlign , <br/> 是换行符
 				currentWidth = this._getStartX(this.chars.slice(i), false);
 				currentLine++;
 			}
+
+			if ( n === '<br/>') { //  <br/> 是换行符
+				currentWidth = this._getStartX(this.chars.slice(i), false);
+				currentLine++;
+				return;
+			}
+
 			ctx.putImageData(n.char, currentWidth, currentLine * this.lineHeight - n.h);
 			currentWidth += n.w + this.letterSpacing;
 		}, this);
