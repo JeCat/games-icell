@@ -36,13 +36,13 @@ yc.outer.Camera = function()
 //	this.move = function(x,y)
 //	{
 //		// 检查世界边界
-//		var pos = cc.Director.getInstance()._runningScene.testWorldBoard(x,y) ;
+//		var pos = cc.Director.getInstance().getRunningScene().testWorldBoard(x,y) ;
 //		this.offsetX = pos[0]-x ;
 //		this.offsetY = pos[1]-y ;
 //
 //		var rgt = x + this.width ;
 //		var top = y + this.height ;
-//		pos = cc.Director.getInstance()._runningScene.testWorldBoard(rgt,top) ;
+//		pos = cc.Director.getInstance().getRunningScene().testWorldBoard(rgt,top) ;
 //		if(pos[0]!=rgt)
 //		{
 //			 this.offsetX = pos[0]-rgt ;
@@ -125,7 +125,7 @@ yc.outer.Camera = function()
 		onScrollFunc = function(e){
 
 			var scene = cc.Director.getInstance().getRunningScene() ;
-			if( !('layerGame' in scene) )
+			if( !scene || !('layerGame' in scene) )
 			{
 				// log(scene.constructor.className) ;
 				return ;
