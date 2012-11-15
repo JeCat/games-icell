@@ -95,7 +95,7 @@ yc.ui.BuildingUpgradeMenu = function(){
 			}
 			var perBuildingRadian = Math.PI * 2 / childrenCount;
 			var children = this.ui.getChildren();
-			var radius = childrenCount * 50 / childrenCount ;
+			var radius = ( childrenCount / (childrenCount + 1) ) * 100;
 			var actDelay = 0.01;
 
 		 	for(var buildingBtnIndex in children){
