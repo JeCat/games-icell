@@ -69,7 +69,7 @@ yc.outer.PhysicalEntity = cc.Sprite.extend({
 
 	, initWithPolygon: function(points,x,y,density,type){
 		
-		var world = cc.Director.getInstance()._runningScene.world ;
+		var world = cc.Director.getInstance().getRunningScene().world ;
 		
 		var bodyDef = new b2BodyDef();
 		bodyDef.type = typeof(type)=='undefined'? b2Body.b2_staticBody: type ;
@@ -341,7 +341,7 @@ yc.outer.PhysicalEntity = cc.Sprite.extend({
 		}
 
 		// 新建body
-		var world = cc.Director.getInstance()._runningScene.world ;
+		var world = cc.Director.getInstance().getRunningScene().world ;
 		var bodyDef = new b2BodyDef() ;
 		bodyDef.type = typeof(type)=='undefined'? b2Body.b2_dynamicBody: type ;
 		bodyDef.position.Set(this.x/PTM_RATIO,this.y/PTM_RATIO) ;

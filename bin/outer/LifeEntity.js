@@ -115,7 +115,7 @@ yc.outer.LifeEntity = cc.Sprite.extend({
 		var y = this.y + this.speed * Math.cos(this.angle);
 		
 		// 检查世界边界
-		var pos = cc.Director.getInstance()._runningScene.testWorldBoard(x,y) ;
+		var pos = cc.Director.getInstance().getRunningScene().testWorldBoard(x,y) ;
 		
 		
 		this.x = pos[0] ;

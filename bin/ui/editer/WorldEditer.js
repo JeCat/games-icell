@@ -127,7 +127,7 @@ yc.ui.editer.WorldEditer = function(){
 	}
 	this.refreshRoles = function(){
 
-		var scene = cc.Director.getInstance()._runningScene ;
+		var scene = cc.Director.getInstance().getRunningScene() ;
 		if( !('layerRoles' in scene) )
 		{
 			return ;
@@ -338,7 +338,7 @@ function saveWorldToServer(){
 
 	$("#aSaveWorldMsg").remove();
 
-	var worldInfo = $.toJSON( cc.Director.getInstance()._runningScene.exportScript() ) ;
+	var worldInfo = $.toJSON( cc.Director.getInstance().getRunningScene().exportScript() ) ;
 	var screenshot = $('#gameCanvas')[0].toDataURL("image/png");
 
 	var msgTimeout = 30000;
