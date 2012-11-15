@@ -36,43 +36,44 @@ yc.ui.dashboard.Dashboard = cc.Layer.extend({
 		var dashboard = this ;
 
 		var screenSize = cc.Director.getInstance().getWinSize();
+here() ;
 		this.onResize(screenSize.width, screenSize.height);
-		
+here() ;
 		// HP 状态
-		dashboard.HP = cc.LabelTTF.create('HP 10/10','',16,new cc.Size(0,16),cc.TEXT_ALIGNMENT_LEFT,cc.VERTICAL_TEXT_ALIGNMENT_BOTTOM) ;
-		dashboard.HP.setColor(new cc.Color3B(0,255,0)) ;
-		dashboard.addChild(dashboard.HP) ;
+		dashboard.HP = cc.LabelTTF.create('HP 10/10','',16,cc.size(0,16),cc.TEXT_ALIGNMENT_LEFT,cc.VERTICAL_TEXT_ALIGNMENT_BOTTOM) ;
+		dashboard.HP.setColor(cc.c3(0,255,0)) ;
 		
-
-		$(window).bind('yc.inner.Cell::onAfterChange',null,function(e,o,val,hp){
-			dashboard.HP.setString('HP '+hp+'/'+o.hpMax) ;
-		}) ;
-
+here() ;
+		if( g_architecture=='html5' )
+		{
+			$(window).bind('yc.inner.Cell::onAfterChange',null,function(e,o,val,hp){
+				dashboard.HP.setString('HP '+hp+'/'+o.hpMax) ;
+			}) ;
+		}
+here() ;
 		/*     合成面板 start    */
 
 		//  氨基酸
 		dashboard.aminoAcidsStars[0] = Star.starWithTexture("res/btn-back.png" , "res/btn-back-1.png" , "res/btn-back.png") ;
+here() ;
         dashboard.aminoAcidsStars[1] = Star.starWithTexture("res/btn-back.png" , "res/btn-back-1.png" , "res/btn-back.png") ;
         dashboard.aminoAcidsStars[2] = Star.starWithTexture("res/btn-back.png" , "res/btn-back-1.png" , "res/btn-back.png") ;
+here() ;
         dashboard.aminoAcidsStars[0].setClickable(false);
         dashboard.aminoAcidsStars[1].setClickable(false);
         dashboard.aminoAcidsStars[2].setClickable(false);
-
+here() ;
         for(var i =0 ; i< dashboard.aminoAcidsStars.length ; i++){
         	dashboard.aminoAcidsStars[i].setScale( dashboard.starsScale , dashboard.starsScale );
         	dashboard.aminoAcidsStars[i].setPosition( 
         		dashboard.starsPosition[0] + dashboard.aminoAcidsPositions[i][0]  
         		, dashboard.starsPosition[1] + dashboard.aminoAcidsPositions[i][1]
         	);
-        	dashboard.addChild(dashboard.aminoAcidsStars[i]);
         }
         dashboard.labelAminoAcids.red = dashboard._createLabel("♪ 0",new cc.Color3B(255,0,0)) ;
 		dashboard.labelAminoAcids.yellow = dashboard._createLabel("♪ 0",new cc.Color3B(255,255,0)) ;
 		dashboard.labelAminoAcids.blue = dashboard._createLabel("♪ 0",new cc.Color3B(0,0,255)) ;
-        dashboard.aminoAcidsStars[0].addChild(dashboard.labelAminoAcids.red);
-        dashboard.aminoAcidsStars[1].addChild(dashboard.labelAminoAcids.yellow);
-        dashboard.aminoAcidsStars[2].addChild(dashboard.labelAminoAcids.blue);
-
+here() ;
         //  蛋白质
 
         // 根据关卡中已有的公式创建label
@@ -88,63 +89,105 @@ yc.ui.dashboard.Dashboard = cc.Layer.extend({
         		dashboard.starsPosition[0] + dashboard.proteinsPositions[name][0]  
         		, dashboard.starsPosition[1] + dashboard.proteinsPositions[name][1]
         	);
-        	dashboard.addChild( star );
 
 			var fml = formulas[name] ;
-
-			var label = dashboard._createLabel("♫ 0",new cc.Color3B(fml.rgb[0],fml.rgb[1],fml.rgb[2])) ;
-
-			dashboard.labelProteins[name] = label;
-
-			star.addChild(label);
+			this.labelProteins[name] = dashboard._createLabel("♫ 0",new cc.Color3B(fml.rgb[0],fml.rgb[1],fml.rgb[2])) ;
 		}
+here() ;
 		/*     合成面板 end    */
 
 		// 注册事件
 		// --------
 		// 氨基酸数量数量
-		$(window).bind('yc.user.AminoAcidPool::onAfterChange',null,function(e,pool,type,num){
-			dashboard.labelAminoAcids[type].setString('♪ '+pool[type]) ;
-			// dashboard.layout() ;
-		}) ;
-		
-		// 新增蛋白质类型
-		$(window).bind('yc.user.ProteinFormulas::onAfterAppend',null,function(e,o,formula){
-			dashboard.labelProteins[formula.name] = dashboard._createLabel("♫ 0",new cc.Color3B(formula.rgb[0],formula.rgb[1],formula.rgb[2])) ;
-			dashboard._createSeparator(10) ;
-			// dashboard.layout() ;
-		}) ;
-		
-		// 蛋白质数量变化
-		$(window).bind('yc.user.ProteinPool::onAfterChange',null,function(e,pool,name,total,num){
-			dashboard.labelProteins[name].setString('♫ '+total) ;
+		if( g_architecture=='html5' )
+		{
+			$(window).bind('yc.user.AminoAcidPool::onAfterChange',null,function(e,pool,type,num){
+				dashboard.labelAminoAcids[type].setString('♪ '+pool[type]) ;
+				// dashboard.layout() ;
+			}) ;
+			
+			// 新增蛋白质类型
+			$(window).bind('yc.user.ProteinFormulas::onAfterAppend',null,function(e,o,formula){
+				dashboard.labelProteins[formula.name] = dashboard._createLabel("♫ 0",new cc.Color3B(formula.rgb[0],formula.rgb[1],formula.rgb[2])) ;
+				dashboard._createSeparator(10) ;
+				// dashboard.layout() ;
+			}) ;
+			
+			// 蛋白质数量变化
+			$(window).bind('yc.user.ProteinPool::onAfterChange',null,function(e,pool,name,total,num){
+				dashboard.labelProteins[name].setString('♫ '+total) ;
 
-			if(yc.ui.BuildingCreateMenu){
-				ins(yc.ui.BuildingCreateMenu).onProteinsChanged();
-			}
-		}) ;
-		
-		// HP 状态
-		$(window).bind('yc.inner.Cell::onAfterChange',null,function(e,o,val,hp){
-			// dashboard.labelHp.setString('HP '+hp+'/'+o.hpMax) ;
-			dashboard.HP.setString('HP '+hp+'/'+o.hpMax) ;
-			// dashboard.layout() ;
-		}) ;
-
+				if(yc.ui.BuildingCreateMenu){
+					ins(yc.ui.BuildingCreateMenu).onProteinsChanged();
+				}
+			}) ;
+			
+			// HP 状态
+			$(window).bind('yc.inner.Cell::onAfterChange',null,function(e,o,val,hp){
+				// dashboard.labelHp.setString('HP '+hp+'/'+o.hpMax) ;
+				dashboard.HP.setString('HP '+hp+'/'+o.hpMax) ;
+				// dashboard.layout() ;
+			}) ;
+		}
+here() ;
 	}
 
 	, onEnter : function(){
+		this._super() ;
+
 		yc.event.register( ins(yc.outer.Camera), "resize", this.onResize, this ) ;
 		
 		var screenSize = cc.Director.getInstance().getWinSize();
 		this.onResize(screenSize.width, screenSize.height);
 
-		this._super() ;
+		// hp
+		this.addChild(this.HP) ;
+
+		// protein stars
+		for(var name in this.proteinsStars)
+		{
+			// star
+			this.addChild(this.proteinsStars[name]) ;
+			// star's lable
+			this.proteinsStars[name].addChild(this.labelProteins[name]) ;
+		}
+
+		// amino acid stars
+        for(var i =0 ; i< this.aminoAcidsStars.length ; i++){
+			// star
+        	this.addChild(this.aminoAcidsStars[i]);
+        }
+		// star's lable
+        this.aminoAcidsStars[0].addChild(this.labelAminoAcids.red);
+        this.aminoAcidsStars[1].addChild(this.labelAminoAcids.yellow);
+        this.aminoAcidsStars[2].addChild(this.labelAminoAcids.blue);
 	}
 
 	, onExit : function(){
-		yc.event.unregister( ins(yc.outer.Camera), "resize", this.onResize ) ;
 		this._super() ;
+
+		yc.event.unregister( ins(yc.outer.Camera), "resize", this.onResize ) ;
+
+		// proteinhp
+		this.removeChild(this.HP) ;
+		// protein stars
+		for(var name in this.proteinsStars)
+		{
+			// star
+			this.removeChild(this.proteinsStars[name]) ;
+			// star's lable
+			this.proteinsStars[name].removeChild(this.labelProteins[name]) ;
+		}
+
+		// amino acid stars
+        for(var i =0 ; i< this.aminoAcidsStars.length ; i++){
+			// star
+        	this.removeChild(this.aminoAcidsStars[i]);
+        }
+		// star's lable
+        this.aminoAcidsStars[0].removeChild(this.labelAminoAcids.red);
+        this.aminoAcidsStars[1].removeChild(this.labelAminoAcids.yellow);
+        this.aminoAcidsStars[2].removeChild(this.labelAminoAcids.blue);
 	}
 
 	, _createLabel: function(word,color){

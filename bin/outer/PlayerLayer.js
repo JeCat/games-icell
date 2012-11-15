@@ -1,29 +1,20 @@
 yc.outer.PlayerLayer = cc.Layer.extend({  
 	  
 	ctor: function  () {  
-		
+here() ;
 		this._super() ;
-		
-		this.setKeyboardEnabled(true);  
+here() ;
+		if(typeof this.setKeyboardEnabled!='undefined')
+		{
+			this.setKeyboardEnabled(true);  
+		}
 		this.setTouchEnabled(true);
-		
+here() ;
 		this.setAnchorPoint(cc.p(0,0)) ;
-		
-		outerCell = this.cell = ins(yc.outer.Cell) ;
+here() ;
+		this.cell = ins(yc.outer.Cell) ;
+		outerCell = this.cell ;
 
-		// 初始化细胞内部
-		this.cell.layerInner.cell.initWithScript( ins(yc.user.Character).cell ) ;
-		// this.cell.layerInner.cell.newborn() ;
-
-		// 初始化动力
-		this.cell.calculatePower() ;
-
-		// 初始化细胞外壳
-		this.cell.init() ;
-		this.cell._followingCamera = ins(yc.outer.Camera) ; // 摄像机跟随
-		this.addChild(this.cell) ;
-		cellOuter = this.cell ;
-		
 		this.hMoving = 0 ;
 		this.vMoving = 0 ;
 		
@@ -32,6 +23,23 @@ yc.outer.PlayerLayer = cc.Layer.extend({
 
 		//细胞头部是否面向光标
 		this.setNeedFaceToPoint(true) ;
+
+	}
+
+	, onEnter: function(){
+		this._super() ;
+here() ;
+		// 初始化细胞内部
+		this.cell.layerInner.cell.initWithScript( ins(yc.user.Character).cell ) ;
+here() ;
+		// 初始化动力
+		this.cell.calculatePower() ;
+here() ;
+
+		// 初始化细胞外壳
+		this.cell.init() ;
+		this.cell._followingCamera = ins(yc.outer.Camera) ; // 摄像机跟随
+		this.addChild(this.cell) ;
 	}
 
 	, onTouchesBegan: function(touches, event){
