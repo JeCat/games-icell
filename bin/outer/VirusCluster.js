@@ -54,6 +54,8 @@ yc.outer.VirusCluster = yc.outer.PhysicalEntity.extend({
 
 		
 		this.initWithCircle(this.size,this.x,this.y,yc.settings.outer.virus.density) ;
+
+		this.setScale(2,2);
 	}
 
 	, initWithScript: function(script){
@@ -76,7 +78,10 @@ yc.outer.VirusCluster = yc.outer.PhysicalEntity.extend({
 			}
 
 			//第一帧
-			this.initWithSpriteFrame( yc.animations.frames[script.spriter].getFrames()[0].getSpriteFrame() ) ;
+			var firstFrame=yc.animations.frames[script.spriter].getFrames()[0].getSpriteFrame();
+			// firstFrame.setScale(1.5,1.5);
+
+			this.initWithSpriteFrame( firstFrame ) ;
 			this.animationAction = cc.RepeatForever.create( yc.animations.createAction(script.spriter) ) ;
 		}
 
@@ -231,12 +236,17 @@ yc.outer.VirusCluster = yc.outer.PhysicalEntity.extend({
 						}else{
 							uc.levels[_script.unlockLevel].unlock = true;
 						}
+
 						uc.save();
 					}
 					var title = yc.dna.genes[dna[i]].title;
 					items.push({title:title,action:action,id:dna[i]});
 				}
-				
+
+				if( uc.levels[yc.GameScene._level].star == undefined){
+					uc.dna.obtainGene(yc.dna.genes['grow']);
+					uc.save();
+				}
 				var menu = ins( yc.ui.menu.Menu );
 				menu.setTitle("选择DNA");
 				menu.setTitleHeight(40);
@@ -257,9 +267,9 @@ yc.outer.VirusCluster = yc.outer.PhysicalEntity.extend({
 			}) ;
 
 			cc.Director.getInstance().getRunningScene().layerRoles.addChild(portal) ;
-
 			// 开启动画
 			portal.open() ;
+
 		}
 	}
 	, hit: function(injure){
