@@ -134,11 +134,10 @@ yc.ui.BuildingUpgradeMenu = function(){
         	var detailHtml = '';
         }else{
 			var detail = upgrader.upgradeDetail(building) ;
-	        var detailHtml = '效果:' ;
+	        var detailHtml = '效果:╗' ;
 	        for(var property in detail)
 			{
-				detailHtml+= property +':'+ building[property].toFixed(1) + ' -> ' + 
-				(building[property]+detail[property]).toFixed(1);
+				detailHtml+= property +':'+ building[property].toFixed(1) + '->' + (building[property]+detail[property]).toFixed(1) + "╗";
 			}
         }
 
@@ -182,16 +181,17 @@ yc.ui.BuildingUpgradeMenu = function(){
 
             var dec = "[color=#F00;weight=bold;size=16;font=隶书]"+upgrader.title +'[/]'
             	+lv
-                +"[color=#F00;size=14;font=隶书]"+upgrader.description+'[/]'
-                +"[color=#F00;size=14;font=隶书]"+detailHtml+'[/]'
+            	+"╗"
+                +"[color=#F00;size=14;font=隶书]"+upgrader.description+'[/]╗'
+                +"[color=#F00;size=12;font=隶书]"+detailHtml+'[/]╗'
                 +costText;
 
             font.setText( dec );
             font.draw(ctx);
         }
         this.ui.pp.setPosition( cc.p(-320 , 0) ) ;
-        this.ui.pp.setScale(0.4,0.4);
-        this.ui.label.setPosition( cc.p(-420 , 50) ) ;
+        this.ui.pp.setScale(0.4,0.8);
+        this.ui.label.setPosition( cc.p(-420 ,90) ) ;
         that.ui.addChild(this.ui.pp);
         that.ui.addChild(this.ui.label);
 
