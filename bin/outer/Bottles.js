@@ -72,40 +72,42 @@ yc.outer.Bottles = cc.Sprite.extend({
 			this.addChild(this.pp);
 			this.pp.setPosition(-40,80);
 
-			
-			bThis = this;
-			$.ajax({
-				type: "POST",
-				url: "http://icell.jecat.cn/service/bottles.php",
-				jsonp:'jsonp_callback',
-				data: {
-					"act":"get",
-					"id":this.id
-				},
-				dataType: 'jsonp',
-				success: function(json){
-					
-					if(json.msg == "ok"){
+			if( g_architecture=='html5' )
+			{
+				bThis = this;
+				$.ajax({
+					type: "POST",
+					url: "http://icell.jecat.cn/service/bottles.php",
+					jsonp:'jsonp_callback',
+					data: {
+						"act":"get",
+						"id":this.id
+					},
+					dataType: 'jsonp',
+					success: function(json){
+						
+						if(json.msg == "ok"){
 
-						bThis.label = cc.Sprite.create();
-						bThis.label.setPosition(13,97);
-						bThis.label.draw = function(ctx)
-						{
-					    	var font = ins(yc.ui.font.Font);
-					    	font.setWidth(140);
-					    	font.setHeight(75);
-					    	font.setTextIndent(0);
-					    	font.setTextAlign('left');
-					    	font.setLetterSpacing(4);
-					    	font.setLineHeight(15);
-					    	font.setText(json.content);
-					    	font.draw(ctx);
+							bThis.label = cc.Sprite.create();
+							bThis.label.setPosition(13,97);
+							bThis.label.draw = function(ctx)
+							{
+						    	var font = ins(yc.ui.font.Font);
+						    	font.setWidth(140);
+						    	font.setHeight(75);
+						    	font.setTextIndent(0);
+						    	font.setTextAlign('left');
+						    	font.setLetterSpacing(4);
+						    	font.setLineHeight(15);
+						    	font.setText(json.content);
+						    	font.draw(ctx);
+							}
+							bThis.pp.addChild(bThis.label);
+							//bThis.label.setString(json.content);
 						}
-						bThis.pp.addChild(bThis.label);
-						//bThis.label.setString(json.content);
 					}
-				}
-			}); 
+				}); 
+			}
 			return true;
 		}
 		
@@ -147,33 +149,39 @@ yc.outer.Bottles = cc.Sprite.extend({
 yc.outer.Bottles.all = function( level){
 	
 	yc.outer.Bottles.list = new Array();
-	$.ajax({
-		type: "POST",
-		url: "http://icell.jecat.cn/service/bottles.php",
-		jsonp:'jsonp_callback',
-		data: {
-			"act":"getAll",
-			"level":level
-		},
-		dataType: 'jsonp',
-		success: function(json){
-			
-			for(var i =0;i<json.length;i++){
-				
-				var bottles = new yc.outer.Bottles ;
-				bottles.id = json[i].id;
-				bottles.create();
-				bottles.x = json[i].x;
-				bottles.y = json[i].y;
 
+
+	// 加载关卡上的留言
+	if( g_architecture=='html5' )
+	{
+		$.ajax({
+			type: "POST",
+			url: "http://icell.jecat.cn/service/bottles.php",
+			jsonp:'jsonp_callback',
+			data: {
+				"act":"getAll",
+				"level":level
+			},
+			dataType: 'jsonp',
+			success: function(json){
 				
-				var scene = cc.Director.getInstance().getRunningScene() ;
-				scene.layerRoles.addChild(bottles);
-				
-				yc.outer.Bottles.list.push(bottles);
+				for(var i =0;i<json.length;i++){
+					
+					var bottles = new yc.outer.Bottles ;
+					bottles.id = json[i].id;
+					bottles.create();
+					bottles.x = json[i].x;
+					bottles.y = json[i].y;
+
+					
+					var scene = cc.Director.getInstance().getRunningScene() ;
+					scene.layerRoles.addChild(bottles);
+					
+					yc.outer.Bottles.list.push(bottles);
+				}
 			}
-		}
-	}); 
+		}); 
+	}
 }
 
 

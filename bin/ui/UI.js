@@ -39,4 +39,9 @@ yc.ui.UI = function(){
 	}) ;
 	
 }
-yc.ui.UI.ins = new yc.ui.UI ;
+
+
+if(g_architecture=='html5')
+{
+	yc.ui.UI.ins = new yc.ui.UI ;
+}

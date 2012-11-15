@@ -247,13 +247,13 @@ yc.util.cloneObject = function (newObj,srcObj){
 }
 
 yc.util.saveData = function(name,data){
-	if( localStorage!==undefined )
+	if( typeof localStorage!="undefined" )
 	{
 		localStorage.setItem( name, $.toJSON(data) ) ;
 	}
 }
 yc.util.loadData = function(name,data){
-	if( localStorage!==undefined )
+	if( typeof localStorage!="undefined" )
 	{
 		var data = localStorage.getItem(name) ;
 		if(data===null)
@@ -261,5 +261,10 @@ yc.util.loadData = function(name,data){
 			return null ;
 		}
 		return $.evalJSON( data ) ;
+	}
+
+	else
+	{
+		return null ;
 	}
 }

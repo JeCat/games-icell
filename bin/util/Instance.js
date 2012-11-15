@@ -1,14 +1,14 @@
 
 var ins = yc.util.ins = function(className)
-{   
+{
 	
 	var name = typeof(className.className)=='undefined'? className.name: className.className ;
-	
+
 	if( !name || typeof(name)=='undefined' )
 	{
 		return null ;
 	}
-	
+
 	// 单件对象
 	if( 'singleton' in className && className.singleton!==undefined && className.singleton )
 	{
@@ -26,7 +26,7 @@ var ins = yc.util.ins = function(className)
 	// 当前场景中唯一
 	else
 	{
-		var scene = cc.Director.getInstance()._runningScene ;
+		var scene = cc.Director.getInstance().getRunningScene() ;
 		if(!scene)
 		{
 			return ;

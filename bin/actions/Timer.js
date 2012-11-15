@@ -1,4 +1,9 @@
 
+
+
+enableNativeClassExtend(cc.DelayTime) ;
+
+
 yc.actions.Timer = cc.DelayTime.extend(/** @lends cc.MoveTo# */{
 	/**
 	 * @param {Number} duration duration in seconds

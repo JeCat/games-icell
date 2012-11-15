@@ -76,7 +76,7 @@ yc.ui.editer.PanelStain = function(editer){
 
 	this.refreshStains = function(){
 		
-		var scene = cc.Director.getInstance()._runningScene ;
+		var scene = cc.Director.getInstance().getRunningScene() ;
 		if( !('layerStains' in scene) )
 		{
 			return ;
@@ -254,10 +254,10 @@ yc.ui.editer.PanelStain = function(editer){
 			return ;
 		}
 
-		// cc.Director.getInstance()._runningScene.layerPlayer.dontMoving = true ;
+		// cc.Director.getInstance().getRunningScene().layerPlayer.dontMoving = true ;
 
 		editer.layer.touchCallback = function(touches,event){
-			// cc.Director.getInstance()._runningScene.layerPlayer.dontMoving = false ;
+			// cc.Director.getInstance().getRunningScene().layerPlayer.dontMoving = false ;
 			editer.layer.touchCallback = null ;
 			editer.message('') ;
 
@@ -379,10 +379,10 @@ yc.ui.editer.PanelStain = function(editer){
 			return ;
 		}
 		editer.message('在地图上点出顶点的位置') ;
-		// cc.Director.getInstance()._runningScene.layerPlayer.dontMoving = true ;
+		// cc.Director.getInstance().getRunningScene().layerPlayer.dontMoving = true ;
 
 		editer.layer.touchCallback = function(touches,event){
-			// cc.Director.getInstance()._runningScene.layerPlayer.dontMoving = false ;
+			// cc.Director.getInstance().getRunningScene().layerPlayer.dontMoving = false ;
 			editer.layer.touchCallback = null ;
 			editer.message('') ;
 
@@ -433,10 +433,10 @@ yc.ui.editer.PanelStain = function(editer){
 			return ;
 		}
 
-		// cc.Director.getInstance()._runningScene.layerPlayer.dontMoving = true ;
+		// cc.Director.getInstance().getRunningScene().layerPlayer.dontMoving = true ;
 
 		editer.layer.touchCallback = function(touches,event){
-			// cc.Director.getInstance()._runningScene.layerPlayer.dontMoving = false ;
+			// cc.Director.getInstance().getRunningScene().layerPlayer.dontMoving = false ;
 			editer.layer.touchCallback = null ;
 			editer.message('') ;
 

@@ -1,6 +1,9 @@
 
-function log(message){
-	console.log.apply(console,arguments) ;
+if(typeof("log")=="undefined")
+{
+	function log(message){
+		console.log.apply(console,arguments) ;
+	}
 }
 
 

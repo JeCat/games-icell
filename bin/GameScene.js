@@ -2,6 +2,9 @@
 yc.GameScene = cc.Scene.extend({
 	
 	ctor: function(){
+		
+		this._super() ;
+
 		// 场景的世界边界， null 表示不限
 		this.lft = -50000 ;
 		this.rgt = 50000 ;
@@ -109,16 +112,19 @@ yc.GameScene = cc.Scene.extend({
 
 		// b2DebugDraw ------
 		// DebugDraw需要一个canvas实例，所以我们先创建b2DebugDraw实例，并设置相关参数
-		var debugDraw = new b2DebugDraw();
-		var ctx = document.getElementById("debugCanvas").getContext("2d") ;
-		debugDraw.SetSprite(ctx);
-		debugDraw.SetDrawScale(PTM_RATIO/5);
-		debugDraw.SetFillAlpha(0.5);
-		debugDraw.SetLineThickness(1.0);
-		debugDraw.SetFlags(b2DebugDraw.e_shapeBit | b2DebugDraw.e_jointBit/*|b2DebugDraw.e_aabbBit|b2DebugDraw.e_pairBit|b2DebugDraw.e_centerOfMassBit*/);
-		
-		// 捆绑到物理世界实例
-		this.world.SetDebugDraw(debugDraw) ;
+		if(g_architecture=='html5')
+		{
+			var debugDraw = new b2DebugDraw();
+			var ctx = document.getElementById("debugCanvas").getContext("2d") ;
+			debugDraw.SetSprite(ctx);
+			debugDraw.SetDrawScale(PTM_RATIO/5);
+			debugDraw.SetFillAlpha(0.5);
+			debugDraw.SetLineThickness(1.0);
+			debugDraw.SetFlags(b2DebugDraw.e_shapeBit | b2DebugDraw.e_jointBit/*|b2DebugDraw.e_aabbBit|b2DebugDraw.e_pairBit|b2DebugDraw.e_centerOfMassBit*/);
+			
+			// 捆绑到物理世界实例
+			this.world.SetDebugDraw(debugDraw) ;
+		}
 	}
 	, reCreateWalls: function(){
 		this._clearWalls() ;

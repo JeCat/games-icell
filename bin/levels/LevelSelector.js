@@ -62,70 +62,6 @@ yc.levels.LevelSelector = cc.Scene.extend({
 
 
 
-yc.levels.LevelSelector.enterLevel = function(levelScript){
-		
-	yc.GameScene._level = levelScript.id;
-	
-	var level = new (yc.GameScene.extend({
-		onEnter: function(){
-			this._super() ;
-
-			// 加载关卡脚本
-			this.initWithScript(levelScript) ;
-
-			// 
-			if('onEnter' in levelScript)
-			{
-				levelScript.onEnter.apply(this) ;
-			}
-		}
-
-		, onExit: function(){
-			this._super() ;
-
-			if('onExit' in levelScript)
-			{
-				levelScript.onExit.apply(this) ;
-			}
-		}
-	})) ;
-
-	// 预加载
-	if( ('res' in levelScript) && levelScript.res.length>0 )
-	{
-		//cc.LoaderScene._instance = new yc.levels.ResourceLoadingScene() ;
-
-		var loader = cc.Loader.getInstance() ;
-
-		loader.onload = function(){
-			// 资源加载完毕，切换场景
-			cc.Director.getInstance().replaceScene(level);
-		}
-		loader.onloading = function(){
-			// nothing todo ……
-		}
-
-		// 切换道资源loading 场景
-		cc.Director.getInstance().replaceScene(new yc.levels.ResourceLoadingScene(loader) );
-
-		// 加载资源
-		loader.loadedResourceCount = 0 ;
-		loader.preload(levelScript.res) ;
-		loader.resourceCount = levelScript.res.length ;
-	}
-
-	// 
-	else
-	{
-		// 直接切换场景，不需要等待 资源加载完成 
-		cc.Director.getInstance().replaceScene(level);
-	}
-	
-
-	// 瓶子
-	yc.outer.Bottles.all(levelScript.id);
-}
-
 
 yc.levels.LevelSelector.MapLayer = cc.Layer.extend({
 	
@@ -138,16 +74,18 @@ yc.levels.LevelSelector.MapLayer = cc.Layer.extend({
 
 		this.map = new cc.Sprite() ;
 		this.map.initWithFile(this.setting.levelsMapImg) ;
-		this.map.setAnchorPoint(0,0) ;
+		this.map.setAnchorPoint(cc.p(0,0)) ;
 		this.addChild(this.map) ;
 
 		// 层的尺寸和地图一致
 		this.setContentSize( this.map.getContentSize() )
 
+
 		// 关卡
 		for( var k in this.setting.levels)
 		{
-			var level = new yc.levels.LevelSelector.MapLayer.Level(this.setting.levels[k]) ;
+			var level = new yc.levels.LevelSelector.MapLayer.Level() ;
+			level.init(this.setting.levels[k]) ;
 			this.addChild(level) ;
 		}
 
@@ -156,8 +94,21 @@ yc.levels.LevelSelector.MapLayer = cc.Layer.extend({
 	}
 	, onTouchesBegan: function(touches, event){
 		this.dragable = true ;
+		// log(yc.util.windowToClient(this,touches[0]._point.x,touches[0]._point.y)) ;
 
-		log(yc.util.windowToClient(this,touches[0]._point.x,touches[0]._point.y)) ;
+		var children = this.getChildren() ;
+		for(var i=0;i<children.length;i++)
+		{
+			if( children[i].constructor === yc.levels.LevelSelector.MapLayer.Level )
+			{
+				// 测试点击
+				if( children[i].flag.hittest(touches[0]) )
+				{
+					// 传递点击事件
+					children[i].flag.onTouchBegan(touches[0]) ;
+				}
+			}
+		}
 	}
 	, onTouchesMoved: function(touches, event) {
 
@@ -166,12 +117,14 @@ yc.levels.LevelSelector.MapLayer = cc.Layer.extend({
 			return ;
 		}
 
+		var point = touches[0].getLocation() ;
+
 		// move
 		if(this.dragFrom)
 		{
 			var pos = this.getPosition() ;
-			pos.x+= touches[0]._point.x - this.dragFrom._point.x ;
-			pos.y+= touches[0]._point.y - this.dragFrom._point.y ;
+			pos.x+= point.x - this.dragFrom.x ;
+			pos.y+= point.y - this.dragFrom.y ;
 
 
 			var mysize = this.getContentSize() ;
@@ -198,17 +151,32 @@ yc.levels.LevelSelector.MapLayer = cc.Layer.extend({
 			this.setPosition(pos) ;
 		}
 
-		this.dragFrom = touches[0] ;
+		this.dragFrom = point ;
 	}
 	, onTouchesEnded: function(touches, event){
 		this.dragable = false ;
 		this.dragFrom = null ;
+
+
+		var children = this.getChildren() ;
+		for(var i=0;i<children.length;i++)
+		{
+			if( children[i].constructor === yc.levels.LevelSelector.MapLayer.Level )
+			{
+				// 测试点击
+				if( children[i].flag.hittest(touches[0]) )
+				{
+					// 传递点击事件
+					children[i].flag.onTouchEnded(touches[0]) ;
+				}
+			}
+		}
 	}
 }) ;
 
 
 yc.levels.LevelSelector.MapLayer.Level = cc.Sprite.extend({
-	ctor: function(setting){
+	init: function(setting){
 
 		this._super() ;
 
@@ -217,7 +185,7 @@ yc.levels.LevelSelector.MapLayer.Level = cc.Sprite.extend({
 		this.setPosition(cc.p(setting.x,setting.y)) ;
 
 		// 旗帜
-		this.flag = new yc.levels.LevelSelector.MapLayer.LevelFlag( eval(this.setting.script) ) ;
+		this.flag = new yc.levels.LevelSelector.MapLayer.LevelFlag(eval(this.setting.script)) ;
 		this.addChild(this.flag) ;
 
 		// 关卡奖励
@@ -311,24 +279,23 @@ yc.levels.LevelSelector.MapLayer.Level = cc.Sprite.extend({
 yc.levels.LevelSelector.MapLayer.LevelFlag = cc.Sprite.extend({
 
 	ctor: function(level){
-
 		this._super() ;
-		this.level = level ;
-
 		this.initWithFile("res/level-flag-normal.png") ;
 		this.setAnchorPoint(cc.p(0.5,0.23)) ;
+		this.level = level ;
 	}
 
 	, onEnter: function(){
-        cc.Director.getInstance().getTouchDispatcher().addTargetedDelegate(this, 0, true);
+		this._super() ;
+        //cc.Director.getInstance().getTouchDispatcher().addTargetedDelegate(this, 0, true);
 	}
 	, onExit: function(){
-        cc.Director.getInstance().getTouchDispatcher().removeDelegate(this);
+		this._super() ;
+        //cc.Director.getInstance().getTouchDispatcher().removeDelegate(this);
 	}
 
-
-    , onTouchBegan:function (touch, event) {
-    	
+	// 测试是否点击到旗帜上 以及点击是否有效
+	, hittest: function(touch){
 
 		var ucLevels = ins(yc.user.Character).levels;
 		var levelsID = this.level.id;
@@ -336,27 +303,33 @@ yc.levels.LevelSelector.MapLayer.LevelFlag = cc.Sprite.extend({
 		{
     		return false ;
 		}
+
+		var point = touch.getLocation() ;
+
+		// 从屏幕坐标 转换到旗帜对象上的坐标
+		point = yc.util.windowToClient(this,point.x,point.y) ;
+
+    	if( point[0]<-14 || point[0]>14 )
+    	{
+    		return false ;
+    	}
+    	if( point[1]<-10 || point[1]>47 )
+    	{
+    		return false ;
+    	}
+
+    	return true ;
+	}
+
+    , onTouchBegan:function () {
     	
-    	var p = yc.util.windowToClient(this,touch._point.x,touch._point.y) ;
-    	//log(p)
-
-    	if( p[0]<-14 || p[0]>14 )
-    	{
-    		return false ;
-    	}
-    	if( p[1]<-10 || p[1]>47 )
-    	{
-    		return false ;
-    	}
-
-    	log("began",touch,p) ;
 		this.initWithFile("res/level-flag-flash.png") ;
 		this.setAnchorPoint(cc.p(0.5,0.23)) ;
 
 		return true ;
     }
-    , onTouchMoved:function(touch, event) {}
-    , onTouchEnded:function (touch, event) {
+    , onTouchMoved:function(touch) {}
+    , onTouchEnded:function (touch) {
 		this.initWithFile("res/level-flag-normal.png") ;
 		this.setAnchorPoint(cc.p(0.5,0.23)) ;
 
@@ -364,10 +337,72 @@ yc.levels.LevelSelector.MapLayer.LevelFlag = cc.Sprite.extend({
 		yc.levels.LevelSelector.enterLevel( eval(this.level) ) ;
     }
 
-    , draw: function(ctx){
-    	this._super(ctx) ;
-    	// yc.util.drawCircle(ctx,0,0,3,3,"red") ;
-    }
-
 })
 
+
+
+
+
+yc.levels.LevelSelector.enterLevel = function(levelScript){
+		
+	yc.GameScene._level = levelScript.id;
+	
+	var level = new (yc.GameScene.extend({
+		onEnter: function(){
+			this._super() ;
+
+			// 加载关卡脚本
+			this.initWithScript(levelScript) ;
+
+			// 
+			if('onEnter' in levelScript)
+			{
+				levelScript.onEnter.apply(this) ;
+			}
+		}
+
+		, onExit: function(){
+			this._super() ;
+
+			if('onExit' in levelScript)
+			{
+				levelScript.onExit.apply(this) ;
+			}
+		}
+	})) ;
+
+	// 预加载
+	if( ('res' in levelScript) && levelScript.res.length>0 )
+	{
+		//cc.LoaderScene._instance = new yc.levels.ResourceLoadingScene() ;
+
+		var loader = cc.Loader.getInstance() ;
+
+		loader.onload = function(){
+			// 资源加载完毕，切换场景
+			cc.Director.getInstance().replaceScene(level);
+		}
+		loader.onloading = function(){
+			// nothing todo ……
+		}
+
+		// 切换道资源loading 场景
+		cc.Director.getInstance().replaceScene(new yc.levels.ResourceLoadingScene(loader) );
+
+		// 加载资源
+		loader.loadedResourceCount = 0 ;
+		loader.preload(levelScript.res) ;
+		loader.resourceCount = levelScript.res.length ;
+	}
+
+	// 
+	else
+	{
+		// 直接切换场景，不需要等待 资源加载完成 
+		cc.Director.getInstance().replaceScene(level);
+	}
+	
+
+	// 瓶子
+	yc.outer.Bottles.all(levelScript.id);
+}

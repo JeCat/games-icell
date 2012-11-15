@@ -1,14 +1,11 @@
 yc.MainScene = cc.Scene.extend({
 	menuLogin : null
 	, menuLevelSelect : null
-	, actionShow : null
-	, actionHide : null
 	, ctor: function(){
 
 		// 载入当前玩家角色信息 (应该有角色选择UI)
 		yc.user.Character.loadCurrent('_me') ;
 
-		
 		this._super() ;
 
 		this.h1 = cc.LabelTTF.create('I, Cell',  'Times New Roman', 32, cc.size(132,32), cc.TEXT_ALIGNMENT_CENTER);
@@ -17,9 +14,6 @@ yc.MainScene = cc.Scene.extend({
 		this.addChild(this.h1);
 		this.addChild(this.h2);
 
-		this.actionShow = cc.FadeIn.create(0.8);
-		this.actionHide = cc.FadeOut.create(0.8);
-
 		var itemWeibo = cc.MenuItemImage.create( 'res/weibo_login.png' ,'res/weibo_login.png' , function(){
 			window.open('/service/sina_user/login.php');
         }, this);
@@ -27,11 +21,17 @@ yc.MainScene = cc.Scene.extend({
 
         var that = this;
 
-        var itemTest = cc.MenuItemFont.create("test", function(){
-        	loginCallback("0#test");
-        	that.menuLevelSelect.setVisible(true);
-        	that.menuLevelSelect.runAction(cc.Sequence.create(that.actionShow));
-        	that.menuLogin.runAction(cc.Sequence.create(that.actionHide));
+        var itemTest = cc.MenuItemFont.createEx("test", function(){
+
+        	if(typeof loginCallback!='undefined')
+        	{
+        		loginCallback("0#test");
+        	}
+
+        	this.menuLevelSelect.setVisible(true);
+        	this.menuLevelSelect.runAction(cc.FadeIn.create(0.8));
+        	this.menuLogin.runAction(cc.FadeOut.create(0.8));
+
         }, this);
         itemTest.setFontSize(24);
 
@@ -40,15 +40,15 @@ yc.MainScene = cc.Scene.extend({
         this.addChild(this.menuLogin);
 
 
-        var itemStory = cc.MenuItemFont.create("故事模式", function(){
+        var itemStory = cc.MenuItemFont.createEx("故事模式", function(){
         	cc.Director.getInstance().replaceScene( new yc.levels.LevelSelector ) ;
         }, this);
         itemStory.setFontSize(20);
-        var itemSearch = cc.MenuItemFont.create("探索模式", function(){
+        var itemSearch = cc.MenuItemFont.createEx("探索模式", function(){
         	worldList();
         }, this);
         itemSearch.setFontSize(20);
-        var itemRand = cc.MenuItemFont.create("随机关卡", function(){
+        var itemRand = cc.MenuItemFont.createEx("随机关卡", function(){
 			cc.Director.getInstance().replaceScene( new yc.levels.FreeWorld );
         }, this);
         itemRand.setFontSize(20);
@@ -69,7 +69,7 @@ yc.MainScene = cc.Scene.extend({
 
 		this._super() ;
 
-		if( location!==undefined && yc.MainScene.autoLoadByUrl )
+		if( g_architecture=='html5' && yc.MainScene.autoLoadByUrl )
 		{
 			var url = parseUrl(location.toString()) ;
 
