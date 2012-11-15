@@ -57,11 +57,10 @@ yc.outer.Bottles = cc.Sprite.extend({
 		return cc.Rect.CCRectContainsPoint(myRect, getPoint);
 	},
 	onEnter:function () {
-		cc.Director.getInstance().getTouchDispatcher().addTargetedDelegate(this, 0, true);
-		
+		//cc.Director.getInstance().getTouchDispatcher().addTargetedDelegate(this, 0, true);
 		this._super();
 	},
-	onTouchBegan:function (touch, event) 
+	onTouchesEnded:function (touch, event) 
 	{
 		if (!this.containsTouchLocation(touch)) return false;
 		
@@ -141,6 +140,35 @@ yc.outer.Bottles = cc.Sprite.extend({
 	transform: yc.outer.Camera.transformSprite
 }) ;
 
+yc.outer.Bottles.bottlesLayer = cc.Layer.extend({
+	
+	ctor: function(){
+		this._super() ;
+		// 点击事件
+//		this.setTouchMode( cc.TOUCH_ONE_BY_ONE);
+		this.setTouchEnabled(true);
+	},
+	onEnter:function () {
+		this._super();
+	}, 
+	onTouchesBegan: function(touches, event){
+		
+		if( typeof(touches[0]) == "object"){
+			var children = this.getChildren() ;
+			var isRightClick = false;
+			for(var i=0;i<children.length;i++)
+			{
+				// 传递点击事件
+				if( children[i].onTouchesEnded(touches[0])){
+					isRightClick = true;
+				} 
+			}
+		}
+
+		return !isRightClick;
+	}
+}) ;
+
 /**
  * 所有瓶子
  */
@@ -158,6 +186,10 @@ yc.outer.Bottles.all = function( level){
 		dataType: 'jsonp',
 		success: function(json){
 			
+			var scene = cc.Director.getInstance().getRunningScene() ;
+			var bottlesLayer = new yc.outer.Bottles.bottlesLayer;
+			scene.layerRoles.addChild(bottlesLayer) ;
+			
 			for(var i =0;i<json.length;i++){
 				
 				var bottles = new yc.outer.Bottles ;
@@ -166,9 +198,7 @@ yc.outer.Bottles.all = function( level){
 				bottles.x = json[i].x;
 				bottles.y = json[i].y;
 
-				
-				var scene = cc.Director.getInstance().getRunningScene() ;
-				scene.layerRoles.addChild(bottles);
+				bottlesLayer.addChild(bottles);
 				
 				yc.outer.Bottles.list.push(bottles);
 			}
