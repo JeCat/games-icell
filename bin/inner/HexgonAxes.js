@@ -205,9 +205,10 @@ HexgonAxes.prototype._createHexgon = function(x,y)
 	}
 	
 	var aHexgon = new Hexgon() ;
-	for(var name in this._hexgonClass)
+	var prototype = new this._hexgonClass ;
+	for(var name in prototype)
 	{
-		aHexgon[name] = this._hexgonClass[name] ;
+		aHexgon[name] = prototype[name] ;
 	}
 	
 	aHexgon.x = x ;
