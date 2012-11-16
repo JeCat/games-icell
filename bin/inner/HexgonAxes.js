@@ -204,12 +204,7 @@ HexgonAxes.prototype._createHexgon = function(x,y)
 		this.mapHexgons[x] = {} ;
 	}
 	
-	var aHexgon = new Hexgon() ;
-	var prototype = new this._hexgonClass ;
-	for(var name in prototype)
-	{
-		aHexgon[name] = prototype[name] ;
-	}
+	var aHexgon = $.extend(false,new Hexgon(),new this._hexgonClass()) ;
 	
 	aHexgon.x = x ;
 	aHexgon.y = y ;

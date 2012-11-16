@@ -3,12 +3,12 @@ yc.animations = {
 }
 
 yc.animations.createAction = function(name){
-	var animation = cc.AnimationCache.getInstance().getAnimation(name);
-	return cc.Animate.create( animation ) ;
+	return cc.Animate.create( yc.animations.frames[name] ) ;
 }
 
 yc.animations.firstFrame = function(spriteName){
-	return cc.AnimationCache.getInstance().getAnimation(spriteName).getFrames()[0].getSpriteFrame() ;
+	return yc.animations.frames[spriteName].getFrames()[0].getSpriteFrame() ;
+
 }
 
 yc.animations.initBuildinAnimations = function (){
@@ -39,9 +39,7 @@ yc.animations.initBuildinAnimations = function (){
 			animFrames.push(frame);
 		}
 
-		var animation = cc.Animation.create(animFrames,framerate||0.1);
-		yc.animations.frames[name] = animation ;
-		cc.AnimationCache.getInstance().addAnimation(animation,name);
+		yc.animations.frames[name] = cc.Animation.create( animFrames, framerate||0.1 ) ;
 	}
 
 	// 防御塔：射击 ----------------------------------
@@ -51,7 +49,11 @@ yc.animations.initBuildinAnimations = function (){
 			, "res/building/tower.png"
 			, "artillery_lvl4_tesla_00%idx%.png"	// 帧名称模板
 			, 49, 65								// 帧名称中的下标的数值范围
-			, yc.animations.adjustFrameBtn) ;
+			, function(frame){						// 处理每帧的回调函数（可选）
+			    // 矫正一下 图片位置，统一下边界对齐
+			    frame._offset.y = - (frame._originalSize.height - frame._rect.size.height)/2 ;
+			    frame._offset.x = 0 ;
+			}) ;
 	// 子弹火焰 (防御塔：射击) ----------------------------------
 	__loadAnimation(
 			'towers.shooter.bulletflame'
@@ -68,7 +70,11 @@ yc.animations.initBuildinAnimations = function (){
 			, "res/building/factory.png"
 			, "artillery_lvl2_00%idx%.png"		// 帧名称模板
 			, 1, 22								// 帧名称中的下标的数值范围
-			, yc.animations.adjustFrameBtn) ;
+			, function(frame){					// 处理每帧的回调函数（可选）
+			    // 矫正一下 图片位置，统一下边界对齐
+			    frame._offset.y = - (frame._originalSize.height - frame._rect.size.height)/2 ;
+			    frame._offset.x = 0 ;
+			}) ;
 
 	// 病毒动画 ----------------------------------
 	__loadAnimation(
@@ -85,7 +91,11 @@ yc.animations.initBuildinAnimations = function (){
 			, "res/building/build.png"
 			, "molino_big_00%idx%.png"		// 帧名称模板
 			, 1, 15								// 帧名称中的下标的数值范围
-			, yc.animations.adjustFrameBtn);
+			, function(frame){					// 处理每帧的回调函数（可选）
+				    // 矫正一下 图片位置，统一下边界对齐
+				    frame._offset.y = - (frame._originalSize.height - frame._rect.size.height)/2 ;
+				    frame._offset.x = 0 ;
+			  });
 	
 	__loadAnimation(
 			'towers.factory_arcane_tower'
@@ -94,7 +104,11 @@ yc.animations.initBuildinAnimations = function (){
 			, "arcane_tower_00%idx%.png"		// 帧名称模板
 			, 1, 49								// 帧名称中的下标的数值范围
 			
-			, yc.animations.adjustFrameBtn);
+			, function(frame){					// 处理每帧的回调函数（可选）
+			    // 矫正一下 图片位置，统一下边界对齐
+			    frame._offset.y = - (frame._originalSize.height - frame._rect.size.height)/2 ;
+			    frame._offset.x = 0 ;
+			 });
 	
 	__loadAnimation(
 			'towers.factory_artillery_lvl1'
@@ -102,7 +116,11 @@ yc.animations.initBuildinAnimations = function (){
 			, "res/building/build.png"
 			, "artillery_lvl1_00%idx%.png"		// 帧名称模板
 			, 1, 35								// 帧名称中的下标的数值范围
-			, yc.animations.adjustFrameBtn);
+			, function(frame){					// 处理每帧的回调函数（可选）
+			    // 矫正一下 图片位置，统一下边界对齐
+			    frame._offset.y = - (frame._originalSize.height - frame._rect.size.height)/2 ;
+			    frame._offset.x = 0 ;
+			  });
 	
 	__loadAnimation(
 			'towers.factory_artillery_lvl2'
@@ -110,7 +128,11 @@ yc.animations.initBuildinAnimations = function (){
 			, "res/building/build.png"
 			, "artillery_lvl2_00%idx%.png"		// 帧名称模板
 			, 1, 35								// 帧名称中的下标的数值范围
-			, yc.animations.adjustFrameBtn);
+			, function(frame){					// 处理每帧的回调函数（可选）
+			    // 矫正一下 图片位置，统一下边界对齐
+			    frame._offset.y = - (frame._originalSize.height - frame._rect.size.height)/2 ;
+			    frame._offset.x = 0 ;
+			});
 	
 	__loadAnimation(
 			'towers.factory_artillery_lvl3'
@@ -118,7 +140,11 @@ yc.animations.initBuildinAnimations = function (){
 			, "res/building/build.png"
 			, "artillery_lvl3_00%idx%.png"		// 帧名称模板
 			, 1, 35								// 帧名称中的下标的数值范围
-			, yc.animations.adjustFrameBtn);
+			, function(frame){					// 处理每帧的回调函数（可选）
+			    // 矫正一下 图片位置，统一下边界对齐
+			    frame._offset.y = - (frame._originalSize.height - frame._rect.size.height)/2 ;
+			    frame._offset.x = 0 ;
+			});
 	
 	__loadAnimation(
 			'towers.factory_artillery_lvl4_bfg'
@@ -126,7 +152,11 @@ yc.animations.initBuildinAnimations = function (){
 			, "res/building/build.png"
 			, "artillery_lvl4_bfg_00%idx%.png"		// 帧名称模板
 			, 1, 76								// 帧名称中的下标的数值范围
-			, yc.animations.adjustFrameBtn);
+			, function(frame){					// 处理每帧的回调函数（可选）
+			    // 矫正一下 图片位置，统一下边界对齐
+			    frame._offset.y = - (frame._originalSize.height - frame._rect.size.height)/2 ;
+			    frame._offset.x = 0 ;
+			});
 	
 	__loadAnimation(
 			'towers.factory_artillery_lvl4_tesla'
@@ -134,7 +164,11 @@ yc.animations.initBuildinAnimations = function (){
 			, "res/building/build.png"
 			, "artillery_lvl4_tesla_00%idx%.png"		// 帧名称模板
 			, 49, 65								// 帧名称中的下标的数值范围
-			, yc.animations.adjustFrameBtn);
+			, function(frame){					// 处理每帧的回调函数（可选）
+			    // 矫正一下 图片位置，统一下边界对齐
+			    frame._offset.y = - (frame._originalSize.height - frame._rect.size.height)/2 ;
+			    frame._offset.x = 0 ;
+			});
 	
 	__loadAnimation(
 			'towers.factory_barrack_lvl1'
@@ -142,7 +176,11 @@ yc.animations.initBuildinAnimations = function (){
 			, "res/building/build.png"
 			, "barrack_lvl1_00%idx%.png"		// 帧名称模板
 			, 1, 4								// 帧名称中的下标的数值范围
-			, yc.animations.adjustFrameBtn);
+			, function(frame){					// 处理每帧的回调函数（可选）
+			    // 矫正一下 图片位置，统一下边界对齐
+			    frame._offset.y = - (frame._originalSize.height - frame._rect.size.height)/2 ;
+			    frame._offset.x = 0 ;
+			});
 	
 	__loadAnimation(
 			'towers.factory_barrack_lvl2'
@@ -150,7 +188,11 @@ yc.animations.initBuildinAnimations = function (){
 			, "res/building/build.png"
 			, "barrack_lvl2_00%idx%.png"		// 帧名称模板
 			, 1, 4								// 帧名称中的下标的数值范围
-			, yc.animations.adjustFrameBtn);
+			, function(frame){					// 处理每帧的回调函数（可选）
+			    // 矫正一下 图片位置，统一下边界对齐
+			    frame._offset.y = - (frame._originalSize.height - frame._rect.size.height)/2 ;
+			    frame._offset.x = 0 ;
+			});
 	
 	__loadAnimation(
 			'towers.factory_barrack_lvl3'
@@ -158,7 +200,11 @@ yc.animations.initBuildinAnimations = function (){
 			, "res/building/build.png"
 			, "barrack_lvl3_00%idx%.png"		// 帧名称模板
 			, 1, 4								// 帧名称中的下标的数值范围
-			, yc.animations.adjustFrameBtn);
+			, function(frame){					// 处理每帧的回调函数（可选）
+			    // 矫正一下 图片位置，统一下边界对齐
+			    frame._offset.y = - (frame._originalSize.height - frame._rect.size.height)/2 ;
+			    frame._offset.x = 0 ;
+			});
 	
 	__loadAnimation(
 			'towers.factory_barrack_lvl4_barbarians'
@@ -166,7 +212,11 @@ yc.animations.initBuildinAnimations = function (){
 			, "res/building/build.png"
 			, "barrack_lvl4_barbarians_00%idx%.png"		// 帧名称模板
 			, 1, 4								// 帧名称中的下标的数值范围
-			, yc.animations.adjustFrameBtn);
+			, function(frame){					// 处理每帧的回调函数（可选）
+			    // 矫正一下 图片位置，统一下边界对齐
+			    frame._offset.y = - (frame._originalSize.height - frame._rect.size.height)/2 ;
+			    frame._offset.x = 0 ;
+			});
 	
 	__loadAnimation(
 			'towers.factory_barrack_lvl4_paladins'
@@ -174,7 +224,11 @@ yc.animations.initBuildinAnimations = function (){
 			, "res/building/build.png"
 			, "barrack_lvl4_paladins_00%idx%.png"		// 帧名称模板
 			, 1, 4								// 帧名称中的下标的数值范围
-			, yc.animations.adjustFrameBtn);
+			, function(frame){					// 处理每帧的回调函数（可选）
+			    // 矫正一下 图片位置，统一下边界对齐
+			    frame._offset.y = - (frame._originalSize.height - frame._rect.size.height)/2 ;
+			    frame._offset.x = 0 ;
+			});
 	
 	__loadAnimation(
 			'towers.elfTower'
@@ -194,28 +248,44 @@ yc.animations.initBuildinAnimations = function (){
 			, "res/building/build.png"
 			, "mage_lvl1_00%idx%.png"		// 帧名称模板
 			, 1, 11								// 帧名称中的下标的数值范围
-			, yc.animations.adjustFrameBtn);
+			, function(frame){					// 处理每帧的回调函数（可选）
+			    // 矫正一下 图片位置，统一下边界对齐
+			    frame._offset.y = - (frame._originalSize.height - frame._rect.size.height)/2 ;
+			    frame._offset.x = 0 ;
+			});
 	__loadAnimation(
 			'towers.mage_lvl2'
 			, "res/building/build.plist"
 			, "res/building/build.png"
 			, "mage_lvl2_00%idx%.png"		// 帧名称模板
 			, 1, 11								// 帧名称中的下标的数值范围
-			, yc.animations.adjustFrameBtn);
+			, function(frame){					// 处理每帧的回调函数（可选）
+			    // 矫正一下 图片位置，统一下边界对齐
+			    frame._offset.y = - (frame._originalSize.height - frame._rect.size.height)/2 ;
+			    frame._offset.x = 0 ;
+			});
 	__loadAnimation(
 			'towers.mage_lvl3'
 			, "res/building/build.plist"
 			, "res/building/build.png"
 			, "mage_lvl3_00%idx%.png"		// 帧名称模板
 			, 1, 11								// 帧名称中的下标的数值范围
-			, yc.animations.adjustFrameBtn);
+			, function(frame){					// 处理每帧的回调函数（可选）
+			    // 矫正一下 图片位置，统一下边界对齐
+			    frame._offset.y = - (frame._originalSize.height - frame._rect.size.height)/2 ;
+			    frame._offset.x = 0 ;
+			});
 	__loadAnimation(
 			'towers.sorcerer_tower'
 			, "res/building/build.plist"
 			, "res/building/build.png"
 			, "sorcerer_tower_00%idx%.png"		// 帧名称模板
 			, 1, 11								// 帧名称中的下标的数值范围
-			, yc.animations.adjustFrameBtn);
+			, function(frame){					// 处理每帧的回调函数（可选）
+			    // 矫正一下 图片位置，统一下边界对齐
+			    frame._offset.y = - (frame._originalSize.height - frame._rect.size.height)/2 ;
+			    frame._offset.x = 0 ;
+			});
 	
 	//病毒
 	__loadAnimation(
@@ -597,12 +667,4 @@ yc.animations.initBuildinAnimations = function (){
 			, "res/smoke.png"
 			, "fx_smoke_hitground_00%idx%.png"
 			, 1, 13 ) ;
-}
-
-yc.animations.adjustFrameBtn = function(frame){
-    // 矫正一下 图片位置，统一下边界对齐
-    var offset = frame.getOffset() ;
-    offset.y = - (frame.getOriginalSize().height - frame.getRect().height)/2 ;
-    offset.x = 0 ;
-    frame.setOffset(offset) ;
 }

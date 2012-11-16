@@ -4,13 +4,14 @@ yc.outer.Cell = yc.outer.PhysicalEntity.extend({
 		this._super() ;
 		this.power = yc.settings.outer.player.basePower ;
 		this.rotationTarget = 0 ;
-here() ;
+
 		// 细胞内部视图
 		this.layerInner = ins(yc.inner.InnerLayer) ;
-here() ;
+		this.addChild(this.layerInner) ;
+
 		// 细胞外壳 -------
 		var cell = this ;
-		this.shell = cc.Sprite.create() ;
+		this.shell = new cc.Sprite() ;
 		this.shell.setOpacity( yc.settings.camera.shellOpacityLow ) ;
 		this.shell.draw = function(ctx){
 
@@ -19,7 +20,8 @@ here() ;
 			
 			yc.util.drawPolygon(cell._points,ctx,'white',"rgba(255,255,255,0.5)",true) ;
 		}
-here() ;
+		this.addChild(this.shell) ;
+
 
 		this._bWatching = true ;
 
@@ -30,16 +32,10 @@ here() ;
 	, onEnter: function(){
 		this._super() ;
 		this.runAction(this.actFootprint) ;
-
-		this.addChild(this.shell) ;
-		this.addChild(this.layerInner) ;
 	}
 	, onExit: function(){
 		this._super() ;
 		this.stopAction(this.actFootprint) ;
-
-		this.removeChild(this.shell) ;
-		this.removeChild(this.layerInner) ;
 	}
 
 	, draw: function(ctx){
