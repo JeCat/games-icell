@@ -57,11 +57,10 @@ yc.outer.Bottles = cc.Sprite.extend({
 		return cc.Rect.CCRectContainsPoint(myRect, getPoint);
 	},
 	onEnter:function () {
-		cc.Director.getInstance().getTouchDispatcher().addTargetedDelegate(this, 0, true);
-		
+		//cc.Director.getInstance().getTouchDispatcher().addTargetedDelegate(this, 0, true);
 		this._super();
 	},
-	onTouchBegan:function (touch, event) 
+	onTouchesEnded:function (touch, event) 
 	{
 		if (!this.containsTouchLocation(touch)) return false;
 		
@@ -72,42 +71,40 @@ yc.outer.Bottles = cc.Sprite.extend({
 			this.addChild(this.pp);
 			this.pp.setPosition(-40,80);
 
-			if( g_architecture=='html5' )
-			{
-				bThis = this;
-				$.ajax({
-					type: "POST",
-					url: "http://icell.jecat.cn/service/bottles.php",
-					jsonp:'jsonp_callback',
-					data: {
-						"act":"get",
-						"id":this.id
-					},
-					dataType: 'jsonp',
-					success: function(json){
-						
-						if(json.msg == "ok"){
+			
+			bThis = this;
+			$.ajax({
+				type: "POST",
+				url: "http://icell.jecat.cn/service/bottles.php",
+				jsonp:'jsonp_callback',
+				data: {
+					"act":"get",
+					"id":this.id
+				},
+				dataType: 'jsonp',
+				success: function(json){
+					
+					if(json.msg == "ok"){
 
-							bThis.label = cc.Sprite.create();
-							bThis.label.setPosition(13,97);
-							bThis.label.draw = function(ctx)
-							{
-						    	var font = ins(yc.ui.font.Font);
-						    	font.setWidth(140);
-						    	font.setHeight(75);
-						    	font.setTextIndent(0);
-						    	font.setTextAlign('left');
-						    	font.setLetterSpacing(4);
-						    	font.setLineHeight(15);
-						    	font.setText(json.content);
-						    	font.draw(ctx);
-							}
-							bThis.pp.addChild(bThis.label);
-							//bThis.label.setString(json.content);
+						bThis.label = cc.Sprite.create();
+						bThis.label.setPosition(13,97);
+						bThis.label.draw = function(ctx)
+						{
+					    	var font = ins(yc.ui.font.Font);
+					    	font.setWidth(140);
+					    	font.setHeight(75);
+					    	font.setTextIndent(0);
+					    	font.setTextAlign('left');
+					    	font.setLetterSpacing(4);
+					    	font.setLineHeight(15);
+					    	font.setText(json.content);
+					    	font.draw(ctx);
 						}
+						bThis.pp.addChild(bThis.label);
+						//bThis.label.setString(json.content);
 					}
-				}); 
-			}
+				}
+			}); 
 			return true;
 		}
 		
@@ -143,45 +140,67 @@ yc.outer.Bottles = cc.Sprite.extend({
 	transform: yc.outer.Camera.transformSprite
 }) ;
 
+yc.outer.Bottles.bottlesLayer = cc.Layer.extend({
+	
+	ctor: function(){
+		this._super() ;
+		// 点击事件
+//		this.setTouchMode( cc.TOUCH_ONE_BY_ONE);
+		this.setTouchEnabled(true);
+	},
+	onTouchesBegan: function(touches, event){
+		
+		if( typeof(touches[0]) == "object"){
+			var children = this.getChildren() ;
+			var isRightClick = false;
+			for(var i=0;i<children.length;i++)
+			{
+				// 传递点击事件
+				if( children[i].onTouchesEnded(touches[0])){
+					isRightClick = true;
+				} 
+			}
+		}
+
+		return !isRightClick;
+	}
+}) ;
+
 /**
  * 所有瓶子
  */
 yc.outer.Bottles.all = function( level){
 	
 	yc.outer.Bottles.list = new Array();
-
-
-	// 加载关卡上的留言
-	if( g_architecture=='html5' )
-	{
-		$.ajax({
-			type: "POST",
-			url: "http://icell.jecat.cn/service/bottles.php",
-			jsonp:'jsonp_callback',
-			data: {
-				"act":"getAll",
-				"level":level
-			},
-			dataType: 'jsonp',
-			success: function(json){
+	$.ajax({
+		type: "POST",
+		url: "http://icell.jecat.cn/service/bottles.php",
+		jsonp:'jsonp_callback',
+		data: {
+			"act":"getAll",
+			"level":level
+		},
+		dataType: 'jsonp',
+		success: function(json){
+			
+			var scene = cc.Director.getInstance().getRunningScene() ;
+			var bottlesLayer = new yc.outer.Bottles.bottlesLayer;
+			scene.layerRoles.addChild(bottlesLayer) ;
+			
+			for(var i =0;i<json.length;i++){
 				
-				for(var i =0;i<json.length;i++){
-					
-					var bottles = new yc.outer.Bottles ;
-					bottles.id = json[i].id;
-					bottles.create();
-					bottles.x = json[i].x;
-					bottles.y = json[i].y;
+				var bottles = new yc.outer.Bottles ;
+				bottles.id = json[i].id;
+				bottles.create();
+				bottles.x = json[i].x;
+				bottles.y = json[i].y;
 
-					
-					var scene = cc.Director.getInstance().getRunningScene() ;
-					scene.layerRoles.addChild(bottles);
-					
-					yc.outer.Bottles.list.push(bottles);
-				}
+				bottlesLayer.addChild(bottles);
+				
+				yc.outer.Bottles.list.push(bottles);
 			}
-		}); 
-	}
+		}
+	}); 
 }
 
 
