@@ -148,9 +148,6 @@ yc.outer.Bottles.bottlesLayer = cc.Layer.extend({
 //		this.setTouchMode( cc.TOUCH_ONE_BY_ONE);
 		this.setTouchEnabled(true);
 	},
-	onEnter:function () {
-		this._super();
-	}, 
 	onTouchesBegan: function(touches, event){
 		
 		if( typeof(touches[0]) == "object"){
