@@ -264,8 +264,6 @@ yc.ui.BuildingCreateMenu = function(){
 
 			ins(yc.outer.PlayerLayer).setNeedFaceToPoint(false) ;
 
-			// console.log('create menu' , hexgon);
-
 			this.ui = new cc.Layer();
 			this.ui.hexgon = hexgon;
 			scene.layerUi.addChild(this.ui);

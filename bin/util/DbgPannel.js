@@ -5,12 +5,11 @@ yc.util.DbgPannel = function(){
 
 	// 在ui上输出游戏状态
 	setInterval(function(){
-		output = '' ;
+		var output = '' ;
 		for(var key in pannel.output){
 			output+= key+': '+pannel.output[key]+'<br />';
 		}
 		$('#player-status').html(output) ;
 		
 	},500) ;
-
 }
