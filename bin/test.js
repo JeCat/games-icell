@@ -30,7 +30,7 @@ function newVirusCluster(){
 	v.y = cell.y + 100 ;
 	v.init() ;
 	
-	cc.Director.getInstance()._runningScene.layerEnemies.addChild(v) ;
+	cc.Director.getInstance().getRunningScene().layerEnemies.addChild(v) ;
 }
 
 function testVirusRun(startX,startY){

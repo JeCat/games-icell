@@ -476,8 +476,8 @@ yc.ui.BuildingCreateMenu = function(){
             font.setTextAlign('left');
             font.setLetterSpacing(4);
             font.setLineHeight(18);
-            font.setText("[color=#F00;weight=bold;size=16;font=隶书]"+building.title +'[/]'+ 
-                "[color=#F00;size=14;font=隶书]"+building.description+'[/]'+
+            font.setText("[color=#F00;weight=bold;size=16;font=隶书]"+building.title +'[/]╗'+ 
+                "[color=#F00;size=14;font=隶书]"+building.description+'[/]╗'+
                 yc.ui.costDec(building.cost())
                 );
             font.draw(ctx);
