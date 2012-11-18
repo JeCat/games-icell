@@ -21,6 +21,13 @@ yc.inner.InnerLayer = cc.Sprite.extend({
 		
 		// 层：病毒
 		this.layerVirus = ins(yc.inner.monster.VirusLayer) ;
+
+	}
+
+	, onEnter: function(){
+		this._super() ;
+		this.addChild(this.map) ;
+		this.addChild(this.buildings) ;
 		this.addChild(this.layerVirus) ;
 	}
 	
