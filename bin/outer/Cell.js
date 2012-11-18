@@ -2,12 +2,13 @@ yc.outer.Cell = yc.outer.PhysicalEntity.extend({
 
 	ctor: function(){
 		this._super() ;
+
 		this.power = yc.settings.outer.player.basePower ;
 		this.rotationTarget = 0 ;
-here() ;
+
 		// 细胞内部视图
 		this.layerInner = ins(yc.inner.InnerLayer) ;
-here() ;
+
 		// 细胞外壳 -------
 		var cell = this ;
 		this.shell = cc.Sprite.create() ;
@@ -19,21 +20,27 @@ here() ;
 			
 			yc.util.drawPolygon(cell._points,ctx,'white',"rgba(255,255,255,0.5)",true) ;
 		}
-here() ;
 
 		this._bWatching = true ;
 
 		// action 移动留下“脚印”
 		this.actFootprint = yc.actions.Timer.create (0.1,-1,this,this.onFootprinter) ;
+
+		return ;
 	}
 
 	, onEnter: function(){
+
 		this._super() ;
-		this.runAction(this.actFootprint) ;
 
 		this.addChild(this.shell) ;
+
 		this.addChild(this.layerInner) ;
+		
+		// 
+		this.runAction(this.actFootprint) ;
 	}
+
 	, onExit: function(){
 		this._super() ;
 		this.stopAction(this.actFootprint) ;
@@ -43,14 +50,30 @@ here() ;
 	}
 
 	, draw: function(ctx){
+		if(g_architecture=='native')
+		{
+			this._super() ;
+			return ;
+		}
+		
 		ctx.rotate(this.getRotation());		// 物体旋转方向
 	}
 
 	, init: function(){
 
-		var innerCell = this.layerInner.cell ;
+		this._super() ;
 		
+		// 初始化细胞内部
+		this.layerInner.cell.initWithScript( ins(yc.user.Character).cell ) ;
+
+		// 初始化动力
+		this.calculatePower() ;
+
+		this._followingCamera = ins(yc.outer.Camera) ; // 摄像机跟随
 		// this.cell.initWithCircle(10,0,0,yc.settings.outer.cell.density) ;
+
+
+		var innerCell = this.layerInner.cell ;
 
 		this.shapes = [] ;
 		this.boundaryLines = [] ;
@@ -121,6 +144,9 @@ here() ;
 		
 
 		this.b2Body.SetAngularDamping( 4 ) ;
+
+
+		log("outer Cell initialized") ;
 	}
 //	
 //	, draw: function(ctx){
@@ -238,6 +264,7 @@ here() ;
 	// 	return this._super() ;
 	// }
 	, onFootprinter: function(){
+
 		var speed = this.getSpeed() ;
 		if( speed.x==0 && speed.y==0 )
 		{

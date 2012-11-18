@@ -22,6 +22,12 @@ yc.outer.Footprint = cc.Sprite.extend({
 	}
 
 	, draw: function(ctx){
+		if(g_architecture=='native')
+		{
+			this._super() ;
+			return ;
+		}
+		
 		yc.util.drawCircle(ctx,0,0,50,50,"rgb(255,255,255)") ;
 	}
 

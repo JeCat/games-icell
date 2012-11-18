@@ -32,7 +32,6 @@ yc.inner.building.Tower = yc.inner.building.Building.extend({
 
 		this.color = 'red' ;
 
-
 		// 开始动画
         this.initWithSpriteFrameName("artillery_lvl4_tesla_0049.png") ; //第一帧
         this.runAction(cc.RepeatForever.create( yc.animations.createAction('towers.shooter') ));
@@ -46,20 +45,24 @@ yc.inner.building.Tower = yc.inner.building.Building.extend({
 
 		if(!this.hexgon)
 		{
+			this._super() ;
 			return ;
 		}
 
 		// 绘制射击范围
-		if( this.hexgon.selected )
+		if(g_architecture=='native')
 		{
-			ctx.fillStyle = "rgba(255,255,255,0.2)" ;
-			
-			ctx.beginPath() ;
-			ctx.moveTo(this.range,0) ;
-			ctx.arc(0,0, this.range, 0, Math.PI*2 , false) ;
-			ctx.closePath()
-			
-			ctx.fill() ;
+			if( this.hexgon.selected )
+			{
+				ctx.fillStyle = "rgba(255,255,255,0.2)" ;
+				
+				ctx.beginPath() ;
+				ctx.moveTo(this.range,0) ;
+				ctx.arc(0,0, this.range, 0, Math.PI*2 , false) ;
+				ctx.closePath()
+				
+				ctx.fill() ;
+			}
 		}
 		
 		this._super(ctx) ;
@@ -67,11 +70,10 @@ yc.inner.building.Tower = yc.inner.building.Building.extend({
 		return;
 	}
 	
-	, _put: yc.inner.building.Building.prototype.put
 	, put: function(hexgon){
-		
-		this._put(hexgon)
-		
+
+		this._super(hexgon) ;
+
 		// 开始射击
 		this.shot() ;
 		
@@ -79,15 +81,16 @@ yc.inner.building.Tower = yc.inner.building.Building.extend({
 	}
 	
 	, shot: function(){
-		
+
 		if(!this.bShoting)
 		{
 			return ;
 		}
-		
+
 		// 瞄准病毒
 		var myPos = this.getPosition() ;
 		var arrVirus = ins(yc.inner.InnerLayer).layerVirus.getChildren() ;
+
 		for(var i=0;i<arrVirus.length;i++)
 		{
 			var virus = arrVirus[i]
@@ -103,9 +106,9 @@ yc.inner.building.Tower = yc.inner.building.Building.extend({
 				break ;
 			}
 		}
-		
-		var tower = this ;
-		setTimeout(function(){tower.shot()},this.freq) ;
+
+		// next time shot
+		this.runAction( yc.actions.Timer.create(this.freq/1000, 1, this, this.shot) ) ;
 	}
 	
 	

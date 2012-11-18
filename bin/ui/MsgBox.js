@@ -14,7 +14,7 @@ yc.ui.MsgBox = cc.Layer.extend({
 	    //bg
 	    this.bg = cc.Sprite.create("res/bg300x200.png");
 	    this.addChild(this.bg);
-	    this.bg.setScale(1,0.4);
+	    this.bg.setScaleY(0.4);
 
 	    //btns
 		this.yesBtn = cc.MenuItemImage.create(

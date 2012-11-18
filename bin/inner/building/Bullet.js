@@ -83,6 +83,12 @@ yc.inner.building.Bullet = cc.Sprite.extend({
 	}
 	
 	, draw: function(ctx){
+		if(g_architecture=='native')
+		{
+			this._super() ;
+			return ;
+		}
+		
 
 		ctx.fillStyle = "rgb(50,50,50)" ;
 	

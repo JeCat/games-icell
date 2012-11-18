@@ -3,6 +3,12 @@ yc.inner.monster.VirusLayer = cc.Layer.extend({
 	ctor: function(){
 		this._super() ;
 		this.arrVirus = [] ;
+
+		// 在 js binding 中，需要先 add 一个 child ，才能 getChildren
+		var c = new cc.Sprite ;
+		this.addChild(c) ;
+		this.removeChild(c,true) ;
+
 	}
 	
 	/**

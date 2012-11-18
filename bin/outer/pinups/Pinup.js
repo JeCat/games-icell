@@ -21,6 +21,11 @@ yc.outer.pinups.Pinup = cc.Sprite.extend({
  	// }
 
 	, draw: function(ctx){
+		if(g_architecture=='native')
+		{
+			this._super() ;
+			return ;
+		}
 
 		// ctx.rotate(this.getRotation()) ;
 		// ctx.scale(this.getScaleX(),this.getScaleY()) ;
@@ -76,7 +81,8 @@ yc.outer.pinups.Pinup = cc.Sprite.extend({
 
 		this.setOpacity(parseInt(script.opacity)) ;
 		this.setRotation(script.rotation) ;
-		this.setScale(script.scaleX,script.scaleY) ;
+		this.setScaleX(script.scaleX) ;
+		this.setScaleY(script.scaleY) ;
 		this.setAnchorPoint(cc.p(script.anchorX,script.anchorY)) ;
 	}
 

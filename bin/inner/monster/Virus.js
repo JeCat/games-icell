@@ -145,6 +145,11 @@ yc.inner.monster.Virus = cc.Sprite.extend({
 	}
 	
 	, draw: function(ctx){
+		if(g_architecture=='native')
+		{
+			this._super() ;
+			return ;
+		}
 
 
 		//ctx.rotate( yc.util.correctRotation(this) ) ;

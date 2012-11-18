@@ -70,6 +70,12 @@ yc.outer.Stain = yc.outer.PhysicalEntity.extend({
 	
 	, draw: function(ctx){
 
+		if(g_architecture=='native')
+		{
+			this._super() ;
+			return ;
+		}
+		
 		ctx.lineJoin = 'round' ;
 
 		ctx.rotate(this.getRotation()) ;
