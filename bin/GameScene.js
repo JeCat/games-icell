@@ -44,14 +44,6 @@ yc.GameScene = cc.Scene.extend({
 		this.layerBg = new yc.outer.pinups.LayerGround() ;
 		this.layerBg.type = 'background' ;
 		this.layerGame.addChild(this.layerBg) ;
-
-		// 层：玻片
-		// this.layerGlassSlide = cc.LayerColor.create(cc.c4(255,255,255,50),this.rgt-this.lft,this.top-this.btm);  
-		// this.layerGlassSlide.setAnchorPoint(cc.p(0,0)) ;
-		// this.layerGlassSlide.x = this.lft ;
-		// this.layerGlassSlide.y = this.btm ;
-		// this.layerGlassSlide.transform = yc.outer.Camera.transformSprite
-		// this.layerGame.addChild(this.layerGlassSlide) ;
 		
 		// 层：污渍
 		this.layerStains = new cc.Layer() ;

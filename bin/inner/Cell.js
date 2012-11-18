@@ -3,9 +3,9 @@ yc.inner.Cell = function()
 	this.hpMax = 10 ;
 	this.hp = this.hpMax ;
 	this.virusArrived = 0 ;
-	
+here() ;
 	this.aAxes = new HexgonAxes( yc.settings.inner.hexgonSideLength, yc.inner.CellHexgon ) ;
-
+here() ;
 	axes = this.aAxes ;
 	cell = this ;
 			
@@ -327,38 +327,30 @@ yc.inner.Cell.prototype.exportScript = function() {
  * 从 json 导入
  */
 yc.inner.Cell.prototype.initWithScript = function( script ){
-
+here() ;
 	this.aAxes = new HexgonAxes( yc.settings.inner.hexgonSideLength, yc.inner.CellHexgon ) ;
 	this.grown = 0 ;
-
+here() ;
 	// 格子：细胞核
 	this.nucleus = this.aAxes.hexgon( script.nucleus[0], script.nucleus[1] ) ;
 	this.nucleus.type = "nucleus" ;
-
+here() ;
 	// 细胞质
 	for(var i=0;i<script.cytoplasms.length;i++){
 		script.cytoplasms[i] ;
 		this.grow( script.cytoplasms[i][0], script.cytoplasms[i][1] ) ;
 	}
-	
+here() ;
 	// 建筑
 	for(var i=0;i<script.buildings.length;i++){
+here() ;
 		var building = new (eval(script.buildings[i].className)) ;
+here() ;
 		building.putOn(script.buildings[i].x,script.buildings[i].y) ;
-
+here() ;
 		building.initWithScript(script.buildings[i]) ;
-
-		// 升级
-		// var upgraders = script.buildings[i].upgraders ;
-		// for(var name in upgraders)
-		// {
-		// 	for(var u=0;u<upgraders[name];u++)
-		// 	{
-		// 		building.upgrader( eval(name) )
-		// 					.upgrade(building,false) ;
-		// 	}
-		// }
+here() ;
 	}
-
+here() ;
 	return ;
 }
