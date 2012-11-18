@@ -93,7 +93,6 @@ yc.MainScene = cc.Scene.extend({
 			// 只自动加载一次
 			yc.MainScene.autoLoadByUrl = false ;
 		}
-
 	}
 
 	, onExit : function(){
