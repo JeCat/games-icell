@@ -39,9 +39,15 @@ yc.outer.AminoAcid = yc.outer.PhysicalEntity.extend({
 	}
 		
 	, transform: yc.outer.Camera.transformSprite
-	, draw: function(ctx)
-	{
+	, draw: function(ctx){
+
 		this._super(ctx ,true) ;
+
+		if(g_architecture=='native')
+		{
+			return ;
+		}
+
 		
 		ctx.fillStyle = this.color ;
 		ctx.beginPath();

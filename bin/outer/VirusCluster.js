@@ -55,7 +55,8 @@ yc.outer.VirusCluster = yc.outer.PhysicalEntity.extend({
 		
 		this.initWithCircle(this.size,this.x,this.y,yc.settings.outer.virus.density) ;
 
-		this.setScale(2,2);
+		this.setScaleX(2);
+		this.setScaleY(2);
 	}
 
 	, initWithScript: function(script){
@@ -92,6 +93,11 @@ yc.outer.VirusCluster = yc.outer.PhysicalEntity.extend({
 	, draw: function(ctx){
 		
 		this._super(ctx,true) ;
+
+		if(g_architecture=='native')
+		{
+			return ;
+		}
 
 		if(yc.settings.outer.virus.dbgInfo)
 		{

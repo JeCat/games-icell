@@ -20,11 +20,9 @@ yc.inner.building.ProteinFactory = yc.inner.building.Building.extend({
        	this.setAnchorPoint(cc.p(0.5,0.4)) ;
 	}
 
-
-	, _put: yc.inner.building.Building.prototype.put
 	, put: function(hexgon){
 		
-		this._put(hexgon)
+		this._super(hexgon)
 		
 		// 开始合成
 		this.startComposite() ;
@@ -48,7 +46,7 @@ yc.inner.building.ProteinFactory = yc.inner.building.Building.extend({
 		{
 			return ;
 		}
-		
+
 		var formula = loopStart ;
 		this.working_formula = null ;
 		
@@ -76,13 +74,12 @@ yc.inner.building.ProteinFactory = yc.inner.building.Building.extend({
 			break ;
 			
 		}while(formula!==loopStart) ;
-		
+
 		if(!this.working_formula)
 		{
-			setTimeout(function(){factory.startComposite()},1000) ;
+			this.runAction( yc.actions.Timer.create(1, 1, factory, factory.startComposite) ) ;
 			return ;   
 		}
-		
 		
 		// 开始合成过程
 		// var freq = Math.round( 1 * (this.working_formula.total / this.composition_efficient) / 10) ;
@@ -100,7 +97,7 @@ yc.inner.building.ProteinFactory = yc.inner.building.Building.extend({
 		{
 			ins(yc.user.Character).aminoacids.increase(key,-formula.materials[key]) ;
 		}
-			
+
 		var func = function(){
 
 			// 停止
@@ -116,7 +113,7 @@ yc.inner.building.ProteinFactory = yc.inner.building.Building.extend({
 			// 
 			if( factory.composition_progress<100 )
 			{
-				setTimeout(func,freq) ;
+				this.runAction( yc.actions.Timer.create(freq/1000, 1, factory, func) ) ;
 			}
 			
 			// 完成
@@ -143,7 +140,8 @@ yc.inner.building.ProteinFactory = yc.inner.building.Building.extend({
 				},freq) ;*/
 			}
 		}
-		setTimeout(func,freq) ;
+
+		this.runAction( yc.actions.Timer.create(freq/1000, 1, this, func) ) ;
 	}
 
 	, singleComposite : function(formula){

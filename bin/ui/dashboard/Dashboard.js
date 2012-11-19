@@ -33,6 +33,16 @@ yc.ui.dashboard.Dashboard = cc.Layer.extend({
 		
 		this._super() ;
 
+
+		if( g_architecture=='native' )
+		{
+			// there are a lot for mistake of package ui.dashboard, under native architecture
+			// please refact these cc.Node
+			// todo by Kong Yuan !!
+			return ;
+		}
+
+
 		var dashboard = this ;
 
 		var screenSize = cc.Director.getInstance().getWinSize();

@@ -53,13 +53,19 @@ yc.ui.skill.ButtonBase = cc.Sprite.extend({
 	},
 	draw: function(ctx){
 		
+			if(g_architecture=='native')
+			{
+				this._super() ;
+				return ;
+			}
+		
 			this._super() ;
 
 			var h = this.getCoolDownPercent();
 			if ( h != 1)
 			{
 				h = 1-h;
-				this.cd.setScale(1,h);
+				this.cd.setScaleY(h);
 			}
 		
 	},

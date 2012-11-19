@@ -30,6 +30,12 @@ yc.outer.BossCompass = cc.Sprite.extend({
 	
 	, draw: function(ctx){
 		
+		if(g_architecture=='native')
+		{
+			this._super() ;
+			return ;
+		}
+		
 		if(this.bossPoint)
 		{
 			//ctx.translate(this.bossPoint[0],-this.bossPoint[1]) ;

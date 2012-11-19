@@ -4,19 +4,6 @@ yc.inner.building.Recycle = yc.inner.building.Building.extend({
 		this.mitochondrias = [] ;
 		this.mitochondriaCount = 1 ;
 	}
-
-	, draw: function(ctx){
-		if(!this.hexgon)
-		{
-			return ;
-		}
-	
-		this._super(ctx) ;
-		
-		ctx.fillStyle = 'green' ;
-		ctx.font="normal san-serif";
-		ctx.fillText('∆',-6,+5) ;
-	}
 	
 	, put: function(hexgon){
 		this._super(hexgon) ;
