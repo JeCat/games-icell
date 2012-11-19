@@ -9,7 +9,7 @@ yc.ui.dashboard.Dashboard = cc.Layer.extend({
 		, blue : null					//blue 
 		, violet : null					//violet 
 	}					
-	, starsPosition : []				//蛋白质面板圆心
+	, centerPosition : []				//蛋白质面板圆心
 	, aminoAcidsPositions : [			//  氨基酸  显示的位置偏移
 		[ 0 , 30 ]
 		, [ 26 , -15 ]
@@ -24,7 +24,7 @@ yc.ui.dashboard.Dashboard = cc.Layer.extend({
 		, violet : [ -69 , 40 ]				//violet 
 	}
 	, starsLayer : null	
-	, starsScale : 0.7
+	, starsScale : 0.9
 	
 	, labelAminoAcids: {}			//  氨基酸  名称及数量显示
 	, labelProteins : {}			//  蛋白质  名称及数量显示
@@ -64,10 +64,10 @@ here() ;
 		/*     合成面板 start    */
 
 		//  氨基酸
-		dashboard.aminoAcidsStars[0] = Star.starWithTexture("res/btn-back.png" , "res/btn-back-1.png" , "res/btn-back.png") ;
+		dashboard.aminoAcidsStars[0] = Star.starWithTexture("res/dashboard/aminoAcid_red.png" , "res/dashboard/aminoAcid_red.png" , "res/dashboard/aminoAcid_red.png") ;
 here() ;
-        dashboard.aminoAcidsStars[1] = Star.starWithTexture("res/btn-back.png" , "res/btn-back-1.png" , "res/btn-back.png") ;
-        dashboard.aminoAcidsStars[2] = Star.starWithTexture("res/btn-back.png" , "res/btn-back-1.png" , "res/btn-back.png") ;
+        dashboard.aminoAcidsStars[1] = Star.starWithTexture("res/dashboard/aminoAcid_yellow.png" , "res/dashboard/aminoAcid_yellow.png" , "res/dashboard/aminoAcid_yellow.png") ;
+        dashboard.aminoAcidsStars[2] = Star.starWithTexture("res/dashboard/aminoAcid_blue.png" , "res/dashboard/aminoAcid_blue.png" , "res/dashboard/aminoAcid_blue.png") ;
 here() ;
         dashboard.aminoAcidsStars[0].setClickable(false);
         dashboard.aminoAcidsStars[1].setClickable(false);
@@ -76,13 +76,13 @@ here() ;
         for(var i =0 ; i< dashboard.aminoAcidsStars.length ; i++){
         	dashboard.aminoAcidsStars[i].setScale( dashboard.starsScale , dashboard.starsScale );
         	dashboard.aminoAcidsStars[i].setPosition( 
-        		dashboard.starsPosition[0] + dashboard.aminoAcidsPositions[i][0]  
-        		, dashboard.starsPosition[1] + dashboard.aminoAcidsPositions[i][1]
+        		dashboard.centerPosition[0] + dashboard.aminoAcidsPositions[i][0]  
+        		, dashboard.centerPosition[1] + dashboard.aminoAcidsPositions[i][1]
         	);
         }
-        dashboard.labelAminoAcids.red = dashboard._createLabel("♪ 0",new cc.Color3B(255,0,0)) ;
-		dashboard.labelAminoAcids.yellow = dashboard._createLabel("♪ 0",new cc.Color3B(255,255,0)) ;
-		dashboard.labelAminoAcids.blue = dashboard._createLabel("♪ 0",new cc.Color3B(0,0,255)) ;
+        dashboard.labelAminoAcids.red = dashboard._createLabel("0",new cc.Color3B(255,0,0)) ;
+		dashboard.labelAminoAcids.yellow = dashboard._createLabel("0",new cc.Color3B(255,255,0)) ;
+		dashboard.labelAminoAcids.blue = dashboard._createLabel("0",new cc.Color3B(0,0,255)) ;
 here() ;
         //  蛋白质
 
@@ -90,19 +90,23 @@ here() ;
 		var formulas = ins(yc.user.ProteinFormulas).worldFormulas ;
 		for(var name in formulas)
 		{
-			var star = Star.starWithTexture("res/star.png" , "res/star-light.png" , "res/star-light.png");
+			var star = Star.starWithTexture("res/dashboard/star_"+name+".png" , "res/dashboard/star_"+name+".png" , "res/dashboard/star_"+name+".png");
 			star.setFormula(formulas[name]);
 			dashboard.proteinsStars[name] = star ;
 
         	star.setScale( dashboard.starsScale , dashboard.starsScale );
         	star.setPosition( 
-        		dashboard.starsPosition[0] + dashboard.proteinsPositions[name][0]  
-        		, dashboard.starsPosition[1] + dashboard.proteinsPositions[name][1]
+        		dashboard.centerPosition[0] + dashboard.proteinsPositions[name][0]  
+        		, dashboard.centerPosition[1] + dashboard.proteinsPositions[name][1]
         	);
 
 			var fml = formulas[name] ;
-			this.labelProteins[name] = dashboard._createLabel("♫ 0",new cc.Color3B(fml.rgb[0],fml.rgb[1],fml.rgb[2])) ;
+			this.labelProteins[name] = dashboard._createLabel("0",new cc.Color3B(fml.rgb[0],fml.rgb[1],fml.rgb[2])) ;
 		}
+
+		this.dashboard_bg = cc.Sprite.create("res/dashboard/dashboard_bg.png");
+		this.dashboard_bg.setPosition(cc.p(0,0));
+
 here() ;
 		/*     合成面板 end    */
 
@@ -112,20 +116,20 @@ here() ;
 		if( g_architecture=='html5' )
 		{
 			$(window).bind('yc.user.AminoAcidPool::onAfterChange',null,function(e,pool,type,num){
-				dashboard.labelAminoAcids[type].setString('♪ '+pool[type]) ;
+				dashboard.labelAminoAcids[type].setString(''+pool[type]) ;
 				// dashboard.layout() ;
 			}) ;
 			
 			// 新增蛋白质类型
 			$(window).bind('yc.user.ProteinFormulas::onAfterAppend',null,function(e,o,formula){
-				dashboard.labelProteins[formula.name] = dashboard._createLabel("♫ 0",new cc.Color3B(formula.rgb[0],formula.rgb[1],formula.rgb[2])) ;
+				dashboard.labelProteins[formula.name] = dashboard._createLabel("0",new cc.Color3B(formula.rgb[0],formula.rgb[1],formula.rgb[2])) ;
 				dashboard._createSeparator(10) ;
 				// dashboard.layout() ;
 			}) ;
 			
 			// 蛋白质数量变化
 			$(window).bind('yc.user.ProteinPool::onAfterChange',null,function(e,pool,name,total,num){
-				dashboard.labelProteins[name].setString('♫ '+total) ;
+				dashboard.labelProteins[name].setString(''+total) ;
 
 				if(yc.ui.BuildingCreateMenu){
 					ins(yc.ui.BuildingCreateMenu).onProteinsChanged();
@@ -171,6 +175,8 @@ here() ;
         this.aminoAcidsStars[0].addChild(this.labelAminoAcids.red);
         this.aminoAcidsStars[1].addChild(this.labelAminoAcids.yellow);
         this.aminoAcidsStars[2].addChild(this.labelAminoAcids.blue);
+
+        this.addChild( this.dashboard_bg , -1 );
 	}
 
 	, onExit : function(){
@@ -180,6 +186,7 @@ here() ;
 
 		// proteinhp
 		this.removeChild(this.HP) ;
+		this.removeChild(this.dashboard_bg);
 		// protein stars
 		for(var name in this.proteinsStars)
 		{
@@ -208,8 +215,12 @@ here() ;
 
 	, onResize : function(w,h){
 		var dash = this;
-		dash.starsPosition = [ 100 , h - 120 ];
+		dash.centerPosition = [ 100 , h - 120 ];
 
+		xxx = dash.dashboard_bg;
+		if(dash.dashboard_bg){
+			dash.dashboard_bg.setPosition( cc.p(dash.centerPosition[0]+15,dash.centerPosition[1]+28) );
+		}
 		if(dash.HP){
 			dash.HP.setPosition(cc.p(40 , h - 10));
 		}
@@ -220,16 +231,16 @@ here() ;
 
 		for(var i =0 ; i< dash.aminoAcidsStars.length ; i++){
         	dash.aminoAcidsStars[i].setPosition( 
-        		dash.starsPosition[0] + dash.aminoAcidsPositions[i][0]  
-        		, dash.starsPosition[1] + dash.aminoAcidsPositions[i][1]
+        		dash.centerPosition[0] + dash.aminoAcidsPositions[i][0]  
+        		, dash.centerPosition[1] + dash.aminoAcidsPositions[i][1]
         	);
         }
 
         for(var name in dash.proteinsStars){
         	var star = dash.proteinsStars[name];
         	star.setPosition( 
-        		dash.starsPosition[0] + dash.proteinsPositions[name][0]  
-        		, dash.starsPosition[1] + dash.proteinsPositions[name][1]
+        		dash.centerPosition[0] + dash.proteinsPositions[name][0]  
+        		, dash.centerPosition[1] + dash.proteinsPositions[name][1]
         	);
         }
         
