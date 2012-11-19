@@ -219,4 +219,3 @@ yc.inner.CellInnerMap = cc.Layer.extend({
 });
 
 
-yc.inner.CellInnerMap.prototype.__
