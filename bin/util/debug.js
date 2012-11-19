@@ -45,7 +45,7 @@ function here(){
 			var res = e.stack.split("\n")[2].match(/^\s+at( (.+) \()?.+:(\d+):(\d+)\)?\s*$/) ;
 			if(res)
 			{
-				log( (res[2]===undefined? "global": (res[2]+"()")) + ":" + res[3] ) ;
+				//log( (res[2]===undefined? "global": (res[2]+"()")) + ":" + res[3] ) ;
 			}
 		}
 		else if(g_architecture=='native')
