@@ -21,11 +21,6 @@ yc.inner.CellInnerMap = cc.Layer.extend({
 		this.selcted_hexgon = null ;
 	}
 
-	, setAnchorPoint: function(point){
-		log("setAnchorPoint________") ;
-		this._super(point) ;
-	}
-
 	, onEnter: function(){
 		this._super() ;
 
@@ -56,9 +51,7 @@ yc.inner.CellInnerMap = cc.Layer.extend({
 		{
 			this.drawHexgon(cell.membranes[i],ctx,"rgb(140,140,140)","rgb(170,170,170)") ;
 		}
-
-
-		yc.util.drawCircle(ctx,0,0,5,5,"red") ;
+		
 //		if(this.touchPoint)
 //		{
 //			ctx.moveTo(0,0) ;
