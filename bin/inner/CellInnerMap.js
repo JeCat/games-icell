@@ -1,4 +1,4 @@
-yc.inner.CellInnerMap = cc.Layer.extend({  
+yc.inner.CellInnerMap = cc.Sprite.extend({  
 
 	__w: 300
 	, __h: -200
@@ -13,19 +13,14 @@ yc.inner.CellInnerMap = cc.Layer.extend({
 		this.setAnchorPoint(cc.p(0,0)) ;
 		//this.setContentSize(yc.settings.inner.width,yc.settings.inner.height) ;
 		//this.initWithColor(new cc.Color4B(255,255,255,50),yc.settings.inner.width,yc.settings.inner.height) ;
-		this.init() ;
+		
 
-		this.setTouchEnabled(true);
+		//this.setTouchEnabled(true);
 		this.touching = false ;
 		this.selcted_hexgon = null ;
 	}
 	
 	, draw: function(ctx){//return;
-		if(g_architecture=='native')
-		{
-			this._super() ;
-			return ;
-		}
 		
 		var cell = ins(yc.inner.Cell) ;
 		
