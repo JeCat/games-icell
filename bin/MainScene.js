@@ -93,6 +93,11 @@ yc.MainScene = cc.Scene.extend({
 			// 只自动加载一次
 			yc.MainScene.autoLoadByUrl = false ;
 		}
+
+		else
+		{
+			yc.levels.LevelSelector.enterLevel(yc.levels.c1.l1) ;
+		}
 	}
 
 	, onExit : function(){

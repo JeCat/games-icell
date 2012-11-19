@@ -110,6 +110,11 @@ yc.ui.editer.WorldEditerLayer = cc.Layer.extend({
 	}
 	
 	, draw: function(ctx){
+		if(g_architecture=='native')
+		{
+			this._super() ;
+			return ;
+		}
 
 		var c = "rgb(122,200,214)" ;
 		var cam = ins(yc.outer.Camera) ;

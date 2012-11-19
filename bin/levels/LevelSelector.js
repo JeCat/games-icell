@@ -47,9 +47,6 @@ yc.levels.LevelSelector = cc.Scene.extend({
 			, onResize : function(w,h){
 			    this.menu.setPosition(cc.p(w - 20, h - 20));
 			}
-			, draw: function(ctx){
-				this._super() ;
-			}
 		}) ;
 		this.addChild(new layerUi) ;
 	}

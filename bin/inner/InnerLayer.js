@@ -85,6 +85,12 @@ yc.inner.InnerLayer = cc.Sprite.extend({
 	
 
 	, draw: function(ctx){
+		if(g_architecture=='native')
+		{
+			this._super() ;
+			return ;
+		}
+		
 		ctx.rotate(this.getRotation()) ;
 		ctx.globalAlpha = this.getOpacity()/255 ;
 	}

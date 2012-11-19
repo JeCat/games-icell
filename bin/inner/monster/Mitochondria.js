@@ -11,6 +11,11 @@ yc.inner.monster.Mitochondria = cc.Sprite.extend({
 	}
 
 	, draw: function(ctx){
+		if(g_architecture=='native')
+		{
+			this._super() ;
+			return ;
+		}
 
 		//ctx.rotate( yc.util.correctRotation(this) ) ;
 		ctx.rotate( -ins(yc.outer.Cell).rotationTarget ) ;

@@ -10,6 +10,11 @@ yc.inner.monster.VirusCluster = cc.Sprite.extend({
 	}
 
 	, draw: function(ctx){
+		if(g_architecture=='native')
+		{
+			this._super() ;
+			return ;
+		}
 
 		// ctx.rotate( yc.util.correctRotation(this) ) ;
 		ctx.rotate( this.getRotation() ) ;

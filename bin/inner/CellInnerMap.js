@@ -1,4 +1,4 @@
-yc.inner.CellInnerMap = cc.Sprite.extend({  
+yc.inner.CellInnerMap = cc.Layer.extend({  
 
 	__w: 300
 	, __h: -200
@@ -10,17 +10,34 @@ yc.inner.CellInnerMap = cc.Sprite.extend({
 		
 		this._super() ;
 		
+		this.init() ;
+		
 		this.setAnchorPoint(cc.p(0,0)) ;
 		//this.setContentSize(yc.settings.inner.width,yc.settings.inner.height) ;
 		//this.initWithColor(new cc.Color4B(255,255,255,50),yc.settings.inner.width,yc.settings.inner.height) ;
-		
 
-		//this.setTouchEnabled(true);
+		this.setTouchEnabled(true);
 		this.touching = false ;
 		this.selcted_hexgon = null ;
 	}
+
+	, setAnchorPoint: function(point){
+		log("setAnchorPoint________") ;
+		this._super(point) ;
+	}
+
+	, onEnter: function(){
+		this._super() ;
+
+		log(this.getAnchorPoint()) ;
+	}
 	
 	, draw: function(ctx){//return;
+		if(g_architecture=='native')
+		{
+			this._super() ;
+			return ;
+		}
 		
 		var cell = ins(yc.inner.Cell) ;
 		
@@ -40,6 +57,8 @@ yc.inner.CellInnerMap = cc.Sprite.extend({
 			this.drawHexgon(cell.membranes[i],ctx,"rgb(140,140,140)","rgb(170,170,170)") ;
 		}
 
+
+		yc.util.drawCircle(ctx,0,0,5,5,"red") ;
 //		if(this.touchPoint)
 //		{
 //			ctx.moveTo(0,0) ;
@@ -198,3 +217,6 @@ yc.inner.CellInnerMap = cc.Sprite.extend({
 	
 	, transform: cc.Sprite.prototype.transform
 });
+
+
+yc.inner.CellInnerMap.prototype.__

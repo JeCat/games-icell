@@ -401,6 +401,11 @@ yc.outer.PhysicalEntity = cc.Sprite.extend({
 		return ret ;
 	}
 	, draw: function(ctx,_parent){
+		if(g_architecture=='native')
+		{
+			this._super() ;
+			return ;
+		}
 		
 		if(_parent!==undefined && _parent)
 		{
