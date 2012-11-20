@@ -7,9 +7,9 @@ yc.ui.BuildingUpgradeMenu = function(){
 	// this.costRecovering = {} ;
 
 	this.removeBuildingUpgrader = {
-		texture:"res/building/shooter.png"
-		, texture_l :  "res/building/shooter-l.png"
-		, texture_nm :  "res/building/shooter-nm.png"
+		texture:"res/building/remove.png"
+		, texture_l :  "res/building/remove.png"
+		, texture_nm :  "res/building/remove.png"
 		, title : '回收器官'
 		, description : '回收器官换取部分资源'
 		// , cost : function(){

@@ -9,8 +9,7 @@ yc.inner.monster.FlopAminoAcid = cc.Sprite.extend({
 		this.num = num ;
 		
 		// virus._parent.addChild(this) ;
-		
-		var layer = new cc.Sprite();
+		var layer = yc.op.ins(yc.inner.monster.FlopAminoAcidLayer).ob();
 		layer._content='elephant add';
 		layer.addChild(this);
 		virus._parent.addChild(layer);
@@ -71,3 +70,6 @@ yc.inner.monster.FlopAminoAcid = cc.Sprite.extend({
 yc.inner.monster.FlopAminoAcid.ob = function(){
 	return yc.op.ins(yc.inner.monster.FlopAminoAcid).ob() ;
 }
+
+
+yc.inner.monster.FlopAminoAcidLayer = cc.Sprite.extend()
