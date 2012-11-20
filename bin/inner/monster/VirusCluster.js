@@ -25,7 +25,7 @@ yc.inner.monster.VirusCluster = cc.Sprite.extend({
 
 	, initWithScript: function(script){
 		this._script = script ;
-		this.initWithFile(script.spriter) ;
+		// this.initWithFile(script.spriter) ;
 	}
 
 	, init: function(){

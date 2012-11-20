@@ -87,7 +87,7 @@ yc.inner.monster.Mitochondria = cc.Sprite.extend({
 				{
 					var aminoacid = usingAminoacids[id] ;
 					var aminoacidlayer = usingAminoacids[id]._parent ;
-					if( aminoacid.beWatched || aminoacid.beWatched || !aminoacid.using )
+					if( aminoacid.beWatched || aminoacid.beWatched || !aminoacid.using || aminoacidlayer==null )
 					{
 						continue ;
 					}

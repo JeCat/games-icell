@@ -7,6 +7,7 @@ yc.outer.AminoAcid = yc.outer.PhysicalEntity.extend({
 		this.turnRate = yc.settings.outer.aminoacid.turnRate ;
 		this.normalSpeed = yc.settings.outer.aminoacid.normalSpeed ;
 		this.id = this.constructor.assigned ++ ;
+		
 	}
 	
 	, initRandom: function(range){
@@ -25,13 +26,13 @@ yc.outer.AminoAcid = yc.outer.PhysicalEntity.extend({
 		var colors = {red:'255,0,0',blue:'0,0,255',yellow:'255,255,0'}
 		this.color = 'rgb(' + colors[this.type] + ')' ;
 
-		// if( this.type == "red"){
-		// 	this.initWithFile("res/dashboard/aminoAcid_red.png");
-		// }else if( this.type == "blue"){
-		// 	this.initWithFile("res/dashboard/aminoAcid_blue.png");
-		// }else if( this.type == "yellow"){
-		// 	this.initWithFile("res/dashboard/aminoAcid_yellow.png");
-		// }
+		 if( this.type == "red"){
+		 	this.initWithFile("res/dashboard/aminoAcid_red.png");
+		 }else if( this.type == "blue"){
+		 	this.initWithFile("res/dashboard/aminoAcid_blue.png");
+		 }else if( this.type == "yellow"){
+		 	this.initWithFile("res/dashboard/aminoAcid_yellow.png");
+		 }
 		
 		this.initWithCircle(this.size,this.x,this.y,yc.settings.outer.aminoacid.density) ;
 	}
@@ -47,12 +48,12 @@ yc.outer.AminoAcid = yc.outer.PhysicalEntity.extend({
 		}
 
 		
-		ctx.fillStyle = this.color ;
-		ctx.beginPath();
-		ctx.arc(0, 0, this.size, 0, Math.PI*2, true);
-		ctx.closePath();
-		ctx.fill();
-
+//		ctx.fillStyle = this.color ;
+//		ctx.beginPath();
+//		ctx.arc(0, 0, this.size, 0, Math.PI*2, true);
+//		ctx.closePath();
+//		ctx.fill();
+//
 		if(yc.settings.outer.aminoacid.dbgInfo)
 		{
 			this.drawDbgInfo(ctx) ;
@@ -78,6 +79,16 @@ yc.outer.AminoAcid = yc.outer.PhysicalEntity.extend({
 	, catchMe: function(){
 		ins(yc.user.Character).aminoacids.increase(this.type,this.num) ;
 		
+//		this.unscheduleUpdate();
+//		this._destoryBody() ;
+//		
+//		
+//		tmpLayer.addChild(this);
+//		
+//		
+//		var s = cc.Director.getInstance().getWinSize();
+//        var actionTo = cc.MoveTo.create(10, cc.p(100, 100));
+//        tmpLayer.runAction(actionTo);
 		this.destroy() ;
 	}
 	
