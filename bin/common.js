@@ -196,22 +196,47 @@ var g_ResFiles = [
 	, {type:"image", src:"res/btn-yes.png"}
 	, {type:"image", src:"res/btn-yes-1.png"}
 
+
 	, {type:"image", src:"res/building/cannon.png"}
 	, {type:"image", src:"res/building/jetter.png"}
 	, {type:"image", src:"res/building/recycle.png"}
 	, {type:"image", src:"res/building/shooter.png"}
 	, {type:"image", src:"res/building/slower.png"}
+	, {type:"image", src:"res/building/bottles.png"}
+	, {type:"image", src:"res/building/eye.png"}
+	, {type:"image", src:"res/building/grow.png"}
+	, {type:"image", src:"res/building/oshooter.png"}
+	, {type:"image", src:"res/building/rocket.png"}
+	, {type:"image", src:"res/building/power.png"}
+
 	, {type:"image", src:"res/building/cannon-l.png"}
 	, {type:"image", src:"res/building/jetter-l.png"}
 	, {type:"image", src:"res/building/recycle-l.png"}
 	, {type:"image", src:"res/building/shooter-l.png"}
 	, {type:"image", src:"res/building/slower-l.png"}
+	, {type:"image", src:"res/building/bottles-l.png"}
+	, {type:"image", src:"res/building/eye-l.png"}
+	, {type:"image", src:"res/building/grow-l.png"}
+	, {type:"image", src:"res/building/oshooter-l.png"}
+	, {type:"image", src:"res/building/rocket-l.png"}
+	, {type:"image", src:"res/building/power-l.png"}
+
 	, {type:"image", src:"res/building/cannon-nm.png"}
 	, {type:"image", src:"res/building/jetter-nm.png"}
 	, {type:"image", src:"res/building/recycle-nm.png"}
 	, {type:"image", src:"res/building/shooter-nm.png"}
 	, {type:"image", src:"res/building/slower-nm.png"}
+	, {type:"image", src:"res/building/bottles-nm.png"}
+	, {type:"image", src:"res/building/eye-nm.png"}
+	, {type:"image", src:"res/building/grow-nm.png"}
+	, {type:"image", src:"res/building/oshooter-nm.png"}
+	, {type:"image", src:"res/building/rocket-nm.png"}
+	, {type:"image", src:"res/building/power-nm.png"}
+
+	, {type:"image", src:"res/building/remove.png"}
+
 	, {type:"image", src:"res/building/dec_bg.png"}
+
 	
 	, {type:"image", src:"res/menu/btn.png"}
 	, {type:"image", src:"res/menu/btn2.png"}
