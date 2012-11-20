@@ -1,6 +1,6 @@
 yc.GameLayer = cc.Layer.extend({
 	
-	onEnter: function(){
+	ctor: function(){
 
 		this._super() ;
 		
@@ -8,6 +8,11 @@ yc.GameLayer = cc.Layer.extend({
 		this.actFadeCellInner = null ;
 		this.actFadeCellOrgan = null ;
 		
+	}
+
+	, onEnter: function(){
+		this._super() ;
+
 		// resize 事件
 		yc.event.register(ins(yc.outer.Camera),"resize",this.onResize,this) ;
 
@@ -17,6 +22,8 @@ yc.GameLayer = cc.Layer.extend({
 	}
 
 	, onExit: function(){
+		this._super() ;
+
 		// 移除resize事件
 		yc.event.unregister( ins(yc.outer.Camera), "resize", this.onResize ) ;
 	}

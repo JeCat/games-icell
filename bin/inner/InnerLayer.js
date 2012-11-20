@@ -24,8 +24,11 @@ yc.inner.InnerLayer = cc.Sprite.extend({
 	, onEnter: function(){
 		this._super() ;
 		this.addChild(this.map) ;
+here() ;
 		this.addChild(this.buildings) ;
+here() ;
 		this.addChild(this.layerVirus) ;
+here() ;
 	}
 	
 	

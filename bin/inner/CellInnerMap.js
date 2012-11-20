@@ -23,8 +23,6 @@ yc.inner.CellInnerMap = cc.Layer.extend({
 
 	, onEnter: function(){
 		this._super() ;
-
-		log(this.getAnchorPoint()) ;
 	}
 	
 	, draw: function(ctx){//return;

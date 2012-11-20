@@ -143,7 +143,8 @@ yc.outer.Stain = yc.outer.PhysicalEntity.extend({
 	}
 
 	, initWithScript: function(script){
-		
+
+here() ;
 		this._super(script) ;
 
 		if('shapes' in script)

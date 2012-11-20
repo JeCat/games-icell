@@ -96,7 +96,7 @@ yc.MainScene = cc.Scene.extend({
 
 		else
 		{
-			yc.levels.LevelSelector.enterLevel(yc.levels.c1.l1) ;
+			//yc.levels.LevelSelector.enterLevel(yc.levels.c1.l1) ;
 		}
 	}
 
