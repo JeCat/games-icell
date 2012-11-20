@@ -42,14 +42,14 @@ yc.outer.PlayerLayer = cc.Layer.extend({
 	}
 	
 	, onTouchesMoved: function(touches, event){
-		var cellPos = this.cell;
-		var touchPos = yc.outer.Camera.screenPos2WorldPos (touches[0]._point) ;
+		var cellPos = this.cell.getPosition() ;
+		var touchPos = yc.util.windowToClient(ins(yc.GameLayer),touches[0]._point.x,touches[0]._point.y) ;
 		
 		var radianBetweenPoints = yc.util.radianBetweenPoints(
 			cellPos.x
 			,cellPos.y
-			,touchPos.x
-			,touchPos.y
+			,touchPos[0]
+			,touchPos[1]
 		) ;
 
 		if(this.getNeedFaceToPoint()){

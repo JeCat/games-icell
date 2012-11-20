@@ -17,7 +17,8 @@ yc.GameLayer = cc.Layer.extend({
 		yc.event.register(ins(yc.outer.Camera),"resize",this.onResize,this) ;
 
 		// 初始动画：缩放
-		this.actScale = cc.ScaleBy.create(1,yc.settings.camera.firstZoom) ;
+		this.actScale = cc.ScaleBy.create(1,1) ;
+		// this.actScale = cc.ScaleBy.create(1,yc.settings.camera.firstZoom) ;
 		this.runAction(this.actScale) ;
 	}
 
@@ -90,8 +91,11 @@ yc.GameLayer = cc.Layer.extend({
 			this._parent.layerPlayer.cell.shell.runAction( this.actFadeCellOrgan );
 		}
 		
-			
 		this._super(scalex,scaley) ;
+
+
+		var cam = ins(yc.outer.Camera) ;
+		cam.moveByFocus(cam.x,cam.y) ;
 	}
 
 	// , draw: function(ctx){
