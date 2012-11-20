@@ -68,6 +68,26 @@ yc.outer.Stain = yc.outer.PhysicalEntity.extend({
 		this.initWithScript(script) ;
 	}
 	
+	// for native
+	, onDraw: function(){
+		if('shapes' in this)
+		{
+			for(var si=0;si<this.shapes.length;si++)
+			{
+				var shape = this.shapes[si] ;
+				if(shape.type=='polygon')
+				{
+					var points = [] ;
+					for(var pi=0;pi<shape.points.length;pi++)
+					{
+						points.push( cc.p(shape.points[pi][0],shape.points[pi][1]) ) ;
+					}
+
+					cc.drawPoly(points,true) ;
+				}
+			}
+		}
+	}
 	, draw: function(ctx){
 
 		if(g_architecture=='native')
@@ -143,7 +163,8 @@ yc.outer.Stain = yc.outer.PhysicalEntity.extend({
 	}
 
 	, initWithScript: function(script){
-		
+
+here() ;
 		this._super(script) ;
 
 		if('shapes' in script)

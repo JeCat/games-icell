@@ -104,5 +104,5 @@ yc.inner.building._RocketSmoke = cc.Sprite.extend({
 		yc.util.ObjectPool.ins(yc.inner.building._RocketSmoke).free(this) ;
 	}
 
-	, transform: yc.outer.Camera.transformSprite
+	//, transform: yc.outer.Camera.transformSprite
 }) ;

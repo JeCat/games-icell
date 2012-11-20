@@ -41,22 +41,22 @@ yc.ui.editer.WorldEditerLayer = cc.Layer.extend({
 		yc.event.unregister( ins(yc.outer.Camera), "resize", this.onResize ) ;
 	}
 
-	, _screenToWorld: function(touches) {
+	, screenToWorld: function(touches) {
 
 		var cam = ins(yc.outer.Camera) ; 
 
 		for(var i=0;i<touches.length;i++)
 		{
 			var p = yc.util.windowToClient(ins(yc.GameLayer),touches[i]._point.x,touches[i]._point.y) ;
-			touches[i]._point.wx = cam.x + p[0] ;
-			touches[i]._point.wy = cam.y + p[1] ;
+			touches[i]._point.wx = p[0] ;
+			touches[i]._point.wy = p[1] ;
 		}
 	}
 
 	, onTouchesBegan: function(touches, event){
 		if( this.touchBeginCallback )
 		{
-			this._screenToWorld(touches) ;
+			this.screenToWorld(touches) ;
 
 			return this.touchBeginCallback(touches,event) ;
 		}
@@ -69,7 +69,7 @@ yc.ui.editer.WorldEditerLayer = cc.Layer.extend({
  
 		if( this.touchMovedCallback || this._ptDragging )
 		{
-			this._screenToWorld(touches) ;
+			this.screenToWorld(touches) ;
 		}
 			
 		if( this.touchMovedCallback )
@@ -99,7 +99,7 @@ yc.ui.editer.WorldEditerLayer = cc.Layer.extend({
 	, onTouchesEnded:function (touches, event) {
 		if( this.touchCallback )
 		{
-			this._screenToWorld(touches) ;
+			this.screenToWorld(touches) ;
 
 			return this.touchCallback(touches,event) ;
 		}
@@ -126,8 +126,9 @@ yc.ui.editer.WorldEditerLayer = cc.Layer.extend({
 		yc.util.drawLine([0,-10],[0,-1],ctx,c) ;
 
 		c = "rgba(122,200,214,0.3)" ;
-		yc.util.drawLine([-cam.offsetX,0],[cam.offsetX,0],ctx,c) ;
-		yc.util.drawLine([0,-cam.offsetY],[0,cam.offsetY],ctx,c) ;
+		var wsize = cc.Director.getInstance().getWinSize() ;
+		yc.util.drawLine([-wsize.width,0],[wsize.width,0],ctx,c) ;
+		yc.util.drawLine([0,-wsize.height],[0,wsize.height],ctx,c) ;
 
 		yc.util.text(ctx, "x:"+cam.x.toFixed(1)+", y:"+cam.y.toFixed(1) ,-30,25, "rgb(191,219,129)") ;
 
@@ -137,7 +138,6 @@ yc.ui.editer.WorldEditerLayer = cc.Layer.extend({
 		{
 			ctx.save() ;
 
-			var wsize = cc.Director.getInstance().getWinSize() ;
 			ctx.translate( this.touchingX-wsize.width/2, wsize.height-this.touchingY-wsize.height/2 ) ;
 
 			yc.util.drawLine([-10,0],[-1,0],ctx,'white') ;

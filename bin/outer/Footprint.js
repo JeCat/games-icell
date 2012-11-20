@@ -31,6 +31,6 @@ yc.outer.Footprint = cc.Sprite.extend({
 		yc.util.drawCircle(ctx,0,0,50,50,"rgb(255,255,255)") ;
 	}
 
-	, transform: yc.outer.Camera.transformSprite
+	//, transform: yc.outer.Camera.transformSprite
 
 }) ;

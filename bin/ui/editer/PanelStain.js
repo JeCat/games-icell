@@ -267,10 +267,17 @@ yc.ui.editer.PanelStain = function(editer){
 				return ;
 			}
 			
-			var cam = ins(yc.outer.Camera) ;
-			$('#ipt-stain-x').val( cam.x - cam.offsetX + touches[0]._point.x ) ;
-			$('#ipt-stain-y').val( cam.y - cam.offsetY + touches[0]._point.y ) ;
-			onChangeStainPosition() ;
+			editer.layer.screenToWorld(touches) ;
+			$('#ipt-stain-x').val( touches[0]._point.wx ) ;
+			$('#ipt-stain-y').val( touches[0]._point.wy ) ;
+
+			panel.selectedStain._script.x = touches[0]._point.wx ;
+			panel.selectedStain._script.y = touches[0]._point.wy ;
+			log(panel.selectedStain._script) ;
+			panel.selectedStain.initWithScript(panel.selectedStain._script) ;
+			//onChangeStainPosition() ;
+
+			panel.refreshStains() ;
 
 			return false ;
 		}

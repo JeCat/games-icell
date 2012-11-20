@@ -114,11 +114,6 @@ yc.outer.pinups.Pinup = cc.Sprite.extend({
 		this.y+= dt * this.velocity[1] ;
 	}
 
-	, transform: yc.outer.Camera.transformSprite
-	// , transform: function(ctx){
-	// 	yc.outer.Camera.transformSprite.apply(this,[ctx]) ;
-	// 	//ctx.scale(this.getScaleX(),this.getScaleY()) ; 
-	// }
 }) ;
 
 yc.outer.pinups.Pinup.insId = -1 ;

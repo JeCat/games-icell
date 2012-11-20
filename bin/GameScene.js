@@ -79,7 +79,7 @@ yc.GameScene = cc.Scene.extend({
 		
 		
 		// border
-		this._drawBorder();
+		//this._drawBorder();
 
 		// $(window).trigger('yc.GameScene::onAfterInit',[]) ;
 	}
@@ -101,7 +101,7 @@ yc.GameScene = cc.Scene.extend({
 		this.world.removingBodies = [] ;
 		
 		// 世界边界墙
-		this._createWalls() ;
+		// this._createWalls() ;
 		
 		
 
@@ -244,7 +244,7 @@ yc.GameScene = cc.Scene.extend({
 				ctx.closePath() ;
 				ctx.stroke() ;
 			}
-			, transform: yc.outer.Camera.transformSprite
+			//, transform: yc.outer.Camera.transformSprite
 		});
 		this.layerGame.addChild( new border);
 	}
