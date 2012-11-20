@@ -31,6 +31,7 @@ yc.outer.PhysicalEntity = cc.Sprite.extend({
 	, initWithPosition: function(x,y){
 		this.x = this.homeX = x ;
 		this.y = this.homeY = y ;
+		this.setPosition(cc.p(x,y)) ;
 	}
 
 	, initWithB2Body: function(b2body){

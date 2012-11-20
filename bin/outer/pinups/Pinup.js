@@ -64,6 +64,7 @@ yc.outer.pinups.Pinup = cc.Sprite.extend({
 
 		this.x = script.x ;
 		this.y = script.y ;
+		this.setPosition(cc.p(this.x,this.y)) ;
 
 		if(script.img)
 		{
