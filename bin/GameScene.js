@@ -38,12 +38,18 @@ yc.GameScene = cc.Scene.extend({
 		// 层：远景
 		this.layerPg = new yc.outer.pinups.LayerGround() ;
 		this.layerPg.type = 'perspective' ;
-		this.layerGame.addChild(this.layerPg) ;
+		if(g_architecture=='html5')
+		{
+			this.layerGame.addChild(this.layerPg) ;
+		}
 
 		// 层：背景
 		this.layerBg = new yc.outer.pinups.LayerGround() ;
 		this.layerBg.type = 'background' ;
-		this.layerGame.addChild(this.layerBg) ;
+		if(g_architecture=='html5')
+		{
+			this.layerGame.addChild(this.layerBg) ;
+		}
 		
 		// 层：污渍
 		this.layerStains = new cc.Layer() ;
@@ -53,16 +59,25 @@ yc.GameScene = cc.Scene.extend({
 		// 层：显示其他角色
 		this.layerRoles = new cc.Layer() ;
 		this.layerRoles.setAnchorPoint(cc.p(0,0)) ;
-		this.layerGame.addChild(this.layerRoles) ;
+		if(g_architecture=='html5')
+		{
+			this.layerGame.addChild(this.layerRoles) ;
+		}
 
 		// 层：显示玩家
 		this.layerPlayer = ins(yc.outer.PlayerLayer);
-		this.layerGame.addChild(this.layerPlayer);
+		if(g_architecture=='html5')
+		{
+			this.layerGame.addChild(this.layerPlayer);
+		}
 		
 		// 层：前景
 		this.layerFg = new yc.outer.pinups.LayerGround() ;
 		this.layerFg.type = 'foreground' ;
-		this.layerGame.addChild(this.layerFg) ;
+		if(g_architecture=='html5')
+		{
+			this.layerGame.addChild(this.layerFg) ;
+		}
 
 		// 层：ui
 		if( g_architecture=='html5' )
