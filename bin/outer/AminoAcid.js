@@ -79,17 +79,19 @@ yc.outer.AminoAcid = yc.outer.PhysicalEntity.extend({
 	, catchMe: function(){
 		ins(yc.user.Character).aminoacids.increase(this.type,this.num) ;
 		
-//		this.unscheduleUpdate();
-//		this._destoryBody() ;
-//		
-//		
-//		tmpLayer.addChild(this);
-//		
-//		
-//		var s = cc.Director.getInstance().getWinSize();
-//        var actionTo = cc.MoveTo.create(10, cc.p(100, 100));
-//        tmpLayer.runAction(actionTo);
-		this.destroy() ;
+		this.unscheduleUpdate();
+		this._destoryBody() ;
+		
+		
+		// tmpLayer.addChild(this);
+		
+		
+		var s = cc.Director.getInstance().getWinSize();
+
+		// log(this.getParent());
+       var actionTo = cc.MoveTo.create(1, cc.p(100, 100));
+       this.runAction(actionTo);
+		// this.destroy() ;
 	}
 	
 }) ;
