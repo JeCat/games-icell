@@ -94,6 +94,10 @@ yc.MainScene = cc.Scene.extend({
 			yc.MainScene.autoLoadByUrl = false ;
 		}
 
+		else
+		{
+			yc.levels.LevelSelector.enterLevel(yc.levels.c1.l1) ;
+		}
 	}
 
 	, onExit : function(){

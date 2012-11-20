@@ -25,23 +25,27 @@ yc.outer.AminoAcid = yc.outer.PhysicalEntity.extend({
 		var colors = {red:'255,0,0',blue:'0,0,255',yellow:'255,255,0'}
 		this.color = 'rgb(' + colors[this.type] + ')' ;
 
-		/*
-		if( this.type == "red"){
-			this.initWithFile("res/aminoAcid_red.png");
-		}else if( this.type == "blue"){
-			this.initWithFile("res/aminoAcid_blue.png");
-		}else if( this.type == "yellow"){
-			this.initWithFile("res/aminoAcid_yellow.png");
-		}
-		*/
+		// if( this.type == "red"){
+		// 	this.initWithFile("res/dashboard/aminoAcid_red.png");
+		// }else if( this.type == "blue"){
+		// 	this.initWithFile("res/dashboard/aminoAcid_blue.png");
+		// }else if( this.type == "yellow"){
+		// 	this.initWithFile("res/dashboard/aminoAcid_yellow.png");
+		// }
 		
 		this.initWithCircle(this.size,this.x,this.y,yc.settings.outer.aminoacid.density) ;
 	}
 		
 	, transform: yc.outer.Camera.transformSprite
-	, draw: function(ctx)
-	{
+	, draw: function(ctx){
+
 		this._super(ctx ,true) ;
+
+		if(g_architecture=='native')
+		{
+			return ;
+		}
+
 		
 		ctx.fillStyle = this.color ;
 		ctx.beginPath();

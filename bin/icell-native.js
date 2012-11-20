@@ -26,7 +26,8 @@ for( var i=0; i < g_AppFiles.length; i++) {
 }
 
 
-
+// 加载动画
+yc.animations.initBuildinAnimations() ;
 
 
 var director = cc.Director.getInstance();

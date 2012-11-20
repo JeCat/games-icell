@@ -26,6 +26,12 @@ yc.outer.Portal = yc.outer.PhysicalEntity.extend({
 	, draw: function(ctx){
 		
 		this._super(ctx,true) ;
+
+		if(g_architecture=='native')
+		{
+			return ;
+		}
+
 		/*
 		log(this.getScale()) ;
 
@@ -40,7 +46,7 @@ yc.outer.Portal = yc.outer.PhysicalEntity.extend({
 
 	, open: function(){
 		
-		this.setScale(1,1.1);
+		this.setScale(1);
 		var seq = cc.Spawn.create(
 				cc.RepeatForever.create(cc.RotateBy.create(2, 360))
 		)

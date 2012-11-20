@@ -3,7 +3,7 @@ yc.inner.Cell = function()
 	this.hpMax = 10 ;
 	this.hp = this.hpMax ;
 	this.virusArrived = 0 ;
-	
+
 	this.aAxes = new HexgonAxes( yc.settings.inner.hexgonSideLength, yc.inner.CellHexgon ) ;
 
 	axes = this.aAxes ;
@@ -340,25 +340,11 @@ yc.inner.Cell.prototype.initWithScript = function( script ){
 		script.cytoplasms[i] ;
 		this.grow( script.cytoplasms[i][0], script.cytoplasms[i][1] ) ;
 	}
-	
+
 	// 建筑
 	for(var i=0;i<script.buildings.length;i++){
 		var building = new (eval(script.buildings[i].className)) ;
 		building.putOn(script.buildings[i].x,script.buildings[i].y) ;
-
 		building.initWithScript(script.buildings[i]) ;
-
-		// 升级
-		// var upgraders = script.buildings[i].upgraders ;
-		// for(var name in upgraders)
-		// {
-		// 	for(var u=0;u<upgraders[name];u++)
-		// 	{
-		// 		building.upgrader( eval(name) )
-		// 					.upgrade(building,false) ;
-		// 	}
-		// }
 	}
-
-	return ;
 }

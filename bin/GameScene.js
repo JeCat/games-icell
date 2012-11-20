@@ -44,14 +44,6 @@ yc.GameScene = cc.Scene.extend({
 		this.layerBg = new yc.outer.pinups.LayerGround() ;
 		this.layerBg.type = 'background' ;
 		this.layerGame.addChild(this.layerBg) ;
-
-		// 层：玻片
-		// this.layerGlassSlide = cc.LayerColor.create(cc.c4(255,255,255,50),this.rgt-this.lft,this.top-this.btm);  
-		// this.layerGlassSlide.setAnchorPoint(cc.p(0,0)) ;
-		// this.layerGlassSlide.x = this.lft ;
-		// this.layerGlassSlide.y = this.btm ;
-		// this.layerGlassSlide.transform = yc.outer.Camera.transformSprite
-		// this.layerGame.addChild(this.layerGlassSlide) ;
 		
 		// 层：污渍
 		this.layerStains = new cc.Layer() ;
@@ -73,12 +65,15 @@ yc.GameScene = cc.Scene.extend({
 		this.layerGame.addChild(this.layerFg) ;
 
 		// 层：ui
-		this.layerUi = ins(yc.ui.UILayer) ;
-		this.addChild(this.layerUi) ;
-		
+		if( g_architecture=='html5' )
+		{ 
+			this.layerUi = ins(yc.ui.UILayer) ;
+			this.addChild(this.layerUi) ;
+		}
+
 		// 游戏显示比例缩放
 		this._initZoomer() ;
-		
+
 		// 全局变量
 		scene = this ;
 		
@@ -218,6 +213,12 @@ yc.GameScene = cc.Scene.extend({
 			x: 0
 			, y: 0
 			, draw: function(ctx){
+				if(g_architecture=='native')
+				{
+					this._super() ;
+					return ;
+				}
+
 				this._super(ctx);
 				
 				ctx.strokeStyle = "rgba(0,0,255,1)" ;

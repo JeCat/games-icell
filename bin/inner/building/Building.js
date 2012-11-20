@@ -2,6 +2,7 @@ yc.inner.building.Building = cc.Sprite.extend({
 
 
 	ctor: function(){
+		this._super() ;
 		this._upgraders = {}
 		this.hexgon = null
 		this.cost = {} ;
@@ -41,7 +42,7 @@ yc.inner.building.Building = cc.Sprite.extend({
 		}else{
 			var bLayer = ins(yc.inner.InnerLayer).buildings ;
 		}
-		
+
 		// 分配 idx
 		this.idx = bLayer.assigned ++ ;
 		
@@ -69,6 +70,12 @@ yc.inner.building.Building = cc.Sprite.extend({
 	}
 	
 	, draw: function(ctx){
+		if(g_architecture=='native')
+		{
+			this._super() ;
+			return ;
+		}
+
 		if(!this.hexgon)
 		{
 			return ;

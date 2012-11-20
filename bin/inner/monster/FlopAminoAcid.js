@@ -47,6 +47,11 @@ yc.inner.monster.FlopAminoAcid = cc.Sprite.extend({
 	}
 	
 	, draw: function(ctx){
+		if(g_architecture=='native')
+		{
+			this._super() ;
+			return ;
+		}
 
 		ctx.globalAlpha = this._opacity/255;
 		ctx.fillStyle = this.type ;

@@ -171,6 +171,17 @@ var g_ResFiles = [
 	, {type:"image", src:"res/Goal.png"}
 	, {type:"image", src:"res/skill.png"}
 	, {type:"image", src:"res/star2.png"}
+
+	, {type:"image", src:"res/dashboard/aminoAcid_blue.png"}
+	, {type:"image", src:"res/dashboard/aminoAcid_red.png"}
+	, {type:"image", src:"res/dashboard/aminoAcid_yellow.png"}
+	, {type:"image", src:"res/dashboard/star_blue.png"}
+	, {type:"image", src:"res/dashboard/star_red.png"}
+	, {type:"image", src:"res/dashboard/star_yellow.png"}
+	, {type:"image", src:"res/dashboard/star_orange.png"}
+	, {type:"image", src:"res/dashboard/star_green.png"}
+	, {type:"image", src:"res/dashboard/star_violet.png"}
+	, {type:"image", src:"res/dashboard/dashboard_bg.png"}
 	
 	, {type:"image", src:"res/btn-composition.png"}
 	, {type:"image", src:"res/btn-composition-light.png"}

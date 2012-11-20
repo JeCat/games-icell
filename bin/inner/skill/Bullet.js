@@ -75,6 +75,12 @@ yc.inner.skill.Bullet = cc.Sprite.extend({
 		this.runAction(action);
 	}
 	, draw: function(ctx){
+		if(g_architecture=='native')
+		{
+			this._super() ;
+			return ;
+		}
+		
 		this._super(ctx);
 		var radius = 5;
 		ctx.fillStyle = "rgba(0,255,0,1)" ;

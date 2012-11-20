@@ -6,10 +6,16 @@ yc.inner.organ.Tower = yc.inner.organ.Organ.extend({
 			new yc.inner.skill.OutsideShooter
 		);
 		
-
-		// 开始动画
-        this.initWithSpriteFrameName("artillery_lvl4_tesla_0049.png") ; //第一帧
-        this.runAction(cc.RepeatForever.create( yc.animations.createAction('towers.factory_arcane_tower') ));
+		this.initWithFile('res/organ/Tower.png');
+	}
+	,draw: function(ctx){
+		if(g_architecture=='native')
+		{
+			this._super() ;
+			return ;
+		}
 		
+		var texture = yc.util.ccShareTexture('res/organ/Tower.png') ;
+		ctx.drawImage(texture,-17,-17) ;
 	}
 });

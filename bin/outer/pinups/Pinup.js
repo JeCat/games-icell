@@ -21,21 +21,28 @@ yc.outer.pinups.Pinup = cc.Sprite.extend({
  	// }
 
 	, draw: function(ctx){
+		if(g_architecture=='native')
+		{
+			this._super() ;
+			return ;
+		}
 
 		// ctx.rotate(this.getRotation()) ;
 		// ctx.scale(this.getScaleX(),this.getScaleY()) ;
 
 		// 平铺
-		if(this._script.tile)
-		{
-			yc.util.tileImage( ctx, this._script.img, 0,0, this._script.tileWidth,this._script.tileHeight) ;
-		}
+		if(this._script.img){
+			if(this._script.tile)
+			{
+				yc.util.tileImage( ctx, this._script.img, 0,0, this._script.tileWidth,this._script.tileHeight) ;
+			}
 
-		// 贴图
-		else
-		{
-			// this._super(ctx) ;
-			yc.util.drawImage(ctx,this._script.img,0,0,this._script.anchorX,this._script.anchorY) ;
+			// 贴图
+			else
+			{
+				// this._super(ctx) ;
+				yc.util.drawImage(ctx,this._script.img,0,0,this._script.anchorX,this._script.anchorY) ;
+			}
 		}
 
 		if( 'text' in this._script && this._script.text ){
@@ -76,7 +83,8 @@ yc.outer.pinups.Pinup = cc.Sprite.extend({
 
 		this.setOpacity(parseInt(script.opacity)) ;
 		this.setRotation(script.rotation) ;
-		this.setScale(script.scaleX,script.scaleY) ;
+		this.setScaleX(script.scaleX) ;
+		this.setScaleY(script.scaleY) ;
 		this.setAnchorPoint(cc.p(script.anchorX,script.anchorY)) ;
 	}
 

@@ -148,8 +148,8 @@ yc.settings = {
 				, freq: 1300				// 射击频率
 				, injure: 20				// 伤害
 				, range: 250				// 射程
-				, sputtering: 10 			// 溅射半径
-				, sputtering_injure: 4 		// 溅射伤害
+				, sputtering: 1 			// 溅射半径
+				, sputtering_injure: 0 		// 溅射伤害
 				, retardment: 0				// 减速
 				, retardment_duration: 0	// 减速持续时间
 			}
@@ -168,17 +168,17 @@ yc.settings = {
 				speed: 300					// 炮弹速度
 				, freq: 1500				// 射击频率
 				, injure: 10				// 伤害
-				, range: 60					// 射程
-				, sputtering: 20 			// 溅射半径
+				, range: 210					// 射程
+				, sputtering: 5 			// 溅射半径
 				, sputtering_injure: 10		// 溅射伤害
 				, retardment: 0				// 减速
 				, retardment_duration: 0	// 减速持续时间
 			}
 			// 建造费用（蛋白质）
 			, cost: {
-				red: 3
-				, yellow: 3 
-				, blue: 3
+				red: 5
+				, yellow: 5
+				, blue: 5
 			}
 		}
 
@@ -189,9 +189,9 @@ yc.settings = {
 				speed: 300					// 炮弹速度
 				, freq: 1500				// 射击频率
 				, injure: 10				// 伤害
-				, range: 80					// 射程
-				, sputtering: 0 			// 溅射半径
-				, sputtering_injure: 0 		// 溅射伤害
+				, range: 280					// 射程
+				, sputtering: 10 			// 溅射半径
+				, sputtering_injure: 10 		// 溅射伤害
 				, retardment: 0				// 减速
 				, retardment_duration: 0	// 减速持续时间
 			}
@@ -209,10 +209,10 @@ yc.settings = {
 			base: {
 				speed: 300					// 炮弹速度
 				, freq: 1500				// 射击频率
-				, injure: 10				// 伤害
-				, range: 80					// 射程
-				, sputtering: 20 			// 溅射半径
-				, sputtering_injure: 3 		// 溅射伤害
+				, injure: 1					// 伤害
+				, range: 280				// 射程
+				, sputtering: 10 			// 溅射半径
+				, sputtering_injure: 1 		// 溅射伤害
 				, retardment: 0.5			// 减速
 				, retardment_duration: 2	// 减速持续时间
 			}

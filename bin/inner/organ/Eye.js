@@ -4,6 +4,12 @@ yc.inner.organ.Eye = yc.inner.organ.Organ.extend({
 		this.range = 10 ;
 	}
 	, draw: function(ctx){
+		if(g_architecture=='native')
+		{
+			this._super() ;
+			return ;
+		}
+		
 		ctx.fillStyle = "rgba(255,0,0,1)" ;
 		ctx.beginPath() ;
 		ctx.moveTo(this.range,0) ;
