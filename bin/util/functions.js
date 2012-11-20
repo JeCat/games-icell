@@ -206,7 +206,7 @@ yc.util.ccShareTexture = function (url,rect){
 			cc.TextureCache.getInstance().cacheImage(url,texture);
 		});
 		texture.addEventListener("error", function () {
-			cc.log("load failure:" + url);
+			cc.log("url load failure:" + url);
 		});
 		texture.src = url ;
 	}

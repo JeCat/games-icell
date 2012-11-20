@@ -3,7 +3,7 @@ yc.ui.skill.SkillBar = cc.Layer.extend({
 	, buttons : {}
 	, buttonsIndex : []
 	, ctor: function(){
-		
+		this.buttons = {};
 	}
 	, createButtonForSkill: function(skill){
 		var name = skill.name();
