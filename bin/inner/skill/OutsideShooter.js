@@ -16,12 +16,13 @@ yc.inner.skill.OutsideShooter = yc.inner.skill.SkillBase.extend({
 		
 		// from
 		var b = this.building().getParent().getParent() ;
-		var ptf = yc.util.clientToWindow(
-			b,
-			b.x,
-			b.y
-		);
-		var ptr = cc.p(ptf[0],ptf[1]);
+//		var ptf = yc.util.clientToWindow(
+//			b,
+//			b.x,
+//			b.y
+//		);
+		
+		var ptr = cc.p(b.x,b.y);
 		bullet.setFromPosition( ptr );
 		
 		// target

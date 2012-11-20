@@ -3,7 +3,7 @@ yc.inner.monster.Mitochondria = cc.Sprite.extend({
 	ctor: function(recycle){
 		this._super() ;
 		this.initWithFile("res/mitochondria.png") ;
-		this.speed = 20 ;
+		this.speed = 100 ;
 		this.watched = null ;
 		this.catched = null ;
 		this.recycle = recycle ;
@@ -86,6 +86,7 @@ yc.inner.monster.Mitochondria = cc.Sprite.extend({
 				for(var id in usingAminoacids)
 				{
 					var aminoacid = usingAminoacids[id] ;
+					var aminoacidlayer = usingAminoacids[id]._parent ;
 					if( aminoacid.beWatched || aminoacid.beWatched || !aminoacid.using )
 					{
 						continue ;
@@ -103,36 +104,39 @@ yc.inner.monster.Mitochondria = cc.Sprite.extend({
 					}
 					
 					// 向目标移动
-					var p = this.watched.getPosition() ;
-					this.actWorking = this.createMovingAction(p.x,p.y,function(){
-						
-						// 抓住目标
-						worker.watched = null ;
-						worker.catched = aminoacid ;
-						aminoacid.beCatched = worker ;
-						
-						// 停止氨基酸的消失动作
-						aminoacid.stopAction(aminoacid.actFade) ;
-						aminoacid.setOpacity(255) ;
-						
-						// 
-						worker.addChild(aminoacid) ;
-						aminoacid.setPosition(cc.p(-5,5)) ;
-						
-						// 移动到所属的回收站
-						worker.actWorking = worker.createMovingAction(worker.recycle.hexgon.center[0],worker.recycle.hexgon.center[1],function(){
-							worker.watched = null ;
-							worker.catched = null ;
-							worker.removeChild(aminoacid) ;
-
-							// 回收氨基酸
-							ins(yc.user.Character).aminoacids.increase(aminoacid.type,aminoacid.num) ;
-							aminoacid.destroy() ;
+						var p = aminoacidlayer.getPosition() ;
+						this.actWorking = this.createMovingAction(p.x,p.y,function(){
 							
-							// 进入漫步状态
-							worker.mosey() ;
-						})
-					}) ;
+							// 抓住目标
+							worker.watched = null ;
+							worker.catched = aminoacid ;
+							aminoacid.beCatched = worker ;
+							
+							// 停止氨基酸的消失动作
+							aminoacid.stopAction(aminoacid.actFade) ;
+							aminoacid.setOpacity(255) ;
+							
+							aminoacidlayer.removeFromParent() ;
+							aminoacidlayer.removeChild(aminoacid);
+							worker.addChild(aminoacid) ;
+							
+							//aminoacid.setPosition(cc.p(-5,5)) ;
+							
+							// 移动到所属的回收站
+							worker.actWorking = worker.createMovingAction(worker.recycle.hexgon.center[0],worker.recycle.hexgon.center[1],function(){
+								worker.watched = null ;
+								worker.catched = null ;
+								worker.removeChild(aminoacid) ;
+
+								// 回收氨基酸
+								ins(yc.user.Character).aminoacids.increase(aminoacid.type,aminoacid.num) ;
+								aminoacid.destroy() ;
+								
+								// 进入漫步状态
+								worker.mosey() ;
+							})
+						}) ;
+					
 					
 					break ;
 				}
