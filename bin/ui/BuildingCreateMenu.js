@@ -93,9 +93,9 @@ yc.ui.BuildingCreateMenu = function(){
 		, grow: {
 			title: '生长'
 			, description: '扩张为细胞内部区域'
-			, texture : "res/building/recycle.png"
-			, texture_l : "res/building/recycle-l.png"
-			, texture_nm : "res/building/recycle-nm.png"
+			, texture : "res/building/grow.png"
+			, texture_l : "res/building/grow-l.png"
+			, texture_nm : "res/building/grow-nm.png"
 			, hexgonTypes: ['membrane']
 			, cost: function(){
 				return {
@@ -144,9 +144,9 @@ yc.ui.BuildingCreateMenu = function(){
 		, eye: {
 			title: '眼睛'
 			, description: '一双美丽的大眼睛'
-			, texture : "res/building/recycle.png"
-			, texture_l: "res/building/recycle-l.png"
-			, texture_nm: "res/building/recycle-nm.png"
+			, texture : "res/building/eye.png"
+			, texture_l: "res/building/eye-l.png"
+			, texture_nm: "res/building/eye-nm.png"
 			, hexgonTypes: ['membrane']
 			, cost: function(){
 				return {
@@ -186,9 +186,9 @@ yc.ui.BuildingCreateMenu = function(){
 		, bottles: {
 			title: '漂流瓶'
 			, description: '朋友无处不在'
-			, texture : "res/building/8.png"
-			, texture_l : "res/building/8-l.png"
-			, texture_nm : "res/building/8-nm.png"
+			, texture : "res/building/bottles.png"
+			, texture_l : "res/building/bottles-l.png"
+			, texture_nm : "res/building/bottles-nm.png"
 			, hexgonTypes: ['cytoplasm']
 			, cost: function(){
 				return {}
@@ -202,9 +202,9 @@ yc.ui.BuildingCreateMenu = function(){
 		, power: {
 			title: '线粒体：动力'
 			, description: '增加细胞的移动速度'
-			, texture : "res/building/8.png"
-			, texture_l : "res/building/8-l.png"
-			, texture_nm : "res/building/8-nm.png"
+			, texture : "res/building/power.png"
+			, texture_l : "res/building/power-l.png"
+			, texture_nm : "res/building/power-nm.png"
 			, hexgonTypes: ['cytoplasm']
 			, cost: function(){
 				return {}
@@ -218,9 +218,9 @@ yc.ui.BuildingCreateMenu = function(){
 		, rocket: {
 			title: '火箭推进器'
 			, description: '短时间内让细胞的移动速度加倍'
-			, texture : "res/building/8.png"
-			, texture_l : "res/building/8-l.png"
-			, texture_nm : "res/building/8-nm.png"
+			, texture : "res/building/rocket.png"
+			, texture_l : "res/building/rocket-l.png"
+			, texture_nm : "res/building/rocket-nm.png"
 			, hexgonTypes: ['cytoplasm']
 			, cost: function(){
 				return {}
