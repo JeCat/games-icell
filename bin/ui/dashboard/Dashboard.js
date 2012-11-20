@@ -208,7 +208,7 @@ here() ;
 	}
 
 	, _createLabel: function(word,color){
-		var label = cc.LabelTTF.create(word,'',16,new cc.Size(0,16),cc.TEXT_ALIGNMENT_LEFT,cc.VERTICAL_TEXT_ALIGNMENT_BOTTOM) ;
+		var label = cc.LabelTTF.create(word,'',16,new cc.Size(20,16),cc.TEXT_ALIGNMENT_CENTER,cc.VERTICAL_TEXT_ALIGNMENT_BOTTOM) ;
 		label.setColor(color) ;
 		return label ;
 	}
@@ -217,7 +217,6 @@ here() ;
 		var dash = this;
 		dash.centerPosition = [ 100 , h - 120 ];
 
-		xxx = dash.dashboard_bg;
 		if(dash.dashboard_bg){
 			dash.dashboard_bg.setPosition( cc.p(dash.centerPosition[0]+15,dash.centerPosition[1]+28) );
 		}
@@ -242,6 +241,14 @@ here() ;
         		dash.centerPosition[0] + dash.proteinsPositions[name][0]  
         		, dash.centerPosition[1] + dash.proteinsPositions[name][1]
         	);
+        }
+
+        for( var name in this.labelAminoAcids ){
+        	this.labelAminoAcids[name].setPosition(cc.p(12,-9));
+        }
+
+        for( var name in this.labelProteins ){
+        	this.labelProteins[name].setPosition(cc.p(15,-10));
         }
         
 	}
