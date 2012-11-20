@@ -17,11 +17,12 @@ yc.outer.RandomRolesLayer = cc.Layer.extend({
 	, update: function()
 	{
 		var camera = ins(yc.outer.Camera) ;
+		var wsize = cc.Director.getInstance().getWinSize() ;
 		var range = {
-			left: 0|(camera.x - camera.width)
-			, right: 0|(camera.x + 2*camera.width)
-			, top: 0|(camera.y + 2*camera.height)
-			, bottom: 0|(camera.y - camera.height)
+			left: 0|(camera.x - wsize.width)
+			, right: 0|(camera.x + 2*wsize.width)
+			, top: 0|(camera.y + 2*wsize.height)
+			, bottom: 0|(camera.y - wsize.height)
 		} ;
 		range.width = range.right - range.left ;
 		range.height = range.top - range.bottom ;

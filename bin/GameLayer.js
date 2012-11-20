@@ -1,6 +1,6 @@
 yc.GameLayer = cc.Layer.extend({
 	
-	onEnter: function(){
+	ctor: function(){
 
 		this._super() ;
 		
@@ -8,15 +8,23 @@ yc.GameLayer = cc.Layer.extend({
 		this.actFadeCellInner = null ;
 		this.actFadeCellOrgan = null ;
 		
+	}
+
+	, onEnter: function(){
+		this._super() ;
+
 		// resize 事件
 		yc.event.register(ins(yc.outer.Camera),"resize",this.onResize,this) ;
 
 		// 初始动画：缩放
-		this.actScale = cc.ScaleBy.create(1,yc.settings.camera.firstZoom) ;
+		this.actScale = cc.ScaleBy.create(1,1) ;
+		// this.actScale = cc.ScaleBy.create(1,yc.settings.camera.firstZoom) ;
 		this.runAction(this.actScale) ;
 	}
 
 	, onExit: function(){
+		this._super() ;
+
 		// 移除resize事件
 		yc.event.unregister( ins(yc.outer.Camera), "resize", this.onResize ) ;
 	}
@@ -83,8 +91,11 @@ yc.GameLayer = cc.Layer.extend({
 			this._parent.layerPlayer.cell.shell.runAction( this.actFadeCellOrgan );
 		}
 		
-			
 		this._super(scalex,scaley) ;
+
+
+		var cam = ins(yc.outer.Camera) ;
+		cam.moveByFocus(cam.x,cam.y) ;
 	}
 
 	// , draw: function(ctx){

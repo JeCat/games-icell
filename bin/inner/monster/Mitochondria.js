@@ -118,6 +118,8 @@ yc.inner.monster.Mitochondria = cc.Sprite.extend({
 							
 							aminoacidlayer.removeFromParent() ;
 							aminoacidlayer.removeChild(aminoacid);
+							yc.op.ins(yc.inner.monster.FlopAminoAcidLayer).free(aminoacidlayer);
+							
 							worker.addChild(aminoacid) ;
 							
 							//aminoacid.setPosition(cc.p(-5,5)) ;

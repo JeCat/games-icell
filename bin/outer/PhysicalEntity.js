@@ -142,6 +142,8 @@ yc.outer.PhysicalEntity = cc.Sprite.extend({
 		this.x = x ;
 		this.y = y ;
 
+		this.setPosition(cc.p(x,y)) ;
+
 		// 移动摄像机
 		if( this._followingCamera )
 		{
@@ -152,10 +154,10 @@ yc.outer.PhysicalEntity = cc.Sprite.extend({
 	
 	, autoWakeup: function(dis){
 
-		var camera = ins(yc.outer.Camera) ;
+		var wsize = cc.Director.getInstance().getWinSize() ;
 		
 		// 远离玩家，处于睡眠状态
-		if( dis>(camera.width/2) )
+		if( dis>(wsize.width/2) )
 		{
 			if(this.b2Body.IsAwake())
 			{
@@ -529,6 +531,6 @@ yc.outer.PhysicalEntity = cc.Sprite.extend({
 		this.maxSpeed = this.power / this.b2Body.GetMass() ;
 	}
 
-	, transform: yc.outer.Camera.transformSprite
+	//, transform: yc.outer.Camera.transformSprite
 }) ;
 

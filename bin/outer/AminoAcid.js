@@ -36,7 +36,7 @@ yc.outer.AminoAcid = yc.outer.PhysicalEntity.extend({
 		this.initWithCircle(this.size,this.x,this.y,yc.settings.outer.aminoacid.density) ;
 	}
 		
-	, transform: yc.outer.Camera.transformSprite
+	//, transform: yc.outer.Camera.transformSprite
 	, draw: function(ctx){
 
 		this._super(ctx ,true) ;

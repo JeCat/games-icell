@@ -109,5 +109,5 @@ yc.inner.skill.Bullet = cc.Sprite.extend({
 			}
 		}
 	}
-	, transform: yc.outer.Camera.transformSprite
+	//, transform: yc.outer.Camera.transformSprite
 });

@@ -122,5 +122,5 @@ yc.outer.LifeEntity = cc.Sprite.extend({
 		this.y = pos[1] ;
 	}
 
-	, transform: yc.outer.Camera.transformSprite
+	//, transform: yc.outer.Camera.transformSprite
 }) ;

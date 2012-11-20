@@ -32,13 +32,14 @@ yc.outer.Cell = yc.outer.PhysicalEntity.extend({
 	, onEnter: function(){
 
 		this._super() ;
-
+here() ;
 		this.addChild(this.shell) ;
-
+here() ;
 		this.addChild(this.layerInner) ;
-		
+here() ;
 		// 
 		this.runAction(this.actFootprint) ;
+here() ;
 	}
 
 	, onExit: function(){

@@ -42,19 +42,8 @@ yc.outer.Bottles = cc.Sprite.extend({
 		
 		//判断点击的是否是瓶子
 		var getPoint = touch.getLocation(); // screen
-		var myRect = this.rect();
-		
-		var p = new Object();
-		p.x = this.x;
-		p.y = this.y;
-		
-		var cameraPosition = yc.outer.Camera.worldPos2ScreenPos( p ) // world
-		myRect.origin.x += cameraPosition.x;
-		myRect.origin.y += cameraPosition.y;
-		
-		//console.log(myRect);
-		
-		return cc.Rect.CCRectContainsPoint(myRect, getPoint);
+		var p = yc.util.windowToClient(this,getPoint.x,getPoint.y) ;
+		return cc.Rect.CCRectContainsPoint( this.rect(), {x:p[0], y:p[1]} ) ;
 	},
 	onEnter:function () {
 		//cc.Director.getInstance().getTouchDispatcher().addTargetedDelegate(this, 0, true);
@@ -71,40 +60,42 @@ yc.outer.Bottles = cc.Sprite.extend({
 			this.addChild(this.pp);
 			this.pp.setPosition(-40,80);
 
-			
-			bThis = this;
-			$.ajax({
-				type: "POST",
-				url: "http://icell.jecat.cn/service/bottles.php",
-				jsonp:'jsonp_callback',
-				data: {
-					"act":"get",
-					"id":this.id
-				},
-				dataType: 'jsonp',
-				success: function(json){
-					
-					if(json.msg == "ok"){
+			if( g_architecture=='html5' )
+			{
+				bThis = this;
+				$.ajax({
+					type: "POST",
+					url: "http://icell.jecat.cn/service/bottles.php",
+					jsonp:'jsonp_callback',
+					data: {
+						"act":"get",
+						"id":this.id
+					},
+					dataType: 'jsonp',
+					success: function(json){
+						
+						if(json.msg == "ok"){
 
-						bThis.label = cc.Sprite.create();
-						bThis.label.setPosition(13,97);
-						bThis.label.draw = function(ctx)
-						{
-					    	var font = ins(yc.ui.font.Font);
-					    	font.setWidth(140);
-					    	font.setHeight(75);
-					    	font.setTextIndent(0);
-					    	font.setTextAlign('left');
-					    	font.setLetterSpacing(4);
-					    	font.setLineHeight(15);
-					    	font.setText(json.content);
-					    	font.draw(ctx);
+							bThis.label = cc.Sprite.create();
+							bThis.label.setPosition(13,97);
+							bThis.label.draw = function(ctx)
+							{
+						    	var font = ins(yc.ui.font.Font);
+						    	font.setWidth(140);
+						    	font.setHeight(75);
+						    	font.setTextIndent(0);
+						    	font.setTextAlign('left');
+						    	font.setLetterSpacing(4);
+						    	font.setLineHeight(15);
+						    	font.setText(json.content);
+						    	font.draw(ctx);
+							}
+							bThis.pp.addChild(bThis.label);
+							//bThis.label.setString(json.content);
 						}
-						bThis.pp.addChild(bThis.label);
-						//bThis.label.setString(json.content);
 					}
-				}
-			}); 
+				}); 
+			}
 			return true;
 		}
 		
@@ -136,8 +127,7 @@ yc.outer.Bottles = cc.Sprite.extend({
 				yc.outer.Bottles.list[rs].pp.setVisible(false);
 			}
 		}
-	},
-	transform: yc.outer.Camera.transformSprite
+	}
 }) ;
 
 yc.outer.Bottles.bottlesLayer = cc.Layer.extend({
@@ -171,36 +161,38 @@ yc.outer.Bottles.bottlesLayer = cc.Layer.extend({
  */
 yc.outer.Bottles.all = function( level){
 	
-	yc.outer.Bottles.list = new Array();
-	$.ajax({
-		type: "POST",
-		url: "http://icell.jecat.cn/service/bottles.php",
-		jsonp:'jsonp_callback',
-		data: {
-			"act":"getAll",
-			"level":level
-		},
-		dataType: 'jsonp',
-		success: function(json){
-			
-			var scene = cc.Director.getInstance().getRunningScene() ;
-			var bottlesLayer = new yc.outer.Bottles.bottlesLayer;
-			scene.layerRoles.addChild(bottlesLayer) ;
-			
-			for(var i =0;i<json.length;i++){
+	if( g_architecture=='html5' )
+	{
+		yc.outer.Bottles.list = new Array();
+		$.ajax({
+			type: "POST",
+			url: "http://icell.jecat.cn/service/bottles.php",
+			jsonp:'jsonp_callback',
+			data: {
+				"act":"getAll",
+				"level":level
+			},
+			dataType: 'jsonp',
+			success: function(json){
 				
-				var bottles = new yc.outer.Bottles ;
-				bottles.id = json[i].id;
-				bottles.create();
-				bottles.x = json[i].x;
-				bottles.y = json[i].y;
+				var scene = cc.Director.getInstance().getRunningScene() ;
+				var bottlesLayer = new yc.outer.Bottles.bottlesLayer;
+				scene.layerRoles.addChild(bottlesLayer) ;
+				
+				for(var i =0;i<json.length;i++){
+					
+					var bottles = new yc.outer.Bottles ;
+					bottles.id = json[i].id;
+					bottles.create();
+					bottles.setPosition(cc.p(json[i].x,json[i].y)) ;
 
-				bottlesLayer.addChild(bottles);
-				
-				yc.outer.Bottles.list.push(bottles);
+					bottlesLayer.addChild(bottles);
+					
+					yc.outer.Bottles.list.push(bottles);
+				}
 			}
-		}
-	}); 
+		}); 
+	}
 }
 
 
