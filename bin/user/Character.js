@@ -3,8 +3,8 @@ yc.user.Character = function(name){
 	this.name = name ;
 
 	this.dna = new yc.dna.DNA() ;
-	this.aminoacids = new yc.user.AminoAcidPool ;
-	this.proteins = new yc.user.ProteinPool ;
+	this.aminoacids = ins(yc.user.AminoAcidPool) ;
+	this.proteins = ins(yc.user.ProteinPool) ;
 	this.levels = {} ;
 	this.cell = {} ;
 here() ;

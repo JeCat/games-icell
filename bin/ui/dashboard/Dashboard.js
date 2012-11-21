@@ -129,6 +129,7 @@ here() ;
 			
 			// 蛋白质数量变化
 			$(window).bind('yc.user.ProteinPool::onAfterChange',null,function(e,pool,name,total,num){
+
 				dashboard.labelProteins[name].setString(''+total) ;
 
 				if(yc.ui.BuildingCreateMenu){

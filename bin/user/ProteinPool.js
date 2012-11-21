@@ -18,7 +18,9 @@ yc.user.ProteinPool = function ()
 			// 触发事件
 			$(window).trigger('yc.user.ProteinPool::onAfterNewType',[this,name]) ;
 		}
+
 		this.mapProteins[name]+= num ;
+
 		this.total+= num ;
 		
 		// 触发事件
@@ -40,3 +42,5 @@ yc.user.ProteinPool = function ()
 		}
 	}
 }
+
+yc.user.ProteinPool.singleton = true ;
