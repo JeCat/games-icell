@@ -267,6 +267,8 @@ var g_ResFiles = [
 	, {type:"image", src:"res/building/tower.png"}
 	, {type:"plist", src:"res/building/build.plist"}
 	, {type:"image", src:"res/building/build.png"}
+	, {type:"plist", src:"res/building/addbuild.plist"}
+	, {type:"image", src:"res/building/addbuild.png"}
 	, {type:"plist", src:"res/role/virus.plist"}
 	, {type:"image", src:"res/role/virus.png"}
 	, {type:"plist", src:"res/role/role.plist"}

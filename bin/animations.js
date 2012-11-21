@@ -597,6 +597,57 @@ yc.animations.initBuildinAnimations = function (){
 			, "res/smoke.png"
 			, "fx_smoke_hitground_00%idx%.png"
 			, 1, 13 ) ;
+	
+	//新添加动画
+	__loadAnimation(
+			'towers.factory_jiasu'
+			, "res/building/addbuild.plist"
+			, "res/building/addbuild.png"
+			, "jiasu_00%idx%.png"		// 帧名称模板
+			, 1, 4								// 帧名称中的下标的数值范围
+			, yc.animations.adjustFrameBtn);
+	__loadAnimation(
+			'towers.factory_gong'
+			, "res/building/addbuild.plist"
+			, "res/building/addbuild.png"
+			, "gong_00%idx%.png"		// 帧名称模板
+			, 1, 3								// 帧名称中的下标的数值范围
+			, yc.animations.adjustFrameBtn);
+	__loadAnimation(
+			'towers.factory_pao'
+			, "res/building/addbuild.plist"
+			, "res/building/addbuild.png"
+			, "pao_00%idx%.png"		// 帧名称模板
+			, 1, 4								// 帧名称中的下标的数值范围
+			, yc.animations.adjustFrameBtn);
+	__loadAnimation(
+			'towers.factory_huishou'
+			, "res/building/addbuild.plist"
+			, "res/building/addbuild.png"
+			, "huishou_00%idx%.png"		// 帧名称模板
+			, 1, 4								// 帧名称中的下标的数值范围
+			, yc.animations.adjustFrameBtn);
+	__loadAnimation(
+			'towers.daodan'
+			, "res/building/addbuild.plist"
+			, "res/building/addbuild.png"
+			, "daodan_00%idx%.png"		// 帧名称模板
+			, 1, 2								// 帧名称中的下标的数值范围
+			, yc.animations.adjustFrameBtn);
+	__loadAnimation(
+			'towers.tuijinqi'
+			, "res/building/addbuild.plist"
+			, "res/building/addbuild.png"
+			, "tuijinqi_00%idx%.png"		// 帧名称模板
+			, 1, 3								// 帧名称中的下标的数值范围
+			, yc.animations.adjustFrameBtn);
+	__loadAnimation(
+			'towers.ping'
+			, "res/building/addbuild.plist"
+			, "res/building/addbuild.png"
+			, "ping_00%idx%.png"		// 帧名称模板
+			, 1, 2								// 帧名称中的下标的数值范围
+			, yc.animations.adjustFrameBtn);
 }
 
 yc.animations.adjustFrameBtn = function(frame){
