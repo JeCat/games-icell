@@ -12,6 +12,7 @@ yc.outer.Footprint = cc.Sprite.extend({
 	, init: function(x,y){
 		this.x = x ;
 		this.y = y ;
+		this.setPosition(cc.p(x,y)) ;
 
 		this.runAction(this.actDisappear) ;
 	}

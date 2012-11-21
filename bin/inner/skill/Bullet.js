@@ -13,6 +13,7 @@ yc.inner.skill.Bullet = cc.Sprite.extend({
 		this.setPosition = function(p){
 			this.x = p.x;
 			this.y = p.y;
+			this._super(p) ;
 		}
 		this.getPosition = function(){
 			return cc.p(this.x,this.y);
