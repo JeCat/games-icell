@@ -85,9 +85,12 @@ yc.outer.Camera = function()
 
 	// --------------------------
 	// for zooming
+	
+	
+
 	this.maxZoom = yc.settings.camera.defautlMaxZoom ;
 	this.minZoom = yc.settings.camera.defautlMinZoom ;
-
+	
 
 	if( g_architecture=='html5' )
 	{
@@ -130,6 +133,12 @@ yc.outer.Camera = function()
 
 			var oriScale = layer.getScale() ;
 			var newScale = scale * oriScale ;
+			
+			
+			if( typeof(yc.GameScene.camera)=="object" && yc.GameScene.camera.maxZoom !=undefined && yc.GameScene.camera.minZoom != undefined ){
+				camera = yc.GameScene.camera;
+			}
+			
 			if( newScale<camera.minZoom )
 			{
 				scale = camera.minZoom/oriScale ;

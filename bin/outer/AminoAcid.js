@@ -79,15 +79,26 @@ yc.outer.AminoAcid = yc.outer.PhysicalEntity.extend({
 	, catchMe: function(){
 		ins(yc.user.Character).aminoacids.increase(this.type,this.num) ;
 		
-//		this.unscheduleUpdate();
-//		this._destoryBody() ;
-//		
-//		
-//		
-//		var s = cc.Director.getInstance().getWinSize();
-//        var actionTo = cc.MoveTo.create(10, cc.p(100, 100));
-//        tmpLayer.runAction(actionTo);
-		this.destroy() ;
+		// 解除物理特性
+		this.unscheduleUpdate();
+		this._destoryBody() ;
+		
+		// 世界坐标->屏幕坐标
+		var p = yc.util.clientToWindow(this.getParent(),this.x,this.y) ;
+		this.removeFromParent() ;
+		
+		var scene = cc.Director.getInstance().getRunningScene() ;
+		scene.layerUi.addChild(this) ;
+		this.setPosition(p[0],p[1]);
+		
+		thisb = this;
+		var seq = cc.Sequence.create(
+				cc.MoveTo.create(1, cc.p(100, cc.Director.getInstance().getWinSize().height - 120)),
+				cc.CallFunc.create(function(thisb){
+					thisb.destroy() ;
+				},this)
+		)
+		this.runAction(seq);
 	}
 	
 }) ;

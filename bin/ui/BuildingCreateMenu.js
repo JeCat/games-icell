@@ -415,6 +415,13 @@ yc.ui.BuildingCreateMenu = function(){
 		// new buildingClass
 		var building = new item.buildingClass ;
 		building.cost = item.cost();
+
+		// 消耗蛋白质
+		var pool = ins(yc.user.ProteinPool) ;
+		for(var protein in building.cost)
+		{
+			pool.increase( protein, -building.cost[protein] ) ;
+		}
 		
 		// 重新计算路径
 		if( building.isBlocking() )

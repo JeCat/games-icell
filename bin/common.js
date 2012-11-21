@@ -170,8 +170,12 @@ var g_ResFiles = [
 	, {type:"image", src:"res/CloseNormal.png"}
 	, {type:"image", src:"res/CloseSelected.png"}
 	, {type:"image", src:"res/Goal.png"}
+	
 	, {type:"image", src:"res/skill.png"}
-	, {type:"image", src:"res/star2.png"}
+	, {type:"image", src:"res/skillbj.png"}
+	, {type:"image", src:"res/skill/bottles.png"}
+	, {type:"image", src:"res/skill/outsideShooter.png"}
+	, {type:"image", src:"res/skill/rocket.png"}
 	
 	, {type:"image", src:"res/btn-composition.png"}
 	, {type:"image", src:"res/btn-composition-light.png"}

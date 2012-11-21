@@ -343,6 +343,7 @@ yc.levels.LevelSelector.MapLayer.LevelFlag = cc.Sprite.extend({
 yc.levels.LevelSelector.enterLevel = function(levelScript){
 		
 	yc.GameScene._level = levelScript.id;
+	yc.GameScene.camera = levelScript.camera;
 	
 	var level = new (yc.GameScene.extend({
 		onEnter: function(){

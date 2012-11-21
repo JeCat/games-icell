@@ -18,8 +18,10 @@ yc.inner.building.Rocket = yc.inner.building.Building.extend({
 			var cell = ins(yc.outer.Cell) ;
 
 			var smoke = yc.util.ObjectPool.ins(yc.inner.building._RocketSmoke).ob() ;
-			var pos = this.worldAxes() ;
-			smoke.init(pos[0],pos[1]) ;
+			//var pos = this.worldAxes() ;
+
+			var mypos = yc.util.clientToWindow( ins(yc.inner.InnerLayer).buildings, this.hexgon.center[0], this.hexgon.center[1], ins(yc.outer.PlayerLayer) ) ;
+			smoke.init(mypos[0],mypos[1]) ;
 			ins(yc.outer.PlayerLayer).addChild(smoke) ;
 		}) ;
 	}
@@ -33,7 +35,7 @@ yc.inner.building.Rocket = yc.inner.building.Building.extend({
 		this.skill = new yc.inner.skill.SkillBase ;
 		this.skill.setCoolingTime(5) ;
 		this.skill.setName( 'rocket' );
-		this.skill.setIcon( 'res/deselect.png' );
+		this.skill.setIcon( 'res/skill/rocket.png' );
 		this.addSkill(this.skill) ;
 		this.skill.start = this.fire ;
 		this.skill.target = this ;
@@ -95,6 +97,7 @@ yc.inner.building._RocketSmoke = cc.Sprite.extend({
 	, init: function(x,y){
 		this.x = x ;
 		this.y = y ;
+		this.setPosition(cc.p(x,y)) ;
 
 		this.runAction( this.actionAnimation ) ;
 	}

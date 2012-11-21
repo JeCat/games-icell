@@ -3,7 +3,7 @@ yc.inner.skill.Bottles = yc.inner.skill.SkillBase.extend({
 		this._super();
 		
 		this.setName( 'Bottles' );
-		this.setIcon( 'res/star2.png' );
+		this.setIcon( 'res/skill/bottles.png' );
 		
 	}
 	, start: function(){

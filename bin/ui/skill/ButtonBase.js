@@ -32,7 +32,7 @@ yc.ui.skill.ButtonBase = cc.Sprite.extend({
 		}
 
 
-		this.initWithFile("res/skill.png");
+		this.initWithFile("res/skillbj.png");
 		
 
 	},
@@ -75,19 +75,23 @@ yc.ui.skill.ButtonBase = cc.Sprite.extend({
 	onEnter:function () {
 
 		var skill = cc.Sprite.create(this.icon);
-		skill.setPosition( cc.p( 34,28) );
+		skill.setPosition( cc.p( 25,26) );
 		this.addChild(skill);
+
+		var skillk = cc.Sprite.create("res/skill.png");
+		skillk.setPosition( cc.p( 25,26) );
+		this.addChild(skillk);
 		
-		this.cd = cc.LayerColor.create(cc.c4(0, 0, 0, 100), 32 ,32);  
+		this.cd = cc.LayerColor.create(cc.c4(0, 0, 0, 180), 36 ,36);  
 		this.cd.setAnchorPoint(new cc.Point(0,0));
-		this.cd.setPosition(cc.p(18, 12));
+		this.cd.setPosition(cc.p(7, 8));
         //this.cd.setVisible(false);
 		this.cd.setScale(1,0.000001);
         this.addChild(this.cd);  
         
         
-        var title = cc.LabelTTF.create(this.title, "Arial", 12);
-        title.setPosition(cc.p(18, 42));
+        var title = cc.LabelTTF.create(this.title, "Arial", 8);
+        title.setPosition(cc.p(7, 42));
         this.addChild(title);  
 		
 		cc.Director.getInstance().getTouchDispatcher().addTargetedDelegate(this, 0, true);

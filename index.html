@@ -160,6 +160,10 @@
 					y:<input value="" id='ipt-pos-y' style='width:40px' />
 					<button onclick="ins(yc.outer.Cell).jump(parseInt($('#ipt-pos-x').val()),parseInt($('#ipt-pos-y').val()))">跃迁</button>
 				</div>
+				<div>
+					最大倍数:<input value="1" id='maxZoom' style='width:40px' />
+					最小倍数:<input value="0.1" id='minZoom' style='width:40px' />
+				</div>
 
 				<div>
 					<button onclick="cc.Director.getInstance()._runningScene.initWithScript(yc.GameScene.prototype.scriptDemo)">test</button>

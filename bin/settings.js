@@ -21,7 +21,7 @@ yc.settings = {
 
 		// 默认的最大、最小缩放比例
 		, defautlMaxZoom: 1
-		, defautlMinZoom: 0.08
+		, defautlMinZoom: 0.25
 
 	}
 

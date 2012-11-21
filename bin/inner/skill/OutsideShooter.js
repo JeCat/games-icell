@@ -3,6 +3,7 @@ yc.inner.skill.OutsideShooter = yc.inner.skill.SkillBase.extend({
 		this._super();
 		
 		this.setName( 'OutsideShooter' );
+		this.setIcon( 'res/skill/outsideShooter.png' );
 		this.setCoolingTime( 5 );// 冷却时间
 	}
 	, start: function(){

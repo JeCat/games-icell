@@ -171,11 +171,10 @@ yc.inner.building.Building = cc.Sprite.extend({
 
 	// 获得建筑在世界中对应的坐标位置
 	, worldAxes: function(){
-		var cell = ins(yc.outer.Cell) ;
-		var mypos = yc.util.clientToWindow( ins(yc.inner.InnerLayer).buildings, this.hexgon.center[0], this.hexgon.center[1], ins(yc.outer.PlayerLayer) ) ;
+		var mypos = yc.util.clientToWindow( ins(yc.inner.InnerLayer).buildings, this.hexgon.center[0], this.hexgon.center[1] ) ;
 		return [ 
-			cell.x + mypos[0]
-			, cell.y + mypos[1]
+			mypos[0]
+			, mypos[1]
 		] ;
 	}
 
