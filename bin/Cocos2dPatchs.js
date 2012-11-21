@@ -341,3 +341,73 @@ cc.MenuItemFont.createEx = function(text,fn,obj){
 		return cc.MenuItemFont.create(text,obj,fn) ;
 	}
 }
+
+/**
+ * 修改onKeyDown参数为对象。包含了alt,ctrl等信息
+ */
+
+cc.KeyboardDispatcherNew = cc.KeyboardDispatcher.extend({
+
+    /**
+     * dispatch the keyboard message to the delegates
+     * @param {event} e
+     * @param {Boolean} keydown whether this is a keydown or keyup
+     * @return {Boolean}
+     */
+    dispatchKeyboardMSG:function (e, keydown) {
+        this._locked = true;
+        e.stopPropagation();
+        e.preventDefault();
+
+        var i = 0;
+        //update keymap
+        if (keydown && e) {     //if keydown and our keymap doesnt have it
+            //execute all deletegate that registered a keyboard event
+            for (i = 0; i < this._delegates.length; i++) {
+                if(this._delegates[i].getDelegate() && this._delegates[i].getDelegate().onKeyDown)
+                    this._delegates[i].getDelegate().onKeyDown(e);
+            }
+        }  else if (!keydown && e) {//if keyup and our keymap have that key in it
+            for (i = 0; i < this._delegates.length; i++) {
+                if(this._delegates[i].getDelegate() && this._delegates[i].getDelegate().onKeyUp)
+                    this._delegates[i].getDelegate().onKeyUp(e);
+            }
+        }
+        this._locked = false;
+        if (this._toRemove) {
+            this._toRemove = false;
+            for (i = 0; i < this._handlersToRemove.length; ++i) {
+                this.forceRemoveDelegate(this._handlersToRemove[i]);
+            }
+            delete this._handlersToRemove;
+            this._handlersToRemove = [];
+        }
+
+        if (this._toAdd) {
+            this._toAdd = false;
+            for (i = 0; i < this._handlersToAdd.length; ++i) {
+                this.forceAddDelegate(this._handlersToAdd[i]);
+            }
+            this._handlersToAdd = [];
+        }
+        return true;
+    },
+})
+
+cc.KeyboardDispatcher.getInstance = function () {
+    if (!cc.keyboardDispatcher) {
+        cc.keyboardDispatcher = new cc.KeyboardDispatcherNew();
+        //make canvas focusable
+        cc.canvas.setAttribute('tabindex', 1);
+        cc.canvas.style.outline = 'none';
+        cc.canvas.style.cursor = 'default';
+        cc.canvas.addEventListener("keydown", function (e) {
+        	cc.keyboardDispatcher.dispatchKeyboardMSG(e, true);
+            cc.IMEDispatcher.getInstance().processKeycode(e.keyCode);
+        });
+        cc.canvas.addEventListener("keyup", function (e) {
+        	cc.keyboardDispatcher.dispatchKeyboardMSG(e, false);
+        });
+    }
+    return cc.keyboardDispatcher;
+};
