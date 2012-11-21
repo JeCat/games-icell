@@ -110,7 +110,12 @@ function unlockAll(){
 	for(var name in yc.dna.genes){
 		ins(yc.user.Character).dna.obtainGene( yc.dna.genes[name] ) ;
 	}
+	unlockAllUpgrade();
 	log('unlock all towers');
+}
+function unlockAllUpgrade(){
+	yc.inner.building.isIgnoreAllUpgradeLock = true;
+	log('unlock all tower`s upgrade');
 }
 
 function savecell(){
