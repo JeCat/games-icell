@@ -20,8 +20,9 @@ yc.inner.building.up.UpgraderBase = function(){
 		if(checking)
 		{
 			// 检查是否解锁
-			if(!this.isUnlock())
+			if( !yc.inner.building.isIgnoreAllUpgradeLock && !this.isUnlock())
 			{
+				log(this , '未解锁');
 				return false ;
 			}
 			

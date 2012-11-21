@@ -518,7 +518,7 @@ yc.ui.BuildingCreateMenu = function(){
 		}
 		var children = this.ui.getChildren();
 		for(var btn in children){
-			if(children[btn]._rect){ //is btn?
+			if(children[btn].type && children[btn].type==='CreateBuildingBtn'){ //is btn?
 				if(children[btn].isLocked()){
 					continue;
 				}
