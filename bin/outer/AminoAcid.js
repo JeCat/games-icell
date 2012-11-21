@@ -83,8 +83,6 @@ yc.outer.AminoAcid = yc.outer.PhysicalEntity.extend({
 //		this._destoryBody() ;
 //		
 //		
-//		tmpLayer.addChild(this);
-//		
 //		
 //		var s = cc.Director.getInstance().getWinSize();
 //        var actionTo = cc.MoveTo.create(10, cc.p(100, 100));
