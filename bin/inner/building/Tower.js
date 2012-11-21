@@ -33,8 +33,8 @@ yc.inner.building.Tower = yc.inner.building.Building.extend({
 		this.color = 'red' ;
 
 		// 开始动画
-        this.initWithSpriteFrameName("artillery_lvl4_tesla_0049.png") ; //第一帧
-        this.runAction(cc.RepeatForever.create( yc.animations.createAction('towers.shooter') ));
+        // this.initWithSpriteFrameName("artillery_lvl4_tesla_0049.png") ; //第一帧
+        // this.runAction(cc.RepeatForever.create( yc.animations.createAction('towers.shooter') ));
 
        	this.setAnchorPoint(cc.p(0.5,0.2)) ;
 	}
@@ -133,7 +133,11 @@ yc.inner.building.TowerShooter = yc.inner.building.Tower.extend({
 	ctor: function(){
 		this._super() ;
 		this.color = 'yellow' ;
-		this.initWithFile("res/tower_yellow.png");
+		// this.initWithFile("res/tower_yellow.png");
+
+		// 开始动画
+        this.initWithSpriteFrameName("artillery_lvl4_tesla_0049.png") ; //第一帧
+        this.runAction(cc.RepeatForever.create( yc.animations.createAction('towers.factory_gong') ));
 		
 		yc.util.cloneObject(this,yc.settings.building.Shooter.base) ;
 	}
@@ -151,7 +155,12 @@ yc.inner.building.TowerCannon = yc.inner.building.Tower.extend({
 	ctor: function(){
 		this._super() ;
 		this.color = 'red' ;
-		this.initWithFile("res/aminoAcid_yellow.png");
+
+		// 开始动画
+        this.initWithSpriteFrameName("artillery_lvl4_tesla_0049.png") ; //第一帧
+        this.runAction(cc.RepeatForever.create( yc.animations.createAction('towers.factory_pao') ));
+
+
 		yc.util.cloneObject(this,yc.settings.building.Cannon.base) ;
 	}
 }) ;
@@ -167,7 +176,11 @@ yc.inner.building.TowerSlower = yc.inner.building.Tower.extend({
 	ctor: function(){
 		this._super() ;
 		this.color = 'blue' ;
-		this.initWithFile("res/aminoAcid_yellow.png");
+		
+		// 开始动画
+        this.initWithSpriteFrameName("artillery_lvl4_tesla_0049.png") ; //第一帧
+        this.runAction(cc.RepeatForever.create( yc.animations.createAction('towers.factory_arcane_tower') ));
+
 		yc.util.cloneObject(this,yc.settings.building.Slower.base) ;
 	}
 }) ;
@@ -183,6 +196,8 @@ yc.inner.building.TowerJetter = yc.inner.building.Tower.extend({
 	ctor: function(){
 		this._super() ;
 		this.color = 'orange' ;
+
+
 		yc.util.cloneObject(this,yc.settings.building.Jetter.base) ;
 	}
 }) ;
