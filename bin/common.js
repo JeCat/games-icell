@@ -164,8 +164,6 @@ var g_AppFiles = [
 ]
 
 
-
-
 var g_ResFiles = [
 	{type:"image", src:"res/HelloWorld.png"}
 	, {type:"image", src:"res/CloseNormal.png"}
@@ -177,7 +175,13 @@ var g_ResFiles = [
 	, {type:"image", src:"res/skill/bottles.png"}
 	, {type:"image", src:"res/skill/outsideShooter.png"}
 	, {type:"image", src:"res/skill/rocket.png"}
-	
+
+	, {type:"image", src:"res/HP_bg.png"}
+	, {type:"image", src:"res/HP_hp.png"}
+	, {type:"image", src:"res/HP_hp_bg.png"}
+
+	, {type:"image", src:"res/background/bg.png"}
+
 	, {type:"image", src:"res/btn-composition.png"}
 	, {type:"image", src:"res/btn-composition-light.png"}
 	, {type:"image", src:"res/btn-composition-selected.png"}
@@ -250,8 +254,6 @@ var g_ResFiles = [
 	, {type:"image", src:"res/menu/mid.png"}
 	, {type:"image", src:"res/menu/top.png"}
 
-	, {type:"image", src:"res/mitochondria.png"}
-	
 	, {type:"image", src:'res/weibo_login.png'}
 	
 	, {type:"image", src:"res/null-pinup.png"}
@@ -264,7 +266,6 @@ var g_ResFiles = [
 	, {type:"image", src:"res/dna-icons-32.png"}
 	
 	, {type:"image", src:"res/organ/Tower.png"}
-
 
 	, {type:"plist", src:"res/building/factory.plist"}
 	, {type:"image", src:"res/building/factory.png"}

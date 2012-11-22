@@ -4,8 +4,11 @@ yc.inner.building.up.TowerRetardment = function(){
 	yc.inner.building.up.UpgraderBase.apply(this) ;
 
 	this.title = '防御塔：减速' ;
-	this.description = '对病毒附带减速效果' ;
+	this.description = '增强减速效果' ;
 	this.icon = '' ;
+	this.texture = "res/building/oshooter.png";
+	this.texture_l = "res/building/oshooter-l.png";
+	this.texture_nm = "res/building/oshooter-nm.png";
 	
 	this.isUnlock = function(){
 		return this.lv < yc.inner.building.up.TowerRetardment.maxLv ;
