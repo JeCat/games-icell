@@ -97,6 +97,18 @@ yc.GameScene = cc.Scene.extend({
 		//this._drawBorder();
 
 		// $(window).trigger('yc.GameScene::onAfterInit',[]) ;
+
+
+		if( g_architecture=='native' )
+		{ 
+			var s = new cc.Sprite() ;
+			s.init() ;
+			s.onDraw = function(){
+				cc.test() ;
+			}
+			this.setPosition(cc.p(100,100)) ;
+			this.addChild(s) ;
+		}
 	}
 
 	, onExit: function(){

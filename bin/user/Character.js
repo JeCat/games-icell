@@ -7,7 +7,7 @@ yc.user.Character = function(name){
 	this.proteins = new yc.user.ProteinPool ;
 	this.levels = {} ;
 	this.cell = {} ;
-here() ;
+
 	// 玩家完成场景，保存玩家状态
 	this.save = function(){
 
@@ -124,13 +124,13 @@ yc.user.Character.loadCurrent = function(name){
 			}
 		} ;
 	}
-here() ;
+
 	// 加载角色信息 
 	character.load(data) ;
-here() ;
+
 	// 设置为当前角色
 	yc.user.Character._singletonInstance = character ;
-here() ;
+
 }
 
 

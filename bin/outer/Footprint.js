@@ -29,6 +29,7 @@ yc.outer.Footprint = cc.Sprite.extend({
 			return ;
 		}
 		
+		this._super(ctx) ;
 		yc.util.drawCircle(ctx,0,0,50,50,"rgb(255,255,255)") ;
 	}
 
