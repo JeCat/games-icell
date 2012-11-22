@@ -35,7 +35,7 @@ yc.inner.building.Rocket = yc.inner.building.Building.extend({
 		this.skill = new yc.inner.skill.SkillBase ;
 		this.skill.setCoolingTime(5) ;
 		this.skill.setName( 'rocket' );
-		this.skill.setIcon( 'res/deselect.png' );
+		this.skill.setIcon( 'res/skill/rocket.png' );
 		this.addSkill(this.skill) ;
 		this.skill.start = this.fire ;
 		this.skill.target = this ;

@@ -3,6 +3,7 @@ yc.inner.skill.OutsideShooter = yc.inner.skill.SkillBase.extend({
 		this._super();
 		
 		this.setName( 'OutsideShooter' );
+		this.setIcon( 'res/skill/outsideShooter.png' );
 		this.setCoolingTime( 5 );// 冷却时间
 	}
 	, start: function(){
@@ -16,11 +17,6 @@ yc.inner.skill.OutsideShooter = yc.inner.skill.SkillBase.extend({
 		
 		// from
 		var b = this.building().getParent().getParent() ;
-//		var ptf = yc.util.clientToWindow(
-//			b,
-//			b.x,
-//			b.y
-//		);
 		
 		var ptr = cc.p(b.x,b.y);
 		bullet.setFromPosition( ptr );

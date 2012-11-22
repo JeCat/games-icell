@@ -26,3 +26,4 @@ yc.user.AminoAcidPool = function ()
 }
 yc.user.AminoAcidPool.types = ['red','yellow','blue'] ;
 
+yc.user.AminoAcidPool.singleton = true ;

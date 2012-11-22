@@ -367,6 +367,10 @@ yc.GameScene = cc.Scene.extend({
 					, btm: this.btm
 				}
 			},
+			camera: {
+				maxZoom: $('#maxZoom').val()
+				, minZoom: $('#minZoom').val()
+			},
 			id:level,
 		} ;
 

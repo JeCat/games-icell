@@ -171,8 +171,12 @@ var g_ResFiles = [
 	, {type:"image", src:"res/CloseNormal.png"}
 	, {type:"image", src:"res/CloseSelected.png"}
 	, {type:"image", src:"res/Goal.png"}
+	
 	, {type:"image", src:"res/skill.png"}
-	, {type:"image", src:"res/star2.png"}
+	, {type:"image", src:"res/skillbj.png"}
+	, {type:"image", src:"res/skill/bottles.png"}
+	, {type:"image", src:"res/skill/outsideShooter.png"}
+	, {type:"image", src:"res/skill/rocket.png"}
 	
 	, {type:"image", src:"res/btn-composition.png"}
 	, {type:"image", src:"res/btn-composition-light.png"}
@@ -268,6 +272,8 @@ var g_ResFiles = [
 	, {type:"image", src:"res/building/tower.png"}
 	, {type:"plist", src:"res/building/build.plist"}
 	, {type:"image", src:"res/building/build.png"}
+	, {type:"plist", src:"res/building/addbuild.plist"}
+	, {type:"image", src:"res/building/addbuild.png"}
 	, {type:"plist", src:"res/role/virus.plist"}
 	, {type:"image", src:"res/role/virus.png"}
 	, {type:"plist", src:"res/role/role.plist"}
