@@ -3,6 +3,10 @@ yc.inner.building.Recycle = yc.inner.building.Building.extend({
 	ctor: function(){
 		this.mitochondrias = [] ;
 		this.mitochondriaCount = 1 ;
+
+		// 开始动画
+        this.initWithSpriteFrameName("artillery_lvl4_tesla_0049.png") ; //第一帧
+        this.runAction(cc.RepeatForever.create( yc.animations.createAction('towers.factory_huishou') ));
 	}
 	
 	, put: function(hexgon){

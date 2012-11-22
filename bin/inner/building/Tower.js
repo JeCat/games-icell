@@ -197,6 +197,9 @@ yc.inner.building.TowerJetter = yc.inner.building.Tower.extend({
 		this._super() ;
 		this.color = 'orange' ;
 
+		// 开始动画
+        this.initWithSpriteFrameName("artillery_lvl4_tesla_0049.png") ; //第一帧
+        this.runAction(cc.RepeatForever.create( yc.animations.createAction('towers.factory_arcane_tower') ));
 
 		yc.util.cloneObject(this,yc.settings.building.Jetter.base) ;
 	}
