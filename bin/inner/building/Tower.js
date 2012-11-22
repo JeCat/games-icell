@@ -136,7 +136,7 @@ yc.inner.building.TowerShooter = yc.inner.building.Tower.extend({
 		// this.initWithFile("res/tower_yellow.png");
 
 		// 开始动画
-        this.initWithSpriteFrameName("artillery_lvl4_tesla_0049.png") ; //第一帧
+        this.initWithSpriteFrame(yc.animations.firstFrame( "towers.factory_gong")) ; //第一帧
         this.runAction(cc.RepeatForever.create( yc.animations.createAction('towers.factory_gong') ));
 		
 		yc.util.cloneObject(this,yc.settings.building.Shooter.base) ;
@@ -144,8 +144,6 @@ yc.inner.building.TowerShooter = yc.inner.building.Tower.extend({
 }) ;
 yc.inner.building.TowerShooter.upgraders = [] ;
 yc.inner.building.TowerShooter.block = true ;
-
-	
 
 
 /**
@@ -157,7 +155,7 @@ yc.inner.building.TowerCannon = yc.inner.building.Tower.extend({
 		this.color = 'red' ;
 
 		// 开始动画
-        this.initWithSpriteFrameName("artillery_lvl4_tesla_0049.png") ; //第一帧
+        this.initWithSpriteFrame(yc.animations.firstFrame("towers.factory_pao") ); //第一帧
         this.runAction(cc.RepeatForever.create( yc.animations.createAction('towers.factory_pao') ));
 
 
@@ -178,7 +176,7 @@ yc.inner.building.TowerSlower = yc.inner.building.Tower.extend({
 		this.color = 'blue' ;
 		
 		// 开始动画
-        this.initWithSpriteFrameName("artillery_lvl4_tesla_0049.png") ; //第一帧
+        this.initWithSpriteFrame(yc.animations.firstFrame( "towers.factory_arcane_tower") ); //第一帧
         this.runAction(cc.RepeatForever.create( yc.animations.createAction('towers.factory_arcane_tower') ));
 
 		yc.util.cloneObject(this,yc.settings.building.Slower.base) ;
@@ -198,7 +196,7 @@ yc.inner.building.TowerJetter = yc.inner.building.Tower.extend({
 		this.color = 'orange' ;
 
 		// 开始动画
-        this.initWithSpriteFrameName("artillery_lvl4_tesla_0049.png") ; //第一帧
+        this.initWithSpriteFrame(yc.animations.firstFrame("towers.factory_arcane_tower") ); //第一帧
         this.runAction(cc.RepeatForever.create( yc.animations.createAction('towers.factory_arcane_tower') ));
 
 		yc.util.cloneObject(this,yc.settings.building.Jetter.base) ;
