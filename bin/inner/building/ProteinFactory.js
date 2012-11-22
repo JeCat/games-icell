@@ -14,7 +14,7 @@ yc.inner.building.ProteinFactory = yc.inner.building.Building.extend({
 
 		// 执行动画
         this.runAction(cc.RepeatForever.create(
-	       	yc.animations.createAction('towers.factory')
+	       	yc.animations.createAction('towers.mage_lvl1')
         ));
 
        	this.setAnchorPoint(cc.p(0.5,0.4)) ;

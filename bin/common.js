@@ -79,6 +79,7 @@ var g_AppFiles = [
 	, 'bin/outer/LifeEntity.js'
 	, 'bin/outer/PhysicalEntity.js'
 	, 'bin/outer/Cell.js'
+	, 'bin/outer/CellShell.js'
 	, 'bin/outer/Footprint.js'
 	, 'bin/outer/PlayerLayer.js'
 	, 'bin/outer/AminoAcid.js'

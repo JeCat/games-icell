@@ -12,6 +12,7 @@ yc.outer.Footprint = cc.Sprite.extend({
 	, init: function(x,y){
 		this.x = x ;
 		this.y = y ;
+		this.setPosition(cc.p(x,y)) ;
 
 		this.runAction(this.actDisappear) ;
 	}
@@ -28,6 +29,7 @@ yc.outer.Footprint = cc.Sprite.extend({
 			return ;
 		}
 		
+		this._super(ctx) ;
 		yc.util.drawCircle(ctx,0,0,50,50,"rgb(255,255,255)") ;
 	}
 

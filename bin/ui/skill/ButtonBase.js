@@ -164,12 +164,17 @@ yc.ui.skill.ButtonBase = cc.Sprite.extend({
 		
 	}
 	,onKeyUp:function (key) {
-		if(key == this.keyCode){
+		
+	}
+	,onKeyDown:function (e) {
+		
+		if( e.altKey || e.shiftKey || e.ctrlKey){
+			return;
+		}
+		
+		if(e.keyCode == this.keyCode){
 			this.onclick();
 		}
-	}
-	,onKeyDown:function (key) {
-		
 	}
 	,getCoolDownPercent:function(){
 		var i,skill;

@@ -10,16 +10,7 @@ yc.outer.Cell = yc.outer.PhysicalEntity.extend({
 		this.layerInner = ins(yc.inner.InnerLayer) ;
 
 		// 细胞外壳 -------
-		var cell = this ;
-		this.shell = cc.Sprite.create() ;
-		this.shell.setOpacity( yc.settings.camera.shellOpacityLow ) ;
-		this.shell.draw = function(ctx){
-
-			ctx.globalAlpha = this.getOpacity()/255 ;
-			ctx.lineCap = "round" ;
-			
-			yc.util.drawPolygon(cell._points,ctx,'white',"rgba(255,255,255,0.5)",true) ;
-		}
+		this.shell = new yc.inner.CellShell() ;
 
 		this._bWatching = true ;
 
@@ -33,9 +24,9 @@ yc.outer.Cell = yc.outer.PhysicalEntity.extend({
 
 		this._super() ;
 here() ;
-		this.addChild(this.shell) ;
-here() ;
 		this.addChild(this.layerInner) ;
+here() ;
+		this.addChild(this.shell) ;
 here() ;
 		// 
 		this.runAction(this.actFootprint) ;
@@ -46,8 +37,8 @@ here() ;
 		this._super() ;
 		this.stopAction(this.actFootprint) ;
 
-		this.removeChild(this.shell) ;
 		this.removeChild(this.layerInner) ;
+		this.removeChild(this.shell) ;
 	}
 
 	, draw: function(ctx){
@@ -371,7 +362,7 @@ here() ;
 		}
 		
 		// 
-		var children = this.shell.getChildren() ;
+		var children = this.shell.buildings.getChildren() ;
 		for(var i=0;i<children.length;i++)
 		{
 			children[i].setRotation( -r ) ;
@@ -391,3 +382,5 @@ here() ;
 		}
 	}
 });
+
+
