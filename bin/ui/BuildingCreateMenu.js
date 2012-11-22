@@ -78,11 +78,7 @@ yc.ui.BuildingCreateMenu = function(){
 			, texture_nm : "res/building/recycle-nm.png"
 			, hexgonTypes: ['cytoplasm']
 			, cost: function(){
-				return {
-					red: 7
-					, yellow: 7
-					, blue: 7
-				}
+				return yc.settings.building.Recycle.cost ;
 			}
 			, buildingClass: yc.inner.building.Recycle
 			, isUnlock: function(){

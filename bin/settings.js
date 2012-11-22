@@ -221,6 +221,17 @@ yc.settings = {
 			}
 		}
 
+
+		// 回收站
+		, Recycle : {
+			// 建造费用（蛋白质）
+			cost: {
+				red: 5
+				, yellow: 5
+				, blue: 5
+			}
+		}
+
 	}
 
 

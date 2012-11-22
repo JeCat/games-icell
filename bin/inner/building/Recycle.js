@@ -5,8 +5,10 @@ yc.inner.building.Recycle = yc.inner.building.Building.extend({
 		this.mitochondriaCount = 1 ;
 
 		// 开始动画
-        this.initWithSpriteFrameName("artillery_lvl4_tesla_0049.png") ; //第一帧
+        this.initWithSpriteFrameName("huishou_0001.png") ; //第一帧
         this.runAction(cc.RepeatForever.create( yc.animations.createAction('towers.factory_huishou') ));
+
+        yc.util.cloneObject(this,yc.settings.building.Shooter.base) ;
 	}
 	
 	, put: function(hexgon){
