@@ -15,6 +15,8 @@ yc.GameLayer = cc.Layer.extend({
 
 		// resize 事件
 		yc.event.register(ins(yc.outer.Camera),"resize",this.onResize,this) ;
+		var wsize = cc.Director.getInstance().getWinSize() ;
+		this.onResize(wsize.width,wsize.height) ;
 
 		// 初始动画：缩放
 		if(g_architecture=='native')
@@ -37,6 +39,7 @@ yc.GameLayer = cc.Layer.extend({
 	}
 
 	, onResize: function(w,h){
+		//this.setPosition(cc.p(0,0)) ;
 		this.setPosition(cc.p(w/2,h/2)) ;
 	}
 	
@@ -107,6 +110,13 @@ yc.GameLayer = cc.Layer.extend({
 		cam.moveByFocus(cam.x,cam.y) ;
 	}
 
+	// , draw: function(ctx) {
+	// 	// c = "rgba(122,200,214,1)" ;
+	// 	// var wsize = cc.Director.getInstance().getWinSize() ;
+	// 	// yc.util.drawLine([-wsize.width,0],[wsize.width,0],ctx,c) ;
+	// 	// yc.util.drawLine([0,-wsize.height],[0,wsize.height],ctx,c) ;
+	// }
+	
 	// , draw: function(ctx){
 
 	// 	var cell = ins(yc.outer.Cell) ;

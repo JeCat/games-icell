@@ -121,13 +121,5 @@ yc.outer.pinups.Pinup = cc.Sprite.extend({
 
 }) ;
 
-yc.outer.pinups.Pinup.prototype.__defineSetter__("_position",function(p){
-	this.__position = p ;
-	this.__positionByParallax = cc.p( p.x*this.parallax, p.y*this.parallax ) ;
-}) ;
-yc.outer.pinups.Pinup.prototype.__defineGetter__("_position",function(){
-	return this.__positionByParallax ;
-}) ;
-
 yc.outer.pinups.Pinup.insId = -1 ;
 yc.outer.pinups.Pinup.pool = {}

@@ -43,7 +43,7 @@ yc.outer.PlayerLayer = cc.Layer.extend({
 	
 	, onTouchesMoved: function(touches, event){
 		var cellPos = this.cell.getPosition() ;
-		var touchPos = yc.util.windowToClient(ins(yc.GameLayer),touches[0]._point.x,touches[0]._point.y) ;
+		var touchPos = yc.util.windowToClient(this,touches[0]._point.x,touches[0]._point.y) ;
 		
 		var radianBetweenPoints = yc.util.radianBetweenPoints(
 			cellPos.x

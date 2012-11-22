@@ -94,7 +94,7 @@ yc.GameScene = cc.Scene.extend({
 		
 		
 		// border
-		//this._drawBorder();
+		this._drawBorder();
 
 		// $(window).trigger('yc.GameScene::onAfterInit',[]) ;
 
