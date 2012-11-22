@@ -4,9 +4,9 @@ yc.GameLayer = cc.Layer.extend({
 
 		this._super() ;
 		
-		this.actFadeCellOuter = null ;
 		this.actFadeCellInner = null ;
-		this.actFadeCellOrgan = null ;
+		this.actFadeCellOuterSkin = null ;
+		this.actFadeCellOuterBuildings = null ;
 		
 	}
 
@@ -17,8 +17,15 @@ yc.GameLayer = cc.Layer.extend({
 		yc.event.register(ins(yc.outer.Camera),"resize",this.onResize,this) ;
 
 		// 初始动画：缩放
-		this.actScale = cc.ScaleBy.create(1,1) ;
-		// this.actScale = cc.ScaleBy.create(1,yc.settings.camera.firstZoom) ;
+		if(g_architecture=='native')
+		{
+			this.actScale = cc.ScaleBy.create(1,0.1) ;
+		}
+		else
+		{
+			this.actScale = cc.ScaleBy.create(1,yc.settings.camera.firstZoom) ;
+		}
+
 		this.runAction(this.actScale) ;
 	}
 
@@ -35,6 +42,8 @@ yc.GameLayer = cc.Layer.extend({
 	
 	, setScale: function(scalex,scaley){
 
+		var outerCell = ins(yc.outer.Cell) ;
+
 		// 高于 显示内部视图的缩放比例
 		if( yc.settings.camera.switchZoom<scalex && yc.settings.camera.switchZoom>this.getScale() )
 		{
@@ -42,25 +51,25 @@ yc.GameLayer = cc.Layer.extend({
 			// 显示内部视图
 			if(this.actFadeCellInner)
 			{
-				this._parent.layerPlayer.cell.layerInner.stopAction(this.actFadeCellInner) ;
+				outerCell.layerInner.stopAction(this.actFadeCellInner) ;
 			}
 			this.actFadeCellInner = cc.FadeIn.create(0.5) ;
-			this._parent.layerPlayer.cell.layerInner.runAction(this.actFadeCellInner) ;
+			outerCell.layerInner.runAction(this.actFadeCellInner) ;
 
 			// 细胞外壳消失
-			if(this.actFadeCellOuter)
+			if(this.actFadeCellOuterSkin)
 			{
-				this._parent.layerPlayer.cell.shell.stopAction(this.actFadeCellOuter) ;
+				outerCell.shell.skin.stopAction(this.actFadeCellOuterSkin) ;
 			}
-			this.actFadeCellOuter = cc.FadeTo.create(0.5,yc.settings.camera.shellOpacityLow) ;
-			this._parent.layerPlayer.cell.shell.runAction(this.actFadeCellOuter) ;
+			this.actFadeCellOuterSkin = cc.FadeTo.create(0.5,0) ;
+			outerCell.shell.skin.runAction(this.actFadeCellOuterSkin) ;
 			
 			// 外部器官半透明
-			if( this.actFadeCellOrgan ){
-				this._parent.layerPlayer.cell.shell.stopAction( this.actFadeCellOrgan );
+			if( this.actFadeCellOuterBuildings ){
+				outerCell.shell.buildings.stopAction(this.actFadeCellOuterBuildings) ;
 			}
-			this.actFadeCellOrgan = cc.FadeTo.create(0.5,yc.settings.camera.organOpacityLow);
-			this._parent.layerPlayer.cell.shell.runAction( this.actFadeCellOrgan );
+			this.actFadeCellOuterBuildings = cc.FadeTo.create(0.5,yc.settings.camera.outerBuildingOpacityLow);
+			outerCell.shell.buildings.runAction( this.actFadeCellOuterBuildings );
 		}
 
 		// 低于 显示内部视图的缩放比例
@@ -70,25 +79,25 @@ yc.GameLayer = cc.Layer.extend({
 			// 内部视图消失
 			if(this.actFadeCellInner)
 			{
-				this._parent.layerPlayer.cell.layerInner.stopAction(this.actFadeCellInner) ;
+				outerCell.layerInner.stopAction(this.actFadeCellInner) ;
 			}
 			this.actFadeCellInner = cc.FadeOut.create(1) ;
-			this._parent.layerPlayer.cell.layerInner.runAction(this.actFadeCellInner) ;
+			outerCell.layerInner.runAction(this.actFadeCellInner) ;
 
 			// 显示细胞外壳
-			if(this.actFadeCellOuter)
+			if(this.actFadeCellOuterSkin)
 			{
-				this._parent.layerPlayer.cell.shell.stopAction(this.actFadeCellOuter) ;
+				outerCell.shell.skin.stopAction(this.actFadeCellOuterSkin) ;
 			}
-			this.actFadeCellOuter = cc.FadeIn.create(0.5) ;
-			this._parent.layerPlayer.cell.shell.runAction(this.actFadeCellOuter) ;
+			this.actFadeCellOuterSkin = cc.FadeIn.create(0.5) ;
+			outerCell.shell.skin.runAction(this.actFadeCellOuterSkin) ;
 			
 			// 显示外部器官
-			if( this.actFadeCellOrgan ){
-				this._parent.layerPlayer.cell.shell.stopAction( this.actFadeCellOrgan );
+			if( this.actFadeCellOuterBuildings ){
+				outerCell.shell.buildings.stopAction( this.actFadeCellOuterBuildings );
 			}
-			this.actFadeCellOrgan = cc.FadeIn.create(0.5);
-			this._parent.layerPlayer.cell.shell.runAction( this.actFadeCellOrgan );
+			this.actFadeCellOuterBuildings = cc.FadeIn.create(0.5);
+			outerCell.shell.buildings.runAction( this.actFadeCellOuterBuildings );
 		}
 		
 		this._super(scalex,scaley) ;

@@ -5,23 +5,20 @@ yc.settings = {
 	camera: {
 
 		// 切换内外场景的倍数
-		switchZoom: 0.3
+		switchZoom: 0.5
 
 		// 初始显示倍数
-		, firstZoom: 0.4
+		, firstZoom: 0.5
 
 		// 细胞在放大时，外壳的透明度
-		, shellOpacityLow: 30
-		
-		// 细胞在放大时，外部器官的透明度
-		, organOpacityLow: 100
+		, outerBuildingOpacityLow: 100
 
 		// 显示倍数 （弃用）
 		, cellInnerZoom: 1
 
 		// 默认的最大、最小缩放比例
 		, defautlMaxZoom: 1
-		, defautlMinZoom: 0.25
+		, defautlMinZoom: 0.2
 
 	}
 

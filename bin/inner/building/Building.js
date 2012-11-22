@@ -38,7 +38,7 @@ yc.inner.building.Building = cc.Sprite.extend({
 
 		// 决定 building 放在哪个 layer 上
 		if( 'shell' == this.layer ){
-			var bLayer = ins(yc.outer.Cell).shell; 
+			var bLayer = ins(yc.outer.Cell).shell.buildings; 
 		}else{
 			var bLayer = ins(yc.inner.InnerLayer).buildings ;
 		}

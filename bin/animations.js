@@ -625,7 +625,7 @@ yc.animations.initBuildinAnimations = function (){
 			, "res/building/addbuild.plist"
 			, "res/building/addbuild.png"
 			, "huishou_00%idx%.png"		// 帧名称模板
-			, 1, 4								// 帧名称中的下标的数值范围
+			, 1, 2								// 帧名称中的下标的数值范围
 			, yc.animations.adjustFrameBtn);
 	__loadAnimation(
 			'towers.daodan'
@@ -647,6 +647,13 @@ yc.animations.initBuildinAnimations = function (){
 			, "res/building/addbuild.png"
 			, "ping_00%idx%.png"		// 帧名称模板
 			, 1, 2								// 帧名称中的下标的数值范围
+			, yc.animations.adjustFrameBtn);
+	__loadAnimation(
+			'towers.reinforce_C0_right'
+			, "res/building/addbuild.plist"
+			, "res/building/addbuild.png"
+			, "reinforce_C0_00%idx%.png"		// 帧名称模板
+			, 1, 7								// 帧名称中的下标的数值范围
 			, yc.animations.adjustFrameBtn);
 }
 
