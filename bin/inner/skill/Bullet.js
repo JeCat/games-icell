@@ -1,35 +1,21 @@
 yc.inner.skill.Bullet = cc.Sprite.extend({
-	x: 0
-	, y: 0
-	, ctor: function(){
+	ctor: function(){
 		this._super();
 		
-		var _fromPosition = cc.p(0,0);
-		var _targetPosition = cc.p(0,0);
+		this._fromPosition = cc.p(0,0);
+		this._targetPosition = cc.p(0,0);
 		var _speed = 500;
 		var _injure = 10;// 伤害
 		var _injure_radius = 20;// 伤害半径
 		
-		this.setPosition = function(p){
-			this.x = p.x;
-			this.y = p.y;
-			this._super(p) ;
-		}
-		this.getPosition = function(){
-			return cc.p(this.x,this.y);
-		}
-		
 		this.setFromPosition=function(p){
-			_fromPosition = p;
+			this._fromPosition = p;
 		}
 		this.fromPosition=function(p){
-			return _fromPosition;
+			return this._fromPosition;
 		}
 		this.setTargetPosition = function(p){
-			_targetPosition = p;
-		}
-		this.targetPosition=function(){
-			return _targetPosition;
+			this._targetPosition = p;
 		}
 		this.setSpeed=function(s){
 			_speed = s;
@@ -51,10 +37,10 @@ yc.inner.skill.Bullet = cc.Sprite.extend({
 		}
 	}
 	, run: function(){
-		var from = this.fromPosition();
+		var from = this._fromPosition;
 		this.setPosition(from);
 		
-		var target = this.targetPosition();
+		var target = this._targetPosition;
 		var dis = yc.util.pointsDis(
 			from.x,
 			from.y,

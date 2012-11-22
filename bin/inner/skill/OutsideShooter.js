@@ -16,7 +16,7 @@ yc.inner.skill.OutsideShooter = yc.inner.skill.SkillBase.extend({
 		bullet.setInjureRadius( 30 );
 		
 		// from
-		var b = this.building().getParent().getParent() ;
+		var b = this.building().getParent().getParent().getParent().getPosition() ;
 		
 		var ptr = cc.p(b.x,b.y);
 		bullet.setFromPosition( ptr );
