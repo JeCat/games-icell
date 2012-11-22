@@ -1,9 +1,10 @@
 yc.outer.pinups.LayerGround = cc.Layer.extend({
 
 
-	ctor: function(){
+	ctor: function(type){
 		this._super() ;
-		this.type = 'background' ;
+		this.type = type ;
+		this.parallax = yc.settings.layers[type] ;
 		this._script = [] ;
 		this.setAnchorPoint(cc.p(0,0)) ;
 		this.defaultParallax = 1 ;

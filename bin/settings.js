@@ -22,6 +22,18 @@ yc.settings = {
 
 	}
 
+	, layers: {
+
+		// 远景层的视差
+		perspective: 0.25
+
+		// 背景层的视差
+		, background: 1
+
+		// 前景层的视差
+		, foreground: 1.2
+	}
+
 	// 内部场景 ------------------------------
 	, inner: {
 		// 六边形边长

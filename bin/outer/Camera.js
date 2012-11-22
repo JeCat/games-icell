@@ -72,7 +72,19 @@ yc.outer.Camera = function()
 				}
 			}
 
-			scene.layerGame.setPosition(cc.p(x,y)) ;
+			// 设置层偏移
+			var layers = scene.layerGame.getChildren() ;
+			for(var i=0; i<layers.length; i++)
+			{
+				if( 'parallax' in layers[i] )
+				{
+					layers[i].setPosition( cc.p( x*layers[i].parallax, y*layers[i].parallax ) ) ;
+				}
+				else
+				{
+					layers[i].setPosition(cc.p(x,y)) ;
+				}
+			}
 
 		}
 

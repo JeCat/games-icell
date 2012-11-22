@@ -27,8 +27,12 @@ yc.outer.pinups.Pinup = cc.Sprite.extend({
 			return ;
 		}
 
-		// ctx.rotate(this.getRotation()) ;
-		// ctx.scale(this.getScaleX(),this.getScaleY()) ;
+		//this._super() ;
+		ctx.rotate(this.getRotation()) ;
+		// if ((this._scaleX != 1) || (this._scaleY != 1)) {
+		// 	ctx.scale(this._scaleX, this._scaleY);
+		// }
+    	ctx.globalAlpha*= this._opacity / 255;
 
 		// 平铺
 		if(this._script.img){
@@ -115,6 +119,14 @@ yc.outer.pinups.Pinup = cc.Sprite.extend({
 		this.y+= dt * this.velocity[1] ;
 	}
 
+}) ;
+
+yc.outer.pinups.Pinup.prototype.__defineSetter__("_position",function(p){
+	this.__position = p ;
+	this.__positionByParallax = cc.p( p.x*this.parallax, p.y*this.parallax ) ;
+}) ;
+yc.outer.pinups.Pinup.prototype.__defineGetter__("_position",function(){
+	return this.__positionByParallax ;
 }) ;
 
 yc.outer.pinups.Pinup.insId = -1 ;

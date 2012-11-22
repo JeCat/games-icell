@@ -36,16 +36,16 @@ yc.GameScene = cc.Scene.extend({
 		this.addChild(this.layerGame) ;
 
 		// 层：远景
-		this.layerPg = new yc.outer.pinups.LayerGround() ;
-		this.layerPg.type = 'perspective' ;
+		this.layerPg = new yc.outer.pinups.LayerGround('perspective') ;
+		// this.layerPg.type =  ;
 		if(g_architecture=='html5')
 		{
 			this.layerGame.addChild(this.layerPg) ;
 		}
 
 		// 层：背景
-		this.layerBg = new yc.outer.pinups.LayerGround() ;
-		this.layerBg.type = 'background' ;
+		this.layerBg = new yc.outer.pinups.LayerGround('background') ;
+		// this.layerBg.type =  ;
 		if(g_architecture=='html5')
 		{
 			this.layerGame.addChild(this.layerBg) ;
@@ -72,8 +72,8 @@ yc.GameScene = cc.Scene.extend({
 		}
 		
 		// 层：前景
-		this.layerFg = new yc.outer.pinups.LayerGround() ;
-		this.layerFg.type = 'foreground' ;
+		this.layerFg = new yc.outer.pinups.LayerGround('foreground') ;
+		// this.layerFg.type = 'foreground' ;
 		if(g_architecture=='html5')
 		{
 			this.layerGame.addChild(this.layerFg) ;
