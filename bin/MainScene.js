@@ -15,7 +15,9 @@ yc.MainScene = cc.Scene.extend({
 		this.addChild(this.h2);
 
 		var itemWeibo = cc.MenuItemImage.create( 'res/weibo_login.png' ,'res/weibo_login.png' , function(){
-			window.open('/service/sina_user/login.php');
+			ins(yc.oauth.weibo).login(function(){
+				alert(ins(yc.oauth.weibo).getStatus());
+			});
         }, this);
         itemWeibo.setScale(0.5);
 
