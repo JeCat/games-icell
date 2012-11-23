@@ -22,6 +22,18 @@ yc.settings = {
 
 	}
 
+	, layers: {
+
+		// 远景层的视差
+		perspective: 0.25
+
+		// 背景层的视差
+		, background: 1
+
+		// 前景层的视差
+		, foreground: 1.2
+	}
+
 	// 内部场景 ------------------------------
 	, inner: {
 		// 六边形边长
@@ -218,6 +230,17 @@ yc.settings = {
 				red: 3
 				, yellow: 3 
 				, blue: 3
+			}
+		}
+
+
+		// 回收站
+		, Recycle : {
+			// 建造费用（蛋白质）
+			cost: {
+				red: 5
+				, yellow: 5
+				, blue: 5
 			}
 		}
 

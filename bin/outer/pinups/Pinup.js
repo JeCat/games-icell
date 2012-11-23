@@ -27,8 +27,12 @@ yc.outer.pinups.Pinup = cc.Sprite.extend({
 			return ;
 		}
 
-		// ctx.rotate(this.getRotation()) ;
-		// ctx.scale(this.getScaleX(),this.getScaleY()) ;
+		//this._super() ;
+		ctx.rotate(this.getRotation()) ;
+		// if ((this._scaleX != 1) || (this._scaleY != 1)) {
+		// 	ctx.scale(this._scaleX, this._scaleY);
+		// }
+    	ctx.globalAlpha*= this._opacity / 255;
 
 		// 平铺
 		if(this._script.img){

@@ -2,7 +2,11 @@ yc.inner.monster.Mitochondria = cc.Sprite.extend({
 
 	ctor: function(recycle){
 		this._super() ;
-		this.initWithFile("res/mitochondria.png") ;
+
+		// 开始动画
+        this.initWithSpriteFrameName("reinforce_C0_0001.png") ; //第一帧
+        this.runAction(cc.RepeatForever.create( yc.animations.createAction('towers.reinforce_C0_right') ));
+
 		this.speed = 100 ;
 		this.watched = null ;
 		this.catched = null ;

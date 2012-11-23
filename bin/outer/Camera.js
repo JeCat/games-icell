@@ -22,15 +22,9 @@ yc.outer.Camera = function()
 		var scene = cc.Director.getInstance().getRunningScene() ;
 		if( typeof scene.layerGame!="undefined" )
 		{
-			// camera's position
-			this.x = x ; 
-			this.y = y ;
-
-
 			var wsize = cc.Director.getInstance().getWinSize() ;
-
-			x = (wsize.width/2) - x * scene.layerGame.getScale() ;
-			y = (wsize.height/2) - y * scene.layerGame.getScale() ;
+			wsize.hw = (wsize.width/2)/scene.layerGame.getScale() ;
+			wsize.hh = (wsize.height/2)/scene.layerGame.getScale() ;
 
 			// 不超出世界边界
 			if( !this.bBoundaryOverflow )
@@ -38,41 +32,55 @@ yc.outer.Camera = function()
 				// 高度
 				if(scene.top!==null)
 				{
-					var top = scene.top * scene.layerGame.getScale() ;
-					if( wsize.height-y > top )
+					if( y+wsize.hh > scene.top )
 					{
-						y = wsize.height - top ;
+						y = scene.top - wsize.hh ;
 					}
 				}
 				if(scene.btm!==null)
 				{
-					var btm = scene.btm * scene.layerGame.getScale() ;
-					if( -y<btm )
+					if( y-wsize.hh < scene.btm )
 					{
-						y = -btm ;
+						y = scene.btm + wsize.hh ;
 					}
 				}
 
 				// 宽度
 				if(scene.rgt!==null)
 				{
-					var rgt = scene.rgt * scene.layerGame.getScale() ;
-					if( wsize.width-x > rgt )
+					if( x+wsize.hw > scene.rgt )
 					{
-						x = wsize.width - rgt ;
+						x = scene.rgt - wsize.hw ;
 					}
 				}
 				if(scene.lft!==null)
 				{
-					var lft = scene.lft * scene.layerGame.getScale() ;
-					if( -x<lft )
+					if( x-wsize.hw < scene.lft )
 					{
-						x = -lft ;
+						x = scene.lft + wsize.hw ;
 					}
 				}
 			}
 
-			scene.layerGame.setPosition(cc.p(x,y)) ;
+			// camera's position
+			this.x = x ; 
+			this.y = y ;
+
+			// 设置层偏移
+			var layers = scene.layerGame.getChildren() ;
+			for(var i=0; i<layers.length; i++)
+			{
+				// layers[i].setPosition(cc.p(x,y)) ;
+
+				if( 'parallax' in layers[i] )
+				{
+					layers[i].setPosition( cc.p( -x*layers[i].parallax, -y*layers[i].parallax ) ) ;
+				}
+				else
+				{
+					layers[i].setPosition(cc.p(-x,-y)) ;
+				}
+			}
 
 		}
 

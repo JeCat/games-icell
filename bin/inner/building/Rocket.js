@@ -10,8 +10,9 @@ yc.inner.building.Rocket = yc.inner.building.Building.extend({
 		this.working = false ;
 
 		// 开始动画
-        this.initWithSpriteFrame( yc.animations.firstFrame('building.molino') ) ; //第一帧
-        this.runAction(cc.RepeatForever.create( yc.animations.createAction('building.molino') )) ;
+        this.initWithSpriteFrame( yc.animations.firstFrame('towers.tuijinqi') ) ; //第一帧
+        // this.initWithSpriteFrameName("reinforce_C0_0001.png") ; //第一帧
+        this.runAction(cc.RepeatForever.create( yc.animations.createAction('towers.tuijinqi') )) ;
 
         // 冒烟动作
 		this.actionSmoke = yc.actions.Timer.create(0.2,-1,this,function(){

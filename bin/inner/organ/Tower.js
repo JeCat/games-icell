@@ -5,17 +5,9 @@ yc.inner.organ.Tower = yc.inner.organ.Organ.extend({
 		this.addSkill(
 			new yc.inner.skill.OutsideShooter
 		);
-		
-		this.initWithFile('res/organ/Tower.png');
-	}
-	,draw: function(ctx){
-		if(g_architecture=='native')
-		{
-			this._super() ;
-			return ;
-		}
-		
-		var texture = yc.util.ccShareTexture('res/organ/Tower.png') ;
-		ctx.drawImage(texture,-17,-17) ;
+
+		//开始动画
+        this.initWithSpriteFrame(yc.animations.firstFrame("towers.daodan")) ; //第一帧
+        this.runAction(cc.RepeatForever.create( yc.animations.createAction('towers.daodan') ));
 	}
 });
