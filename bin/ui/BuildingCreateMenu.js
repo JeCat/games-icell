@@ -485,7 +485,7 @@ yc.ui.BuildingCreateMenu = function(){
             font.draw(ctx);
         }
         this.ui.pp.setPosition( cc.p(-320 , 0) ) ;
-        this.ui.pp.setScale(0.4);
+        this.ui.pp.setScale(0.8);
         this.ui.label.setPosition( cc.p(-420 , 50) ) ;
         that.ui.addChild(this.ui.pp);
         that.ui.addChild(this.ui.label);
