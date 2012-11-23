@@ -7,8 +7,8 @@ yc.inner.building.PlastosomePower = yc.inner.building.Building.extend({
 		this.increase = 1.2 ;
 
 		// 开始动画
-        this.initWithSpriteFrameName("jiasu_0001.png") ; //第一帧
-        this.runAction(cc.RepeatForever.create( yc.animations.createAction('towers.factory_jiasu') ));
+        this.initWithSpriteFrame(yc.animations.firstFrame("towers.shooter") ); //第一帧
+        this.runAction(cc.RepeatForever.create( yc.animations.createAction('towers.shooter') ));
 
        	this.setAnchorPoint(cc.p(0.5,0.2)) ;
 	}

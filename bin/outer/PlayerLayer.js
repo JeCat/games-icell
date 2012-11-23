@@ -74,8 +74,8 @@ yc.outer.PlayerLayer = cc.Layer.extend({
 		}
 	}
 	
-	, onKeyUp:function (key) {
-		switch(key)
+	, onKeyUp:function (e) {
+		switch(e.keyCode)
 		{
 			// left
 			case 65 : // s
@@ -118,8 +118,8 @@ yc.outer.PlayerLayer = cc.Layer.extend({
 		this.updateCellMoving() ;
 	}
 	
-	, onKeyDown:function (key) {
-		switch(key)
+	, onKeyDown:function (e) {
+		switch(e.keyCode)
 		{
 			// left
 			case 65 : // s
