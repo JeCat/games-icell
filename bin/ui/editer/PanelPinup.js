@@ -44,9 +44,21 @@ yc.ui.editer.PanelPinup = function(editor){
 		}
 	}
 
-	$('#lst-pinup-foreground').propslst(options) ;
-	$('#lst-pinup-background').propslst(options) ;
-	$('#lst-pinup-perspective').propslst(options) ;
+	$('#lst-pinup-foreground').propslst(options)
+			.focus(function(){
+				$('#lst-pinup-background')[0].selectedIndex = -1 ;
+				$('#lst-pinup-perspective')[0].selectedIndex = -1 ;
+			}) ;
+	$('#lst-pinup-background').propslst(options) 
+			.focus(function(){
+				$('#lst-pinup-foreground')[0].selectedIndex = -1 ;
+				$('#lst-pinup-perspective')[0].selectedIndex = -1 ;
+			}) ;
+	$('#lst-pinup-perspective').propslst(options) 
+			.focus(function(){
+				$('#lst-pinup-background')[0].selectedIndex = -1 ;
+				$('#lst-pinup-foreground')[0].selectedIndex = -1 ;
+			}) ;
 
 
 
@@ -54,7 +66,6 @@ yc.ui.editer.PanelPinup = function(editor){
 	this.refreshPinups = function(){
 		
 		var eachfunc = function(pinup,pi){
-
 			return {
 				text: "[idx:"+pi+"] " + (pinup._script.img || pinup._script.text)
 				, value: pi
