@@ -12,12 +12,30 @@
 	<script src="bin/common.js"></script>
 	<script src="bin/icell-html5.js"></script>
 	<script src="users.js"></script>
+	<script src="http://tjs.sjs.sinajs.cn/open/api/js/wb.js?appkey=4022031959" type="text/javascript" charset="utf-8"></script>
 	<style>
 	</style>
 </head>
 <body>
-
+<div position="fixed"><button>登录</button>  </div>  
+<div id="content"></div>  
+	<script type="text/javascript">
 	
+	$("button").click(  
+	        function()  
+	        {  
+	            if($(this).text()=="登录")  
+	            {  
+	                login();  
+	            }  
+	            if($(this).text()=="退出")  
+	            {  
+	                logout();  
+	            }  
+	        }  
+	 )  
+	
+	</script>
 	
 	<div style="position:absolute;left:400px">
 		<canvas id="debugCanvas" style="border:1px solid #EDEDED;display:none" width="400" height="300"></canvas>
