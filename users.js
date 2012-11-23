@@ -2,7 +2,12 @@ yc.oauth = {};
 yc.oauth.weibo = function(){
 	
 	this.login = function( callback){
-		WB2.login( callback);  
+		thisb = this;
+		WB2.login( function(){
+			thisb.getUserInfo(function( o){
+				callback(o);
+			});
+		});  
 	} ,
 	this.logout = function( callback){
 		WB2.logout( callback); 
@@ -10,43 +15,35 @@ yc.oauth.weibo = function(){
 	this.checkLogin = function( ){
 		return WB2.checkLogin();
 	} ,
-	this.getStatus = function(){
-		var url="/statuses/friends_timeline.json";  
-	       WB2.anyWhere(  
-	          function(W)  
-	          {  
-	              W.parseCMD(  
-	                url,  
-	                function(result,b)  
-	                {  
-	                    for(i=0;i<result.length;i++)  
-	                    {  
-	                        username=result[i].user.name;//微博作者  
-	                        userimg=result[i].user.profile_image_url;//微博作者头像  
-	                        date=result[i].created_at;  //微博发布时间          
-	                        id= result[i].id;//微博id  
-	                        text=result[i].text;//微博内容  
-	                        img=result[i].thumbnail_pic;//微博配图  
-	                        if(result[i].retweeted_status!=null)  
-	                        {  
-	                            username1=result[i].retweeted_status.user.name;  
-	                            text=text+"@"+username1+"<br>"+result[i].retweeted_status.text;//转发内容  
-	                            img=result[i].retweeted_status.thumbnail_pic;//微博配图,小图  
-	                        }  
-	                        if(img!=null)  
-	                        {  
-	                            text=text+"<br><img src=\""+img+"\" />";  
-	                        }                         
-	                          
-	                        message="<img src=\""+userimg+"\"> "+username+":"+text;  
-	                        alert(message)
-	                          
-	                    }  
-	                     
-	                }  
-	              );  
-	          }  
+	this.getUserInfo = function( callback){
+			WB2.anyWhere(  
+		          function(W)  
+		          {  
+		        	  W.parseCMD("/account/get_uid.json", function(sResult, bStatus){
+		        		    W.parseCMD("/users/show.json", function(sResult2, bStatus2){
+		        		    	callback( {id:sResult2.id , service:'weibo'}) ;
+			        		},{
+			        			uid : sResult.uid
+			        		},{
+			        		    method: 'get'
+			        		});
+		        		},{
+		        			
+		        		},{
+		        		    method: 'get'
+		        		});
+		          }  
 	       );  
+	} ,
+	this.publish = function(){
+		WB2.anyWhere(  
+				function(W)  
+				{  
+					W.widget.publish({
+				        'id' : 'publish'
+				    });
+				}  
+		);  
 	}
 }
 
