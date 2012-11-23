@@ -17,12 +17,23 @@
 	</style>
 </head>
 <body>
-
+<div position="fixed"><button>登录</button>  </div>  
+<div id="content"></div>  
 	<script type="text/javascript">
 	
-	WB2.login(function(){
-		alert(WB2.checkLogin())
-	});
+	$("button").click(  
+	        function()  
+	        {  
+	            if($(this).text()=="登录")  
+	            {  
+	                login();  
+	            }  
+	            if($(this).text()=="退出")  
+	            {  
+	                logout();  
+	            }  
+	        }  
+	 )  
 	
 	</script>
 	
