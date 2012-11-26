@@ -279,6 +279,7 @@ var g_ResFiles = [
 	, {type:"image", src:"res/map-c1.png"}
 	, {type:"image", src:"res/level-flag-normal.png"}
 	, {type:"image", src:"res/level-flag-flash.png"}
+	, {type:"image", src:"res/level-flag-gr.png"}
 	, {type:"image", src:"res/dna-icons-16.png"}
 	, {type:"image", src:"res/dna-icons-32.png"}
 	
