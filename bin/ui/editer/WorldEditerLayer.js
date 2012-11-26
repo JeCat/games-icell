@@ -43,11 +43,11 @@ yc.ui.editer.WorldEditerLayer = cc.Layer.extend({
 
 	, screenToWorld: function(touches) {
 
-		var cam = ins(yc.outer.Camera) ; 
+		var scene = cc.Director.getInstance().getRunningScene() ;
 
 		for(var i=0;i<touches.length;i++)
 		{
-			var p = yc.util.windowToClient(ins(yc.GameLayer),touches[i]._point.x,touches[i]._point.y) ;
+			var p = yc.util.windowToClient(scene.layerStains,touches[i]._point.x,touches[i]._point.y) ;
 			touches[i]._point.wx = p[0] ;
 			touches[i]._point.wy = p[1] ;
 		}
@@ -158,7 +158,11 @@ yc.ui.editer.WorldEditerLayer = cc.Layer.extend({
 			ctx.translate( -wsize.width/2, wsize.height/2 ) ;
 
 			// 转换到 game layer 坐标系
-			cc.Director.getInstance().getRunningScene().layerGame.transform(ctx) ;
+			var scene = cc.Director.getInstance().getRunningScene() ;
+			scene.layerGame.transform(ctx) ;
+
+			// 转换到 污渍层 坐标系
+			scene.layerStains.transform(ctx) ;
 
 			// 转换到 stain 的坐标系
 			this.editor.stain.selectedStain.transform(ctx) ;
