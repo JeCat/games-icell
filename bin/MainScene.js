@@ -13,6 +13,10 @@ yc.MainScene = cc.Scene.extend({
 		this.background.setAnchorPoint(cc.p(0,0));
 		this.background.setScale(1.1);
 
+		this.pao = cc.Sprite.create("res/mainscene/pao.png");
+		this.addChild(this.pao , 1);
+		// this.pao.setAnchorPoint(cc.p(0,0));
+
 		this.h1 = cc.Sprite.create("res/mainscene/logo.png");
 		this.addChild(this.h1 ,5 );
 		this.line = cc.Sprite.create("res/mainscene/line.png");
@@ -120,6 +124,8 @@ yc.MainScene = cc.Scene.extend({
 	}
 
 	, onResize : function(w,h){
+
+		this.pao.setPosition(cc.p(w / 2 -20, h /2 + 400 ));
 	    this.h1.setPosition(cc.p(w / 2 -20, h /2 + 200 ));
 	    this.line.setPosition(cc.p(w / 2 -20, h /2 -10 ));
 	    this.electricity.setPosition(cc.p(w / 2 -20 , h /2 -60 ));
