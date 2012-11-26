@@ -277,7 +277,15 @@ yc.levels.LevelSelector.MapLayer.LevelFlag = cc.Sprite.extend({
 
 	ctor: function(level){
 		this._super() ;
-		this.initWithFile("res/level-flag-normal.png") ;
+
+		var ucLevels = ins(yc.user.Character).levels;
+    	if( typeof(ucLevels[level.id]) != "object" || ucLevels[level.id].unlock != true)
+		{
+    		this.initWithFile("res/level-flag-gr.png") ;
+		}else{
+			this.initWithFile("res/level-flag-normal.png") ;
+		}
+		
 		this.setAnchorPoint(cc.p(0.5,0.23)) ;
 		this.level = level ;
 	}
