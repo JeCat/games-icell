@@ -169,6 +169,23 @@ var g_ResFiles = [
 	, {type:"image", src:"res/CloseNormal.png"}
 	, {type:"image", src:"res/CloseSelected.png"}
 	, {type:"image", src:"res/Goal.png"}
+
+	, {type:"image", src:"res/mainscene/background.jpg"}
+	, {type:"image", src:"res/mainscene/electricity.png"}
+	, {type:"image", src:"res/mainscene/freeworld.png"}
+	, {type:"image", src:"res/mainscene/freeworld1.png"}
+	, {type:"image", src:"res/mainscene/line.png"}
+	, {type:"image", src:"res/mainscene/login_bg.png"}
+	, {type:"image", src:"res/mainscene/logo.png"}
+	, {type:"image", src:"res/mainscene/pao.png"}
+	, {type:"image", src:"res/mainscene/sina.png"}
+	, {type:"image", src:"res/mainscene/sina1.png"}
+	, {type:"image", src:"res/mainscene/story.png"}
+	, {type:"image", src:"res/mainscene/story1.png"}
+	, {type:"image", src:"res/mainscene/test.png"}
+	, {type:"image", src:"res/mainscene/test1.png"}
+	, {type:"image", src:"res/mainscene/world.png"}
+	, {type:"image", src:"res/mainscene/world1.png"}
 	
 	, {type:"image", src:"res/skill.png"}
 	, {type:"image", src:"res/skillbj.png"}
