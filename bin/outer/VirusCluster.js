@@ -196,13 +196,15 @@ yc.outer.VirusCluster = yc.outer.PhysicalEntity.extend({
 			// 尚未结束
 			return ;
 		}
+		
 
+		// save user
+		ins(yc.user.Character).cell = ins(yc.inner.Cell).exportScript() ;
+		ins(yc.user.Character).save() ;
+		
+		
 		var dna = this._script.dna;
 		if( typeof(dna) == "object"){
-
-			// save user
-			ins(yc.user.Character).cell = ins(yc.inner.Cell).exportScript() ;
-			ins(yc.user.Character).save() ;
 			
 			// star
         	var uc = ins(yc.user.Character);

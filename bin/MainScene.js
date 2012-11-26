@@ -3,8 +3,6 @@ yc.MainScene = cc.Scene.extend({
 	, menuLevelSelect : null
 	, ctor: function(){
 
-		// 载入当前玩家角色信息 (应该有角色选择UI)
-		yc.user.Character.loadCurrent('_me') ;
 
 		this._super() ;
 
@@ -15,21 +13,30 @@ yc.MainScene = cc.Scene.extend({
 		this.addChild(this.h2);
 
 		var itemWeibo = cc.MenuItemImage.create( 'res/weibo_login.png' ,'res/weibo_login.png' , function(){
-			ins(yc.oauth.weibo).login(function(){
-				alert(ins(yc.oauth.weibo).getStatus());
+
+			var thisb = this;
+			ins(yc.oauth.weibo).login(function(o){
+				
+				var username = o.id + '#' + o.service;
+				loginCallback(username);
+				yc.user.Character.loadCurrent( username) ;
+
+				thisb.menuLevelSelect.setVisible(true);
+				thisb.menuLevelSelect.runAction(cc.FadeIn.create(0.8));
+				thisb.menuLogin.runAction(cc.FadeOut.create(0.8));
 			});
         }, this);
         itemWeibo.setScale(0.5);
 
-        var that = this;
 
         var itemTest = cc.MenuItemFont.createEx("test", function(){
 
         	if(typeof loginCallback!='undefined')
         	{
-        		loginCallback("0#test");
-        	}
 
+				yc.user.Character.loadCurrent('_me') ;
+        	}
+        	loginCallback('me#test');
         	this.menuLevelSelect.setVisible(true);
         	this.menuLevelSelect.runAction(cc.FadeIn.create(0.8));
         	this.menuLogin.runAction(cc.FadeOut.create(0.8));
