@@ -17,8 +17,9 @@ yc.MainScene = cc.Scene.extend({
 			var thisb = this;
 			ins(yc.oauth.weibo).login(function(o){
 				
-				yc.user.username = '_' + o.service + '_' + o.id;
-				yc.user.Character.loadCurrent( yc.user.username) ;
+				var username = o.id + '#' + o.service;
+				loginCallback(username);
+				yc.user.Character.loadCurrent( username) ;
 
 				thisb.menuLevelSelect.setVisible(true);
 				thisb.menuLevelSelect.runAction(cc.FadeIn.create(0.8));
@@ -35,7 +36,7 @@ yc.MainScene = cc.Scene.extend({
 
 				yc.user.Character.loadCurrent('_me') ;
         	}
-
+        	loginCallback('me#test');
         	this.menuLevelSelect.setVisible(true);
         	this.menuLevelSelect.runAction(cc.FadeIn.create(0.8));
         	this.menuLogin.runAction(cc.FadeOut.create(0.8));
