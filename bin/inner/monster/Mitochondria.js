@@ -126,7 +126,7 @@ yc.inner.monster.Mitochondria = cc.Sprite.extend({
 							
 							worker.addChild(aminoacid) ;
 							
-							//aminoacid.setPosition(cc.p(-5,5)) ;
+							aminoacid.setPosition(cc.p(30,5)) ;
 							
 							// 移动到所属的回收站
 							worker.actWorking = worker.createMovingAction(worker.recycle.hexgon.center[0],worker.recycle.hexgon.center[1],function(){

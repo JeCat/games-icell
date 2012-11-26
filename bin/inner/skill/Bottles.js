@@ -23,6 +23,7 @@ yc.inner.skill.Bottles = yc.inner.skill.SkillBase.extend({
 		
 
 		var cellPosition = ins(yc.outer.Cell);
+		var user = unEncryptUserInfo(icell_userInfo);
 		
 		$.ajax({
 			type: "POST",
@@ -30,6 +31,10 @@ yc.inner.skill.Bottles = yc.inner.skill.SkillBase.extend({
 			jsonp:'jsonp_callback',
 			data: {
 				"act":"create",
+				//"uid":user.uid,
+				//"service":user.service,
+				//"face":"",
+				"x":cellPosition.x,
 				"x":cellPosition.x,
 				"y":cellPosition.y,
 				"content":worldName,

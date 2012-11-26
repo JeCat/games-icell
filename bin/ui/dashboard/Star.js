@@ -3,10 +3,9 @@ var STAR_STATE_UNGRABBED = 1;
 
 var Star = cc.Sprite.extend({
     _state:STAR_STATE_UNGRABBED,
-    _rect:null,
+    // _rect:null,
 
     rect:function () {
-        // this._super();
         return cc.rect(-this._rect.size.width / 2, -this._rect.size.height / 2, this._rect.size.width, this._rect.size.height);
     },
     initWithImg:function (sImgName) {

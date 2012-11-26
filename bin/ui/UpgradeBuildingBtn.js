@@ -3,22 +3,19 @@ var UPGRADEBUILDINGBTN_STATE_UNGRABBED = 1;
 
 var UpgradeBuildingBtn = cc.Sprite.extend({
     _state:UPGRADEBUILDINGBTN_STATE_UNGRABBED,
-    _rect:null,
+    // _rect:null,
     type:"UpgradeBuildingBtn",
 
     rect:function () {
         return cc.rect(-this._rect.size.width / 2, -this._rect.size.height / 2, this._rect.size.width, this._rect.size.height);
     },
-    initWithTexture:function (aTexture) {
-        if (this._super(aTexture)) {
-            this._state = UPGRADEBUILDINGBTN_STATE_UNGRABBED;
-        }
-        if (aTexture instanceof cc.Texture2D) {
-            var s = aTexture.getContentSize();
-            this._rect = cc.rect(0, 0, s.width , s.height);
-        } else if ((aTexture instanceof HTMLImageElement) || (aTexture instanceof HTMLCanvasElement)) {
-            this._rect = cc.rect(0, 0, aTexture.width, aTexture.height);
-        }
+    initWithImg:function (aTexture) {
+        this._state = UPGRADEBUILDINGBTN_STATE_UNGRABBED;
+
+        this.initWithFile(aTexture);
+
+        this._rect = cc.rect(0, 0, this.getContentSize().width , this.getContentSize().height);
+       
         return true;
     },
     onEnter:function () {
@@ -63,44 +60,6 @@ var UpgradeBuildingBtn = cc.Sprite.extend({
     }
     , touchDelegateRelease:function () {
     }
-    ,performPNG : function (filename) {
-        var now = cc.timeval();
-        var texture;
-        var cache = cc.TextureCache.getInstance();
-
-        cc.Texture2D.setDefaultAlphaPixelFormat(cc.TEXTURE_2D_PIXEL_FORMAT_RGBA8888);
-        var now = cc.Time.gettimeofdayCocos2d();
-        texture = cache.addImage(filename);
-        if (texture)
-            return texture;
-        else
-            cache.removeTexture(texture);
-
-        cc.Texture2D.setDefaultAlphaPixelFormat(cc.TEXTURE_2D_PIXEL_FORMAT_RGBA4444);
-        var now = cc.Time.gettimeofdayCocos2d();
-        texture = cache.addImage(filename);
-        if (texture)
-            return texture;
-        else
-            cache.removeTexture(texture);
-
-        cc.Texture2D.setDefaultAlphaPixelFormat(cc.TEXTURE_2D_PIXEL_FORMAT_RGB5A1);
-        var now = cc.Time.gettimeofdayCocos2d();
-        texture = cache.addImage(filename);
-        if (texture)
-            return texture;
-        else
-            cache.removeTexture(texture);
-
-        cc.Texture2D.setDefaultAlphaPixelFormat(cc.TEXTURE_2D_PIXEL_FORMAT_RGB565);
-        var now = cc.Time.gettimeofdayCocos2d();
-        texture = cache.addImage(filename);
-        if (texture)
-            return texture;
-        else
-            cache.removeTexture(texture);
-        return null;
-    }
     , addTexture : function(aTexture){
         if(!this._arrTextures){
             this._arrTextures = [];
@@ -109,11 +68,11 @@ var UpgradeBuildingBtn = cc.Sprite.extend({
     }
     , setFaceType : function(type){
         if(type==='nm'){
-            this.setTexture(this._arrTextures[2]);
+            this.initWithFile(this._arrTextures[2]);
         }else if(type==='l'){
-            this.setTexture(this._arrTextures[1]);
+            this.initWithFile(this._arrTextures[1]);
         }else{
-            this.setTexture(this._arrTextures[0]);
+            this.initWithFile(this._arrTextures[0]);
         }
     }
     , setBuildable: function( bBuildable ){
@@ -123,20 +82,14 @@ var UpgradeBuildingBtn = cc.Sprite.extend({
 
 UpgradeBuildingBtn.buildingBtnWithTexture = function (sImgName1,sImgName2,sImgName3 ) {
     var buildingBtn = new UpgradeBuildingBtn();
-    var aTexture1 = buildingBtn.performPNG(sImgName1);
-    var aTexture2 = buildingBtn.performPNG(sImgName2);
-    var aTexture3 = buildingBtn.performPNG(sImgName3);
-    if ( aTexture1 && aTexture2 && aTexture3 ){
-        buildingBtn.addTexture(aTexture1);
-        buildingBtn.addTexture(aTexture2);
-        buildingBtn.addTexture(aTexture3);
-    }else{
-        return false;
-    }
+
+    buildingBtn.addTexture(sImgName1);
+    buildingBtn.addTexture(sImgName2);
+    buildingBtn.addTexture(sImgName3);
 
     buildingBtn.setBuildable(true);
 
-    buildingBtn.initWithTexture(aTexture1);
+    buildingBtn.initWithImg(sImgName1);
 
     return buildingBtn;
 };
