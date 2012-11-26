@@ -31,12 +31,15 @@ yc.MainScene = cc.Scene.extend({
 
         var itemTest = cc.MenuItemFont.createEx("test", function(){
 
+        	
+        	
+        	
         	if(typeof loginCallback!='undefined')
         	{
 
 				yc.user.Character.loadCurrent('_me') ;
         	}
-        	loginCallback('me#test');
+        	loginCallback('0#test');
         	this.menuLevelSelect.setVisible(true);
         	this.menuLevelSelect.runAction(cc.FadeIn.create(0.8));
         	this.menuLogin.runAction(cc.FadeOut.create(0.8));
