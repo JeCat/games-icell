@@ -103,16 +103,15 @@ yc.MainScene = cc.Scene.extend({
 			if( 'cl' in url.anchorParams )
 			{
 				// todo by kongyuan ...
-				// what fuck ... -_-!! --by kongyuan
+				// what hell ... -_-!! --by kongyuan
 			}
 
 			// 只自动加载一次
 			yc.MainScene.autoLoadByUrl = false ;
 		}
-
 		else
 		{
-			yc.levels.LevelSelector.enterLevel(yc.levels.c1.l1) ;
+			yc.levels.LevelSelector.enterLevel( yc.CURRENT_LEVEL || yc.levels.c1.l1 ) ;
 		}
 	}
 

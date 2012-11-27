@@ -338,10 +338,14 @@ yc.levels.LevelSelector.MapLayer.LevelFlag = cc.Sprite.extend({
 		this.initWithFile("res/level-flag-normal.png") ;
 		this.setAnchorPoint(cc.p(0.5,0.23)) ;
 
-		// 前往对应关卡
-		yc.levels.LevelSelector.enterLevel( eval(this.level) ) ;
-    }
+		var level = eval(this.level);
 
+		// 前往对应关卡
+		yc.levels.LevelSelector.enterLevel( level ) ;
+
+		//记录当前关卡,以便死亡后重玩
+		yc.CURRENT_LEVEL = level;
+    }
 })
 
 

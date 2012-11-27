@@ -308,13 +308,15 @@ function initWorld(wid , edit){
 			, 'wid':wid
 		}
 		, function(json){
-
-			cc.Director.getInstance().replaceScene(new (yc.GameScene.extend({
+			var level = new (yc.GameScene.extend({
 				onEnter: function(){
 					this._super() ;
 
 					
 					this.initWithScript(json);
+
+					//记录当前关卡,以便死亡后重玩
+					yc.CURRENT_LEVEL = json;
 
 					yc.GameScene._level = wid;
 					// 瓶子
@@ -325,7 +327,11 @@ function initWorld(wid , edit){
 						ins(yc.ui.editer.WorldEditer).open() ;
 					}
 				}
-			})));
+			}));
+
+
+
+			cc.Director.getInstance().replaceScene(level);
 
 			$("#worldListDiv").dialog("close");
 		}
