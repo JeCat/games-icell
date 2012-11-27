@@ -193,9 +193,9 @@ var g_ResFiles = [
 	, {type:"image", src:"res/skill/outsideShooter.png"}
 	, {type:"image", src:"res/skill/rocket.png"}
 
-	, {type:"image", src:"res/HP_bg.png"}
-	, {type:"image", src:"res/HP_hp.png"}
-	, {type:"image", src:"res/HP_hp_bg.png"}
+	, {type:"image", src:"res/dashboard/HP_bg.png"}
+	, {type:"image", src:"res/dashboard/HP_hp.png"}
+	, {type:"image", src:"res/dashboard/HP_hp_bg.png"}
 
 	, {type:"image", src:"res/background/bg.png"}
 

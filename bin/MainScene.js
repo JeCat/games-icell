@@ -15,7 +15,6 @@ yc.MainScene = cc.Scene.extend({
 
 		this.pao = cc.Sprite.create("res/mainscene/pao.png");
 		this.addChild(this.pao , 1);
-		// this.pao.setAnchorPoint(cc.p(0,0));
 
 		this.h1 = cc.Sprite.create("res/mainscene/logo.png");
 		this.addChild(this.h1 ,5 );
