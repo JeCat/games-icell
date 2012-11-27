@@ -170,6 +170,23 @@ var g_ResFiles = [
 	, {type:"image", src:"res/CloseNormal.png"}
 	, {type:"image", src:"res/CloseSelected.png"}
 	, {type:"image", src:"res/Goal.png"}
+
+	, {type:"image", src:"res/mainscene/background.jpg"}
+	, {type:"image", src:"res/mainscene/electricity.png"}
+	, {type:"image", src:"res/mainscene/freeworld.png"}
+	, {type:"image", src:"res/mainscene/freeworld1.png"}
+	, {type:"image", src:"res/mainscene/line.png"}
+	, {type:"image", src:"res/mainscene/login_bg.png"}
+	, {type:"image", src:"res/mainscene/logo.png"}
+	, {type:"image", src:"res/mainscene/pao.png"}
+	, {type:"image", src:"res/mainscene/sina.png"}
+	, {type:"image", src:"res/mainscene/sina1.png"}
+	, {type:"image", src:"res/mainscene/story.png"}
+	, {type:"image", src:"res/mainscene/story1.png"}
+	, {type:"image", src:"res/mainscene/test.png"}
+	, {type:"image", src:"res/mainscene/test1.png"}
+	, {type:"image", src:"res/mainscene/world.png"}
+	, {type:"image", src:"res/mainscene/world1.png"}
 	
 	, {type:"image", src:"res/skill.png"}
 	, {type:"image", src:"res/skillbj.png"}
@@ -177,9 +194,9 @@ var g_ResFiles = [
 	, {type:"image", src:"res/skill/outsideShooter.png"}
 	, {type:"image", src:"res/skill/rocket.png"}
 
-	, {type:"image", src:"res/HP_bg.png"}
-	, {type:"image", src:"res/HP_hp.png"}
-	, {type:"image", src:"res/HP_hp_bg.png"}
+	, {type:"image", src:"res/dashboard/HP_bg.png"}
+	, {type:"image", src:"res/dashboard/HP_hp.png"}
+	, {type:"image", src:"res/dashboard/HP_hp_bg.png"}
 
 	, {type:"image", src:"res/background/bg.png"}
 
@@ -263,6 +280,7 @@ var g_ResFiles = [
 	, {type:"image", src:"res/map-c1.png"}
 	, {type:"image", src:"res/level-flag-normal.png"}
 	, {type:"image", src:"res/level-flag-flash.png"}
+	, {type:"image", src:"res/level-flag-gr.png"}
 	, {type:"image", src:"res/dna-icons-16.png"}
 	, {type:"image", src:"res/dna-icons-32.png"}
 	

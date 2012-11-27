@@ -28,7 +28,14 @@ yc.outer.Bottles = cc.Sprite.extend({
         		//cc.Hide.create(),
         		//cc.DelayTime.create(0.5),
                 cc.FadeIn.create(1.0)
+                
         );
+//        var action2 = cc.RepeatForever.create(
+//                		
+//                		cc.RotateTo.create(1, this.Rotation + 60),
+//                        cc.RotateBy.create(1, this.Rotation + 60)
+//                
+//        );
         this.pz.runAction(action);
 		//this.initWithCircle(5,this.x,this.y,yc.settings.outer.aminoacid.density) ;
         
@@ -36,7 +43,7 @@ yc.outer.Bottles = cc.Sprite.extend({
         
 	},
 	rect:function () {
-		return cc.rect(-30 / 2, -30 / 2, 30, 30);
+		return cc.rect(-80 / 2, -80 / 2, 80, 80);
 	},
 	containsTouchLocation:function (touch) {
 		
