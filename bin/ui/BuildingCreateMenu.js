@@ -473,7 +473,7 @@ yc.ui.BuildingCreateMenu = function(){
         {
             var font = ins(yc.ui.font.Font);
             font.setWidth(190);
-            font.setHeight(75);
+            font.setHeight(175);
             font.setTextIndent(0);
             font.setTextAlign('left');
             font.setLetterSpacing(4);
