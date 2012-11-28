@@ -8,8 +8,8 @@ yc.outer.pinups.Pinup = cc.Sprite.extend({
 		this.id = ++yc.outer.pinups.Pinup.insId ;
 		yc.outer.pinups.Pinup.pool[this.id] = this ;
 		this.velocity = [0,0,0] ;	// 0: x, 1: y, 2: angle
-		this.scheduleUpdate();
 
+		this.scheduleUpdate();
 		//this.__defineSetter__('_opacity',this.setOpacity) ;
 	}
 
@@ -118,7 +118,7 @@ yc.outer.pinups.Pinup = cc.Sprite.extend({
 		this.x+= dt * this.velocity[0] ;
 		this.y+= dt * this.velocity[1] ;
 
-		this.setPosition(cc.p(x,y)) ;
+		this.setPosition(cc.p(this.x,this.y)) ;
 	}
 
 }) ;

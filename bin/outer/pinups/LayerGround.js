@@ -26,6 +26,16 @@ yc.outer.pinups.LayerGround = cc.Layer.extend({
 	, pushPinup: function(pinup){
 		pinup.removeFromParent() ;
 		this.layer(pinup.parallax).addChild(pinup) ;
+
+		// 漫步
+		if(pinup._script.mosey)
+		{
+			pinup.scheduleUpdate();
+		}
+		else
+		{
+			pinup.unscheduleUpdate();
+		}
 	}
 
 	, initWithScript: function(script){
