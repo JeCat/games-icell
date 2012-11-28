@@ -16,6 +16,12 @@ yc.ui.editer.PanelPinup = function(editor){
 			}
 		})
 
+	var scene = cc.Director.getInstance().getRunningScene() ;
+	var layers = {
+		background: scene.layerBg 
+		, foreground: scene.layerFg
+	}
+
 	var options = {
 		exchanges: {
 			x: 'ipt-pinup-x'
@@ -41,24 +47,25 @@ yc.ui.editer.PanelPinup = function(editor){
 			// 将用户修改的数值，应用到场景里的对象中
 			var eleOption = $(this).propslst('selectedOption') ;
 			$(eleOption).data('object').initWithScript(pinupScript) ;
+			layers[pinupScript.layer].pushPinup($(eleOption).data('object')) ;
 		}
 	}
 
 	$('#lst-pinup-foreground').propslst(options)
 			.focus(function(){
 				$('#lst-pinup-background')[0].selectedIndex = -1 ;
-				$('#lst-pinup-perspective')[0].selectedIndex = -1 ;
+				//$('#lst-pinup-perspective')[0].selectedIndex = -1 ;
 			}) ;
 	$('#lst-pinup-background').propslst(options) 
 			.focus(function(){
 				$('#lst-pinup-foreground')[0].selectedIndex = -1 ;
-				$('#lst-pinup-perspective')[0].selectedIndex = -1 ;
+				//$('#lst-pinup-perspective')[0].selectedIndex = -1 ;
 			}) ;
-	$('#lst-pinup-perspective').propslst(options) 
-			.focus(function(){
-				$('#lst-pinup-background')[0].selectedIndex = -1 ;
-				$('#lst-pinup-foreground')[0].selectedIndex = -1 ;
-			}) ;
+	// $('#lst-pinup-perspective').propslst(options) 
+	// 		.focus(function(){
+	// 			$('#lst-pinup-background')[0].selectedIndex = -1 ;
+	// 			$('#lst-pinup-foreground')[0].selectedIndex = -1 ;
+	// 		}) ;
 
 
 
@@ -75,9 +82,9 @@ yc.ui.editer.PanelPinup = function(editor){
 
 		var scene = cc.Director.getInstance().getRunningScene() ;
 
-		$('#lst-pinup-foreground').html('').propslst('load',[scene.layerFg.getChildren(),eachfunc]) ;
-		$('#lst-pinup-background').html('').propslst('load',[scene.layerBg.getChildren(),eachfunc]) ;
-		$('#lst-pinup-perspective').html('').propslst('load',[scene.layerPg.getChildren(),eachfunc]) ;
+		$('#lst-pinup-foreground').html('').propslst('load',[scene.layerFg.pinups(),eachfunc]) ;
+		$('#lst-pinup-background').html('').propslst('load',[scene.layerBg.pinups(),eachfunc]) ;
+		//$('#lst-pinup-perspective').html('').propslst('load',[scene.layerPg.getChildren(),eachfunc]) ;
 		
 		return ;
 	}
