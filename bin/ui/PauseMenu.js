@@ -51,6 +51,7 @@ yc.ui.PauseMenu = cc.Layer.extend({
 	        				$("#editor-panel-space").width(0) ;
 	        				$("#editor-panel-space").hide() ;
         				}
+        				yc.CURRENT_LEVEL = null;  //防止跳转到最近玩的关卡
 	        			cc.Director.getInstance().replaceScene( ins(yc.MainScene) );
 		        		cc.Director.getInstance().resume();
 		        		this.removeFromParent(true);

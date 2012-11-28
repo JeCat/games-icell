@@ -109,9 +109,11 @@ yc.MainScene = cc.Scene.extend({
 			// 只自动加载一次
 			yc.MainScene.autoLoadByUrl = false ;
 		}
-		else
+		else if(yc.CURRENT_LEVEL)
 		{
-			yc.levels.LevelSelector.enterLevel( yc.CURRENT_LEVEL || yc.levels.c1.l1 ) ;
+			yc.levels.LevelSelector.enterLevel( yc.CURRENT_LEVEL ) ;
+		}else{
+			return;
 		}
 	}
 
