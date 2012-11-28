@@ -70,16 +70,7 @@ yc.outer.Camera = function()
 			var layers = scene.layerGame.getChildren() ;
 			for(var i=0; i<layers.length; i++)
 			{
-				// layers[i].setPosition(cc.p(x,y)) ;
-
-				if( 'parallax' in layers[i] )
-				{
-					layers[i].setPosition( cc.p( -x*layers[i].parallax, -y*layers[i].parallax ) ) ;
-				}
-				else
-				{
-					layers[i].setPosition(cc.p(-x,-y)) ;
-				}
+				layers[i].setPosition(cc.p(-x,-y)) ;
 			}
 
 		}

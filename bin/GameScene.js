@@ -35,13 +35,13 @@ yc.GameScene = cc.Scene.extend({
 		this.layerGame.setPosition(cc.p(wsize.width/2,wsize.height/2)) ;
 		this.addChild(this.layerGame) ;
 
-		// 层：远景
-		this.layerPg = new yc.outer.pinups.LayerGround('perspective') ;
-		// this.layerPg.type =  ;
-		if(g_architecture=='html5')
-		{
-			this.layerGame.addChild(this.layerPg) ;
-		}
+		// // 层：远景
+		// this.layerPg = new yc.outer.pinups.LayerGround('perspective') ;
+		// // this.layerPg.type =  ;
+		// if(g_architecture=='html5')
+		// {
+		// 	this.layerGame.addChild(this.layerPg) ;
+		// }
 
 		// 层：背景
 		this.layerBg = new yc.outer.pinups.LayerGround('background') ;
@@ -404,7 +404,7 @@ yc.GameScene = cc.Scene.extend({
 		script.pinups = {} ;
 		script.pinups.foreground = this.layerFg._script ;	// 导出 前景层 上的贴图
 		script.pinups.background = this.layerBg._script ;	// 导出 背景层 上的贴图
-		script.pinups.perspective = this.layerPg._script ;	// 导出 远景层 上的贴图
+		//script.pinups.perspective = this.layerPg._script ;	// 导出 远景层 上的贴图
 		
 		// cell
 		// script.cell = ins(yc.inner.Cell).exportScript();
@@ -471,10 +471,10 @@ yc.GameScene = cc.Scene.extend({
 		// 贴图（远景层、背景层、前景层） -----------
 		if( 'pinups' in script )
 		{
-			if('perspective' in script.pinups)
-			{
-				this.layerPg.initWithScript(script.pinups.perspective) ;
-			}
+			// if('perspective' in script.pinups)
+			// {
+			// 	this.layerPg.initWithScript(script.pinups.perspective) ;
+			// }
 			if('background' in script.pinups)
 			{
 				this.layerBg.initWithScript(script.pinups.background) ;

@@ -35,6 +35,7 @@ var g_architecture = 'html5' ;
 		s.c = c;
 		s.id = 'cocos2d-html5';
 		//else if single file specified, load singlefile
+        document.ccConfig = c;
 	});
 })();
 
