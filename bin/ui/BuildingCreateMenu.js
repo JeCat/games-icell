@@ -104,7 +104,6 @@ yc.ui.BuildingCreateMenu = function(){
 				this.title = '生长',
 				this.putOn = function(hexgonX,hexgonY){
 					ins(yc.inner.Cell).grow(hexgonX,hexgonY) ;
-					ins(yc.outer.Cell).init() ;
 					menu.close() ;
 				},
 				this.isBlocking = function(){

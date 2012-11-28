@@ -204,7 +204,7 @@ yc.outer.VirusCluster = yc.outer.PhysicalEntity.extend({
 		
 		
 		var dna = this._script.dna;
-		if( typeof(dna) == "object"){
+		if( typeof(dna) == "object" && dna.length > 0){
 			
 			// star
         	var uc = ins(yc.user.Character);
@@ -231,10 +231,22 @@ yc.outer.VirusCluster = yc.outer.PhysicalEntity.extend({
 	        	var items = [];
 	        	var _script = this._script;
 	
+	        	
+	        	// 删除以前在此关获得DNA
+	        	var newGenes = {};
+	        	for( var name in uc.dna.genes )
+	    		{
+	    			if( uc.dna.genes[name].level != yc.GameScene._level){
+	    				newGenes[name] = uc.dna.genes[name];
+	        		}
+	    		}
+	        	uc.dna.genes = newGenes;
+	        	
 				for(var i =0;i<dna.length;i++){
 					var action = function(){
 						
 						uc.dna.obtainGene(yc.dna.genes[this.id]);
+						uc.dna.genes[this.id].level = yc.GameScene._level;
 						
 						uc.levels[yc.GameScene._level].unlock = true;
 						uc.levels[yc.GameScene._level].gene = this.id;

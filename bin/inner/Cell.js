@@ -20,6 +20,7 @@ yc.inner.Cell = function()
 	
 	this.grown = 0 ;
 	
+	this.farthest = null ;
 	
 	if(this.aAxes._dbgCanvas)
 	{
@@ -155,6 +156,9 @@ yc.inner.Cell.prototype.grow = function(x,y){
 	this.expandCytoplasm(hexgon) ;
 	
 	this.grown ++ ;
+
+
+	ins(yc.outer.Cell).buildBoundaryLines() ;
 }
 
 
@@ -171,11 +175,19 @@ yc.inner.Cell.prototype.expandCytoplasm = function(hexgon){
 		{
 			this.membranes.push(neighbor) ;
 			neighbor.type = 'membrane' ;
+
+			// 最远的格子
+			if( !this.farthest || this.__hexgonDis(neighbor)>this.__hexgonDis(this.farthest) )
+			{
+				this.farthest = neighbor ;
+			}
 		}
 	}
 }
 
-
+yc.inner.Cell.prototype.__hexgonDis = function(hexgon){
+	return yc.util.pointsDis(0,0,hexgon.center[0],hexgon.center[1]) ;
+}
 
 yc.inner.Cell.prototype.researchPath = function(){
 	return this.aAxes.searchPath( this.nucleus.x, this.nucleus.y ) ;

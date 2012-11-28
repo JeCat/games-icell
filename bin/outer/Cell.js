@@ -64,6 +64,22 @@ here() ;
 		this._followingCamera = ins(yc.outer.Camera) ; // 摄像机跟随
 		// this.cell.initWithCircle(10,0,0,yc.settings.outer.cell.density) ;
 
+		this.buildBoundaryLines() ;
+		
+		// 创建body
+		this._initB2Body(b2Body.b2_dynamicBody) ;
+
+		this.initWithScriptShapes(this.shapes) ;
+		
+
+		this.b2Body.SetAngularDamping( 4 ) ;
+
+
+		log("outer Cell initialized") ;
+	}
+
+	, buildBoundaryLines: function(){
+
 
 		var innerCell = this.layerInner.cell ;
 
@@ -128,17 +144,6 @@ here() ;
 		
 		this._points = edger.build(scale*yc.settings.inner.hexgonSideLength*2) ;
 		//log(this._points) ;
-		
-		// 创建body
-		this._initB2Body(b2Body.b2_dynamicBody) ;
-
-		this.initWithScriptShapes(this.shapes) ;
-		
-
-		this.b2Body.SetAngularDamping( 4 ) ;
-
-
-		log("outer Cell initialized") ;
 	}
 //	
 //	, draw: function(ctx){

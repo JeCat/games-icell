@@ -44,7 +44,16 @@ yc.outer.PlayerLayer = cc.Layer.extend({
 	, onTouchesMoved: function(touches, event){
 		var cellPos = this.cell.getPosition() ;
 		var touchPos = yc.util.windowToClient(this,touches[0]._point.x,touches[0]._point.y) ;
-		
+
+		var innerCell = ins(yc.inner.Cell) ;
+		if( innerCell.farthest )
+		{
+			if( yc.util.pointsDis(0,0,touchPos[0],touchPos[1]) < yc.util.pointsDis(0,0,innerCell.farthest.center[0],innerCell.farthest.center[1]) + yc.settings.inner.hexgonSideLength )
+			{
+				return ;
+			}
+		}
+
 		var radianBetweenPoints = yc.util.radianBetweenPoints(
 			cellPos.x
 			,cellPos.y
