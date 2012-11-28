@@ -69,6 +69,7 @@ yc.outer.pinups.Pinup = cc.Sprite.extend({
 		this.x = script.x ;
 		this.y = script.y ;
 		this.setPosition(cc.p(this.x,this.y)) ;
+		this.originPosition = [this.x,this.y];
 
 		if(script.img)
 		{
@@ -115,13 +116,19 @@ yc.outer.pinups.Pinup = cc.Sprite.extend({
 			this.velocity[1] = Math.cos(this.velocity[2]) * this._script.moseySpeed ;	// y 方向
 		}
 
-		this.x+= dt * this.velocity[0] ;
-		this.y+= dt * this.velocity[1] ;
+		var toPositionX = this.x+ dt * this.velocity[0] ;
+		var toPositionY = this.y+ dt * this.velocity[1] ;
 
-		this.setPosition(cc.p(this.x,this.y)) ;
+		
+		if ( toPositionX - this.originPosition[0] < this._script.moseyArea 
+			&& toPositionY - this.originPosition[1] < this._script.moseyArea )
+		{
+			this.x= toPositionX;
+			this.y= toPositionY;
+			this.setPosition(cc.p(this.x,this.y)) ;
+		}
 
 		// console.log(this._script.moseySpeed , this.x , this.y);
-
 
 	}
 
