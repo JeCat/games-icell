@@ -132,8 +132,7 @@ yc.ui.editer.PanelPinup = function(editor){
 			return ;
 		}
 
-		pinup.getParent().removeBg(pinup);
-
+		layers[pinupScript.layer.removeBg(pinup);
 		pinup.removeFromParent() ;
 
 		// 刷新贴图列表
