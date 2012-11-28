@@ -83,7 +83,7 @@ yc.user.Character.loadCurrent = function(name){
 
 		data = {
 			dna: [
-				"tower(shooter)"
+				{name:"tower(shooter)" ,level:undefined ,superimposing:0}
 			]
 			, levels: {
 				'c1.l1': {
