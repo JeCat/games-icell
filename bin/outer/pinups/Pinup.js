@@ -117,6 +117,10 @@ yc.outer.pinups.Pinup = cc.Sprite.extend({
 
 		this.x+= dt * this.velocity[0] ;
 		this.y+= dt * this.velocity[1] ;
+
+		// console.log(this._script.moseySpeed , this.x , this.y);
+
+
 	}
 
 }) ;

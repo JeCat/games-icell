@@ -34,6 +34,7 @@ yc.ui.editer.PanelPinup = function(editor){
 			, tileWidth: "ipt-pinup-tile-width"
 			, tileHeight: "ipt-pinup-tile-height"
 			, mosey: "ipt-pinup-mosey"
+			, moseyArea: "ipt-pinup-mosey-area"
 			, moseySpeed: "ipt-pinup-mosey-speed"
 			, parallax: "ipt-pinup-parallax"
 		}
@@ -105,6 +106,7 @@ yc.ui.editer.PanelPinup = function(editor){
 			, textStyle: "normal 16px san-serif"
 			, textColor: "0,0,0,1"
 			, moseySpeed: 5
+			, moseyArea: 300
 			, parallax: yc.settings.outer.defaultParallax[type]
 		}] ;
 
