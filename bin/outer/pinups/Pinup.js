@@ -120,12 +120,14 @@ yc.outer.pinups.Pinup = cc.Sprite.extend({
 		var toPositionY = this.y+ dt * this.velocity[1] ;
 
 		
-		if ( toPositionX - this.originPosition[0] < this._script.moseyArea 
-			&& toPositionY - this.originPosition[1] < this._script.moseyArea )
+		if ( Math.abs(toPositionX - this.originPosition[0]) < this._script.moseyArea 
+			&& Math.abs(toPositionY - this.originPosition[1]) < this._script.moseyArea )
 		{
 			this.x= toPositionX;
 			this.y= toPositionY;
 			this.setPosition(cc.p(this.x,this.y)) ;
+		}else{
+			this.velocity[2]+=3;
 		}
 
 		// console.log(this._script.moseySpeed , this.x , this.y);
