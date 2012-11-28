@@ -28,10 +28,10 @@ yc.settings = {
 		perspective: 0.25
 
 		// 背景层的视差
-		, background: 1
+		, background: 1.2
 
 		// 前景层的视差
-		, foreground: 1.2
+		, foreground: 1.4
 	}
 
 	// 内部场景 ------------------------------
