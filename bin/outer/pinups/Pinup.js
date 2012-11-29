@@ -120,17 +120,18 @@ yc.outer.pinups.Pinup = cc.Sprite.extend({
 		var toPositionY = this.y+ dt * this.velocity[1] ;
 
 		
-		if ( Math.abs(toPositionX - this.originPosition[0]) < this._script.moseyArea 
-			&& Math.abs(toPositionY - this.originPosition[1]) < this._script.moseyArea )
+		if ( Math.abs(yc.util.pointsDis(toPositionX, toPositionY ,this.originPosition[0] ,this.originPosition[1] )) < this._script.moseyArea )
 		{
 			this.x= toPositionX;
 			this.y= toPositionY;
 			this.setPosition(cc.p(this.x,this.y)) ;
 		}else{
-			this.velocity[2]+=3;
+			///掉头
+			this.velocity[2] =  yc.util.radianBetweenPoints(this.x,this.y,this.originPosition[0] , this.originPosition[1]) - 1.5;
+			this.x += dt * Math.sin(this.velocity[2]) * this._script.moseySpeed ;	// x 方向
+			this.y += dt * Math.cos(this.velocity[2]) * this._script.moseySpeed ;	// y 方向
+			this.setPosition(cc.p(this.x,this.y)) ;
 		}
-
-		// console.log(this._script.moseySpeed , this.x , this.y);
 
 	}
 
