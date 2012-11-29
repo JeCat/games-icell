@@ -184,6 +184,28 @@ yc.ui.dashboard.Dashboard = cc.Layer.extend({
         this.aminoAcidsStars[2].addChild(this.labelAminoAcids.blue);
 
         this.addChild( this.dashboard_bg , -1 );
+
+        //reset nums
+        var aminoacids =  ins(yc.user.Character).aminoacids;
+        for(var name in aminoacids){
+        	if(typeof aminoacids[name] === 'number'){
+        		this.labelAminoAcids[name].setString(''+aminoacids[name]) ;
+        	}
+        }
+
+        var proteins =  ins(yc.user.Character).proteins.mapProteins;
+        for(var name in proteins){
+        	if(typeof proteins[name] === 'number'){
+        		if(!this.labelProteins[name]){
+        			continue;
+        		}
+        		this.labelProteins[name].setString(''+proteins[name]) ;
+
+				if(yc.ui.BuildingCreateMenu){
+					ins(yc.ui.BuildingCreateMenu).onProteinsChanged();
+				}
+        	}
+        }
 	}
 
 	, onExit : function(){

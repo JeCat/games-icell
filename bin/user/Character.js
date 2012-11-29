@@ -16,12 +16,12 @@ yc.user.Character = function(name){
 			, levels: []
 			, cell: this.cell
 			, proteins: {
-				red: this.proteins.red
-				, yellow: this.proteins.yellow
-				, blue: this.proteins.blue
-				, violet: this.proteins.violet
-				, green: this.proteins.green
-				, orange: this.proteins.orange
+				red: this.proteins.mapProteins.red || 0
+				, yellow: this.proteins.mapProteins.yellow || 0
+				, blue: this.proteins.mapProteins.blue || 0
+				, violet: this.proteins.mapProteins.violet || 0
+				, green: this.proteins.mapProteins.green || 0
+				, orange: this.proteins.mapProteins.orange || 0
 			}
 			, aminoacids: {
 				red: this.aminoacids.red
@@ -64,7 +64,7 @@ yc.user.Character = function(name){
 		this.levels = data.levels ;
 
 		// 资源
-		yc.util.cloneObject(this.proteins,data.proteins) ;
+		yc.util.cloneObject(this.proteins.mapProteins,data.proteins) ;
 		yc.util.cloneObject(this.aminoacids,data.aminoacids) ;
 	}
 }
