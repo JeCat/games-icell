@@ -5,6 +5,7 @@ yc.ui.ZoomBar = cc.Layer.extend({
 	, barMinHeight : 0
 	, prevTouchMoveY : 0
 	, pxToScaleBy : 0.5
+	, barWidth : 100
 	, ctor: function(){
 		this._super() ;
 	}
@@ -12,7 +13,7 @@ yc.ui.ZoomBar = cc.Layer.extend({
 
 		var screenSize = cc.Director.getInstance().getWinSize();
 
-		this.barMinWidth = screenSize.width - 80;
+		this.barMinWidth = screenSize.width - this.barWidth;
 		var barHeight = screenSize.height * 0.7;
 		this.barMinHeight = ( screenSize.height - barHeight ) / 2
 		this.barMaxHeight = this.barMinHeight + barHeight;
