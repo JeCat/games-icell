@@ -27,6 +27,10 @@ yc.ui.ZoomBar = cc.Layer.extend({
     }
     , onTouchMoved:function (touch, event) {
 		// console.log('zoom touch move',touch);
+
+		if(this.prevTouchMoveY === 0){
+			return;
+		}
 		var dis = touch._point.y - this.prevTouchMoveY;
 
 		if(dis > 0){
@@ -41,6 +45,7 @@ yc.ui.ZoomBar = cc.Layer.extend({
     }
 	, onTouchEnded:function (touch, event) {
 		// console.log('zoom touch end',touch);
+		this.prevTouchMoveY = 0;
 		ins(yc.outer.PlayerLayer).dontMoving = false;
 	}
 	, onEnter : function(){
