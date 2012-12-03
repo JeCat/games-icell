@@ -57,6 +57,7 @@ var g_AppFiles = [
 	, 'bin/ui/UILayer.js'
 	, 'bin/ui/dashboard/Dashboard.js'
 	, 'bin/ui/dashboard/Star.js'
+	, 'bin/ui/ZoomBar.js'
 
 	, 'bin/ui/editer/WorldEditer.js'
 	, 'bin/ui/editer/WorldEditerLayer.js'
