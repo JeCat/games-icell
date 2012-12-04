@@ -462,80 +462,80 @@
             <key>xibaozhi_0001.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{2548,248},{204,179}}</string>
+                <string>{{3694,108},{120,104}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
                 <false/>
                 <key>sourceColorRect</key>
-                <string>{{0,0},{204,179}}</string>
+                <string>{{0,8},{120,104}}</string>
                 <key>sourceSize</key>
-                <string>{204,179}</string>
+                <string>{120,120}</string>
             </dict>
             <key>xibaozhi_0002.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{2342,248},{204,179}}</string>
+                <string>{{3572,108},{120,104}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
                 <false/>
                 <key>sourceColorRect</key>
-                <string>{{0,0},{204,179}}</string>
+                <string>{{0,8},{120,104}}</string>
                 <key>sourceSize</key>
-                <string>{204,179}</string>
+                <string>{120,120}</string>
             </dict>
             <key>xibaozhi_0003.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{3778,183},{204,179}}</string>
+                <string>{{3938,2},{120,104}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
                 <false/>
                 <key>sourceColorRect</key>
-                <string>{{0,0},{204,179}}</string>
+                <string>{{0,8},{120,104}}</string>
                 <key>sourceSize</key>
-                <string>{204,179}</string>
+                <string>{120,120}</string>
             </dict>
             <key>xibaozhi_0004.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{3572,183},{204,179}}</string>
+                <string>{{3816,2},{120,104}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
                 <false/>
                 <key>sourceColorRect</key>
-                <string>{{0,0},{204,179}}</string>
+                <string>{{0,8},{120,104}}</string>
                 <key>sourceSize</key>
-                <string>{204,179}</string>
+                <string>{120,120}</string>
             </dict>
             <key>xibaozhi_0005.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{3778,2},{204,179}}</string>
+                <string>{{3694,2},{120,104}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
                 <false/>
                 <key>sourceColorRect</key>
-                <string>{{0,0},{204,179}}</string>
+                <string>{{0,8},{120,104}}</string>
                 <key>sourceSize</key>
-                <string>{204,179}</string>
+                <string>{120,120}</string>
             </dict>
             <key>xibaozhi_0006.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{3572,2},{204,179}}</string>
+                <string>{{3572,2},{120,104}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
                 <false/>
                 <key>sourceColorRect</key>
-                <string>{{0,0},{204,179}}</string>
+                <string>{{0,8},{120,104}}</string>
                 <key>sourceSize</key>
-                <string>{204,179}</string>
+                <string>{120,120}</string>
             </dict>
         </dict>
         <key>metadata</key>
@@ -547,7 +547,7 @@
             <key>size</key>
             <string>{4096,2048}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:f8ea6a62600bd854b607b690abbde0ad$</string>
+            <string>$TexturePacker:SmartUpdate:c1880e4202150a8df6abde85e638ee15$</string>
             <key>textureFileName</key>
             <string>xibaohecheng.png</string>
         </dict>
