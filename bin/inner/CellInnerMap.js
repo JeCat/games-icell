@@ -24,6 +24,23 @@ yc.inner.CellInnerMap = cc.Layer.extend({
 	, onEnter: function(){
 		this._super() ;
 
+		this.drawHexgonBackground();
+
+	}
+	, onExit:function(){
+		this._super() ;
+
+		this.removeAllChildren(true);
+	}
+	, drawHexgonBackground : function(){
+
+		var children = this.getChildren();
+		for(var i in children){
+			if(children[i].isHexgonBG){
+				children[i].removeFromParent(true);
+			}
+		}
+
 		// 细胞质
 		for(var i=0;i<cell.cytoplasms.length;i++)
 		{
@@ -35,7 +52,7 @@ yc.inner.CellInnerMap = cc.Layer.extend({
 			
 			this.addChild(cytoplasm);
 
-			cytoplasm.setPosition(cell.cytoplasms[i].center[0]  ,-cell.cytoplasms[i].center[1]);
+			cytoplasm.setPosition(cell.cytoplasms[i].center[0]  ,cell.cytoplasms[i].center[1]);
 			cytoplasm.isHexgonBG = true;
 		}
 		
@@ -54,14 +71,8 @@ yc.inner.CellInnerMap = cc.Layer.extend({
 			
 			this.addChild(membrane);
 			membrane.isHexgonBG = true;
-			membrane.setPosition(cell.membranes[i].center[0],-cell.membranes[i].center[1]);
+			membrane.setPosition(cell.membranes[i].center[0],cell.membranes[i].center[1]);
 		}
-
-	}
-	, onExit:function(){
-		this._super() ;
-
-		this.removeAllChildren(true);
 	}
 	
 // 	, draw: function(ctx){//return;
