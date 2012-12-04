@@ -380,6 +380,9 @@ here() ;
 			
 			if( child._children != undefined ){
 				for( j in child._children ){
+					if(child._children[j].isHexgonBG){
+						continue;
+					}
 					var cch = child._children[j] ;
 					cch.setRotation( -r );
 				}
