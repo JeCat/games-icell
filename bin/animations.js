@@ -662,6 +662,27 @@ yc.animations.initBuildinAnimations = function (){
 			, "y_00%idx%.png"		// 帧名称模板
 			, 1, 21								// 帧名称中的下标的数值范围
 			, yc.animations.adjustFrameBtn);
+	__loadAnimation(
+			'towers.anjiB'
+			, "res/anjihecheng.plist"
+			, "res/anjihecheng.png"
+			, "anji_b_00%idx%.png"		// 帧名称模板
+			, 1, 10								// 帧名称中的下标的数值范围
+			, yc.animations.adjustFrameBtn);
+	__loadAnimation(
+			'towers.anjiR'
+			, "res/anjihecheng.plist"
+			, "res/anjihecheng.png"
+			, "anji_r_00%idx%.png"		// 帧名称模板
+			, 1, 10								// 帧名称中的下标的数值范围
+			, yc.animations.adjustFrameBtn);
+	__loadAnimation(
+			'towers.anjiY'
+			, "res/anjihecheng.plist"
+			, "res/anjihecheng.png"
+			, "anji_y_00%idx%.png"		// 帧名称模板
+			, 1, 10								// 帧名称中的下标的数值范围
+			, yc.animations.adjustFrameBtn);
 }
 
 yc.animations.adjustFrameBtn = function(frame){

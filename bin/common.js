@@ -285,6 +285,11 @@ var g_ResFiles = [
 	, {type:"image", src:"res/dna-icons-32.png"}
 	
 	, {type:"image", src:"res/organ/Tower.png"}
+	
+	, {type:"image", src:"res/b_bg_1.png"}
+	, {type:"image", src:"res/b_bgtop_1.png"}
+	, {type:"image", src:"res/b_qiu_1.png"}
+	, {type:"image", src:"res/b_wuzi_1.jpg"}
 
 	, {type:"plist", src:"res/building/factory.plist"}
 	, {type:"image", src:"res/building/factory.png"}
@@ -302,6 +307,8 @@ var g_ResFiles = [
 	, {type:"image", src:"res/smoke.png"}
 	, {type:"plist", src:"res/role/boss.plist"}
 	, {type:"image", src:"res/role/boss.png"}
+	, {type:"plist", src:"res/anjihecheng.plist"}
+	, {type:"image", src:"res/anjihecheng.png"}
 	
 ]
 
