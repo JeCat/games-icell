@@ -27,11 +27,17 @@ yc.outer.AminoAcid = yc.outer.PhysicalEntity.extend({
 		this.color = 'rgb(' + colors[this.type] + ')' ;
 
 		 if( this.type == "red"){
-		 	this.initWithFile("res/dashboard/aminoAcid_red.png");
+		 	// 创建动画
+	        this.initWithSpriteFrame(yc.animations.firstFrame("towers.anjiR") ); //第一帧
+			this.runAction(cc.RepeatForever.create( yc.animations.createAction('towers.anjiR') ));
 		 }else if( this.type == "blue"){
-		 	this.initWithFile("res/dashboard/aminoAcid_blue.png");
+		 	// 创建动画
+	        this.initWithSpriteFrame(yc.animations.firstFrame("towers.anjiB") ); //第一帧
+			this.runAction(cc.RepeatForever.create( yc.animations.createAction('towers.anjiB') ));
 		 }else if( this.type == "yellow"){
-		 	this.initWithFile("res/dashboard/aminoAcid_yellow.png");
+		 	// 创建动画
+	        this.initWithSpriteFrame(yc.animations.firstFrame("towers.anjiY") ); //第一帧
+			this.runAction(cc.RepeatForever.create( yc.animations.createAction('towers.anjiY') ));
 		 }
 		
 		this.initWithCircle(this.size,this.x,this.y,yc.settings.outer.aminoacid.density) ;
@@ -97,7 +103,8 @@ yc.outer.AminoAcid = yc.outer.PhysicalEntity.extend({
 				cc.CallFunc.create(function(thisb){
 					thisb.destroy() ;
 				},this)
-		)
+		);
+		thisb.setScale(0.5);
 		this.runAction(seq);
 	}
 	
