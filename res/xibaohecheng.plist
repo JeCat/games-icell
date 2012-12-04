@@ -397,72 +397,72 @@
             <key>xibaohe_0001.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{3326,2},{244,244}}</string>
+                <string>{{3562,2},{120,120}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
                 <false/>
                 <key>sourceColorRect</key>
-                <string>{{0,0},{244,244}}</string>
+                <string>{{0,0},{120,120}}</string>
                 <key>sourceSize</key>
-                <string>{244,244}</string>
+                <string>{120,120}</string>
             </dict>
             <key>xibaohe_0002.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{3080,2},{244,244}}</string>
+                <string>{{3440,2},{120,120}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
                 <false/>
                 <key>sourceColorRect</key>
-                <string>{{0,0},{244,244}}</string>
+                <string>{{0,0},{120,120}}</string>
                 <key>sourceSize</key>
-                <string>{244,244}</string>
+                <string>{120,120}</string>
             </dict>
             <key>xibaohe_0003.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{2834,2},{244,244}}</string>
+                <string>{{3318,2},{120,120}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
                 <false/>
                 <key>sourceColorRect</key>
-                <string>{{0,0},{244,244}}</string>
+                <string>{{0,0},{120,120}}</string>
                 <key>sourceSize</key>
-                <string>{244,244}</string>
+                <string>{120,120}</string>
             </dict>
             <key>xibaohe_0004.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{2588,2},{244,244}}</string>
+                <string>{{3196,2},{120,120}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
                 <false/>
                 <key>sourceColorRect</key>
-                <string>{{0,0},{244,244}}</string>
+                <string>{{0,0},{120,120}}</string>
                 <key>sourceSize</key>
-                <string>{244,244}</string>
+                <string>{120,120}</string>
             </dict>
             <key>xibaohe_0005.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{2342,2},{244,244}}</string>
+                <string>{{3074,2},{120,120}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
                 <false/>
                 <key>sourceColorRect</key>
-                <string>{{0,0},{244,244}}</string>
+                <string>{{0,0},{120,120}}</string>
                 <key>sourceSize</key>
-                <string>{244,244}</string>
+                <string>{120,120}</string>
             </dict>
             <key>xibaozhi_0001.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{3694,124},{120,120}}</string>
+                <string>{{2952,2},{120,120}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -475,7 +475,7 @@
             <key>xibaozhi_0002.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{3572,124},{120,120}}</string>
+                <string>{{2830,2},{120,120}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -488,7 +488,7 @@
             <key>xibaozhi_0003.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{3938,2},{120,120}}</string>
+                <string>{{2708,2},{120,120}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -501,7 +501,7 @@
             <key>xibaozhi_0004.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{3816,2},{120,120}}</string>
+                <string>{{2586,2},{120,120}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -514,7 +514,7 @@
             <key>xibaozhi_0005.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{3694,2},{120,120}}</string>
+                <string>{{2464,2},{120,120}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -527,7 +527,7 @@
             <key>xibaozhi_0006.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{3572,2},{120,120}}</string>
+                <string>{{2342,2},{120,120}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
@@ -547,7 +547,7 @@
             <key>size</key>
             <string>{4096,2048}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:b41de1a6dc84f16049aa9dda9168e49f$</string>
+            <string>$TexturePacker:SmartUpdate:99226b9790ff760e46ddd08b7bb998f7$</string>
             <key>textureFileName</key>
             <string>xibaohecheng.png</string>
         </dict>
