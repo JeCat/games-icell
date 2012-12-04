@@ -409,13 +409,12 @@ yc.levels.c1.l1 = {
 		"killdown" : [],
 		"spriter" : "role.virus_a",
 		"size" : 100,
-		"unlockLevel" : null,
-		"dna" : []
+		"unlockLevel" : "c1.l2",
+		"dna" : [ "tower(shooter)", "tower(cannon)" ]
 	} ],
 	"pinups" : {
 		"foreground" : [],
-		"background" : [ 
-		{
+		"background" : [ {
 			"layer" : "background",
 			"x" : 40000,
 			"y" : 40000,
@@ -436,7 +435,7 @@ yc.levels.c1.l1 = {
 			"tileWidth" : 10000,
 			"tileHeight" : 10000,
 			"mosey" : true
-		} ,{
+		}, {
 			"layer" : "background",
 			"x" : 870.7182825267587,
 			"y" : -881.6707137535109,
@@ -941,6 +940,6 @@ yc.levels.c1.l1 = {
 			"moseyArea" : 300,
 			"parallax" : 1,
 			"mosey" : true
-		}]
+		} ]
 	}
 }

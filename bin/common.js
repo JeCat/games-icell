@@ -308,8 +308,8 @@ var g_ResFiles = [
 	, {type:"image", src:"res/smoke.png"}
 	, {type:"plist", src:"res/role/boss.plist"}
 	, {type:"image", src:"res/role/boss.png"}
-	, {type:"plist", src:"res/anjihecheng.plist"}
-	, {type:"image", src:"res/anjihecheng.png"}
+	, {type:"plist", src:"res/xibaohecheng.plist"}
+	, {type:"image", src:"res/xibaohecheng.png"}
 	
 ]
 
