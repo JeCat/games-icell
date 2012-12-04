@@ -65,6 +65,10 @@ yc.inner.monster.VirusCluster = cc.Sprite.extend({
 			this.actRelease = yc.actions.Timer.create( virusScript.wait, 1, this, function(){
 
 				var virus = this._parent.createVirusSprite() ;
+				
+				//same theme
+				virusScript.spriter = this._script.spriter;
+
 				virus.initWithScript(virusScript) ;
 				virus.cluster = this.outer ;
 				

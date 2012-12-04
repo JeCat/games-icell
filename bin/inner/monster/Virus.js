@@ -16,17 +16,11 @@ yc.inner.monster.Virus = cc.Sprite.extend({
 	, cluster: null
 	, hurt: 1
 	
-	, spriter: 'res/virus16.png'
+	, spriter: ''
 
 	, ctor: function(){
-
-		// 创建动画
-        this.initWithSpriteFrameName("golemHead_0001.png") ; //第一帧
-		this.animationAction = cc.RepeatForever.create( yc.animations.createAction("role.virus_a") ) ;
-
-
-
-       	this.setAnchorPoint(cc.p(0.5,0.2)) ;
+		this._super();
+		
 	}
 	
 	, initWithScript: function(script){
@@ -41,6 +35,11 @@ yc.inner.monster.Virus = cc.Sprite.extend({
 		this.hpFull = script.hp ;
 		this.hurt = 1 ;
 
+		console.log(this.spriter);
+		// 创建动画
+        this.initWithSpriteFrame(yc.animations.firstFrame(this.spriter) ); //第一帧
+		this.animationAction = cc.RepeatForever.create( yc.animations.createAction(this.spriter) ) ;
+       	this.setAnchorPoint(cc.p(0.5,0.2)) ;
 
 		// this.attack = yc.inner.monster.Virus.script.attack ;
 		// this.bekill = yc.inner.monster.Virus.script.bekill ;
