@@ -66,21 +66,10 @@ here() ;
 
 		this.buildBoundaryLines() ;
 		
-		// 创建body
-		this._initB2Body(b2Body.b2_dynamicBody) ;
-
-		this.initWithScriptShapes(this.shapes) ;
-		
-
-		this.b2Body.SetAngularDamping( 4 ) ;
-
-
 		log("outer Cell initialized") ;
 	}
 
 	, buildBoundaryLines: function(){
-
-
 		var innerCell = this.layerInner.cell ;
 
 		this.shapes = [] ;
@@ -141,8 +130,14 @@ here() ;
 			}
 		}
 		
-		
 		this._points = edger.build(scale*yc.settings.inner.hexgonSideLength*2) ;
+
+		// 创建body
+		this._initB2Body(b2Body.b2_dynamicBody) ;
+
+		this.initWithScriptShapes(this.shapes) ;
+
+		this.b2Body.SetAngularDamping( 4 ) ;
 		//log(this._points) ;
 	}
 //	
