@@ -155,10 +155,10 @@ yc.settings = {
 			base: {
 				speed: 300					// 炮弹速度
 				, freq: 1300				// 射击频率
-				, injure: 20				// 伤害
+				, injure: 8				// 伤害
 				, range: 250				// 射程
 				, sputtering: 1 			// 溅射半径
-				, sputtering_injure: 0 		// 溅射伤害
+				, sputtering_injure: 1 		// 溅射伤害
 				, retardment: 0				// 减速
 				, retardment_duration: 0	// 减速持续时间
 			}
@@ -176,10 +176,10 @@ yc.settings = {
 			base: {
 				speed: 300					// 炮弹速度
 				, freq: 1500				// 射击频率
-				, injure: 10				// 伤害
+				, injure: 6				// 伤害
 				, range: 210					// 射程
 				, sputtering: 5 			// 溅射半径
-				, sputtering_injure: 10		// 溅射伤害
+				, sputtering_injure: 2		// 溅射伤害
 				, retardment: 0				// 减速
 				, retardment_duration: 0	// 减速持续时间
 			}
