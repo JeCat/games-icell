@@ -144,7 +144,7 @@ yc.settings = {
 		// 免伤害
 		nohurt: false
 		// 隐身(怪不会攻击)
-		, stealth: true
+		, stealth: false
 	}
 
 	, building: {
