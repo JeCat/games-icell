@@ -263,10 +263,19 @@ yc.outer.VirusCluster = yc.outer.PhysicalEntity.extend({
 					items.push({title:title,action:action,id:dna[i]});
 				}
 
-				if( uc.levels[yc.GameScene._level].star == undefined){
-					uc.dna.obtainGene(yc.dna.genes['grow']);
+				//if( uc.levels[yc.GameScene._level].star == undefined){
+					//uc.dna.obtainGene(yc.dna.genes['grow']);
+					
+					var cell = ins(yc.inner.Cell);
+					for(var i =0;i<cell.membranes.length;i++){
+						if( cell.membranes[i].block == false){
+							cell.grow(cell.membranes[i].x,cell.membranes[i].y) ;
+							break;
+						}
+					}
+					ins(yc.user.Character).cell = ins(yc.inner.Cell).exportScript() ;
 					uc.save();
-				}
+				//}
 				var menu = ins( yc.ui.menu.Menu );
 				menu.setTitle("选择DNA");
 				menu.setTitleHeight(40);

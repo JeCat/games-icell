@@ -176,7 +176,7 @@ yc.settings = {
 			base: {
 				speed: 300					// 炮弹速度
 				, freq: 1500				// 射击频率
-				, injure: 6				// 伤害
+				, injure: 7				// 伤害
 				, range: 210					// 射程
 				, sputtering: 5 			// 溅射半径
 				, sputtering_injure: 2		// 溅射伤害
