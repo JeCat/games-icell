@@ -157,10 +157,9 @@ yc.inner.Cell.prototype.grow = function(x,y){
 	
 	this.grown ++ ;
 
+	ins(yc.inner.CellInnerMap).drawHexgonBackground();
 
 	ins(yc.outer.Cell).buildBoundaryLines() ;
-
-	ins(yc.inner.CellInnerMap).drawHexgonBackground();
 }
 
 
