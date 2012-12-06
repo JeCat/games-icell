@@ -264,7 +264,16 @@ yc.outer.VirusCluster = yc.outer.PhysicalEntity.extend({
 				}
 
 				if( uc.levels[yc.GameScene._level].star == undefined){
-					uc.dna.obtainGene(yc.dna.genes['grow']);
+					//uc.dna.obtainGene(yc.dna.genes['grow']);
+					
+					var cell = ins(yc.inner.Cell);
+					for(var i =0;i<cell.membranes.length;i++){
+						if( cell.membranes[i].block == false){
+							cell.grow(cell.membranes[i].x,cell.membranes[i].y) ;
+							break;
+						}
+					}
+					ins(yc.user.Character).cell = ins(yc.inner.Cell).exportScript() ;
 					uc.save();
 				}
 				var menu = ins( yc.ui.menu.Menu );
