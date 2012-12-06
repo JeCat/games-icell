@@ -188,6 +188,8 @@ var g_ResFiles = [
 	, {type:"image", src:"res/mainscene/test1.png"}
 	, {type:"image", src:"res/mainscene/world.png"}
 	, {type:"image", src:"res/mainscene/world1.png"}
+	, {type:"image", src:"res/mainscene/lb.png"}
+	, {type:"image", src:"res/mainscene/cocos.png"}
 	
 	, {type:"image", src:"res/skill.png"}
 	, {type:"image", src:"res/skillbj.png"}
