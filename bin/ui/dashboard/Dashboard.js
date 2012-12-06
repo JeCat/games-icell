@@ -10,11 +10,19 @@ yc.ui.dashboard.Dashboard = cc.Layer.extend({
 		, violet : null					//violet 
 	}					
 	, centerPosition : []				//蛋白质面板圆心
+
+	// , aminoAcidsPositions : [			//  氨基酸  显示的位置偏移
+	// 	[ 0 , 30 ]
+	// 	, [ 26 , -15 ]
+	// 	, [ -26 , -15 ]
+	// ]
+
 	, aminoAcidsPositions : [			//  氨基酸  显示的位置偏移
-		[ 0 , 30 ]
-		, [ 26 , -15 ]
-		, [ -26 , -15 ]
+		[ -70 , 70 ]
+		, [ -70 , 20 ]
+		, [ -70 , -30 ]
 	]
+
 	, proteinsPositions : {       			//  蛋白质  显示的位置偏移
 		red : [ 0 , 80 ]					//  red
 		, orange : [ 69 , 40 ]				//orange 
@@ -165,13 +173,13 @@ yc.ui.dashboard.Dashboard = cc.Layer.extend({
 		this.addChild(this.HP_hp_bg , 2) ;
 
 		// protein stars
-		for(var name in this.proteinsStars)
-		{
-			// star
-			this.addChild(this.proteinsStars[name]) ;
-			// star's lable
-			this.proteinsStars[name].addChild(this.labelProteins[name]) ;
-		}
+		// for(var name in this.proteinsStars)
+		// {
+		// 	// star
+		// 	this.addChild(this.proteinsStars[name]) ;
+		// 	// star's lable
+		// 	this.proteinsStars[name].addChild(this.labelProteins[name]) ;
+		// }
 
 		// amino acid stars
         for(var i =0 ; i< this.aminoAcidsStars.length ; i++){
@@ -183,7 +191,11 @@ yc.ui.dashboard.Dashboard = cc.Layer.extend({
         this.aminoAcidsStars[1].addChild(this.labelAminoAcids.yellow);
         this.aminoAcidsStars[2].addChild(this.labelAminoAcids.blue);
 
-        this.addChild( this.dashboard_bg , -1 );
+        this.labelAminoAcids.red.setAnchorPoint(cc.p(0,0.5));
+        this.labelAminoAcids.yellow.setAnchorPoint(cc.p(0,0.5));
+        this.labelAminoAcids.blue.setAnchorPoint(cc.p(0,0.5));
+
+        // this.addChild( this.dashboard_bg , -1 );
 
         //reset nums
         var aminoacids =  ins(yc.user.Character).aminoacids;
@@ -239,7 +251,7 @@ yc.ui.dashboard.Dashboard = cc.Layer.extend({
 	}
 
 	, _createLabel: function(word,color){
-		var label = cc.LabelTTF.create(word,'',16,new cc.Size(20,16),cc.TEXT_ALIGNMENT_CENTER,cc.VERTICAL_TEXT_ALIGNMENT_BOTTOM) ;
+		var label = cc.LabelTTF.create(word,'',16,new cc.Size(20,16),cc.TEXT_ALIGNMENT_LEFT,cc.VERTICAL_TEXT_ALIGNMENT_BOTTOM) ;
 		label.setColor(color) ;
 		return label ;
 	}
@@ -277,7 +289,7 @@ yc.ui.dashboard.Dashboard = cc.Layer.extend({
         }
 
         for( var name in this.labelAminoAcids ){
-        	this.labelAminoAcids[name].setPosition(cc.p(12,-9));
+        	this.labelAminoAcids[name].setPosition(cc.p(30,10));
         }
 
         for( var name in this.labelProteins ){

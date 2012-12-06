@@ -28,20 +28,17 @@ yc.inner.building.up.UpgraderBase = function(){
 			
 			// 检查资源
 			var cost = this.cost() ;
-			var pool = ins(yc.user.Character).proteins ;
-			for(var protein in cost)
-			{
-				if( pool.num(protein) < cost[protein] )
-				{
-					alert('缺少蛋白质：'+protein) ;
-					return ;
-				}
-			}
+			var proteinsPool = ins(yc.user.Character).proteins ;
+			var aminoacidsPool = ins(yc.user.Character).aminoacids ;
 			
 			// 消耗资源
-			for(var protein in cost)
+			for(var protein in cost['protein'])
 			{
-				pool.increase(protein,-cost[protein]) ;
+				proteinsPool.increase(protein,-cost['protein'][protein]) ;
+			}
+			for(var aminoacid in cost['aminoacid'])
+			{
+				aminoacidsPool.increase(aminoacid,-cost['aminoacid'][aminoacid]) ;
 			}
 		}
 		

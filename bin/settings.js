@@ -164,9 +164,16 @@ yc.settings = {
 			}
 			// 建造费用（蛋白质）
 			, cost: {
-				red: 3
-				, yellow: 3 
-				, blue: 3
+				protein:{
+					// red: 3
+					// , yellow: 3 
+					// , blue: 3
+				},
+				aminoacid:{
+					red: 3
+					, yellow: 3 
+					, blue: 3
+				}
 			}
 		}
 
@@ -185,9 +192,16 @@ yc.settings = {
 			}
 			// 建造费用（蛋白质）
 			, cost: {
-				red: 5
-				, yellow: 5
-				, blue: 5
+				protein:{
+					// red: 5
+					// , yellow: 5 
+					// , blue: 5
+				},
+				aminoacid:{
+					red: 5
+					, yellow: 5 
+					, blue: 5
+				}
 			}
 		}
 
@@ -206,9 +220,16 @@ yc.settings = {
 			}
 			// 建造费用（蛋白质）
 			, cost: {
-				red: 3
-				, yellow: 3 
-				, blue: 3
+				protein:{
+					// red: 3
+					// , yellow: 3 
+					// , blue: 3
+				},
+				aminoacid:{
+					red: 3
+					, yellow: 3 
+					, blue: 3
+				}
 			}
 		}
 
@@ -227,9 +248,16 @@ yc.settings = {
 			}
 			// 建造费用（蛋白质）
 			, cost: {
-				red: 3
-				, yellow: 3 
-				, blue: 3
+				protein:{
+					// red: 3
+					// , yellow: 3 
+					// , blue: 3
+				},
+				aminoacid:{
+					red: 3
+					, yellow: 3 
+					, blue: 3
+				}
 			}
 		}
 
@@ -238,9 +266,16 @@ yc.settings = {
 		, Recycle : {
 			// 建造费用（蛋白质）
 			cost: {
-				red: 5
-				, yellow: 5
-				, blue: 5
+				protein:{
+					// red: 5
+					// , yellow: 5 
+					// , blue: 5
+				},
+				aminoacid:{
+					red: 5
+					, yellow: 5 
+					, blue: 5
+				}
 			}
 		}
 

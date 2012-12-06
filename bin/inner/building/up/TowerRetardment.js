@@ -26,8 +26,14 @@ yc.inner.building.up.TowerRetardment = function(){
 		var lv = this.lv+1 ;
 		
 		return {
-			blue: 10 * lv
-			, green: 5 * lv
+			protein:{
+				// blue: 10 * lv
+				// , green: 5 * lv
+			},
+			aminoacid:{
+				red: 8 * lv
+				, blue: 5 * lv
+			}
 		}
 	}
 }

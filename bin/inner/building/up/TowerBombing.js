@@ -27,8 +27,14 @@ yc.inner.building.up.TowerBombing = function(){
 		var lv = this.lv+1 ;
 		
 		return {
-			violet: 5 * lv
-			, green: 3 * lv
+			protein:{
+				// violet: 5 * lv
+				// , green: 3 * lv
+			},
+			aminoacid:{
+				red: 8 * lv
+				, yellow: 5 * lv
+			}
 		}
 	}
 }
