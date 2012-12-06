@@ -16,6 +16,10 @@ yc.user.AminoAcidPool = function ()
 		
 		return this ;
 	}
+
+	this.num = function(name){
+		return this[name] ;
+	}
 	
 	this.clear = function(){
 		this.increase('red',-this.red) ;

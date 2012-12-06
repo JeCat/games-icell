@@ -95,9 +95,17 @@ yc.ui.BuildingCreateMenu = function(){
 			, hexgonTypes: ['membrane']
 			, cost: function(){
 				return {
-					red: 10 * (ins(yc.inner.Cell).grown+1)
-					, green: 10 * (ins(yc.inner.Cell).grown+1)
-					, violet: 10 * (ins(yc.inner.Cell).grown+1)
+					protein:{
+						// red: 10 * (ins(yc.inner.Cell).grown+1)
+						// , green: 10 * (ins(yc.inner.Cell).grown+1)
+						// , violet: 10 * (ins(yc.inner.Cell).grown+1)
+					},
+					aminoacid:{
+						red: 10 * (ins(yc.inner.Cell).grown+1)
+						, yellow: 10 * (ins(yc.inner.Cell).grown+1)
+						, blue: 10 * (ins(yc.inner.Cell).grown+1)
+					}
+
 				}
 			}
 			, buildingClass: function(){
@@ -145,9 +153,16 @@ yc.ui.BuildingCreateMenu = function(){
 			, hexgonTypes: ['membrane']
 			, cost: function(){
 				return {
-					red: 1
-					, yellow: 1
-					, blue: 1
+					protein:{
+						// red: 1
+						// , yellow: 1 
+						// , blue: 1
+					},
+					aminoacid:{
+						red: 1
+						, yellow: 1 
+						, blue: 1
+					}
 				}
 			}
 			, buildingClass: yc.inner.organ.Eye
@@ -166,9 +181,16 @@ yc.ui.BuildingCreateMenu = function(){
 			, hexgonTypes: ['membrane']
 			, cost: function(){
 				return {
-					red: 1
-					, yellow: 1
-					, blue: 1
+					protein:{
+						// red: 1
+						// , yellow: 1 
+						// , blue: 1
+					},
+					aminoacid:{
+						red: 1
+						, yellow: 1 
+						, blue: 1
+					}
 				}
 			}
 			, buildingClass: yc.inner.organ.Tower
@@ -235,9 +257,16 @@ yc.ui.BuildingCreateMenu = function(){
 			, hexgonTypes: ['cytoplasm']
 			, cost: function(){
 				return {
-					red: 5
-					, yellow: 5
-					, blue: 5
+					protein:{
+						// red: 5
+						// , yellow: 5 
+						// , blue: 5
+					},
+					aminoacid:{
+						red: 5
+						, yellow: 5 
+						, blue: 5
+					}
 				}
 			}
 			, buildingClass: yc.inner.building.ProteinFactory
@@ -411,13 +440,22 @@ yc.ui.BuildingCreateMenu = function(){
 		var building = new item.buildingClass ;
 		building.cost = item.cost();
 
-		// 消耗蛋白质
-		var pool = ins(yc.user.ProteinPool) ;
-		for(var protein in building.cost)
-		{
-			pool.increase( protein, -building.cost[protein] ) ;
+		// 消耗
+		var proteinPool = ins(yc.user.ProteinPool) ;
+		var aminoacidPool = ins(yc.user.AminoAcidPool) ;
+		for(var type in building.cost){
+			for(var item in building.cost[type])
+			{
+				if(type === 'protein'){
+					proteinPool.increase( item, -building.cost[type][item] ) ;
+				}
+
+				if(type==="aminoacid"){
+					aminoacidPool.increase( item, -building.cost[type][item] ) ;
+				}
+			}
 		}
-		
+
 		// 重新计算路径
 		if( building.isBlocking() )
 		{
@@ -551,11 +589,20 @@ yc.ui.BuildingCreateMenu = function(){
 	}
 }
 yc.ui.checkCost = function(cost){
-	var pool = ins(yc.user.Character).proteins ;
-	for(var protein in cost)
+	var proteinsPool = ins(yc.user.Character).proteins ;
+	var aminoacidsPool = ins(yc.user.Character).aminoacids ;
+
+	for(var protein in cost['protein'])
 	{
-		// console.log(pool.num(protein) , cost[protein]);
-		if( pool.num(protein) < cost[protein] )
+		if( proteinsPool.num(protein) < cost['protein'][protein] )
+		{
+			return false ;
+		}
+	}
+
+	for(var aminoacid in cost['aminoacid'])
+	{
+		if( aminoacidsPool.num(aminoacid) < cost['aminoacid'][aminoacid] )
 		{
 			return false ;
 		}
@@ -567,7 +614,7 @@ yc.ui.checkCost = function(cost){
 yc.ui.costDec = function(cost){
 	var costHtml = '' ;
 	var idx = 0 ;
-	for(var proteinName in cost)
+	for(var proteinName in cost['protein'])
 	{
 		var proteinFormula = ins(yc.user.ProteinFormulas).worldFormulas[proteinName] ;
 		if(proteinFormula===undefined)
@@ -579,7 +626,22 @@ yc.ui.costDec = function(cost){
 		{
 			costHtml+= ' + ' ;
 		}
-		costHtml+= '[color='+proteinFormula.colorHtml+']♫ ' + cost[proteinName] + '[/]' ;
+		costHtml+= '[color='+proteinFormula.colorHtml+']♫ ' + cost['protein'][proteinName] + '[/]' ;
+	}
+
+	for(var aminoacidName in cost['aminoacid'])
+	{
+		var aminoacidFormula = ins(yc.user.ProteinFormulas).worldFormulas[aminoacidName] ;
+		if(aminoacidFormula===undefined)
+		{
+			log("mission protein "+aminoacidName+"'s formula.") ;
+			continue ;
+		}
+		if(idx++)
+		{
+			costHtml+= ' + ' ;
+		}
+		costHtml+= '[color='+aminoacidFormula.colorHtml+']♫ ' + cost['aminoacid'][aminoacidName] + '[/]' ;
 	}
 	
 	return costHtml ;

@@ -23,7 +23,10 @@ yc.ui.BuildingUpgradeMenu = function(){
 		this.building = hexgon.building;
 
 		if(!this.hexgon.finalCost){
-			this.hexgon.finalCost = {};
+			this.hexgon.finalCost = {
+				aminoacid:{}
+				, protein:{}
+			};
 			yc.util.cloneObject( this.hexgon.finalCost , this.building.cost);
 		}
 
@@ -161,13 +164,22 @@ yc.ui.BuildingUpgradeMenu = function(){
 	        	costText = '可回收:';
 
     			//拆除回收
-				that.costRecovering = {} ;
+				that.costRecovering = {
+					protein:{},
+					aminoacid:{}
+				} ;
 
-				for(var p in that.hexgon.finalCost)
+				for(var protein in that.hexgon.finalCost['protein'])
 				{
-					that.costRecovering[p] = Math.round(that.hexgon.finalCost[p]*0.7) ;
+					that.costRecovering['protein'][protein] = Math.round(that.hexgon.finalCost['protein'][protein]*0.7) ;
 				}
+				for(var aminoacid in that.hexgon.finalCost['aminoacid'])
+				{
+					that.costRecovering['aminoacid'][aminoacid] = Math.round(that.hexgon.finalCost['aminoacid'][aminoacid]*0.7) ;
+				}
+
 				costText+=yc.ui.costDec(that.costRecovering);
+
 	        }else{
 	        	costText = yc.ui.costDec(upgrader.cost());
 	        }
@@ -209,9 +221,13 @@ yc.ui.BuildingUpgradeMenu = function(){
 
 						//	 建筑附加价值
 						var cost = upgrader.cost();
-						for(var p in cost)
+						for(var p in cost['protein'])
 						{
-							that.hexgon.finalCost[p] = (p in that.hexgon.finalCost? that.hexgon.finalCost[p]: 0) + cost[p] ;
+							that.hexgon.finalCost['protein'][p] = (p in that.hexgon.finalCost['protein']? that.hexgon.finalCost['protein'][p]: 0) + cost['protein'][p] ;
+						}
+						for(var a in cost['aminoacid'])
+						{
+							that.hexgon.finalCost['aminoacid'][a] = (a in that.hexgon.finalCost['aminoacid']? that.hexgon.finalCost['aminoacid'][a]: 0) + cost['aminoacid'][a] ;
 						}
 			        }
 			        that.close();
@@ -299,16 +315,26 @@ yc.ui.BuildingUpgradeMenu = function(){
 		that.building.demolish() ;
 		
 		// 回收资源
-		var pool = ins(yc.user.Character).proteins ;
-		for(var p in that.costRecovering)
+		var proteinPool = ins(yc.user.Character).proteins ;
+		for(var protein in that.costRecovering['protein'])
 		{
-			pool.increase(p,+that.costRecovering[p]) ;
+			proteinPool.increase(protein,+that.costRecovering['protein'][protein]) ;
 		}
+
+		var aminoacidsPool = ins(yc.user.Character).aminoacids ;
+		for(var a in that.costRecovering['aminoacid'])
+		{
+			aminoacidsPool.increase(a,+that.costRecovering['aminoacid'][a]) ;
+		}
+
 		// 重新计算路径
 		var cell = ins(yc.inner.InnerLayer).cell ;
 		var map = cell.researchPath() ;
 
-		this.hexgon.finalCost = {};
+		this.hexgon.finalCost = {
+			aminoacid:{}
+			, protein:{}
+		};
 	} ;
 
 	this.onProteinsChanged = function(){
