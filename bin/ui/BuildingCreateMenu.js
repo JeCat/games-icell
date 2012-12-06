@@ -158,7 +158,7 @@ yc.ui.BuildingCreateMenu = function(){
 						// , yellow: 1 
 						// , blue: 1
 					},
-					aminoAcid:{
+					aminoacid:{
 						red: 1
 						, yellow: 1 
 						, blue: 1
@@ -186,7 +186,7 @@ yc.ui.BuildingCreateMenu = function(){
 						// , yellow: 1 
 						// , blue: 1
 					},
-					aminoAcid:{
+					aminoacid:{
 						red: 1
 						, yellow: 1 
 						, blue: 1
@@ -262,7 +262,7 @@ yc.ui.BuildingCreateMenu = function(){
 						// , yellow: 5 
 						// , blue: 5
 					},
-					aminoAcid:{
+					aminoacid:{
 						red: 5
 						, yellow: 5 
 						, blue: 5
