@@ -27,6 +27,9 @@ yc.MainScene = cc.Scene.extend({
 		this.login_bg = cc.Sprite.create("res/mainscene/login_bg.png");
 		this.addChild(this.login_bg , 3);
 
+		this.cocos = cc.Sprite.create("res/mainscene/cocos.png");
+		this.addChild(this.cocos , 1);
+
 
 		this.itemWeibo = cc.MenuItemImage.create( 'res/mainscene/sina.png' ,'res/mainscene/sina1.png' , function(){
 			var thisb = this;
@@ -130,6 +133,8 @@ yc.MainScene = cc.Scene.extend({
 	    this.line.setPosition(cc.p(w / 2 -20, h /2 -10 ));
 	    this.electricity.setPosition(cc.p(w / 2 -20 , h /2 -60 ));
 	    this.login_bg.setPosition(cc.p(w / 2 , h /2 -60 ));
+
+	    this.cocos.setPosition(w-40 ,  40);
 
 	    this.itemWeibo.setPosition(cc.p( 0 , 0 ));
 	    this.itemTest.setPosition(cc.p(0 , -60 ));
