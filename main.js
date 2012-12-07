@@ -41,7 +41,14 @@ cc.Icell_LoaderScene = cc.Class.extend({
 
         var ldX = (cc.canvas.width/2 - this._ld.width/2 );
         var ldY = (cc.canvas.height/2 - this._ld.height/2 ) ;
-        cc.drawingUtil.drawImage(this._ld, cc.p(ldX,ldY),new cc.Size(389*cc.Loader.getInstance().getProgressBar()/100,52));
+
+        cc.drawingUtil.drawImage(
+        	this._ld
+        	, cc.p(0,0)
+        	, new cc.Size(389*cc.Loader.getInstance().getProgressBar()/100,52)
+        	, cc.p(ldX,ldY)
+        	, new cc.Size(389*cc.Loader.getInstance().getProgressBar()/100,52)
+        );
 
         // cc.renderContext.fillStyle = "#FFF";
         // cc.renderContext.font = 'Bold 14px Verdana';
