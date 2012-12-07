@@ -34,9 +34,7 @@ yc.inner.CellShell.Skin = cc.Sprite.extend({
 		ctx.lineCap = "round" ;
 		var cell = ins(yc.outer.Cell) ;
 
-		console.log(cell._points);
-
-		yc.util.tilePolygon(ctx,cell._points, "res/cellshell.jpg" , cell) ;
+		yc.util.tilePolygon(ctx,cell._points, "res/cellshell.png" , cell) ;
 		// yc.util.drawPolygon(cell._points,ctx,'white',"rgba(255,255,255,0.5)",true) ;
 	}
 })

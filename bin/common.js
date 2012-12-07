@@ -175,7 +175,7 @@ var g_ResFiles = [
 	, {type:"image", src:"res/CloseSelected.png"}
 	, {type:"image", src:"res/Goal.png"}
 
-	, {type:"image", src:"res/cellshell.jpg"}
+	, {type:"image", src:"res/cellshell.png"}
 
 	, {type:"image", src:"res/mainscene/background.jpg"}
 	, {type:"image", src:"res/mainscene/electricity.png"}
