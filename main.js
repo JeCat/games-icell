@@ -49,13 +49,6 @@ cc.Icell_LoaderScene = cc.Class.extend({
         	, cc.p(ldX,ldY)
         	, new cc.Size(389*cc.Loader.getInstance().getProgressBar()/100,52)
         );
-
-        // cc.renderContext.fillStyle = "#FFF";
-        // cc.renderContext.font = 'Bold 14px Verdana';
-        // cc.renderContext.textAlign = 'left';
-
-        // cc.drawingUtil.fillText("加载中..." + cc.Loader.getInstance().getProgressBar() + "%", ldX , ldY );
-
     }
 });
 

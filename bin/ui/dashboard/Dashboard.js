@@ -77,7 +77,6 @@ yc.ui.dashboard.Dashboard = cc.Layer.extend({
 
 		//  氨基酸
 		dashboard.aminoAcidsStars[0] = Star.starWithTexture("res/dashboard/aminoAcid_red.png" , "res/dashboard/aminoAcid_red.png" , "res/dashboard/aminoAcid_red.png") ;
-
         dashboard.aminoAcidsStars[1] = Star.starWithTexture("res/dashboard/aminoAcid_yellow.png" , "res/dashboard/aminoAcid_yellow.png" , "res/dashboard/aminoAcid_yellow.png") ;
         dashboard.aminoAcidsStars[2] = Star.starWithTexture("res/dashboard/aminoAcid_blue.png" , "res/dashboard/aminoAcid_blue.png" , "res/dashboard/aminoAcid_blue.png") ;
 

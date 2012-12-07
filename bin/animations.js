@@ -8,7 +8,8 @@ yc.animations.createAction = function(name){
 }
 
 yc.animations.firstFrame = function(spriteName){
-	return cc.AnimationCache.getInstance().getAnimation(spriteName).getFrames()[0].getSpriteFrame() ;
+	var xx = cc.AnimationCache.getInstance().getAnimation(spriteName);
+	return xx.getFrames()[0].getSpriteFrame() ;
 }
 
 yc.animations.initBuildinAnimations = function (){
@@ -367,12 +368,12 @@ yc.animations.initBuildinAnimations = function (){
 			, "res/role/role.png"
 			, "spider_small_00%idx%.png"		// 帧名称模板
 			, 1, 9								// 帧名称中的下标的数值范围
-			/*
+			
 			, function(frame){					// 处理每帧的回调函数（可选）
 			    // 矫正一下 图片位置，统一下边界对齐
 			    frame._offset.y = - (frame._originalSize.height - frame._rect.size.height)/2 ;
 			    frame._offset.x = 0 ;
-			  }*/);
+			  });
 	
 	__loadAnimation(
 			'role.spider_small_front'
