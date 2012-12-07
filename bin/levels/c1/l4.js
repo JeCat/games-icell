@@ -11,7 +11,7 @@ yc.levels.c1.l4 = {
 		"maxZoom" : "1",
 		"minZoom" : "0.1"
 	},
-	"id" : "c1.l4",
+	"id" : "c1.l3",
 	"stains" : [
 			{
 				"x" : 501,
@@ -33,7 +33,7 @@ yc.levels.c1.l4 = {
 							"text" : null,
 							"textStyle" : "normal 16px san-serif",
 							"textColor" : "0,0,0,1",
-							"img" : "res/b_wuzi_1.jpg",
+							"img" : "res/b_wuzi_3.jpg",
 							"tile" : true
 						},
 						{
@@ -50,7 +50,7 @@ yc.levels.c1.l4 = {
 							"text" : null,
 							"textStyle" : "normal 16px san-serif",
 							"textColor" : "0,0,0,1",
-							"img" : "res/b_wuzi_1.jpg",
+							"img" : "res/b_wuzi_3.jpg",
 							"tile" : true
 						},
 						{
@@ -67,7 +67,7 @@ yc.levels.c1.l4 = {
 							"text" : null,
 							"textStyle" : "normal 16px san-serif",
 							"textColor" : "0,0,0,1",
-							"img" : "res/b_wuzi_1.jpg",
+							"img" : "res/b_wuzi_3.jpg",
 							"tile" : true
 						},
 						{
@@ -85,7 +85,7 @@ yc.levels.c1.l4 = {
 							"text" : null,
 							"textStyle" : "normal 16px san-serif",
 							"textColor" : "0,0,0,1",
-							"img" : "res/b_wuzi_1.jpg",
+							"img" : "res/b_wuzi_3.jpg",
 							"tile" : true
 						},
 						{
@@ -102,7 +102,7 @@ yc.levels.c1.l4 = {
 							"text" : null,
 							"textStyle" : "normal 16px san-serif",
 							"textColor" : "0,0,0,1",
-							"img" : "res/b_wuzi_1.jpg",
+							"img" : "res/b_wuzi_3.jpg",
 							"tile" : true
 						},
 						{
@@ -119,7 +119,7 @@ yc.levels.c1.l4 = {
 							"text" : null,
 							"textStyle" : "normal 16px san-serif",
 							"textColor" : "0,0,0,1",
-							"img" : "res/b_wuzi_1.jpg",
+							"img" : "res/b_wuzi_3.jpg",
 							"tile" : true
 						},
 						{
@@ -137,7 +137,7 @@ yc.levels.c1.l4 = {
 							"text" : null,
 							"textStyle" : "normal 16px san-serif",
 							"textColor" : "0,0,0,1",
-							"img" : "res/b_wuzi_1.jpg",
+							"img" : "res/b_wuzi_3.jpg",
 							"tile" : true
 						},
 						{
@@ -155,7 +155,7 @@ yc.levels.c1.l4 = {
 							"text" : null,
 							"textStyle" : "normal 16px san-serif",
 							"textColor" : "0,0,0,1",
-							"img" : "res/b_wuzi_1.jpg",
+							"img" : "res/b_wuzi_3.jpg",
 							"tile" : true
 						},
 						{
@@ -173,7 +173,7 @@ yc.levels.c1.l4 = {
 							"text" : null,
 							"textStyle" : "normal 16px san-serif",
 							"textColor" : "0,0,0,1",
-							"img" : "res/b_wuzi_1.jpg",
+							"img" : "res/b_wuzi_3.jpg",
 							"tile" : true
 						},
 						{
@@ -194,7 +194,7 @@ yc.levels.c1.l4 = {
 							"text" : null,
 							"textStyle" : "normal 16px san-serif",
 							"textColor" : "0,0,0,1",
-							"img" : "res/b_wuzi_1.jpg",
+							"img" : "res/b_wuzi_3.jpg",
 							"tile" : true
 						},
 						{
@@ -212,7 +212,7 @@ yc.levels.c1.l4 = {
 							"text" : null,
 							"textStyle" : "normal 16px san-serif",
 							"textColor" : "0,0,0,1",
-							"img" : "res/b_wuzi_1.jpg",
+							"img" : "res/b_wuzi_3.jpg",
 							"tile" : true
 						},
 						{
@@ -229,7 +229,7 @@ yc.levels.c1.l4 = {
 							"text" : null,
 							"textStyle" : "normal 16px san-serif",
 							"textColor" : "0,0,0,1",
-							"img" : "res/b_wuzi_1.jpg",
+							"img" : "res/b_wuzi_3.jpg",
 							"tile" : true
 						},
 						{
@@ -247,7 +247,7 @@ yc.levels.c1.l4 = {
 							"text" : null,
 							"textStyle" : "normal 16px san-serif",
 							"textColor" : "0,0,0,1",
-							"img" : "res/b_wuzi_1.jpg",
+							"img" : "res/b_wuzi_3.jpg",
 							"tile" : true
 						},
 						{
@@ -265,7 +265,7 @@ yc.levels.c1.l4 = {
 							"text" : null,
 							"textStyle" : "normal 16px san-serif",
 							"textColor" : "0,0,0,1",
-							"img" : "res/b_wuzi_1.jpg",
+							"img" : "res/b_wuzi_3.jpg",
 							"tile" : true
 						},
 						{
@@ -282,7 +282,7 @@ yc.levels.c1.l4 = {
 							"text" : null,
 							"textStyle" : "normal 16px san-serif",
 							"textColor" : "0,0,0,1",
-							"img" : "res/b_wuzi_1.jpg",
+							"img" : "res/b_wuzi_3.jpg",
 							"tile" : true
 						},
 						{
@@ -300,7 +300,7 @@ yc.levels.c1.l4 = {
 							"text" : null,
 							"textStyle" : "normal 16px san-serif",
 							"textColor" : "0,0,0,1",
-							"img" : "res/b_wuzi_1.jpg",
+							"img" : "res/b_wuzi_3.jpg",
 							"tile" : true
 						},
 						{
@@ -318,7 +318,7 @@ yc.levels.c1.l4 = {
 							"text" : null,
 							"textStyle" : "normal 16px san-serif",
 							"textColor" : "0,0,0,1",
-							"img" : "res/b_wuzi_1.jpg",
+							"img" : "res/b_wuzi_3.jpg",
 							"tile" : true
 						},
 						{
@@ -336,7 +336,7 @@ yc.levels.c1.l4 = {
 							"text" : null,
 							"textStyle" : "normal 16px san-serif",
 							"textColor" : "0,0,0,1",
-							"img" : "res/b_wuzi_1.jpg",
+							"img" : "res/b_wuzi_3.jpg",
 							"tile" : true
 						},
 						{
@@ -356,7 +356,7 @@ yc.levels.c1.l4 = {
 							"text" : null,
 							"textStyle" : "normal 16px san-serif",
 							"textColor" : "0,0,0,1",
-							"img" : "res/b_wuzi_1.jpg",
+							"img" : "res/b_wuzi_3.jpg",
 							"tile" : true
 						},
 						{
@@ -374,7 +374,7 @@ yc.levels.c1.l4 = {
 							"text" : null,
 							"textStyle" : "normal 16px san-serif",
 							"textColor" : "0,0,0,1",
-							"img" : "res/b_wuzi_1.jpg",
+							"img" : "res/b_wuzi_3.jpg",
 							"tile" : true
 						},
 						{
@@ -391,7 +391,7 @@ yc.levels.c1.l4 = {
 							"text" : null,
 							"textStyle" : "normal 16px san-serif",
 							"textColor" : "0,0,0,1",
-							"img" : "res/b_wuzi_1.jpg",
+							"img" : "res/b_wuzi_3.jpg",
 							"tile" : true
 						},
 						{
@@ -408,7 +408,7 @@ yc.levels.c1.l4 = {
 							"text" : null,
 							"textStyle" : "normal 16px san-serif",
 							"textColor" : "0,0,0,1",
-							"img" : "res/b_wuzi_1.jpg",
+							"img" : "res/b_wuzi_3.jpg",
 							"tile" : true
 						},
 						{
@@ -425,7 +425,7 @@ yc.levels.c1.l4 = {
 							"text" : null,
 							"textStyle" : "normal 16px san-serif",
 							"textColor" : "0,0,0,1",
-							"img" : "res/b_wuzi_1.jpg",
+							"img" : "res/b_wuzi_3.jpg",
 							"tile" : true
 						},
 						{
@@ -444,7 +444,7 @@ yc.levels.c1.l4 = {
 							"text" : null,
 							"textStyle" : "normal 16px san-serif",
 							"textColor" : "0,0,0,1",
-							"img" : "res/b_wuzi_1.jpg",
+							"img" : "res/b_wuzi_3.jpg",
 							"tile" : true
 						},
 						{
@@ -462,7 +462,7 @@ yc.levels.c1.l4 = {
 							"text" : null,
 							"textStyle" : "normal 16px san-serif",
 							"textColor" : "0,0,0,1",
-							"img" : "res/b_wuzi_1.jpg",
+							"img" : "res/b_wuzi_3.jpg",
 							"tile" : true
 						},
 						{
@@ -478,7 +478,7 @@ yc.levels.c1.l4 = {
 							"text" : null,
 							"textStyle" : "normal 16px san-serif",
 							"textColor" : "0,0,0,1",
-							"img" : "res/b_wuzi_1.jpg",
+							"img" : "res/b_wuzi_3.jpg",
 							"tile" : true
 						},
 						{
@@ -494,7 +494,7 @@ yc.levels.c1.l4 = {
 							"text" : null,
 							"textStyle" : "normal 16px san-serif",
 							"textColor" : "0,0,0,1",
-							"img" : "res/b_wuzi_1.jpg",
+							"img" : "res/b_wuzi_3.jpg",
 							"tile" : true
 						},
 						{
@@ -512,7 +512,7 @@ yc.levels.c1.l4 = {
 							"text" : null,
 							"textStyle" : "normal 16px san-serif",
 							"textColor" : "0,0,0,1",
-							"img" : "res/b_wuzi_1.jpg",
+							"img" : "res/b_wuzi_3.jpg",
 							"tile" : true
 						},
 						{
@@ -534,7 +534,7 @@ yc.levels.c1.l4 = {
 							"text" : null,
 							"textStyle" : "normal 16px san-serif",
 							"textColor" : "0,0,0,1",
-							"img" : "res/b_wuzi_1.jpg",
+							"img" : "res/b_wuzi_3.jpg",
 							"tile" : true
 						},
 						{
@@ -553,7 +553,7 @@ yc.levels.c1.l4 = {
 							"text" : null,
 							"textStyle" : "normal 16px san-serif",
 							"textColor" : "0,0,0,1",
-							"img" : "res/b_wuzi_1.jpg",
+							"img" : "res/b_wuzi_3.jpg",
 							"tile" : true
 						},
 						{
@@ -573,7 +573,7 @@ yc.levels.c1.l4 = {
 							"text" : null,
 							"textStyle" : "normal 16px san-serif",
 							"textColor" : "0,0,0,1",
-							"img" : "res/b_wuzi_1.jpg",
+							"img" : "res/b_wuzi_3.jpg",
 							"tile" : true
 						},
 						{
@@ -590,7 +590,7 @@ yc.levels.c1.l4 = {
 							"text" : null,
 							"textStyle" : "normal 16px san-serif",
 							"textColor" : "0,0,0,1",
-							"img" : "res/b_wuzi_1.jpg",
+							"img" : "res/b_wuzi_3.jpg",
 							"tile" : true
 						},
 						{
@@ -607,7 +607,7 @@ yc.levels.c1.l4 = {
 							"text" : null,
 							"textStyle" : "normal 16px san-serif",
 							"textColor" : "0,0,0,1",
-							"img" : "res/b_wuzi_1.jpg",
+							"img" : "res/b_wuzi_3.jpg",
 							"tile" : true
 						},
 						{
@@ -625,7 +625,7 @@ yc.levels.c1.l4 = {
 							"text" : null,
 							"textStyle" : "normal 16px san-serif",
 							"textColor" : "0,0,0,1",
-							"img" : "res/b_wuzi_1.jpg",
+							"img" : "res/b_wuzi_3.jpg",
 							"tile" : true
 						},
 						{
@@ -642,7 +642,7 @@ yc.levels.c1.l4 = {
 							"text" : null,
 							"textStyle" : "normal 16px san-serif",
 							"textColor" : "0,0,0,1",
-							"img" : "res/b_wuzi_1.jpg",
+							"img" : "res/b_wuzi_3.jpg",
 							"tile" : true
 						},
 						{
@@ -660,7 +660,7 @@ yc.levels.c1.l4 = {
 							"text" : null,
 							"textStyle" : "normal 16px san-serif",
 							"textColor" : "0,0,0,1",
-							"img" : "res/b_wuzi_1.jpg",
+							"img" : "res/b_wuzi_3.jpg",
 							"tile" : true
 						},
 						{
@@ -680,7 +680,7 @@ yc.levels.c1.l4 = {
 							"text" : null,
 							"textStyle" : "normal 16px san-serif",
 							"textColor" : "0,0,0,1",
-							"img" : "res/b_wuzi_1.jpg",
+							"img" : "res/b_wuzi_3.jpg",
 							"tile" : true
 						},
 						{
@@ -697,7 +697,7 @@ yc.levels.c1.l4 = {
 							"text" : null,
 							"textStyle" : "normal 16px san-serif",
 							"textColor" : "0,0,0,1",
-							"img" : "res/b_wuzi_1.jpg",
+							"img" : "res/b_wuzi_3.jpg",
 							"tile" : true
 						},
 						{
@@ -714,7 +714,7 @@ yc.levels.c1.l4 = {
 							"text" : null,
 							"textStyle" : "normal 16px san-serif",
 							"textColor" : "0,0,0,1",
-							"img" : "res/b_wuzi_1.jpg",
+							"img" : "res/b_wuzi_3.jpg",
 							"tile" : true
 						},
 						{
@@ -732,7 +732,7 @@ yc.levels.c1.l4 = {
 							"text" : null,
 							"textStyle" : "normal 16px san-serif",
 							"textColor" : "0,0,0,1",
-							"img" : "res/b_wuzi_1.jpg",
+							"img" : "res/b_wuzi_3.jpg",
 							"tile" : true
 						},
 						{
@@ -750,7 +750,7 @@ yc.levels.c1.l4 = {
 							"text" : null,
 							"textStyle" : "normal 16px san-serif",
 							"textColor" : "0,0,0,1",
-							"img" : "res/b_wuzi_1.jpg",
+							"img" : "res/b_wuzi_3.jpg",
 							"tile" : true
 						},
 						{
@@ -767,7 +767,7 @@ yc.levels.c1.l4 = {
 							"text" : null,
 							"textStyle" : "normal 16px san-serif",
 							"textColor" : "0,0,0,1",
-							"img" : "res/b_wuzi_1.jpg",
+							"img" : "res/b_wuzi_3.jpg",
 							"tile" : true
 						},
 						{
@@ -784,7 +784,7 @@ yc.levels.c1.l4 = {
 							"text" : null,
 							"textStyle" : "normal 16px san-serif",
 							"textColor" : "0,0,0,1",
-							"img" : "res/b_wuzi_1.jpg",
+							"img" : "res/b_wuzi_3.jpg",
 							"tile" : true
 						},
 						{
@@ -801,7 +801,7 @@ yc.levels.c1.l4 = {
 							"text" : null,
 							"textStyle" : "normal 16px san-serif",
 							"textColor" : "0,0,0,1",
-							"img" : "res/b_wuzi_1.jpg",
+							"img" : "res/b_wuzi_3.jpg",
 							"tile" : true
 						},
 						{
@@ -819,7 +819,7 @@ yc.levels.c1.l4 = {
 							"text" : null,
 							"textStyle" : "normal 16px san-serif",
 							"textColor" : "0,0,0,1",
-							"img" : "res/b_wuzi_1.jpg",
+							"img" : "res/b_wuzi_3.jpg",
 							"tile" : true
 						},
 						{
@@ -836,7 +836,7 @@ yc.levels.c1.l4 = {
 							"text" : null,
 							"textStyle" : "normal 16px san-serif",
 							"textColor" : "0,0,0,1",
-							"img" : "res/b_wuzi_1.jpg",
+							"img" : "res/b_wuzi_3.jpg",
 							"tile" : true
 						},
 						{
@@ -854,7 +854,7 @@ yc.levels.c1.l4 = {
 							"text" : null,
 							"textStyle" : "normal 16px san-serif",
 							"textColor" : "0,0,0,1",
-							"img" : "res/b_wuzi_1.jpg",
+							"img" : "res/b_wuzi_3.jpg",
 							"tile" : true
 						},
 						{
@@ -872,7 +872,7 @@ yc.levels.c1.l4 = {
 							"text" : null,
 							"textStyle" : "normal 16px san-serif",
 							"textColor" : "0,0,0,1",
-							"img" : "res/b_wuzi_1.jpg",
+							"img" : "res/b_wuzi_3.jpg",
 							"tile" : true
 						},
 						{
@@ -890,7 +890,7 @@ yc.levels.c1.l4 = {
 							"text" : null,
 							"textStyle" : "normal 16px san-serif",
 							"textColor" : "0,0,0,1",
-							"img" : "res/b_wuzi_1.jpg",
+							"img" : "res/b_wuzi_3.jpg",
 							"tile" : true
 						},
 						{
@@ -909,7 +909,7 @@ yc.levels.c1.l4 = {
 							"text" : null,
 							"textStyle" : "normal 16px san-serif",
 							"textColor" : "0,0,0,1",
-							"img" : "res/b_wuzi_1.jpg",
+							"img" : "res/b_wuzi_3.jpg",
 							"tile" : true
 						},
 						{
@@ -927,7 +927,7 @@ yc.levels.c1.l4 = {
 							"text" : null,
 							"textStyle" : "normal 16px san-serif",
 							"textColor" : "0,0,0,1",
-							"img" : "res/b_wuzi_1.jpg",
+							"img" : "res/b_wuzi_3.jpg",
 							"tile" : true
 						},
 						{
@@ -947,7 +947,7 @@ yc.levels.c1.l4 = {
 							"text" : null,
 							"textStyle" : "normal 16px san-serif",
 							"textColor" : "0,0,0,1",
-							"img" : "res/b_wuzi_1.jpg",
+							"img" : "res/b_wuzi_3.jpg",
 							"tile" : true
 						},
 						{
@@ -965,7 +965,7 @@ yc.levels.c1.l4 = {
 							"text" : null,
 							"textStyle" : "normal 16px san-serif",
 							"textColor" : "0,0,0,1",
-							"img" : "res/b_wuzi_1.jpg",
+							"img" : "res/b_wuzi_3.jpg",
 							"tile" : true
 						},
 						{
@@ -984,7 +984,7 @@ yc.levels.c1.l4 = {
 							"text" : null,
 							"textStyle" : "normal 16px san-serif",
 							"textColor" : "0,0,0,1",
-							"img" : "res/b_wuzi_1.jpg",
+							"img" : "res/b_wuzi_3.jpg",
 							"tile" : true
 						},
 						{
@@ -1002,7 +1002,7 @@ yc.levels.c1.l4 = {
 							"text" : null,
 							"textStyle" : "normal 16px san-serif",
 							"textColor" : "0,0,0,1",
-							"img" : "res/b_wuzi_1.jpg",
+							"img" : "res/b_wuzi_3.jpg",
 							"tile" : true
 						},
 						{
@@ -1024,7 +1024,7 @@ yc.levels.c1.l4 = {
 							"text" : null,
 							"textStyle" : "normal 16px san-serif",
 							"textColor" : "0,0,0,1",
-							"img" : "res/b_wuzi_1.jpg",
+							"img" : "res/b_wuzi_3.jpg",
 							"tile" : true
 						},
 						{
@@ -1047,7 +1047,7 @@ yc.levels.c1.l4 = {
 							"text" : null,
 							"textStyle" : "normal 16px san-serif",
 							"textColor" : "0,0,0,1",
-							"img" : "res/b_wuzi_1.jpg",
+							"img" : "res/b_wuzi_3.jpg",
 							"tile" : true
 						},
 						{
@@ -1069,7 +1069,7 @@ yc.levels.c1.l4 = {
 							"text" : null,
 							"textStyle" : "normal 16px san-serif",
 							"textColor" : "0,0,0,1",
-							"img" : "res/b_wuzi_1.jpg",
+							"img" : "res/b_wuzi_3.jpg",
 							"tile" : true
 						},
 						{
@@ -1087,7 +1087,7 @@ yc.levels.c1.l4 = {
 							"text" : null,
 							"textStyle" : "normal 16px san-serif",
 							"textColor" : "0,0,0,1",
-							"img" : "res/b_wuzi_1.jpg",
+							"img" : "res/b_wuzi_3.jpg",
 							"tile" : true
 						},
 						{
@@ -1106,7 +1106,7 @@ yc.levels.c1.l4 = {
 							"text" : null,
 							"textStyle" : "normal 16px san-serif",
 							"textColor" : "0,0,0,1",
-							"img" : "res/b_wuzi_1.jpg",
+							"img" : "res/b_wuzi_3.jpg",
 							"tile" : true
 						},
 						{
@@ -1126,7 +1126,7 @@ yc.levels.c1.l4 = {
 							"text" : null,
 							"textStyle" : "normal 16px san-serif",
 							"textColor" : "0,0,0,1",
-							"img" : "res/b_wuzi_1.jpg",
+							"img" : "res/b_wuzi_3.jpg",
 							"tile" : true
 						},
 						{
@@ -1144,7 +1144,7 @@ yc.levels.c1.l4 = {
 							"text" : null,
 							"textStyle" : "normal 16px san-serif",
 							"textColor" : "0,0,0,1",
-							"img" : "res/b_wuzi_1.jpg",
+							"img" : "res/b_wuzi_3.jpg",
 							"tile" : true
 						},
 						{
@@ -1160,7 +1160,7 @@ yc.levels.c1.l4 = {
 							"text" : null,
 							"textStyle" : "normal 16px san-serif",
 							"textColor" : "0,0,0,1",
-							"img" : "res/b_wuzi_1.jpg",
+							"img" : "res/b_wuzi_3.jpg",
 							"tile" : true
 						},
 						{
@@ -1177,7 +1177,7 @@ yc.levels.c1.l4 = {
 							"text" : null,
 							"textStyle" : "normal 16px san-serif",
 							"textColor" : "0,0,0,1",
-							"img" : "res/b_wuzi_1.jpg",
+							"img" : "res/b_wuzi_3.jpg",
 							"tile" : true
 						},
 						{
@@ -1194,7 +1194,7 @@ yc.levels.c1.l4 = {
 							"text" : null,
 							"textStyle" : "normal 16px san-serif",
 							"textColor" : "0,0,0,1",
-							"img" : "res/b_wuzi_1.jpg",
+							"img" : "res/b_wuzi_3.jpg",
 							"tile" : true
 						},
 						{
@@ -1211,7 +1211,7 @@ yc.levels.c1.l4 = {
 							"text" : null,
 							"textStyle" : "normal 16px san-serif",
 							"textColor" : "0,0,0,1",
-							"img" : "res/b_wuzi_1.jpg",
+							"img" : "res/b_wuzi_3.jpg",
 							"tile" : true
 						},
 						{
@@ -1234,7 +1234,7 @@ yc.levels.c1.l4 = {
 							"text" : null,
 							"textStyle" : "normal 16px san-serif",
 							"textColor" : "0,0,0,1",
-							"img" : "res/b_wuzi_1.jpg",
+							"img" : "res/b_wuzi_3.jpg",
 							"tile" : true
 						},
 						{
@@ -1251,7 +1251,7 @@ yc.levels.c1.l4 = {
 							"text" : null,
 							"textStyle" : "normal 16px san-serif",
 							"textColor" : "0,0,0,1",
-							"img" : "res/b_wuzi_1.jpg",
+							"img" : "res/b_wuzi_3.jpg",
 							"tile" : true
 						} ]
 			},
@@ -1273,7 +1273,7 @@ yc.levels.c1.l4 = {
 					"text" : null,
 					"textStyle" : "normal 16px san-serif",
 					"textColor" : "0,0,0,1",
-					"img" : "res/b_wuzi_1.jpg",
+					"img" : "res/b_wuzi_3.jpg",
 					"tile" : true
 				} ]
 			} ],

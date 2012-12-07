@@ -3007,7 +3007,7 @@ yc.levels.c1.l2 = {
 			"scaleX" : 1,
 			"scaleY" : 1,
 			"img" : "",
-			"text" : "利用现有的氨基酸制造红蓝黄蛋白质",
+			"text" : "拾取蛋白质，建造炮塔",
 			"textStyle" : "normal 60px san-serif",
 			"textColor" : "0,0,0,1",
 			"moseySpeed" : 5,

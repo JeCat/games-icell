@@ -702,21 +702,7 @@ yc.animations.initBuildinAnimations = function (){
 			, "res/xibaohecheng.plist"
 			, "res/xibaohecheng.png"
 			, "chuansong_00%idx%.png"		// 帧名称模板
-			, 90, 120								// 帧名称中的下标的数值范围
-			, yc.animations.adjustFrameBtn);
-	__loadAnimation(
-			'towers.chuansong1'
-			, "res/xibaohecheng.plist"
-			, "res/xibaohecheng.png"
-			, "chuansong_00%idx%.png"		// 帧名称模板
-			, 120, 90								// 帧名称中的下标的数值范围
-			, yc.animations.adjustFrameBtn);
-	__loadAnimation(
-			'towers.chuansong3'
-			, "res/xibaohecheng.plist"
-			, "res/xibaohecheng.png"
-			, "chuansong_00%idx%.jpg"		// 帧名称模板
-			, 81, 117								// 帧名称中的下标的数值范围
+			, 1, 12								// 帧名称中的下标的数值范围
 			, yc.animations.adjustFrameBtn);
 	__loadAnimation(
 			'towers.jindutiao'
@@ -725,6 +711,13 @@ yc.animations.initBuildinAnimations = function (){
 			, "jindutiao_00%idx%.png"		// 帧名称模板
 			, 1, 6								// 帧名称中的下标的数值范围
 			, yc.animations.adjustFrameBtn,0.2);
+	__loadAnimation(
+			'towers.dianlv'
+			, "res/xibaohecheng.plist"
+			, "res/xibaohecheng.png"
+			, "dianlv_00%idx%.png"		// 帧名称模板
+			, 71,98 								// 帧名称中的下标的数值范围
+			, yc.animations.adjustFrameBtn,0.1);
 }
 
 yc.animations.adjustFrameBtn = function(frame){

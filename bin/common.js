@@ -151,6 +151,7 @@ var g_AppFiles = [
 	, 'bin/levels/c1/l3.js'
 	, 'bin/levels/c1/l4.js'
 	, 'bin/levels/c1/l5.js'
+	, 'bin/levels/c1/l6.js'
 	, 'bin/levels/c1/l7.js'
 	, 'bin/levels/c1/l8.js'
 	, 'bin/levels/ResourceLoadingScene.js'
