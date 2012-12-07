@@ -32,7 +32,7 @@ yc.ui.dashboard.Dashboard = cc.Layer.extend({
 		, violet : [ -69 , 40 ]				//violet 
 	}
 	, starsLayer : null	
-	, starsScale : 0.9
+	, starsScale : 0.3
 	
 	, labelAminoAcids: {}			//  氨基酸  名称及数量显示
 	, labelProteins : {}			//  蛋白质  名称及数量显示
@@ -76,16 +76,20 @@ yc.ui.dashboard.Dashboard = cc.Layer.extend({
 		/*     合成面板 start    */
 
 		//  氨基酸
-		dashboard.aminoAcidsStars[0] = Star.starWithTexture("res/dashboard/aminoAcid_red.png" , "res/dashboard/aminoAcid_red.png" , "res/dashboard/aminoAcid_red.png") ;
-        dashboard.aminoAcidsStars[1] = Star.starWithTexture("res/dashboard/aminoAcid_yellow.png" , "res/dashboard/aminoAcid_yellow.png" , "res/dashboard/aminoAcid_yellow.png") ;
-        dashboard.aminoAcidsStars[2] = Star.starWithTexture("res/dashboard/aminoAcid_blue.png" , "res/dashboard/aminoAcid_blue.png" , "res/dashboard/aminoAcid_blue.png") ;
+		// dashboard.aminoAcidsStars[0] = Star.starWithTexture("res/dashboard/aminoAcid_red.png" , "res/dashboard/aminoAcid_red.png" , "res/dashboard/aminoAcid_red.png") ;
+  //       dashboard.aminoAcidsStars[1] = Star.starWithTexture("res/dashboard/aminoAcid_yellow.png" , "res/dashboard/aminoAcid_yellow.png" , "res/dashboard/aminoAcid_yellow.png") ;
+  //       dashboard.aminoAcidsStars[2] = Star.starWithTexture("res/dashboard/aminoAcid_blue.png" , "res/dashboard/aminoAcid_blue.png" , "res/dashboard/aminoAcid_blue.png") ;
 
-        dashboard.aminoAcidsStars[0].setClickable(false);
-        dashboard.aminoAcidsStars[1].setClickable(false);
-        dashboard.aminoAcidsStars[2].setClickable(false);
+  //       dashboard.aminoAcidsStars[0].setClickable(false);
+  //       dashboard.aminoAcidsStars[1].setClickable(false);
+  //       dashboard.aminoAcidsStars[2].setClickable(false);
+
+  		dashboard.aminoAcidsStars[0] = cc.Sprite.createWithSpriteFrame( yc.animations.firstFrame('towers.anjiR') );
+        dashboard.aminoAcidsStars[1] = cc.Sprite.createWithSpriteFrame( yc.animations.firstFrame('towers.anjiY') );
+        dashboard.aminoAcidsStars[2] = cc.Sprite.createWithSpriteFrame( yc.animations.firstFrame('towers.anjiB') );
 
         for(var i =0 ; i< dashboard.aminoAcidsStars.length ; i++){
-        	dashboard.aminoAcidsStars[i].setScale( dashboard.starsScale , dashboard.starsScale );
+        	dashboard.aminoAcidsStars[i].setScale( dashboard.starsScale );
         	dashboard.aminoAcidsStars[i].setPosition( 
         		dashboard.centerPosition[0] + dashboard.aminoAcidsPositions[i][0]  
         		, dashboard.centerPosition[1] + dashboard.aminoAcidsPositions[i][1]
@@ -194,6 +198,10 @@ yc.ui.dashboard.Dashboard = cc.Layer.extend({
         this.labelAminoAcids.yellow.setAnchorPoint(cc.p(0,0.5));
         this.labelAminoAcids.blue.setAnchorPoint(cc.p(0,0.5));
 
+        this.labelAminoAcids.red.setScale(3);
+        this.labelAminoAcids.yellow.setScale(3);
+        this.labelAminoAcids.blue.setScale(3);
+
         // this.addChild( this.dashboard_bg , -1 );
 
         //reset nums
@@ -288,7 +296,7 @@ yc.ui.dashboard.Dashboard = cc.Layer.extend({
         }
 
         for( var name in this.labelAminoAcids ){
-        	this.labelAminoAcids[name].setPosition(cc.p(30,10));
+        	this.labelAminoAcids[name].setPosition(cc.p(250,195));
         }
 
         for( var name in this.labelProteins ){
