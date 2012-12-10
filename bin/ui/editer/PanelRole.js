@@ -54,7 +54,7 @@ yc.ui.editer.PanelRole = function(editor){
 	}) ;
 
 	// 初始化 boss dna 菜单
-	$("#lst-boss-dna").html("") ;
+	$("#lst-boss-dna").html('<option value="0" selected>无</option>') ;
 	for(var name in yc.dna.genes){
 		var gene = yc.dna.genes[name] ;
 		$("#lst-boss-dna").append("<option value='"+gene.name+"'>"+gene.title+"</option>") ;

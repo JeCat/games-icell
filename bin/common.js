@@ -152,8 +152,10 @@ var g_AppFiles = [
 	, 'bin/levels/c1/l3.js'
 	, 'bin/levels/c1/l4.js'
 	, 'bin/levels/c1/l5.js'
+	, 'bin/levels/c1/l6.js'
 	, 'bin/levels/c1/l7.js'
 	, 'bin/levels/c1/l8.js'
+	, 'bin/levels/c1/lv_lost.js'
 	, 'bin/levels/ResourceLoadingScene.js'
 	
 	
@@ -175,6 +177,9 @@ var g_ResFiles = [
 	, {type:"image", src:"res/CloseSelected.png"}
 	, {type:"image", src:"res/Goal.png"}
 
+	, {type:"image", src:"res/cellshell.png"}
+	, {type:"image", src:"res/fire.png"}
+
 	, {type:"image", src:"res/mainscene/background.jpg"}
 	, {type:"image", src:"res/mainscene/electricity.png"}
 	, {type:"image", src:"res/mainscene/freeworld.png"}
@@ -193,6 +198,7 @@ var g_ResFiles = [
 	, {type:"image", src:"res/mainscene/world1.png"}
 	, {type:"image", src:"res/mainscene/lb.png"}
 	, {type:"image", src:"res/mainscene/cocos.png"}
+	, {type:"image", src:"res/mainscene/jindutiao_bg.png"}
 	
 	, {type:"image", src:"res/skill.png"}
 	, {type:"image", src:"res/skillbj.png"}
@@ -315,7 +321,7 @@ var g_ResFiles = [
 	, {type:"image", src:"res/role/boss.png"}
 	, {type:"plist", src:"res/xibaohecheng.plist"}
 	, {type:"image", src:"res/xibaohecheng.png"}
-	
+		
 ]
 
 

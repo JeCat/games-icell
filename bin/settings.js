@@ -371,7 +371,7 @@ yc.settings = {
 					, title: "c1.l1"		// (可选)
 					, script: "yc.levels.c1.l1"
 				}
-
+				
 				, 'c1.l2': {
 					// 在关卡地图上的位置
 					x: 362
@@ -379,7 +379,7 @@ yc.settings = {
 					, title: "c1.l2"
 					, script: "yc.levels.c1.l2"
 				}
-
+				
 				, 'c1.l3': {
 					// 在关卡地图上的位置
 					x: 520
@@ -387,7 +387,7 @@ yc.settings = {
 					, title: "c1.l3"
 					, script: "yc.levels.c1.l3"
 				}
-
+				
 				, 'c1.l4': {
 					// 在关卡地图上的位置
 					x: 568
@@ -408,8 +408,8 @@ yc.settings = {
 					// 在关卡地图上的位置
 					x: 355
 					, y: 812
-					, title: null
-					, script: "yc.levels.c1.l1"
+					, title: "c1.l6"
+					, script: "yc.levels.c1.l6"
 				}
 
 				, 'c1.l7': {

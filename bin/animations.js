@@ -8,7 +8,8 @@ yc.animations.createAction = function(name){
 }
 
 yc.animations.firstFrame = function(spriteName){
-	return cc.AnimationCache.getInstance().getAnimation(spriteName).getFrames()[0].getSpriteFrame() ;
+	var xx = cc.AnimationCache.getInstance().getAnimation(spriteName);
+	return xx.getFrames()[0].getSpriteFrame() ;
 }
 
 yc.animations.initBuildinAnimations = function (){
@@ -367,12 +368,12 @@ yc.animations.initBuildinAnimations = function (){
 			, "res/role/role.png"
 			, "spider_small_00%idx%.png"		// 帧名称模板
 			, 1, 9								// 帧名称中的下标的数值范围
-			/*
+			
 			, function(frame){					// 处理每帧的回调函数（可选）
 			    // 矫正一下 图片位置，统一下边界对齐
 			    frame._offset.y = - (frame._originalSize.height - frame._rect.size.height)/2 ;
 			    frame._offset.x = 0 ;
-			  }*/);
+			  });
 	
 	__loadAnimation(
 			'role.spider_small_front'
@@ -702,29 +703,15 @@ yc.animations.initBuildinAnimations = function (){
 			, "res/xibaohecheng.plist"
 			, "res/xibaohecheng.png"
 			, "chuansong_00%idx%.png"		// 帧名称模板
-			, 90, 120								// 帧名称中的下标的数值范围
+			, 1, 12								// 帧名称中的下标的数值范围
 			, yc.animations.adjustFrameBtn);
 	__loadAnimation(
-			'towers.chuansong1'
+			'towers.dianlv'
 			, "res/xibaohecheng.plist"
 			, "res/xibaohecheng.png"
-			, "chuansong_00%idx%.png"		// 帧名称模板
-			, 120, 90								// 帧名称中的下标的数值范围
-			, yc.animations.adjustFrameBtn);
-	__loadAnimation(
-			'towers.chuansong3'
-			, "res/xibaohecheng.plist"
-			, "res/xibaohecheng.png"
-			, "chuansong_00%idx%.jpg"		// 帧名称模板
-			, 81, 117								// 帧名称中的下标的数值范围
-			, yc.animations.adjustFrameBtn);
-	__loadAnimation(
-			'towers.jindutiao'
-			, "res/xibaohecheng.plist"
-			, "res/xibaohecheng.png"
-			, "jindutiao_00%idx%.png"		// 帧名称模板
-			, 1, 6								// 帧名称中的下标的数值范围
-			, yc.animations.adjustFrameBtn,0.2);
+			, "dianlv_00%idx%.png"		// 帧名称模板
+			, 71,98 								// 帧名称中的下标的数值范围
+			, yc.animations.adjustFrameBtn,0.1);
 }
 
 yc.animations.adjustFrameBtn = function(frame){
