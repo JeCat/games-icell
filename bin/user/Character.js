@@ -103,13 +103,13 @@ yc.user.Character.loadCurrent = function(name){
 						,"x":1
 						,"y":-1
 					}
-					,{
-						"className":"yc.inner.building.ProteinFactory"
-						,"upgraders":{}
-						,'cost':{}
-						,"x":0
-						,"y":1
-					}
+					// ,{
+					// 	"className":"yc.inner.building.ProteinFactory"
+					// 	,"upgraders":{}
+					// 	,'cost':{}
+					// 	,"x":0
+					// 	,"y":1
+					// }
 				]
 			}
 			, proteins: {

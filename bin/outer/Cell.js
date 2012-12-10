@@ -301,11 +301,11 @@ here() ;
 		if( longest )
 		{
 			// 旋转
-			var vector = {x:longest[0],y:longest[1]} ;
-			vector = yc.util.ratateVector(vector,this.getRotation()) ;
+			// var vector = {x:longest[0],y:longest[1]} ;
+			// vector = yc.util.ratateVector(vector,this.getRotation()) ;
 
-			var fp = yc.util.ObjectPool.ins(yc.outer.Footprint).ob() ;
-			fp.init(this.x+vector.x,this.y+vector.y) ;
+			// var fp = yc.util.ObjectPool.ins(yc.outer.Footprint).ob() ;
+			// fp.init(this.x+vector.x,this.y+vector.y) ;
 
 			// var particle = cc.ParticleSpiral.create();
 			// particle.setTexture(cc.TextureCache.getInstance().addImage('res/fire.png'));
