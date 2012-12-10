@@ -306,7 +306,16 @@ here() ;
 
 			var fp = yc.util.ObjectPool.ins(yc.outer.Footprint).ob() ;
 			fp.init(this.x+vector.x,this.y+vector.y) ;
-			ins(yc.outer.PlayerLayer).addChild(fp,-100) ;
+			ins(yc.outer.PlayerLayer).addChild(cc.ParticleSpiral.create(),-100) ;
+
+
+
+			// this._emitter = cc.ParticleSpiral.create();
+	  //       this._background.addChild(this._emitter, 10);
+
+	  //       this._emitter.setTexture(cc.TextureCache.getInstance().addImage(s_fire));
+	  //       if(this._emitter.setShapeType)
+	  //           this._emitter.setShapeType(cc.PARTICLE_BALL_SHAPE);
 		}
 	}
 	
