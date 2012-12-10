@@ -176,6 +176,7 @@ var g_ResFiles = [
 	, {type:"image", src:"res/Goal.png"}
 
 	, {type:"image", src:"res/cellshell.png"}
+	, {type:"image", src:"res/fire.png"}
 
 	, {type:"image", src:"res/mainscene/background.jpg"}
 	, {type:"image", src:"res/mainscene/electricity.png"}
@@ -318,7 +319,7 @@ var g_ResFiles = [
 	, {type:"image", src:"res/role/boss.png"}
 	, {type:"plist", src:"res/xibaohecheng.plist"}
 	, {type:"image", src:"res/xibaohecheng.png"}
-	
+		
 ]
 
 

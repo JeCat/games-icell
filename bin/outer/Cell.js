@@ -306,16 +306,26 @@ here() ;
 
 			var fp = yc.util.ObjectPool.ins(yc.outer.Footprint).ob() ;
 			fp.init(this.x+vector.x,this.y+vector.y) ;
-			ins(yc.outer.PlayerLayer).addChild(cc.ParticleSpiral.create(),-100) ;
+
+			// var particle = cc.ParticleSpiral.create();
+			// particle.setTexture(cc.TextureCache.getInstance().addImage('res/fire.png'));
+			// particle.setShapeType(cc.PARTICLE_BALL_SHAPE)
+			// ins(yc.outer.PlayerLayer).addChild(particle,-100) ;
+			// particle.setPosition(this.getPosition());
+			// particle.setDrawMode(cc.PARTICLE_TEXTURE_MODE);
+			// particle.setLife(3);
+   //      	particle.setLifeVar(1);
 
 
 
-			// this._emitter = cc.ParticleSpiral.create();
-	  //       this._background.addChild(this._emitter, 10);
+			// this._emitter = cc.ParticleGalaxy.create();
+   //      this._background.addChild(this._emitter, 10);
+   //      var myTexture = cc.TextureCache.getInstance().addImage(s_fire);
+   //      this._emitter.setTexture(myTexture);
+   //      if(this._emitter.setShapeType)
+   //          this._emitter.setShapeType(cc.PARTICLE_BALL_SHAPE);
 
-	  //       this._emitter.setTexture(cc.TextureCache.getInstance().addImage(s_fire));
-	  //       if(this._emitter.setShapeType)
-	  //           this._emitter.setShapeType(cc.PARTICLE_BALL_SHAPE);
+   //      this.setEmitterPosition();
 		}
 	}
 	
