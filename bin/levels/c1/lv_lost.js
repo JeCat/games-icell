@@ -1,10 +1,10 @@
 yc.levels.c1.lost = {
 	"world" : {
 		"boundary" : {
-			"lft" : -50000,
-			"rgt" : 50000,
-			"top" : 50000,
-			"btm" : -50000
+			"lft" : -15450,
+			"rgt" : 19000,
+			"top" : 11800,
+			"btm" : -12500
 		}
 	},
 	"camera" : {
@@ -1193,7 +1193,7 @@ yc.levels.c1.lost = {
 			"tileWidth" : 3900,
 			"tileHeight" : 2900,
 			"mosey" : true
-		},{
+		}, {
 			"layer" : "background",
 			"x" : -1540,
 			"y" : -299.91082836409385,
@@ -1210,7 +1210,7 @@ yc.levels.c1.lost = {
 			"moseySpeed" : 5,
 			"moseyArea" : 300,
 			"parallax" : 1
-		},  {
+		}, {
 			"layer" : "background",
 			"x" : -3620.6985684743972,
 			"y" : -535.0614384119692,
@@ -1407,6 +1407,23 @@ yc.levels.c1.lost = {
 			"moseyArea" : 300,
 			"parallax" : 1,
 			"mosey" : true
+		}, {
+			"layer" : "background",
+			"x" : -494.7763760987293,
+			"y" : 158.58217182651583,
+			"anchorX" : 0.5,
+			"anchorY" : 0.5,
+			"rotation" : 0.3490658503988659,
+			"opacity" : 200,
+			"scaleX" : 50,
+			"scaleY" : 50,
+			"img" : "res/b_qiu_1.png",
+			"text" : null,
+			"textStyle" : "normal 16px san-serif",
+			"textColor" : "0,0,0,1",
+			"moseySpeed" : 5,
+			"moseyArea" : 300,
+			"parallax" : 1
 		} ]
 	}
 }
