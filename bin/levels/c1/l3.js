@@ -970,3551 +970,3519 @@ yc.levels.c1.l3 = {
 		"x" : -7536.4623997007075,
 		"y" : 3814.1778796044546
 	} ],
-	"virusclusters" : [
-			{
-				"x" : -2020.1894150739759,
-				"y" : -2245.8458523134436,
-				"turnRate" : 0.2,
-				"moseySpeed" : 2,
-				"normalSpeed" : 20,
-				"vigilanceRange" : 800,
-				"viruses" : [ {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : -1.96,
-					"offsety" : 12.64,
-					"flop" : "red",
-					"flopNum" : 9
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : -2.24,
-					"offsety" : 0.99,
-					"flop" : "yellow",
-					"flopNum" : 1
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : 8.06,
-					"offsety" : 9.74,
-					"flop" : "yellow",
-					"flopNum" : 5
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : -9.75,
-					"offsety" : 3.51,
-					"flop" : "blue",
-					"flopNum" : 10
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : 0.95,
-					"offsety" : 13.5,
-					"flop" : "yellow",
-					"flopNum" : 5
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : 9.53,
-					"offsety" : 7.19,
-					"flop" : "blue",
-					"flopNum" : 9
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : 11.53,
-					"offsety" : -1.67,
-					"flop" : "yellow",
-					"flopNum" : 9
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : 1.83,
-					"offsety" : -3.8,
-					"flop" : "red",
-					"flopNum" : 0
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : -0.48,
-					"offsety" : -0.55,
-					"flop" : "red",
-					"flopNum" : 6
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : 1.34,
-					"offsety" : 9.85,
-					"flop" : "red",
-					"flopNum" : 7
-				} ],
-				"boss" : false,
-				"killdown" : [],
-				"spriter" : "role.virus_a",
-				"size" : 100,
-				"unlockLevel" : null
-			},
-			{
-				"x" : -1345.3273790873832,
-				"y" : -3723.2429593629336,
-				"turnRate" : 0.2,
-				"moseySpeed" : 2,
-				"normalSpeed" : 20,
-				"vigilanceRange" : 600,
-				"viruses" : [ {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : -13.93,
-					"offsety" : -9.92,
-					"flop" : "blue",
-					"flopNum" : 3
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : -0.36,
-					"offsety" : -11.72,
-					"flop" : "yellow",
-					"flopNum" : 1
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : 5.74,
-					"offsety" : 11.84,
-					"flop" : "yellow",
-					"flopNum" : 0
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : 2.68,
-					"offsety" : -3.88,
-					"flop" : "blue",
-					"flopNum" : 7
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : 4.97,
-					"offsety" : -7.22,
-					"flop" : "red",
-					"flopNum" : 1
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : -14.86,
-					"offsety" : -7.57,
-					"flop" : "yellow",
-					"flopNum" : 4
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : 14.89,
-					"offsety" : -5.68,
-					"flop" : "blue",
-					"flopNum" : 9
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : 9.89,
-					"offsety" : 13.24,
-					"flop" : "yellow",
-					"flopNum" : 4
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : -0.74,
-					"offsety" : -0.17,
-					"flop" : "yellow",
-					"flopNum" : 6
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : -9.31,
-					"offsety" : 2.4,
-					"flop" : "blue",
-					"flopNum" : 10
-				} ],
-				"boss" : false,
-				"killdown" : [],
-				"spriter" : "role.virus_a",
-				"size" : 100,
-				"unlockLevel" : null
-			},
-			{
-				"x" : -4460.812219989035,
-				"y" : -4288.8237925742815,
-				"turnRate" : 0.2,
-				"moseySpeed" : 2,
-				"normalSpeed" : 5,
-				"vigilanceRange" : 200,
-				"viruses" : [ {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : -10.25,
-					"offsety" : 6.42,
-					"flop" : "red",
-					"flopNum" : 5
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : 5.15,
-					"offsety" : 3.71,
-					"flop" : "red",
-					"flopNum" : 2
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : -1.27,
-					"offsety" : -8.33,
-					"flop" : "yellow",
-					"flopNum" : 7
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : -5.71,
-					"offsety" : -7.82,
-					"flop" : "blue",
-					"flopNum" : 1
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : -6.63,
-					"offsety" : -13.9,
-					"flop" : "red",
-					"flopNum" : 10
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : -12.86,
-					"offsety" : -10.98,
-					"flop" : "red",
-					"flopNum" : 8
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : 4.77,
-					"offsety" : 3.63,
-					"flop" : "blue",
-					"flopNum" : 9
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : 8.88,
-					"offsety" : 11.11,
-					"flop" : "yellow",
-					"flopNum" : 4
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : -6.21,
-					"offsety" : 11.88,
-					"flop" : "yellow",
-					"flopNum" : 5
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : 10.13,
-					"offsety" : -3.44,
-					"flop" : "blue",
-					"flopNum" : 10
-				} ],
-				"boss" : false,
-				"killdown" : [],
-				"spriter" : "role.virus_a",
-				"size" : 100,
-				"unlockLevel" : null
-			},
-			{
-				"x" : -2860.2307030963066,
-				"y" : -3334.2117910379807,
-				"turnRate" : 0.2,
-				"moseySpeed" : 2,
-				"normalSpeed" : 20,
-				"vigilanceRange" : 600,
-				"viruses" : [ {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : -8.73,
-					"offsety" : 11.12,
-					"flop" : "yellow",
-					"flopNum" : 8
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : 12.64,
-					"offsety" : 12.26,
-					"flop" : "red",
-					"flopNum" : 0
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : 1.88,
-					"offsety" : -5.86,
-					"flop" : "red",
-					"flopNum" : 9
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : 11.51,
-					"offsety" : -11.85,
-					"flop" : "red",
-					"flopNum" : 9
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : 13.3,
-					"offsety" : -14.97,
-					"flop" : "red",
-					"flopNum" : 0
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : -7.87,
-					"offsety" : 7.67,
-					"flop" : "red",
-					"flopNum" : 5
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : -10.78,
-					"offsety" : 12.82,
-					"flop" : "yellow",
-					"flopNum" : 10
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : -4.64,
-					"offsety" : -5.08,
-					"flop" : "blue",
-					"flopNum" : 2
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : 13.99,
-					"offsety" : 9.19,
-					"flop" : "red",
-					"flopNum" : 6
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : -13.99,
-					"offsety" : -9.44,
-					"flop" : "red",
-					"flopNum" : 2
-				} ],
-				"boss" : false,
-				"killdown" : [],
-				"spriter" : "role.virus_a",
-				"size" : 100,
-				"unlockLevel" : null
-			},
-			{
-				"x" : -6799.176985646078,
-				"y" : -4069.6996861198877,
-				"turnRate" : 0.2,
-				"moseySpeed" : 2,
-				"normalSpeed" : 5,
-				"vigilanceRange" : 200,
-				"viruses" : [ {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : -4.49,
-					"offsety" : -4.91,
-					"flop" : "red",
-					"flopNum" : 7
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : -5.27,
-					"offsety" : -5.27,
-					"flop" : "blue",
-					"flopNum" : 8
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : 4.61,
-					"offsety" : -13.55,
-					"flop" : "red",
-					"flopNum" : 4
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : 13.59,
-					"offsety" : 11.27,
-					"flop" : "blue",
-					"flopNum" : 5
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : 13.3,
-					"offsety" : -4.21,
-					"flop" : "red",
-					"flopNum" : 8
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : -13.76,
-					"offsety" : -4.25,
-					"flop" : "red",
-					"flopNum" : 2
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : 5.08,
-					"offsety" : 3.49,
-					"flop" : "red",
-					"flopNum" : 0
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : -9.5,
-					"offsety" : 13.27,
-					"flop" : "red",
-					"flopNum" : 3
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : 12.43,
-					"offsety" : 10.52,
-					"flop" : "blue",
-					"flopNum" : 9
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : 13.66,
-					"offsety" : -11.23,
-					"flop" : "red",
-					"flopNum" : 10
-				} ],
-				"boss" : false,
-				"killdown" : [],
-				"spriter" : "role.virus_a",
-				"size" : 100,
-				"unlockLevel" : null
-			},
-			{
-				"x" : -7683.751646776323,
-				"y" : -1627.4957269094864,
-				"turnRate" : 0.2,
-				"moseySpeed" : 2,
-				"normalSpeed" : 5,
-				"vigilanceRange" : 200,
-				"viruses" : [ {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : 3.53,
-					"offsety" : 2.05,
-					"flop" : "blue",
-					"flopNum" : 1
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : -8.78,
-					"offsety" : -5.56,
-					"flop" : "red",
-					"flopNum" : 6
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : 6.98,
-					"offsety" : 12.5,
-					"flop" : "yellow",
-					"flopNum" : 4
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : -14.38,
-					"offsety" : 11.42,
-					"flop" : "yellow",
-					"flopNum" : 7
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : 3.17,
-					"offsety" : -3.41,
-					"flop" : "blue",
-					"flopNum" : 4
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : 13.74,
-					"offsety" : -13.21,
-					"flop" : "blue",
-					"flopNum" : 8
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : -2.62,
-					"offsety" : -5.62,
-					"flop" : "red",
-					"flopNum" : 1
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : 12.04,
-					"offsety" : 13.61,
-					"flop" : "yellow",
-					"flopNum" : 6
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : -1.49,
-					"offsety" : -13.07,
-					"flop" : "blue",
-					"flopNum" : 0
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : -11.62,
-					"offsety" : -8,
-					"flop" : "red",
-					"flopNum" : 8
-				} ],
-				"boss" : false,
-				"killdown" : [],
-				"spriter" : "role.virus_a",
-				"size" : 100,
-				"unlockLevel" : null
-			},
-			{
-				"x" : -8468.34688016433,
-				"y" : -2005.0453129007078,
-				"turnRate" : 0.2,
-				"moseySpeed" : 2,
-				"normalSpeed" : 5,
-				"vigilanceRange" : 200,
-				"viruses" : [ {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : -2.53,
-					"offsety" : -10.14,
-					"flop" : "blue",
-					"flopNum" : 4
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : 13.72,
-					"offsety" : 2.99,
-					"flop" : "yellow",
-					"flopNum" : 3
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : -3.06,
-					"offsety" : 3.44,
-					"flop" : "blue",
-					"flopNum" : 7
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : -7.53,
-					"offsety" : 3.5,
-					"flop" : "red",
-					"flopNum" : 1
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : 12.09,
-					"offsety" : -1.66,
-					"flop" : "blue",
-					"flopNum" : 7
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : -0.18,
-					"offsety" : -14.11,
-					"flop" : "red",
-					"flopNum" : 1
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : -13.83,
-					"offsety" : -13.25,
-					"flop" : "blue",
-					"flopNum" : 0
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : 3.8,
-					"offsety" : 5.28,
-					"flop" : "red",
-					"flopNum" : 2
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : -6.05,
-					"offsety" : -5.23,
-					"flop" : "red",
-					"flopNum" : 2
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : -11.02,
-					"offsety" : -3.13,
-					"flop" : "red",
-					"flopNum" : 5
-				} ],
-				"boss" : false,
-				"killdown" : [],
-				"spriter" : "role.virus_a",
-				"size" : 100,
-				"unlockLevel" : null
-			},
-			{
-				"x" : -9376.825571455707,
-				"y" : -1238.147716356039,
-				"turnRate" : 0.2,
-				"moseySpeed" : 2,
-				"normalSpeed" : 5,
-				"vigilanceRange" : 200,
-				"viruses" : [ {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : 1.3,
-					"offsety" : -2.52,
-					"flop" : "yellow",
-					"flopNum" : 2
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : -1.31,
-					"offsety" : -10.62,
-					"flop" : "yellow",
-					"flopNum" : 1
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : -9.11,
-					"offsety" : -0.93,
-					"flop" : "red",
-					"flopNum" : 9
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : -4.8,
-					"offsety" : -0.31,
-					"flop" : "blue",
-					"flopNum" : 4
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : 4.46,
-					"offsety" : 5.42,
-					"flop" : "red",
-					"flopNum" : 2
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : 14.58,
-					"offsety" : -11.77,
-					"flop" : "yellow",
-					"flopNum" : 3
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : 3.42,
-					"offsety" : 6.32,
-					"flop" : "blue",
-					"flopNum" : 4
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : 14.22,
-					"offsety" : 6.26,
-					"flop" : "yellow",
-					"flopNum" : 2
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : -4.18,
-					"offsety" : -6.03,
-					"flop" : "yellow",
-					"flopNum" : 7
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : -11.29,
-					"offsety" : 6.74,
-					"flop" : "yellow",
-					"flopNum" : 7
-				} ],
-				"boss" : false,
-				"killdown" : [],
-				"spriter" : "role.virus_a",
-				"size" : 100,
-				"unlockLevel" : null
-			},
-			{
-				"x" : -11818.60358010909,
-				"y" : -6.708780702640013,
-				"turnRate" : 0.2,
-				"moseySpeed" : 2,
-				"normalSpeed" : 5,
-				"vigilanceRange" : 200,
-				"viruses" : [ {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : 1.21,
-					"offsety" : 1.88,
-					"flop" : "blue",
-					"flopNum" : 2
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : 4.81,
-					"offsety" : -9.2,
-					"flop" : "red",
-					"flopNum" : 9
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : -12.18,
-					"offsety" : -1.83,
-					"flop" : "blue",
-					"flopNum" : 10
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : -2.52,
-					"offsety" : -9.88,
-					"flop" : "red",
-					"flopNum" : 8
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : -2.5,
-					"offsety" : 4.73,
-					"flop" : "yellow",
-					"flopNum" : 2
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : -12.19,
-					"offsety" : 6.44,
-					"flop" : "blue",
-					"flopNum" : 1
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : -5.66,
-					"offsety" : 3.65,
-					"flop" : "blue",
-					"flopNum" : 4
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : 7.41,
-					"offsety" : -3.56,
-					"flop" : "yellow",
-					"flopNum" : 10
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : -11.94,
-					"offsety" : 13.27,
-					"flop" : "yellow",
-					"flopNum" : 5
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : 8.14,
-					"offsety" : -7.94,
-					"flop" : "yellow",
-					"flopNum" : 2
-				} ],
-				"boss" : false,
-				"killdown" : [],
-				"spriter" : "role.virus_a",
-				"size" : 100,
-				"unlockLevel" : null
-			},
-			{
-				"x" : -13750.949185540241,
-				"y" : -2933.41790723099,
-				"turnRate" : 0.2,
-				"moseySpeed" : 10,
-				"normalSpeed" : 5,
-				"vigilanceRange" : 200,
-				"viruses" : [ {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : -6.51,
-					"offsety" : 0.15,
-					"flop" : "blue",
-					"flopNum" : 4
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : -12.5,
-					"offsety" : 5.03,
-					"flop" : "yellow",
-					"flopNum" : 2
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : 9.57,
-					"offsety" : 12.93,
-					"flop" : "red",
-					"flopNum" : 8
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : -13.41,
-					"offsety" : -5.09,
-					"flop" : "blue",
-					"flopNum" : 2
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : -9.57,
-					"offsety" : -1.86,
-					"flop" : "red",
-					"flopNum" : 4
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : 5.41,
-					"offsety" : 7.57,
-					"flop" : "yellow",
-					"flopNum" : 3
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : 14.68,
-					"offsety" : 5.59,
-					"flop" : "blue",
-					"flopNum" : 1
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : 7.1,
-					"offsety" : 6.42,
-					"flop" : "yellow",
-					"flopNum" : 9
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : -10.21,
-					"offsety" : -11.55,
-					"flop" : "red",
-					"flopNum" : 6
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : -11.58,
-					"offsety" : 0.9,
-					"flop" : "red",
-					"flopNum" : 5
-				} ],
-				"boss" : false,
-				"killdown" : [],
-				"spriter" : "role.virus_a",
-				"size" : 100,
-				"unlockLevel" : null
-			},
-			{
-				"x" : -12413.17145870329,
-				"y" : -3579.2416374281393,
-				"turnRate" : 0.2,
-				"moseySpeed" : 20,
-				"normalSpeed" : 5,
-				"vigilanceRange" : 200,
-				"viruses" : [ {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : 10.04,
-					"offsety" : -13.91,
-					"flop" : "red",
-					"flopNum" : 8
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : -10.81,
-					"offsety" : -5.18,
-					"flop" : "red",
-					"flopNum" : 1
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : -7.84,
-					"offsety" : 1.46,
-					"flop" : "blue",
-					"flopNum" : 4
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : -9.95,
-					"offsety" : 0.01,
-					"flop" : "yellow",
-					"flopNum" : 9
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : 6.94,
-					"offsety" : 1.2,
-					"flop" : "red",
-					"flopNum" : 9
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : -13.04,
-					"offsety" : -14.3,
-					"flop" : "red",
-					"flopNum" : 0
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : -11.56,
-					"offsety" : -2.58,
-					"flop" : "yellow",
-					"flopNum" : 6
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : 7.69,
-					"offsety" : 5.47,
-					"flop" : "blue",
-					"flopNum" : 0
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : -9.01,
-					"offsety" : 8.8,
-					"flop" : "blue",
-					"flopNum" : 5
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : -6.19,
-					"offsety" : -11.42,
-					"flop" : "yellow",
-					"flopNum" : 1
-				} ],
-				"boss" : false,
-				"killdown" : [],
-				"spriter" : "role.virus_a",
-				"size" : 100,
-				"unlockLevel" : null
-			},
-			{
-				"x" : -17846.13153884258,
-				"y" : -6603.948440698436,
-				"turnRate" : 0.2,
-				"moseySpeed" : 2,
-				"normalSpeed" : 5,
-				"vigilanceRange" : 200,
-				"viruses" : [ {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 20,
-					"hp" : 30,
-					"offsetx" : -13.72,
-					"offsety" : 14.68,
-					"flop" : "red",
-					"flopNum" : 9
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 20,
-					"hp" : 30,
-					"offsetx" : -13.72,
-					"offsety" : 14.68,
-					"flop" : "red",
-					"flopNum" : 9
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 20,
-					"hp" : 30,
-					"offsetx" : -13.72,
-					"offsety" : 14.68,
-					"flop" : "red",
-					"flopNum" : 9
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 20,
-					"hp" : 30,
-					"offsetx" : -13.72,
-					"offsety" : 14.68,
-					"flop" : "red",
-					"flopNum" : 9
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 20,
-					"hp" : 30,
-					"offsetx" : -13.72,
-					"offsety" : 14.68,
-					"flop" : "red",
-					"flopNum" : 9
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 20,
-					"hp" : 30,
-					"offsetx" : -13.72,
-					"offsety" : 14.68,
-					"flop" : "blue",
-					"flopNum" : 6
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 20,
-					"hp" : 30,
-					"offsetx" : -13.72,
-					"offsety" : 14.68,
-					"flop" : "red",
-					"flopNum" : 3
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 20,
-					"hp" : 30,
-					"offsetx" : -13.72,
-					"offsety" : 14.68,
-					"flop" : "red",
-					"flopNum" : 3
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 20,
-					"hp" : 30,
-					"offsetx" : -13.72,
-					"offsety" : 14.68,
-					"flop" : "yellow",
-					"flopNum" : 2
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 20,
-					"hp" : 30,
-					"offsetx" : -13.72,
-					"offsety" : 14.68,
-					"flop" : "yellow",
-					"flopNum" : 2
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 20,
-					"hp" : 30,
-					"offsetx" : -13.72,
-					"offsety" : 14.68,
-					"flop" : "yellow",
-					"flopNum" : 2
-				} ],
-				"boss" : false,
-				"killdown" : [],
-				"spriter" : "role.demonFlying_right",
-				"size" : 100,
-				"unlockLevel" : null
-			},
-			{
-				"x" : -18440.790277266482,
-				"y" : -5398.680497572304,
-				"turnRate" : 0.2,
-				"moseySpeed" : 2,
-				"normalSpeed" : 5,
-				"vigilanceRange" : 200,
-				"viruses" : [ {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : -14.34,
-					"offsety" : 2.23,
-					"flop" : "red",
-					"flopNum" : 8
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : 4.73,
-					"offsety" : 0.64,
-					"flop" : "yellow",
-					"flopNum" : 2
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : -11.23,
-					"offsety" : 7.2,
-					"flop" : "blue",
-					"flopNum" : 9
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : 10.73,
-					"offsety" : -3.04,
-					"flop" : "yellow",
-					"flopNum" : 9
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : 12.49,
-					"offsety" : 2.56,
-					"flop" : "blue",
-					"flopNum" : 5
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : 3.47,
-					"offsety" : -4.74,
-					"flop" : "yellow",
-					"flopNum" : 2
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : 7.71,
-					"offsety" : -9.43,
-					"flop" : "yellow",
-					"flopNum" : 8
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : 8.09,
-					"offsety" : 4.42,
-					"flop" : "yellow",
-					"flopNum" : 6
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : -4.42,
-					"offsety" : 3.31,
-					"flop" : "blue",
-					"flopNum" : 3
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : -13.92,
-					"offsety" : 14.63,
-					"flop" : "yellow",
-					"flopNum" : 8
-				} ],
-				"boss" : false,
-				"killdown" : [],
-				"spriter" : "role.virus_a",
-				"size" : 100,
-				"unlockLevel" : null
-			},
-			{
-				"x" : -18299.42017227219,
-				"y" : -6241.246323338299,
-				"turnRate" : 0.2,
-				"moseySpeed" : 2,
-				"normalSpeed" : 5,
-				"vigilanceRange" : 200,
-				"viruses" : [ {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : -8.48,
-					"offsety" : -9.85,
-					"flop" : "red",
-					"flopNum" : 3
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : -0.34,
-					"offsety" : 1.93,
-					"flop" : "red",
-					"flopNum" : 2
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : -0.6,
-					"offsety" : 11.94,
-					"flop" : "blue",
-					"flopNum" : 4
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : -0.66,
-					"offsety" : 8.9,
-					"flop" : "blue",
-					"flopNum" : 5
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : -6.32,
-					"offsety" : 9.49,
-					"flop" : "yellow",
-					"flopNum" : 7
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : 6.2,
-					"offsety" : 6.68,
-					"flop" : "red",
-					"flopNum" : 1
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : 5.83,
-					"offsety" : 8.17,
-					"flop" : "blue",
-					"flopNum" : 5
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : 9.28,
-					"offsety" : 5.57,
-					"flop" : "blue",
-					"flopNum" : 1
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : 6.14,
-					"offsety" : -3.32,
-					"flop" : "red",
-					"flopNum" : 6
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : -14.23,
-					"offsety" : 7.24,
-					"flop" : "red",
-					"flopNum" : 3
-				} ],
-				"boss" : false,
-				"killdown" : [],
-				"spriter" : "role.virus_a",
-				"size" : 100,
-				"unlockLevel" : null
-			},
-			{
-				"x" : -17784.832990092957,
-				"y" : -5409.990105971848,
-				"turnRate" : 0.2,
-				"moseySpeed" : 2,
-				"normalSpeed" : 5,
-				"vigilanceRange" : 200,
-				"viruses" : [ {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : 7.85,
-					"offsety" : 4.31,
-					"flop" : "blue",
-					"flopNum" : 7
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : -14.37,
-					"offsety" : 2.95,
-					"flop" : "blue",
-					"flopNum" : 3
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : 14.53,
-					"offsety" : 14.13,
-					"flop" : "blue",
-					"flopNum" : 9
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : 2.88,
-					"offsety" : 3.1,
-					"flop" : "blue",
-					"flopNum" : 0
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : 5.72,
-					"offsety" : -8.04,
-					"flop" : "red",
-					"flopNum" : 9
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : 3.72,
-					"offsety" : 7.83,
-					"flop" : "yellow",
-					"flopNum" : 7
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : 11.34,
-					"offsety" : -14,
-					"flop" : "yellow",
-					"flopNum" : 9
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : 2.66,
-					"offsety" : -6,
-					"flop" : "red",
-					"flopNum" : 4
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : -8.5,
-					"offsety" : -1.88,
-					"flop" : "yellow",
-					"flopNum" : 7
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : 4.84,
-					"offsety" : 10.55,
-					"flop" : "yellow",
-					"flopNum" : 8
-				} ],
-				"boss" : false,
-				"killdown" : [],
-				"spriter" : "role.virus_a",
-				"size" : 100,
-				"unlockLevel" : null
-			},
-			{
-				"x" : -18671.717995572435,
-				"y" : -11586.998162967438,
-				"turnRate" : 0.2,
-				"moseySpeed" : 2,
-				"normalSpeed" : 5,
-				"vigilanceRange" : 200,
-				"viruses" : [ {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : -14.83,
-					"offsety" : 10.51,
-					"flop" : "blue",
-					"flopNum" : 4
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : 4.57,
-					"offsety" : 7.68,
-					"flop" : "blue",
-					"flopNum" : 9
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : -3.17,
-					"offsety" : 2.38,
-					"flop" : "yellow",
-					"flopNum" : 9
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : 1.22,
-					"offsety" : 7.02,
-					"flop" : "red",
-					"flopNum" : 4
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : 0.72,
-					"offsety" : -0.32,
-					"flop" : "blue",
-					"flopNum" : 9
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : 10.32,
-					"offsety" : 5.16,
-					"flop" : "yellow",
-					"flopNum" : 7
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : -0.52,
-					"offsety" : 9.73,
-					"flop" : "yellow",
-					"flopNum" : 5
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : 0.61,
-					"offsety" : 11.4,
-					"flop" : "yellow",
-					"flopNum" : 2
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : 2.08,
-					"offsety" : -12.05,
-					"flop" : "blue",
-					"flopNum" : 1
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : -3.95,
-					"offsety" : -7.14,
-					"flop" : "red",
-					"flopNum" : 6
-				} ],
-				"boss" : false,
-				"killdown" : [],
-				"spriter" : "role.virus_a",
-				"size" : 100,
-				"unlockLevel" : null
-			},
-			{
-				"x" : -17865.87855119961,
-				"y" : -12770.885741737391,
-				"turnRate" : 0.2,
-				"moseySpeed" : 2,
-				"normalSpeed" : 5,
-				"vigilanceRange" : 200,
-				"viruses" : [ {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : -4.65,
-					"offsety" : -5.23,
-					"flop" : "blue",
-					"flopNum" : 5
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : 11.61,
-					"offsety" : 5.92,
-					"flop" : "blue",
-					"flopNum" : 3
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : -2.03,
-					"offsety" : -11.62,
-					"flop" : "blue",
-					"flopNum" : 9
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : 11.1,
-					"offsety" : -0.81,
-					"flop" : "yellow",
-					"flopNum" : 8
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : 11.41,
-					"offsety" : -13.04,
-					"flop" : "yellow",
-					"flopNum" : 1
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : -13.41,
-					"offsety" : -1.91,
-					"flop" : "red",
-					"flopNum" : 6
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : 5.79,
-					"offsety" : -4.59,
-					"flop" : "yellow",
-					"flopNum" : 5
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : -11.92,
-					"offsety" : 5.82,
-					"flop" : "blue",
-					"flopNum" : 7
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : -8.08,
-					"offsety" : -6.13,
-					"flop" : "yellow",
-					"flopNum" : 10
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : -2.37,
-					"offsety" : -2.6,
-					"flop" : "blue",
-					"flopNum" : 0
-				} ],
-				"boss" : false,
-				"killdown" : [],
-				"spriter" : "role.virus_a",
-				"size" : 100,
-				"unlockLevel" : null
-			},
-			{
-				"x" : -19149.2524811267,
-				"y" : -9457.990248204667,
-				"turnRate" : 0.2,
-				"moseySpeed" : 2,
-				"normalSpeed" : 5,
-				"vigilanceRange" : 200,
-				"viruses" : [ {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : 6.22,
-					"offsety" : 10.13,
-					"flop" : "red",
-					"flopNum" : 2
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : -13.44,
-					"offsety" : -8.53,
-					"flop" : "red",
-					"flopNum" : 10
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : 3.93,
-					"offsety" : 4.16,
-					"flop" : "red",
-					"flopNum" : 3
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : -6.13,
-					"offsety" : -9.06,
-					"flop" : "yellow",
-					"flopNum" : 8
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : -2.84,
-					"offsety" : 4.79,
-					"flop" : "blue",
-					"flopNum" : 9
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : -14.77,
-					"offsety" : -10.64,
-					"flop" : "red",
-					"flopNum" : 2
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : 5.83,
-					"offsety" : 8.49,
-					"flop" : "blue",
-					"flopNum" : 5
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : -4.11,
-					"offsety" : 6.11,
-					"flop" : "blue",
-					"flopNum" : 0
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : 14.94,
-					"offsety" : -5.63,
-					"flop" : "blue",
-					"flopNum" : 7
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : 0.62,
-					"offsety" : 6.53,
-					"flop" : "blue",
-					"flopNum" : 3
-				} ],
-				"boss" : false,
-				"killdown" : [],
-				"spriter" : "role.virus_a",
-				"size" : 100,
-				"unlockLevel" : null
-			},
-			{
-				"x" : -14861.390746254016,
-				"y" : -12581.861674538828,
-				"turnRate" : 0.2,
-				"moseySpeed" : 2,
-				"normalSpeed" : 5,
-				"vigilanceRange" : 200,
-				"viruses" : [ {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : -9.33,
-					"offsety" : -5.15,
-					"flop" : "red",
-					"flopNum" : 3
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : -8.52,
-					"offsety" : -5.54,
-					"flop" : "blue",
-					"flopNum" : 9
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : -9.29,
-					"offsety" : 10.38,
-					"flop" : "blue",
-					"flopNum" : 2
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : 1.1,
-					"offsety" : -1.78,
-					"flop" : "yellow",
-					"flopNum" : 3
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : -12.66,
-					"offsety" : -12.86,
-					"flop" : "red",
-					"flopNum" : 8
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : -7.05,
-					"offsety" : -3.91,
-					"flop" : "red",
-					"flopNum" : 1
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : -13.52,
-					"offsety" : 1.71,
-					"flop" : "blue",
-					"flopNum" : 4
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : 12.6,
-					"offsety" : 6.66,
-					"flop" : "red",
-					"flopNum" : 2
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : -10.21,
-					"offsety" : -10.38,
-					"flop" : "blue",
-					"flopNum" : 9
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : 13.52,
-					"offsety" : -12.72,
-					"flop" : "blue",
-					"flopNum" : 0
-				} ],
-				"boss" : false,
-				"killdown" : [],
-				"spriter" : "role.virus_a",
-				"size" : 100,
-				"unlockLevel" : null
-			},
-			{
-				"x" : -11140.601212977024,
-				"y" : -12442.58078291883,
-				"turnRate" : 0.2,
-				"moseySpeed" : 2,
-				"normalSpeed" : 5,
-				"vigilanceRange" : 200,
-				"viruses" : [ {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : 2.26,
-					"offsety" : -0.9,
-					"flop" : "yellow",
-					"flopNum" : 6
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : 1.25,
-					"offsety" : 10.2,
-					"flop" : "blue",
-					"flopNum" : 10
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : -3.03,
-					"offsety" : -10.09,
-					"flop" : "blue",
-					"flopNum" : 8
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : 8.67,
-					"offsety" : -14.62,
-					"flop" : "blue",
-					"flopNum" : 2
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : 2.57,
-					"offsety" : 12.93,
-					"flop" : "red",
-					"flopNum" : 6
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : -3.73,
-					"offsety" : -12.49,
-					"flop" : "red",
-					"flopNum" : 8
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : 2.99,
-					"offsety" : -5.04,
-					"flop" : "red",
-					"flopNum" : 6
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : 13.64,
-					"offsety" : -10.01,
-					"flop" : "blue",
-					"flopNum" : 10
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : 4.7,
-					"offsety" : -6.52,
-					"flop" : "yellow",
-					"flopNum" : 4
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : 0.43,
-					"offsety" : -13.48,
-					"flop" : "blue",
-					"flopNum" : 8
-				} ],
-				"boss" : false,
-				"killdown" : [],
-				"spriter" : "role.virus_a",
-				"size" : 100,
-				"unlockLevel" : null
-			},
-			{
-				"x" : -8374.880650808565,
-				"y" : -10701.569637668901,
-				"turnRate" : 0.2,
-				"moseySpeed" : 2,
-				"normalSpeed" : 5,
-				"vigilanceRange" : 200,
-				"viruses" : [ {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : 4.99,
-					"offsety" : -7.94,
-					"flop" : "blue",
-					"flopNum" : 7
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : 0.89,
-					"offsety" : 4.07,
-					"flop" : "blue",
-					"flopNum" : 1
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : 10.54,
-					"offsety" : -5.29,
-					"flop" : "yellow",
-					"flopNum" : 0
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : -8.56,
-					"offsety" : 10.8,
-					"flop" : "red",
-					"flopNum" : 10
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : 13.07,
-					"offsety" : -0.02,
-					"flop" : "yellow",
-					"flopNum" : 9
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : -1.34,
-					"offsety" : 10.33,
-					"flop" : "red",
-					"flopNum" : 1
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : -12.78,
-					"offsety" : -6,
-					"flop" : "yellow",
-					"flopNum" : 4
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : 5.77,
-					"offsety" : 10.21,
-					"flop" : "yellow",
-					"flopNum" : 8
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : 6.32,
-					"offsety" : 3.91,
-					"flop" : "blue",
-					"flopNum" : 7
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : -5.83,
-					"offsety" : -12.91,
-					"flop" : "blue",
-					"flopNum" : 8
-				} ],
-				"boss" : false,
-				"killdown" : [],
-				"spriter" : "role.virus_a",
-				"size" : 100,
-				"unlockLevel" : null
-			},
-			{
-				"x" : -9369.744162379953,
-				"y" : -11706.381784356003,
-				"turnRate" : 0.2,
-				"moseySpeed" : 2,
-				"normalSpeed" : 5,
-				"vigilanceRange" : 200,
-				"viruses" : [ {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : 9.53,
-					"offsety" : 11.9,
-					"flop" : "blue",
-					"flopNum" : 0
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : -9.67,
-					"offsety" : 1.97,
-					"flop" : "blue",
-					"flopNum" : 5
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : -12.09,
-					"offsety" : 12.54,
-					"flop" : "yellow",
-					"flopNum" : 10
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : -12.71,
-					"offsety" : -2.62,
-					"flop" : "red",
-					"flopNum" : 8
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : -4.48,
-					"offsety" : -12.68,
-					"flop" : "red",
-					"flopNum" : 4
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : -2.21,
-					"offsety" : 9.08,
-					"flop" : "blue",
-					"flopNum" : 10
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : -1.96,
-					"offsety" : -4.5,
-					"flop" : "yellow",
-					"flopNum" : 6
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : -2.1,
-					"offsety" : -12.92,
-					"flop" : "red",
-					"flopNum" : 9
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : 6.19,
-					"offsety" : 12.81,
-					"flop" : "red",
-					"flopNum" : 9
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : -0.12,
-					"offsety" : -9.78,
-					"flop" : "red",
-					"flopNum" : 0
-				} ],
-				"boss" : false,
-				"killdown" : [],
-				"spriter" : "role.virus_a",
-				"size" : 100,
-				"unlockLevel" : null
-			},
-			{
-				"x" : -6434.896803244357,
-				"y" : -10492.648300238909,
-				"turnRate" : 0.2,
-				"moseySpeed" : 2,
-				"normalSpeed" : 5,
-				"vigilanceRange" : 200,
-				"viruses" : [ {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : -11.64,
-					"offsety" : -6.88,
-					"flop" : "red",
-					"flopNum" : 7
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : 3.43,
-					"offsety" : 10.85,
-					"flop" : "blue",
-					"flopNum" : 9
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : 8.75,
-					"offsety" : 2.12,
-					"flop" : "yellow",
-					"flopNum" : 8
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : -5.78,
-					"offsety" : -1.24,
-					"flop" : "blue",
-					"flopNum" : 10
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : 5.21,
-					"offsety" : -8.14,
-					"flop" : "red",
-					"flopNum" : 2
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : -2.35,
-					"offsety" : -10.39,
-					"flop" : "yellow",
-					"flopNum" : 6
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : -10.32,
-					"offsety" : -14.83,
-					"flop" : "blue",
-					"flopNum" : 0
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : 10.93,
-					"offsety" : -13.77,
-					"flop" : "blue",
-					"flopNum" : 4
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : 10.02,
-					"offsety" : 10.18,
-					"flop" : "yellow",
-					"flopNum" : 3
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : -13.76,
-					"offsety" : -3.31,
-					"flop" : "blue",
-					"flopNum" : 10
-				} ],
-				"boss" : false,
-				"killdown" : [],
-				"spriter" : "role.virus_a",
-				"size" : 100,
-				"unlockLevel" : null
-			},
-			{
-				"x" : -4246.197077787303,
-				"y" : -11378.076825537446,
-				"turnRate" : 0.2,
-				"moseySpeed" : 2,
-				"normalSpeed" : 5,
-				"vigilanceRange" : 200,
-				"viruses" : [ {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : 8.66,
-					"offsety" : 9.38,
-					"flop" : "red",
-					"flopNum" : 10
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : 14.05,
-					"offsety" : 1.4,
-					"flop" : "blue",
-					"flopNum" : 10
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : 1.6,
-					"offsety" : 5.48,
-					"flop" : "blue",
-					"flopNum" : 9
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : -14.98,
-					"offsety" : -1.02,
-					"flop" : "red",
-					"flopNum" : 0
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : -14.8,
-					"offsety" : -11.11,
-					"flop" : "red",
-					"flopNum" : 7
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : 2.1,
-					"offsety" : 14.95,
-					"flop" : "yellow",
-					"flopNum" : 9
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : 2.44,
-					"offsety" : -13.13,
-					"flop" : "yellow",
-					"flopNum" : 6
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : -11.72,
-					"offsety" : 4.43,
-					"flop" : "blue",
-					"flopNum" : 0
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : 4.93,
-					"offsety" : 10.22,
-					"flop" : "red",
-					"flopNum" : 6
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : 8.23,
-					"offsety" : 4.02,
-					"flop" : "red",
-					"flopNum" : 6
-				} ],
-				"boss" : false,
-				"killdown" : [],
-				"spriter" : "role.virus_a",
-				"size" : 100,
-				"unlockLevel" : null
-			},
-			{
-				"x" : -3430.408998298765,
-				"y" : -10054.9083551475,
-				"turnRate" : 0.2,
-				"moseySpeed" : 2,
-				"normalSpeed" : 5,
-				"vigilanceRange" : 200,
-				"viruses" : [ {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 20,
-					"hp" : 30,
-					"offsetx" : 5.44,
-					"offsety" : -0.06,
-					"flop" : "red",
-					"flopNum" : 3
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 20,
-					"hp" : 30,
-					"offsetx" : 6.26,
-					"offsety" : -12.65,
-					"flop" : "blue",
-					"flopNum" : 4
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 20,
-					"hp" : 30,
-					"offsetx" : 14.5,
-					"offsety" : 7.78,
-					"flop" : "yellow",
-					"flopNum" : 4
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 20,
-					"hp" : 30,
-					"offsetx" : 13.31,
-					"offsety" : 11.27,
-					"flop" : "blue",
-					"flopNum" : 5
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 20,
-					"hp" : 30,
-					"offsetx" : -5.23,
-					"offsety" : -13.11,
-					"flop" : "blue",
-					"flopNum" : 6
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 20,
-					"hp" : 30,
-					"offsetx" : 7.55,
-					"offsety" : 8.68,
-					"flop" : "red",
-					"flopNum" : 6
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 20,
-					"hp" : 30,
-					"offsetx" : 14.88,
-					"offsety" : -0.67,
-					"flop" : "blue",
-					"flopNum" : 2
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 20,
-					"hp" : 30,
-					"offsetx" : -7.47,
-					"offsety" : -10.37,
-					"flop" : "yellow",
-					"flopNum" : 10
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 20,
-					"hp" : 30,
-					"offsetx" : 6.36,
-					"offsety" : -0.19,
-					"flop" : "blue",
-					"flopNum" : 8
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 20,
-					"hp" : 30,
-					"offsetx" : 11.22,
-					"offsety" : -3.52,
-					"flop" : "blue",
-					"flopNum" : 6
-				} ],
-				"boss" : false,
-				"killdown" : [],
-				"spriter" : "role.demonFlying_right",
-				"size" : 100,
-				"unlockLevel" : null
-			},
-			{
-				"x" : -18957.112656461362,
-				"y" : -1659.8335669624291,
-				"turnRate" : 0.2,
-				"moseySpeed" : 2,
-				"normalSpeed" : 5,
-				"vigilanceRange" : 200,
-				"viruses" : [ {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : -9.6,
-					"offsety" : 1.93,
-					"flop" : "red",
-					"flopNum" : 3
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : 11.59,
-					"offsety" : 3.51,
-					"flop" : "blue",
-					"flopNum" : 8
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : 8.18,
-					"offsety" : -8.99,
-					"flop" : "yellow",
-					"flopNum" : 5
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : -0.76,
-					"offsety" : -2.72,
-					"flop" : "red",
-					"flopNum" : 9
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : -13.71,
-					"offsety" : -8.19,
-					"flop" : "yellow",
-					"flopNum" : 0
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : 0.66,
-					"offsety" : 7.36,
-					"flop" : "yellow",
-					"flopNum" : 7
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : 12.85,
-					"offsety" : -12.16,
-					"flop" : "red",
-					"flopNum" : 5
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : -0.67,
-					"offsety" : -7.46,
-					"flop" : "blue",
-					"flopNum" : 8
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : 7.94,
-					"offsety" : 10.78,
-					"flop" : "blue",
-					"flopNum" : 3
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : 0.38,
-					"offsety" : -0.85,
-					"flop" : "red",
-					"flopNum" : 6
-				} ],
-				"boss" : false,
-				"killdown" : [],
-				"spriter" : "role.virus_a",
-				"size" : 100,
-				"unlockLevel" : null
-			},
-			{
-				"x" : -17960.629860346286,
-				"y" : 812.2102926307393,
-				"turnRate" : 0.2,
-				"moseySpeed" : 2,
-				"normalSpeed" : 5,
-				"vigilanceRange" : 200,
-				"viruses" : [ {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : -8.74,
-					"offsety" : -6.1,
-					"flop" : "blue",
-					"flopNum" : 0
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : -14.15,
-					"offsety" : -6.46,
-					"flop" : "blue",
-					"flopNum" : 1
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : -13.47,
-					"offsety" : 1.89,
-					"flop" : "yellow",
-					"flopNum" : 10
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : -8.84,
-					"offsety" : -14.95,
-					"flop" : "red",
-					"flopNum" : 9
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : -1.17,
-					"offsety" : -5.1,
-					"flop" : "red",
-					"flopNum" : 4
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : -14.35,
-					"offsety" : 8.02,
-					"flop" : "red",
-					"flopNum" : 5
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : -1.05,
-					"offsety" : 12.87,
-					"flop" : "yellow",
-					"flopNum" : 4
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : -12.41,
-					"offsety" : 1.49,
-					"flop" : "red",
-					"flopNum" : 1
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : 11.11,
-					"offsety" : -10,
-					"flop" : "blue",
-					"flopNum" : 6
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : 10.37,
-					"offsety" : -14.78,
-					"flop" : "yellow",
-					"flopNum" : 7
-				} ],
-				"boss" : false,
-				"killdown" : [],
-				"spriter" : "role.virus_a",
-				"size" : 100,
-				"unlockLevel" : null
-			},
-			{
-				"x" : -17069.89340527518,
-				"y" : 3663.11083358477,
-				"turnRate" : 0.2,
-				"moseySpeed" : 2,
-				"normalSpeed" : 5,
-				"vigilanceRange" : 200,
-				"viruses" : [ {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 20,
-					"hp" : 30,
-					"offsetx" : 6.38,
-					"offsety" : -9.65,
-					"flop" : "yellow",
-					"flopNum" : 9
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 20,
-					"hp" : 30,
-					"offsetx" : -10.54,
-					"offsety" : -6.65,
-					"flop" : "blue",
-					"flopNum" : 3
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 20,
-					"hp" : 30,
-					"offsetx" : -11.28,
-					"offsety" : 9.67,
-					"flop" : "blue",
-					"flopNum" : 10
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 20,
-					"hp" : 30,
-					"offsetx" : 8.74,
-					"offsety" : 0.81,
-					"flop" : "yellow",
-					"flopNum" : 4
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 20,
-					"hp" : 30,
-					"offsetx" : -0.86,
-					"offsety" : 11.17,
-					"flop" : "blue",
-					"flopNum" : 8
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 20,
-					"hp" : 30,
-					"offsetx" : 7.92,
-					"offsety" : 8.37,
-					"flop" : "blue",
-					"flopNum" : 2
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 20,
-					"hp" : 30,
-					"offsetx" : -12.66,
-					"offsety" : 10.76,
-					"flop" : "blue",
-					"flopNum" : 10
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 20,
-					"hp" : 30,
-					"offsetx" : -3.35,
-					"offsety" : 7.65,
-					"flop" : "yellow",
-					"flopNum" : 3
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 20,
-					"hp" : 30,
-					"offsetx" : -12.88,
-					"offsety" : -14.36,
-					"flop" : "yellow",
-					"flopNum" : 6
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 20,
-					"hp" : 30,
-					"offsetx" : -10.51,
-					"offsety" : 3.02,
-					"flop" : "red",
-					"flopNum" : 3
-				} ],
-				"boss" : false,
-				"killdown" : [],
-				"spriter" : "role.demonFlying_right",
-				"size" : 100,
-				"unlockLevel" : null
-			},
-			{
-				"x" : -15332.110299070786,
-				"y" : 4113.971779052677,
-				"turnRate" : 0.2,
-				"moseySpeed" : 2,
-				"normalSpeed" : 5,
-				"vigilanceRange" : 200,
-				"viruses" : [ {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : 10.59,
-					"offsety" : 2.73,
-					"flop" : "blue",
-					"flopNum" : 7
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : -12.71,
-					"offsety" : -5.53,
-					"flop" : "red",
-					"flopNum" : 7
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : 10.3,
-					"offsety" : 2.66,
-					"flop" : "blue",
-					"flopNum" : 8
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : 8.27,
-					"offsety" : -9.32,
-					"flop" : "yellow",
-					"flopNum" : 7
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : 1.17,
-					"offsety" : -12.42,
-					"flop" : "yellow",
-					"flopNum" : 8
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : 3.44,
-					"offsety" : -2.58,
-					"flop" : "blue",
-					"flopNum" : 1
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : 10.81,
-					"offsety" : 1.79,
-					"flop" : "blue",
-					"flopNum" : 9
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : 0.98,
-					"offsety" : -11.77,
-					"flop" : "blue",
-					"flopNum" : 2
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : 14.02,
-					"offsety" : -13.44,
-					"flop" : "yellow",
-					"flopNum" : 1
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : 7.34,
-					"offsety" : 1.66,
-					"flop" : "red",
-					"flopNum" : 6
-				} ],
-				"boss" : false,
-				"killdown" : [],
-				"spriter" : "role.virus_a",
-				"size" : 100,
-				"unlockLevel" : null
-			},
-			{
-				"x" : -16684.791063426714,
-				"y" : 3633.988282023154,
-				"turnRate" : 0.2,
-				"moseySpeed" : 2,
-				"normalSpeed" : 5,
-				"vigilanceRange" : 200,
-				"viruses" : [ {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : -0.63,
-					"offsety" : -2.45,
-					"flop" : "yellow",
-					"flopNum" : 4
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : -0.91,
-					"offsety" : -3.49,
-					"flop" : "yellow",
-					"flopNum" : 4
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : 13.92,
-					"offsety" : -6.43,
-					"flop" : "red",
-					"flopNum" : 3
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : -12.86,
-					"offsety" : -7.04,
-					"flop" : "yellow",
-					"flopNum" : 9
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : -3.95,
-					"offsety" : -14.65,
-					"flop" : "yellow",
-					"flopNum" : 6
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : -8.06,
-					"offsety" : 4.74,
-					"flop" : "red",
-					"flopNum" : 5
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : -8.35,
-					"offsety" : -5.66,
-					"flop" : "blue",
-					"flopNum" : 8
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : -5.6,
-					"offsety" : -2.45,
-					"flop" : "yellow",
-					"flopNum" : 7
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : -8.44,
-					"offsety" : -9.41,
-					"flop" : "red",
-					"flopNum" : 10
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : -0.26,
-					"offsety" : 0.4,
-					"flop" : "yellow",
-					"flopNum" : 2
-				} ],
-				"boss" : false,
-				"killdown" : [],
-				"spriter" : "role.virus_a",
-				"size" : 100,
-				"unlockLevel" : null
-			},
-			{
-				"x" : -1523.9485708700995,
-				"y" : 3584.7987393138083,
-				"turnRate" : 0.2,
-				"moseySpeed" : 2,
-				"normalSpeed" : 5,
-				"vigilanceRange" : 200,
-				"viruses" : [ {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 20,
-					"offsetx" : 10.98,
-					"offsety" : 7.76,
-					"flop" : "yellow",
-					"flopNum" : 7
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 20,
-					"offsetx" : 4.07,
-					"offsety" : 12.56,
-					"flop" : "blue",
-					"flopNum" : 0
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 20,
-					"offsetx" : 8.24,
-					"offsety" : 8.1,
-					"flop" : "red",
-					"flopNum" : 1
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 20,
-					"offsetx" : 10.78,
-					"offsety" : -13.23,
-					"flop" : "yellow",
-					"flopNum" : 3
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 20,
-					"offsetx" : 14.4,
-					"offsety" : 7.64,
-					"flop" : "red",
-					"flopNum" : 4
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 20,
-					"offsetx" : 8.98,
-					"offsety" : -6.87,
-					"flop" : "red",
-					"flopNum" : 3
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 20,
-					"offsetx" : -6.25,
-					"offsety" : 11.62,
-					"flop" : "yellow",
-					"flopNum" : 7
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 20,
-					"offsetx" : -13.68,
-					"offsety" : 1.14,
-					"flop" : "yellow",
-					"flopNum" : 1
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 20,
-					"offsetx" : 5.56,
-					"offsety" : 6.52,
-					"flop" : "blue",
-					"flopNum" : 8
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 20,
-					"offsetx" : -10.26,
-					"offsety" : -13.05,
-					"flop" : "blue",
-					"flopNum" : 1
-				} ],
-				"boss" : false,
-				"killdown" : [],
-				"spriter" : "role.rotten_thing_front",
-				"size" : 100,
-				"unlockLevel" : "c1.l4",
-				"dna" : [ "tower(shooter)", "tower(cannon)", "recycle", "grow",
-						"oshooter" ]
-			}, {
-				"x" : -3683.516762337471,
-				"y" : 3189.0523921257723,
-				"turnRate" : 0.2,
-				"moseySpeed" : 2,
-				"normalSpeed" : 5,
-				"vigilanceRange" : 200,
-				"viruses" : [ {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : 5.49,
-					"offsety" : -0.45,
-					"flop" : "blue",
-					"flopNum" : 10
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : 11.88,
-					"offsety" : 0.33,
-					"flop" : "yellow",
-					"flopNum" : 8
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : 10.26,
-					"offsety" : -13.49,
-					"flop" : "yellow",
-					"flopNum" : 1
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : 5.14,
-					"offsety" : -14.92,
-					"flop" : "yellow",
-					"flopNum" : 9
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : -13.07,
-					"offsety" : 6.74,
-					"flop" : "yellow",
-					"flopNum" : 2
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : 12.83,
-					"offsety" : -12.21,
-					"flop" : "red",
-					"flopNum" : 0
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : -13.85,
-					"offsety" : -0.37,
-					"flop" : "yellow",
-					"flopNum" : 8
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : -12.9,
-					"offsety" : -2.92,
-					"flop" : "blue",
-					"flopNum" : 0
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : -6.48,
-					"offsety" : 8.32,
-					"flop" : "yellow",
-					"flopNum" : 1
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : -6.71,
-					"offsety" : 11.58,
-					"flop" : "red",
-					"flopNum" : 3
-				} ],
-				"boss" : false,
-				"killdown" : [],
-				"spriter" : "role.virus_a",
-				"size" : 100,
-				"unlockLevel" : null
-			}, {
-				"x" : -5249.963895804855,
-				"y" : 1996.489759650603,
-				"turnRate" : 0.2,
-				"moseySpeed" : 2,
-				"normalSpeed" : 5,
-				"vigilanceRange" : 200,
-				"viruses" : [ {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : -1.54,
-					"offsety" : -7.2,
-					"flop" : "yellow",
-					"flopNum" : 9
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : -14.33,
-					"offsety" : -12.85,
-					"flop" : "yellow",
-					"flopNum" : 6
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : -7.5,
-					"offsety" : -7.13,
-					"flop" : "yellow",
-					"flopNum" : 2
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : 7,
-					"offsety" : -5.43,
-					"flop" : "yellow",
-					"flopNum" : 0
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : 0.84,
-					"offsety" : 5.11,
-					"flop" : "yellow",
-					"flopNum" : 1
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : 14.7,
-					"offsety" : 1.84,
-					"flop" : "blue",
-					"flopNum" : 6
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : 10.94,
-					"offsety" : 12.23,
-					"flop" : "red",
-					"flopNum" : 6
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : 4.65,
-					"offsety" : 0.27,
-					"flop" : "red",
-					"flopNum" : 10
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : 13.32,
-					"offsety" : -13.75,
-					"flop" : "blue",
-					"flopNum" : 7
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : -14.77,
-					"offsety" : -13.8,
-					"flop" : "red",
-					"flopNum" : 3
-				} ],
-				"boss" : false,
-				"killdown" : [],
-				"spriter" : "role.virus_a",
-				"size" : 100,
-				"unlockLevel" : null
-			}, {
-				"x" : -4921.203386311701,
-				"y" : 4097.978506606847,
-				"turnRate" : 0.2,
-				"moseySpeed" : 2,
-				"normalSpeed" : 5,
-				"vigilanceRange" : 200,
-				"viruses" : [ {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : 3.96,
-					"offsety" : 8.74,
-					"flop" : "red",
-					"flopNum" : 7
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : -3.01,
-					"offsety" : 9.24,
-					"flop" : "blue",
-					"flopNum" : 1
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : -12.87,
-					"offsety" : 10.27,
-					"flop" : "yellow",
-					"flopNum" : 3
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : -1.02,
-					"offsety" : 7.47,
-					"flop" : "red",
-					"flopNum" : 10
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : -12.02,
-					"offsety" : 6.75,
-					"flop" : "red",
-					"flopNum" : 8
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : -1.54,
-					"offsety" : -5.12,
-					"flop" : "blue",
-					"flopNum" : 5
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : 1.19,
-					"offsety" : 2.33,
-					"flop" : "red",
-					"flopNum" : 8
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : -13.27,
-					"offsety" : 3.58,
-					"flop" : "yellow",
-					"flopNum" : 9
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : -4.6,
-					"offsety" : -4.12,
-					"flop" : "red",
-					"flopNum" : 1
-				}, {
-					"spriter" : "res/virus16.png",
-					"wait" : 1,
-					"speed" : 15,
-					"hp" : 10,
-					"offsetx" : 4.68,
-					"offsety" : 9.45,
-					"flop" : "yellow",
-					"flopNum" : 4
-				} ],
-				"boss" : false,
-				"killdown" : [],
-				"spriter" : "role.virus_a",
-				"size" : 100,
-				"unlockLevel" : null
-			} ],
+	"virusclusters" : [ {
+		"x" : -2020.1894150739759,
+		"y" : -2245.8458523134436,
+		"turnRate" : 0.2,
+		"moseySpeed" : 2,
+		"normalSpeed" : 20,
+		"vigilanceRange" : 800,
+		"viruses" : [ {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : -1.96,
+			"offsety" : 12.64,
+			"flop" : "red",
+			"flopNum" : 9
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : -2.24,
+			"offsety" : 0.99,
+			"flop" : "yellow",
+			"flopNum" : 1
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : 8.06,
+			"offsety" : 9.74,
+			"flop" : "yellow",
+			"flopNum" : 5
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : -9.75,
+			"offsety" : 3.51,
+			"flop" : "blue",
+			"flopNum" : 10
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : 0.95,
+			"offsety" : 13.5,
+			"flop" : "yellow",
+			"flopNum" : 5
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : 9.53,
+			"offsety" : 7.19,
+			"flop" : "blue",
+			"flopNum" : 9
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : 11.53,
+			"offsety" : -1.67,
+			"flop" : "yellow",
+			"flopNum" : 9
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : 1.83,
+			"offsety" : -3.8,
+			"flop" : "red",
+			"flopNum" : 0
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : -0.48,
+			"offsety" : -0.55,
+			"flop" : "red",
+			"flopNum" : 6
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : 1.34,
+			"offsety" : 9.85,
+			"flop" : "red",
+			"flopNum" : 7
+		} ],
+		"boss" : false,
+		"killdown" : [],
+		"spriter" : "role.virus_a",
+		"size" : 100,
+		"unlockLevel" : null
+	}, {
+		"x" : -1345.3273790873832,
+		"y" : -3723.2429593629336,
+		"turnRate" : 0.2,
+		"moseySpeed" : 2,
+		"normalSpeed" : 20,
+		"vigilanceRange" : 600,
+		"viruses" : [ {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : -13.93,
+			"offsety" : -9.92,
+			"flop" : "blue",
+			"flopNum" : 3
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : -0.36,
+			"offsety" : -11.72,
+			"flop" : "yellow",
+			"flopNum" : 1
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : 5.74,
+			"offsety" : 11.84,
+			"flop" : "yellow",
+			"flopNum" : 0
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : 2.68,
+			"offsety" : -3.88,
+			"flop" : "blue",
+			"flopNum" : 7
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : 4.97,
+			"offsety" : -7.22,
+			"flop" : "red",
+			"flopNum" : 1
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : -14.86,
+			"offsety" : -7.57,
+			"flop" : "yellow",
+			"flopNum" : 4
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : 14.89,
+			"offsety" : -5.68,
+			"flop" : "blue",
+			"flopNum" : 9
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : 9.89,
+			"offsety" : 13.24,
+			"flop" : "yellow",
+			"flopNum" : 4
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : -0.74,
+			"offsety" : -0.17,
+			"flop" : "yellow",
+			"flopNum" : 6
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : -9.31,
+			"offsety" : 2.4,
+			"flop" : "blue",
+			"flopNum" : 10
+		} ],
+		"boss" : false,
+		"killdown" : [],
+		"spriter" : "role.virus_a",
+		"size" : 100,
+		"unlockLevel" : null
+	}, {
+		"x" : -4460.812219989035,
+		"y" : -4288.8237925742815,
+		"turnRate" : 0.2,
+		"moseySpeed" : 2,
+		"normalSpeed" : 5,
+		"vigilanceRange" : 200,
+		"viruses" : [ {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : -10.25,
+			"offsety" : 6.42,
+			"flop" : "red",
+			"flopNum" : 5
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : 5.15,
+			"offsety" : 3.71,
+			"flop" : "red",
+			"flopNum" : 2
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : -1.27,
+			"offsety" : -8.33,
+			"flop" : "yellow",
+			"flopNum" : 7
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : -5.71,
+			"offsety" : -7.82,
+			"flop" : "blue",
+			"flopNum" : 1
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : -6.63,
+			"offsety" : -13.9,
+			"flop" : "red",
+			"flopNum" : 10
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : -12.86,
+			"offsety" : -10.98,
+			"flop" : "red",
+			"flopNum" : 8
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : 4.77,
+			"offsety" : 3.63,
+			"flop" : "blue",
+			"flopNum" : 9
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : 8.88,
+			"offsety" : 11.11,
+			"flop" : "yellow",
+			"flopNum" : 4
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : -6.21,
+			"offsety" : 11.88,
+			"flop" : "yellow",
+			"flopNum" : 5
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : 10.13,
+			"offsety" : -3.44,
+			"flop" : "blue",
+			"flopNum" : 10
+		} ],
+		"boss" : false,
+		"killdown" : [],
+		"spriter" : "role.virus_a",
+		"size" : 100,
+		"unlockLevel" : null
+	}, {
+		"x" : -2860.2307030963066,
+		"y" : -3334.2117910379807,
+		"turnRate" : 0.2,
+		"moseySpeed" : 2,
+		"normalSpeed" : 20,
+		"vigilanceRange" : 600,
+		"viruses" : [ {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : -8.73,
+			"offsety" : 11.12,
+			"flop" : "yellow",
+			"flopNum" : 8
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : 12.64,
+			"offsety" : 12.26,
+			"flop" : "red",
+			"flopNum" : 0
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : 1.88,
+			"offsety" : -5.86,
+			"flop" : "red",
+			"flopNum" : 9
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : 11.51,
+			"offsety" : -11.85,
+			"flop" : "red",
+			"flopNum" : 9
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : 13.3,
+			"offsety" : -14.97,
+			"flop" : "red",
+			"flopNum" : 0
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : -7.87,
+			"offsety" : 7.67,
+			"flop" : "red",
+			"flopNum" : 5
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : -10.78,
+			"offsety" : 12.82,
+			"flop" : "yellow",
+			"flopNum" : 10
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : -4.64,
+			"offsety" : -5.08,
+			"flop" : "blue",
+			"flopNum" : 2
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : 13.99,
+			"offsety" : 9.19,
+			"flop" : "red",
+			"flopNum" : 6
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : -13.99,
+			"offsety" : -9.44,
+			"flop" : "red",
+			"flopNum" : 2
+		} ],
+		"boss" : false,
+		"killdown" : [],
+		"spriter" : "role.virus_a",
+		"size" : 100,
+		"unlockLevel" : null
+	}, {
+		"x" : -6799.176985646078,
+		"y" : -4069.6996861198877,
+		"turnRate" : 0.2,
+		"moseySpeed" : 2,
+		"normalSpeed" : 5,
+		"vigilanceRange" : 200,
+		"viruses" : [ {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : -4.49,
+			"offsety" : -4.91,
+			"flop" : "red",
+			"flopNum" : 7
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : -5.27,
+			"offsety" : -5.27,
+			"flop" : "blue",
+			"flopNum" : 8
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : 4.61,
+			"offsety" : -13.55,
+			"flop" : "red",
+			"flopNum" : 4
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : 13.59,
+			"offsety" : 11.27,
+			"flop" : "blue",
+			"flopNum" : 5
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : 13.3,
+			"offsety" : -4.21,
+			"flop" : "red",
+			"flopNum" : 8
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : -13.76,
+			"offsety" : -4.25,
+			"flop" : "red",
+			"flopNum" : 2
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : 5.08,
+			"offsety" : 3.49,
+			"flop" : "red",
+			"flopNum" : 0
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : -9.5,
+			"offsety" : 13.27,
+			"flop" : "red",
+			"flopNum" : 3
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : 12.43,
+			"offsety" : 10.52,
+			"flop" : "blue",
+			"flopNum" : 9
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : 13.66,
+			"offsety" : -11.23,
+			"flop" : "red",
+			"flopNum" : 10
+		} ],
+		"boss" : false,
+		"killdown" : [],
+		"spriter" : "role.virus_a",
+		"size" : 100,
+		"unlockLevel" : null
+	}, {
+		"x" : -7683.751646776323,
+		"y" : -1627.4957269094864,
+		"turnRate" : 0.2,
+		"moseySpeed" : 2,
+		"normalSpeed" : 5,
+		"vigilanceRange" : 200,
+		"viruses" : [ {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : 3.53,
+			"offsety" : 2.05,
+			"flop" : "blue",
+			"flopNum" : 1
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : -8.78,
+			"offsety" : -5.56,
+			"flop" : "red",
+			"flopNum" : 6
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : 6.98,
+			"offsety" : 12.5,
+			"flop" : "yellow",
+			"flopNum" : 4
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : -14.38,
+			"offsety" : 11.42,
+			"flop" : "yellow",
+			"flopNum" : 7
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : 3.17,
+			"offsety" : -3.41,
+			"flop" : "blue",
+			"flopNum" : 4
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : 13.74,
+			"offsety" : -13.21,
+			"flop" : "blue",
+			"flopNum" : 8
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : -2.62,
+			"offsety" : -5.62,
+			"flop" : "red",
+			"flopNum" : 1
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : 12.04,
+			"offsety" : 13.61,
+			"flop" : "yellow",
+			"flopNum" : 6
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : -1.49,
+			"offsety" : -13.07,
+			"flop" : "blue",
+			"flopNum" : 0
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : -11.62,
+			"offsety" : -8,
+			"flop" : "red",
+			"flopNum" : 8
+		} ],
+		"boss" : false,
+		"killdown" : [],
+		"spriter" : "role.virus_a",
+		"size" : 100,
+		"unlockLevel" : null
+	}, {
+		"x" : -8468.34688016433,
+		"y" : -2005.0453129007078,
+		"turnRate" : 0.2,
+		"moseySpeed" : 2,
+		"normalSpeed" : 5,
+		"vigilanceRange" : 200,
+		"viruses" : [ {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : -2.53,
+			"offsety" : -10.14,
+			"flop" : "blue",
+			"flopNum" : 4
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : 13.72,
+			"offsety" : 2.99,
+			"flop" : "yellow",
+			"flopNum" : 3
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : -3.06,
+			"offsety" : 3.44,
+			"flop" : "blue",
+			"flopNum" : 7
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : -7.53,
+			"offsety" : 3.5,
+			"flop" : "red",
+			"flopNum" : 1
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : 12.09,
+			"offsety" : -1.66,
+			"flop" : "blue",
+			"flopNum" : 7
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : -0.18,
+			"offsety" : -14.11,
+			"flop" : "red",
+			"flopNum" : 1
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : -13.83,
+			"offsety" : -13.25,
+			"flop" : "blue",
+			"flopNum" : 0
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : 3.8,
+			"offsety" : 5.28,
+			"flop" : "red",
+			"flopNum" : 2
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : -6.05,
+			"offsety" : -5.23,
+			"flop" : "red",
+			"flopNum" : 2
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : -11.02,
+			"offsety" : -3.13,
+			"flop" : "red",
+			"flopNum" : 5
+		} ],
+		"boss" : false,
+		"killdown" : [],
+		"spriter" : "role.virus_a",
+		"size" : 100,
+		"unlockLevel" : null
+	}, {
+		"x" : -9376.825571455707,
+		"y" : -1238.147716356039,
+		"turnRate" : 0.2,
+		"moseySpeed" : 2,
+		"normalSpeed" : 5,
+		"vigilanceRange" : 200,
+		"viruses" : [ {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : 1.3,
+			"offsety" : -2.52,
+			"flop" : "yellow",
+			"flopNum" : 2
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : -1.31,
+			"offsety" : -10.62,
+			"flop" : "yellow",
+			"flopNum" : 1
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : -9.11,
+			"offsety" : -0.93,
+			"flop" : "red",
+			"flopNum" : 9
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : -4.8,
+			"offsety" : -0.31,
+			"flop" : "blue",
+			"flopNum" : 4
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : 4.46,
+			"offsety" : 5.42,
+			"flop" : "red",
+			"flopNum" : 2
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : 14.58,
+			"offsety" : -11.77,
+			"flop" : "yellow",
+			"flopNum" : 3
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : 3.42,
+			"offsety" : 6.32,
+			"flop" : "blue",
+			"flopNum" : 4
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : 14.22,
+			"offsety" : 6.26,
+			"flop" : "yellow",
+			"flopNum" : 2
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : -4.18,
+			"offsety" : -6.03,
+			"flop" : "yellow",
+			"flopNum" : 7
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : -11.29,
+			"offsety" : 6.74,
+			"flop" : "yellow",
+			"flopNum" : 7
+		} ],
+		"boss" : false,
+		"killdown" : [],
+		"spriter" : "role.virus_a",
+		"size" : 100,
+		"unlockLevel" : null
+	}, {
+		"x" : -11818.60358010909,
+		"y" : -6.708780702640013,
+		"turnRate" : 0.2,
+		"moseySpeed" : 2,
+		"normalSpeed" : 5,
+		"vigilanceRange" : 200,
+		"viruses" : [ {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : 1.21,
+			"offsety" : 1.88,
+			"flop" : "blue",
+			"flopNum" : 2
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : 4.81,
+			"offsety" : -9.2,
+			"flop" : "red",
+			"flopNum" : 9
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : -12.18,
+			"offsety" : -1.83,
+			"flop" : "blue",
+			"flopNum" : 10
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : -2.52,
+			"offsety" : -9.88,
+			"flop" : "red",
+			"flopNum" : 8
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : -2.5,
+			"offsety" : 4.73,
+			"flop" : "yellow",
+			"flopNum" : 2
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : -12.19,
+			"offsety" : 6.44,
+			"flop" : "blue",
+			"flopNum" : 1
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : -5.66,
+			"offsety" : 3.65,
+			"flop" : "blue",
+			"flopNum" : 4
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : 7.41,
+			"offsety" : -3.56,
+			"flop" : "yellow",
+			"flopNum" : 10
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : -11.94,
+			"offsety" : 13.27,
+			"flop" : "yellow",
+			"flopNum" : 5
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : 8.14,
+			"offsety" : -7.94,
+			"flop" : "yellow",
+			"flopNum" : 2
+		} ],
+		"boss" : false,
+		"killdown" : [],
+		"spriter" : "role.virus_a",
+		"size" : 100,
+		"unlockLevel" : null
+	}, {
+		"x" : -13750.949185540241,
+		"y" : -2933.41790723099,
+		"turnRate" : 0.2,
+		"moseySpeed" : 10,
+		"normalSpeed" : 5,
+		"vigilanceRange" : 200,
+		"viruses" : [ {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : -6.51,
+			"offsety" : 0.15,
+			"flop" : "blue",
+			"flopNum" : 4
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : -12.5,
+			"offsety" : 5.03,
+			"flop" : "yellow",
+			"flopNum" : 2
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : 9.57,
+			"offsety" : 12.93,
+			"flop" : "red",
+			"flopNum" : 8
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : -13.41,
+			"offsety" : -5.09,
+			"flop" : "blue",
+			"flopNum" : 2
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : -9.57,
+			"offsety" : -1.86,
+			"flop" : "red",
+			"flopNum" : 4
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : 5.41,
+			"offsety" : 7.57,
+			"flop" : "yellow",
+			"flopNum" : 3
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : 14.68,
+			"offsety" : 5.59,
+			"flop" : "blue",
+			"flopNum" : 1
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : 7.1,
+			"offsety" : 6.42,
+			"flop" : "yellow",
+			"flopNum" : 9
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : -10.21,
+			"offsety" : -11.55,
+			"flop" : "red",
+			"flopNum" : 6
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : -11.58,
+			"offsety" : 0.9,
+			"flop" : "red",
+			"flopNum" : 5
+		} ],
+		"boss" : false,
+		"killdown" : [],
+		"spriter" : "role.virus_a",
+		"size" : 100,
+		"unlockLevel" : null
+	}, {
+		"x" : -12413.17145870329,
+		"y" : -3579.2416374281393,
+		"turnRate" : 0.2,
+		"moseySpeed" : 20,
+		"normalSpeed" : 5,
+		"vigilanceRange" : 200,
+		"viruses" : [ {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : 10.04,
+			"offsety" : -13.91,
+			"flop" : "red",
+			"flopNum" : 8
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : -10.81,
+			"offsety" : -5.18,
+			"flop" : "red",
+			"flopNum" : 1
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : -7.84,
+			"offsety" : 1.46,
+			"flop" : "blue",
+			"flopNum" : 4
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : -9.95,
+			"offsety" : 0.01,
+			"flop" : "yellow",
+			"flopNum" : 9
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : 6.94,
+			"offsety" : 1.2,
+			"flop" : "red",
+			"flopNum" : 9
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : -13.04,
+			"offsety" : -14.3,
+			"flop" : "red",
+			"flopNum" : 0
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : -11.56,
+			"offsety" : -2.58,
+			"flop" : "yellow",
+			"flopNum" : 6
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : 7.69,
+			"offsety" : 5.47,
+			"flop" : "blue",
+			"flopNum" : 0
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : -9.01,
+			"offsety" : 8.8,
+			"flop" : "blue",
+			"flopNum" : 5
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : -6.19,
+			"offsety" : -11.42,
+			"flop" : "yellow",
+			"flopNum" : 1
+		} ],
+		"boss" : false,
+		"killdown" : [],
+		"spriter" : "role.virus_a",
+		"size" : 100,
+		"unlockLevel" : null
+	}, {
+		"x" : -17846.13153884258,
+		"y" : -6603.948440698436,
+		"turnRate" : 0.2,
+		"moseySpeed" : 2,
+		"normalSpeed" : 5,
+		"vigilanceRange" : 200,
+		"viruses" : [ {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 20,
+			"hp" : 30,
+			"offsetx" : -13.72,
+			"offsety" : 14.68,
+			"flop" : "red",
+			"flopNum" : 9
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 20,
+			"hp" : 30,
+			"offsetx" : -13.72,
+			"offsety" : 14.68,
+			"flop" : "red",
+			"flopNum" : 9
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 20,
+			"hp" : 30,
+			"offsetx" : -13.72,
+			"offsety" : 14.68,
+			"flop" : "red",
+			"flopNum" : 9
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 20,
+			"hp" : 30,
+			"offsetx" : -13.72,
+			"offsety" : 14.68,
+			"flop" : "red",
+			"flopNum" : 9
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 20,
+			"hp" : 30,
+			"offsetx" : -13.72,
+			"offsety" : 14.68,
+			"flop" : "red",
+			"flopNum" : 9
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 20,
+			"hp" : 30,
+			"offsetx" : -13.72,
+			"offsety" : 14.68,
+			"flop" : "blue",
+			"flopNum" : 6
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 20,
+			"hp" : 30,
+			"offsetx" : -13.72,
+			"offsety" : 14.68,
+			"flop" : "red",
+			"flopNum" : 3
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 20,
+			"hp" : 30,
+			"offsetx" : -13.72,
+			"offsety" : 14.68,
+			"flop" : "red",
+			"flopNum" : 3
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 20,
+			"hp" : 30,
+			"offsetx" : -13.72,
+			"offsety" : 14.68,
+			"flop" : "yellow",
+			"flopNum" : 2
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 20,
+			"hp" : 30,
+			"offsetx" : -13.72,
+			"offsety" : 14.68,
+			"flop" : "yellow",
+			"flopNum" : 2
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 20,
+			"hp" : 30,
+			"offsetx" : -13.72,
+			"offsety" : 14.68,
+			"flop" : "yellow",
+			"flopNum" : 2
+		} ],
+		"boss" : false,
+		"killdown" : [],
+		"spriter" : "role.demonFlying_right",
+		"size" : 100,
+		"unlockLevel" : null
+	}, {
+		"x" : -18440.790277266482,
+		"y" : -5398.680497572304,
+		"turnRate" : 0.2,
+		"moseySpeed" : 2,
+		"normalSpeed" : 5,
+		"vigilanceRange" : 200,
+		"viruses" : [ {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : -14.34,
+			"offsety" : 2.23,
+			"flop" : "red",
+			"flopNum" : 8
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : 4.73,
+			"offsety" : 0.64,
+			"flop" : "yellow",
+			"flopNum" : 2
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : -11.23,
+			"offsety" : 7.2,
+			"flop" : "blue",
+			"flopNum" : 9
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : 10.73,
+			"offsety" : -3.04,
+			"flop" : "yellow",
+			"flopNum" : 9
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : 12.49,
+			"offsety" : 2.56,
+			"flop" : "blue",
+			"flopNum" : 5
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : 3.47,
+			"offsety" : -4.74,
+			"flop" : "yellow",
+			"flopNum" : 2
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : 7.71,
+			"offsety" : -9.43,
+			"flop" : "yellow",
+			"flopNum" : 8
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : 8.09,
+			"offsety" : 4.42,
+			"flop" : "yellow",
+			"flopNum" : 6
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : -4.42,
+			"offsety" : 3.31,
+			"flop" : "blue",
+			"flopNum" : 3
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : -13.92,
+			"offsety" : 14.63,
+			"flop" : "yellow",
+			"flopNum" : 8
+		} ],
+		"boss" : false,
+		"killdown" : [],
+		"spriter" : "role.virus_a",
+		"size" : 100,
+		"unlockLevel" : null
+	}, {
+		"x" : -18299.42017227219,
+		"y" : -6241.246323338299,
+		"turnRate" : 0.2,
+		"moseySpeed" : 2,
+		"normalSpeed" : 5,
+		"vigilanceRange" : 200,
+		"viruses" : [ {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : -8.48,
+			"offsety" : -9.85,
+			"flop" : "red",
+			"flopNum" : 3
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : -0.34,
+			"offsety" : 1.93,
+			"flop" : "red",
+			"flopNum" : 2
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : -0.6,
+			"offsety" : 11.94,
+			"flop" : "blue",
+			"flopNum" : 4
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : -0.66,
+			"offsety" : 8.9,
+			"flop" : "blue",
+			"flopNum" : 5
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : -6.32,
+			"offsety" : 9.49,
+			"flop" : "yellow",
+			"flopNum" : 7
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : 6.2,
+			"offsety" : 6.68,
+			"flop" : "red",
+			"flopNum" : 1
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : 5.83,
+			"offsety" : 8.17,
+			"flop" : "blue",
+			"flopNum" : 5
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : 9.28,
+			"offsety" : 5.57,
+			"flop" : "blue",
+			"flopNum" : 1
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : 6.14,
+			"offsety" : -3.32,
+			"flop" : "red",
+			"flopNum" : 6
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : -14.23,
+			"offsety" : 7.24,
+			"flop" : "red",
+			"flopNum" : 3
+		} ],
+		"boss" : false,
+		"killdown" : [],
+		"spriter" : "role.virus_a",
+		"size" : 100,
+		"unlockLevel" : null
+	}, {
+		"x" : -17784.832990092957,
+		"y" : -5409.990105971848,
+		"turnRate" : 0.2,
+		"moseySpeed" : 2,
+		"normalSpeed" : 5,
+		"vigilanceRange" : 200,
+		"viruses" : [ {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : 7.85,
+			"offsety" : 4.31,
+			"flop" : "blue",
+			"flopNum" : 7
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : -14.37,
+			"offsety" : 2.95,
+			"flop" : "blue",
+			"flopNum" : 3
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : 14.53,
+			"offsety" : 14.13,
+			"flop" : "blue",
+			"flopNum" : 9
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : 2.88,
+			"offsety" : 3.1,
+			"flop" : "blue",
+			"flopNum" : 0
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : 5.72,
+			"offsety" : -8.04,
+			"flop" : "red",
+			"flopNum" : 9
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : 3.72,
+			"offsety" : 7.83,
+			"flop" : "yellow",
+			"flopNum" : 7
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : 11.34,
+			"offsety" : -14,
+			"flop" : "yellow",
+			"flopNum" : 9
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : 2.66,
+			"offsety" : -6,
+			"flop" : "red",
+			"flopNum" : 4
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : -8.5,
+			"offsety" : -1.88,
+			"flop" : "yellow",
+			"flopNum" : 7
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : 4.84,
+			"offsety" : 10.55,
+			"flop" : "yellow",
+			"flopNum" : 8
+		} ],
+		"boss" : false,
+		"killdown" : [],
+		"spriter" : "role.virus_a",
+		"size" : 100,
+		"unlockLevel" : null
+	}, {
+		"x" : -18671.717995572435,
+		"y" : -11586.998162967438,
+		"turnRate" : 0.2,
+		"moseySpeed" : 2,
+		"normalSpeed" : 5,
+		"vigilanceRange" : 200,
+		"viruses" : [ {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : -14.83,
+			"offsety" : 10.51,
+			"flop" : "blue",
+			"flopNum" : 4
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : 4.57,
+			"offsety" : 7.68,
+			"flop" : "blue",
+			"flopNum" : 9
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : -3.17,
+			"offsety" : 2.38,
+			"flop" : "yellow",
+			"flopNum" : 9
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : 1.22,
+			"offsety" : 7.02,
+			"flop" : "red",
+			"flopNum" : 4
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : 0.72,
+			"offsety" : -0.32,
+			"flop" : "blue",
+			"flopNum" : 9
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : 10.32,
+			"offsety" : 5.16,
+			"flop" : "yellow",
+			"flopNum" : 7
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : -0.52,
+			"offsety" : 9.73,
+			"flop" : "yellow",
+			"flopNum" : 5
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : 0.61,
+			"offsety" : 11.4,
+			"flop" : "yellow",
+			"flopNum" : 2
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : 2.08,
+			"offsety" : -12.05,
+			"flop" : "blue",
+			"flopNum" : 1
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : -3.95,
+			"offsety" : -7.14,
+			"flop" : "red",
+			"flopNum" : 6
+		} ],
+		"boss" : false,
+		"killdown" : [],
+		"spriter" : "role.virus_a",
+		"size" : 100,
+		"unlockLevel" : null
+	}, {
+		"x" : -17865.87855119961,
+		"y" : -12770.885741737391,
+		"turnRate" : 0.2,
+		"moseySpeed" : 2,
+		"normalSpeed" : 5,
+		"vigilanceRange" : 200,
+		"viruses" : [ {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : -4.65,
+			"offsety" : -5.23,
+			"flop" : "blue",
+			"flopNum" : 5
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : 11.61,
+			"offsety" : 5.92,
+			"flop" : "blue",
+			"flopNum" : 3
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : -2.03,
+			"offsety" : -11.62,
+			"flop" : "blue",
+			"flopNum" : 9
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : 11.1,
+			"offsety" : -0.81,
+			"flop" : "yellow",
+			"flopNum" : 8
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : 11.41,
+			"offsety" : -13.04,
+			"flop" : "yellow",
+			"flopNum" : 1
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : -13.41,
+			"offsety" : -1.91,
+			"flop" : "red",
+			"flopNum" : 6
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : 5.79,
+			"offsety" : -4.59,
+			"flop" : "yellow",
+			"flopNum" : 5
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : -11.92,
+			"offsety" : 5.82,
+			"flop" : "blue",
+			"flopNum" : 7
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : -8.08,
+			"offsety" : -6.13,
+			"flop" : "yellow",
+			"flopNum" : 10
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : -2.37,
+			"offsety" : -2.6,
+			"flop" : "blue",
+			"flopNum" : 0
+		} ],
+		"boss" : false,
+		"killdown" : [],
+		"spriter" : "role.virus_a",
+		"size" : 100,
+		"unlockLevel" : null
+	}, {
+		"x" : -19149.2524811267,
+		"y" : -9457.990248204667,
+		"turnRate" : 0.2,
+		"moseySpeed" : 2,
+		"normalSpeed" : 5,
+		"vigilanceRange" : 200,
+		"viruses" : [ {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : 6.22,
+			"offsety" : 10.13,
+			"flop" : "red",
+			"flopNum" : 2
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : -13.44,
+			"offsety" : -8.53,
+			"flop" : "red",
+			"flopNum" : 10
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : 3.93,
+			"offsety" : 4.16,
+			"flop" : "red",
+			"flopNum" : 3
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : -6.13,
+			"offsety" : -9.06,
+			"flop" : "yellow",
+			"flopNum" : 8
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : -2.84,
+			"offsety" : 4.79,
+			"flop" : "blue",
+			"flopNum" : 9
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : -14.77,
+			"offsety" : -10.64,
+			"flop" : "red",
+			"flopNum" : 2
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : 5.83,
+			"offsety" : 8.49,
+			"flop" : "blue",
+			"flopNum" : 5
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : -4.11,
+			"offsety" : 6.11,
+			"flop" : "blue",
+			"flopNum" : 0
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : 14.94,
+			"offsety" : -5.63,
+			"flop" : "blue",
+			"flopNum" : 7
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : 0.62,
+			"offsety" : 6.53,
+			"flop" : "blue",
+			"flopNum" : 3
+		} ],
+		"boss" : false,
+		"killdown" : [],
+		"spriter" : "role.virus_a",
+		"size" : 100,
+		"unlockLevel" : null
+	}, {
+		"x" : -14861.390746254016,
+		"y" : -12581.861674538828,
+		"turnRate" : 0.2,
+		"moseySpeed" : 2,
+		"normalSpeed" : 5,
+		"vigilanceRange" : 200,
+		"viruses" : [ {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : -9.33,
+			"offsety" : -5.15,
+			"flop" : "red",
+			"flopNum" : 3
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : -8.52,
+			"offsety" : -5.54,
+			"flop" : "blue",
+			"flopNum" : 9
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : -9.29,
+			"offsety" : 10.38,
+			"flop" : "blue",
+			"flopNum" : 2
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : 1.1,
+			"offsety" : -1.78,
+			"flop" : "yellow",
+			"flopNum" : 3
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : -12.66,
+			"offsety" : -12.86,
+			"flop" : "red",
+			"flopNum" : 8
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : -7.05,
+			"offsety" : -3.91,
+			"flop" : "red",
+			"flopNum" : 1
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : -13.52,
+			"offsety" : 1.71,
+			"flop" : "blue",
+			"flopNum" : 4
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : 12.6,
+			"offsety" : 6.66,
+			"flop" : "red",
+			"flopNum" : 2
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : -10.21,
+			"offsety" : -10.38,
+			"flop" : "blue",
+			"flopNum" : 9
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : 13.52,
+			"offsety" : -12.72,
+			"flop" : "blue",
+			"flopNum" : 0
+		} ],
+		"boss" : false,
+		"killdown" : [],
+		"spriter" : "role.virus_a",
+		"size" : 100,
+		"unlockLevel" : null
+	}, {
+		"x" : -11140.601212977024,
+		"y" : -12442.58078291883,
+		"turnRate" : 0.2,
+		"moseySpeed" : 2,
+		"normalSpeed" : 5,
+		"vigilanceRange" : 200,
+		"viruses" : [ {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : 2.26,
+			"offsety" : -0.9,
+			"flop" : "yellow",
+			"flopNum" : 6
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : 1.25,
+			"offsety" : 10.2,
+			"flop" : "blue",
+			"flopNum" : 10
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : -3.03,
+			"offsety" : -10.09,
+			"flop" : "blue",
+			"flopNum" : 8
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : 8.67,
+			"offsety" : -14.62,
+			"flop" : "blue",
+			"flopNum" : 2
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : 2.57,
+			"offsety" : 12.93,
+			"flop" : "red",
+			"flopNum" : 6
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : -3.73,
+			"offsety" : -12.49,
+			"flop" : "red",
+			"flopNum" : 8
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : 2.99,
+			"offsety" : -5.04,
+			"flop" : "red",
+			"flopNum" : 6
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : 13.64,
+			"offsety" : -10.01,
+			"flop" : "blue",
+			"flopNum" : 10
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : 4.7,
+			"offsety" : -6.52,
+			"flop" : "yellow",
+			"flopNum" : 4
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : 0.43,
+			"offsety" : -13.48,
+			"flop" : "blue",
+			"flopNum" : 8
+		} ],
+		"boss" : false,
+		"killdown" : [],
+		"spriter" : "role.virus_a",
+		"size" : 100,
+		"unlockLevel" : null
+	}, {
+		"x" : -8374.880650808565,
+		"y" : -10701.569637668901,
+		"turnRate" : 0.2,
+		"moseySpeed" : 2,
+		"normalSpeed" : 5,
+		"vigilanceRange" : 200,
+		"viruses" : [ {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : 4.99,
+			"offsety" : -7.94,
+			"flop" : "blue",
+			"flopNum" : 7
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : 0.89,
+			"offsety" : 4.07,
+			"flop" : "blue",
+			"flopNum" : 1
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : 10.54,
+			"offsety" : -5.29,
+			"flop" : "yellow",
+			"flopNum" : 0
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : -8.56,
+			"offsety" : 10.8,
+			"flop" : "red",
+			"flopNum" : 10
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : 13.07,
+			"offsety" : -0.02,
+			"flop" : "yellow",
+			"flopNum" : 9
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : -1.34,
+			"offsety" : 10.33,
+			"flop" : "red",
+			"flopNum" : 1
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : -12.78,
+			"offsety" : -6,
+			"flop" : "yellow",
+			"flopNum" : 4
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : 5.77,
+			"offsety" : 10.21,
+			"flop" : "yellow",
+			"flopNum" : 8
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : 6.32,
+			"offsety" : 3.91,
+			"flop" : "blue",
+			"flopNum" : 7
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : -5.83,
+			"offsety" : -12.91,
+			"flop" : "blue",
+			"flopNum" : 8
+		} ],
+		"boss" : false,
+		"killdown" : [],
+		"spriter" : "role.virus_a",
+		"size" : 100,
+		"unlockLevel" : null
+	}, {
+		"x" : -9369.744162379953,
+		"y" : -11706.381784356003,
+		"turnRate" : 0.2,
+		"moseySpeed" : 2,
+		"normalSpeed" : 5,
+		"vigilanceRange" : 200,
+		"viruses" : [ {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : 9.53,
+			"offsety" : 11.9,
+			"flop" : "blue",
+			"flopNum" : 0
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : -9.67,
+			"offsety" : 1.97,
+			"flop" : "blue",
+			"flopNum" : 5
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : -12.09,
+			"offsety" : 12.54,
+			"flop" : "yellow",
+			"flopNum" : 10
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : -12.71,
+			"offsety" : -2.62,
+			"flop" : "red",
+			"flopNum" : 8
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : -4.48,
+			"offsety" : -12.68,
+			"flop" : "red",
+			"flopNum" : 4
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : -2.21,
+			"offsety" : 9.08,
+			"flop" : "blue",
+			"flopNum" : 10
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : -1.96,
+			"offsety" : -4.5,
+			"flop" : "yellow",
+			"flopNum" : 6
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : -2.1,
+			"offsety" : -12.92,
+			"flop" : "red",
+			"flopNum" : 9
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : 6.19,
+			"offsety" : 12.81,
+			"flop" : "red",
+			"flopNum" : 9
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : -0.12,
+			"offsety" : -9.78,
+			"flop" : "red",
+			"flopNum" : 0
+		} ],
+		"boss" : false,
+		"killdown" : [],
+		"spriter" : "role.virus_a",
+		"size" : 100,
+		"unlockLevel" : null
+	}, {
+		"x" : -6434.896803244357,
+		"y" : -10492.648300238909,
+		"turnRate" : 0.2,
+		"moseySpeed" : 2,
+		"normalSpeed" : 5,
+		"vigilanceRange" : 200,
+		"viruses" : [ {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : -11.64,
+			"offsety" : -6.88,
+			"flop" : "red",
+			"flopNum" : 7
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : 3.43,
+			"offsety" : 10.85,
+			"flop" : "blue",
+			"flopNum" : 9
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : 8.75,
+			"offsety" : 2.12,
+			"flop" : "yellow",
+			"flopNum" : 8
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : -5.78,
+			"offsety" : -1.24,
+			"flop" : "blue",
+			"flopNum" : 10
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : 5.21,
+			"offsety" : -8.14,
+			"flop" : "red",
+			"flopNum" : 2
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : -2.35,
+			"offsety" : -10.39,
+			"flop" : "yellow",
+			"flopNum" : 6
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : -10.32,
+			"offsety" : -14.83,
+			"flop" : "blue",
+			"flopNum" : 0
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : 10.93,
+			"offsety" : -13.77,
+			"flop" : "blue",
+			"flopNum" : 4
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : 10.02,
+			"offsety" : 10.18,
+			"flop" : "yellow",
+			"flopNum" : 3
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : -13.76,
+			"offsety" : -3.31,
+			"flop" : "blue",
+			"flopNum" : 10
+		} ],
+		"boss" : false,
+		"killdown" : [],
+		"spriter" : "role.virus_a",
+		"size" : 100,
+		"unlockLevel" : null
+	}, {
+		"x" : -4246.197077787303,
+		"y" : -11378.076825537446,
+		"turnRate" : 0.2,
+		"moseySpeed" : 2,
+		"normalSpeed" : 5,
+		"vigilanceRange" : 200,
+		"viruses" : [ {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : 8.66,
+			"offsety" : 9.38,
+			"flop" : "red",
+			"flopNum" : 10
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : 14.05,
+			"offsety" : 1.4,
+			"flop" : "blue",
+			"flopNum" : 10
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : 1.6,
+			"offsety" : 5.48,
+			"flop" : "blue",
+			"flopNum" : 9
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : -14.98,
+			"offsety" : -1.02,
+			"flop" : "red",
+			"flopNum" : 0
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : -14.8,
+			"offsety" : -11.11,
+			"flop" : "red",
+			"flopNum" : 7
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : 2.1,
+			"offsety" : 14.95,
+			"flop" : "yellow",
+			"flopNum" : 9
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : 2.44,
+			"offsety" : -13.13,
+			"flop" : "yellow",
+			"flopNum" : 6
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : -11.72,
+			"offsety" : 4.43,
+			"flop" : "blue",
+			"flopNum" : 0
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : 4.93,
+			"offsety" : 10.22,
+			"flop" : "red",
+			"flopNum" : 6
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : 8.23,
+			"offsety" : 4.02,
+			"flop" : "red",
+			"flopNum" : 6
+		} ],
+		"boss" : false,
+		"killdown" : [],
+		"spriter" : "role.virus_a",
+		"size" : 100,
+		"unlockLevel" : null
+	}, {
+		"x" : -3430.408998298765,
+		"y" : -10054.9083551475,
+		"turnRate" : 0.2,
+		"moseySpeed" : 2,
+		"normalSpeed" : 5,
+		"vigilanceRange" : 200,
+		"viruses" : [ {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 20,
+			"hp" : 30,
+			"offsetx" : 5.44,
+			"offsety" : -0.06,
+			"flop" : "red",
+			"flopNum" : 3
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 20,
+			"hp" : 30,
+			"offsetx" : 6.26,
+			"offsety" : -12.65,
+			"flop" : "blue",
+			"flopNum" : 4
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 20,
+			"hp" : 30,
+			"offsetx" : 14.5,
+			"offsety" : 7.78,
+			"flop" : "yellow",
+			"flopNum" : 4
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 20,
+			"hp" : 30,
+			"offsetx" : 13.31,
+			"offsety" : 11.27,
+			"flop" : "blue",
+			"flopNum" : 5
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 20,
+			"hp" : 30,
+			"offsetx" : -5.23,
+			"offsety" : -13.11,
+			"flop" : "blue",
+			"flopNum" : 6
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 20,
+			"hp" : 30,
+			"offsetx" : 7.55,
+			"offsety" : 8.68,
+			"flop" : "red",
+			"flopNum" : 6
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 20,
+			"hp" : 30,
+			"offsetx" : 14.88,
+			"offsety" : -0.67,
+			"flop" : "blue",
+			"flopNum" : 2
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 20,
+			"hp" : 30,
+			"offsetx" : -7.47,
+			"offsety" : -10.37,
+			"flop" : "yellow",
+			"flopNum" : 10
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 20,
+			"hp" : 30,
+			"offsetx" : 6.36,
+			"offsety" : -0.19,
+			"flop" : "blue",
+			"flopNum" : 8
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 20,
+			"hp" : 30,
+			"offsetx" : 11.22,
+			"offsety" : -3.52,
+			"flop" : "blue",
+			"flopNum" : 6
+		} ],
+		"boss" : false,
+		"killdown" : [],
+		"spriter" : "role.demonFlying_right",
+		"size" : 100,
+		"unlockLevel" : null
+	}, {
+		"x" : -18957.112656461362,
+		"y" : -1659.8335669624291,
+		"turnRate" : 0.2,
+		"moseySpeed" : 2,
+		"normalSpeed" : 5,
+		"vigilanceRange" : 200,
+		"viruses" : [ {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : -9.6,
+			"offsety" : 1.93,
+			"flop" : "red",
+			"flopNum" : 3
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : 11.59,
+			"offsety" : 3.51,
+			"flop" : "blue",
+			"flopNum" : 8
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : 8.18,
+			"offsety" : -8.99,
+			"flop" : "yellow",
+			"flopNum" : 5
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : -0.76,
+			"offsety" : -2.72,
+			"flop" : "red",
+			"flopNum" : 9
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : -13.71,
+			"offsety" : -8.19,
+			"flop" : "yellow",
+			"flopNum" : 0
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : 0.66,
+			"offsety" : 7.36,
+			"flop" : "yellow",
+			"flopNum" : 7
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : 12.85,
+			"offsety" : -12.16,
+			"flop" : "red",
+			"flopNum" : 5
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : -0.67,
+			"offsety" : -7.46,
+			"flop" : "blue",
+			"flopNum" : 8
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : 7.94,
+			"offsety" : 10.78,
+			"flop" : "blue",
+			"flopNum" : 3
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : 0.38,
+			"offsety" : -0.85,
+			"flop" : "red",
+			"flopNum" : 6
+		} ],
+		"boss" : false,
+		"killdown" : [],
+		"spriter" : "role.virus_a",
+		"size" : 100,
+		"unlockLevel" : null
+	}, {
+		"x" : -17960.629860346286,
+		"y" : 812.2102926307393,
+		"turnRate" : 0.2,
+		"moseySpeed" : 2,
+		"normalSpeed" : 5,
+		"vigilanceRange" : 200,
+		"viruses" : [ {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : -8.74,
+			"offsety" : -6.1,
+			"flop" : "blue",
+			"flopNum" : 0
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : -14.15,
+			"offsety" : -6.46,
+			"flop" : "blue",
+			"flopNum" : 1
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : -13.47,
+			"offsety" : 1.89,
+			"flop" : "yellow",
+			"flopNum" : 10
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : -8.84,
+			"offsety" : -14.95,
+			"flop" : "red",
+			"flopNum" : 9
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : -1.17,
+			"offsety" : -5.1,
+			"flop" : "red",
+			"flopNum" : 4
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : -14.35,
+			"offsety" : 8.02,
+			"flop" : "red",
+			"flopNum" : 5
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : -1.05,
+			"offsety" : 12.87,
+			"flop" : "yellow",
+			"flopNum" : 4
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : -12.41,
+			"offsety" : 1.49,
+			"flop" : "red",
+			"flopNum" : 1
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : 11.11,
+			"offsety" : -10,
+			"flop" : "blue",
+			"flopNum" : 6
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : 10.37,
+			"offsety" : -14.78,
+			"flop" : "yellow",
+			"flopNum" : 7
+		} ],
+		"boss" : false,
+		"killdown" : [],
+		"spriter" : "role.virus_a",
+		"size" : 100,
+		"unlockLevel" : null
+	}, {
+		"x" : -17069.89340527518,
+		"y" : 3663.11083358477,
+		"turnRate" : 0.2,
+		"moseySpeed" : 2,
+		"normalSpeed" : 5,
+		"vigilanceRange" : 200,
+		"viruses" : [ {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 20,
+			"hp" : 30,
+			"offsetx" : 6.38,
+			"offsety" : -9.65,
+			"flop" : "yellow",
+			"flopNum" : 9
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 20,
+			"hp" : 30,
+			"offsetx" : -10.54,
+			"offsety" : -6.65,
+			"flop" : "blue",
+			"flopNum" : 3
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 20,
+			"hp" : 30,
+			"offsetx" : -11.28,
+			"offsety" : 9.67,
+			"flop" : "blue",
+			"flopNum" : 10
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 20,
+			"hp" : 30,
+			"offsetx" : 8.74,
+			"offsety" : 0.81,
+			"flop" : "yellow",
+			"flopNum" : 4
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 20,
+			"hp" : 30,
+			"offsetx" : -0.86,
+			"offsety" : 11.17,
+			"flop" : "blue",
+			"flopNum" : 8
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 20,
+			"hp" : 30,
+			"offsetx" : 7.92,
+			"offsety" : 8.37,
+			"flop" : "blue",
+			"flopNum" : 2
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 20,
+			"hp" : 30,
+			"offsetx" : -12.66,
+			"offsety" : 10.76,
+			"flop" : "blue",
+			"flopNum" : 10
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 20,
+			"hp" : 30,
+			"offsetx" : -3.35,
+			"offsety" : 7.65,
+			"flop" : "yellow",
+			"flopNum" : 3
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 20,
+			"hp" : 30,
+			"offsetx" : -12.88,
+			"offsety" : -14.36,
+			"flop" : "yellow",
+			"flopNum" : 6
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 20,
+			"hp" : 30,
+			"offsetx" : -10.51,
+			"offsety" : 3.02,
+			"flop" : "red",
+			"flopNum" : 3
+		} ],
+		"boss" : false,
+		"killdown" : [],
+		"spriter" : "role.demonFlying_right",
+		"size" : 100,
+		"unlockLevel" : null
+	}, {
+		"x" : -15332.110299070786,
+		"y" : 4113.971779052677,
+		"turnRate" : 0.2,
+		"moseySpeed" : 2,
+		"normalSpeed" : 5,
+		"vigilanceRange" : 200,
+		"viruses" : [ {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : 10.59,
+			"offsety" : 2.73,
+			"flop" : "blue",
+			"flopNum" : 7
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : -12.71,
+			"offsety" : -5.53,
+			"flop" : "red",
+			"flopNum" : 7
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : 10.3,
+			"offsety" : 2.66,
+			"flop" : "blue",
+			"flopNum" : 8
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : 8.27,
+			"offsety" : -9.32,
+			"flop" : "yellow",
+			"flopNum" : 7
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : 1.17,
+			"offsety" : -12.42,
+			"flop" : "yellow",
+			"flopNum" : 8
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : 3.44,
+			"offsety" : -2.58,
+			"flop" : "blue",
+			"flopNum" : 1
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : 10.81,
+			"offsety" : 1.79,
+			"flop" : "blue",
+			"flopNum" : 9
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : 0.98,
+			"offsety" : -11.77,
+			"flop" : "blue",
+			"flopNum" : 2
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : 14.02,
+			"offsety" : -13.44,
+			"flop" : "yellow",
+			"flopNum" : 1
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : 7.34,
+			"offsety" : 1.66,
+			"flop" : "red",
+			"flopNum" : 6
+		} ],
+		"boss" : false,
+		"killdown" : [],
+		"spriter" : "role.virus_a",
+		"size" : 100,
+		"unlockLevel" : null
+	}, {
+		"x" : -16684.791063426714,
+		"y" : 3633.988282023154,
+		"turnRate" : 0.2,
+		"moseySpeed" : 2,
+		"normalSpeed" : 5,
+		"vigilanceRange" : 200,
+		"viruses" : [ {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : -0.63,
+			"offsety" : -2.45,
+			"flop" : "yellow",
+			"flopNum" : 4
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : -0.91,
+			"offsety" : -3.49,
+			"flop" : "yellow",
+			"flopNum" : 4
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : 13.92,
+			"offsety" : -6.43,
+			"flop" : "red",
+			"flopNum" : 3
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : -12.86,
+			"offsety" : -7.04,
+			"flop" : "yellow",
+			"flopNum" : 9
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : -3.95,
+			"offsety" : -14.65,
+			"flop" : "yellow",
+			"flopNum" : 6
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : -8.06,
+			"offsety" : 4.74,
+			"flop" : "red",
+			"flopNum" : 5
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : -8.35,
+			"offsety" : -5.66,
+			"flop" : "blue",
+			"flopNum" : 8
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : -5.6,
+			"offsety" : -2.45,
+			"flop" : "yellow",
+			"flopNum" : 7
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : -8.44,
+			"offsety" : -9.41,
+			"flop" : "red",
+			"flopNum" : 10
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : -0.26,
+			"offsety" : 0.4,
+			"flop" : "yellow",
+			"flopNum" : 2
+		} ],
+		"boss" : false,
+		"killdown" : [],
+		"spriter" : "role.virus_a",
+		"size" : 100,
+		"unlockLevel" : null
+	}, {
+		"x" : -1523.9485708700995,
+		"y" : 3584.7987393138083,
+		"turnRate" : 0.2,
+		"moseySpeed" : 2,
+		"normalSpeed" : 5,
+		"vigilanceRange" : 200,
+		"viruses" : [ {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 20,
+			"hp" : 45,
+			"offsetx" : 10.98,
+			"offsety" : 7.76,
+			"flop" : "yellow",
+			"flopNum" : 7
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 20,
+			"hp" : 45,
+			"offsetx" : 4.07,
+			"offsety" : 12.56,
+			"flop" : "blue",
+			"flopNum" : 0
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 20,
+			"hp" : 45,
+			"offsetx" : 8.24,
+			"offsety" : 8.1,
+			"flop" : "red",
+			"flopNum" : 1
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 20,
+			"hp" : 45,
+			"offsetx" : 10.78,
+			"offsety" : -13.23,
+			"flop" : "yellow",
+			"flopNum" : 3
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 20,
+			"hp" : 45,
+			"offsetx" : 14.4,
+			"offsety" : 7.64,
+			"flop" : "red",
+			"flopNum" : 4
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 20,
+			"hp" : 45,
+			"offsetx" : 8.98,
+			"offsety" : -6.87,
+			"flop" : "red",
+			"flopNum" : 3
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 20,
+			"hp" : 45,
+			"offsetx" : -6.25,
+			"offsety" : 11.62,
+			"flop" : "yellow",
+			"flopNum" : 7
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 20,
+			"hp" : 45,
+			"offsetx" : -13.68,
+			"offsety" : 1.14,
+			"flop" : "yellow",
+			"flopNum" : 1
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 20,
+			"hp" : 45,
+			"offsetx" : 5.56,
+			"offsety" : 6.52,
+			"flop" : "blue",
+			"flopNum" : 8
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 20,
+			"hp" : 45,
+			"offsetx" : -10.26,
+			"offsety" : -13.05,
+			"flop" : "blue",
+			"flopNum" : 1
+		} ],
+		"boss" : false,
+		"killdown" : [],
+		"spriter" : "role.rotten_thing_front",
+		"size" : 100,
+		"unlockLevel" : "c1.l4",
+		"dna" : [ "tower(cannon)", "recycle" ]
+	}, {
+		"x" : -3683.516762337471,
+		"y" : 3189.0523921257723,
+		"turnRate" : 0.2,
+		"moseySpeed" : 2,
+		"normalSpeed" : 5,
+		"vigilanceRange" : 200,
+		"viruses" : [ {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : 5.49,
+			"offsety" : -0.45,
+			"flop" : "blue",
+			"flopNum" : 10
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : 11.88,
+			"offsety" : 0.33,
+			"flop" : "yellow",
+			"flopNum" : 8
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : 10.26,
+			"offsety" : -13.49,
+			"flop" : "yellow",
+			"flopNum" : 1
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : 5.14,
+			"offsety" : -14.92,
+			"flop" : "yellow",
+			"flopNum" : 9
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : -13.07,
+			"offsety" : 6.74,
+			"flop" : "yellow",
+			"flopNum" : 2
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : 12.83,
+			"offsety" : -12.21,
+			"flop" : "red",
+			"flopNum" : 0
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : -13.85,
+			"offsety" : -0.37,
+			"flop" : "yellow",
+			"flopNum" : 8
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : -12.9,
+			"offsety" : -2.92,
+			"flop" : "blue",
+			"flopNum" : 0
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : -6.48,
+			"offsety" : 8.32,
+			"flop" : "yellow",
+			"flopNum" : 1
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : -6.71,
+			"offsety" : 11.58,
+			"flop" : "red",
+			"flopNum" : 3
+		} ],
+		"boss" : false,
+		"killdown" : [],
+		"spriter" : "role.virus_a",
+		"size" : 100,
+		"unlockLevel" : null
+	}, {
+		"x" : -5249.963895804855,
+		"y" : 1996.489759650603,
+		"turnRate" : 0.2,
+		"moseySpeed" : 2,
+		"normalSpeed" : 5,
+		"vigilanceRange" : 200,
+		"viruses" : [ {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : -1.54,
+			"offsety" : -7.2,
+			"flop" : "yellow",
+			"flopNum" : 9
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : -14.33,
+			"offsety" : -12.85,
+			"flop" : "yellow",
+			"flopNum" : 6
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : -7.5,
+			"offsety" : -7.13,
+			"flop" : "yellow",
+			"flopNum" : 2
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : 7,
+			"offsety" : -5.43,
+			"flop" : "yellow",
+			"flopNum" : 0
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : 0.84,
+			"offsety" : 5.11,
+			"flop" : "yellow",
+			"flopNum" : 1
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : 14.7,
+			"offsety" : 1.84,
+			"flop" : "blue",
+			"flopNum" : 6
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : 10.94,
+			"offsety" : 12.23,
+			"flop" : "red",
+			"flopNum" : 6
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : 4.65,
+			"offsety" : 0.27,
+			"flop" : "red",
+			"flopNum" : 10
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : 13.32,
+			"offsety" : -13.75,
+			"flop" : "blue",
+			"flopNum" : 7
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : -14.77,
+			"offsety" : -13.8,
+			"flop" : "red",
+			"flopNum" : 3
+		} ],
+		"boss" : false,
+		"killdown" : [],
+		"spriter" : "role.virus_a",
+		"size" : 100,
+		"unlockLevel" : null
+	}, {
+		"x" : -4921.203386311701,
+		"y" : 4097.978506606847,
+		"turnRate" : 0.2,
+		"moseySpeed" : 2,
+		"normalSpeed" : 5,
+		"vigilanceRange" : 200,
+		"viruses" : [ {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : 3.96,
+			"offsety" : 8.74,
+			"flop" : "red",
+			"flopNum" : 7
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : -3.01,
+			"offsety" : 9.24,
+			"flop" : "blue",
+			"flopNum" : 1
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : -12.87,
+			"offsety" : 10.27,
+			"flop" : "yellow",
+			"flopNum" : 3
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : -1.02,
+			"offsety" : 7.47,
+			"flop" : "red",
+			"flopNum" : 10
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : -12.02,
+			"offsety" : 6.75,
+			"flop" : "red",
+			"flopNum" : 8
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : -1.54,
+			"offsety" : -5.12,
+			"flop" : "blue",
+			"flopNum" : 5
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : 1.19,
+			"offsety" : 2.33,
+			"flop" : "red",
+			"flopNum" : 8
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : -13.27,
+			"offsety" : 3.58,
+			"flop" : "yellow",
+			"flopNum" : 9
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : -4.6,
+			"offsety" : -4.12,
+			"flop" : "red",
+			"flopNum" : 1
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : 4.68,
+			"offsety" : 9.45,
+			"flop" : "yellow",
+			"flopNum" : 4
+		} ],
+		"boss" : false,
+		"killdown" : [],
+		"spriter" : "role.virus_a",
+		"size" : 100,
+		"unlockLevel" : null
+	} ],
 	"pinups" : {
 		"foreground" : [],
 		"background" : [ {
@@ -5628,7 +5596,7 @@ yc.levels.c1.l3 = {
 			"scaleX" : 1,
 			"scaleY" : 1,
 			"img" : "",
-			"text" : "击败BOSS，选择解锁DNA，可以创造新武器",
+			"text" : "击败BOSS，选择解锁DNA，可以创造新建筑",
 			"textStyle" : "normal 60px san-serif",
 			"textColor" : "0,0,0,1",
 			"moseySpeed" : 5,

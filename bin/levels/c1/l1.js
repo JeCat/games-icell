@@ -410,7 +410,7 @@ yc.levels.c1.l1 = {
 		"spriter" : "role.virus_a",
 		"size" : 100,
 		"unlockLevel" : "c1.l2",
-		"dna" : [ "tower(shooter)", "tower(cannon)" ]
+		"dna" : []
 	} ],
 	"pinups" : {
 		"foreground" : [],

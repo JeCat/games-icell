@@ -57,6 +57,26 @@ yc.dna.genes = {
 			, grayRect: [68,65,33,33]
 		}
 	})
+	, 'rocket': new yc.dna.Gene({
+		name: 'rocket'
+		, title: '[解锁]火箭推进器'
+		, description: '解锁：短时间内让细胞的移动速度加倍'
+		, icon: {
+			file: "res/dna-icons-32.png"
+			, rect: [240,32,32,33]
+			, grayRect: [68,65,33,33]
+		}
+	})
+	, 'power': new yc.dna.Gene({
+		name: 'power'
+		, title: '[解锁]线粒体：动力'
+		, description: '解锁：增加细胞的移动速度'
+		, icon: {
+			file: "res/dna-icons-32.png"
+			, rect: [240,32,32,33]
+			, grayRect: [68,65,33,33]
+		}
+	})
 	
 	// 器官
 	, 'eye': new yc.dna.Gene({
