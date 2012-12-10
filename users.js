@@ -35,13 +35,17 @@ yc.oauth.weibo = function(){
 		          }  
 	       );  
 	} ,
-	this.publish = function(){
+	this.publish = function( string){
 		WB2.anyWhere(  
 				function(W)  
 				{  
-					W.widget.publish({
-				        'id' : 'publish'
-				    });
+					W.parseCMD("/statuses/update.json", function(sResult, bStatus){
+        		    	
+	        		},{
+	        			status : string
+	        		},{
+	        		    method: 'POST'
+	        		});
 				}  
 		);  
 	}
