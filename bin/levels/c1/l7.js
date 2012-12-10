@@ -6955,11 +6955,113 @@ yc.levels.c1.l7 = {
 		"spriter" : "role.virus_a",
 		"size" : 100,
 		"unlockLevel" : null
+	}, {
+		"x" : -834.3750392720043,
+		"y" : 258.62547342748474,
+		"turnRate" : 0.2,
+		"moseySpeed" : 2,
+		"normalSpeed" : 5,
+		"vigilanceRange" : 200,
+		"viruses" : [ {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : -5.98,
+			"offsety" : -2.07,
+			"flop" : "red",
+			"flopNum" : 4
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : 9.2,
+			"offsety" : -14.78,
+			"flop" : "yellow",
+			"flopNum" : 0
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : -13.6,
+			"offsety" : -14.46,
+			"flop" : "yellow",
+			"flopNum" : 8
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : -8.64,
+			"offsety" : -10.17,
+			"flop" : "yellow",
+			"flopNum" : 1
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : 3.57,
+			"offsety" : -4.76,
+			"flop" : "blue",
+			"flopNum" : 9
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : 12.8,
+			"offsety" : 8.03,
+			"flop" : "yellow",
+			"flopNum" : 10
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : 10.33,
+			"offsety" : 2.72,
+			"flop" : "blue",
+			"flopNum" : 10
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : 3.25,
+			"offsety" : 11.84,
+			"flop" : "yellow",
+			"flopNum" : 7
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : 6.71,
+			"offsety" : 1.37,
+			"flop" : "blue",
+			"flopNum" : 5
+		}, {
+			"spriter" : "res/virus16.png",
+			"wait" : 1,
+			"speed" : 15,
+			"hp" : 10,
+			"offsetx" : -6.44,
+			"offsety" : 14.79,
+			"flop" : "red",
+			"flopNum" : 0
+		} ],
+		"boss" : false,
+		"killdown" : [],
+		"spriter" : "role.virus_a",
+		"size" : 100,
+		"unlockLevel" : "c1.lost"
 	} ],
 	"pinups" : {
 		"foreground" : [],
-		"background" : [ 
-		{
+		"background" : [ {
 			"layer" : "background",
 			"x" : -28800,
 			"y" : 4300,
@@ -6979,7 +7081,7 @@ yc.levels.c1.l7 = {
 			"tile" : true,
 			"tileWidth" : 4000,
 			"tileHeight" : 3200
-		},{
+		}, {
 			"layer" : "background",
 			"x" : 1769.0559418666815,
 			"y" : 355.63495738557,
