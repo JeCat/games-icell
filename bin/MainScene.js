@@ -38,6 +38,7 @@ yc.MainScene = cc.Scene.extend({
 				thisb.menuLevelSelect.setVisible(true);
 				thisb.menuLevelSelect.runAction(cc.FadeIn.create(0.8));
 				thisb.menuLogin.runAction(cc.FadeOut.create(0.8));
+				thisb.login_bg.runAction(cc.FadeOut.create(0.8));
 			});
         }, this);
 

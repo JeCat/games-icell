@@ -49,6 +49,39 @@ yc.levels.LevelSelector = cc.Scene.extend({
 			}
 		}) ;
 		this.addChild(new layerUi) ;
+		
+		
+
+		
+		//星总数
+		var layerUi_star = cc.Layer.extend({
+			ctor: function(){
+				this._super() ;
+
+				var ucLevels = ins(yc.user.Character).levels;
+			    var reCat = /^c[0-9]*\.l[0-9]*/gi;
+			    var starSum = 0;
+				for( var k in ucLevels){
+					
+					if( reCat.test(k)){
+						starSum += ucLevels[k].star;
+					}
+				}
+				
+				var posx = 20;
+				for(var i=0; i<starSum; i++){
+		
+						var geneIcon = new cc.Sprite() ;
+						geneIcon.initWithFile("res/star2.png") ;
+						
+						geneIcon.setPosition(cc.p(posx,cc.Director.getInstance().getWinSize().height - 20)) ;
+						this.addChild(geneIcon) ;
+						posx+= 34  ;
+				}
+
+			}
+		}) ;
+		this.addChild(new layerUi_star) ;
 	}
 
 	, onExit: function(){

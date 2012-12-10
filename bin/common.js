@@ -75,6 +75,7 @@ var g_AppFiles = [
 	, 'bin/ui/font/Html5Font.js'
 	
 	, 'bin/ui/menu/Menu.js'
+	, 'bin/ui/menu/MenuStar.js'
 	
 	, 'bin/outer/Camera.js'
 	, 'bin/outer/LifeEntity.js'
