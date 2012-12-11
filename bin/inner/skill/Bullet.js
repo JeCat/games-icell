@@ -2,6 +2,8 @@ yc.inner.skill.Bullet = cc.Sprite.extend({
 	ctor: function(){
 		this._super();
 		
+		this.sound = "Wind06.ogg";
+		
 		this._fromPosition = cc.p(0,0);
 		this._targetPosition = cc.p(0,0);
 		var _speed = 500;

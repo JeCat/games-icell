@@ -1,7 +1,7 @@
 yc.inner.skill.OutsideShooter = yc.inner.skill.SkillBase.extend({
 	ctor : function(){
 		this._super();
-		
+		this.sound = 'WarpOut.ogg';
 		this.setName( 'OutsideShooter' );
 		this.setIcon( 'res/skill/outsideShooter.png' );
 		this.setCoolingTime( 5 );// 冷却时间

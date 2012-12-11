@@ -51,6 +51,12 @@ yc.inner.skill.SkillBase = cc.Node.extend({
 	}
 	, start: function(){
 		this.fillCoolingTime();
+		this.skillSound();
+	}
+	, skillSound: function(){
+		if(this.sound){
+			cc.AudioEngine.getInstance().playEffect( "res/sound/" + this.sound);
+		}
 	}
 	, canStart: function(){
 		return this.leftCoolingTime() <= 0;

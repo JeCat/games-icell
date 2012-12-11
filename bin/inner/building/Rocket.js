@@ -55,6 +55,9 @@ yc.inner.building.Rocket = yc.inner.building.Building.extend({
 		// 增加效果
 		ins(yc.outer.Cell).calculatePower() ;
 
+		//sound
+		cc.AudioEngine.getInstance().playEffect( "res/sound/Wind06.ogg" , true);
+
 		// 停止
 		this.runAction(
 			yc.actions.Timer.create(this.persisting,1,this,function(){
@@ -65,10 +68,12 @@ yc.inner.building.Rocket = yc.inner.building.Building.extend({
 
 				// 移除效果
 				ins(yc.outer.Cell).calculatePower() ;
+
+				//sound
+				cc.AudioEngine.getInstance().stopEffect( "res/sound/Wind06.ogg");
 			}) 
 		) ;
 		this.skill.fillCoolingTime();
-
 	}
 
 	, calculatePower: function(cell){

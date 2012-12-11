@@ -4,6 +4,8 @@ yc.inner.skill.Bottles = yc.inner.skill.SkillBase.extend({
 		
 		this.setName( 'Bottles' );
 		this.setIcon( 'res/skill/bottles.png' );
+
+		this.sound = "Water02.ogg";
 		
 	}
 	, start: function(){
