@@ -6,7 +6,7 @@
 yc.dna.genes = {
 
 	// 建筑
-	'tower(shooter)': new yc.dna.Gene({
+	/*'tower(shooter)': new yc.dna.Gene({
 		name: 'tower(shooter)'
 		, title: '[解锁]防御塔(射击)'
 		, description: '解锁：允许建造防御塔(射击)'
@@ -15,8 +15,8 @@ yc.dna.genes = {
 			, rect: [240,32,33,33]
 			, grayRect: [68,65,33,33]
 		}
-	})
-	,'tower(cannon)': new yc.dna.Gene({
+	})*/
+	'tower(cannon)': new yc.dna.Gene({
 		name: 'tower(cannon)'
 		, title: '[解锁]防御塔(火炮)'
 		, description: '解锁：允许建造防御塔(火炮)'
@@ -91,8 +91,8 @@ yc.dna.genes = {
 	})
 	, 'oshooter': new yc.dna.Gene({
 		name: 'oshooter'
-		, title: '[解锁]攻击塔'
-		, description: '解锁：允许建造攻击塔'
+		, title: '[解锁]导弹'
+		, description: '解锁：攻击细胞外部的病毒群'
 		, icon: {
 			file: "res/dna-icons-32.png"
 			, rect: [68,130,33,33]
@@ -104,9 +104,9 @@ yc.dna.genes = {
 		, title: '[解锁]漂流瓶'
 		, description: '解锁：朋友无处不在'
 		, icon: {
-			file: "res/dna-icons-32.png"
-			, rect: [68,130,33,33]
-			, grayRect: [68,65,33,33]
+			file: "res/guanka.png"
+			, rect: [136,337,65,65]
+			, grayRect: [0,0,65,65]
 		}
 	})
 

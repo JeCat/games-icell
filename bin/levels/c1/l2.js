@@ -792,7 +792,7 @@ yc.levels.c1.l2 = {
 		"spriter" : "role.demonFlying_right",
 		"size" : 50,
 		"unlockLevel" : "c1.l3",
-		"dna" : [ "bottles", "tower:firepower" ]
+		"dna" : [ "bottles" ]
 	}, {
 		"x" : 9436.062622580277,
 		"y" : 4191.938985176652,
