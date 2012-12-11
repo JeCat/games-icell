@@ -321,7 +321,18 @@ var g_ResFiles = [
 	, {type:"image", src:"res/role/boss.png"}
 	, {type:"plist", src:"res/xibaohecheng.plist"}
 	, {type:"image", src:"res/xibaohecheng.png"}
-		
+
+
+
+
+	//// sound
+
+	, {type:"bgm", src:"res/sound/music/Confiant.mp3"}
+	, {type:"bgm", src:"res/sound/music/Hors-du-grenier.mp3"}
+	, {type:"bgm", src:"res/sound/music/Parmi-les-automates.mp3"}
+	, {type:"bgm", src:"res/sound/music/Desert.mp3"}
+	, {type:"bgm", src:"res/sound/music/Arrivee-distante.mp3"}
+	, {type:"bgm", src:"res/sound/music/bardo.mp3"}
 ]
 
 

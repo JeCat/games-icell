@@ -1,6 +1,14 @@
 yc.MainScene = cc.Scene.extend({
 	menuLogin : null
 	, menuLevelSelect : null
+	, bgmusic : [
+		'Hors-du-grenier'
+		,'Confiant'
+		,'Parmi-les-automates'
+		,'Desert'
+		,'Arrivee-distante'
+		,'bardo'
+	]
 	, ctor: function(){
 
 		this._super() ;
@@ -77,6 +85,10 @@ yc.MainScene = cc.Scene.extend({
         
         this.addChild(this.menuLevelSelect , 4);
 		this.menuLevelSelect.setVisible(false);
+
+		this.playBM();
+
+		
 
 	}
 	, onEnter: function(){
@@ -170,6 +182,12 @@ yc.MainScene = cc.Scene.extend({
 
 	    this.menuLogin.setPosition(cc.p(w / 2, h /2 ));
 	    this.menuLevelSelect.setPosition(cc.p(w / 2, h /2 ));
+	}
+
+	, playBM : function(){
+		var bm = "res/sound/music/" + this.bgmusic[Math.floor(Math.random()*this.bgmusic.length)];
+		console.log("play music:"+bm);
+		cc.AudioEngine.getInstance().playMusic( bm, true);
 	}
 }) ;
 
