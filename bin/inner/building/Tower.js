@@ -103,14 +103,18 @@ yc.inner.building.Tower = yc.inner.building.Building.extend({
 				// shot
 				var bullet = yc.inner.building.Bullet.create() ;
 				bullet.shot( myPos, virusPos, dis, this ) ;
+				this.shotSound();
 				break ;
 			}
 		}
-
 		// next time shot
 		this.runAction( yc.actions.Timer.create(this.freq/1000, 1, this, this.shot) ) ;
 	}
-	
+	, shotSound : function(){
+		if(this.sound){
+			cc.AudioEngine.getInstance().playEffect("res/sound/"+this.sound);
+		}
+	}
 	
 	/**
 	 * 建筑停用
@@ -133,6 +137,7 @@ yc.inner.building.TowerShooter = yc.inner.building.Tower.extend({
 	ctor: function(){
 		this._super() ;
 		this.color = 'yellow' ;
+		this.sound = 'Attack01.ogg';
 		// this.initWithFile("res/tower_yellow.png");
 
 		// 开始动画
@@ -144,6 +149,7 @@ yc.inner.building.TowerShooter = yc.inner.building.Tower.extend({
 }) ;
 yc.inner.building.TowerShooter.upgraders = [] ;
 yc.inner.building.TowerShooter.block = true ;
+// yc.inner.building.TowerShooter.sound = 'Attack01' ;
 
 
 /**
@@ -153,6 +159,7 @@ yc.inner.building.TowerCannon = yc.inner.building.Tower.extend({
 	ctor: function(){
 		this._super() ;
 		this.color = 'red' ;
+		this.sound = 'Bom01.ogg';
 
 		// 开始动画
         this.initWithSpriteFrame(yc.animations.firstFrame("towers.factory_pao") ); //第一帧
@@ -167,6 +174,7 @@ yc.inner.building.TowerCannon.block = true ;
 
 
 
+
 /**
  * 减速防御塔
  */
@@ -174,6 +182,7 @@ yc.inner.building.TowerSlower = yc.inner.building.Tower.extend({
 	ctor: function(){
 		this._super() ;
 		this.color = 'blue' ;
+		this.sound = 'Elec01.ogg';
 		
 		// 开始动画
         this.initWithSpriteFrame(yc.animations.firstFrame( "towers.factory_arcane_tower") ); //第一帧
@@ -194,6 +203,7 @@ yc.inner.building.TowerJetter = yc.inner.building.Tower.extend({
 	ctor: function(){
 		this._super() ;
 		this.color = 'orange' ;
+		this.sound = 'Fire05.ogg';
 
 		// 开始动画
         this.initWithSpriteFrame(yc.animations.firstFrame("towers.factory_arcane_tower") ); //第一帧
