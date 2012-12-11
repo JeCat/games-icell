@@ -72,9 +72,9 @@ yc.outer.Stain = yc.outer.PhysicalEntity.extend({
 	, onDraw: function(){
 		if('shapes' in this)
 		{
-			for(var si=0;si<this.shapes.length;si++)
+			for(var si=0;si<this.shapesAll.length;si++)
 			{
-				var shape = this.shapes[si] ;
+				var shape = this.shapesAll[si] ;
 				if(shape.type=='polygon')
 				{
 					var points = [] ;
@@ -95,6 +95,37 @@ yc.outer.Stain = yc.outer.PhysicalEntity.extend({
 			this._super() ;
 			return ;
 		}
+		
+		
+		//判断是否超出屏幕
+		var screenSize = cc.Director.getInstance().getWinSize();
+		var newShapes = [];
+		for(var i=0;i<this.shapesAll.length;i++)
+		{
+			var shape = this.shapesAll[i] ;
+			
+			var inside = false;
+			for(var i2=0;i2<shape.points.length;i2++){
+				var points = shape.points[i2];
+				var point = yc.util.clientToWindow(this,points[0] ,points[1]) ;
+				
+				//判断点是否在屏幕内
+				if( (point[0] > 0 && point[0] < screenSize.width) && (point[1] > 0 && point[1] < screenSize.height) ){
+					inside = true;
+					continue;
+				}
+				
+			}
+			// 污渍中如果有多块，只绘制在屏幕内的
+			if( inside){
+				newShapes.push( shape);
+			}
+		}
+		if( newShapes.length == 0){
+			return ;
+		}
+		
+		this.shapes = newShapes;
 		
 		ctx.lineJoin = 'round' ;
 
@@ -172,6 +203,10 @@ here() ;
 			this._initB2Body(script.bodyType) ;
 
 			this.initWithScriptShapes(script.shapes) ;
+			
+			// shapesAll = 所有污渍
+			// shapes = 屏幕内的污渍
+			this.shapesAll = script.shapes;
 		}
 
 		//this.b2Body.SetLinearDamping( this.b2Body.GetMass() * yc.settings.outer.stain.defaultMultipleLinearDamping ) ;
