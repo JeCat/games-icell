@@ -31,10 +31,9 @@ yc.inner.skill.Bottles = yc.inner.skill.SkillBase.extend({
 			jsonp:'jsonp_callback',
 			data: {
 				"act":"create",
-				//"uid":user.uid,
-				//"service":user.service,
+				"uid":user.uid,
+				"service":user.service,
 				//"face":"",
-				"x":cellPosition.x,
 				"x":cellPosition.x,
 				"y":cellPosition.y,
 				"content":worldName,
@@ -48,12 +47,22 @@ yc.inner.skill.Bottles = yc.inner.skill.SkillBase.extend({
 				bottles.create();
 
 				var scene = cc.Director.getInstance().getRunningScene() ;
-				scene.layerRoles.addChild(bottles);
 				
+				var bottlesLayer = ins(yc.outer.Bottles.bottlesLayer);
+				scene.layerRoles.addChild(bottlesLayer) ;
+				bottlesLayer.addChild(bottles);
 				
 				//console.log(cellPosition);
-				bottles.x = cellPosition.x;
-				bottles.y = cellPosition.y;
+				bottles.setPosition( cc.p(cellPosition.x ,cellPosition.y)) ;
+				
+				
+				// 同步微薄
+				if( user.uid != "0"){
+					
+					worldName += " 来自于：icell(我，细胞) http://icell.jecat.cn/icell/";
+					
+					ins(yc.oauth.weibo).publish(worldName);
+				}
 				
 			}
 		}); 

@@ -276,7 +276,13 @@ yc.outer.VirusCluster = yc.outer.PhysicalEntity.extend({
 					ins(yc.user.Character).cell = ins(yc.inner.Cell).exportScript() ;
 					uc.save();
 				}
-				var menu = ins( yc.ui.menu.Menu );
+				
+				// 星
+				var starSum = uc.levels[yc.GameScene._level].star;
+				
+				
+				var menu = ins( yc.ui.menu.MenuStar );
+				menu.setStarNum(starSum);
 				menu.setTitle("选择DNA");
 				menu.setTitleHeight(40);
 				menu.setItems(items);
