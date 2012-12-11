@@ -323,8 +323,6 @@ var g_ResFiles = [
 	, {type:"image", src:"res/xibaohecheng.png"}
 
 
-
-
 	//// sound
 
 	, {type:"bgm", src:"res/sound/music/Confiant.mp3"}
@@ -333,6 +331,11 @@ var g_ResFiles = [
 	, {type:"bgm", src:"res/sound/music/Desert.mp3"}
 	, {type:"bgm", src:"res/sound/music/Arrivee-distante.mp3"}
 	, {type:"bgm", src:"res/sound/music/bardo.mp3"}
+
+	, {type:"effect", src:"res/sound/Attack01.ogg"}
+	, {type:"effect", src:"res/sound/Bom01.ogg"}
+	, {type:"effect", src:"res/sound/Elec01.ogg"}
+	, {type:"effect", src:"res/sound/Fire05.ogg"}
 ]
 
 
