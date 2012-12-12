@@ -295,6 +295,7 @@ var g_ResFiles = [
 	, {type:"image", src:"res/level-flag-gr.png"}
 	, {type:"image", src:"res/dna-icons-16.png"}
 	, {type:"image", src:"res/dna-icons-32.png"}
+	//, {type:"image", src:"res/guanka.png"}
 	
 	, {type:"image", src:"res/organ/Tower.png"}
 	
