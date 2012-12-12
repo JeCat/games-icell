@@ -54,7 +54,7 @@ yc.inner.skill.SkillBase = cc.Node.extend({
 		this.skillSound();
 	}
 	, skillSound: function(){
-		if(this.sound){
+		if(this.sound && !yc.settings.MUTE){
 			cc.AudioEngine.getInstance().playEffect( "res/sound/" + this.sound);
 		}
 	}

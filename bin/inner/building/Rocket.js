@@ -56,7 +56,8 @@ yc.inner.building.Rocket = yc.inner.building.Building.extend({
 		ins(yc.outer.Cell).calculatePower() ;
 
 		//sound
-		cc.AudioEngine.getInstance().playEffect( "res/sound/Wind06.ogg" , true);
+		if(!yc.settings.MUTE)
+			cc.AudioEngine.getInstance().playEffect( "res/sound/Wind06.ogg" , true);
 
 		// 停止
 		this.runAction(

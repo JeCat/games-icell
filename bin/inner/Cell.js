@@ -209,7 +209,8 @@ yc.inner.Cell.prototype.pathMap = function(){
  * 病毒攻击到细胞核
  */
 yc.inner.Cell.prototype.getHurt = function(){
-	cc.AudioEngine.getInstance().playEffect("res/sound/Beam01.ogg");
+	if(!yc.settings.MUTE)
+			cc.AudioEngine.getInstance().playEffect("res/sound/Beam01.ogg");
 
 	// 免受伤害
 	if( yc.settings.player.nohurt )
