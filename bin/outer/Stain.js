@@ -90,6 +90,7 @@ yc.outer.Stain = yc.outer.PhysicalEntity.extend({
 	}
 	, draw: function(ctx){
 
+		//return ;
 		if(g_architecture=='native')
 		{
 			this._super() ;
