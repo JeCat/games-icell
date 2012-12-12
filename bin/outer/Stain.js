@@ -105,22 +105,33 @@ yc.outer.Stain = yc.outer.PhysicalEntity.extend({
 		{
 			var shape = this.shapesAll[i] ;
 			
-			var inside = false;
+			var minX = 0 , minY = 0 , maxX = 0 , maxY = 0;
 			for(var i2=0;i2<shape.points.length;i2++){
 				var points = shape.points[i2];
 				var point = yc.util.clientToWindow(this,points[0] ,points[1]) ;
 				
-				//判断点是否在屏幕内
-				if( (point[0] > 0 && point[0] < screenSize.width) && (point[1] > 0 && point[1] < screenSize.height) ){
-					inside = true;
-					continue;
+				if( point[0] > maxX || maxX == 0){
+					maxX = point[0];
 				}
-				
+				if( point[0] < minX || minX == 0){
+					minX = point[0];
+				}
+				if( point[1] > maxY || maxY == 0){
+					maxY = point[1];
+				}
+				if( point[1] < minY || minY == 0){
+					minY = point[1];
+				}
 			}
-			// 污渍中如果有多块，只绘制在屏幕内的
-			if( inside){
+			
+
+			//判断点是否在屏幕内
+			if( maxX < 0 || minX > screenSize.width ||  maxY < 0 || minY > screenSize.height ){
+				
+			}else{
 				newShapes.push( shape);
 			}
+			
 		}
 		if( newShapes.length == 0){
 			return ;

@@ -106,6 +106,8 @@ yc.outer.AminoAcid = yc.outer.PhysicalEntity.extend({
 		);
 		thisb.setScale(0.5);
 		this.runAction(seq);
+		
+		cc.AudioEngine.getInstance().playEffect("res/sound/catch.mp3");
 	}
 	
 }) ;

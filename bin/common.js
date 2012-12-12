@@ -325,18 +325,27 @@ var g_ResFiles = [
 
 
 	//// sound
+		//back music
+		, {type:"bgm", src:"res/sound/music/Confiant.mp3"}
+		, {type:"bgm", src:"res/sound/music/Hors-du-grenier.mp3"}
+		, {type:"bgm", src:"res/sound/music/Parmi-les-automates.mp3"}
+		, {type:"bgm", src:"res/sound/music/Desert.mp3"}
+		, {type:"bgm", src:"res/sound/music/Arrivee-distante.mp3"}
+		, {type:"bgm", src:"res/sound/music/bardo.mp3"}
+		//tower
+		, {type:"effect", src:"res/sound/Attack01.ogg"}
+		, {type:"effect", src:"res/sound/Bom01.ogg"}
+		, {type:"effect", src:"res/sound/Elec01.ogg"}
+		, {type:"effect", src:"res/sound/Fire05.ogg"}
+		, {type:"effect", src:"res/sound/Hit08.ogg"}
+		//skill
+		, {type:"effect", src:"res/sound/Water02.ogg"}
+		, {type:"effect", src:"res/sound/Wind06.ogg"}
+		, {type:"effect", src:"res/sound/WarpOut.ogg"}
+		//other
+		, {type:"effect", src:"res/sound/catch.mp3"}
+		, {type:"effect", src:"res/sound/Beam01.ogg"}
 
-	, {type:"bgm", src:"res/sound/music/Confiant.mp3"}
-	, {type:"bgm", src:"res/sound/music/Hors-du-grenier.mp3"}
-	, {type:"bgm", src:"res/sound/music/Parmi-les-automates.mp3"}
-	, {type:"bgm", src:"res/sound/music/Desert.mp3"}
-	, {type:"bgm", src:"res/sound/music/Arrivee-distante.mp3"}
-	, {type:"bgm", src:"res/sound/music/bardo.mp3"}
-
-	, {type:"effect", src:"res/sound/Attack01.ogg"}
-	, {type:"effect", src:"res/sound/Bom01.ogg"}
-	, {type:"effect", src:"res/sound/Elec01.ogg"}
-	, {type:"effect", src:"res/sound/Fire05.ogg"}
 ]
 
 

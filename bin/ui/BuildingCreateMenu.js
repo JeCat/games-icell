@@ -486,6 +486,8 @@ yc.ui.BuildingCreateMenu = function(){
 
 		// 放置建筑
 		building.putOn(hexgon.x,hexgon.y) ;
+
+		cc.AudioEngine.getInstance().playEffect("res/sound/Hit08.ogg");
 		
 		return building ;
 	}

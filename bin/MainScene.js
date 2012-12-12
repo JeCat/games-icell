@@ -186,7 +186,6 @@ yc.MainScene = cc.Scene.extend({
 
 	, playBM : function(){
 		var bm = "res/sound/music/" + this.bgmusic[Math.floor(Math.random()*this.bgmusic.length)];
-		console.log("play music:"+bm);
 		cc.AudioEngine.getInstance().playMusic( bm, true);
 	}
 }) ;
