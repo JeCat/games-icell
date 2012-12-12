@@ -1,8 +1,8 @@
 yc.settings = {
 	
+	MUTE : false
 
-
-	camera: {
+	, camera: {
 
 		// 切换内外场景的倍数
 		switchZoom: 0.5

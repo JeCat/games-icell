@@ -63,14 +63,34 @@ yc.ui.PauseMenu = cc.Layer.extend({
 	        },this
 	    );
 
-	    var soundMenuItem = cc.MenuItemImage.create(
+
+
+	    var musicOnItem = cc.MenuItemImage.create(
 	        "res/btn-sound-on.png",
-	        "res/btn-sound-off.png",
-	        null,
-	        function (sender){
-	        	
-	        },this
+	        "res/btn-sound-off.png"
 	    );
+
+	    var musicOffItem = cc.MenuItemImage.create(
+	        "res/btn-sound-off.png",
+	        "res/btn-sound-on.png"
+	    );
+
+		var soundMenuItem = cc.MenuItemToggle.create(
+			musicOnItem
+			, musicOffItem
+			, function (sender){
+	        	if(cc.AudioEngine.getInstance().getEffectsVolume() == 0){
+	        		yc.settings.MUTE = false;
+	        		cc.AudioEngine.getInstance().setEffectsVolume(1);
+	        		cc.AudioEngine.getInstance().setMusicVolume(1);
+	        	}else{
+	        		yc.settings.MUTE = true;
+	        		cc.AudioEngine.getInstance().setEffectsVolume(0);
+	        		cc.AudioEngine.getInstance().setMusicVolume(0);
+	        	}
+	        }
+			,this
+    	);
 
 	    goBackToMainMenuItem.setPosition(cc.p( 20 , 20 ));
 	    goBackToMain.setPosition(cc.p( 60 , 20 ));

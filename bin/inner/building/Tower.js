@@ -111,7 +111,7 @@ yc.inner.building.Tower = yc.inner.building.Building.extend({
 		this.runAction( yc.actions.Timer.create(this.freq/1000, 1, this, this.shot) ) ;
 	}
 	, shotSound : function(){
-		if(this.sound){
+		if(this.sound && !yc.settings.MUTE){
 			cc.AudioEngine.getInstance().playEffect("res/sound/"+this.sound);
 		}
 	}

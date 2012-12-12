@@ -229,8 +229,9 @@ yc.ui.BuildingUpgradeMenu = function(){
 						{
 							that.hexgon.finalCost['aminoacid'][a] = (a in that.hexgon.finalCost['aminoacid']? that.hexgon.finalCost['aminoacid'][a]: 0) + cost['aminoacid'][a] ;
 						}
-
-						cc.AudioEngine.getInstance().playEffect("res/sound/Hit08.ogg");
+						if(!yc.settings.MUTE){
+							cc.AudioEngine.getInstance().playEffect("res/sound/Hit08.ogg");
+						}
 			        }
 			        that.close();
 	            },
