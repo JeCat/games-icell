@@ -12,8 +12,8 @@ yc.dna.genes = {
 		, description: '解锁：允许建造防御塔(射击)'
 		, icon: {
 			file: "res/dna-icons-32.png"
-			, rect: [240,32,33,33]
-			, grayRect: [68,65,33,33]
+			, rect: [37,2,33,33]
+			, grayRect: [2,212,33,33]
 		}
 	})
 	,'tower(cannon)': new yc.dna.Gene({
@@ -22,8 +22,8 @@ yc.dna.genes = {
 		, description: '解锁：允许建造防御塔(火炮)'
 		, icon: {
 			file: "res/dna-icons-32.png"
-			, rect: [267,163,33,33]
-			, grayRect: [68,65,33,33]
+			, rect: [212,37,33,33]
+			, grayRect: [177,37,33,33]
 		}
 	})
 	, 'tower(slower)': new yc.dna.Gene({
@@ -32,8 +32,8 @@ yc.dna.genes = {
 		, description: '解锁：允许建造防御塔(减速)'
 		, icon: {
 			file: "res/dna-icons-32.png"
-			, rect: [68,130,33,33]
-			, grayRect: [68,65,33,33]
+			, rect: [2,107,33,33]
+			, grayRect: [2,72,33,33]
 		}
 	})
 	, 'recycle': new yc.dna.Gene({
@@ -42,8 +42,8 @@ yc.dna.genes = {
 		, description: '解锁：允许建造回收站'
 		, icon: {
 			file: "res/dna-icons-32.png"
-			, rect: [240,32,32,33]
-			, grayRect: [68,65,33,33]
+			, rect: [177,2,32,33]
+			, grayRect: [142,2,33,33]
 		}
 	})
 	
@@ -53,8 +53,8 @@ yc.dna.genes = {
 		, description: '解锁：允许细胞扩充新的格子'
 		, icon: {
 			file: "res/dna-icons-32.png"
-			, rect: [240,32,32,33]
-			, grayRect: [68,65,33,33]
+			, rect: [37,177,32,33]
+			, grayRect: [37,142,33,33]
 		}
 	})
 	, 'rocket': new yc.dna.Gene({
@@ -63,8 +63,8 @@ yc.dna.genes = {
 		, description: '解锁：短时间内让细胞的移动速度加倍'
 		, icon: {
 			file: "res/dna-icons-32.png"
-			, rect: [240,32,32,33]
-			, grayRect: [68,65,33,33]
+			, rect: [107,2,32,33]
+			, grayRect: [72,2,33,33]
 		}
 	})
 	, 'power': new yc.dna.Gene({
@@ -73,8 +73,8 @@ yc.dna.genes = {
 		, description: '解锁：增加细胞的移动速度'
 		, icon: {
 			file: "res/dna-icons-32.png"
-			, rect: [240,32,32,33]
-			, grayRect: [68,65,33,33]
+			, rect: [37,37,32,33]
+			, grayRect: [212,2,33,33]
 		}
 	})
 	
@@ -85,8 +85,8 @@ yc.dna.genes = {
 		, description: '解锁：允许建造眼睛'
 		, icon: {
 			file: "res/dna-icons-32.png"
-			, rect: [240,32,32,33]
-			, grayRect: [68,65,33,33]
+			, rect: [72,37,32,33]
+			, grayRect: [37,212,33,33]
 		}
 	})
 	, 'oshooter': new yc.dna.Gene({
@@ -95,8 +95,8 @@ yc.dna.genes = {
 		, description: '解锁：攻击细胞外部的病毒群'
 		, icon: {
 			file: "res/dna-icons-32.png"
-			, rect: [68,130,33,33]
-			, grayRect: [68,65,33,33]
+			, rect: [37,107,33,33]
+			, grayRect: [37,72,33,33]
 		}
 	})
 	, 'bottles': new yc.dna.Gene({
@@ -105,8 +105,8 @@ yc.dna.genes = {
 		, description: '解锁：朋友无处不在'
 		, icon: {
 			file: "res/guanka.png"
-			, rect: [136,337,65,65]
-			, grayRect: [0,0,65,65]
+			, rect: [72,107,33,33]
+			, grayRect: [72,72,33,33]
 		}
 	})
 
@@ -118,8 +118,8 @@ yc.dna.genes = {
 		, upgrader: yc.inner.building.up.TowerFierpower
 		, icon: {
 			file: "res/dna-icons-32.png"
-			, rect: [240,32,32,33]
-			, grayRect: [68,65,33,33]
+			, rect: [2,177,32,33]
+			, grayRect: [2,142,33,33]
 		}
 	})
 	, 'tower:bombing': new yc.dna.GeneBuildingUpgrader({
@@ -129,8 +129,8 @@ yc.dna.genes = {
 		, upgrader: yc.inner.building.up.TowerBombing
 		, icon: {
 			file: "res/dna-icons-32.png"
-			, rect: [240,32,32,33]
-			, grayRect: [68,65,33,33]
+			, rect: [142,37,32,33]
+			, grayRect: [107,37,33,33]
 		}
 	})
 	, 'tower:retardment': new yc.dna.GeneBuildingUpgrader({
@@ -140,8 +140,8 @@ yc.dna.genes = {
 		, upgrader: yc.inner.building.up.TowerRetardment
 		, icon: {
 			file: "res/dna-icons-32.png"
-			, rect: [240,32,32,33]
-			, grayRect: [68,65,33,33]
+			, rect: [2,37,32,33]
+			, grayRect: [2,2,33,33]
 		}
 	})
 	// , 'effct': new yc.dna.Gene({

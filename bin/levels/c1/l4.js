@@ -1447,7 +1447,7 @@ yc.levels.c1.l4 = {
 		"spriter" : "role.bossRotten_front",
 		"size" : 200,
 		"unlockLevel" : "c1.l5",
-		"dna" : [ "tower(shooter)", "tower(slower)", "grow", "eye" ]
+		"dna" : [ "rocket", "tower:bombing" ]
 	}, {
 		"x" : -4515.336163846686,
 		"y" : -553.8471944883772,
