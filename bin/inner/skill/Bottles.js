@@ -29,7 +29,7 @@ yc.inner.skill.Bottles = yc.inner.skill.SkillBase.extend({
 		
 		$.ajax({
 			type: "POST",
-			url: "http://icell.jecat.cn/service/bottles.php",
+			url: "http://games.jecat.cn/service/bottles.php",
 			jsonp:'jsonp_callback',
 			data: {
 				"act":"create",
@@ -61,7 +61,7 @@ yc.inner.skill.Bottles = yc.inner.skill.SkillBase.extend({
 				// 同步微薄
 				if( user.uid != "0"){
 					
-					worldName += " 来自于：icell(我，细胞) http://icell.jecat.cn/icell/";
+					worldName += " 来自于：icell(我，细胞) http://games.jecat.cn/icell/";
 					
 					ins(yc.oauth.weibo).publish(worldName);
 				}

@@ -72,7 +72,7 @@ yc.outer.Bottles = cc.Sprite.extend({
 				bThis = this;
 				$.ajax({
 					type: "POST",
-					url: "http://icell.jecat.cn/service/bottles.php",
+					url: "http://games.jecat.cn/service/bottles.php",
 					jsonp:'jsonp_callback',
 					data: {
 						"act":"get",
@@ -173,7 +173,7 @@ yc.outer.Bottles.all = function( level){
 		yc.outer.Bottles.list = new Array();
 		$.ajax({
 			type: "POST",
-			url: "http://icell.jecat.cn/service/bottles.php",
+			url: "http://games.jecat.cn/service/bottles.php",
 			jsonp:'jsonp_callback',
 			data: {
 				"act":"getAll",
