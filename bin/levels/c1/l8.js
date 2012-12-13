@@ -2478,90 +2478,90 @@ yc.levels.c1.l8 = {
 		"vigilanceRange" : 700,
 		"viruses" : [ {
 			"spriter" : "res/virus16.png",
-			"wait" : 1,
-			"speed" : 95,
-			"hp" : 150,
+			"wait" : 3,
+			"speed" : 25,
+			"hp" : 300,
 			"offsetx" : 9.9,
 			"offsety" : 14.52,
 			"flop" : "blue",
 			"flopNum" : 3
 		}, {
 			"spriter" : "res/virus16.png",
-			"wait" : 1,
-			"speed" : 95,
-			"hp" : 150,
+			"wait" : 3,
+			"speed" : 25,
+			"hp" : 300,
 			"offsetx" : -9.5,
 			"offsety" : 13.95,
 			"flop" : "blue",
 			"flopNum" : 4
 		}, {
 			"spriter" : "res/virus16.png",
-			"wait" : 1,
-			"speed" : 95,
-			"hp" : 150,
+			"wait" : 3,
+			"speed" : 25,
+			"hp" : 300,
 			"offsetx" : 4.96,
 			"offsety" : 0.35,
 			"flop" : "blue",
 			"flopNum" : 3
 		}, {
 			"spriter" : "res/virus16.png",
-			"wait" : 1,
-			"speed" : 95,
-			"hp" : 150,
+			"wait" : 3,
+			"speed" : 25,
+			"hp" : 300,
 			"offsetx" : 11.48,
 			"offsety" : -10.3,
 			"flop" : "red",
 			"flopNum" : 7
 		}, {
 			"spriter" : "res/virus16.png",
-			"wait" : 1,
-			"speed" : 95,
-			"hp" : 150,
+			"wait" : 3,
+			"speed" : 25,
+			"hp" : 300,
 			"offsetx" : -9.79,
 			"offsety" : -10.52,
 			"flop" : "yellow",
 			"flopNum" : 0
 		}, {
 			"spriter" : "res/virus16.png",
-			"wait" : 1,
-			"speed" : 95,
-			"hp" : 150,
+			"wait" : 3,
+			"speed" : 25,
+			"hp" : 300,
 			"offsetx" : 13.18,
 			"offsety" : -5.47,
 			"flop" : "red",
 			"flopNum" : 0
 		}, {
 			"spriter" : "res/virus16.png",
-			"wait" : 1,
-			"speed" : 95,
-			"hp" : 150,
+			"wait" : 3,
+			"speed" : 25,
+			"hp" : 300,
 			"offsetx" : 12.41,
 			"offsety" : -7.87,
 			"flop" : "blue",
 			"flopNum" : 9
 		}, {
 			"spriter" : "res/virus16.png",
-			"wait" : 1,
-			"speed" : 95,
-			"hp" : 150,
+			"wait" : 3,
+			"speed" : 25,
+			"hp" : 300,
 			"offsetx" : -5.15,
 			"offsety" : 0.76,
 			"flop" : "yellow",
 			"flopNum" : 3
 		}, {
 			"spriter" : "res/virus16.png",
-			"wait" : 1,
-			"speed" : 95,
-			"hp" : 150,
+			"wait" : 3,
+			"speed" : 25,
+			"hp" : 300,
 			"offsetx" : -1.89,
 			"offsety" : -8.64,
 			"flop" : "red",
 			"flopNum" : 8
 		}, {
 			"spriter" : "res/virus16.png",
-			"wait" : 1,
-			"speed" : 95,
-			"hp" : 150,
+			"wait" : 3,
+			"speed" : 25,
+			"hp" : 300,
 			"offsetx" : 3.08,
 			"offsety" : 3.01,
 			"flop" : "blue",
@@ -3715,7 +3715,7 @@ yc.levels.c1.l8 = {
 		"viruses" : [ {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : -0.75,
 			"offsety" : 13.58,
@@ -3724,7 +3724,7 @@ yc.levels.c1.l8 = {
 		}, {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : -4.63,
 			"offsety" : 5.45,
@@ -3733,7 +3733,7 @@ yc.levels.c1.l8 = {
 		}, {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : 14.45,
 			"offsety" : 13.42,
@@ -3742,7 +3742,7 @@ yc.levels.c1.l8 = {
 		}, {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : -6.23,
 			"offsety" : -9.53,
@@ -3751,7 +3751,7 @@ yc.levels.c1.l8 = {
 		}, {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : 11.86,
 			"offsety" : 12.11,
@@ -3760,7 +3760,7 @@ yc.levels.c1.l8 = {
 		}, {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : -11.7,
 			"offsety" : 12.14,
@@ -3769,7 +3769,7 @@ yc.levels.c1.l8 = {
 		}, {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : 1.12,
 			"offsety" : 13.13,
@@ -3778,7 +3778,7 @@ yc.levels.c1.l8 = {
 		}, {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : 12.79,
 			"offsety" : -14.44,
@@ -3787,7 +3787,7 @@ yc.levels.c1.l8 = {
 		}, {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : -8.52,
 			"offsety" : -4.88,
@@ -3796,7 +3796,7 @@ yc.levels.c1.l8 = {
 		}, {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : 8.35,
 			"offsety" : -11.62,
@@ -3818,7 +3818,7 @@ yc.levels.c1.l8 = {
 		"viruses" : [ {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : -3.05,
 			"offsety" : -5.57,
@@ -3827,7 +3827,7 @@ yc.levels.c1.l8 = {
 		}, {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : -12.68,
 			"offsety" : 9.75,
@@ -3836,7 +3836,7 @@ yc.levels.c1.l8 = {
 		}, {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : 8.79,
 			"offsety" : -9.45,
@@ -3845,7 +3845,7 @@ yc.levels.c1.l8 = {
 		}, {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : -9.58,
 			"offsety" : 10.31,
@@ -3854,7 +3854,7 @@ yc.levels.c1.l8 = {
 		}, {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : -11.62,
 			"offsety" : 2.4,
@@ -3863,7 +3863,7 @@ yc.levels.c1.l8 = {
 		}, {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : -5.67,
 			"offsety" : -5.92,
@@ -3872,7 +3872,7 @@ yc.levels.c1.l8 = {
 		}, {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : 8.78,
 			"offsety" : 1.84,
@@ -3881,7 +3881,7 @@ yc.levels.c1.l8 = {
 		}, {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : -0.52,
 			"offsety" : -7.53,
@@ -3890,7 +3890,7 @@ yc.levels.c1.l8 = {
 		}, {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : -6.48,
 			"offsety" : -5.15,
@@ -3899,7 +3899,7 @@ yc.levels.c1.l8 = {
 		}, {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : -5.51,
 			"offsety" : -11.95,
@@ -3921,7 +3921,7 @@ yc.levels.c1.l8 = {
 		"viruses" : [ {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : -0.42,
 			"offsety" : 5.73,
@@ -3930,7 +3930,7 @@ yc.levels.c1.l8 = {
 		}, {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : 7.59,
 			"offsety" : 6.91,
@@ -3939,7 +3939,7 @@ yc.levels.c1.l8 = {
 		}, {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : -12.43,
 			"offsety" : 2.27,
@@ -3948,7 +3948,7 @@ yc.levels.c1.l8 = {
 		}, {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : 10.5,
 			"offsety" : -8.27,
@@ -3957,7 +3957,7 @@ yc.levels.c1.l8 = {
 		}, {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : 4.09,
 			"offsety" : -13.97,
@@ -3966,7 +3966,7 @@ yc.levels.c1.l8 = {
 		}, {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : 0.92,
 			"offsety" : 5.15,
@@ -3975,7 +3975,7 @@ yc.levels.c1.l8 = {
 		}, {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : 1.63,
 			"offsety" : -9.42,
@@ -3984,7 +3984,7 @@ yc.levels.c1.l8 = {
 		}, {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : -6.07,
 			"offsety" : -14.31,
@@ -3993,7 +3993,7 @@ yc.levels.c1.l8 = {
 		}, {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : -1.01,
 			"offsety" : -0.95,
@@ -4002,7 +4002,7 @@ yc.levels.c1.l8 = {
 		}, {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : -5.8,
 			"offsety" : 7.02,
@@ -4230,7 +4230,7 @@ yc.levels.c1.l8 = {
 		"viruses" : [ {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : 8.27,
 			"offsety" : 1,
@@ -4239,7 +4239,7 @@ yc.levels.c1.l8 = {
 		}, {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : 2.62,
 			"offsety" : -2.99,
@@ -4248,7 +4248,7 @@ yc.levels.c1.l8 = {
 		}, {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : -2.05,
 			"offsety" : 5.95,
@@ -4257,7 +4257,7 @@ yc.levels.c1.l8 = {
 		}, {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : -4.45,
 			"offsety" : 3.65,
@@ -4266,7 +4266,7 @@ yc.levels.c1.l8 = {
 		}, {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : -10.79,
 			"offsety" : 10.31,
@@ -4275,7 +4275,7 @@ yc.levels.c1.l8 = {
 		}, {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : 2.68,
 			"offsety" : -5.9,
@@ -4284,7 +4284,7 @@ yc.levels.c1.l8 = {
 		}, {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : 12.17,
 			"offsety" : -14.52,
@@ -4293,7 +4293,7 @@ yc.levels.c1.l8 = {
 		}, {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : -4.47,
 			"offsety" : -6.13,
@@ -4302,7 +4302,7 @@ yc.levels.c1.l8 = {
 		}, {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : 14.33,
 			"offsety" : -6.99,
@@ -4311,7 +4311,7 @@ yc.levels.c1.l8 = {
 		}, {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : -5.16,
 			"offsety" : -1.46,
@@ -4642,7 +4642,7 @@ yc.levels.c1.l8 = {
 		"viruses" : [ {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : 3.9,
 			"offsety" : 3.17,
@@ -4651,7 +4651,7 @@ yc.levels.c1.l8 = {
 		}, {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : -6.8,
 			"offsety" : -7.95,
@@ -4660,7 +4660,7 @@ yc.levels.c1.l8 = {
 		}, {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : 1.83,
 			"offsety" : -2.01,
@@ -4669,7 +4669,7 @@ yc.levels.c1.l8 = {
 		}, {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : -6.96,
 			"offsety" : -4.49,
@@ -4678,7 +4678,7 @@ yc.levels.c1.l8 = {
 		}, {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : 6.03,
 			"offsety" : -4.05,
@@ -4687,7 +4687,7 @@ yc.levels.c1.l8 = {
 		}, {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : 11.52,
 			"offsety" : -12.82,
@@ -4696,7 +4696,7 @@ yc.levels.c1.l8 = {
 		}, {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : -14.29,
 			"offsety" : 1.19,
@@ -4705,7 +4705,7 @@ yc.levels.c1.l8 = {
 		}, {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : 9.57,
 			"offsety" : -4.68,
@@ -4714,7 +4714,7 @@ yc.levels.c1.l8 = {
 		}, {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : -2.33,
 			"offsety" : -0.28,
@@ -4723,7 +4723,7 @@ yc.levels.c1.l8 = {
 		}, {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : 7.68,
 			"offsety" : -10.63,
@@ -5363,7 +5363,7 @@ yc.levels.c1.l8 = {
 		"viruses" : [ {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : 1.83,
 			"offsety" : 12.33,
@@ -5372,7 +5372,7 @@ yc.levels.c1.l8 = {
 		}, {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : -1.33,
 			"offsety" : -5.59,
@@ -5381,7 +5381,7 @@ yc.levels.c1.l8 = {
 		}, {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : 12.72,
 			"offsety" : -13.11,
@@ -5390,7 +5390,7 @@ yc.levels.c1.l8 = {
 		}, {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : 3.16,
 			"offsety" : -9.23,
@@ -5399,7 +5399,7 @@ yc.levels.c1.l8 = {
 		}, {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : 1.01,
 			"offsety" : 3.15,
@@ -5408,7 +5408,7 @@ yc.levels.c1.l8 = {
 		}, {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : 8.56,
 			"offsety" : 5.63,
@@ -5417,7 +5417,7 @@ yc.levels.c1.l8 = {
 		}, {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : 6.51,
 			"offsety" : -1.94,
@@ -5426,7 +5426,7 @@ yc.levels.c1.l8 = {
 		}, {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : -1.31,
 			"offsety" : -8.65,
@@ -5435,7 +5435,7 @@ yc.levels.c1.l8 = {
 		}, {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : 7.49,
 			"offsety" : -7.77,
@@ -5444,7 +5444,7 @@ yc.levels.c1.l8 = {
 		}, {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : 12.27,
 			"offsety" : -2.67,
@@ -5672,7 +5672,7 @@ yc.levels.c1.l8 = {
 		"viruses" : [ {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : -3.15,
 			"offsety" : -12.75,
@@ -5681,7 +5681,7 @@ yc.levels.c1.l8 = {
 		}, {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : -11.5,
 			"offsety" : -8.13,
@@ -5690,7 +5690,7 @@ yc.levels.c1.l8 = {
 		}, {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : 2.89,
 			"offsety" : 14.97,
@@ -5699,7 +5699,7 @@ yc.levels.c1.l8 = {
 		}, {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : -11.18,
 			"offsety" : -13.53,
@@ -5708,7 +5708,7 @@ yc.levels.c1.l8 = {
 		}, {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : -4.3,
 			"offsety" : 7.05,
@@ -5717,7 +5717,7 @@ yc.levels.c1.l8 = {
 		}, {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : 2.97,
 			"offsety" : -8.16,
@@ -5726,7 +5726,7 @@ yc.levels.c1.l8 = {
 		}, {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : -9.36,
 			"offsety" : -7.73,
@@ -5735,7 +5735,7 @@ yc.levels.c1.l8 = {
 		}, {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : -8.6,
 			"offsety" : -1.41,
@@ -5744,7 +5744,7 @@ yc.levels.c1.l8 = {
 		}, {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : 6.76,
 			"offsety" : -6.2,
@@ -5753,7 +5753,7 @@ yc.levels.c1.l8 = {
 		}, {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : -6.62,
 			"offsety" : 14.62,
@@ -5878,7 +5878,7 @@ yc.levels.c1.l8 = {
 		"viruses" : [ {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : -10.52,
 			"offsety" : 6.9,
@@ -5887,7 +5887,7 @@ yc.levels.c1.l8 = {
 		}, {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : -14.22,
 			"offsety" : 2.22,
@@ -5896,7 +5896,7 @@ yc.levels.c1.l8 = {
 		}, {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : -11.07,
 			"offsety" : 13.33,
@@ -5905,7 +5905,7 @@ yc.levels.c1.l8 = {
 		}, {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : 9.6,
 			"offsety" : 7.9,
@@ -5914,7 +5914,7 @@ yc.levels.c1.l8 = {
 		}, {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : 12.6,
 			"offsety" : 12.1,
@@ -5923,7 +5923,7 @@ yc.levels.c1.l8 = {
 		}, {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : 12.94,
 			"offsety" : -9.41,
@@ -5932,7 +5932,7 @@ yc.levels.c1.l8 = {
 		}, {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : 12.96,
 			"offsety" : 1.89,
@@ -5941,7 +5941,7 @@ yc.levels.c1.l8 = {
 		}, {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : -7.22,
 			"offsety" : 2.34,
@@ -5950,7 +5950,7 @@ yc.levels.c1.l8 = {
 		}, {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : -1.48,
 			"offsety" : -14.04,
@@ -5959,7 +5959,7 @@ yc.levels.c1.l8 = {
 		}, {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : -10.22,
 			"offsety" : -1.3,
@@ -6599,7 +6599,7 @@ yc.levels.c1.l8 = {
 		"viruses" : [ {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : -13.6,
 			"offsety" : 5.49,
@@ -6608,7 +6608,7 @@ yc.levels.c1.l8 = {
 		}, {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : 11.11,
 			"offsety" : 8.09,
@@ -6617,7 +6617,7 @@ yc.levels.c1.l8 = {
 		}, {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : -1.54,
 			"offsety" : -12.73,
@@ -6626,7 +6626,7 @@ yc.levels.c1.l8 = {
 		}, {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : -3.75,
 			"offsety" : -2.37,
@@ -6635,7 +6635,7 @@ yc.levels.c1.l8 = {
 		}, {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : 4.85,
 			"offsety" : 7.74,
@@ -6644,7 +6644,7 @@ yc.levels.c1.l8 = {
 		}, {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : 2.35,
 			"offsety" : -10.9,
@@ -6653,7 +6653,7 @@ yc.levels.c1.l8 = {
 		}, {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : -9.47,
 			"offsety" : 9.59,
@@ -6662,7 +6662,7 @@ yc.levels.c1.l8 = {
 		}, {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : -1.79,
 			"offsety" : 11.59,
@@ -6671,7 +6671,7 @@ yc.levels.c1.l8 = {
 		}, {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : -11.72,
 			"offsety" : 11.92,
@@ -6680,7 +6680,7 @@ yc.levels.c1.l8 = {
 		}, {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : 13.64,
 			"offsety" : -12.12,
@@ -7423,7 +7423,7 @@ yc.levels.c1.l8 = {
 		"viruses" : [ {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : 2.03,
 			"offsety" : 0.82,
@@ -7432,7 +7432,7 @@ yc.levels.c1.l8 = {
 		}, {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : -13.84,
 			"offsety" : -8.56,
@@ -7441,7 +7441,7 @@ yc.levels.c1.l8 = {
 		}, {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : 3.26,
 			"offsety" : 6.53,
@@ -7450,7 +7450,7 @@ yc.levels.c1.l8 = {
 		}, {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : -4.08,
 			"offsety" : 11.94,
@@ -7459,7 +7459,7 @@ yc.levels.c1.l8 = {
 		}, {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : 0.22,
 			"offsety" : -0.91,
@@ -7468,7 +7468,7 @@ yc.levels.c1.l8 = {
 		}, {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : 12.29,
 			"offsety" : 9.1,
@@ -7477,7 +7477,7 @@ yc.levels.c1.l8 = {
 		}, {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : -3.59,
 			"offsety" : 14.18,
@@ -7486,7 +7486,7 @@ yc.levels.c1.l8 = {
 		}, {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : -12.33,
 			"offsety" : 0.01,
@@ -7495,7 +7495,7 @@ yc.levels.c1.l8 = {
 		}, {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : -9.7,
 			"offsety" : 2.55,
@@ -7504,7 +7504,7 @@ yc.levels.c1.l8 = {
 		}, {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : 2.19,
 			"offsety" : -1.56,
@@ -7526,7 +7526,7 @@ yc.levels.c1.l8 = {
 		"viruses" : [ {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : -5.47,
 			"offsety" : -6.22,
@@ -7535,7 +7535,7 @@ yc.levels.c1.l8 = {
 		}, {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : 2.55,
 			"offsety" : -5.8,
@@ -7544,7 +7544,7 @@ yc.levels.c1.l8 = {
 		}, {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : -10.19,
 			"offsety" : -7.26,
@@ -7553,7 +7553,7 @@ yc.levels.c1.l8 = {
 		}, {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : -3.07,
 			"offsety" : 13.26,
@@ -7562,7 +7562,7 @@ yc.levels.c1.l8 = {
 		}, {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : -13.89,
 			"offsety" : -8.43,
@@ -7571,7 +7571,7 @@ yc.levels.c1.l8 = {
 		}, {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : 5.32,
 			"offsety" : 10.03,
@@ -7580,7 +7580,7 @@ yc.levels.c1.l8 = {
 		}, {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : 10.31,
 			"offsety" : 4.79,
@@ -7589,7 +7589,7 @@ yc.levels.c1.l8 = {
 		}, {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : -11.14,
 			"offsety" : 3.93,
@@ -7598,7 +7598,7 @@ yc.levels.c1.l8 = {
 		}, {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : 3.65,
 			"offsety" : 11.35,
@@ -7607,7 +7607,7 @@ yc.levels.c1.l8 = {
 		}, {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : 5.63,
 			"offsety" : 13.07,
@@ -7732,7 +7732,7 @@ yc.levels.c1.l8 = {
 		"viruses" : [ {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : -0.47,
 			"offsety" : -11.57,
@@ -7741,7 +7741,7 @@ yc.levels.c1.l8 = {
 		}, {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : -14.82,
 			"offsety" : 4.89,
@@ -7750,7 +7750,7 @@ yc.levels.c1.l8 = {
 		}, {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : -5.2,
 			"offsety" : 0.56,
@@ -7759,7 +7759,7 @@ yc.levels.c1.l8 = {
 		}, {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : 4.17,
 			"offsety" : 11.32,
@@ -7768,7 +7768,7 @@ yc.levels.c1.l8 = {
 		}, {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : -5.83,
 			"offsety" : 7.63,
@@ -7777,7 +7777,7 @@ yc.levels.c1.l8 = {
 		}, {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : -13.57,
 			"offsety" : 11.05,
@@ -7786,7 +7786,7 @@ yc.levels.c1.l8 = {
 		}, {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : 13,
 			"offsety" : -13.08,
@@ -7795,7 +7795,7 @@ yc.levels.c1.l8 = {
 		}, {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : -12.45,
 			"offsety" : 10.25,
@@ -7804,7 +7804,7 @@ yc.levels.c1.l8 = {
 		}, {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : -0.45,
 			"offsety" : 2.92,
@@ -7813,7 +7813,7 @@ yc.levels.c1.l8 = {
 		}, {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : 13.35,
 			"offsety" : -3.46,
@@ -8247,7 +8247,7 @@ yc.levels.c1.l8 = {
 		"viruses" : [ {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : -12.22,
 			"offsety" : 0.82,
@@ -8256,7 +8256,7 @@ yc.levels.c1.l8 = {
 		}, {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : 11.62,
 			"offsety" : -0.4,
@@ -8265,7 +8265,7 @@ yc.levels.c1.l8 = {
 		}, {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : 1.1,
 			"offsety" : 13.15,
@@ -8274,7 +8274,7 @@ yc.levels.c1.l8 = {
 		}, {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : 11.37,
 			"offsety" : -6.03,
@@ -8283,7 +8283,7 @@ yc.levels.c1.l8 = {
 		}, {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : -10.14,
 			"offsety" : -10.39,
@@ -8292,7 +8292,7 @@ yc.levels.c1.l8 = {
 		}, {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : -10.72,
 			"offsety" : 8.74,
@@ -8301,7 +8301,7 @@ yc.levels.c1.l8 = {
 		}, {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : -9.56,
 			"offsety" : 3.62,
@@ -8310,7 +8310,7 @@ yc.levels.c1.l8 = {
 		}, {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : -7.18,
 			"offsety" : -8.67,
@@ -8319,7 +8319,7 @@ yc.levels.c1.l8 = {
 		}, {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : 7.93,
 			"offsety" : 11.71,
@@ -8328,7 +8328,7 @@ yc.levels.c1.l8 = {
 		}, {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : 6.85,
 			"offsety" : 7.71,
@@ -8350,7 +8350,7 @@ yc.levels.c1.l8 = {
 		"viruses" : [ {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : -1.57,
 			"offsety" : -3.79,
@@ -8359,7 +8359,7 @@ yc.levels.c1.l8 = {
 		}, {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : 2.55,
 			"offsety" : 4,
@@ -8368,7 +8368,7 @@ yc.levels.c1.l8 = {
 		}, {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : 10.51,
 			"offsety" : -7.95,
@@ -8377,7 +8377,7 @@ yc.levels.c1.l8 = {
 		}, {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : -13.22,
 			"offsety" : 0.21,
@@ -8386,7 +8386,7 @@ yc.levels.c1.l8 = {
 		}, {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : 1.01,
 			"offsety" : -4.71,
@@ -8395,7 +8395,7 @@ yc.levels.c1.l8 = {
 		}, {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : 4.99,
 			"offsety" : -5.09,
@@ -8404,7 +8404,7 @@ yc.levels.c1.l8 = {
 		}, {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : -1.15,
 			"offsety" : 6.78,
@@ -8413,7 +8413,7 @@ yc.levels.c1.l8 = {
 		}, {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : 9.23,
 			"offsety" : -2.99,
@@ -8422,7 +8422,7 @@ yc.levels.c1.l8 = {
 		}, {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : 7.24,
 			"offsety" : -5.1,
@@ -8431,7 +8431,7 @@ yc.levels.c1.l8 = {
 		}, {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : -13.33,
 			"offsety" : 14.96,
@@ -9483,7 +9483,7 @@ yc.levels.c1.l8 = {
 		"viruses" : [ {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : -14.94,
 			"offsety" : 0.66,
@@ -9492,7 +9492,7 @@ yc.levels.c1.l8 = {
 		}, {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : 5.61,
 			"offsety" : 0.39,
@@ -9501,7 +9501,7 @@ yc.levels.c1.l8 = {
 		}, {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : 4.95,
 			"offsety" : 5.26,
@@ -9510,7 +9510,7 @@ yc.levels.c1.l8 = {
 		}, {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : 8.03,
 			"offsety" : -3.08,
@@ -9519,7 +9519,7 @@ yc.levels.c1.l8 = {
 		}, {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : 12.01,
 			"offsety" : 14.1,
@@ -9528,7 +9528,7 @@ yc.levels.c1.l8 = {
 		}, {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : 14.96,
 			"offsety" : -2.91,
@@ -9537,7 +9537,7 @@ yc.levels.c1.l8 = {
 		}, {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : -10.55,
 			"offsety" : 9.83,
@@ -9546,7 +9546,7 @@ yc.levels.c1.l8 = {
 		}, {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : 0,
 			"offsety" : 8.8,
@@ -9555,7 +9555,7 @@ yc.levels.c1.l8 = {
 		}, {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : -2.16,
 			"offsety" : -8.08,
@@ -9564,7 +9564,7 @@ yc.levels.c1.l8 = {
 		}, {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : -13.1,
 			"offsety" : 7.17,
@@ -10101,7 +10101,7 @@ yc.levels.c1.l8 = {
 		"viruses" : [ {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : 0,
 			"offsety" : -1.59,
@@ -10110,7 +10110,7 @@ yc.levels.c1.l8 = {
 		}, {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : -8.02,
 			"offsety" : -1.68,
@@ -10119,7 +10119,7 @@ yc.levels.c1.l8 = {
 		}, {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : 0.69,
 			"offsety" : 7.01,
@@ -10128,7 +10128,7 @@ yc.levels.c1.l8 = {
 		}, {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : -14.34,
 			"offsety" : 14.52,
@@ -10137,7 +10137,7 @@ yc.levels.c1.l8 = {
 		}, {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : 3.06,
 			"offsety" : -3.73,
@@ -10146,7 +10146,7 @@ yc.levels.c1.l8 = {
 		}, {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : -13.88,
 			"offsety" : -14.46,
@@ -10155,7 +10155,7 @@ yc.levels.c1.l8 = {
 		}, {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : -3.34,
 			"offsety" : -1.66,
@@ -10164,7 +10164,7 @@ yc.levels.c1.l8 = {
 		}, {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : 1.47,
 			"offsety" : 5.48,
@@ -10173,7 +10173,7 @@ yc.levels.c1.l8 = {
 		}, {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : -11.3,
 			"offsety" : -12.39,
@@ -10182,7 +10182,7 @@ yc.levels.c1.l8 = {
 		}, {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : -10.35,
 			"offsety" : -12.9,
@@ -10616,7 +10616,7 @@ yc.levels.c1.l8 = {
 		"viruses" : [ {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : -11.99,
 			"offsety" : 4.51,
@@ -10625,7 +10625,7 @@ yc.levels.c1.l8 = {
 		}, {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : -11.11,
 			"offsety" : -6.13,
@@ -10634,7 +10634,7 @@ yc.levels.c1.l8 = {
 		}, {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : -11.47,
 			"offsety" : 9.75,
@@ -10643,7 +10643,7 @@ yc.levels.c1.l8 = {
 		}, {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : -12.66,
 			"offsety" : -8.65,
@@ -10652,7 +10652,7 @@ yc.levels.c1.l8 = {
 		}, {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : -10.17,
 			"offsety" : 5.44,
@@ -10661,7 +10661,7 @@ yc.levels.c1.l8 = {
 		}, {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : 1.41,
 			"offsety" : 14.22,
@@ -10670,7 +10670,7 @@ yc.levels.c1.l8 = {
 		}, {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : -12.63,
 			"offsety" : 12.8,
@@ -10679,7 +10679,7 @@ yc.levels.c1.l8 = {
 		}, {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : 4.83,
 			"offsety" : -9.99,
@@ -10688,7 +10688,7 @@ yc.levels.c1.l8 = {
 		}, {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : 14.63,
 			"offsety" : 0.75,
@@ -10697,7 +10697,7 @@ yc.levels.c1.l8 = {
 		}, {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : -0.49,
 			"offsety" : 4.29,
@@ -11440,7 +11440,7 @@ yc.levels.c1.l8 = {
 		"viruses" : [ {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : -14.57,
 			"offsety" : -12.45,
@@ -11449,7 +11449,7 @@ yc.levels.c1.l8 = {
 		}, {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : -3.25,
 			"offsety" : 2.37,
@@ -11458,7 +11458,7 @@ yc.levels.c1.l8 = {
 		}, {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : 12.43,
 			"offsety" : -8.87,
@@ -11467,7 +11467,7 @@ yc.levels.c1.l8 = {
 		}, {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : -12.05,
 			"offsety" : -12.61,
@@ -11476,7 +11476,7 @@ yc.levels.c1.l8 = {
 		}, {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : -9.35,
 			"offsety" : 8.6,
@@ -11485,7 +11485,7 @@ yc.levels.c1.l8 = {
 		}, {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : 11.87,
 			"offsety" : 5.86,
@@ -11494,7 +11494,7 @@ yc.levels.c1.l8 = {
 		}, {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : -2.31,
 			"offsety" : -1.73,
@@ -11503,7 +11503,7 @@ yc.levels.c1.l8 = {
 		}, {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : -6.12,
 			"offsety" : 11.65,
@@ -11512,7 +11512,7 @@ yc.levels.c1.l8 = {
 		}, {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : 2.77,
 			"offsety" : -13.92,
@@ -11521,7 +11521,7 @@ yc.levels.c1.l8 = {
 		}, {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : -6.7,
 			"offsety" : 14.55,
@@ -11543,7 +11543,7 @@ yc.levels.c1.l8 = {
 		"viruses" : [ {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : -1.43,
 			"offsety" : -1.33,
@@ -11552,7 +11552,7 @@ yc.levels.c1.l8 = {
 		}, {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : 2.15,
 			"offsety" : 10.99,
@@ -11561,7 +11561,7 @@ yc.levels.c1.l8 = {
 		}, {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : -13.76,
 			"offsety" : -1.25,
@@ -11570,7 +11570,7 @@ yc.levels.c1.l8 = {
 		}, {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : 5.19,
 			"offsety" : 2.19,
@@ -11579,7 +11579,7 @@ yc.levels.c1.l8 = {
 		}, {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : 3.16,
 			"offsety" : 0.23,
@@ -11588,7 +11588,7 @@ yc.levels.c1.l8 = {
 		}, {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : 9.98,
 			"offsety" : -10.15,
@@ -11597,7 +11597,7 @@ yc.levels.c1.l8 = {
 		}, {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : 0.52,
 			"offsety" : 1.91,
@@ -11606,7 +11606,7 @@ yc.levels.c1.l8 = {
 		}, {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : 6.25,
 			"offsety" : 5.55,
@@ -11615,7 +11615,7 @@ yc.levels.c1.l8 = {
 		}, {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : 11.07,
 			"offsety" : 8.77,
@@ -11624,7 +11624,7 @@ yc.levels.c1.l8 = {
 		}, {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : 8.24,
 			"offsety" : 7.4,
@@ -11646,7 +11646,7 @@ yc.levels.c1.l8 = {
 		"viruses" : [ {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : 2.9,
 			"offsety" : 14.77,
@@ -11655,7 +11655,7 @@ yc.levels.c1.l8 = {
 		}, {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : 6.03,
 			"offsety" : 6.94,
@@ -11664,7 +11664,7 @@ yc.levels.c1.l8 = {
 		}, {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : 5.69,
 			"offsety" : 13.21,
@@ -11673,7 +11673,7 @@ yc.levels.c1.l8 = {
 		}, {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : 7.7,
 			"offsety" : 12.12,
@@ -11682,7 +11682,7 @@ yc.levels.c1.l8 = {
 		}, {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : 2.71,
 			"offsety" : 14.12,
@@ -11691,7 +11691,7 @@ yc.levels.c1.l8 = {
 		}, {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : -2.41,
 			"offsety" : -9.14,
@@ -11700,7 +11700,7 @@ yc.levels.c1.l8 = {
 		}, {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : 0.16,
 			"offsety" : 3.25,
@@ -11709,7 +11709,7 @@ yc.levels.c1.l8 = {
 		}, {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : -11.82,
 			"offsety" : 10.11,
@@ -11718,7 +11718,7 @@ yc.levels.c1.l8 = {
 		}, {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : -5.46,
 			"offsety" : 0.62,
@@ -11727,7 +11727,7 @@ yc.levels.c1.l8 = {
 		}, {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : 11.15,
 			"offsety" : -7.69,
@@ -11749,7 +11749,7 @@ yc.levels.c1.l8 = {
 		"viruses" : [ {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : 7.3,
 			"offsety" : 2.59,
@@ -11758,7 +11758,7 @@ yc.levels.c1.l8 = {
 		}, {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : -5.94,
 			"offsety" : 9.88,
@@ -11767,7 +11767,7 @@ yc.levels.c1.l8 = {
 		}, {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : 2.11,
 			"offsety" : -12,
@@ -11776,7 +11776,7 @@ yc.levels.c1.l8 = {
 		}, {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : -0.89,
 			"offsety" : 9.17,
@@ -11785,7 +11785,7 @@ yc.levels.c1.l8 = {
 		}, {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : -1.68,
 			"offsety" : -9.88,
@@ -11794,7 +11794,7 @@ yc.levels.c1.l8 = {
 		}, {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : 10.21,
 			"offsety" : 14.58,
@@ -11803,7 +11803,7 @@ yc.levels.c1.l8 = {
 		}, {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : -9.93,
 			"offsety" : 5.59,
@@ -11812,7 +11812,7 @@ yc.levels.c1.l8 = {
 		}, {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : 3.54,
 			"offsety" : 12.68,
@@ -11821,7 +11821,7 @@ yc.levels.c1.l8 = {
 		}, {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : -11.4,
 			"offsety" : -5.5,
@@ -11830,7 +11830,7 @@ yc.levels.c1.l8 = {
 		}, {
 			"spriter" : "res/virus16.png",
 			"wait" : 1,
-			"speed" : 20,
+			"speed" : 95,
 			"hp" : 55,
 			"offsetx" : 10.43,
 			"offsety" : 12.41,

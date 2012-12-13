@@ -703,7 +703,7 @@ yc.animations.initBuildinAnimations = function (){
 			, "res/xibaohecheng.plist"
 			, "res/xibaohecheng.png"
 			, "chuansong_00%idx%.png"		// 帧名称模板
-			, 1, 12								// 帧名称中的下标的数值范围
+			, 1, 10								// 帧名称中的下标的数值范围
 			, yc.animations.adjustFrameBtn);
 	__loadAnimation(
 			'towers.dianlv'
