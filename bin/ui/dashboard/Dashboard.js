@@ -105,7 +105,8 @@ yc.ui.dashboard.Dashboard = cc.Layer.extend({
 		var formulas = ins(yc.user.ProteinFormulas).worldFormulas ;
 		for(var name in formulas)
 		{
-			var star = Star.starWithTexture("res/dashboard/star_"+name+".png" , "res/dashboard/star_"+name+".png" , "res/dashboard/star_"+name+".png");
+			var star = Star.starWithTexture("res/star2.png" , "res/star2.png" , "res/star2.png");
+			// var star = Star.starWithTexture("res/dashboard/star_"+name+".png" , "res/dashboard/star_"+name+".png" , "res/dashboard/star_"+name+".png");
 			star.setFormula(formulas[name]);
 			dashboard.proteinsStars[name] = star ;
 
