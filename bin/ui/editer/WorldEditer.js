@@ -268,7 +268,7 @@ function worldList(){
 	$('#worldListDiv_list').html('');
 
 	$.getJSON(
-		"http://icell.jecat.cn/service/world.php?format=json&jsoncallback=?"
+		"http://games.jecat.cn/service/world.php?format=json&jsoncallback=?"
 		, {'act':'list'} 
 		, function(json){
 
@@ -279,7 +279,7 @@ function worldList(){
 				var li = $("<div class='worldListDiv_list_li' style='float: left;width: 170px;height: 140px;margin:3px;padding:2px;border:1px gray solid;'>"
 							+ "<a href='#' onclick='initWorld("+b['wid']+");return false;' class='worldListDiv_list_a'>"+b['worldname']+"</a><br/>"
 							+ "<span class='worldListDiv_list_span'>"+b['createTime']+"</span><br/>"
-							+ "<img class='worldListDiv_thumb' src='http://icell.jecat.cn/thumb/"+b['thumbName']+"'/>"
+							+ "<img class='worldListDiv_thumb' src='http://games.jecat.cn/thumb/"+b['thumbName']+"'/>"
 						+ "</div>");
 
 				//world owner ?
@@ -302,7 +302,7 @@ function worldList(){
 
 function initWorld(wid , edit){
 	$.getJSON(
-		"http://icell.jecat.cn/service/world.php?format=json&jsoncallback=?"
+		"http://games.jecat.cn/service/world.php?format=json&jsoncallback=?"
 		, {
 			'act':'data'
 			, 'wid':wid
@@ -380,7 +380,7 @@ function saveWorldToServer(){
 	
 	$.ajax({
 		type:'POST',
-		url: "http://icell.jecat.cn/service/world.php",
+		url: "http://games.jecat.cn/service/world.php",
 		dataType : 'json',
 		data: {
 			'act':'save'

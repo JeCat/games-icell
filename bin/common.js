@@ -172,8 +172,7 @@ var g_AppFiles = [
 
 
 var g_ResFiles = [
-	{type:"image", src:"res/HelloWorld.png"}
-	, {type:"image", src:"res/CloseNormal.png"}
+	{type:"image", src:"res/CloseNormal.png"}
 	, {type:"image", src:"res/CloseSelected.png"}
 	, {type:"image", src:"res/Goal.png"}
 
@@ -216,9 +215,6 @@ var g_ResFiles = [
 	, {type:"image", src:"res/btn-composition-light.png"}
 	, {type:"image", src:"res/btn-composition-selected.png"}
 	, {type:"image", src:"res/pin_map.png"}
-	, {type:"image", src:"res/virus24.png"}
-	, {type:"image", src:"res/boss-a-48.png"}
-	, {type:"image", src:"res/boss-a-24.png"}
 
 	, {type:"image", src:"res/bg300x200.png"}
 	, {type:"image", src:"res/bg200x300.png"}
