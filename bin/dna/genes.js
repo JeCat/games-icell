@@ -6,7 +6,7 @@
 yc.dna.genes = {
 
 	// 建筑
-	/*'tower(shooter)': new yc.dna.Gene({
+	'tower(shooter)': new yc.dna.Gene({
 		name: 'tower(shooter)'
 		, title: '[解锁]防御塔(射击)'
 		, description: '解锁：允许建造防御塔(射击)'
@@ -15,8 +15,8 @@ yc.dna.genes = {
 			, rect: [240,32,33,33]
 			, grayRect: [68,65,33,33]
 		}
-	})*/
-	'tower(cannon)': new yc.dna.Gene({
+	})
+	,'tower(cannon)': new yc.dna.Gene({
 		name: 'tower(cannon)'
 		, title: '[解锁]防御塔(火炮)'
 		, description: '解锁：允许建造防御塔(火炮)'
