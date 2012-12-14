@@ -5,9 +5,9 @@ yc.inner.building.up.TowerBombing = function(){
 
 	this.title = '防御塔：轰炸' ;
 	this.description = '增强防御塔的溅射伤害和溅射面积' ;
-	this.texture = "res/building/oshooter.png";
-	this.texture_l = "res/building/oshooter-l.png";
-	this.texture_nm = "res/building/oshooter-nm.png";
+	this.texture = "res/building/up_1.png";
+	this.texture_l = "res/building/up_1.png";
+	this.texture_nm = "res/building/up_1.png";
 	this.icon = '' ;
 	
 	this.isUnlock = function(){

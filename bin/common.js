@@ -268,6 +268,7 @@ var g_ResFiles = [
 	, {type:"image", src:"res/building/rocket-nm.png"}
 	, {type:"image", src:"res/building/power-nm.png"}
 
+	, {type:"image", src:"res/building/up_1.png"}
 	, {type:"image", src:"res/building/remove.png"}
 
 	, {type:"image", src:"res/building/dec_bg.png"}

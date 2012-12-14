@@ -6,9 +6,9 @@ yc.inner.building.up.TowerRetardment = function(){
 	this.title = '防御塔：减速' ;
 	this.description = '增强减速效果' ;
 	this.icon = '' ;
-	this.texture = "res/building/oshooter.png";
-	this.texture_l = "res/building/oshooter-l.png";
-	this.texture_nm = "res/building/oshooter-nm.png";
+	this.texture = "res/building/up_1.png";
+	this.texture_l = "res/building/up_1.png";
+	this.texture_nm = "res/building/up_1.png";
 	
 	this.isUnlock = function(){
 		return this.lv < yc.inner.building.up.TowerRetardment.maxLv ;
