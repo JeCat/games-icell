@@ -78,7 +78,7 @@ var ICellGame = cc.Application.extend({
 			cc.Icell_LoaderScene.getInstance().draw();
 		};
 		cc.Loader.getInstance().onload = function () {
-			log("resources loaded") ;
+			cc.log("resources loaded") ;
 			cc.AppController.shareAppController().didFinishLaunchingWithOptions();
 
 			// 资源加载完成，初始化动画列表
@@ -141,6 +141,12 @@ var ICellGame = cc.Application.extend({
 });
 
 $(function(){
+	if( g_architecture=='html5' ){
+		if(navigator.userAgent.toLowerCase().match(/chrome\/([\d.]+)/) == null){
+			alert("请使用chrome浏览器. please use chrome to play.");
+		}
+	}
+
 	$('#ui').width($(window).width()) ;
 	
     ICellGame.instance = new ICellGame(yc.MainScene);

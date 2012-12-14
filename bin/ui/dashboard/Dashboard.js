@@ -297,7 +297,7 @@ yc.ui.dashboard.Dashboard = cc.Layer.extend({
         }
 
         for( var name in this.labelAminoAcids ){
-        	this.labelAminoAcids[name].setPosition(cc.p(250,195));
+        	this.labelAminoAcids[name].setPosition(cc.p(110,30));
         }
 
         for( var name in this.labelProteins ){
